@@ -1,0 +1,261 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\froman\fcharset0 TimesNewRomanPSMT;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid201\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid301\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid401\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid501\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid601\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid7}
+{\list\listtemplateid8\listhybrid{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid701\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid8}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}{\listoverride\listid8\listoverridecount0\ls8}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\qr\partightenfactor0
+
+\f0\fs20 \cf0 Anthony Abbott, Swan Garcia\
+CS 2300\
+September 24\super th\nosupersub , 2018\
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\qc\partightenfactor0
+
+\b\fs28 \cf0 \ul \ulc0 Program 2: Linear Domination \
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \ulnone Repo:\
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\partightenfactor0
+
+\b0 \cf0 https://github.com/SkyAllure/SwanGarcia_2300.git\
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\partightenfactor0
+
+\b \cf0 Documentation:\
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\partightenfactor0
+
+\b0\fs24 \cf0 The following is a combination of pseudo code and explanations as to how we will be constructing the second program: Linear Domination.\
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls1\ilvl0\cf0 a.	The first method (outside of main) is used to prompt the user for input for number of columns and number of rows. It will look something similar to:\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 Int sizex, sizey\
+Printf(\'93input number of rows\'94);\
+Scanf(\'93%d\'94, sizex);\
+Printf(\'93input number of columns\'94);\
+Scanf(\'93%d\'94, sizey);\
+\
+After getting this prompt from the user, we will create a gameboard with those sizes for the rows and columns:\
+Int gameboard[sizex][sizey]\
+\
+The method to actually print the gameboard is even easier:\
+Int drawBoard\
+\{\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 Int I, j;\
+For(i=0; i<=sizex; i++)\
+\{\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 		For(j=0;j<=sizey;j++)\
+\pard\pardeftab720\li1440\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \{\
+Printf(\'93___|\'94);\
+\}\
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 		If(I == sizex)\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 Printf (\'93|\'94);\
+\}\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+This is pseudo code and not completely accurate, but you get the main idea. When this method is complete we will have a NxN matrix that will be completely drawn out. For example, a 3x3 array will look like:\
+\
+\
+|___|___|___|\
+|___|___|___|\
+|___|___|___|\
+\
+\
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls2\ilvl0\cf0 b.	The next method we will be designing will tell the game who\'92s turn it is. This can be done with a for loop. In pseudocode, it will look like this:\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 While(endgame!=true)\
+For(numTurns=0; numTurns<=maxTurns;numturns++)\
+\{\
+	For(turn=0; turn<2; turn++)\
+	\{\
+		Player != player;\
+		Printf(\'93Turn number: %d Player: %d, numTurns, Player);\
+		Printf(\'93player %d, what is your turn?\'94);\
+	\}\
+\}\
+\
+This method is a rather simple for loop that first makes sure the game has not ended, and if it hasn\'92t, then prompt the player for their rows and columns to produce the line in the matrix (the full algorithm for drawing said line will be included later).\
+\
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls3\ilvl0\cf0 c.	For the file input/output part of the game, we will not be including any pseudo code since this is extremely easy to do. We will simply open a file for writing, then write the array(with the lines played) into the file. Then we will also include a \'93read from file\'94 method that will read from the file to see if the players turn is valid or not. If it is, the new turn will be written into the file, if it is not, There will be a prompt letting the player know that their play was invalid, and the turn will go to the next player.\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls4\ilvl0\cf0 d.	The next part of the program will be the hardest to implement, and, therefore, must be broken up into multiple methods. It is an offshoot of the bresenham line algorithm. This is the pseudo code that will draw the line for us:\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+
+\f1\fs22 \cf0 \
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+
+\f0\fs24 \cf0 void bresenhamLine (xstart, ystart, xend, yend)\
+\{\
+/* algorithms */\
+ydifference = yend \'96 ystart;\
+xdifference = xend \'96 xstart;\
+startPoint = 2 * ydifference \'96 xdifference;\
+/* assign start values */\
+x = xstart;\
+y = ystart;\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 while((x != xend + 1)) && ((y != yend + 1))\
+\{\
+// write pixels to display and set vertex\
+\pard\pardeftab720\li1440\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (startPoint < 0)\
+\{\
+x = x+1;\
+y = y;\
+startPoint = startPoint + 2 * ydifference;\
+\}\
+Else\
+\{\
+x = x+1;\
+y = y+1;\
+startPoint = (2 * ydifference) \'96 (2 * xdifference);\
+\}\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}//display\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+Again, this is in pseudo code, but the main point is that after the player has defined their start and end of their line, the code above will decide where the cells should be \'93flipped\'94 on the game board. This is a great Segway to our next method.\
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls5\ilvl0\cf0 e.	After finding where the line will be drawn, and in what cells, the program will decide if the player\'92s turn is valid or not. For this we will use another algorithm:\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 /* Check rows */\
+for (int row = 0; row < #; row++\
+\{\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (board[row][0] == board[row][1] && board[row][1] == board[row][2])\
+\{\
+\pard\pardeftab720\li1440\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (board[row][0] == playerOne)\
+return point;\
+else if ((board[row][0] == playerTwo)\
+return negPoint;\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 /* Check cols */\
+for (int col = 0; col < #; col++)\
+\{\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (board[0l][col] == board[1][col] && board[1][col] == board[2][col])\
+\{\
+\pard\pardeftab720\li1440\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (board[0][col] == playerOne)\
+return points;\
+else if ((board[0][col] == playerTwo)\
+return negPoints;\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 /* Check diagonal */\
+if (board[0][0] == board[1][1] && board[1][1] == board[2][2])\
+\{\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if(board[0][0] == playerOne)\
+\pard\pardeftab720\li1440\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 return point;\
+else if(board[0][0] == playerTwo)\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 return negPoints;\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (board[0][2] == board[1][1] && board[1][1] == board[2][0])\
+\{\
+\pard\pardeftab720\li2160\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if(board[0][2] == playerOne)\
+\pard\pardeftab720\li1440\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 return point;\
+else if(board[0][2] == playerTwo)\
+return negPoints;\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+return 0; // tie\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+
+\f1 \cf0 \}
+\f0 \
+\
+This method will check two lines, and then return the result as valid or not. If the two lines are parallel, the move is invalid, and the turn passes to the next player. The line will not be drawn on the game board.\
+\
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls6\ilvl0\cf0 f.	After defining the cells in which to draw the line, and checking to see if the line is valid, the next step is to actually \'93draw\'94 the line. We will be using X\'92s for player 1 and O\'92s for player 2. To draw these lines, we need to \'93flip\'94 the cells depending on the player. Here is the pseudo code for how we plan to do this:\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 /* Traverse cells */\
+for (int row = 0; row < #; row++)\
+\{\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 for (int col = 0; col < #; col++)\
+\pard\pardeftab720\li1440\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \{\
+\pard\pardeftab720\li1440\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if(board[row][col]==\'92_\'91) // checks if cell is empty\
+\{\
+\pard\pardeftab720\li2160\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 board[row][col] = nextMove; // player make move\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \
+Or possibly\'85\
+\
+flipRow()\
+\{\
+\pard\pardeftab720\li1440\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 for( row = 0; row < #; row++)\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 board[n+1][row] = !board[n+1][row];\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+flipCol()\
+\{\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 for( row = 0; row < #; row++)\
+board[row][n] = !board[row][n];\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+\
+This method traverses the array and if the cell is blank, it is a \'93valid\'94 spot to flip. If it is valid, then the players mark will be put into the cell. This will iterate over all cells that are defined by the line algorithm. We haven\'92t fully implemented this part of the game yet, so we have a few options on how to flip the cells. That\'92s why there are multiple implementations here.\
+\
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls7\ilvl0\cf0 g.	The last method that will be implemented is essentially one of the more important methods. The scoreboard. This is a very simple, small method. In pseudo it will look like this:\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 int scoreboard()\
+\{\
+int score = scoreEval(board);\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (score == point) // add points\
+\pard\pardeftab720\li1440\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 return writeScore ;\
+\pard\pardeftab720\li720\fi720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 if (score == negPoint) // no score\
+return writeScore ;\
+if(noMoves(board == false) // tie\
+return 0;\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \}\
+\
+This method just counts the amount of (valid) lines each player has, and diplays it for both players to see. Just a simple way of keeping track of who is winning. \
+\
+\pard\pardeftab720\li720\fi-360\ri0\sl259\slmult1\sa160\partightenfactor0
+\ls8\ilvl0\cf0 h.	All of these methods will be called and displayed in the main method. After constructing all of the above algorithms, it will be relatively easy to call all of them and string them all together.\
+\pard\pardeftab720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 And that\'92s about it. This is the outline of our entire code. As far as who is doing what in this program, we are both working in tandem on almost all aspects. Swan created the algorithm as to how to draw the line and check validity of those lines, while Anthony created the prompts and display for the board. The file I/O is being split right down the middle. With any luck, this program will work exactly as it should with little to no errors. \
+\
+//EOF\
+\pard\pardeftab720\li720\ri0\sl259\slmult1\sa160\partightenfactor0
+\cf0 \
+ \
+}
