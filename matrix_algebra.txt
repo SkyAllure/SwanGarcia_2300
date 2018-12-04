@@ -1,0 +1,521 @@
+A matrix consists of numbers in rows and columns.  For example, a bitmap,
+when displayed on a screen is displayed as a matrix of rows and columns
+(although the bitmap will be stored in computer memory as a linear array of
+memory locations).  Because graphics can be thought of as  matrices, since
+they are displayed as matrices, matrix algebra is encountered constantly in
+computer graphics.
+
+The rows in a matrix are arranged horizontally and the columns vertically.  So
+then assume that A is the following matrix...
+
+2 9 4 8
+1 7 9 3
+3 8 6 7
+
+The matrix has 3 rows and 4 columns, and normally matrices are referred to by
+row and then by column so we would say that this is a 3 by 4 matrix.  An element
+of a matrix will be specified by a variable name and two variable subscripts
+written just below the variable name, for example, if ' b ' is an element in the
+matrix A then in mathematics b(y, x), where x and y are written as subscripts
+below 'b' refers to the element in row y and column x.  
+
+A matrix can then be thought of computationally as an array with two
+dimensions.  If  ' b ' denotes a two dimensional array then b [y][x]
+denotes the element in the row  ' y ' at the position (or column) ' x '. 
+Elements in a matrix (like those in an array) are always designated by
+positive integers (not by negative numbers or fractional numbers-such as
+reals).  
+
+Like vectors, two matrices are equal only when both their size and their
+corresponding components are identical.  As with a vector it is possible
+to use linear algebra to solve for unknowns in a matrix given that this
+principle is true.  For example given the following two vectors it is simple
+to calculate the value of the unknowns :
+
+(x + 2y, 3y + 5) = (14, 17)
+
+so then 
+x + 2y = 14 
+3y + 5 = 17
+
+therefore 3y = 17 - 5 = 12 so it must be the case that y = 12 / 3 = 4
+
+Knowing that y = 4 we can then calculate that
+ x + 2y = 14 so then x + 2 * 4 = 14 and x = 14 - 8 so then x = 6
+
+The same principle applies to a matrix, the only difference being that a
+matrix can be thought of as  an array of vectors...  The example below
+shows a 2 by 2 array.  By dividing both sides by a constant to isolate the
+variable (when the variable is the product of multiplication by a constant)
+or subtracting both sides by a constant ( 3y + 5 - 5 = 17 - 5 ) the usual
+linear algebra can be used to solve for unknowns in a matrix.  The
+principle here is that if two matrices are equal then the corresponding
+components are equal (a principle similar to that of a vector which
+resembles one a one dimensional matrix).
+
+x + 2y  , 3y + 5    =    14, 17
+x + y  ,  2x + 2           10 , 14
+
+like vectors, a matrix has a corresponding 'negative matrix' which is simply
+the matrix with the sign of the corresponding elements reversed.  So the
+element 12 would become -12 in the negative matrix.  (This corresponds
+to multiplying each element in the matrix by the scalar ' -1 '.)
+
+One difference between a vector and a matrix is that a row vector and a
+column vector are considered equal if their components are the same.  So
+then the following two vectors are equal.
+
+(1, 4, 2) 
+
+(1,
+ 4,
+ 2)
+
+However, if the above were to be considered a single row matrix or a
+single column matrix they are not equal since the sizes of the two are
+different (one has three columns, the other has one column, one has one
+row, the other has three rows, and thus they are not component wise
+equal).
+
+Matices are added by summing together their corresponding components. 
+The matrices must be the same size.  Computationally this is analogous to
+summing the corresponding elements in two arrays...
+
+procedure SumMatrices(y , x : integer; var a, b, sum : array of integer)
+var i, j : integer;
+begin
+    for i := 0 to y do begin
+      for j := 0 to x do begin
+          sum[i][j] := a[i][j] + b[i][j];
+      end;
+     end;
+end;
+
+Similarly the difference between two matrices is calculated by subtracting
+one matrix from the other.  So then if one element is 5 and the
+corresponding element in the second matrix is 2 the difference ( 5 - 2 ) is
+3.  If the first element is 2 and the corresponding second element is 5 the
+difference is - 3 ( 2 - 5) since 2 is 3 less than 5.  So in the above
+procedure we would substitute a minus sign for a plus sign and the
+resulting matrix ( the array 'sum' ) would contain the difference between
+the corresponding elements in each matrix in each of its elements.
+
+
+A matrix is mulitiplied by a scalar by multiplying each element in the matrix
+by the scalar value.
+
+procedure ScalarMultArray(scalar : integer; y, x : integer; var a : array of
+integer);
+var i, j : integer;
+begin
+    for i := 0 to y do begin
+       for j := 0 to x do begin
+          a[i][j] := a[i][j] * scalar;
+       end;
+    end;
+end;
+
+Assume that A and B are two matrices of the same size.  If wish to
+calculate 2A + 3B first we perform the scalar multiplication on the matrices
+and then we add the matrices together.
+
+You may see a matrix preceded by the summation symbol.  For example
+consider the following summation of a single variable x.
+
+(5) E (k = 1) x
+
+This would translate into computer code as ...
+
+sum := 0;
+for x := 1 to 5 sum := sum + x;
+
+Or, even simpler 
+
+sum := 5 * x;
+
+The results are the same, although the second code example is less
+computationally expensive.  The same principle applies to a matrix where
+the simple summation of a matrix is equivalent to multiplying the elements in
+the matrix by a scalar.
+
+It is very common to see matrix multiplication used in computer graphics
+programming.  Here we are referrring to multiplication of matrices and not
+multiplication of a matrix by a scalar, a simpler operation.
+
+The principle of matrix multiplication is that a row matrix can be multiplied
+by a column matrix if they have the same number of elements.  This is
+accomplished by calculating the 'dot product' (or scalar product) of the
+two vectors.  First the corresonding elements in the row and column
+matrices are multiplied and then the results are summed to create the dot
+product.  
+
+As an example let us suppose that the following is a row matrix...
+
+(1, 2, 3)
+
+and the following is a column matrix
+
+(4,
+ 5,
+ 6)
+
+When we multiply the corresponding entries and then sum the results we
+get
+(1 * 4) + (2 * 5) + (3 * 6) = 32
+
+So the result of multiplying this row and column of a particular matrix
+would be 32.  
+
+A row matrix is not multiplied by a row matrix (the result is considered
+undefined).  
+
+Assume that two matices exist, and one has 2 rows and 4 columns and the
+second has 4 rows and 3 colums.  So we have two matrices to multiply (2
+x 4) * (4 * 3).  Since the number of columns in the first (4) is equal to the
+number of rows in the second (4) these two matrices can be multiplied,
+and the result will be a 2 by 3 matrix (the number of rows in the first - 2
+and the number of columns in the second  - 3).  The reason this occurs is
+because when two matrices are multiplied the corresponding elements in
+the row - column pair are multiplied and then the new element in the result
+matrix consists of the summation of these products.  
+
+Consider the following example of multiplying a 2 by 4 matrix with a 4 by
+3 matrix resulting in a 2 by 3 matrix...
+
+1 2 3 4   |   1 2 3     = 34  44    54
+5 6 7 8   |   4 5 6        86  112  138
+                 7 8 9
+                 1 2 3
+
+To calculate the entries in the first row of the resulting matrix we multiplying the
+corresponding elements of row 1 with column 1, 2, and 3 of the second matrix.  
+summing the results of the multiplication in each case to get the new entry in the
+resulting matrix ...
+
+row one times column one in matrix two
+(1 * 1) + (2 * 4) + ( 3 * 7) + (4 * 1) = 34 the first element in the first row of the
+resulting array
+
+and again with the second column
+
+(1 * 2) + (2 * 5) + (3 * 8) + (4 * 3) = 48
+
+and again the first row on the left with the third column on the right 
+(1 * 3) + ( 2 * 6) + (3 * 9) + (4 * 3) = 54
+
+Next the second row will be multiplied and summed with all three columns on the
+right to create the second row of the 2 by 3 results matrix.
+
+Matrix multiplication is one of the famous problems in computer science, and this
+becomes apparent when you get down to coding what you see above.  One of the
+more famous solutions was Strassen's method, which for matrices of over a million
+entries used four times less multiplications than was typically the case for matrix
+algorithms before that time, but the algorithmic cost was four times as great, which
+made his discovery, according to one writer, of greater theoretical value than it was
+of any practical use.  There are many practical problems in computer graphics
+which use 2 by 2 or 4 by 4 or other small matrices, and in these cases it is typically
+the case that a straightforward solution is acceptable, given that many of the
+optional solutions have been designed to deal with the time problem in calculating
+really large matrices (the computational time required to multiply matrices is N
+cubed, which is extremely costly in processing time when dealing with really large
+matrices.)
+
+Let's assume that we are going to multiply a 2 by 4 matrice with a 4 by 3 matrix as
+in the example above.  We will call the first matrix A and the second B and the
+output matrix we will describe as C.  The number of rows in C will be the number
+of rows in A (2 in this example) and the number of columns in C will be the number
+of columns in B (3 in this example).
+
+A = a x b
+B = c x d
+C = a x d
+
+Note that the number of columns in A must equal the number of rows in B to
+multiply the matrices so then in the example above if b = c the multiplication is valid
+and defined, otherwise in the opposite case it is not.
+
+The following diagram illustrates what we must we must interpret in order to create
+an algorithm to multiply these two matrices...
+
+C[ 0, 0 ] = A[ 0, 0 ] * B[ 0, 0 ]
+            + A[ 0, 1 ] * B[ 1, 0 ]
+            + A[ 0, 2 ] * B[ 2, 0 ]
+            + A[ 0, 3 ] * B[ 3, 0 }
+
+C[ 0, 1 ] = A[ 0, 0 ] * B[ 0, 1 ]
+            + A[ 0, 1 ] * B[ 1, 1 ]
+            + A[ 0, 2 ] * B[ 2, 1 ]
+            + A[ 0, 3 ] * B[ 3, 1 }
+            
+C[ 0, 2 ] = A[ 0, 0 ] * B[ 0, 2 ]
+            + A[ 0, 1 ] * B[ 1, 2 ]
+            + A[ 0, 2 ] * B[ 2, 2 ]
+            + A[ 0, 3 ] * B[ 3, 2 }
+
+C[ 1, 0 ] = A[ 1, 0 ] * B[ 0, 0 ]
+            + A[ 1, 1 ] * B[ 1, 0 ]
+            + A[ 1, 2 ] * B[ 2, 0 ]
+            + A[ 1, 3 ] * B[ 3, 0 }
+
+C[ 1, 1 ] = A[ 1, 0 ] * B[ 0, 1 ]
+            + A[ 1, 1 ] * B[ 1, 1 ]
+            + A[ 1, 2 ] * B[ 2, 1 ]
+            + A[ 1, 3 ] * B[ 3, 1 }
+
+C[ 1, 2 ] = A[ 1, 0 ] * B[ 0, 2 ]
+            + A[ 1, 1 ] * B[ 1, 2 ]
+            + A[ 1, 2 ] * B[ 2, 2 ]
+            + A[ 1, 3 ] * B[ 3, 2 }
+
+
+You can notice in that pattern above that it takes four multiplications to create each
+sum and that the result is 2 by 3 matrix (the number of columns in A = 4 which is
+the number of Rows in B (also 4) and this is the number of multiplications required.
+
+One simple solution that comes to mind is that when dealing with small matrices
+such as are used in certain computer graphics problems the algorithm could simply
+be hard coded, as in the example above, and this type of solution is applicable for
+matrices of a reasonable size, since in some of these graphics problems where
+matrices are commonly used matrices of a known size are always passed to the
+algorithm, making hard coding as above a viable solution.  
+
+A more elegant solution would be to devise an algorithm which uses a series of for
+loops (as in summation) which can then be generalized to multiply matrices of
+various sizes.  This generic function would accept as parameters the neccesary
+indexes into the matrices, as well as pointers to the two matrices and the output
+matrix.
+
+If you study the pattern above, you will notice that the 'A' matrix advances through
+each column for each multiplication in each column of the output matrix.  The 'B'
+matrix varies in step with the A matrix with the difference that in the case of the B
+matrix the row variable advances by one.  For each column in the C output matrix,
+the column of the B matrix advances by one, matching the column of the C output
+matrix.  When the C output matrix advances to a new row, the row also advances
+in the A matrix.  So then, making a note of these patterns an generic algorithm can
+be devised to perform matrix multiplication, rather than simply relying on the hard
+coding as in the example above (although this is also a workable solution, although
+it would generate more code, however given the increasing amounts of memory in
+today's computers one has to wonder how much extra overhead hard coding small
+matrices would really contribute to a final computer program's size.)
+
+However there is something to be said for designing this generic algorithm, since in
+understanding the problem it allows one to understand the coding required for any
+matrices encountered in graphics algorithms, and spares a person the need to hard
+code those matrices, and besides you can never know to much.
+
+What we need is a variable to denote the rows in both the A matrix and the output
+C matrix.  These rows will match in the final algorithm.  We then need a variable for
+the columns in the C matrix which will also match the columns in the B matrix. 
+These two will change in lock step.  And then we need a variable for the columns in
+the A matrix which will match the changes in the rows of the B matrix.
+
+A matrix rows = C matrix rows  : call it rows
+A matrix columns = B matrix rows  : call it indexer
+B matrix columns = C matrix columns : call it columns
+
+So then it would seem that three variables need to be passed to this routine (as well
+as var pointers to three matrices).
+
+The next tricky part is to decide how to code the for loops.  Since we have three
+variables it seems reasonable to assume that we are going to have nest three for
+loops to accomplish all this.  Since we are outputting to the C matrix, and since the
+rows stay constant while the columns change,  it seems reasonable to make the row
+variable  change in  the outer loop
+
+for i := 0 to rows do 
+
+Next we need to index each column in the C output matrix so this seems to be the
+next loop in the nest
+  
+    for j := 0 to columns do
+
+Then we need to index each column in A and each Row in B sequentially to
+perform the multiplications involved in the summations.  There are two intuitive
+ways to do this.  One is to simply hard code this calculation without using a loop. 
+The second way is to use a loop while summing the array variable.  If we choose
+the loop then it is required that each position in the C output loop be set to zero
+before beginning the calculations since the sum will accumulate through each
+iteration.  Since a generic routine is required, hard coding is out, and the loop is
+what is required.
+
+        for k := 0 to indexer do
+            C[ i, j ] := C[ i, j ] + ( A[ i , k ] * B[ k, j ]);
+
+
+Here you can see that three for loops involved in doing this corresponds to the fact
+that matrix multiplication takes N cubed computational time.
+
+A sample unit is included which, when a button is pushed,  defines the matrices
+above as constants and then multiplies them, and outputs the results to a memo to
+check for program correctness.
+
+It is common to see matrix multiplication used in computer color space conversions. 
+For example, you might want to convert from the XYZ color space to the RGB
+color space (the red, green, and blue values stored in bitmaps, for example). 
+Transformations between these two color spaces are accomplished using matrix
+multiplication.  You should note that 'RGB' is type real and  will range 
+from 0..1 and to get  valid RGB byte values for a bitmap you will first
+have to multiply the real by 255 and then use the trunc function to return
+an integer type.  However because the trunc function does not return a byte
+you will also have to AND the resulting int64 with $FF to get a byte as follows...
+Assume that 'redbyte' is of type Byte...The trunc function returns an int64 which
+as I understand is present in Delphi 5, but you will have to check the help file
+for earlier versions of Delphi to see if trunc (or equivalent) is available and
+what integer type the functions returns...
+
+redbyte := trunc(R) AND $FF;
+
+The matrix above translate into the following linear equations...
+
+R         [ 3.0651    -1.3942     0.4761  ]  ||   X
+
+G   =    [ 0.9690     1.8755     0.0414  ]  ||  Y
+
+B         [ 0.0679      0.2290    1.0698  ]  ||  Z
+
+Often  when you see one of these transform matrices it will be
+separated from the matrix to be multiplied by double pipes, as I
+have tried to emulate above, and sometimes with an asterik which
+also means multiply.  The column matrix [ X, Y, Z ] has three rows
+and one column, while the transformation matrix has three rows and
+three columns.  Now,  the rule of thumb for matrix multiplication is
+that the number of columns in 'A' must equal the number of rows in
+'B'.  Here we will refer to the three by three matrix as A and the
+XYZ matrix as B.  A has three columns and B has three rows, so
+matrix multiplication is valid.  (According to some research I have
+been doing three by three matrices have some special properties
+(referred to as the determinant, the cross product between two
+vectors - a vector being something like a matrix with only one row
+or one column, although there are also other differences defined in
+mathematics, as noted above).   
+
+
+The following procedure demonstrates using matrix multiplication to
+convert between these two color spaces ...The rows in the 3 by 3
+matrix are multiplied by the corresponding elements in the column in
+the XYZ matrix and then these products are summed to produce the
+output 1 x 3 matrix which contains the RGB values...
+
+procedure XYZtoRGB(x, y, z : double; var r, g, b : double);
+begin
+ r = 3.0651 *x  + -1.3942 *y + -0.4761 *z; 
+ g = -0.9690*x  +  1.8755 *y +  0.0415 *z;
+ b = 0.0679 *x  + -0.2290 *y + 1.0698  *z;
+end;
+
+
+Some code I am working on for a generic matrix multiplication routine
+follows below...
+
+{drop a button on a form and a memo and then paste in the following code
+to demo multiplying two matrices
+
+Note that there is problem in the code below
+There are two matrices that must be multiplied and a third matrix ( C )
+which
+holds the result.  The procedure to multiply these matrices (stored
+as multidimensional
+arrays) is currently using global variables, due to some hassles in
+getting
+Delphi to pass these matrices as 'var' type variables.  In order to
+make the
+multiplication function truly generic (able to multiply any two
+matrices) it will be
+neccesary to ditch these global variables, perhaps by passing
+pointers to arrays
+instead of arrays as var variables.  I am still looking into it, and
+once that
+type mistmatch problem is solved the multiply function should be
+truly generic ... Update ... Describe multidimensional arrays as
+TYPES and then declare a variable of that type and you can then use
+'VAR' to pass them to procedures or functions without generating a
+compiler error...
+Example ...
+Type
+   SomeTypeOfArray = array[0..2, 0..9] of integer;
+var
+   AnArray : SomeTypeOfArray;
+
+Doing this solves the problem that caused me to temporarily resort
+to global array variables below, although using pointers would also
+be another valid solution...According to the Delphi docs, dynamic 
+arrays must not be derefenced using pointers, and I have tried it,
+and it does work, but for some reason this is not supposed to be done.
+Using a pointer to a static Type however would be one way around this
+limitation...
+
+
+also note that two array constants are defined
+I am using constants here since when the results are output to the
+memo I can
+check the mathematics by hand and confirm that the code is in fact
+working
+}
+
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
+Dialogs,
+  StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure MatrixMultiply(rows, columns, indexer : integer);
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+
+var    {define two test matrices with constant values}
+   A : array[0..1, 0..3] of integer =  ( (1, 2, 3, 4), (5, 6, 7, 8));
+   B : Array[0..3, 0..2] of integer =  ( (1, 2, 3), (4, 5, 6), (7, 8, 9), (1, 2,
+3) );
+
+   C : array[0..1, 0..2] of integer; {the output matrix}
+  Form1: TForm1;
+
+implementation
+
+{$R *.DFM}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+   rows, columns, indexer, i, j : integer;
+begin
+   rows := 1;   {number of rows in A matrix}
+   columns := 2;  {number of columns in B matrix}
+   indexer := 3;  {number of columns in A and number of rows in B}
+
+   MatrixMultiply(rows, columns, indexer);
+
+   {check for correct results}
+   for i := 0 to 1 do
+      for j := 0 to 2 do
+         Memo1.Lines.Append(inttostr(C[i,j]));
+
+end;
+
+procedure TForm1.MatrixMultiply(rows, columns, indexer : integer);
+var i, j, k : integer;
+begin
+   {zero values in the output matrix to preopare for summation}
+   for i := 0 to rows do
+      for j := 0 to columns do
+        C[i, j] := 0;
+
+   {multiply the matrices and accumulate results in C }
+
+   for i := 0 to rows do
+      for j := 0 to columns do
+         for k := 0 to indexer do
+             C[ i, j ] := C[ i, j ] + ( A[ i , k] * B[k, j ]);
+end;
+
+end.

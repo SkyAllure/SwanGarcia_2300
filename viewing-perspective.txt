@@ -1,0 +1,33 @@
+We now come to perspective projection.
+
+If you look at objects around you, whether it's with your eyes, whether you look at computer graphics imagery. Even if you look at art after the Renaissance. We see that objects that are further away become smaller. In fact, a common experiment is, you place a quarter in front of your eye, and you can block out the moon or the sun, when, clearly, they're much bigger than the quarter. Furthermore, if you look at something like railway tracks, you will see that the lines, even though they are parallel, seem to converge in the distance, although they never actually meet.
+
+This is perspective projection where you have a center of projection which is the camera, or the eye location.
+
+And the geometry is as shown here. This is your screen, and the line AB will project onto A'B'.
+
+Of course, the further away it is, the smaller it will appear when projected. This is the standard projection model that is used everywhere, not just in computer graphics. And we are going to talk about the mathematics required to make that work.
+
+Consider this overhead view of our scene. This is the eye, or the camera. So let me note that down. This is the eye. Here we have our screen, or our image. And so, let's say this is the image.
+
+We have some location in the world (x, y, z) that projects to some location (x', y', d).
+
+The question is, what are the coordinates of this point? So of course the formulae for x' and y' are similar. We can just do one of them.
+
+The screen is assumed to be a distance d away, and the world space object is a distance z away. Now, the triangles are similar, so this triangle is similar to this whole triangle, and therefore the length ratios should be similar. So I can say that d / x' is equal to z / x. Let me just write that down.
+
+Of course what I really want to solve for is, what is x' equal to? And so x' I can bring here and it will be equal to d * x / z. And so this implies that x' will be equal to d * x / z.
+
+This division by z is really critical. That is what ensures that the object gets smaller the further away it is from the screen. And of course, we cannot divide by z using standard matrices. But that's where homogeneous coordinates really become useful. Because to dehomogenize, you divide by the fourth coordinate. And one can create the matrix so as to put z in the fourth coordinate.
+
+Just bringing this up here, you can say I just wrote it the other way. I said d / x'. But one can write it in this form. You have x' is equal to d * x / z. And y' is equal to d * y / z. So what does the 4x4 matrix look like? X and Y values do not change, but we are playing with the fourth coordinate here.
+
+So what I am going to do is that I am going to try to write this times some [x, y, z, w] to show you what happens.
+
+This will be equal to. So the x coordinate doesn't change. And so we can just write this as x. We can just write this as y. And initially, let's say w is equal to 1. Okay, so what happens to Z? It doesn't change either. So the only change is in this 4th coordinate, where the w value I've just multiplied by zero. So it's not even relevant. But what I'm doing is I'm taking -z / d here. So -z / d.
+
+Now, if I dehomogenize this, you will see that x will be multiplied times d / z, y will be multiplied times d / z, as we wanted. And, in fact, the z coordinate which I'm going to drop. If you also multiply it by d / z, it will be equal to d, which is just a constant, which is where the image plane is. Now, of course, the question is, why is the minus sign. Again, OpenGL convention, you're looking down the -Z axis. And so the focal plane is at -d.
+
+So again, I went through that verification already. You can do this formula, and it's [x, y, z, -z / d]. If you multiply it out you'll get -d * x / z, -d * y / z, -d and 1. And in fact this is exactly what you want to do to in order to get perspective projection working.
+
+The next segment will deal with the derivation of gluPerspective, putting together the concepts we have talked about so far for perspective projections to see how the final matrix in OpenGL, with all of its complexities, is created.

@@ -1,0 +1,1500 @@
+ThoughtTreasure ontology
+LPL Lawson Pattern Language
+TIME-ITEM Topics for Indexing Medical Education
+POPE Purdue Ontology for Pharmaceutical Engineering
+IDEAS Group A formal ontology for enterprise architecture being developed by the Australian, Canadian, UK and U.S. Defence Depts. The IDEAS Group Website
+program abstraction taxonomy
+SWEET Semantic Web for Earth and Environmental Terminology
+CCO The Cell-Cycle Ontology is an application ontology that represents the cell cycle
+Ontology libraries
+The development of ontologies for the Web has led to the apparition of services providing lists or directories of ontologies with search facility.
+Such directories have been called ontology libraries.
+The following are static libraries of human-selected ontologies.
+The DAML Ontology Library maintains a legacy of ontologies in DAML.
+The Protege Ontology Library contains a set of owl, Frame-based and other format ontologies.
+SchemaWeb is a directory of RDF schemata expressed in RDFS, OWL and DAML+OIL.
+The following are both directories and search engines.
+They include crawlers searching the Web for well-formed ontologies.
+Swoogle is a directory and search engine for all RDF resources available on the Web, including ontologies.
+The OntoSelect Ontology Library offers similar services for RDF/S, DAML and OWL ontologies.
+Ontaria is a "searchable and browsable directory of semantic web data", with a focus on RDF vocabularies with OWL ontologies.
+The OBO Foundry / Bioportalis a suite of interoperable reference ontologies in biology and biomedicine.
+OpenOffice.org
+OpenOffice.org (OO.o or OOo) is a cross-platform office application suite available for a number of different computer operating systems.
+It supports the ISO standard OpenDocument Format (ODF) for data interchange as its default file format, as well as Microsoft Office '97–2003 formats, Microsoft Office '2007 format (in version 3), among many others.
+OpenOffice.org was originally derived from StarOffice, an office suite developed by StarDivision and acquired by Sun Microsystems in August 1999.
+The source code of the suite was released in July 2000 with the aim of reducing the dominant market share of Microsoft Office by providing a free, open and high-quality alternative; later versions of StarOffice are based upon OpenOffice.org with additional proprietary components.
+OpenOffice.org is free software, available under the GNU Lesser General Public License (LGPL).
+The project and software are informally referred to as OpenOffice, but this term is a trademark held by another party, requiring the project to adopt OpenOffice.org as its formal name.
+History
+Originally developed as the proprietary software application suite StarOffice by the German company StarDivision, the code was purchased in 1999 by Sun Microsystems.
+In August 1999 version 5.2 of StarOffice was made available free of charge.
+On July 19, 2000, Sun Microsystems announced that it was making the source code of StarOffice available for download under both the LGPL and the Sun Industry Standards Source License (SISSL) with the intention of building an open source development community around the software.
+The new project was known as OpenOffice.org, and its website went live on October 13, 2000.
+Work on version 2.0 began in early 2003 with the following goals: better interoperability with Microsoft Office; better performance, with improved speed and lower memory usage; greater scripting capabilities; better integration, particularly with GNOME; an easier-to-find and use database front-end for creating reports, forms and queries; a new built-in SQL database; and improved usability.
+A beta version was released on March 4, 2005.
+On September 2, 2005 Sun announced that it was retiring the SISSL.
+As a consequence, the OpenOffice.org Community Council announced that it would no longer dual license the office suite, and future versions would use only the LGPL.
+On October 20, 2005, OpenOffice.org 2.0 was formally released to the public.
+Eight weeks after the release of Version 2.0, an update, OpenOffice.org 2.0.1, was released.
+It fixed minor bugs and introduced new features.
+As of the 2.0.3 release, OpenOffice.org changed its release cycle from 18-months to releasing updates, feature enhancements and bug fixes every three months.
+Currently, new versions including new features are released every six months (so-called "feature releases") alternating with so-called "bug fix releases" which are being released between two feature releases (Every 3 months).
+StarOffice
+Sun subsidizes the development of OpenOffice.org in order to use it as a base for its commercial proprietary StarOffice application software.
+Releases of StarOffice since version 6.0 have been based on the OpenOffice.org source code, with some additional proprietary components, including:
+Additional bundled fonts (especially East Asian language fonts).
+Adabas D database.
+Additional document templates.
+Clip art.
+Sorting functionality for Asian versions.
+Additional file filters.
+Migration assessment tool (Enterprise Edition).
+Macro migration tool (Enterprise Edition).
+Configuration management tool (Enterprise Edition).
+OpenOffice.org, therefore, inherited many features from the original StarOffice upon which it was based including the OpenOffice.org XML file format which it retained until version 2, when it was replaced by the ISO standard OpenDocument Format (ODF).
+Features
+According to its mission statement, the OpenOffice.org project aims "To create, as a community, the leading international office suite that will run on all major platforms and provide access to all functionality and data through open-component based APIs and an XML-based file format."
+OpenOffice.org aims to compete with Microsoft Office and emulate its look and feel where suitable.
+It can read and write most of the file formats found in Microsoft Office, and many other applications; an essential feature of the suite for many users.
+OpenOffice.org has been found to be able to open files of older versions of Microsoft Office and damaged files that newer versions of Microsoft Office itself cannot open.
+However, it cannot open older Word for Macintosh (MCW) files.
+Platforms
+Platforms for which OO.o is available include Microsoft Windows, Linux, Solaris, BSD, OpenVMS, OS/2 and IRIX.
+The current primary development platforms are Microsoft Windows, Linux and Solaris.
+A port for Mac OS X exists for OS X machines which have the X Window System component installed.
+A port to OS X's native Aqua user interface is in progress, and is scheduled for completion for the 3.0 milestone.
+NeoOffice is an independent fork of OpenOffice, specially adapted for Mac OS X.
+Version compatibility
+Windows 95: up to v1.1.5
+Windows 98-Vista: up to v2.4, development releases of v3.0
+Mac OS 10.2: up to v1.1.2
+Mac OS 10.3: up to v2.1
+Mac OS 10.4-10.5: up to v2.4, development releases of v3.0 (intel only)
+OS/2 and eComStation: up to v2.0.4
+Components
+OpenOffice.org is a collection of applications that work together closely to provide the features expected from a modern office suite.
+Many of the components are designed to mirror those available in Microsoft Office.
+The components available include:
+QuickStarter
+A small program for Windows and Linux that runs when the computer starts for the first time.
+It loads the core files and libraries for OpenOffice.org during computer startup and allows the suite applications to start more quickly when selected later.
+The amount of time it takes to open OpenOffice.org applications was a common complaint in version 1.0 of the suite.
+Substantial improvements were made in this area for version 2.2.
+The macro recorder
+Is used to record user actions and replay them later to help with automating tasks, using OpenOffice.org Basic (see below).
+It is not possible to download these components individually on Windows, though they can be installed separately.
+Most Linux distributions break the components into individual packages which may be downloaded and installed separately.
+OpenOffice.org Basic
+OpenOffice.org Basic is a programming language similar to Microsoft Visual Basic for Applications (VBA) based on StarOffice Basic.
+In addition to the macros, the upcoming Novell edition of OpenOffice.org 2.0 supports running Microsoft VBA macros, a feature expected to be incorporated into the mainstream version soon.
+OpenOffice.org Basic is available in the Writer and Calc applications.
+It is written in functions called subroutines or macros, with each macro performing a different task, such as counting the words in a paragraph.
+OpenOffice.org Basic is especially useful in doing repetitive tasks that have not been integrated in the program.
+As the OpenOffice.org database, called "Base", uses documents created under the Writer application for reports and forms, one could say that Base can also be programmed with OpenOffice.org Basic.
+File formats
+OpenOffice.org pioneered the ISO/IEC standard OpenDocument file formats (ODF), which it uses natively, by default.
+It also supports reading (and in some cases writing) a large number of legacy proprietary file formats (e.g.: WordPerfect through libwpd, StarOffice, Lotus software, MS Works through libwps, Rich Text Format), most notably including Microsoft Office formats after which the OpenDocument specification was "approved for release as an ISO and IEC International Standard" under the name ISO/IEC 26300:2006..
+Microsoft Office interoperability
+In response to Microsoft's recent movement towards using the Office Open XML format in Microsoft Office 2007, Novell has released an Office Open XML converter for OOo under a liberal BSD license (along with GNU GPL and LGPL licensed libraries), that will be submitted for inclusion into the OpenOffice.org project.
+This allows OOo to read and write Microsoft OpenXML-formatted word processing documents (.docx) in OpenOffice.org.
+Currently it works only with the latest Novell edition of OpenOffice.org.
+Sun Microsystems has developed an ODF plugin for Microsoft Office which enables users of Microsoft Office Word, Excel and PowerPoint to read and write ODF documents.
+The plugin currently works with Microsoft Office 2003, Microsoft Office XP and Microsoft Office 2000.
+Support for Microsoft Office 2007 is only available in combination with Microsoft Office 2007 SP1.
+Several software companies (including Microsoft and Novell) are working on an add-in for Microsoft Office that allows reading and writing ODF files.
+Currently it works only for Microsoft Word 2007 / XP / 2003.
+Microsoft provides a compatibility pack to read and write Office Open XML files with Office 2000, XP and 2003.
+The compatibility pack can also be used as a stand-alone converter with Microsoft Office 97.
+This might be helpful to convert older Microsoft Office files via Office Open XML to ODF if a direct conversion doesn't work as expected.
+The Office compatibility pack however does not install for Office 2000 or Office XP on Windows 9x.
+Note that some office applications built with Microsoft components may refuse to import OpenOffice data.
+The Sage Group's Simply Accounting, for example, can import Excel's .xls files, but refuses to accept OpenOffice.org-generated .xls files for the reason that the OOo .xls files are not "genuine Microsoft" .xls files.
+Development
+Overview
+The OpenOffice.org API is based on a component technology known as Universal Network Objects (UNO).
+It consists of a wide range of interfaces defined in a CORBA-like interface description language.
+The document file format used is based on XML and several export and import filters.
+All external formats read by OpenOffice.org are converted back and forth from an internal XML representation.
+By using compression when saving XML to disk, files are generally smaller than the equivalent binary Microsoft Office documents.
+The native file format for storing documents in version 1.0 was used as the basis of the OASIS OpenDocument file format standard, which has become the default file format in version 2.0.
+Development versions of the suite are released every few weeks on the developer zone of the OpenOffice.org website.
+The releases are meant for those who wish to test new features or are simply curious about forthcoming changes; they are not suitable for production use.
+Native desktop integration
+OpenOffice.org 1.0 was criticized for not having the look and feel of applications developed natively for the platforms on which it runs.
+Starting with version 2.0, OpenOffice.org uses native widget toolkit, icons, and font-rendering libraries across a variety of platforms, to better match native applications and provide a smoother experience for the user.
+There are projects underway to further improve this integration on both GNOME and KDE.
+This issue has been particularly pronounced on Mac OS X, whose standard user interface looks noticeably different from either Windows or X11-based desktop environments and requires the use of programming toolkits unfamiliar to most OpenOffice.org developers.
+There are two implementations of OpenOffice.org available for OS X:
+OpenOffice.org Mac OS X (X11):
+This official implementation requires the installation of X11.app or XDarwin, and is a close port of the well-tested Unix version.
+It is functionally equivalent to the Unix version, and its user interface resembles the look and feel of that version; for example, the application uses its own menu bar instead of the OS X menu at the top of the screen.
+It also requires system fonts to be converted to X11 format for OpenOffice.org to use them (which can be done during application installation).
+OpenOffice.org Aqua:
+After a first step (completed) using Carbon, OpenOffice.org Aqua switched to Cocoa technology, and an Aqua version (based on Cocoa) is also being developed under the aegis of OpenOffice.org, with a Beta version currently available.
+Sun Microsystems is collaborating with OOo to further development of the Aqua version of OpenOffice.org for Mac.
+Future
+Currently, a developed preview of OpenOffice.org 3 (OOo-dev 3.0) is available for download.
+Among the planned features for OOo 3.0, set to be released by September 2008 , are:
+Personal Information Manager (PIM), probably based on Thunderbird/Lightning
+PDF import into Draw (to maintain correct layout of the original PDF)
+OOXML document support for opening documents created in Office 2007
+Support for Mac OS X Aqua platform
+Extensions, to add third party functionality.
+Presenter screen in Impress with multi-screen support
+Other projects
+A number of products are derived from OpenOffice.org.
+Among the more well-known ones are Sun StarOffice and NeoOffice.
+The OpenOffice.org site also lists a large variety of complementary products including groupware solutions.
+NeoOffice
+NeoOffice is an independent port that integrates with OS X’s Aqua user interface using Java, Carbon and (increasingly) Cocoa toolkits.
+NeoOffice adheres fairly closely to OS X UI standards (for example, using native pull-down menus), and has direct access to OS X’s installed fonts and printers.
+Its releases lag behind the official OpenOffice.org X11 releases, due to its small development team and the concurrent development of the technology used to port the user interface.
+Other projects run alongside the main OpenOffice.org project and are easier to contribute to.
+These include documentation, internationalisation and localisation and the API.
+OpenGroupware.org
+OpenGroupware.org is a set of extension programs to allow the sharing of OpenOffice.org documents, calendars, address books, e-mails, instant messaging and blackboards, and provide access to other groupware applications.
+There is also an effort to create and share assorted document templates and other useful additions at OOExtras.
+A set of Perl extensions is available through the CPAN in order to allow OpenOffice.org document processing by external programs.
+These libraries do not use the OpenOffice.org API.
+They directly read or write the OpenOffice.org files using Perl standard file compression/decompression, XML access and UTF-8 encoding modules.
+Portable
+A distribution of OpenOffice.org called OpenOffice.org Portable is designed to run the suite from a USB flash drive.
+OxygenOffice Professional
+An enhancement of OpenOffice.org, providing: Current Version: 2.4
+Possibility to run Visual Basic for Application (VBA) macros in Calc (for testing)
+Improved Calc HTML export
+Enhanced Access support for Base
+Security fixes
+Enhanced performance
+Enhanced color-palette
+Enhanced help menu, additional User’s Manual, and extended tips for beginners
+Optionally it provides, free for personal and professional use:
+More than 3,200 graphics, both clip art and photos.
+Several templates and sample documents
+Over 90 free fonts.
+Additional tools like OOoWikipedia
+Extensions
+Since version 2.0.4, OpenOffice.org has supported extensions in a similar manner to Mozilla Firefox.
+Extensions make it easy to add new functionality to an existing OpenOffice.org installation.
+The OpenOffice.org Extension Repository lists already more than 80 extensions.
+Developers can easily build new extensions for OpenOffice.org, for example by using the OpenOffice.org API Plugin for NetBeans.
+The OpenOffice.org Bibliographic Project
+This aims to incorporate a powerful reference management software into the suite.
+The new major addition is slated for inclusion with the standard OpenOffice.org release on late-2007 to mid-2008, or possibly later depending upon the availability of programmers.
+Security
+OpenOffice.org includes a security team, and as of June 2008 the security organization Secunia reports no known unpatched security flaws for the software.
+Kaspersky Lab has shown a proof of concept virus for OpenOffice.org.
+This shows OOo viruses are possible, but there is no known virus "in the wild".
+In a private meeting of the French Ministry of Defense, macro-related security issues were raised.
+OpenOffice.org developers have responded and noted that the supposed vulnerability had not been announced through "well defined procedures" for disclosure and that the ministry had revealed nothing specific.
+However, the developers have been in talks with the researcher concerning the supposed vulnerability.
+As with Microsoft Word, documents created in OpenOffice can contain metadata which may include a complete history of what was changed, when and by whom.
+Ownership
+The project and software are informally referred to as OpenOffice, but project organizers report that this term is a trademark held by another party, requiring them to adopt OpenOffice.org as its formal name.
+(Due to a similar trademark issue, the Brazilian Portuguese version of the suite is distributed under the name BrOffice.org.)
+Development is managed by staff members of StarOffice.
+Some delay and difficulty in implementing external contributions to the core codebase (even those from the project's corporate sponsors) has been noted.
+Currently, there are several derived and/or proprietary works based on OOo, with some of them being:
+Sun Microsystem's StarOffice, with various complementary add-ons.
+IBM's Lotus Symphony, with a new interface based on Eclipse (based on OO.o 1.x).
+OpenOffice.org Novell edition, integrated with Evolution and with a OOXML filter.
+Beijing Redflag Chinese 2000's RedOffice, fully localized in Chinese characters.
+Planamesa's NeoOffice for Mac OS X with Aqua support via Java.
+In May 23, 2007, the OpenOffice.org community and Redflag Chinese 2000 Software Co, Ltd. announced a joint development effort focused on integrating the new features that have been added in the RedOffice localization of OpenOffice.org, as well as quality assurance and work on the core applications.
+Additionally, Redflag Chinese 2000 made public its commitment to the global OO.o community stating it would "strengthen its support of the development of the world's leading free and open source productivity suite", adding around 50 engineers (that have been working on RedOffice since 2006) to the project.
+In September 10, 2007, the OO.o community announced that IBM had joined to support the development of OpenOffice.org.
+"IBM will be making initial code contributions that it has been developing as part of its Lotus Notes product, including accessibility enhancements, and will be making ongoing contributions to the feature richness and code quality of OpenOffice.org.
+Besides working with the community on the free productivity suite's software, IBM will also leverage OpenOffice.org technology in its products" as has been seen with Lotus Symphony.
+Sean Poulley, the vice president of business and strategy in IBM's Lotus Software division said that IBM plans to take a leadership role in the OpenOffice.org community together with other companies such as Sun Microsystems.
+IBM will work within the leadership structure that exists.
+As of October 02, 2007, Michael Meeks announced (and generated an answer by Sun's Simon Phipps and Mathias Bauer) a derived OpenOffice.org work, under the wing of his employer Novell, with the purpose of including new features and fixes that do not get easily integrated in the OOo-build up-stream core.
+The work is called Go-OO (http://go-oo.org/) a name under which alternative OO.o software has been available for five years.
+The new features are shared with Novell's edition of OOo and include:
+VBA macros support.
+Faster start up time.
+"A linear optimization solver to optimize a cell value based on arbitrary constraints built into Calc".
+Multimedia content supports into documents, using the gstreamer multimedia framework.
+Support for Microsoft Works formats, WordPerfect graphics (WPG format) and T602 files imports.
+Details about the patch handling including metrics can be found on the OpenOffice.org site.
+Reactions
+Federal Computer Week issue listed OpenOffice.org as one of the "5 stars of open-source products."
+In contrast, OpenOffice.org was used in 2005 by The Guardian newspaper to illustrate what it claims are the limitations of open-source software, although the article does finish by stating that the software may be better than MS Word for books.
+Market share
+It is extremely difficult to estimate the market share of OpenOffice.org due to the fact that OpenOffice.org can be freely distributed via download sites including mirrors, peer-to-peer networks, CDs, Linux distros, etc.
+Nevertheless, the OpenOffice.org tries to capture key adoption data in a market share analysis
+Although Microsoft Office retains 95% of the general market as measured by revenue, OpenOffice.org and StarOffice have secured 14% of the large enterprise market as of 2004 and 19% of the small to midsize business market in 2005.
+The OpenOffice.org web site reports more than 98 million downloads.
+Other large scale users of OpenOffice.org include Singapore’s Ministry of Defence, and Bristol City Council in the UK.
+In France, OpenOffice.org has attracted the attention of both local and national government administrations who wish to rationalize their software procurement, as well as have stable, standard file formats for archival purposes.
+It is now the official office suite for the French Gendarmerie.
+Several government organizations in India, such as IIT Bombay (a renowned technical institute), the Supreme Court of India, the Allahabad High Court, which use Linux, completely rely on OpenOffice.org for their administration.
+On October 4, 2005, Sun and Google announced a strategic partnership.
+As part of this agreement, Sun will add a Google search bar to OpenOffice.org, Sun and Google will engage in joint marketing activities as well as joint research and development, and Google will help distribute OpenOffice.org.
+Google is currently distributing StarOffice as part of the Google Pack.
+Besides StarOffice, there are still a number of OpenOffice.org derived commercial products.
+Most of them are developed under SISSL license (which is valid up to OpenOffice.org 2.0 Beta 2).
+In general they are targeted at local or niche market, with proprietary add-ons such as speech recognition module, automatic database connection, or better CJK support.
+In July 2007 Everex, a division of First International Computer and the 9th largest PC supplier in the U.S., began shipping systems preloaded with OpenOffice.org 2.2 into Wal-Mart and Sam's Club throughout North America.
+In September 2007 IBM announced that it would supply and support OpenOffice.org branded as Lotus Symphony, and integrated into Lotus Notes.
+IBM also announced 35 developers would be assigned to work on OpenOffice.org, and that it would join the OpenOffice.org foundation.
+Commentators noted parallels between IBM's 2000 support of Linux and this announcement.
+Java controversy
+In the past OpenOffice.org was criticized for an increasing dependency on the Java Runtime Environment which was not free software.
+That Sun Microsystems is both the creator of Java and the chief supporter of OpenOffice.org drew accusations of ulterior motives for this technology choice.
+Version 1 depended on the Java Runtime Environment (JRE) being present on the user’s computer for some auxiliary functions, but version 2 increased the suite’s use of Java requiring a JRE.
+In response, Red Hat increased their efforts to improve free Java implementations.
+Red Hat’s Fedora Core 4 (released on June 13, 2005) included a beta version of OpenOffice.org version 2, running on GCJ and GNU Classpath.
+The issue of OpenOffice.org’s use of Java came to the fore in May 2005, when Richard Stallman appeared to call for a fork of the application in a posting on the Free Software Foundation website.
+This led to discussions within the OpenOffice.org community and between Sun staff and developers involved in GNU Classpath, a free replacement for Sun’s Java implementation.
+Later that year, the OpenOffice.org developers also placed into their development guidelines various requirements to ensure that future versions of OpenOffice.org could be run on free implementations of Java and fixed the issues which previously prevented OpenOffice.org 2.0 from using free software Java implementations.
+On November 13, 2006, Sun committed to releasing Java under the GNU General Public License in the near future.
+This process would end OpenOffice.org's dependence on non-free software.
+Between November 2006 and May 2007, Sun Microsystems made available most of their Java technologies under the GNU General Public License, in compliance with the specifications of the Java Community Process, thus making almost all of Sun's Java also free software.
+The following areas of OpenOffice.org 2.0 depend on the JRE being present:
+The media player on Unix-like systems
+All document wizards in Writer
+Accessibility tools
+Report Autopilot
+JDBC driver support
+HSQL database engine, which is used in OpenOffice.org Base
+XSLT filters
+BeanShell, the NetBeans scripting language and the Java UNO bridge
+Export filters to the Aportis.doc (.pdb) format for the Palm OS or Pocket Word (.psw) format for the Pocket PC
+Export filter to LaTeX
+Export filter to MediaWiki's wikitext
+A common point of confusion is that mail merge to generate emails requires the Java API JavaMail in StarOffice; however, as of version 2.0.1, OpenOffice.org uses a Python-component instead.
+Complementary software
+OpenOffice.org provides replacement for MS Office's Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Microsoft Access, Microsoft Equation Editor and Microsoft Visio.
+But to level the equivalent functionality from the rest of MS Office, OOo can be complemented with other open source programs such as:
+Evolution or Thunderbird/Lightning for a PIM like Microsoft Outlook.
+OpenProj (which seeks integration with OOo, but might be limited due to licensing issues) for Microsoft Project.
+Scribus for Microsoft Publisher
+O3spaces for Sharepoint
+Microsoft also provides Administrative Template Files ("adm files") that allow MS Office to be configured using Windows Group Policy.
+Equivalent functionality for OpenOffice.org is provided by OpenOffice-Enterprise, a commercial product from Open Office Technology, Inc.
+Issues
+OpenOffice.org has been criticized for slow start times and extensive CPU and RAM usage in comparison to other competitive software such as Microsoft Office.
+In comparison, tests between OpenOffice.org&nbsp;2.2 and Microsoft Office&nbsp;2007 have found that OpenOffice.org takes approximately 2 times the processing time and memory to load itself along with a blank file; and took approximately 4.7 times the processing time and 3.9 times the memory to open an extremely large spreadsheet file.
+Critics have pointed to excessive code bloat and OpenOffice.org's loading of the Java Runtime Environment as possible reasons for the slow speeds and excessive memory usage.
+However, since OpenOffice.org 2.2 the performance of OpenOffice.org has been improved dramatically.
+One of the greatest challenges is its ability to be truly cross compatible with other applications.
+Since Openoffice.org is forced to reverse engineer proprietary binary formats due to unavailability of open specifications, slight formatting incompatibilities tend to exist when files are saved in non-native format.
+For example, a complex .doc document formatted under OpenOffice.org, is usually not displayed with the correct format when opened with Microsoft Office.
+Retail
+The free software license under which OpenOffice.org is distributed allows unlimited use of the software for both home and business use, including unlimited redistribution of the software.
+Several businesses sell the OpenOffice.org suite on auction websites such as eBay, offering value-added services such as 24/7 technical support, download mirrors, and CD mailing.
+However, often the 24/7 support offered is not provided by the company selling the software, but rather by the official OpenOffice.org mailing list.
+Parsing
+In computer science and linguistics, parsing, or, more formally, syntactic analysis, is the process of analyzing a sequence of tokens to determine grammatical structure with respect to a given (more or less) formal grammar.
+A parser is thus one of the components in an interpreter or compiler, where it captures the implied hierarchy of the input text and transforms it into a form suitable for further processing (often some kind of parse tree, abstract syntax tree or other hierarchical structure) and normally checks for syntax errors at the same time.
+The parser often uses a separate lexical analyser to create tokens from the sequence of input characters.
+Parsers may be programmed by hand or may be semi-automatically generated (in some programming language) by a tool (such as Yacc) from a grammar written in Backus-Naur form.
+Parsing is also an earlier term for the diagramming of sentences of natural languages, and is still used for the diagramming of inflected languages, such as the Romance languages or Latin.
+Parsers can also be constructed as executable specifications of grammars in functional programming languages.
+Frost, Hafiz and Callaghan have built on the work of others to construct a set of higher-order functions (called parser combinators) which allow polynomial time and space complexity top-down parser to be constructed as executable specifications of ambiguous grammars containing left-recursive productions.
+The X-SAIGA site has more about the algorithms and implementation details.
+Human languages
+Also see :Category:Natural language parsing
+In some machine translation and natural language processing systems, human languages are parsed by computer programs.
+Human sentences are not easily parsed by programs, as there is substantial ambiguity in the structure of human language.
+In order to parse natural language data, researchers must first agree on the grammar to be used.
+The choice of syntax is affected by both linguistic and computational concerns; for instance some parsing systems use lexical functional grammar, but in general, parsing for grammars of this type is known to be NP-complete.
+Head-driven phrase structure grammar is another linguistic formalism which has been popular in the parsing community, but other research efforts have focused on less complex formalisms such as the one used in the Penn Treebank.
+Shallow parsing aims to find only the boundaries of major constituents such as noun phrases.
+Another popular strategy for avoiding linguistic controversy is dependency grammar parsing.
+Most modern parsers are at least partly statistical; that is, they rely on a corpus of training data which has already been annotated (parsed by hand).
+This approach allows the system to gather information about the frequency with which various constructions occur in specific contexts.
+(See machine learning.)
+Approaches which have been used include straightforward PCFGs (probabilistic context free grammars), maximum entropy, and neural nets.
+Most of the more successful systems use lexical statistics (that is, they consider the identities of the words involved, as well as their part of speech).
+However such systems are vulnerable to overfitting and require some kind of smoothing to be effective.
+Parsing algorithms for natural language cannot rely on the grammar having 'nice' properties as with manually-designed grammars for programming languages.
+As mentioned earlier some grammar formalisms are very computationally difficult to parse; in general, even if the desired structure is not context-free, some kind of context-free approximation to the grammar is used to perform a first pass.
+Algorithms which use context-free grammars often rely on some variant of the CKY algorithm, usually with some heuristic to prune away unlikely analyses to save time.
+(See chart parsing.)
+However some systems trade speed for accuracy using, eg, linear-time versions of the shift-reduce algorithm.
+A somewhat recent development has been parse reranking in which the parser proposes some large number of analyses, and a more complex system selects the best option.
+It is normally branching of one part and its subparts
+Programming languages
+The most common use of a parser is as a component of a compiler or interpreter.
+This parses the source code of a computer programming language to create some form of internal representation.
+Programming languages tend to be specified in terms of a context-free grammar because fast and efficient parsers can be written for them.
+Parsers are written by hand or generated by parser generators.
+Context-free grammars are limited in the extent to which they can express all of the requirements of a language.
+Informally, the reason is that the memory of such a language is limited.
+The grammar cannot remember the presence of a construct over an arbitrarily long input; this is necessary for a language in which, for example, a name must be declared before it may be referenced.
+More powerful grammars that can express this constraint, however, cannot be parsed efficiently.
+Thus, it is a common strategy to create a relaxed parser for a context-free grammar which accepts a superset of the desired language constructs (that is, it accepts some invalid constructs); later, the unwanted constructs can be filtered out.
+Overview of process
+[[image:Parser_Flow.gif|right|Flow of data in a typical parser]] The following example demonstrates the common case of parsing a computer language with two levels of grammar: lexical and syntactic.
+The first stage is the token generation, or lexical analysis, by which the input character stream is split into meaningful symbols defined by a grammar of regular expressions.
+For example, a calculator program would look at an input such as "<code/>" and split it into the tokens <code/>, <code/>, <code/>, <code/>, <code/>, <code/>, <code/>, <code/>, and <code/>, each of which is a meaningful symbol in the context of an arithmetic expression.
+The parser would contain rules to tell it that the characters <code/>, <code/>, <code/>, <code/> and <code/> mark the start of a new token, so meaningless tokens like "<code/>" or "<code/>" will not be generated.
+The next stage is parsing or syntactic analysis, which is checking that the tokens form an allowable expression.
+This is usually done with reference to a context-free grammar which recursively defines components that can make up an expression and the order in which they must appear.
+However, not all rules defining programming languages can be expressed by context-free grammars alone, for example type validity and proper declaration of identifiers.
+These rules can be formally expressed with attribute grammars.
+The final phase is semantic parsing or analysis, which is working out the implications of the expression just validated and taking the appropriate action.
+In the case of a calculator or interpreter, the action is to evaluate the expression or program; a compiler, on the other hand, would generate some kind of code.
+Attribute grammars can also be used to define these actions.
+Types of parsers
+The task of the parser is essentially to determine if and how the input can be derived from the start symbol of the grammar.
+This can be done in essentially two ways:
+Top-down parsing - Top-down parsing can be viewed as an attempt to find left-most derivations of an input-stream by searching for parse-trees using a top-down expansion of the given formal grammar rules.
+Tokens are consumed from left to right.
+Inclusive choice is used to accommodate ambiguity by expanding all alternative right-hand-sides of grammar rules .
+LL parsers and recursive-descent parser are examples of top-down parsers, which cannot accommodate  left recursive productions.
+Although it has been believed that simple implementations of top-down parsing cannot accommodate direct and indirect left-recursion and may require exponential time and space complexity while parsing ambiguous context-free grammars, more sophisticated algorithm for top-down parsing have been created by Frost, Hafiz, and Callaghan which accommodates ambiguity and left recursion in polynomial time and which generates polynomial-size representations of the potentially-exponential number of parse trees.
+Their algorithm is able to produce both left-most and right-most derivations of an input w.r.t. a given CFG.
+Bottom-up parsing - A parser can start with the input and attempt to rewrite it to the start symbol.
+Intuitively, the parser attempts to locate the most basic elements, then the elements containing these, and so on.
+LR parsers are examples of bottom-up parsers.
+Another term used for this type of parser is Shift-Reduce parsing.
+Another important distinction is whether the parser generates a leftmost derivation or a rightmost derivation (see context-free grammar).
+LL parsers will generate a leftmost derivation and LR parsers will generate a rightmost derivation (although usually in reverse) .
+Examples of parsers
+Top-down parsers
+Some of the parsers that use top-down parsing include:
+Recursive descent parser
+LL parser (Left-to-right, Leftmost derivation)
+X-SAIGA - eXecutable SpecificAtIons of GrAmmars.
+Contains publications related to top-down parsing algorithm that supports left-recursion and ambiguity in polynomial time and space.
+Bottom-up parsers
+Some of the parsers that use bottom-up parsing include:
+Precedence parser
+Operator-precedence parser
+Simple precedence parser
+BC (bounded context) parsing
+LR parser (Left-to-right, Rightmost derivation)
+Simple LR (SLR) parser
+LALR parser
+Canonical LR (LR(1)) parser
+GLR parser
+CYK parser
+Lexical category
+In grammar, a lexical category (also word class, lexical class, or in traditional grammar part of speech) is a linguistic category of words (or more precisely lexical items), which is generally defined by the syntactic or morphological behaviour of the lexical item in question.
+Common linguistic categories include noun and verb, among others.
+There are open word classes, which constantly acquire new members, and closed word classes, which acquire new members infrequently if at all.
+Different languages may have different lexical categories, or they might associate different properties to the same one.
+For example, Japanese has at least three classes of adjectives where English has one; Chinese and Japanese have measure words while European languages have nothing resembling them; many languages don't have a distinction between adjectives and adverbs, or adjectives and nouns, etc.
+Many linguists argue that the formal distinctions between parts of speech must be made within the framework of a specific language or language family, and should not be carried over to other languages or language families.
+History
+The classification of words into lexical categories is found from the earliest moments in the history of linguistics.
+In the Nirukta, written in the 5th or 6th century BCE, the Sanskrit grammarian Yāska defined four main categories of words :
+nāma - nouns or substantives
+ākhyāta - verbs
+upasarga - pre-verbs or prefixes
+nipāta - particles, invariant words (perhaps prepositions)
+These four were grouped into two large classes: inflected (nouns and verbs) and uninflected (pre-verbs and particles).
+A century or two later, the Greek scholar Plato wrote in the Cratylus dialog that "... sentences are, I conceive, a combination of verbs [rhēma] and nouns [ónoma]".
+Another class, "conjunctions" (covering conjunctions, pronouns, and the article), was later added by Aristotle.
+By the end of the 2nd century BCE, the classification scheme had been expanded into eight categories, seen in the Tékhnē grammatiké:
+Noun: a part of speech inflected for case, signifying a concrete or abstract entity
+Verb: a part of speech without case inflection, but inflected for tense, person and number, signifying an activity or process performed or undergone
+Participle: a part of speech sharing the features of the verb and the noun
+Article: a part of speech inflected for case and preposed or postposed to nouns (the relative pronoun is meant by the postposed article)
+Pronoun: a part of speech substitutable for a noun and marked for person
+Preposition: a part of speech placed before other words in composition and in syntax
+Adverb: a part of speech without inflection, in modification of or in addition to a verb
+Conjunction: a part of speech binding together the discourse and filling gaps in its interpretation
+The Latin grammarian Priscian (fl. 500 CE) modified the above eight-fold system, substituting "interjection" for "article".
+It wasn't until 1767 that the adjective was taken as a separate class.
+Traditional English grammar is patterned after the European tradition above, and is still taught in schools and used in dictionaries.
+It names eight parts of speech: noun, verb, adjective, adverb, pronoun, preposition, conjunction, and interjection (sometimes called an exclamation).
+Controversies
+Since the Greek grammarians of 2nd century BCE, parts of speech have been defined by morphological, syntactic and semantic criteria.
+However, there is currently no generally agreed-upon classification scheme that can apply to all languages, or even a set of criteria upon which such a scheme should be based.
+Linguists recognize that the above list of eight word classes is simplified and artificial.
+For example, "adverb" is to some extent a catch-all class that includes words with many different functions.
+Some have even argued that the most basic of category distinctions, that of nouns and verbs, is unfounded, or not applicable to certain languages.
+Functional classification
+Common ways of delimiting words by function include:
+Open word classes:
+adjectives
+adverbs
+interjections
+nouns
+verbs (except auxiliary verbs)
+Closed word classes:
+auxiliary verbs
+clitics
+coverbs
+conjunctions
+Determiners (articles, quantifiers, demonstrative adjectives, and possessive adjectives)
+particles
+measure words
+adpositions (prepositions, postpositions, and circumpositions)
+preverbs
+pronouns
+contractions
+cardinal numbers
+English
+English frequently does not mark words as belonging to one part of speech or another.
+Words like neigh, break, outlaw, laser, microwave and telephone might all be either verb forms or nouns.
+Although -ly is an adverb marker, not all adverbs end in -ly and not all words ending in -ly are adverbs.
+For instance, tomorrow, slow, fast, crosswise can all be adverbs, while early, friendly, ugly are all adjectives (though early can also function as an adverb).
+In certain circumstances, even words with primarily grammatical functions can be used as verbs or nouns, as in "We must look to the hows and not just the whys" or "Miranda was to-ing and fro-ing and not paying attention".
+Part-of-speech tagging
+Part-of-speech tagging (POS tagging or POST), also called grammatical tagging, is the process of marking up the words in a text as corresponding to a particular part of speech, based on both its definition, as well as its context—i.e., relationship with adjacent and related words in a phrase, sentence, or paragraph.
+A simplified form of this is commonly taught school-age children, in the identification of words as nouns, verbs, adjectives, adverbs, etc.
+Once performed by hand, POS tagging is now done in the context of computational linguistics, using algorithms which associate discrete terms, as well as hidden parts of speech, in accordance with a set of descriptive tags.
+History
+Research on part-of-speech tagging has been closely tied to corpus linguistics.
+The first major corpus of English for computer analysis was the Brown Corpus developed at Brown University by Henry Kucera and Nelson Francis, in the mid-1960s.
+It consists of about 1,000,000 words of running English prose text, made up of 500 samples from randomly chosen publications.
+Each sample is 2,000 or more words (ending at the first sentence-end after 2,000 words, so that the corpus contains only complete sentences).
+The Brown Corpus was painstakingly "tagged" with part-of-speech markers over many years.
+A first approximation was done with a program by Greene and Rubin, which consisted of a huge handmade list of what categories could co-occur at all.
+For example, article then noun can occur, but article verb (arguably) cannot.
+The program got about 70% correct.
+Its results were repeatedly reviewed and corrected by hand, and later users sent in errata, so that by the late 70s the tagging was nearly perfect (allowing for some cases even human speakers might not agree on).
+This corpus has been used for innumerable studies of word-frequency and of part-of-speech, and inspired the development of similar "tagged" corpora in many other languages.
+Statistics derived by analyzing it formed the basis for most later part-of-speech tagging systems, such as CLAWS and VOLSUNGA.
+However, by this time (2005) it has been superseded by larger corpora such as the 100 million word British National Corpus.
+For some time, part-of-speech tagging was considered an inseparable part of natural language processing, because there are certain cases where the correct part of speech cannot be decided without understanding the semantics or even the pragmatics of the context.
+This is extremely expensive, especially because analyzing the higher levels is much harder when multiple part-of-speech possibilities must be considered for each word.
+In the mid 1980s, researchers in Europe began to use hidden Markov models (HMMs) to disambiguate parts of speech, when working to tag the Lancaster-Oslo-Bergen Corpus of British English.
+HMMs involve counting cases (such as from the Brown Corpus), and making a table of the probabilities of certain sequences.
+For example, once you've seen an article such as 'the', perhaps the next word is a noun 40% of the time, an adjective 40%, and a number 20%.
+Knowing this, a program can decide that "can" in "the can" is far more likely to be a noun than a verb or a modal.
+The same method can of course be used to benefit from knowledge about following words.
+More advanced ("higher order") HMMs learn the probabilities not only of pairs, but triples or even larger sequences.
+So, for example, if you've just seen an article and a verb, the next item may be very likely a preposition, article, or noun, but even less likely another verb.
+When several ambiguous words occur together, the possibilities multiply.
+However, it is easy to enumerate every combination and to assign a relative probability to each one, by multiplying together the probabilities of each choice in turn.
+The combination with highest probability is then chosen.
+The European group developed CLAWS, a tagging program that did exactly this, and achieved accuracy in the 93-95% range.
+It is worth remembering, as Eugene Charniak points out in Statistical techniques for natural language parsing www.cs.brown.edu/people/ec/home.html, that merely assigning the most common tag to each known word and the tag "proper noun" to all unknowns, will approach 90% accuracy because many words are unambiguous.
+CLAWS pioneered the field of HMM-based part of speech tagging, but was quite expensive since it enumerated all possibilities.
+It sometimes had to resort to backup methods when there were simply too many (the Brown Corpus contains a case with 17 ambiguous words in a row, and there are words such as "still" that can represent as many as 7 distinct parts of speech).
+In 1987, Steve DeRose and Ken Church independently developed dynamic programming algorithms to solve the same problem in vastly less time.
+Their methods were similar to the Viterbi algorithm known for some time in other fields.
+DeRose used a table of pairs, while Church used a table of triples and an ingenious method of estimating the values for triples that were rare or nonexistent in the Brown Corpus (actual measurement of triple probabilities would require a much larger corpus).
+Both methods achieved accuracy over 95%.
+DeRose's 1990 dissertation at Brown University included analyses of the specific error types, probabilities, and other related data, and replicated his work for Greek, where it proved similarly effective.
+These findings were surprisingly disruptive to the field of Natural Language Processing.
+The accuracy reported was higher than the typical accuracy of very sophisticated algorithms that integrated part of speech choice with many higher levels of linguistic analysis: syntax, morphology, semantics, and so on.
+CLAWS, DeRose's and Church's methods did fail for some of the known cases where semantics is required, but those proved negligibly rare.
+This convinced many in the field that part-of-speech tagging could usefully be separated out from the other levels of processing; this in turn simplified the theory and practice of computerized language analysis, and encouraged researchers to find ways to separate out other pieces as well.
+Markov Models are now the standard method for part-of-speech assignment.
+The methods already discussed involve working from a pre-existing corpus to learn tag probabilities.
+It is, however, also possible to bootstrap using "unsupervised" tagging.
+Unsupervised tagging techniques use an untagged corpus for their training data and produce the tagset by induction.
+That is, they observe patterns in word use, and derive part-of-speech categories themselves.
+For example, statistics readily reveal that "the", "a", and "an" occur in similar contexts, while "eat" occurs in very different ones.
+With sufficient iteration, similarity classes of words emerge that are remarkably similar to those human linguists would expect; and the differences themselves sometimes suggest valuable new insights.
+These two categories can be further subdivided into rule-based, stochastic, and neural approaches.
+Some current major algorithms for part-of-speech tagging include the Viterbi algorithm, Brill Tagger, and the Baum-Welch algorithm (also known as the forward-backward algorithm).
+Hidden Markov model and visible Markov model taggers can both be implemented using the Viterbi algorithm.
+Pattern recognition
+Pattern recognition is a sub-topic of machine learning.
+It can be defined as
+"the act of taking in raw data and taking an action based on the category of the data".
+Most research in pattern recognition is about methods for supervised learning and unsupervised learning.
+Pattern recognition aims to classify data (patterns) based on either a priori knowledge or on statistical information extracted from the patterns.
+The patterns to be classified are usually groups of measurements or observations, defining points in an appropriate multidimensional space.
+This is in contrast to pattern matching, where the pattern is rigidly specified.
+Overview
+A complete pattern recognition system consists of a sensor that gathers the observations to be classified or described; a feature extraction mechanism that computes numeric or symbolic information from the observations; and a classification or description scheme that does the actual job of classifying or describing observations, relying on the extracted features.
+The classification or description scheme is usually based on the availability of a set of patterns that have already been classified or described.
+This set of patterns is termed the training set and the resulting learning strategy is characterized as supervised learning.
+Learning can also be unsupervised, in the sense that the system is not given an a priori labeling of patterns, instead it establishes the classes itself based on the statistical regularities of the patterns.
+The classification or description scheme usually uses one of the following approaches: statistical (or decision theoretic), syntactic (or structural).
+Statistical pattern recognition is based on statistical characterisations of patterns, assuming that the patterns are generated by a probabilistic system.
+Syntactical (or structural) pattern recognition is based on the structural interrelationships of features.
+A wide range of algorithms can be applied for pattern recognition, from very simple Bayesian classifiers to much more powerful neural networks.
+An intriguing problem in pattern recognition yet to be solved is the relationship between the problem to be solved (data to be classified) and the performance of various pattern recognition algorithms (classifiers).
+Pattern recognition is more complex when templates are used to generate variants.
+For example, in English, sentences often follow the "N-VP" (noun - verb phrase) pattern, but some knowledge of the English language is required to detect the pattern.
+Pattern recognition is studied in many fields, including psychology, ethology, and computer science.
+Holographic associative memory is another type of pattern matching scheme where a target small patterns can be searched from a large set of learned patterns based on cognitive meta-weight.
+Uses
+Within medical science pattern recognition creates the basis for computer-aided diagnosis (CAD) systems.
+CAD describes a procedure that supports the doctor's interpretations and findings.
+Typical applications are automatic speech recognition, classification of text into several categories (e.g. spam/non-spam email messages), the automatic recognition of handwritten postal codes on postal envelopes, or the automatic recognition of images of human faces.
+The last two examples form the subtopic image analysis of pattern recognition that deals with digital images as input to pattern recognition systems.
+Phrase
+In grammar, a phrase is a group of words that functions as a single unit in the syntax of a sentence.
+For example the house at the end of the street (example 1) is a phrase.
+It acts like a noun.
+It contains the phrase at the end of the street (example 2), a prepositional phrase which acts like an adjective.
+Example 2 could be replaced by white, to make the phrase the white house.
+Examples 1 and 2 contain the phrase the end of the street (example 3) which acts like a noun.
+It could be replaced by the cross-roads to give the house at the cross-roads.
+Most phrases have a or central word which defines the type of phrase.
+This word is called the head of the phrase.
+In English the head is often the first word of the phrase.
+Some phrases, however, can be headless.
+For example, the rich is a noun phrase composed of a determiner and an adjective, but no noun.
+Phrases may be classified by the type of head they take
+Prepositional phrase (PP) with a preposition as head (e.g. in love, over the rainbow).
+Languages that use postpositions instead have postpositional phrases.
+The two types are sometimes commonly referred to as adpositional phrases.
+Noun phrase (NP) with a noun as head (e.g. the black cat, a cat on the mat)
+Verb phrase (VP) with a verb as head (e.g. eat cheese, jump up and down)
+Adjectival phrase with an adjective as head (e.g. full of toys)
+Adverbial phrase with adverb as head (e.g. very carefully)
+Formal definition
+A phrase is a syntactic structure which has syntactic properties derived from its head.
+Complexity
+A complex phrase consists of several words, whereas a simple phrase consists of only one word.
+This terminology is especially often used with verb phrases:
+simple past and present are simple verb, which require just one verb
+complex verb have one or two aspects added, hence require additional two or three words
+"Complex", which is phrase-level, is often confused with "compound", which is word-level.
+However, there are certain phenomena that formally seem to be phrases but semantically are more like compounds, like "women's magazines", which has the form of a possessive noun phrase, but which refers (just like a compound) to one specific lexeme (i.e. a magazine for women and not some magazine owned by a woman).
+Semiotic approaches to the concept of "phrase"
+In more semiotic approaches to language, such as the more cognitivist versions of construction grammar, a phrasal structure is not only a certain formal combination of word types whose features are inherited from the head.
+Here each phrasal structure also expresses some type of conceptual content, be it specific or abstract.
+Portuguese language
+Portuguese ( or língua portuguesa) is a Romance language that originated in what is now Galicia (Spain) and northern Portugal from the Latin spoken by romanized Pre-Roman peoples of the Iberian Peninsula (namely the Gallaeci, the Lusitanians, the Celtici and the Conii) about 2000 years ago.
+It spread worldwide in the 15th and 16th centuries as Portugal established a colonial and commercial empire (1415&ndash;1999) which spanned from Brazil in the Americas to Goa in India and Macau in China, in fact it was used exclusively on the island of Sri Lanka as the lingua franca for almost 350 years.
+During that time, many creole languages based on Portuguese also appeared around the world, especially in Africa, Asia, and the Caribbean.
+Today it is one of the world's major languages, ranked 6th according to number of native speakers (approximately 177 million).
+It is the language with the largest number of speakers in South America, spoken by nearly all of Brazil's population, which amounts to over 51% of the continent's population even though it is the only Portuguese-speaking nation in the Americas.
+It is also a major lingua franca in Portugal's former colonial possessions in Africa.
+It is the official language of ten countries (see the table on the right), also being co-official with Spanish and French in Equatorial Guinea, with Cantonese Chinese in the Chinese special administrative region of Macau, and with Tetum in East Timor.
+There are sizable communities of Portuguese-speakers in various regions of North America, notably in the United States (New Jersey, New England and south Florida) and in Ontario, Canada.
+Spanish author Miguel de Cervantes once called Portuguese "the sweet language", while Brazilian writer Olavo Bilac poetically described it as a última flor do Lácio, inculta e bela: "the last flower of Latium, wild and beautiful".
+Geographic distribution
+Today, Portuguese is the official language of Angola, Brazil, Cape Verde, Guinea-Bissau, Portugal, São Tomé and Príncipe and Mozambique.
+It is also one of the official languages of Equatorial Guinea (with Spanish and French), the Chinese special administrative region of Macau (with Chinese), and East Timor, (with Tetum).
+It is a native language of most of the population in Portugal (100%), Brazil (99%), Angola (60%), and São Tomé and Príncipe (50%), and it is spoken by a plurality of the population of Mozambique (40%), though only 6.5% are native speakers.
+No data is available for Cape Verde, but almost all the population is bilingual, and the monolingual population speaks Cape Verdean Creole.
+Small Portuguese-speaking communities subsist in former overseas colonies of Portugal such as Macau, where it is spoken as a first language by 0.6% of the population and East Timor.
+Uruguay gave Portuguese an equal status to Spanish in its educational system at the north border with Brazil.
+In the rest of the country, it's taught as an obligatory subject beginning by the 6th grade.
+It is also spoken by substantial immigrant communities, though not official, in Andorra, France, Luxembourg, Jersey (with a statistically significant Portuguese-speaking community of approximately 10,000 people), Paraguay, Namibia, South Africa, Switzerland, Venezuela and in the U.S. states of California, Connecticut, Florida, Massachusetts, New Jersey, New York and Rhode Island.
+In some parts of India, such as Goa and Daman and Diu Portuguese is still spoken.
+There are also significant populations of Portuguese speakers in Canada (mainly concentrated in and around Toronto) Bermuda and Netherlands Antilles.
+Portuguese is an official language of several international organizations.
+The Community of Portuguese Language Countries (with the Portuguese acronym CPLP) consists of the eight independent countries that have Portuguese as an official language.
+It is also an official language of the European Union, Mercosul, the Organization of American States, the Organization of Ibero-American States, the Union of South American Nations, and the African Union (one of the working languages) and one of the official languages of other organizations.
+The Portuguese language is gaining popularity in Africa, Asia, and South America as a second language for study.
+Portuguese and Spanish are the fastest-growing European languages, and, according to estimates by UNESCO, Portuguese is the language with the highest potential for growth as an international language in southern Africa and South America.
+The Portuguese-speaking African countries are expected to have a combined population of 83 million by 2050.
+Since 1991, when Brazil signed into the economic market of Mercosul with other South American nations, such as Argentina, Uruguay, and Paraguay, there has been an increase in interest in the study of Portuguese in those South American countries.
+The demographic weight of Brazil in the continent will continue to strengthen the presence of the language in the region.
+Although in the early 21st century, after Macau was ceded to China in 1999, the use of Portuguese was in decline in Asia, it is becoming a language of opportunity there; mostly because of East Timor's boost in the number of speakers in the last five years but also because of increased Chinese diplomatic and financial ties with Portuguese-speaking countries.
+In July 2007, President Teodoro Obiang Nguema announced his government's decision to make Portuguese Equatorial Guinea's third official language, in order to meet the requirements to apply for full membership of the Community of Portuguese Language Countries.
+This upgrading from its current Associate Observer condition would result in Equatorial Guinea being able to access several professional and academic exchange programs and the facilitation of cross-border circulation of citizens.
+Its application is currently being assessed by other CPLP members.
+In March 1994 the Bosque de Portugal (Portugal's Woods) was founded in the Brazilian city of Curitiba.
+The park houses the Portuguese Language Memorial, which honors the Portuguese immigrants and the countries that adopted the Portuguese language.
+Originally there were seven nations represented with pillars, but the independence of East Timor brought yet another pillar for that nation in 2007.
+In March 2006, the Museum of the Portuguese Language, an interactive museum about the Portuguese language, was founded in São Paulo, Brazil, the city with the largest number of Portuguese speakers in the world.
+Dialects
+Portuguese is a pluricentric language with two main groups of dialects, those of Brazil and those of the Old World.
+For historical reasons, the dialects of Africa and Asia are generally closer to those of Portugal than the Brazilian dialects, although in some aspects of their phonetics, especially the pronunciation of unstressed vowels, they resemble Brazilian Portuguese more than European Portuguese.
+They have not been studied as widely as European and Brazilian Portuguese.
+Audio samples of some dialects of Portuguese are available below.
+There are some differences between the areas but these are the best approximations possible.
+For example, the caipira dialect has some differences from the one of Minas Gerais, but in general it is very close.
+A good example of Brazilian Portuguese may be found in the capital city, Brasília, because of the generalized population from all parts of the country.
+Angola
+Benguelense &mdash; Benguela province.
+Luandense &mdash; Luanda province.
+Sulista &mdash; South of Angola.
+Brazil
+Caipira &mdash; States of São Paulo (countryside; the city of São Paulo and the eastern areas of the state have their own dialect, called paulistano); southern Minas Gerais, northern Paraná, Goiás and Mato Grosso do Sul.
+Cearense &mdash; Ceará.
+Baiano &mdash; Bahia.
+Fluminense &mdash; Variants spoken in the states of Rio de Janeiro and Espírito Santo (excluding the city of Rio de Janeiro and its adjacent metropolitan areas, which have their own dialect, called carioca).
+Gaúcho &mdash; Rio Grande do Sul.
+(There are many distinct accents in Rio Grande do Sul, mainly due to the heavy influx of European immigrants of diverse origins, those which have settled several colonies throughout the state.)
+Mineiro &mdash; Minas Gerais (not prevalent in the Triângulo Mineiro, southern and southeastern Minas Gerais).
+Nordestino &mdash; northeastern states of Brazil (Pernambuco and Rio Grande do Norte have a particular way of speaking).
+Nortista &mdash; Amazon Basin states.
+Paulistano &mdash; Variants spoken around São Paulo city and the eastern areas of São Paulo state.
+Sertanejo &mdash; States of Goiás and Mato Grosso (the city of Cuiabá has a particular way of speaking).
+Sulista &mdash; Variants spoken in the areas between the northern regions of Rio Grande do Sul and southern regions of São Paulo state.
+(The cities of Curitiba, Florianópolis, and Itapetininga have fairly distinct accents as well.)
+Portugal
+Açoriano (Azorean) &mdash; Azores.
+Alentejano &mdash; Alentejo
+Algarvio &mdash; Algarve (there is a particular dialect in a small part of western Algarve).
+Alto-Minhoto &mdash; North of Braga (hinterland).
+Baixo-Beirão; Alto-Alentejano &mdash; Central Portugal (hinterland).
+Beirão &mdash; Central Portugal.
+Estremenho &mdash; Regions of Coimbra and Lisbon (the Lisbon dialect has some peculiar features not shared with the one of Coimbra).
+Madeirense (Madeiran) &mdash; Madeira.
+Nortenho &mdash; Regions of Braga and Porto.
+Transmontano &mdash; Trás-os-Montes e Alto Douro.
+Other countries
+Cape Verde &mdash; Português cabo-verdiano (Cape Verdean Portuguese)
+Daman and Diu, India &mdash; Damaense.
+East Timor &mdash; Timorense (East Timorese)
+Goa, India &mdash; Goês.
+Guinea-Bissau &mdash; Guineense (Guinean Portuguese).
+Macau, China &mdash; Macaense (Macanese)
+Mozambique &mdash; Moçambicano (Mozambican)
+São Tomé and Príncipe &mdash; Santomense
+Uruguay &mdash; Dialectos Portugueses del Uruguay (DPU).
+Differences between dialects are mostly of accent and vocabulary, but between the Brazilian dialects and other dialects, especially in their most coloquial forms, there can also be some grammatical differences.
+The Portuguese-based creoles spoken in various parts of Africa, Asia, and the Americas are independent languages which should not be confused with Portuguese itself.
+History
+Arriving in the Iberian Peninsula in 216 BC, the Romans brought with them the Latin language, from which all Romance languages descend.
+The language was spread by arriving Roman soldiers, settlers and merchants, who built Roman cities mostly near the settlements of previous civilizations.
+Between AD 409 and 711, as the Roman Empire collapsed in Western Europe, the Iberian Peninsula was conquered by Germanic peoples (Migration Period).
+The occupiers, mainly Suebi and Visigoths, quickly adopted late Roman culture and the Vulgar Latin dialects of the peninsula.
+After the Moorish invasion of 711, Arabic became the administrative language in the conquered regions, but most of the population continued to speak a form of Romance commonly known as Mozarabic.
+The influence exerted by Arabic on the Romance dialects spoken in the Christian kingdoms of the north was small, affecting mainly their lexicon.
+The earliest surviving records of a distinctively Portuguese language are administrative documents of the 9th century, still interspersed with many Latin phrases.
+Today this phase is known as Proto-Portuguese (between the 9th and the 12th centuries).
+In the first period of Old Portuguese — Galician-Portuguese Period (from the 12th to the 14th century) — the language gradually came into general use.
+For some time, it was the language of preference for lyric poetry in Christian Hispania, much like Occitan was the language of the poetry of the troubadours.
+Portugal was formally recognized as an independent kingdom by the Kingdom of Leon in 1143, with Afonso Henriques as king.
+In 1290, king Dinis created the first Portuguese university in Lisbon (the Estudos Gerais, later moved to Coimbra) and decreed that Portuguese, then simply called the "common language" should be known as the Portuguese language and used officially.
+In the second period of Old Portuguese, from the 14th to the 16th century, with the Portuguese discoveries, the language was taken to many regions of Asia, Africa and the Americas (nowadays, the great majority of Portuguese speakers live in Brazil, in South America).
+By the 16th century it had become a lingua franca in Asia and Africa, used not only for colonial administration and trade but also for communication between local officials and Europeans of all nationalities.
+Its spread was helped by mixed marriages between Portuguese and local people, and by its association with Roman Catholic missionary efforts, which led to the formation of a creole language called Kristang in many parts of Asia (from the word cristão, "Christian").
+The language continued to be popular in parts of Asia until the 19th century.
+Some Portuguese-speaking Christian communities in India, Sri Lanka, Malaysia, and Indonesia preserved their language even after they were isolated from Portugal.
+The end of the Old Portuguese period was marked by the publication of the Cancioneiro Geral by Garcia de Resende, in 1516.
+The early times of Modern Portuguese, which spans from the 16th century to present day, were characterized by an increase in the number of learned words borrowed from Classical Latin and Classical Greek since the Renaissance, which greatly enriched the lexicon.
+Characterization
+A distinctive feature of Portuguese is that it preserved the stressed vowels of Vulgar Latin, which became diphthongs in other Romance languages; cf. Fr. pierre, Sp. piedra, It. pietra, Port. pedra, from Lat. petra; or Sp. fuego, It. fuoco, Port. fogo, from Lat. focum.
+Another characteristic of early Portuguese was the loss of intervocalic l and n, sometimes followed by the merger of the two surrounding vowels, or by the insertion of an epenthetic vowel between them: cf. Lat. salire, tenere, catena, Sp. salir, tener, cadena, Port. sair, ter, cadeia.
+When the elided consonant was n, it often nasalized the preceding vowel: cf. Lat. manum, rana, bonum, Port. mão, rãa, bõo (now mão, rã, bom).
+This process was the source of most of the nasal diphthongs which are typical of Portuguese.
+In particular, the Latin endings -anem, -anum and -onem became -ão in most cases, cf. Lat. canem, germanum, rationem with Modern Port. cão, irmão, razão, and their plurals -anes, -anos, -ones normally became -ães, -ãos, -ões, cf. cães, irmãos, razões.
+Movement to make Portuguese an official language of the UN
+There is a growing number of people in the Portuguese speaking media and the internet who are presenting the case to the CPLP and other organizations to run a debate in the Lusophone community with the purpose of bringing forward a petition to make Portuguese an official language of the United Nations.
+In October 2005, during the international Convention of the Elos Club International  that took place in Tavira, Portugal a petition was written and unanimously approved whose text can be found on the internet with the title Petição Para Tornar Oficial o Idioma Português na ONU.
+Romulo Alexandre Soares, president of the Brazil-Portugal Chamber highlights that the positioning of Brazil in the international arena as one of the emergent powers of the 21 century, the size of its population, and the presence of the language around the world provides legitimacy and justifies a petition to the UN to make the Portuguese an official language at the UN.
+Vocabulary
+Most of the lexicon of Portuguese is derived from Latin.
+Nevertheless, because of the Moorish occupation of the Iberian Peninsula during the Middle Ages, and the participation of Portugal in the Age of Discovery, it has adopted loanwords from all over the world.
+Very few Portuguese words can be traced to the pre-Roman inhabitants of Portugal, which included the Gallaeci, Lusitanians, Celtici and Cynetes.
+The Phoenicians and Carthaginians, briefly present, also left some scarce traces.
+Some notable examples are abóbora "pumpkin" and bezerro "year-old calf", from the nearby Celtiberian language (probably through the Celtici); cerveja "beer", from Celtic; saco "bag", from Phoenician; and cachorro "dog, puppy", from Basque.
+In the 5th century, the Iberian Peninsula (the Roman Hispania) was conquered by the Germanic Suevi and Visigoths.
+As they adopted the Roman civilization and language, however, these people contributed only a few words to the lexicon, mostly related to warfare — such as espora "spur", estaca "stake", and guerra "war", from Gothic *spaúra, *stakka, and *wirro, respectively.
+Between the 9th and 15th centuries Portuguese acquired about 1000 words from Arabic by influence of Moorish Iberia.
+They are often recognizable by the initial Arabic article a(l)-, and include many common words such as aldeia "village" from الضيعة aldaya, alface "lettuce" from الخس alkhass, armazém "warehouse" from المخزن almahazan, and azeite "olive oil" from زيت azzait.
+From Arabic came also the grammatically peculiar word oxalá "hopefully".
+The Mozambican currency name metical was derived from the word مطقال miṭqāl, a unit of weight.
+The word Mozambique itself is from the Arabic name of sultan Muça Alebique (Musa Alibiki).
+The name of the Portuguese town of Fátima comes from the name of one of the daughters of the prophet Muhammad.
+Starting in the 15th century, the Portuguese maritime explorations led to the introduction of many loanwords from Asian languages.
+For instance, catana "cutlass" from Japanese katana; corja "rabble" from Malay kórchchu; and chá "tea" from Chinese ''''chá''''.
+From South America came batata "potato", from Taino; ananás and abacaxi, from Tupi-Guarani naná and Tupi ibá cati, respectively (two species of pineapple), and tucano "toucan" from Guarani tucan.
+See List of Brazil state name etymologies, for some more examples.
+From the 16th to the 19th century, the role of Portugal as intermediary in the Atlantic slave trade, with the establishment of large Portuguese colonies in Angola, Mozambique, and Brazil, Portuguese got several words of African and Amerind origin, especially names for most of the animals and plants found in those territories.
+While those terms are mostly used in the former colonies, many became current in European Portuguese as well.
+From Kimbundu, for example, came kifumate → cafuné "head caress", kusula → caçula "youngest child", marimbondo "tropical wasp", and kubungula → bungular "to dance like a wizard".
+Finally, it has received a steady influx of loanwords from other European languages.
+For example, melena "hair lock", fiambre "wet-cured ham" (in contrast with presunto "dry-cured ham" from Latin prae-exsuctus "dehydrated"), and castelhano "Castilian", from Spanish; colchete/crochê "bracket"/"crochet", paletó "jacket", batom "lipstick", and filé/filete "steak"/"slice" respectively, from French crochet, paletot, bâton, filet; macarrão "pasta", piloto "pilot", carroça "carriage", and barraca "barrack", from Italian maccherone, pilota, carrozza, baracca; and bife "steak", futebol, revólver, estoque, folclore, from English beef, football, revolver, stock, folklore.
+Classification and related languages
+Portuguese belongs to the West Iberian branch of the Romance languages, and it has special ties with the following members of this group:
+Galician and the Fala, its closest relatives.
+See below.
+Spanish, the major language closest to Portuguese.
+(See also Differences between Spanish and Portuguese.)
+Mirandese, another West Iberian language spoken in Portugal.
+Judeo-Portuguese and Judeo-Spanish, languages spoken by Sephardic Jews, which remained close to Portuguese and Spanish.
+Despite the obvious lexical and grammatical similarities between Portuguese and other Romance languages, it is not mutually intelligible with most of them.
+Apart from Galician, Portuguese speakers will usually need some formal study of basic grammar and vocabulary, before attaining a reasonable level of comprehension of those languages, and vice-versa.
+Galician and the Fala
+The closest language to Portuguese is Galician, spoken in the autonomous community of Galicia (northwestern Spain).
+The two were at one time a single language, known today as Galician-Portuguese, but since the political separation of Portugal from Galicia they have diverged somewhat, especially in pronunciation and vocabulary.
+Nevertheless, the core vocabulary and grammar of Galician are still noticeably closer to Portuguese than to Spanish.
+In particular, like Portuguese, it uses the future subjunctive, the personal infinitive, and the synthetic pluperfect (see the section on the grammar of Portuguese, below).
+Mutual intelligibility (estimated at 85% by R. A. Hall, Jr., 1989) is good between Galicians and northern Portuguese, but poorer between Galicians and speakers from central Portugal.
+The Fala language is another descendant of Galician-Portuguese, spoken by a small number of people in the Spanish towns of Valverdi du Fresnu, As Ellas and Sa Martín de Trebellu (autonomous community of Extremadura, near the border with Portugal).
+Influence on other languages
+Many languages have borrowed words from Portuguese, such as Indonesian, Sri Lankan Tamil and Sinhalese (see Sri Lanka Indo-Portuguese), Malay, Bengali, English, Hindi, Konkani, Marathi, Tetum, Xitsonga, Papiamentu, Japanese, Bajan Creole (Spoken in Barbados), Lanc-Patuá (spoken in northern Brazil) and Sranan Tongo (spoken in Suriname).
+It left a strong influence on the língua brasílica, a Tupi-Guarani language which was the most widely spoken in Brazil until the 18th century, and on the language spoken around Sikka in Flores Island, Indonesia.
+In nearby Larantuka, Portuguese is used for prayers in Holy Week rituals.
+The Japanese-Portuguese dictionary Nippo Jisho (1603) was the first dictionary of Japanese in a European language, a product of Jesuit missionary activity in Japan.
+Building on the work of earlier Portuguese missionaries, the Dictionarium Anamiticum, Lusitanum et Latinum (Annamite-Portuguese-Latin dictionary) of Alexandre de Rhodes (1651) introduced the modern orthography of Vietnamese, which is based on the orthography of 17th-century Portuguese.
+The Romanization of Chinese was also influenced by the Portuguese language (among others), particularly regarding Chinese surnames; one example is Mei.
+See also List of English words of Portuguese origin, Loan words in Indonesian, Japanese words of Portuguese origin, Borrowed words in Malay, Sinhala words of Portuguese origin, Loan words from Portuguese in Sri Lankan Tamil.
+Derived languages
+Beginning in the 16th century, the extensive contacts between Portuguese travelers and settlers, African slaves, and local populations led to the appearance of many pidgins with varying amounts of Portuguese influence.
+As these pidgins became the mother tongue of succeeding generations, they evolved into fully fledged creole languages, which remained in use in many parts of Asia and Africa until the 18th century.
+Some Portuguese-based or Portuguese-influenced creoles are still spoken today, by over 3 million people worldwide, especially people of partial Portuguese ancestry.
+Phonology
+There is a maximum of 9 oral vowels and 19 consonants, though some varieties of the language have fewer phonemes (Brazilian Portuguese has only 8 oral vowel phones).
+There are also five nasal vowels, which some linguists regard as allophones of the oral vowels, ten oral diphthongs, and five nasal diphthongs.
+Vowels
+To the seven vowels of Vulgar Latin, European Portuguese has added two near central vowels, one of which tends to be elided in rapid speech, like the e caduc of French (represented either as <ipa/>, or <ipa/>, or <ipa/>).
+The high vowels <ipa/> and the low vowels <ipa/> are four distinct phonemes, and they alternate in various forms of apophony.
+Like Catalan, Portuguese uses vowel quality to contrast stressed syllables with unstressed syllables: isolated vowels tend to be raised, and in some cases centralized, when unstressed.
+Nasal diphthongs occur mostly at the end of words.
+Consonants
+The consonant inventory of Portuguese is fairly conservative.
+The medieval affricates <ipa/>, <ipa/>, <ipa/>, <ipa/> merged with the fricatives <ipa/>, <ipa/>, <ipa/>, <ipa/>, respectively, but not with each other, and there were no other significant changes to the consonant phonemes since then.
+However, some remarkable dialectal variants and allophones have appeared, among which:
+In many regions of Brazil, <ipa/> and <ipa/> have the affricate allophones <ipa/> and <ipa/>, respectively, before <ipa/> and <ipa/>.
+(Quebec French has a similar phenomenon, with alveolar affricates instead of postalveolars.
+Japanese is another example).
+At the end of a syllable, the phoneme <ipa/> has the allophone <ipa/> in Brazilian Portuguese (L-vocalization).
+In many parts of Brazil and Angola, intervocalic <ipa/> is pronounced as a nasalized palatal approximant <ipa/> which nasalizes the preceding vowel, so that for instance <ipa/> is pronounced <ipa/>.
+In most of Brazil, the alveolar sibilants <ipa/> and <ipa/> occur in complementary distribution at the end of syllables, depending on whether the consonant that follows is voiceless or voiced, as in English.
+But in most of Portugal and parts of Brazil sibilants are postalveolar at the end of syllables, <ipa/> before voiceless consonants, and <ipa/> before voiced consonants (in Judeo-Spanish, <ipa/> is often replaced with <ipa/> at the end of syllables, too).
+There is considerable dialectal variation in the value of the rhotic phoneme <ipa/>.
+See Guttural R in Portuguese, for details.
+Grammar
+A particularly interesting aspect of the grammar of Portuguese is the verb.
+Morphologically, more verbal inflections from classical Latin have been preserved by Portuguese than any other major Romance language.
+See Romance copula, for a detailed comparison.
+It has also some innovations not found in other Romance languages (except Galician and the Fala):
+The present perfect tense has an iterative sense unique among the Romance languages.
+It denotes an action or a series of actions which began in the past and are expected to keep repeating in the future.
+For instance, the sentence Tenho tentado falar com ela would be translated to "I have been trying to talk to her", not "I have tried to talk to her".
+On the other hand, the correct translation of the question "Have you heard the latest news?" is not *Tem ouvido a última notícia?, but Ouviu a última notícia?, since no repetition is implied.
+The future subjunctive tense, which was developed by medieval West Iberian Romance, but has now fallen into disuse in Spanish, is still used in vernacular Portuguese.
+It appears in dependent clauses that denote a condition which must be fulfilled in the future, so that the independent clause will occur.
+Other languages normally employ the present tense under the same circumstances:
+Se for eleito presidente, mudarei a lei.
+If I am elected president, I will change the law.
+Quando fores mais velho, vais entender.
+When you are older, you will understand.
+The personal infinitive: infinitives can inflect according to their subject in person and number, often showing who is expected to perform a certain action; cf. É melhor voltares "It is better [for you] to go back," É melhor voltarmos "It is better [for us] to go back."
+Perhaps for this reason, infinitive clauses replace subjunctive clauses more often in Portuguese than in other Romance languages.
+Writing system
+Portuguese is written with the Latin alphabet, making use of five diacritics to denote stress, vowel height, contraction, nasalization, and other sound changes (acute accent, grave accent, circumflex accent, tilde, and cedilla).
+Brazilian Portuguese also uses the diaeresis mark.
+Accented characters and digraphs are not counted as separate letters for collation purposes.
+Brazilian vs. European spelling
+There are some minor differences between the orthographies of Brazil and other Portuguese language countries.
+One of the most pervasive is the use of acute accents in the European/African/Asian orthography in many words such as sinónimo, where the Brazilian orthography has a circumflex accent, sinônimo.
+Another important difference is that Brazilian spelling often lacks c or p before c, ç, or t, where the European orthography has them; for example, cf. Brazilian fato with European facto, "fact", or Brazilian objeto with European objecto, "object".
+Some of these spelling differences reflect differences in the pronunciation of the words, but others are merely graphic.
+Examples
+Excerpt from the Portuguese national epic Os Lusíadas, by author Luís de Camões (I, 33)
+Predictive analytics
+Predictive analytics encompasses a variety of techniques from statistics and data mining that analyze current and historical data to make predictions about future events.
+Such predictions rarely take the form of absolute statements, and are more likely to be expressed as values that correspond to the odds of a particular event or behavior taking place in the future.
+In business, predictive models exploit patterns found in historical and transactional data to identify risks and opportunities.
+Models capture relationships among many factors to allow assessment of risk or potential associated with a particular set of conditions, guiding decision making for candidate transactions.
+One of the most well-known applications is credit scoring, which is used throughout financial services.
+Scoring models process a customer’s credit history, loan application, customer data, etc., in order to rank-order individuals by their likelihood of making future credit payments on time.
+Predictive analytics are also used in insurance, telecommunications, retail, travel, healthcare, pharmaceuticals and other fields.
+Types of predictive analytics
+Generally, predictive analytics is used to mean predictive modeling, scoring of predictive models, and forecasting.
+However, people are increasingly using the term to describe related analytic disciplines, such as descriptive modeling and decision modeling or optimization.
+These disciplines also involve rigorous data analysis, and are widely used in business for segmentation and decision making, but have different purposes and the statistical techniques underlying them vary.
+Predictive models
+Predictive models analyze past performance to assess how likely a customer is to exhibit a specific behavior in the future in order to improve marketing effectiveness.
+This category also encompasses models that seek out subtle data patterns to answer questions about customer performance, such as fraud detection models.
+Predictive models often perform calculations during live transactions, for example, to evaluate the risk or opportunity of a given customer or transaction, in order to guide a decision.
+Descriptive models
+Descriptive models “describe” relationships in data in a way that is often used to classify customers or prospects into groups.
+Unlike predictive models that focus on predicting a single customer behavior (such as credit risk), descriptive models identify many different relationships between customers or products.
+But the descriptive models do not rank-order customers by their likelihood of taking a particular action the way predictive models do.
+Descriptive models are often used “offline,” for example, to categorize customers by their product preferences and life stage.
+Descriptive modeling tools can be utilized to develop agent based models that can simulate large number of individualized agents to predict possible futures.
+Decision models
+Decision models describe the relationship between all the elements of a decision — the known data (including results of predictive models), the decision and the forecast results of the decision — in order to predict the results of decisions involving many variables.
+These models can be used in optimization, a data-driven approach to improving decision logic that involves maximizing certain outcomes while minimizing others.
+Decision models are generally used offline, to develop decision logic or a set of business rules that will produce the desired action for every customer or circumstance.
+Predictive analytics
+Definition
+Predictive analytics is an area of statistical analysis that deals with extracting information from data and using it to predict future trends and behavior patterns.
+The core of predictive analytics relies on capturing relationships between explanatory variables and the predicted variables from past occurrences, and exploiting it to predict future outcomes.
+Current uses
+Although predictive analytics can be put to use in many applications, we outline a few examples where predictive analytics has shown positive impact in recent years.
+Analytical Customer Relationship Management (CRM)
+Analytical Customer Relationship Management is a frequent commercial application of Predictive Analysis.
+Methods of predictive analysis are applied to customer data to pursue CRM objectives.
+Direct marketing
+Product marketing is constantly faced with the challenge of coping with the increasing number of competing products, different consumer preferences and the variety of methods (channels) available to interact with each consumer.
+Efficient marketing is a process of understanding the amount of variability and tailoring the marketing strategy for greater profitability.
+Predictive analytics can help identify consumers with a higher likelihood of responding to a particular marketing offer.
+Models can be built using data from consumers’ past purchasing history and past response rates for each channel.
+Additional information about the consumers demographic, geographic and other characteristics can be used to make more accurate predictions.
+Targeting only these consumers can lead to substantial increase in response rate which can lead to a significant reduction in cost per acquisition.
+Apart from identifying prospects, predictive analytics can also help to identify the most effective combination of products and marketing channels that should be used to target a given consumer.
+Cross-sell
+Often corporate organizations collect and maintain abundant data (e.g. customer records, sale transactions) and exploiting hidden relationships in the data can provide a competitive advantage to the organization.
+For an organization that offers multiple products, an analysis of existing customer behavior can lead to efficient cross sell of products.
+This directly leads to higher profitability per customer and strengthening of the customer relationship.
+Predictive analytics can help analyze customers’ spending, usage and other behavior, and help cross-sell the right product at the right time.
+Customer retention
+With the amount of competing services available, businesses need to focus efforts on maintaining continuous consumer satisfaction.
+In such a competitive scenario, consumer loyalty needs to be rewarded and customer attrition needs to be minimized.
+Businesses tend to respond to customer attrition on a reactive basis, acting only after the customer has initiated the process to terminate service.
+At this stage, the chance of changing the customer’s decision is almost impossible.
+Proper application of predictive analytics can lead to a more proactive retention strategy.
+By a frequent examination of a customer’s past service usage, service performance, spending and other behavior patterns, predictive models can determine the likelihood of a customer wanting to terminate service sometime in the near future.
+An intervention with lucrative offers can increase the chance of retaining the customer.
+Silent attrition is the behavior of a customer to slowly but steadily reduce usage and is another problem faced by many companies.
+Predictive analytics can also predict this behavior accurately and before it occurs, so that the company can take proper actions to increase customer activity.
+Underwriting
+Many businesses have to account for risk exposure due to their different services and determine the cost needed to cover the risk.
+For example, auto insurance providers need to accurately determine the amount of premium to charge to cover each automobile and driver.
+A financial company needs to assess a borrower’s potential and ability to pay before granting a loan.
+For a health insurance provider, predictive analytics can analyze a few years of past medical claims data, as well as lab, pharmacy and other records where available, to predict how expensive an enrollee is likely to be in the future.
+Predictive analytics can help underwriting of these quantities by predicting the chances of illness, default, bankruptcy, etc.
+Predictive analytics can streamline the process of customer acquisition, by predicting the future risk behavior of a customer using application level data.
+Proper predictive analytics can lead to proper pricing decisions, which can help mitigate future risk of default.
+Collection analytics
+Every portfolio has a set of delinquent customers who do not make their payments on time.
+The financial institution has to undertake collection activities on these customers to recover the amounts due.
+A lot of collection resources are wasted on customers who are difficult or impossible to recover.
+Predictive analytics can help optimize the allocation of collection resources by identifying the most effective collection agencies, contact strategies, legal actions and other strategies to each customer, thus significantly increasing recovery at the same time reducing collection costs.
+Fraud detection
+Fraud is a big problem for many businesses and can be of various types.
+Inaccurate credit applications, fraudulent transactions, identity thefts and false insurance claims are some examples of this problem.
+These problems plague firms all across the spectrum and some examples of likely victims are credit card issuers, insurance companies, retail merchants, manufacturers, business to business suppliers and even services providers.
+This is an area where a predictive model is often used to help weed out the “bads” and reduce a business's exposure to fraud.
+Portfolio, product or economy level prediction
+Often the focus of analysis is not the consumer but the product, portfolio, firm, industry or even the economy.
+For example a retailer might be interested in predicting store level demand for inventory management purposes.
+Or the Federal Reserve Board might be interested in predicting the unemployment rate for the next year.
+These type of problems can be addressed by predictive analytics using Time Series techniques (see below).
+Wrong Information....
+Statistical techniques
+The approaches and techniques used to conduct predictive analytics can broadly be grouped into regression techniques and machine learning techniques.
+Regression Techniques
+Regression models are the mainstay of predictive analytics.
+The focus lies on establishing a mathematical equation as a model to represent the interactions between the different variables in consideration.
+Depending on the situation, there is a wide variety of models that can be applied while performing predictive analytics.
+Some of them are briefly discussed below.
+Linear Regression Model
+The linear regression model analyzes the relationship between the response or dependent variable and a set of independent or predictor variables.
+This relationship is expressed as an equation that predicts the response variable as a linear function of the parameters.
+These parameters are adjusted so that a measure of fit is optimized.
+Much of the effort in model fitting is focused on minimizing the size of the residual, as well as ensuring that it is randomly distributed with respect to the model predictions.
+The goal of regression is to select the parameters of the model so as to minimize the sum of the squared residuals.
+This is referred to as ordinary least squares (OLS) estimation and results in best linear unbiased estimates (BLUE) of the parameters if and only if the Gauss-Markowitz assumptions are satisfied.
+Once the model has been estimated we would be interested to know if the predictor variables belong in the model – i.e. is the estimate of each variable’s contribution reliable?
+To do this we can check the statistical significance of the model’s coefficients which can be measured using the t-statistic.
+This amounts to testing whether the coefficient is significantly different from zero.
+How well the model predicts the dependent variable based on the value of the independent variables can be assessed by using the R² statistic.
+It measures predictive power of the model i.e. the proportion of the total variation in the dependent variable that is “explained” (accounted for) by variation in the independent variables.
+Discrete choice models
+Multivariate regression (above) is generally used when the response variable is continuous and has an unbounded range.
+Often the response variable may not be continuous but rather discrete.
+While mathematically it is feasible to apply multivariate regression to discrete ordered dependent variables, some of the assumptions behind the theory of multivariate linear regression no longer hold, and there are other techniques such as discrete choice models which are better suited for this type of analysis.
+If the dependent variable is discrete, some of those superior methods are logistic regression, multinomial logit and probit models.
+Logistic regression and probit models are used when the dependent variable is binary.
+Logistic regression
+In a classification setting, assigning outcome probabilities to observations can be achieved through the use of a logistic model, which is basically a method which transforms information about the binary dependent variable into an unbounded continuous variable and estimates a regular multivariate model (See Allison’s Logistic Regression for more information on the theory of Logistic Regression).
+The Wald and likelihood-ratio test are used to test the statistical significance of each coefficient b in the model (analogous to the t tests used in OLS regression; see above).
+A test assessing the goodness-of-fit of a classification model is the Hosmer and Lemeshow test.
+Multinomial logistic regression
+An extension of the binary logit model to cases where the dependent variable has more than 2 categories is the multinomial logit model.
+In such cases collapsing the data into two categories might not make good sense or may lead to loss in the richness of the data.
+The multinomial logit model is the appropriate technique in these cases, especially when the dependent variable categories are not ordered (for examples colors like red, blue, green).
+Some authors have extended multinomial regression to include feature selection/importance methods such as Random multinomial logit.
+Probit regression
+Probit models offer an alternative to logistic regression for modeling categorical dependent variables.
+Even though the outcomes tend to be similar, the underlying distributions are different.
+Probit models are popular in social sciences like economics.
+A good way to understand the key difference between probit and logit models, is to assume that there is a latent variable z.
+We do not observe z but instead observe y which takes the value 0 or 1.
+In the logit model we assume that follows a logistic distribution.
+In the probit model we assume that follows a standard normal distribution.
+Note that in social sciences (example economics), probit is often used to model situations where the observed variable y is continuous but takes values between 0 and 1.
+Logit vs. Probit
+The Probit model has been around longer than the logit model.
+They look identical, except that the logistic distribution tends to be a little flat tailed.
+In fact one of the reasons the logit model was formulated was that the probit model was extremely hard to compute because it involved calculating difficult integrals.
+Modern computing however has made this computation fairly simple.
+The coefficients obtained from the logit and probit model are also fairly close.
+However the odds ratio makes the logit model easier to interpret.
+For practical purposes the only reasons for choosing the probit model over the logistic model would be:
+There is a strong belief that the underlying distribution is normal
+The actual event is not a binary outcome (e.g. Bankrupt/not bankrupt) but a proportion (e.g. Proportion of population at different debt levels).
+Time series models
+Time series models are used for predicting or forecasting the future behavior of variables.
+These models account for the fact that data points taken over time may have an internal structure (such as autocorrelation, trend or seasonal variation) that should be accounted for.
+As a result standard regression techniques cannot be applied to time series data and methodology has been developed to decompose the trend, seasonal and cyclical component of the series.
+Modeling the dynamic path of a variable can improve forecasts since the predictable component of the series can be projected into the future.
+Time series models estimate difference equations containing stochastic components.
+Two commonly used forms of these models are autoregressive models (AR) and moving average (MA) models.
+The Box-Jenkins methodology (1976) developed by George Box and G.M. Jenkins combines the AR and MA models to produce the ARMA (autoregressive moving average) model which is the cornerstone of stationary time series analysis.
+ARIMA (autoregressive integrated moving average models) on the other hand are used to describe non-stationary time series.
+Box and Jenkins suggest differencing a non stationary time series to obtain a stationary series to which an ARMA model can be applied.
+Non stationary time series have a pronounced trend and do not have a constant long-run mean or variance.
+Box and Jenkins proposed a three stage methodology which includes: model identification, estimation and validation.
+The identification stage involves identifying if the series is stationary or not and the presence of seasonality by examining plots of the series, autocorrelation and partial autocorrelation functions.
+In the estimation stage, models are estimated using non-linear time series or maximum likelihood estimation procedures.
+Finally the validation stage involves diagnostic checking such as plotting the residuals to detect outliers and evidence of model fit.
+In recent years time series models have become more sophisticated and attempt to model conditional heteroskedasticity with models such as ARCH (autoregressive conditional heteroskedasticity) and GARCH (generalized autoregressive conditional heteroskedasticity) models frequently used for financial time series.
+In addition time series models are also used to understand inter-relationships among economic variables represented by systems of equations using VAR (vector autoregression) and structural VAR models.
+Survival or duration analysis
+Survival analysis is another name for time to event analysis.
+These techniques were primarily developed in the medical and biological sciences, but they are also widely used in the social sciences like economics, as well as in engineering (reliability and failure time analysis).
+Censoring and non-normality which are characteristic of survival data generate difficulty when trying to analyze the data using conventional statistical models such as multiple linear regression.
+The Normal distribution, being a symmetric distribution, takes positive as well as negative values, but duration by its very nature cannot be negative and therefore normality cannot be assumed when dealing with duration/survival data.
+Hence the normality assumption of regression models is violated.
+A censored observation is defined as an observation with incomplete information.
+Censoring introduces distortions into traditional statistical methods and is essentially a defect of the sample data.
+The assumption is that if the data were not censored it would be representative of the population of interest.
+In survival analysis, censored observations arise whenever the dependent variable of interest represents the time to a terminal event, and the duration of the study is limited in time.
+An important concept in survival analysis is the hazard rate.
+The hazard rate is defined as the probability that the event will occur at time t conditional on surviving until time t.
+Another concept related to the hazard rate is the survival function which can be defined as the probability of surviving to time t.
+Most models try to model the hazard rate by choosing the underlying distribution depending on the shape of the hazard function.
+A distribution whose hazard function slopes upward is said to have positive duration dependence, a decreasing hazard shows negative duration dependence whereas constant hazard is a process with no memory usually characterized by the exponential distribution.
+Some of the distributional choices in survival models are: F, gamma, Weibull, log normal, inverse normal, exponential etc.
+All these distributions are for a non-negative random variable.
+Duration models can be parametric, non-parametric or semi-parametric.
+Some of the models commonly used are Kaplan-Meier, Cox proportional hazard model (non parametric).
+Classification and regression trees
+Classification and regression trees (CART) is a non-parametric technique that produces either classification or regression trees, depending on whether the dependent variable is categorical or numeric, respectively.
+Trees are formed by a collection of rules based on values of certain variables in the modeling data set
+Rules are selected based on how well splits based on variables’ values can differentiate observations based on the dependent variable
+Once a rule is selected and splits a node into two, the same logic is applied to each “child” node (i.e. it is a recursive procedure)
+Splitting stops when CART detects no further gain can be made, or some pre-set stopping rules are met
+Each branch of the tree ends in a terminal node
+Each observation falls into one and exactly one terminal node
+Each terminal node is uniquely defined by a set of rules
+A very popular method for predictive analytics is Leo Breiman's Random forests or derived versions of this technique like Random multinomial logit.
+Multivariate adaptive regression splines
+Multivariate adaptive regression splines (MARS) is a non-parametric technique that builds flexible models by fitting piecewise linear regressions.
+An important concept associated with regression splines is that of a knot.
+Knot is where one local regression model gives way to another and thus is the point of intersection between two splines.
+In multivariate and adaptive regression splines, basis functions are the tool used for generalizing the search for knots.
+Basis functions are a set of functions used to represent the information contained in one or more variables.
+Multivariate and Adaptive Regression Splines model almost always creates the basis functions in pairs.
+Multivariate and adaptive regression spline approach deliberately overfits the model and then prunes to get to the optimal model.
+The algorithm is computationally very intensive and in practice we are required to specify an upper limit on the number of basis functions.
+Machine learning techniques
+Machine learning, a branch of artificial intelligence, was originally employed to develop techniques to enable computers to learn.
+Today, since it includes a number of advanced statistical methods for regression and classification, it finds application in a wide variety of fields including medical diagnostics, credit card fraud detection, face and speech recognition and analysis of the stock market.
+In certain applications it is sufficient to directly predict the dependent variable without focusing on the underlying relationships between variables.
+In other cases, the underlying relationships can be very complex and the mathematical form of the dependencies unknown.
+For such cases, machine learning techniques emulate human cognition and learn from training examples to predict future events.
+A brief discussion of some of these methods used commonly for predictive analytics is provided below.
+A detailed study of machine learning can be found in Mitchell (1997).
+Neural networks
+Neural networks are nonlinear sophisticated modeling techniques that are able to model complex functions.
+They can be applied to problems of prediction, classification or control in a wide spectrum of fields such as finance, cognitive psychology/neuroscience, medicine, engineering, and physics.
+Neural networks are used when the exact nature of the relationship between inputs and output is not known.
+A key feature of neural networks is that they learn the relationship between inputs and output through training.
+There are two types of training in neural networks used by different networks, supervised and unsupervised training, with supervised being the most common one.
+Some examples of neural network training techniques are backpropagation, quick propagation, conjugate gradient descent, projection operator, Delta-Bar-Delta etc.
+Theses are applied to network architectures such as multilayer perceptrons, Kohonen networks, Hopfield networks, etc.
+Radial basis functions
+A radial basis function (RBF) is a function which has built into it a distance criterion with respect to a center.
+Such functions can be used very efficiently for interpolation and for smoothing of data.
+Radial basis functions have been applied in the area of neural networks where they are used as a replacement for the sigmoidal transfer function.
+Such networks have 3 layers, the input layer, the hidden layer with the RBF non-linearity and a linear output layer.
+The most popular choice for the non-linearity is the Gaussian.
+RBF networks have the advantage of not being locked into local minima as do the feed-forward networks such as the multilayer perceptron.
+Support vector machines
+Support Vector Machines (SVM) are used to detect and exploit complex patterns in data by clustering, classifying and ranking the data.
+They are learning machines that are used to perform binary classifications and regression estimations.
+They commonly use kernel based methods to apply linear classification techniques to non-linear classification problems.
+There are a number of types of SVM such as linear, polynomial, sigmoid etc.
+Naïve Bayes
+Naïve Bayes based on Bayes conditional probability rule is used for performing classification tasks.
+Naïve Bayes assumes the predictors are statistically independent which makes it an effective classification tool that is easy to interpret.
+It is best employed when faced with the problem of ‘curse of dimensionality’ i.e. when the number of predictors is very high.
+k-nearest neighbours
+The nearest neighbour algorithm (KNN) belongs to the class of pattern recognition statistical methods.
+The method does not impose a priori any assumptions about the distribution from which the modeling sample is drawn.
+It involves a training set with both positive and negative values.
+A new sample is classified by calculating the distance to the nearest neighbouring training case.
+The sign of that point will determine the classification of the sample.
+In the k-nearest neighbour classifier, the k nearest points are considered and the sign of the majority is used to classify the sample.
+The performance of the kNN algorithm is influenced by three main factors: (1) the distance measure used to locate the nearest neighbours; (2) the decision rule used to derive a classification from the k-nearest neighbours; and (3) the number of neighbours used to classify the new sample.
+It can be proved that, unlike other methods, this method is universally asymptotically convergent, i.e.: as the size of the training set increases, if the observations are iid, regardless of the distribution from which the sample is drawn, the predicted class will converge to the class assignment that minimizes misclassification error.
+See Devroy et alt.
+Popular tools
+There are numerous tools available in the marketplace which help with the execution of predictive analytics.
+These range from those which need very little user sophistication to those that are designed for the expert practitioner.
+The difference between these tools is often in the level of customization and heavy data lifting allowed.
+For traditional statistical modeling some of the popular tools are DAP/SAS, S-Plus, PSPP/SPSS and Stata.
+For machine learning/data mining type of applications, KnowledgeSEEKER, KnowledgeSTUDIO, Enterprise Miner, GeneXproTools, Viscovery, Clementine, KXEN Analytic Framework, InforSense and Excel Miner are some of the popularly used options.
+Classification Tree analysis can be performed using CART software.
+SOMine is a predictive analytics tool based on self-organizing maps (SOMs) available from Viscovery Software.
+R is a very powerful tool that can be used to perform almost any kind of statistical analysis, and is freely downloadable.
+WEKA is a freely available open-source collection of machine learning methods for pattern classification, regression, clustering, and some types of meta-learning, which can be used for predictive analytics.
+RapidMiner is another freely available integrated open-source software environment for predictive analytics, data mining, and machine learning fully integrating WEKA and providing an even larger number of methods for predictive analytics.
+Recently, in an attempt to provide a standard language for expressing predictive models, the Predictive Model Markup Language (PMML) has been proposed.
+Such an XML-based language provides a way for the different tools to define predictive models and to share these between PMML compliant applications.
+Several tools already produce or consume PMML documents, these include ADAPA, IBM DB2 Warehouse, CART, SAS Enterprise Miner, and SPSS.
+Predictive analytics has also found its way into the IT lexicon, most notably in the area of IT Automation.
+Vendors such as Stratavia and their Data Palette product offer predictive analytics as part of their automation platform, predicting how resources will behave in the future and automate the environment accordingly.
+The widespread use of predictive analytics in industry has led to the proliferation of numerous productized solutions firms.
+Some of them are highly specialized (focusing, for example, on fraud detection, automatic saleslead generation or response modeling) in a specific domain (Fair Isaac for credit card scores) or industry verticals (MarketRx in Pharmaceutical).
+Others provide predictive analytics services in support of a wide range of business problems across industry verticals (Fifth C).
+Predictive Analytics competitions are also fairly common and often pit academics and Industry practitioners (see for example, KDD CUP).
+Conclusion
+Predictive analytics adds great value to a businesses decision making capabilities by allowing it to formulate smart policies on the basis of predictions of future outcomes.
+A broad range of tools and techniques are available for this type of analysis and their selection is determined by the analytical maturity of the firm as well as the specific requirements of the problem being solved.
+Education
+Predictive analytics is taught at the following institutions:
+Ghent University, Belgium: Master of Marketing Analysis, an 8-month advanced master degree taught in English with strong emphasis on applications of predictive analytics in Analytical CRM.
+RapidMiner
+RapidMiner (formerly YALE (Yet Another Learning Environment)) is an environment for machine learning and data mining experiments.
+It allows experiments to be made up of a large number of arbitrarily nestable operators, described in XML files which can easily be created with RapidMiner's graphical user interface.
+Applications of RapidMiner cover both research and real-world data mining tasks.
+The initial version has been developed by the Artificial Intelligence Unit of University of Dortmund since 2001.
+It is distributed under a GNU license, and has been hosted by SourceForge since 2004.
+RapidMiner provides more than 400 operators for all main machine learning procedures, including input and output, and data preprocessing and visualization.
+It is written in the Java programming language and therefore can work on all popular operating systems.
+It also integrates all learning schemes and attribute evaluators of the Weka learning environment.
+Properties
+Some properties of RapidMiner are:
+written in Java
+knowledge discovery processes are modeled as operator trees
+internal XML representation ensures standardized interchange format of data mining experiments
+scripting language allows for automatic large-scale experiments
+multi-layered data view concept ensures efficient and transparent data handling
+graphical user interface, command line mode (batch mode), and Java API for using RapidMiner from your own programs
+plugin and extension mechanisms, several plugins already exist
+plotting facility offering a large set of high-dimensional visualization schemes for data and models
+applications include text mining, multimedia mining, feature engineering, data stream mining and tracking drifting concepts, development of ensemble methods, and distributed data mining.
+Russian language
+Russian ([[:Media:Ru-russkiy jizyk.ogg|]]&nbsp;(help•info), transliteration: , <ipa/>) is the most geographically widespread language of Eurasia, the most widely spoken of the Slavic languages, and the largest native language in Europe.
+Russian belongs to the family of Indo-European languages and is one of three (or, according to some authorities , four) living members of the East Slavic languages, the others being Belarusian and Ukrainian (and possibly Rusyn, often considered a dialect of Ukrainian).
+It is also spoken by the countries of the Russophone.
+Written examples of Old East Slavonic are attested from the 10th century onwards.
+Today Russian is widely used outside Russia.
+It is applied as a means of coding and storage of universal knowledge — 60–70% of all world information is published in English and Russian languages.
+Over a quarter of the world's scientific literature is published in Russian.
+Russian is also a necessary accessory of world communications systems (broadcasts, air- and space communication, etc).
+Due to the status of the Soviet Union as a superpower, Russian had great political importance in the 20th century.
+Hence, the language is one of the official languages of the United Nations.
+Russian distinguishes between consonant phonemes with palatal secondary articulation and those without, the so-called soft and hard sounds.
+This distinction is found between pairs of almost all consonants and is one of the most distinguishing features of the language.
+Another important aspect is the reduction of unstressed vowels, which is somewhat similar to that of English.
+Stress, which is unpredictable, is not normally indicated orthographically.
+According to the Institute of Russian Language of the Russian Academy of Sciences, an optional acute accent () may, and sometimes should, be used to mark stress.
+For example, it is used to distinguish between otherwise identical words, especially when context doesn't make it obvious: замо́к/за́мок (lock/castle), сто́ящий/стоя́щий (worthwhile/standing), чудно́/чу́дно (this is odd/this is marvellous), молоде́ц/мо́лодец (attaboy/fine young man), узна́ю/узнаю́ (I shall learn it/I am learning it), отреза́ть/отре́зать (infinitive for "cut"/perfective for "cut"); to indicate the proper pronouncation of uncommon words, especially personal and family names (афе́ра, гу́ру, Гарси́а, Оле́ша, Фе́рми), and to express the stressed word in the sentence (Ты́ съел печенье?/Ты съе́л печенье?/Ты съел пече́нье? - Was it you who eat the cookie?/Did you eat the cookie?/Was the cookie your meal?).
+Acute accents are mandatory in lexical dictionaries and books intended to be used either by children or foreign readers.
+Classification
+Russian is a Slavic language in the Indo-European family.
+From the point of view of the spoken language, its closest relatives are Ukrainian and Belarusian, the other two national languages in the East Slavic group.
+In many places in eastern Ukraine and Belarus, these languages are spoken interchangeably, and in certain areas traditional bilingualism resulted in language mixture, e.g. Surzhyk in eastern Ukraine and Trasianka in Belarus.
+An East Slavic Old Novgorod dialect, although vanished during the fifteenth or sixteenth century, is sometimes considered to have played a significant role in formation of the modern Russian language.
+The vocabulary (mainly abstract and literary words), principles of word formation, and, to some extent, inflections and literary style of Russian have been also influenced by Church Slavonic, a developed and partly adopted form of the South Slavic Old Church Slavonic language used by the Russian Orthodox Church.
+However, the East Slavic forms have tended to be used exclusively in the various dialects that are experiencing a rapid decline.
+In some cases, both the East Slavic and the Church Slavonic forms are in use, with slightly different meanings.
+For details, see Russian phonology and History of the Russian language.
+Russian phonology and syntax (especially in northern dialects) have also been influenced to some extent by the numerous Finnic languages of the Finno-Ugric subfamily: Merya, Moksha, Muromian, the language of the Meshchera, Veps, et cetera.
+These languages, some of them now extinct, used to be spoken in the center and in the north of what is now the European part of Russia.
+They came in contact with Eastern Slavic as far back as the early Middle Ages and eventually served as substratum for the modern Russian language.
+The Russian dialects spoken north, north-east and north-west of Moscow have a considerable number of words of Finno-Ugric origin.
+Over the course of centuries, the vocabulary and literary style of Russian have also been influenced by Turkic/Caucasian/Central Asian languages, as well as Western/Central European languages such as Polish, Latin, Dutch, German, French, and English.
+According to the Defense Language Institute in Monterey, California, Russian is classified as a level III language in terms of learning difficulty for native English speakers, requiring approximately 780 hours of immersion instruction to achieve intermediate fluency.
+It is also regarded by the United States Intelligence Community as a "hard target" language, due to both its difficulty to master for English speakers as well as due to its critical role in American world policy.
+Geographic distribution
+Russian is primarily spoken in Russia and, to a lesser extent, the other countries that were once constituent republics of the USSR.
+Until 1917, it was the sole official language of the Russian Empire.
+During the Soviet period, the policy toward the languages of the various other ethnic groups fluctuated in practice.
+Though each of the constituent republics had its own official language, the unifying role and superior status was reserved for Russian.
+Following the break-up of 1991, several of the newly independent states have encouraged their native languages, which has partly reversed the privileged status of Russian, though its role as the language of post-Soviet national intercourse throughout the region has continued.
+In Latvia, notably, its official recognition and legality in the classroom have been a topic of considerable debate in a country where more than one-third of the population is Russian-speaking, consisting mostly of post-World War II immigrants from Russia and other parts of the former USSR (Belarus, Ukraine).
+Similarly, in Estonia, the Soviet-era immigrants and their Russian-speaking descendants constitute 25,6% of the country's current population and 58,6% of the native Estonian population is also able to speak Russian.
+In all, 67,8% of Estonia's population can speak Russian.
+In Kazakhstan and Kyrgyzstan, Russian remains a co-official language with Kazakh and Kyrgyz respectively.
+Large Russian-speaking communities still exist in northern Kazakhstan, and ethnic Russians comprise 25.6 % of Kazakhstan's population.
+A much smaller Russian-speaking minority in Lithuania has represented less than 1/10 of the country's overall population.
+Nevertheless more than half of the population of the Baltic states are able to hold a conversation in Russian and almost all have at least some familiarity with the most basic spoken and written phrases.
+The Russian control of Finland in 1809–1918, however, has left few Russian speakers in Finland.
+There are 33,400 Russian speakers in Finland, amounting to 0.6% of the population.
+5000 (0.1%) of them are late 19th century and 20th century immigrants, and the rest are recent immigrants, who have arrived in the 90's and later.
+In the twentieth century, Russian was widely taught in the schools of the members of the old Warsaw Pact and in other countries that used to be allies of the USSR.
+In particular, these countries include Poland, Bulgaria, the Czech Republic, Slovakia, Hungary, Romania, Albania and Cuba.
+However, younger generations are usually not fluent in it, because Russian is no longer mandatory in the school system.
+It is currently the most widely-taught foreign language in Mongolia.
+Russian is also spoken in Israel by at least 750,000 ethnic Jewish immigrants from the former Soviet Union (1999 census).
+The Israeli press and websites regularly publish material in Russian.
+Sizable Russian-speaking communities also exist in North America, especially in large urban centers of the U.S. and Canada such as New York City, Philadelphia, Boston, Los Angeles, San Francisco, Seattle, Toronto, Baltimore, Miami, Chicago, Denver, and the Cleveland suburb of Richmond Heights.
+In the former two, Russian-speaking groups total over half a million.
+In a number of locations they issue their own newspapers, and live in their self-sufficient neighborhoods (especially the generation of immigrants who started arriving in the early sixties).
+Only about a quarter of them are ethnic Russians, however.
+Before the dissolution of the Soviet Union, the overwhelming majority of Russophones in North America were Russian-speaking Jews.
+Afterwards the influx from the countries of the former Soviet Union changed the statistics somewhat.
+According to the United States 2000 Census, Russian is the primary language spoken in the homes of over 700,000 individuals living in the United States.
+Significant Russian-speaking groups also exist in Western Europe.
+These have been fed by several waves of immigrants since the beginning of the twentieth century, each with its own flavor of language.
+Germany, the United Kingdom, Spain, France, Italy, Belgium, Greece, Brazil, Norway, Austria, and Turkey have significant Russian-speaking communities totaling 3 million people.
+Two thirds of them are actually Russian-speaking descendants of Germans, Greeks, Jews, Armenians, or Ukrainians who either repatriated after the USSR collapsed or are just looking for temporary employment.
+Recent estimates of the total number of speakers of Russian:
+Official status
+Russian is the official language of Russia.
+It is also an official language of Belarus, Kazakhstan, Kyrgyzstan, an unofficial but widely spoken language in Ukraine and the de facto official language of the unrecognized of Transnistria, South Ossetia and Abkhazia.
+Russian is one of the six official languages of the United Nations.
+Education in Russian is still a popular choice for both Russian as a second language (RSL) and native speakers in Russia as well as many of the former Soviet republics.
+97% of the public school students of Russia, 75% in Belarus, 41% in Kazakhstan, 25% in Ukraine, 23% in Kyrgyzstan, 21% in Moldova, 7% in Azerbaijan, 5% in Georgia and 2% in Armenia and Tajikistan receive their education only or mostly in Russian.
+Although the corresponding percentage of ethnic Russians is 78% in Russia, 10% in Belarus, 26% in Kazakhstan, 17% in Ukraine, 9% in Kyrgyzstan, 6% in Moldova, 2% in Azerbaijan, 1.5% in Georgia and less than 1% in both Armenia and Tajikistan.
+Russian-language schooling is also available in Latvia, Estonia and Lithuania, but due to education reforms, a number of subjects taught in Russian are reduced at the high school level.
+The language has a co-official status alongside Moldovan in the autonomies of Gagauzia and Transnistria in Moldova, and in seven Romanian communes in Tulcea and Constanţa counties.
+In these localities, Russian-speaking Lipovans, who are a recognized ethnic minority, make up more than 20% of the population.
+Thus, according to Romania's minority rights law, education, signage, and access to public administration and the justice system are provided in Russian alongside Romanian.
+In the Autonomous Republic of Crimea in Ukraine, Russian is an officially recognized language alongside with Crimean Tatar, but in reality, is the only language used by the government, thus being a de facto official language.
+Dialects
+Despite leveling after 1900, especially in matters of vocabulary, a number of dialects exist in Russia.
+Some linguists divide the dialects of the Russian language into two primary regional groupings, "Northern" and "Southern", with Moscow lying on the zone of transition between the two.
+Others divide the language into three groupings, Northern, Central and Southern, with Moscow lying in the Central region.
+Dialectology within Russia recognizes dozens of smaller-scale variants.
+The dialects often show distinct and non-standard features of pronunciation and intonation, vocabulary, and grammar.
+Some of these are relics of ancient usage now completely discarded by the standard language.
+The northern Russian dialects and those spoken along the Volga River typically pronounce unstressed <ipa/> clearly (the phenomenon called okanye/оканье).
+East of Moscow, particularly in Ryazan Region, unstressed <ipa/> and <ipa/> following palatalized consonants and preceding a stressed syllable are not reduced to <ipa/> (like in the Moscow dialect), being instead pronounced as <ipa/> in such positions (e.g. несли is pronounced as <ipa/>, not as <ipa/>) - this is called yakanye/ яканье; many southern dialects have a palatalized final <ipa/> in 3rd person forms of verbs (this is unpalatalized in the standard dialect) and a fricative <ipa/> where the standard dialect has <ipa/>.
+However, in certain areas south of Moscow, e.g. in and around Tula, <ipa/> is pronounced as in the Moscow and northern dialects unless it precedes a voiceless plosive or a pause.
+In this position <ipa/> is lenited and devoiced to the fricative <ipa/>, e.g. друг <ipa/> (in Moscow's dialect, only Бог <ipa/>, лёгкий <ipa/>, мягкий <ipa/> and some derivatives follow this rule).
+Some of these features (e.g. a debuccalized or lenited <ipa/> and palatalized final <ipa/> in 3rd person forms of verbs) are also present in modern Ukrainian, indicating either a linguistic continuum or strong influence one way or the other.
+The city of Veliky Novgorod has historically displayed a feature called chokanye/tsokanye (чоканье/цоканье), where <ipa/> and <ipa/> were confused (this is thought to be due to influence from Finnish, which doesn't distinguish these sounds).
+So, цапля ("heron") has been recorded as 'чапля'.
+Also, the second palatalization of velars did not occur there, so the so-called ě² (from the Proto-Slavonic diphthong *ai) did not cause <ipa/> to shift to <ipa/>; therefore where Standard Russian has цепь ("chain"), the form кепь <ipa/> is attested in earlier texts.
+Among the first to study Russian dialects was Lomonosov in the eighteenth century.
+In the nineteenth, Vladimir Dal compiled the first dictionary that included dialectal vocabulary.
+Detailed mapping of Russian dialects began at the turn of the twentieth century.
+In modern times, the monumental Dialectological Atlas of the Russian Language (Диалектологический атлас русского языка <ipa/>), was published in 3 folio volumes 1986–1989, after four decades of preparatory work.
+The standard language is based on (but not identical to) the Moscow dialect.
+Derived languages
+Balachka a dialect, spoken primarily by Cossacks, in the regions of Don, Kuban and Terek.
+Fenya, a criminal argot of ancient origin, with Russian grammar, but with distinct vocabulary.
+Nadsat, the fictional language spoken in 'A Clockwork Orange' uses a lot of Russian words and Russian slang.
+Surzhyk is a language with Russian and Ukrainian features, spoken in some areas of Ukraine
+Trasianka is a language with Russian and Belarusian features used by a large portion of the rural population in Belarus.
+Quelia, a pseudo pidgin of German and Russian.
+Runglish, Russian-English pidgin.
+This word is also used by English speakers to describe the way in which Russians attempt to speak English using Russian morphology and/or syntax.
+Russenorsk is an extinct pidgin language with mostly Russian vocabulary and mostly Norwegian grammar, used for communication between Russians and Norwegian traders in the Pomor trade in Finnmark and the Kola Peninsula.
+Writing system
+Alphabet
+Russian is written using a modified version of the Cyrillic (кириллица) alphabet.
+The Russian alphabet consists of 33 letters.
+The following table gives their upper case forms, along with IPA values for each letter's typical sound:
+Older letters of the Russian alphabet include <>, which merged to <е> (<ipa/>); <і> and <>, which both merged to <и>(<ipa/>); <>, which merged to <ф> (<ipa/>); and <>, which merged to <я> (<ipa/> or <ipa/>).
+While these older letters have been abandoned at one time or another, they may be used in this and related articles.
+The yers <ъ> and <ь> originally indicated the pronunciation of ultra-short or reduced <ipa/>, <ipa/>.
+The Russian alphabet has many systems of character encoding.
+KOI8-R was designed by the government and was intended to serve as the standard encoding.
+This encoding is still used in UNIX-like operating systems.
+Nevertheless, the spread of MS-DOS and Microsoft Windows created chaos and ended by establishing different encodings as de-facto standards.
+For communication purposes, a number of conversion applications were developed.
+"iconv" is an example that is supported by most versions of Linux, Macintosh and some other operating systems.
+Most implementations (especially old ones) of the character encoding for the Russian language are aimed at simultaneous use of English and Russian characters only and do not include support for any other language.
+Certain hopes for a unification of the character encoding for the Russian alphabet are related to the Unicode standard, specifically designed for peaceful coexistence of various languages, including even dead languages.
+Unicode also supports the letters of the Early Cyrillic alphabet, which have many similarities with the Greek alphabet.
+Orthography
+Russian spelling is reasonably phonemic in practice.
+It is in fact a balance among phonemics, morphology, etymology, and grammar; and, like that of most living languages, has its share of inconsistencies and controversial points.
+A number of rigid spelling rules introduced between the 1880s and 1910s have been responsible for the latter whilst trying to eliminate the former.
+The current spelling follows the major reform of 1918, and the final codification of 1956.
+An update proposed in the late 1990s has met a hostile reception, and has not been formally adopted.
+The punctuation, originally based on Byzantine Greek, was in the seventeenth and eighteenth centuries reformulated on the French and German models.
+Sounds
+The phonological system of Russian is inherited from Common Slavonic, but underwent considerable modification in the early historical period, before being largely settled by about 1400.
+The language possesses five vowels, which are written with different letters depending on whether or not the preceding consonant is palatalized.
+The consonants typically come in plain vs. palatalized pairs, which are traditionally called hard and soft.
+(The hard consonants are often velarized, especially before back vowels, although in some dialects the velarization is limited to hard <ipa/>).
+The standard language, based on the Moscow dialect, possesses heavy stress and moderate variation in pitch.
+Stressed vowels are somewhat lengthened, while unstressed vowels tend to be reduced to near-close vowels or an unclear schwa.
+(See also: vowel reduction in Russian.)
+The Russian syllable structure can be quite complex with both initial and final consonant clusters of up to 4 consecutive sounds.
+Using a formula with V standing for the nucleus (vowel) and C for each consonant the structure can be described as follows:
+(C)(C)(C)(C)V(C)(C)(C)(C)
+Clusters of four consonants are not very common, however, especially within a morpheme.
+Consonants
+Russian is notable for its distinction based on palatalization of most of the consonants.
+While <ipa/> do have palatalized allophones <ipa/>, only <ipa/> might be considered a phoneme, though it is marginal and generally not considered distinctive (the only native minimal pair which argues for <ipa/> to be a separate phoneme is "это ткёт"/"этот кот").
+Palatalization means that the center of the tongue is raised during and after the articulation of the consonant.
+In the case of <ipa/>, the tongue is raised enough to produce slight frication (affricate sounds).
+These sounds: <ipa/> are dental, that is pronounced with the tip of the tongue against the teeth rather than against the alveolar ridge.
+Grammar
+Russian has preserved an Indo-European synthetic-inflectional structure, although considerable leveling has taken place.
+Russian grammar encompasses
+a highly synthetic morphology
+a syntax that, for the literary language, is the conscious fusion of three elements:
+a polished vernacular foundation;
+a Church Slavonic inheritance;
+a Western European style.
+The spoken language has been influenced by the literary one, but continues to preserve characteristic forms.
+The dialects show various non-standard grammatical features, some of which are archaisms or descendants of old forms since discarded by the literary language.
+Vocabulary
+See History of the Russian language for an account of the successive foreign influences on the Russian language.
+The total number of words in Russian is difficult to reckon because of the ability to agglutinate and create manifold compounds, diminutives, etc. (see Word Formation under Russian grammar).
+The number of listed words or entries in some of the major dictionaries published during the last two centuries, and the total vocabulary of Pushkin (who is credited with greatly augmenting and codifying literary Russian), are as follows:
+(As a historical aside, Dahl was, in the second half of the nineteenth century, still insisting that the proper spelling of the adjective русский, which was at that time applied uniformly to all the Orthodox Eastern Slavic subjects of the Empire, as well as to its one official language, be spelled руский with one s, in accordance with ancient tradition and what he termed the "spirit of the language".
+He was contradicted by the philologist Grot, who distinctly heard the s lengthened or doubled).
+Proverbs and sayings
+The Russian language is replete with many hundreds of proverbs (пословица <ipa/>) and sayings (поговоркa <ipa/>).
+These were already tabulated by the seventeenth century, and collected and studied in the nineteenth and twentieth, with the folk-tales being an especially fertile source.
+History and examples
+The history of Russian language may be divided into the following periods.
+Kievan period and feudal breakup
+The Tatar yoke and the Grand Duchy of Lithuania
+The Moscovite period (15th–17th centuries)
+Empire (18th–19th centuries)
+Soviet period and beyond (20th century)
+Judging by the historical records, by approximately 1000 AD the predominant ethnic group over much of modern European Russia, Ukraine, and Belarus was the Eastern branch of the Slavs, speaking a closely related group of dialects.
+The political unification of this region into Kievan Rus' in about 880, from which modern Russia, Ukraine and Belarus trace their origins, established Old East Slavic as a literary and commercial language.
+It was soon followed by the adoption of Christianity in 988 and the introduction of the South Slavic Old Church Slavonic as the liturgical and official language.
+Borrowings and calques from Byzantine Greek began to enter the Old East Slavic and spoken dialects at this time, which in their turn modified the Old Church Slavonic as well.
+Dialectal differentiation accelerated after the breakup of Kievan Rus in approximately 1100.
+On the territories of modern Belarus and Ukraine emerged Ruthenian and in modern Russia medieval Russian.
+They definitely became distinct in 13th century by the time of division of that land between the Grand Duchy of Lithuania on the west and independent Novgorod Feudal Republic plus small duchies which were vassals of the Tatars on the east.
+The official language in Moscow and Novgorod, and later, in the growing Moscow Rus’, was Church Slavonic which evolved from Old Church Slavonic and remained the literary language until the Petrine age, when its usage shrank drastically to biblical and liturgical texts.
+Russian developed under a strong influence of the Church Slavonic until the close of the seventeenth century; the influence reversed afterwards leading to corruption of liturgical texts.
+The political reforms of Peter the Great were accompanied by a reform of the alphabet, and achieved their goal of secularization and Westernization.
+Blocks of specialized vocabulary were adopted from the languages of Western Europe.
+By 1800, a significant portion of the gentry spoke French, less often German, on an everyday basis.
+Many Russian novels of the 19th century, e.g. Lev Tolstoy’s "War and Peace", contain entire paragraphs and even pages in French with no translation given, with an assumption that educated readers won't need one.
+The modern literary language is usually considered to date from the time of Aleksandr Pushkin in the first third of the nineteenth century.
+Pushkin revolutionized Russian literature by rejecting archaic grammar and vocabulary (so called "высокий стиль" — "high style") in favor of grammar and vocabulary found in the spoken language of the time.
+Even modern readers of younger age may only experience slight difficulties understanding some words in Pushkin’s texts, since only few words used by Pushkin became archaic or changed meaning.
+On the other hand, many expressions used by Russian writers of the early 19th century, in particular Pushkin, Lermontov, Gogol, Griboiädov, became proverbs or sayings which can be frequently found even in the modern Russian colloquial speech.
+The political upheavals of the early twentieth century and the wholesale changes of political ideology gave written Russian its modern appearance after the spelling reform of 1918.
+Political circumstances and Soviet accomplishments in military, scientific, and technological matters (especially cosmonautics), gave Russian a world-wide prestige, especially during the middle third of the twentieth century.
+Web search engine
+A Web search engine is a search engine designed to search for information on the World Wide Web.
+Information may consist of web pages, images and other types of files.
+Some search engines also mine data available in newsbooks, databases, or open directories.
+Unlike Web directories, which are maintained by human editors, search engines operate algorithmically or are a mixture of algorithmic and human input.
+History
+Before there were search engines there was a complete list of all webservers.
+The list was edited by Tim Berners-Lee and hosted on the CERN webserver.
+One historical snapshot from 1992 remains.
+As more and more webservers went online the central list could not keep up.
+On the NCSA Site new servers were announced under the title "What's New!", but no complete listing existed any more.
+The very first tool used for searching on the (pre-web) Internet was Archie.
+The name stands for "archive" without the "v".
+It was created in 1990 by Alan Emtage, a student at McGill University in Montreal.
+The program downloaded the directory listings of all the files located on public anonymous FTP (File Transfer Protocol) sites, creating a searchable database of file names; however, Archie did not index the contents of these sites.
+The rise of Gopher (created in 1991 by Mark McCahill at the University of Minnesota) led to two new search programs, Veronica and Jughead.
+Like Archie, they searched the file names and titles stored in Gopher index systems.
+Veronica (Very Easy Rodent-Oriented Net-wide Index to Computerized Archives) provided a keyword search of most Gopher menu titles in the entire Gopher listings.
+Jughead (Jonzy's Universal Gopher Hierarchy Excavation And Display) was a tool for obtaining menu information from specific Gopher servers.
+While the name of the search engine "Archie" was not a reference to the Archie comic book series, "Veronica" and "Jughead" are characters in the series, thus referencing their predecessor.
+The first Web search engine was Wandex, a now-defunct index collected by the World Wide Web Wanderer, a web crawler developed by Matthew Gray at MIT in 1993.
+Another very early search engine, Aliweb, also appeared in 1993.
+JumpStation (released in early 1994) used a crawler to find web pages for searching, but search was limited to the title of web pages only.
+One of the first "full text" crawler-based search engines was WebCrawler, which came out in 1994.
+Unlike its predecessors, it let users search for any word in any webpage, which became the standard for all major search engines since.
+It was also the first one to be widely known by the public.
+Also in 1994 Lycos (which started at Carnegie Mellon University) was launched, and became a major commercial endeavor.
+Soon after, many search engines appeared and vied for popularity.
+These included Magellan, Excite, Infoseek, Inktomi, Northern Light, and AltaVista.
+Yahoo! was among the most popular ways for people to find web pages of interest, but its search function operated on its web directory, rather than full-text copies of web pages.
+Information seekers could also browse the directory instead of doing a keyword-based search.
+In 1996, Netscape was looking to give a single search engine an exclusive deal to be their featured search engine.
+There was so much interest that instead a deal was struck with Netscape by 5 of the major search engines, where for $5Million per year each search engine would be in a rotation on the Netscape search engine page.
+These five engines were: Yahoo!, Magellan, Lycos, Infoseek and Excite.
+Search engines were also known as some of the brightest stars in the Internet investing frenzy that occurred in the late 1990s.
+Several companies entered the market spectacularly, receiving record gains during their initial public offerings.
+Some have taken down their public search engine, and are marketing enterprise-only editions, such as Northern Light.
+Many search engine companies were caught up in the dot-com bubble, a speculation-driven market boom that peaked in 1999 and ended in 2001.
+Around 2000, the Google search engine rose to prominence.
+The company achieved better results for many searches with an innovation called PageRank.
+This iterative algorithm ranks web pages based on the number and PageRank of other web sites and pages that link there, on the premise that good or desirable pages are linked to more than others.
+Google also maintained a minimalist interface to its search engine.
+In contrast, many of its competitors embedded a search engine in a web portal.
+By 2000, Yahoo was providing search services based on Inktomi's search engine.
+Yahoo! acquired Inktomi in 2002, and Overture (which owned AlltheWeb and AltaVista) in 2003.
+Yahoo! switched to Google's search engine until 2004, when it launched its own search engine based on the combined technologies of its acquisitions.
+Microsoft first launched MSN Search (since re-branded Live Search) in the fall of 1998 using search results from Inktomi.
+In early 1999 the site began to display listings from Looksmart blended with results from Inktomi except for a short time in 1999 when results from AltaVista were used instead.
+In 2004, Microsoft began a transition to its own search technology, powered by its own web crawler (called msnbot).
+As of late 2007, Google was by far the most popular Web search engine worldwide.
+A number of country-specific search engine companies have become prominent; for example Baidu is the most popular search engine in the People's Republic of China and guruji.com in India.
+How Web search engines work
+A search engine operates, in the following order
+Web crawling
+Indexing
+Searching
+Web search engines work by storing information about many web pages, which they retrieve from the WWW itself.
+These pages are retrieved by a Web crawler (sometimes also known as a spider) &mdash; an automated Web browser which follows every link it sees.
+Exclusions can be made by the use of robots.txt.
+The contents of each page are then analyzed to determine how it should be indexed (for example, words are extracted from the titles, headings, or special fields called meta tags).
+Data about web pages are stored in an index database for use in later queries.
+Some search engines, such as Google, store all or part of the source page (referred to as a cache) as well as information about the web pages, whereas others, such as AltaVista, store every word of every page they find.
+This cached page always holds the actual search text since it is the one that was actually indexed, so it can be very useful when the content of the current page has been updated and the search terms are no longer in it.
+This problem might be considered to be a mild form of linkrot, and Google's handling of it increases usability by satisfying user expectations that the search terms will be on the returned webpage.
+This satisfies the principle of least astonishment since the user normally expects the search terms to be on the returned pages.
+Increased search relevance makes these cached pages very useful, even beyond the fact that they may contain data that may no longer be available elsewhere.
+When a user enters a query into a search engine (typically by using key words), the engine examines its index and provides a listing of best-matching web pages according to its criteria, usually with a short summary containing the document's title and sometimes parts of the text.
+Most search engines support the use of the boolean operators AND, OR and NOT to further specify the search query.
+Some search engines provide an advanced feature called proximity search which allows users to define the distance between keywords.
+The usefulness of a search engine depends on the relevance of the result set it gives back.
+While there may be millions of webpages that include a particular word or phrase, some pages may be more relevant, popular, or authoritative than others.
+Most search engines employ methods to rank the results to provide the "best" results first.
+How a search engine decides which pages are the best matches, and what order the results should be shown in, varies widely from one engine to another.
+The methods also change over time as Internet usage changes and new techniques evolve.
+Most Web search engines are commercial ventures supported by advertising revenue and, as a result, some employ the controversial practice of allowing advertisers to pay money to have their listings ranked higher in search results.
+Those search engines which do not accept money for their search engine results make money by running search related ads alongside the regular search engine results.
+The search engines make money every time someone clicks on one of these ads.
+The vast majority of search engines are run by private companies using proprietary algorithms and closed databases, though some are open source.
+Revenue in the web search portals industry is projected to grow in 2008 by 13.4 percent, with broadband connections expected to rise by 15.1 percent.
+Between 2008 and 2012, industry revenue is projected to rise by 56 percent as Internet penetration still has some way to go to reach full saturation in American households.
+Furthermore, broadband services are projected to account for an ever increasing share of domestic Internet users, rising to 118.7 million by 2012, with an increasing share accounted for by fiber-optic and high speed cable lines.
+Semantics
+Semantics is the study of meaning in communication.
+The word derives from Greek σημαντικός (semantikos), "significant", from σημαίνω (semaino), "to signify, to indicate" and that from σήμα (sema), "sign, mark, token".
+In linguistics it is the study of interpretation of signs as used by agents or communities within particular circumstances and contexts.
+It has related meanings in several other fields.
+Semanticists differ on what constitutes meaning in an expression.
+For example, in the sentence, "John loves a bagel", the word bagel may refer to the object itself, which is its literal meaning or denotation, but it may also refer to many other figurative associations, such as how it meets John's hunger, etc., which may be its connotation.
+Traditionally, the formal semantic view restricts semantics to its literal meaning, and relegates all figurative associations to pragmatics, but this distinction is increasingly difficult to defend.
+The degree to which a theorist subscribes to the literal-figurative distinction decreases as one moves from the formal semantic, semiotic, pragmatic, to the cognitive semantic traditions.
+The word semantic in its modern sense is considered to have first appeared in French as sémantique in Michel Bréal's 1897 book, Essai de sémantique'.
+In International Scientific Vocabulary semantics is also called semasiology.
+The discipline of Semantics is distinct from Alfred Korzybski's General Semantics, which is a system for looking at non-immediate, or abstract meanings.
+Linguistics
+In linguistics, semantics is the subfield that is devoted to the study of meaning, as inherent at the levels of words, phrases, sentences, and even larger units of discourse (referred to as texts).
+The basic area of study is the meaning of signs, and the study of relations between different linguistic units: homonymy, synonymy, antonymy, polysemy, paronyms, hypernymy, hyponymy, meronymy, metonymy, holonymy, exocentricity / endocentricity, linguistic compounds.
+A key concern is how meaning attaches to larger chunks of text, possibly as a result of the composition from smaller units of meaning.
+Traditionally, semantics has included the study of connotative sense and denotative reference, truth conditions, argument structure, thematic roles, discourse analysis, and the linkage of all of these to syntax.
+Formal semanticists are concerned with the modeling of meaning in terms of the semantics of logic.
+Thus the sentence John loves a bagel above can be broken down into its constituents (signs), of which the unit loves may serve as both syntactic and semantic head.
+In the late 1960s, Richard Montague proposed a system for defining semantic entries in the lexicon in terms of lambda calculus.
+Thus, the syntactic parse of the sentence above would now indicate loves as the head, and its entry in the lexicon would point to the arguments as the agent, John, and the object, bagel, with a special role for the article "a" (which Montague called a quantifier).
+This resulted in the sentence being associated with the logical predicate loves (John, bagel), thus linking semantics to categorial grammar models of syntax.
+The logical predicate thus obtained would be elaborated further, e.g. using truth theory models, which ultimately relate meanings to a set of Tarskiian universals, which may lie outside the logic.
+The notion of such meaning atoms or primitives are basic to the language of thought hypothesis from the 70s.
+Despite its elegance, Montague grammar was limited by the context-dependent variability in word sense, and led to several attempts at incorporating context, such as :
+situation semantics ('80s): Truth-values are incomplete, they get assigned based on context
+generative lexicon ('90s): categories (types) are incomplete, and get assigned based on context
+The dynamic turn in semantics
+In the Chomskian tradition in linguistics there was no mechanism for the learning of semantic relations, and the nativist view considered all semantic notions as inborn.
+Thus, even novel concepts were proposed to have been dormant in some sense.
+This traditional view was also unable to address many issues such as metaphor or associative meanings, and semantic change, where meanings within a linguistic community change over time, and qualia or subjective experience.
+Another issue not addressed by the nativist model was how perceptual cues are combined in thought, e.g. in mental rotation.
+This traditional view of semantics, as an innate finite meaning inherent in a lexical unit that can be composed to generate meanings for larger chunks of discourse, is now being fiercely debated in the emerging domain of cognitive linguistics and also in the non-Fodorian camp in Philosophy of Language.
+The challenge is motivated by
+factors internal to language, such as the problem of resolving indexical or anaphora (e.g. this x, him, last week).
+In these situations "context" serves as the input, but the interpreted utterance also modifies the context, so it is also the output.
+Thus, the interpretation is necessarily dynamic and the meaning of sentences is viewed as context-change potentials instead of propositions.
+factors external to language, i.e. language is not a set of labels stuck on things, but "a toolbox, the importance of whose elements lie in the way they function rather than their attachments to things."
+This view reflects the position of the later Wittgenstein and his famous game example, and is related to the positions of Quine, Davidson, and others.
+A concrete example of the latter phenomenon is semantic underspecification &mdash; meanings are not complete without some elements of context.
+To take an example of a single word, "red", its meaning in a phrase such as red book is similar to many other usages, and can be viewed as compositional.
+However, the colours implied in phrases such as "red wine" (very dark), and "red hair" (coppery), or "red soil", or "red skin" are very different.
+Indeed, these colours by themselves would not be called "red" by native speakers.
+These instances are contrastive, so "red wine" is so called only in comparison with the other kind of wine (which also is not "white" for the same reasons).
+This view goes back to de Saussure:
+Each of a set of synonyms like redouter ('to dread'), craindre ('to fear'), avoir peur ('to be afraid') has its particular value only because they stand in contrast with one another.
+No word has a value that can be identified independently of what else is in its vicinity.
+and may go back to earlier Indian views on language, especially the Nyaya view of words as indicators and not carriers of meaning.
+An attempt to defend a system based on propositional meaning for semantic underspecification can be found in the Generative Lexicon model of James Pustejovsky, who extends contextual operations (based on type shifting) into the lexicon.
+Thus meanings are generated on the fly based on finite context.
+Prototype theory
+Another set of concepts related to fuzziness in semantics is based on prototypes.
+The work of Eleanor Rosch and George Lakoff in the 1970s led to a view that natural categories are not characterizable in terms of necessary and sufficient conditions, but are graded (fuzzy at their boundaries) and inconsistent as to the status of their constituent members.
+Systems of categories are not objectively "out there" in the world but are rooted in people's experience.
+These categories evolve as learned concepts of the world &mdash; meaning is not an objective truth, but a subjective construct, learned from experience, and language arises out of the "grounding of our conceptual systems in shared embodiment and bodily experience".
+A corollary of this is that the conceptual categories (i.e. the lexicon) will not be identical for different cultures, or indeed, for every individual in the same culture.
+This leads to another debate (see the Whorf-Sapir hypothesis or Eskimo words for snow).
+Computer science
+In computer science, where it is considered as an application of mathematical logic, semantics reflects the meaning of programs or functions.
+In this regard, semantics permits programs to be separated into their syntactical part (grammatical structure) and their semantic part (meaning).
+For instance, the following statements use different syntaxes (languages), but result in the same semantic:
+x += y; (C, Java, etc.)
+x := x + y; (Pascal)
+Let x = x + y; (early BASIC)
+x = x + y (most BASIC dialects, Fortran)
+Generally these operations would all perform an arithmetical addition of 'y' to 'x' and store the result in a variable 'x'.
+Semantics for computer applications falls into three categories:
+Operational semantics: The meaning of a construct is specified by the computation it induces when it is executed on a machine.
+In particular, it is of interest how the effect of a computation is produced.
+Denotational semantics: Meanings are modelled by mathematical objects that represent the effect of executing the constructs.
+Thus only the effect is of interest, not how it is obtained.
+Axiomatic semantics: Specific properties of the effect of executing the constructs as expressed as assertions.
+Thus there may be aspects of the executions that are ignored.
+The Semantic Web refers to the extension of the World Wide Web through the embedding of additional semantic metadata; s.a.
+Web Ontology Language (OWL).
+Psychology
+In psychology, semantic memory is memory for meaning, in other words, the aspect of memory that preserves only the gist, the general significance, of remembered experience, while episodic memory is memory for the ephemeral details, the individual features, or the unique particulars of experience.
+Word meaning is measured by the company they keep; the relationships among words themselves in a semantic network.
+In a network created by people analyzing their understanding of the word (such as Wordnet) the links and decomposition structures of the network are few in number and kind; and include "part of", "kind of", and similar links.
+In automated ontologies the links are computed vectors without explicit meaning.
+Various automated technologies are being developed to compute the meaning of words: latent semantic indexing and support vector machines as well as natural language processing, neural networks and predicate calculus techniques.
+Semantics has been reported to drive the course of psychotherapeutic interventions.
+Language structure can determine the treatment approach to drug-abusing patients. .
+While working in Europe for the US Information Agency, American psychiatrist, Dr. A. James Giannini reported semantic differences in medical approaches to addiction treatment..
+English speaking countries used the term "drug dependence" to describe a rather passive pathology in their patients.
+As a result the physician's role was more active.
+Southern European countries such as Italy and Yugoslavia utilized the concept of "tossicomania" (i.e. toxic mania) to describe a more acive rather than passive role of the addict.
+As a result the treating physician's role shifted to that of a more passive guide than that of an active interventionist. .
+Sentence (linguistics)
+In linguistics, a sentence is a grammatical unit of one or more words, bearing minimal syntactic relation to the words that precede or follow it, often preceded and followed in speech by pauses, having one of a small number of characteristic intonation patterns, and typically expressing an independent statement, question, request, command, etc.
+Sentences are generally characterized in most languages by the presence of a finite verb, e.g. "The quick brown fox jumps over the lazy dog".
+Components of a sentence
+A simple complete sentence consists of a subject and a predicate.
+The subject is typically a noun phrase, though other kinds of phrases (such as gerund phrases) work as well, and some languages allow subjects to be omitted.
+The predicate is a finite verb phrase: it's a finite verb together with zero or more objects, zero or more complements, and zero or more adverbials.
+See also copula for the consequences of this verb on the theory of sentence structure.
+Clauses
+A clause consists of a subject and a verb.
+There are two types of clauses: independent and subordinate (dependent).
+An independent clause consists of a subject verb and also demonstrates a complete thought: for example, "I am sad."
+A subordinate clause consists of a subject and a verb, but demonstrates an incomplete thought: for example, "Because I had to move."
+Classification
+By structure
+One traditional scheme for classifying English sentences is by the number and types of finite clauses:
+A simple sentence consists of a single independent clause with no dependent clauses.
+A compound sentence consists of multiple independent clauses with no dependent clauses.
+These clauses are joined together using conjunctions, punctuation, or both.
+A complex sentence consists of one or more independent clauses with at least one dependent clause.
+A complex-compound sentence (or compound-complex sentence) consists of multiple independent clauses, at least one of which has at least one dependent clause.
+By purpose
+Sentences can also be classified based on their purpose:
+A declarative sentence or declaration, the most common type, commonly makes a statement: I am going home.
+A negative sentence or negation denies that a statement is true: I am not going home.
+An interrogative sentence or question is commonly used to request information &mdash; When are you going to work? &mdash; but sometimes not; see rhetorical question.
+An exclamatory sentence or exclamation is generally a more emphatic form of statement: What a wonderful day this is!
+Major and minor sentences
+A major sentence is a regular sentence; it has a subject and a predicate.
+For example: I have a ball.
+In this sentence one can change the persons: We have a ball.
+However, a minor sentence is an irregular type of sentence.
+It does not contain a finite verb.
+For example, "Mary!"
+"Yes."
+"Coffee." etc.
+Other examples of minor sentences are headings (e.g. the heading of this entry), stereotyped expressions (Hello!), emotional expressions (Wow!), proverbs, etc.
+This can also include sentences which do not contain verbs (e.g. The more, the merrier.) in order to intensify the meaning around the nouns (normally found in poetry and catchphrases) by Judee N..
+Computer software
+Computer software, or just software is a general term used to describe a collection of computer programs, procedures and documentation that perform some tasks on a computer system.
+The term includes application software such as word processors which perform productive tasks for users, system software such as operating systems, which interface with hardware to provide the necessary services for application software, and middleware which controls and co-ordinates distributed systems.
+"Software" is sometimes used in a broader context to mean anything which is not hardware but which is used with hardware, such as film, tapes and records.
+Relationship to computer hardware
+Computer software is so called to distinguish it from computer hardware, which encompasses the physical interconnections and devices required to store and execute (or run) the software.
+At the lowest level, software consists of a machine language specific to an individual processor.
+A machine language consists of groups of binary values signifying processor instructions which change the state of the computer from its preceding state.
+Software is an ordered sequence of instructions for changing the state of the computer hardware in a particular sequence.
+It is usually written in high-level programming languages that are easier and more efficient for humans to use (closer to natural language) than machine language.
+High-level languages are compiled or interpreted into machine language object code.
+Software may also be written in an assembly language, essentially, a mnemonic representation of a machine language using a natural language alphabet.
+Assembly language must be assembled into object code via an assembler.
+The term "software" was first used in this sense by John W. Tukey in 1958.
+In computer science and software engineering, computer software is all computer programs.
+The theory that is the basis for most modern software was first proposed by Alan Turing in his 1935 essay Computable numbers with an application to the Entscheidungsproblem.
+Types
+Practical computer systems divide software systems into three major classes: system software, programming software and application software, although the distinction is arbitrary, and often blurred.
+System software helps run the computer hardware and computer system.
+It includes operating systems, device drivers, diagnostic tools, servers, windowing systems, utilities and more.
+The purpose of systems software is to insulate the applications programmer as much as possible from the details of the particular computer complex being used, especially memory and other hardware features, and such as accessory devices as communications, printers, readers, displays, keyboards, etc.
+Programming software usually provides tools to assist a programmer in writing computer programs, and software using different programming languages in a more convenient way.
+The tools include text editors, compilers, interpreters, linkers, debuggers, and so on.
+An Integrated development environment (IDE) merges those tools into a software bundle, and a programmer may not need to type multiple commands for compiling, interpreting, debugging, tracing, and etc., because the IDE usually has an advanced graphical user interface, or GUI.
+Application software allows end users to accomplish one or more specific (non-computer related) tasks.
+Typical applications include industrial automation, business software, educational software, medical software, databases, and computer games.
+Businesses are probably the biggest users of application software, but almost every field of human activity now uses some form of application software
+Program and library
+A program may not be sufficiently complete for execution by a computer.
+In particular, it may require additional software from a software library in order to be complete.
+Such a library may include software components used by stand-alone programs, but which cannot work on their own.
+Thus, programs may include standard routines that are common to many programs, extracted from these libraries.
+Libraries may also include 'stand-alone' programs which are activated by some computer event and/or perform some function (e.g., of computer 'housekeeping') but do not return data to their calling program.
+Libraries may be called by one to many other programs; programs may call zero to many other programs.
+Three layers
+Users often see things differently than programmers.
+People who use modern general purpose computers (as opposed to embedded systems, analog computers, supercomputers, etc.) usually see three layers of software performing a variety of tasks: platform, application, and user software.
+Platform software:
+Platform includes the firmware, device drivers, an operating system, and typically a graphical user interface which, in total, allow a user to interact with the computer and its peripherals (associated equipment).
+Platform software often comes bundled with the computer.
+On a PC you will usually have the ability to change the platform software.
+Application software:
+Application software or Applications are what most people think of when they think of software.
+Typical examples include office suites and video games.
+Application software is often purchased separately from computer hardware.
+Sometimes applications are bundled with the computer, but that does not change the fact that they run as independent applications.
+Applications are almost always independent programs from the operating system, though they are often tailored for specific platforms.
+Most users think of compilers, databases, and other "system software" as applications.
+User-written software:
+End-user development tailors systems to meet users' specific needs.
+User software include spreadsheet templates, word processor macros, scientific simulations, and scripts for graphics and animations.

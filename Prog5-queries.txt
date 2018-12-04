@@ -1,0 +1,9 @@
+drone with cameras that track people
+machine learning analysis of text document 
+linear algebra text mining
+secret documents support vector
+known backgrounds uncertainty
+orthographic projection and 3d object reconstruction
+firmware hardware
+projection plane 
+latent semantic text

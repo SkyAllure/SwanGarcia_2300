@@ -1,0 +1,1500 @@
+            a(i, j) = z(1)
+            a(i, j + m) = z(2)
+        Next i, j
+End Select
+Exit Sub
+Error_Handler:
+RetErr = "?"
+End Sub
+
+Private Function getImagSym(s)
+If InStr(1, s, "i", vbTextCompare) > 0 Then
+    getImagSym = "i"
+ElseIf InStr(1, s, "j", vbTextCompare) > 0 Then
+    getImagSym = "j"
+Else
+    getImagSym = "?"
+End If
+End Function
+
+
+Function M_MULT_C(Mat1, Mat2, Optional CFormat)
+'performs complex matrix multiplication a3 = a1 x a2
+'input  a1(n1 x 2*m1)
+'input  a2(n2 x 2*m2)
+'Output a3 (n3 x 2*m3)
+Dim a1, a2, a3()
+Dim n1&, m1&, n2&, m2&, n3&, m3&
+Dim tiny, Im
+tiny = 5 * 10 ^ -15
+If IsMissing(CFormat) Then CFormat = 1
+a1 = Mat1
+If CFormat = 2 Then Mat_Complex_Conv a1, 21
+If CFormat = 3 Then Mat_Complex_Conv a1, 31, Im
+a2 = Mat2
+If CFormat = 2 Then Mat_Complex_Conv a2, 21
+If CFormat = 3 Then Mat_Complex_Conv a2, 31, Im
+
+n1 = UBound(a1, 1)
+m1 = UBound(a1, 2)
+n2 = UBound(a2, 1)
+m2 = UBound(a2, 2)
+If m1 Mod 2 <> 0 Or m2 Mod 2 <> 0 Then GoTo Error_Handler
+m1 = m1 / 2
+m2 = m2 / 2
+If m1 <> n2 Then GoTo Error_Handler
+n3 = n1
+m3 = m2
+
+ReDim a3(1 To n3, 1 To 2 * m3)
+
+For i = 1 To n3
+For j = 1 To m3
+    For k = 1 To m1
+        r1 = a1(i, k)
+        i1 = a1(i, k + m1)
+        r2 = a2(k, j)
+        i2 = a2(k, j + m2)
+        a3(i, j) = a3(i, j) + r1 * r2 - i1 * i2
+        If Abs(a3(i, j)) < tiny Then a3(i, j) = 0
+        a3(i, j + m3) = a3(i, j + m3) + r1 * i2 + i1 * r2
+        If Abs(a3(i, j + m3)) < tiny Then a3(i, j + m3) = 0
+    Next
+Next j
+Next i
+If CFormat = 2 Then Mat_Complex_Conv a3, 12
+If CFormat = 3 Then Mat_Complex_Conv a3, 13, Im
+
+M_MULT_C = a3
+Exit Function
+Error_Handler:
+M_MULT_C = "?"
+End Function
+
+Function SYSLIN_C(a, b, Optional CFormat)
+'Solve a complex linear system A*X=B
+'mod. 9-12-03
+Dim a1, b1, C(), d(), x(), na&, ma&, nb&, mb&, tiny, Im
+tiny = 5 * 10 ^ -15
+If IsMissing(CFormat) Then CFormat = 1
+a1 = a
+If CFormat = 2 Then Mat_Complex_Conv a1, 21
+If CFormat = 3 Then Mat_Complex_Conv a1, 31, Im
+b1 = b
+If CFormat = 2 Then Mat_Complex_Conv b1, 21
+If CFormat = 3 Then Mat_Complex_Conv b1, 31, Im
+na = UBound(a1, 1)
+ma = UBound(a1, 2)
+nb = UBound(b1, 1)
+mb = UBound(b1, 2)
+If ma Mod 2 <> 0 Or mb Mod 2 <> 0 Then GoTo ErrorHandler
+ma = ma / 2
+mb = mb / 2
+If na <> ma Or na <> nb Then GoTo ErrorHandler
+GJC a1, b1, , tiny, RetErr
+If RetErr <> "" Then GoTo ErrorHandler
+b1 = MatMopUp(b1, tiny)
+If CFormat = 2 Then Mat_Complex_Conv b1, 12
+If CFormat = 3 Then Mat_Complex_Conv b1, 13, Im
+
+SYSLIN_C = b1
+Exit Function
+ErrorHandler:
+SYSLIN_C = "?"
+End Function
+
+
+Function M_INV_C(Mat, Optional CFormat)
+'returns the inverse of a complex matrix
+'rev. 5.6.05.
+Dim a, RetErr, Im
+If IsMissing(CFormat) Then CFormat = 1
+a = Mat
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+
+'optional complex part for format=1 and square matrices. 5-6-2005
+If CFormat = 1 And (UBound(a, 1) = UBound(a, 2)) Then
+    ReDim Preserve a(1 To UBound(a, 1), 1 To 2 * UBound(a, 1))
+End If
+
+If RetErr <> "" Then GoTo ErrorHandler
+If 2 * UBound(a, 1) <> UBound(a, 2) Then RetErr = "?": GoTo ErrorHandler
+'
+GJC a, , , RetErr
+'
+If RetErr <> "" Then GoTo ErrorHandler
+'convert matrix for output
+If CFormat = 2 Then Mat_Complex_Conv a, 12
+If CFormat = 3 Then Mat_Complex_Conv a, 13, Im
+M_INV_C = a
+Exit Function
+ErrorHandler:
+M_INV_C = RetErr
+End Function
+
+Function ProdScal_C(v1, v2, Optional CFormat)
+' returns complex scalar product (inner)
+'mod. 03-May-2004
+Dim w1, w2, u(1 To 1, 1 To 2), Im
+If IsMissing(CFormat) Then CFormat = 1
+w1 = v1
+w2 = v2
+n1 = UBound(w1)
+n2 = UBound(w2)
+
+If n1 <> n2 Then
+    ProdScal_C = "?"
+    Exit Function
+End If
+If CFormat = 3 Then
+    Mat_Complex_Conv w1, 31
+    Mat_Complex_Conv w2, 31, Im
+End If
+sr = 0: si = 0
+For i = 1 To n1
+    sr = sr + w1(i, 1) * w2(i, 1) + w1(i, 2) * w2(i, 2)
+    si = si - w1(i, 1) * w2(i, 2) + w1(i, 2) * w2(i, 1)
+Next
+If CFormat = 3 Then
+    ProdScal_C = Cplx_to_Str(sr, si, Im)
+Else
+    u(1, 1) = sr
+    u(1, 2) = si
+    ProdScal_C = u
+End If
+End Function
+
+Sub Siljak(ByVal Rcoef, ByVal Icoef, Tola, Itmax, Rroot, Iroot)
+'************************************************************
+'*** Polynomial Rootfinder using Siljak's method            *
+'************************************************************
+'v 2.11.05
+Dim Xsiljak() As Double, Ysiljak() As Double   'Siljak coefficients
+Dim x#, y#
+Dim Deltax#, Deltay#, tol#
+Dim n&, nn&, i&, k&, L&, f#, g#, m&, q#, p#, z#, u#, V#, a#, b#, C#, d#, t#
+'Initialize local variables
+'Rroot() and Iroot() hold the root approximation
+'Initialize Rroot() and Iroot()
+n = UBound(Rcoef)
+ReDim Xsiljak(n), Ysiljak(n) ', Rroot(1 To n), Iroot(1 To n)
+nn = n
+'Special check for linear polynomial
+If n = 1 Then GoTo 2400
+Do While n > 1
+    x = 0.1: y = 1
+    Xsiljak(0) = 1: Ysiljak(0) = 0
+    Xsiljak(1) = 0.1: Ysiljak(1) = 1
+    L = 0
+    tol = Tola
+    GoSub Siljak_coeff 'Branch to computation of Siljak coefficients
+    Do
+        g = f
+        m = 0: q = 0: p = 0
+        L = L + 1
+        For k = 1 To n
+            p = p + k * (Rcoef(k) * Xsiljak(k - 1) - Icoef(k) * Ysiljak(k - 1))
+            q = q + k * (Rcoef(k) * Ysiljak(k - 1) + Icoef(k) * Xsiljak(k - 1))
+        Next k
+        z = p * p + q * q
+        Deltax = -(u * p + V * q) / z
+        Deltay = (u * q - V * p) / z
+        'succesive quartering
+        Do
+            m = m + 1
+            If m > 20 Then GoTo 1910 'Maximum of quartering has been set at 20
+            'new root approxiamtions x, y loaded into Silijak coefficients
+            Xsiljak(1) = x + Deltax
+            Ysiljak(1) = y + Deltay
+            'recompute Siljak coefficients
+            GoSub Siljak_coeff
+            'if the new error estimate greater than old, quarter the size of Delta x and y
+            If f <= 10 * g Then Exit Do
+            Deltax = Deltax / 4
+            Deltay = Deltay / 4
+        Loop
+        'increase the tolerance after tot iteration
+        If L Mod 20 = 0 Then
+            If tol < 10 ^ -3 Then tol = tol * 10
+        End If
+        'check if increments are small enough to satisfy the stopping condition
+        If (Abs(Deltax) < tol) And (Abs(Deltay) < tol) Then Exit Do  'GoTo 2130
+        'check if maximum number of iteration has been exceeded
+        If L > Itmax Then GoTo 2040
+        'iterate again
+        x = Xsiljak(1)
+        y = Ysiljak(1)
+    Loop
+
+'2130: 'Root found. Store computed root in array element
+    Rroot(n) = Xsiljak(1)
+    Iroot(n) = Ysiljak(1)
+    'Initialize variables for Synthetic Division algorithm
+    a = Rcoef(n)
+    b = Icoef(n)
+    Rcoef(n) = 0: Icoef(n) = 0
+    x = Xsiljak(1)
+    y = Ysiljak(1)
+    'Synthetic Division to calculate new polynomial coefficients
+    For k = n - 1 To 0 Step -1
+        C = Rcoef(k)
+        d = Icoef(k)
+        u = Rcoef(k + 1)
+        V = Icoef(k + 1)
+        Rcoef(k) = a + x * u - y * V
+        Icoef(k) = b + x * V + y * u
+        a = C
+        b = d
+    Next k
+    n = n - 1
+Loop
+
+2400: 'Since degree of resultant polynomial is one
+'compute final root algebraically
+a = Rcoef(0)
+u = Rcoef(1)
+b = Icoef(0)
+V = Icoef(1)
+t = u * u + V * V
+Rroot(1) = -(a * u + b * V) / t
+Iroot(1) = (a * V - u * b) / t
+n = nn
+
+Exit Sub
+
+Siljak_coeff:
+    'compute Siljak coefficients: complex binomial power (x+iy)^k
+    z = Xsiljak(1) * Xsiljak(1) + Ysiljak(1) * Ysiljak(1)
+    t = 2 * Xsiljak(1)
+    For k = 0 To n - 2
+        Xsiljak(k + 2) = t * Xsiljak(k + 1) - z * Xsiljak(k)
+        Ysiljak(k + 2) = t * Ysiljak(k + 1) - z * Ysiljak(k)
+    Next k
+    'compute complex polinomial value p(x+iy)
+    u = 0: V = 0
+    For k = 0 To n
+        u = u + Rcoef(k) * Xsiljak(k) - Icoef(k) * Ysiljak(k)
+        V = V + Rcoef(k) * Ysiljak(k) + Icoef(k) * Xsiljak(k)
+    Next k
+    f = u * u + V * V
+Return
+
+1910:
+    n = -2  'print error message: Maximum of quartering has been set at 20
+    Exit Sub
+
+2040:     'Print error message: Exceded iteration limit
+    n = -1
+    Exit Sub
+
+End Sub
+
+Function Poly_Roots(poly)
+'returns all roots of a polynomial
+'uses the Siliak algorithm + the Ruffini's integer extractor
+'poly can be a vector coefficient [a0,a1,a2...] or a string "a0+a1x+a2x^2+..."
+'v. 3-3-2006
+Dim coeff(), n, Roots(), Roots1(), Roots2(), n1&, n2&, tmp
+Dim Rcoef(), Icoef(), Tola, Rroot(), Iroot(), i&, Var, RetErr
+Const Itmax = 200
+
+Tola = 2 * 10 ^ -15
+'string polynomial  3.3.2006
+If VarType(poly) = vbString Then
+    Parse_Polynomial poly, coeff, Var, RetErr
+    If RetErr <> "" Then Poly_Roots = RetErr: Exit Function
+    tmp = coeff
+    n = UBound(coeff) + 1
+    ReDim coeff(1 To n)
+    For i = 1 To n: coeff(i) = tmp(i - 1): Next i
+Else
+    LoadVector coeff, poly, n
+End If
+Degree = n - 1
+'search for small integer roots
+Call Rootfinder_Ruffini(coeff, Roots1, n1, n2, 1000)
+'search for non-integer and complex roots
+If n2 > 0 Then
+    ReDim Rcoef(n2), Icoef(n2), Rroot(1 To n2), Iroot(1 To n2)
+    For i = 0 To n2
+        Rcoef(i) = coeff(i + 1)
+        Icoef(i) = 0
+    Next i
+    Call Siljak(Rcoef, Icoef, Tola, Itmax, Rroot, Iroot)
+    n2 = n2
+    ReDim Roots2(1 To n2, 1 To 2)
+    For i = 1 To n2
+        Roots2(i, 1) = Rroot(i)
+        Roots2(i, 2) = Iroot(i)
+    Next i
+End If
+
+'merge roots and mop-up
+ReDim Roots(1 To Degree, 1 To 2)
+For i = 1 To n1
+    Roots(i, 1) = Roots1(i)
+    Roots(i, 2) = 0
+Next i
+For i = 1 To n2
+    Roots(i + n1, 1) = Roots2(i, 1)
+    Roots(i + n1, 2) = Roots2(i, 2)
+    If Abs(Roots(i + n1, 1)) < Tola Then Roots(i + n1, 1) = 0
+    If Abs(Roots(i + n1, 2)) < Tola Then Roots(i + n1, 2) = 0
+Next i
+'orders roots in ascending order of magnitudo
+Roots_Sort Roots
+
+Poly_Roots = Roots
+End Function
+
+
+Sub Roots_Sort(Roots)
+Dim i&, tmp(), n&
+n = UBound(Roots)
+ReDim tmp(1 To n, 0 To 2)
+For i = 1 To n
+    tmp(i, 1) = Roots(i, 1)
+    tmp(i, 2) = Roots(i, 2)
+    tmp(i, 0) = Sqr(tmp(i, 1) ^ 2 + tmp(i, 2) ^ 2)
+Next i
+MatrixSort tmp, "A"
+ReDim Roots(1 To n, 1 To 2)
+For i = 1 To n
+    Roots(i, 1) = tmp(i, 1)
+    Roots(i, 2) = tmp(i, 2)
+Next i
+End Sub
+
+Function Poly_Roots_QR(poly)
+'returns all roots of a polynomial with QR algorithm
+'poly can be a vector coefficient [a0,a1,a2...] or a string "a0+a1x+a2x^2+..."
+'v. 3-3-2006
+Dim coeff(), n&, Roots(), C, wr#(), wi#(), iErr
+
+'string polynomial  3.3.2006
+If VarType(poly) = vbString Then
+    Parse_Polynomial poly, coeff, Var, RetErr
+    If RetErr <> "" Then Poly_Roots_QR = RetErr: Exit Function
+    tmp = coeff
+    n = UBound(coeff) + 1
+    ReDim coeff(1 To n)
+    For i = 1 To n: coeff(i) = tmp(i - 1): Next i
+Else
+    LoadVector coeff, poly, n
+End If
+
+'LoadVector coeff, Coefficients, n
+
+'build the companion matrix
+C = MatCmp(coeff)
+n = UBound(C)
+ReDim wr(1 To n), wi(1 To n)
+'find eigenvalues of companion matrix
+HQR nm, n, 1, n, C, wr, wi, iErr
+
+ReDim Roots(1 To n, 1 To 2)
+For i = 1 To n
+    If i > iErr Then
+        Roots(i, 1) = wr(i)
+        Roots(i, 2) = wi(i)
+    Else
+        Roots(i, 1) = "?"
+        Roots(i, 2) = "?"
+    End If
+Next
+'Call MatrixSort(Roots, "A")
+Roots_Sort Roots
+Poly_Roots_QR = Roots
+End Function
+
+Function Poly_Roots_QRC(Coefficients)
+'returns all roots of a complex polynomial with QR algorithm
+Dim coeff, n&, Roots, C, wr#(), wi#(), iErr, tmp(), tiny#
+tiny = 10 ^ -13
+coeff = Coefficients
+'build the companion matrix
+C = MatCmp_C(coeff)
+n = UBound(C)
+'find eigenvalues of companion matrix
+Roots = MatEigenvalue_QRC(C)
+ReDim tmp(1 To n, 1 To 2)
+For i = 1 To n
+    tmp(i, 1) = Roots(i, 1)
+    tmp(i, 2) = Roots(i, 2)
+Next
+Roots_Sort tmp
+Roots = MatMopUp(tmp, tiny)
+'Call MatrixSort(Tmp, "A")
+Poly_Roots_QRC = tmp
+End Function
+
+Sub MatrixSort(a, ByVal Order)
+'
+'Sorting Routine with swapping algorithm
+'A() may be matrix (N x M) or vector (N)
+'Sort is always based on the first column
+'Order = A (Ascending), D (Descending)
+'Note: it's simple but slow. Use only in non critical part
+'
+Dim flag_exchanged As Boolean
+Dim i_min&, i_max&, j_min&, j_max&, i&, k&, j&
+
+i_min = LBound(a, 1)
+i_max = UBound(a, 1)
+j_min = LBound(a, 2)
+j_max = UBound(a, 2)
+
+'Sorting algortithm begin
+Do
+    flag_exchanged = False
+    For i = i_min To i_max Step 2
+        k = i + 1
+        If k > i_max Then Exit For
+        If (a(i, j_min) > a(k, j_min) And Order = "A") Or _
+           (a(i, j_min) < a(k, j_min) And Order = "D") Then
+            'swap rows
+            For j = j_min To j_max
+                C = a(k, j)
+                a(k, j) = a(i, j)
+                a(i, j) = C
+            Next j
+            flag_exchanged = True
+        End If
+    Next
+    If i_min = LBound(a, 1) Then
+        i_min = LBound(a, 1) + 1
+    Else
+        i_min = LBound(a, 1)
+    End If
+Loop Until flag_exchanged = False And i_min = LBound(a, 1)
+
+End Sub
+
+
+
+Sub Sys_Tridiag(a, b, Optional Det, Optional tiny, Optional RetErr)
+'-------------------------------------------------------------------------------------------
+'routine for solving a tridiagonal linear system.  by Leonardo Volpi, July 2003
+' A X = B
+'A = (n x 3) matrix contains the subdiagonal lower, diagonal, subdiagonal upper
+'B = (n x m) A the matrix of constant terms.At the end the matrix b contains the solution X
+'partial pivot strategy add
+'(mod. 28.2.06 VL)
+'-------------------------------------------------------------------------------------------
+Dim i&, j&, n&, m&, f%, CalcDet As Boolean
+'
+If IsMissing(tiny) Then tiny = 0
+If Not IsMissing(Det) Then CalcDet = True
+n = UBound(a, 1)
+m = UBound(b, 2)
+a(1, 1) = 0
+Det = 1
+RetErr = ""
+On Error GoTo Error_Handler
+'
+For i = 1 To n - 1
+    f = 0
+    For j = 1 To 3
+        If Abs(a(i, j)) > tiny Then f = 1: Exit For
+    Next
+    If f = 0 Then
+        Det = 0:  Exit Sub  'singular matrix
+    End If
+    'shift
+    a(i, 1) = a(i, 2): a(i, 2) = a(i, 3): a(i, 3) = 0
+    If Abs(a(i + 1, 1)) > tiny Then
+        If Abs(a(i, 1)) < Abs(a(i + 1, 1)) Then
+            If CalcDet Then Det = -Det
+            SwapRow a, i + 1, i
+            SwapRow b, i + 1, i
+        End If
+        If CalcDet Then Det = Det * a(i, 1)
+        coeff = -a(i + 1, 1) / a(i, 1)
+        CombLinRow a, i + 1, i, coeff
+        CombLinRow b, i + 1, i, coeff
+    End If
+    a(i + 1, 1) = 0
+Next i
+'determinant computation
+'shift
+a(n, 1) = a(n, 2): a(n, 2) = a(n, 3): a(n, 3) = 0
+If Abs(a(n, 1)) <= tiny Then
+    a(n, 1) = 0
+    Det = 0
+    RetErr = "singular"
+End If
+
+If CalcDet Then
+    Det = Det * a(n, 1)
+    If Abs(Det) <= tiny Then
+        Det = 0
+        RetErr = "singular"
+        Exit Sub  'singular matrix
+    End If
+End If
+'normalize last row
+For i = 1 To n
+    a(i, 2) = a(i, 2) / a(i, 1)
+    a(i, 3) = a(i, 3) / a(i, 1)
+    
+    For j = 1 To m
+        b(i, j) = b(i, j) / a(i, 1)
+    Next j
+Next i
+'backsubstitution
+For i = n - 1 To 1 Step -1
+    For j = 1 To m
+        b(i, j) = b(i, j) - a(i, 2) * b(i + 1, j)
+        If i < n - 1 Then b(i, j) = b(i, j) - a(i, 3) * b(i + 2, j)
+    Next j
+Next i
+Exit Sub
+Error_Handler:
+RetErr = "overflow"
+End Sub
+
+Function SysLin3(Mat3, V, Optional tiny)
+'solve a tridiagonal linear system.
+' rev. 28 Feb 2006
+Dim a(), x
+If IsMissing(tiny) Then tiny = 10 ^ -13
+Load_Trid_Mat Mat3, a
+If Err <> 0 Then GoTo Error_Handler
+x = V
+Call Sys_Tridiag(a, x, , tiny, RetErr)
+If RetErr <> "" Then GoTo Error_Handler
+SysLin3 = x
+Exit Function
+Error_Handler:
+SysLin3 = "?"
+End Function
+
+Function M_DET3(Mat3)
+'determinant of a tridiagonal matrix
+' rev. 28 Feb 2006
+Dim a(), x(), n, tol#
+tol = 10 ^ -13
+Load_Trid_Mat Mat3, a
+If Err <> 0 Then GoTo Error_Handler
+ReDim x(1 To UBound(a, 1), 1 To 1)
+Call Sys_Tridiag(a, x, Det, tol, RetErr)
+If RetErr <> "singular" And RetErr <> "" Then GoTo Error_Handler
+M_DET3 = Det
+Exit Function
+Error_Handler:
+M_DET3 = "?"
+End Function
+
+Function M_MULT3(Mat3, Mat)
+'multiply a tridiagonal matrix A(n x 3) for a matrix B(n x m) ==> C=A*B
+Dim a(), b, C
+b = Mat
+Load_Trid_Mat Mat3, a
+If Err <> 0 Then GoTo Error_Handler
+
+n = UBound(a, 1)
+m = UBound(b, 2)
+If UBound(a, 2) <> 3 Or UBound(a, 1) <> UBound(b, 1) Then GoTo Error_Handler
+ReDim C(1 To n, 1 To m)
+
+For j = 1 To m
+    C(1, j) = a(1, 2) * b(1, j) + a(1, 3) * b(2, j)
+    For i = 2 To n - 1
+       C(i, j) = a(i, 1) * b(i - 1, j) + a(i, 2) * b(i, j) + a(i, 3) * b(i + 1, j)
+    Next i
+    C(n, j) = a(n, 1) * b(n - 1, j) + a(n, 2) * b(n, j)
+Next j
+M_MULT3 = C
+Exit Function
+Error_Handler:
+M_MULT3 = "?"
+End Function
+
+'Function RRMS(v1, Optional v2)
+'Dim x1, x2, i&, j&, n&, y
+'y = 0
+'x1 = v1
+'n = UBound(x1, 1) * UBound(x1, 2)
+'If IsMissing(v2) Then
+'    For i = 1 To UBound(x1, 1)
+'    For j = 1 To UBound(x1, 2)
+'        y = y + x1(i, j) ^ 2
+'    Next j
+'    Next i
+'Else
+'    x2 = v2
+'    If UBound(x1, 1) <> UBound(x2, 1) Or _
+'    UBound(x1, 2) <> UBound(x2, 2) Then GoTo Error_Handler
+'    For i = 1 To UBound(x1, 1)
+'    For j = 1 To UBound(x1, 2)
+'        y = y + (x1(i, j) - x2(i, j)) ^ 2
+'    Next j
+'    Next i
+'
+'End If
+'RRMS = Sqr(y / n)
+'Exit Function
+'Error_Handler:
+'RRMS = "?"
+'End Function
+
+Function SYSLIN_T(Mat, V, Optional Typ, Optional tiny)
+'solve a triangular linear system.
+' rev. 4-5-2003
+'typ = "U" (upper), "L" (lower), if missing the function detect by itself
+Dim a, x, Det#
+If IsMissing(tiny) Then tiny = 10 ^ -15
+a = Mat
+x = V
+If UBound(a, 1) <> UBound(a, 2) Or _
+    UBound(a, 1) <> UBound(x, 1) Then GoTo Error_Handler
+'check type
+If IsMissing(Typ) Then
+    Check_Triangular a, Typ, tiny
+    If Typ = "" Then GoTo Error_Handler
+Else
+    Typ = UCase(Typ)
+    If Typ <> "U" Or Typ <> "U" Then GoTo Error_Handler
+End If
+
+Call Sys_Triang(a, x, Typ, Det, tiny)
+If Det = 0 Then GoTo Error_Handler
+SYSLIN_T = x
+Exit Function
+Error_Handler:
+SYSLIN_T = "?"
+End Function
+
+
+Sub Sys_Triang(a, b, Typ, Optional Det, Optional tiny)
+'-------------------------------------------------------------------------------------------
+'routine for solving a triangular linear system.   April 2003
+'A X = B
+'A = (n x n) contains the triangular lower or upper matrix,
+'B = (n x m) A the matrix of constant terms. At the end the matrix b contains the solution X
+'Typ = "U" (upper), "L" (lower)
+'-------------------------------------------------------------------------------------------
+Dim i&, j&, k&, n&, m&, s As Double
+If IsMissing(tiny) Then tiny = 0
+n = UBound(a, 1)
+m = UBound(b, 2)
+If Typ = "L" Then
+    GoSub forward
+ElseIf Typ = "U" Then
+    GoSub back
+Else
+    'nothing to do
+End If
+
+Exit Sub
+'forward substitution
+forward:
+    Det = 1
+    For k = 1 To m
+    For i = 1 To n
+        If Abs(a(i, i)) <= tiny Then
+            Det = 0:  Exit Sub
+        Else
+            Det = Det * a(i, i)
+        End If
+        s = b(i, k)
+        For j = 1 To i - 1
+            s = s - a(i, j) * b(j, k)
+        Next j
+        b(i, k) = s / a(i, i)
+    Next i
+    Next k
+Return
+'back substitution
+back:
+    Det = 1
+    For k = 1 To m
+    For i = n To 1 Step -1
+        If Abs(a(i, i)) <= tiny Then
+            Det = 0:  Exit Sub
+        Else
+            Det = Det * a(i, i)
+        End If
+        s = b(i, k)
+        For j = i + 1 To n
+            s = s - a(i, j) * b(j, k)
+        Next j
+        b(i, k) = s / a(i, i)
+    Next i
+    Next k
+Return
+End Sub
+
+Private Sub Check_Triangular(a, Typ, tiny)
+'check if a matrix is triangular upper or lower or any
+'Typ = "U" (upper), "L" (lower), "F" (full) fo any
+Dim i&, j&, n&, m&, s As Double, j_min&, j_max&
+n = UBound(a, 1)
+m = UBound(a, 2)
+Typ = ""
+If Typ = "" Then GoSub upper     'try upper-triangular
+If Typ = "" Then GoSub lower  'try lower-triangular
+Exit Sub
+'-------------------
+upper:
+For i = 1 To n
+For j = 1 To i - 1
+    If Abs(a(i, j)) > tiny Then Return
+Next j
+Next i
+Typ = "U"
+Return
+'-------------------
+lower:
+For i = 1 To n
+For j = i + 1 To m
+    If Abs(a(i, j)) > tiny Then Return
+Next j
+Next i
+Typ = "L"
+Return
+End Sub
+
+Function MatPerm(Permutations)
+Dim V, a() As Integer
+LoadVector V, Permutations, n
+ReDim a(1 To n, 1 To n)
+
+For i = 1 To n
+    If 1 <= V(i) And V(i) <= n Then
+        a(V(i), i) = 1
+    End If
+Next i
+MatPerm = a
+End Function
+
+
+'===============================================================
+Sub GJI(a, Optional b, Optional Det, Optional dTiny, Optional RetErr)
+'==============================================================
+'Gauss-Jordan integer algorithm for matrix reduction
+'A is a matrix (n x n); at the end contains the inverse of A
+'B is a matrix (n x m); at the end cotains the solution of AX=B
+'this version apply the check for too small elements: |aij|<Tiny
+'RetErr = "singular" (Det=0),  "overflow"
+'v. 8-12-2003
+'==============================================================
+Dim i%, j%, irow%, pk#, pi#, Ai#(), det_d#(), CalcDet As Boolean
+If IsMissing(dTiny) Then dTiny = 0
+If Not IsMissing(Det) Then CalcDet = True
+If IsMissing(b) Then m = 0 Else m = UBound(b, 2)
+n = UBound(a, 1)
+ReDim Ai(1 To n, 1 To n), det_d(1 To n)
+RetErr = ""
+On Error GoTo Error_Handler
+'initialization
+For i = 1 To n
+    Ai(i, i) = 1
+    det_d(i) = 1
+Next
+For k = 1 To n
+    'search max pivot
+    irow = k
+    PivotMax = 0
+    For i = k To n
+        If Abs(a(i, k)) > PivotMax Then
+            irow = i:  PivotMax = Abs(a(i, k))
+        End If
+    Next i
+    ' swap rows
+    If irow > k Then
+        SwapRow a, k, irow
+        SwapRow Ai, k, irow
+        If m > 0 Then SwapRow b, k, irow
+        If CalcDet Then det_d(k) = -det_d(k)
+    End If
+    ' check pivot 0
+    If Abs(a(k, k)) <= dTiny Then
+        a(k, k) = 0: Det = 0
+        RetErr = "singular"
+        Exit Sub
+    End If
+    'integer linear reduction
+    For i = 1 To n
+        If Abs(a(i, k)) <= tiny Then a(i, k) = 0 'mop-up Aik
+        If i <> k And a(i, k) <> 0 Then
+            MCM_ = MCM_2(Abs(a(k, k)), Abs(a(i, k)))
+            pk = MCM_ / a(k, k)
+            pi = -MCM_ / a(i, k)
+            If CalcDet Then det_d(k) = det_d(k) * pi
+            For j = 1 To n
+                a(i, j) = pi * a(i, j) + pk * a(k, j)
+                Ai(i, j) = pi * Ai(i, j) + pk * Ai(k, j)
+            Next j
+            For j = 1 To m
+                b(i, j) = pi * b(i, j) + pk * b(k, j)
+            Next j
+        End If
+    Next i
+Next k
+'determinant computing
+If CalcDet Then
+    Det = 1
+    For i = 1 To n
+        Det = Det * (a(i, i) / det_d(i))
+    Next
+End If
+'normalization
+For i = 1 To n
+    For j = 1 To n
+        Ai(i, j) = Ai(i, j) / a(i, i)
+    Next j
+    For j = 1 To m
+        b(i, j) = b(i, j) / a(i, i)
+    Next j
+Next i
+a = Ai  'substitute the given matrix with its inverse
+Exit Sub
+Error_Handler:
+RetErr = "overflow"   'overflow
+End Sub
+
+Function MatNorm(V, Optional Norm)
+'Norm of vector or matrix
+Dim a, i As Integer, j As Integer, n As Integer
+a = V
+s = 0
+If IsMissing(Norm) Then Norm = 0 'Frobenius norm
+    Select Case Norm
+        Case 0
+            GoSub F_Norm
+        Case 1
+            For j = 1 To UBound(a, 2)
+                s0 = 0
+                For i = 1 To UBound(a, 1)
+                    s0 = s0 + Abs(a(i, j))
+                Next i
+                If s < s0 Then s = s0
+            Next j
+        Case 2
+            If UBound(a, 1) > 1 And UBound(a, 2) > 1 Then
+                tmp = Application.WorksheetFunction.MMult(M_T(a), a)
+                eig_max = MatEigenvalue_max(tmp)
+                s = Sqr(eig_max)
+            Else
+                GoSub F_Norm
+            End If
+        Case 3
+            For i = 1 To UBound(a, 1)
+                s0 = 0
+                For j = 1 To UBound(a, 2)
+                    s0 = s0 + Abs(a(i, j))
+                Next j
+                If s < s0 Then s = s0
+            Next i
+    End Select
+MatNorm = s
+Exit Function
+F_Norm:
+    For i = 1 To UBound(a, 1)
+    For j = 1 To UBound(a, 2)
+        s = s + a(i, j) ^ 2
+    Next j
+    Next i
+    s = Sqr(s)
+Return
+End Function
+
+Sub Convert_Trid_Mat(Mat3, Mat)
+Dim tmp3, n&, m&, i&, j&, tmp#()
+tmp3 = Mat3
+n = UBound(tmp3, 1)
+m = UBound(tmp3, 2)
+ReDim tmp(1 To n, 1 To n)
+If m = 3 Then
+    'convert from from 3 vectors
+    For i = 1 To n
+        If i > 1 Then tmp(i, i - 1) = tmp3(i, 1)
+         tmp(i, i) = tmp3(i, 2)
+        If i < n Then tmp(i, i + 1) = tmp3(i, 3)
+    Next i
+    Mat = tmp
+ElseIf n = m Then
+    'load from a square matrix
+    Mat = tmp3
+Else
+    GoTo Error_Handler
+End If
+Exit Sub
+Error_Handler:
+Err.Raise 1000, , "Dimension error"
+End Sub
+
+Sub Load_Trid_Mat(Mat, Mat3)
+Dim tmp, n&, m&, i&, j&
+tmp = Mat
+n = UBound(tmp, 1)
+m = UBound(tmp, 2)
+ReDim Mat3(1 To n, 1 To 3)
+If n = m Then
+    'load from square tridiagonal matrix
+    For i = 1 To n
+        If i > 1 Then Mat3(i, 1) = tmp(i, i - 1)
+        Mat3(i, 2) = tmp(i, i)
+        If i < n Then Mat3(i, 3) = tmp(i, i + 1)
+    Next i
+ElseIf m = 3 Then
+    'load from 3 vectors
+    For i = 1 To n
+        Mat3(i, 1) = tmp(i, 1)
+        Mat3(i, 2) = tmp(i, 2)
+        Mat3(i, 3) = tmp(i, 3)
+    Next i
+Else
+    GoTo Error_Handler
+End If
+Exit Sub
+Error_Handler:
+Err.Raise 1000, , "Dimension error"
+End Sub
+
+Function MatEigenvalue_QL(Mat3, Optional IterMax)
+Dim tmp, Up#(), low#(), Diag#(), a()
+If IsMissing(IterMax) Then IterMax = 200
+On Error GoTo Error_Handler
+tmp = Mat3
+Load_Trid_Mat tmp, a
+Mat_Trid_Symmetrize a
+n = UBound(a, 1)
+ReDim Up(1 To n), low(1 To n), Diag(1 To n)
+For i = 1 To n
+    low(i) = a(i, 1)
+    Diag(i) = a(i, 2)
+    Up(i) = a(i, 3)
+Next i
+
+Eigenvalues_QL Diag, Up, IterMax
+
+ReDim a(1 To n, 1 To 1)
+For i = 1 To n
+    a(i, 1) = Diag(i)
+Next i
+
+Call MatrixSort(a, "A")
+
+MatEigenvalue_QL = a
+Exit Function
+Error_Handler:
+MatEigenvalue_QL = "?"
+End Function
+
+Sub Mat_Trid_Symmetrize(Mat3)
+'symmetrize tridiagonal matrix
+n = UBound(Mat3, 1)
+On Error GoTo Error_Handler
+For i = 2 To n
+    If Mat3(i - 1, 3) = 0 Then
+        Mat3(i, 1) = 0
+    ElseIf Mat3(i, 1) = 0 Then
+        Mat3(i - 1, 3) = 0
+    Else
+        d = Sqr(Mat3(i, 1) / Mat3(i - 1, 3))
+        Mat3(i, 1) = Mat3(i, 1) / d
+        Mat3(i - 1, 3) = Mat3(i - 1, 3) * d
+    End If
+Next
+Exit Sub
+Error_Handler:
+Err.Raise 1005, , "Symmetrization impossible"
+End Sub
+
+Sub Eigenvalues_QL(Diag() As Double, subdiag() As Double, Iter_max)
+'Finds eigenvalues and eigenvector of symmetric tridiagonal matrix with QL algorithm
+'at the end Diag will contains the eigenvalues
+Dim i%, Iter%, k%, j%, m%, b#, C#, tmp#, f#, g#, p#, R#, s#
+n = UBound(Diag)
+For j = 1 To n
+  Iter = 0
+  Do Until Iter > Iter_max
+      For m = j To n - 1
+          tmp = Abs(Diag(m)) + Abs(Diag(m + 1))
+          If (Abs(subdiag(m)) + tmp = tmp) Then Exit For
+      Next m
+      If (m = j) Then Exit Do  '--> exit loop
+      Iter = Iter + 1
+      g = (Diag(j + 1) - Diag(j)) / (2# * subdiag(j))
+      R = Sqr(g ^ 2 + 1)
+      w = Abs(R)
+      If g < 0 Then w = -w
+      g = Diag(m) - Diag(j) + subdiag(j) / (g + w)
+      s = 1: C = 1: p = 0
+      For i = m - 1 To j Step -1
+            f = s * subdiag(i)
+            b = C * subdiag(i)
+            R = Sqr(f ^ 2 + g ^ 2)
+            subdiag(i + 1) = R
+            If (R = 0) Then
+                Diag(i + 1) = Diag(i + 1) - p
+                subdiag(m) = 0#
+                Exit For
+            End If
+            s = f / R
+            C = g / R
+            g = Diag(i + 1) - p
+            R = (Diag(i) - g) * s + 2# * C * b
+            p = s * R
+            Diag(i + 1) = g + p
+            g = C * R - b
+      Next i
+      If R <> 0 Then
+        Diag(j) = Diag(j) - p
+        subdiag(j) = g
+      End If
+      subdiag(m) = 0#
+  Loop
+  'check convergency
+  If Iter > Iter_max Then
+    On Error Resume Next
+    Err.Raise 1001, , "convergency missing"
+    Exit Sub
+  End If
+Next j
+End Sub
+
+Function Mat_Hessenberg(Mat)
+Dim a, b#()
+a = Mat
+n = UBound(a, 1)
+ReDim Interch(1 To n)
+ELMHES0 n, a
+
+ReDim b(1 To n, 1 To n)
+For i = 1 To n
+For j = 1 To n
+   If j >= i - 1 Then b(i, j) = a(i, j)
+Next j, i
+
+Mat_Hessenberg = b
+End Function
+      
+      
+Sub ELMHES0(n, Mat)
+'  sources by Martin, R. S. and Wilkinson, J. H., see [MART70].   *
+'
+Dim k As Long, i As Long, j As Long, x As Double, y As Double
+      
+      For k = 2 To n - 1
+         i = k
+         x = 0
+         For j = k To n
+            If (Abs(Mat(j, k - 1)) > Abs(x)) Then
+               x = Mat(j, k - 1)
+               i = j
+            End If
+         Next j
+         If (i <> k) Then
+'           SWAP0 rows and columns of MAT
+            For j = k - 1 To n
+               Call SWAP0(Mat(i, j), Mat(k, j))
+            Next j
+            For j = 1 To n
+               Call SWAP0(Mat(j, i), Mat(j, k))
+            Next j
+         End If
+         If (x <> 0) Then
+            For i = k + 1 To n
+               y = Mat(i, k - 1)
+               If (y <> 0) Then
+                  y = y / x
+                  Mat(i, k - 1) = y
+                  For j = k To n
+                     Mat(i, j) = Mat(i, j) - y * Mat(k, j)
+                  Next j
+                  For j = 1 To n
+                     Mat(j, k) = Mat(j, k) + y * Mat(j, i)
+                  Next j
+               End If
+            Next i
+         End If
+      Next k
+End Sub
+      
+Private Sub SWAP0(x, y)
+Dim temp As Double
+    temp = x
+    x = y
+    y = temp
+End Sub
+
+
+Sub HQR(nm, n, low, igh, h, wr, wi, iErr)
+'
+'     THIS SUBROUTINE IS A TRANSLATION OF THE ALGOL PROCEDURE HQR,
+'     NUM. MATH. 14, 219-231(1970) BY MARTIN, PETERS, AND WILKINSON.
+'     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 359-371(1971).
+'
+'     THIS SUBROUTINE FINDS THE EIGENVALUES OF A REAL
+'     UPPER HESSENBERG MATRIX BY THE QR METHOD.
+'
+'     ON INPUT
+'
+'        NM MUST BE SET TO THE ROW DIMENSION OF TWO-DIMENSIONAL
+'          ARRAY PARAMETERS AS DECLARED IN THE CALLING PROGRAM
+'          DIMENSION STATEMENT.
+'
+'        N IS THE ORDER OF THE MATRIX.
+'
+'        LOW AND IGH ARE INTEGERS DETERMINED BY THE BALANCING
+'          SUBROUTINE  BALANC.  IF  BALANC  HAS NOT BEEN USED,
+'          SET LOW=1, IGH=N.
+'
+'        H CONTAINS THE UPPER HESSENBERG MATRIX.  INFORMATION ABOUT
+'          THE TRANSFORMATIONS USED IN THE REDUCTION TO HESSENBERG
+'          FORM BY  ELMHES  OR  ORTHES, IF PERFORMED, IS STORED
+'          IN THE REMAINING TRIANGLE UNDER THE HESSENBERG MATRIX.
+'
+'     ON OUTPUT
+'
+'        H HAS BEEN DESTROYED.  THEREFORE, IT MUST BE SAVED
+'          BEFORE CALLING  HQR  IF SUBSEQUENT CALCULATION AND
+'          BACK TRANSFORMATION OF EIGENVECTORS IS TO BE PERFORMED.
+'
+'        WR AND WI CONTAIN THE REAL AND IMAGINARY PARTS,
+'          RESPECTIVELY, OF THE EIGENVALUES.  THE EIGENVALUES
+'          ARE UNORDERED EXCEPT THAT COMPLEX CONJUGATE PAIRS
+'          OF VALUES APPEAR CONSECUTIVELY WITH THE EIGENVALUE
+'          HAVING THE POSITIVE IMAGINARY PART FIRST.  IF AN
+'          ERROR EXIT IS MADE, THE EIGENVALUES SHOULD BE CORRECT
+'          FOR INDICES IERR+1,...,N.
+'
+'        IERR IS SET TO
+'          ZERO       FOR NORMAL RETURN,
+'          J          IF THE LIMIT OF 30*N ITERATIONS IS EXHAUSTED
+'                     WHILE THE J-TH EIGENVALUE IS BEING SOUGHT.
+'
+'     ------------------------------------------------------------------
+
+Dim i&, j&, k&, L&, m&, en&, ll&, mm&, na&, itn&, its&, MP2&, ENM2&
+Dim p#, q#, R#, s#, t#, w#, x#, y#, ZZ#, tst1#, tst2#
+Dim NOTLAS As Boolean
+'
+      iErr = 0
+      k = 1
+
+Lab50:
+'
+      en = igh
+      t = 0#
+      itn = 30 * n
+'     .......... SEARCH FOR NEXT EIGENVALUES ..........
+Lab60:
+      If (en < low) Then GoTo Lab1001
+      its = 0
+      na = en - 1
+      ENM2 = na - 1
+'     .......... LOOK FOR SINGLE SMALL SUB-DIAGONAL ELEMENT
+'                FOR L=EN STEP -1 UNTIL LOW DO -- ..........
+Lab70:
+     For ll = low To en
+            L = en + low - ll
+            If (L = low) Then GoTo Lab100
+            s = Abs(h(L - 1, L - 1)) + Abs(h(L, L))
+            If (s = 0) Then s = 1   's = norm  ' fix bug 2.11.05 VL
+            tst1 = s
+            tst2 = tst1 + Abs(h(L, L - 1))
+            If (tst2 = tst1) And Abs(h(L, L - 1)) < 1 Then GoTo Lab100
+     Next ll
+'     .......... FORM SHIFT ..........
+Lab100:
+      x = h(en, en)
+      If (L = en) Then GoTo Lab270
+      y = h(na, na)
+      w = h(en, na) * h(na, en)
+      If (L = na) Then GoTo Lab280
+      If (itn = 0) Then GoTo Lab1000
+      If ((its <> 10) And (its <> 20)) Then GoTo Lab130
+'     .......... FORM EXCEPTIONAL SHIFT ..........
+      t = t + x
+'
+      For i = low To en
+        h(i, i) = h(i, i) - x
+      Next i
+'
+      s = Abs(h(en, na)) + Abs(h(na, ENM2))
+      x = 0.75 * s
+      y = x
+      w = -0.4375 * s * s
+Lab130:
+      its = its + 1
+      itn = itn - 1
+'     .......... LOOK FOR TWO CONSECUTIVE SMALL
+'                SUB-DIAGONAL ELEMENTS.
+'                FOR M=EN-2 STEP -1 UNTIL L DO -- ..........
+      For mm = L To ENM2
+         m = ENM2 + L - mm
+         ZZ = h(m, m)
+         R = x - ZZ
+         s = y - ZZ
+         p = (R * s - w) / h(m + 1, m) + h(m, m + 1)
+         q = h(m + 1, m + 1) - ZZ - R - s
+         R = h(m + 2, m + 1)
+         s = Abs(p) + Abs(q) + Abs(R)
+         p = p / s
+         q = q / s
+         R = R / s
+         If (m = L) Then GoTo Lab150
+         tst1 = Abs(p) * (Abs(h(m - 1, m - 1)) + Abs(ZZ) + Abs(h(m + 1, m + 1)))
+         tst2 = tst1 + Abs(h(m, m - 1)) * (Abs(q) + Abs(R))
+         If (tst2 = tst1) Then GoTo Lab150
+      Next mm
+'
+Lab150:
+      MP2 = m + 2
+'
+      For i = MP2 To en
+         h(i, i - 2) = 0#
+         If (i <> MP2) Then h(i, i - 3) = 0#
+      Next i
+'     .......... DOUBLE QR STEP INVOLVING ROWS L TO EN AND
+'                COLUMNS M TO EN ..........
+      For k = m To na
+         NOTLAS = k <> na
+         If (k = m) Then GoTo Lab170
+         p = h(k, k - 1)
+         q = h(k + 1, k - 1)
+         R = 0#
+         If (NOTLAS) Then R = h(k + 2, k - 1)
+         x = Abs(p) + Abs(q) + Abs(R)
+         If (x = 0#) Then GoTo Lab260
+         p = p / x
+         q = q / x
+         R = R / x
+Lab170:
+         s = dsign(Sqr(p * p + q * q + R * R), p)
+         If (k = m) Then GoTo Lab180
+         h(k, k - 1) = -s * x
+         GoTo Lab190
+Lab180:
+         If (L <> m) Then h(k, k - 1) = -h(k, k - 1)
+Lab190:
+         p = p + s
+         x = p / s
+         y = q / s
+         ZZ = R / s
+         q = q / p
+         R = R / p
+         If (NOTLAS) Then GoTo Lab225
+'     .......... ROW MODIFICATION ..........
+         For j = k To n
+            p = h(k, j) + q * h(k + 1, j)
+            h(k, j) = h(k, j) - p * x
+            h(k + 1, j) = h(k + 1, j) - p * y
+         Next j
+'
+         j = Min(en, k + 3)
+'     .......... COLUMN MODIFICATION ..........
+         For i = 1 To j
+            p = x * h(i, k) + y * h(i, k + 1)
+            h(i, k) = h(i, k) - p
+            h(i, k + 1) = h(i, k + 1) - p * q
+         Next i
+         GoTo Lab255
+Lab225:
+'     .......... ROW MODIFICATION ..........
+         For j = k To n
+            p = h(k, j) + q * h(k + 1, j) + R * h(k + 2, j)
+            h(k, j) = h(k, j) - p * x
+            h(k + 1, j) = h(k + 1, j) - p * y
+            h(k + 2, j) = h(k + 2, j) - p * ZZ
+         Next j
+'
+         j = Min(en, k + 3)
+'     .......... COLUMN MODIFICATION ..........
+         For i = 1 To j
+            p = x * h(i, k) + y * h(i, k + 1) + ZZ * h(i, k + 2)
+            h(i, k) = h(i, k) - p
+            h(i, k + 1) = h(i, k + 1) - p * q
+            h(i, k + 2) = h(i, k + 2) - p * R
+         Next i
+Lab255:
+'
+      Next k
+Lab260:
+'
+      GoTo Lab70
+'     .......... ONE ROOT FOUND ..........
+Lab270:
+      wr(en) = x + t
+      wi(en) = 0#
+      en = na
+      GoTo Lab60
+'     .......... TWO ROOTS FOUND ..........
+Lab280:
+      p = (y - x) / 2#
+      q = p * p + w
+      ZZ = Sqr(Abs(q))
+      x = x + t
+      If (q < 0#) Then GoTo Lab320
+'     .......... REAL PAIR ..........
+      ZZ = p + dsign(ZZ, p)
+      wr(na) = x + ZZ
+      wr(en) = wr(na)
+      If (ZZ <> 0#) Then wr(en) = x - w / ZZ
+      wi(na) = 0#
+      wi(en) = 0#
+      GoTo Lab330
+'     .......... COMPLEX PAIR ..........
+Lab320:
+      wr(na) = x + p
+      wr(en) = x + p
+      wi(na) = ZZ
+      wi(en) = -ZZ
+Lab330:
+      en = ENM2
+      GoTo Lab60
+'     .......... SET ERROR -- ALL EIGENVALUES HAVE NOT
+'                CONVERGED AFTER 30*N ITERATIONS ..........
+Lab1000:
+      iErr = en
+Lab1001:
+End Sub
+
+Private Function dsign(x, y)
+If y >= 0 Then
+    dsign = Abs(x)
+Else
+    dsign = -Abs(x)
+End If
+End Function
+
+Function MatEigenvalue_TridUni(n, a, b, C)
+'return all eigenvalues - real or complex - of a tridiagonal uniform matrix n x n
+Dim Eig(), k%, i1%, i2%, dk#, q#
+PI_GREEK = Application.WorksheetFunction.pi
+ReDim Eig(1 To n, 1 To 2)
+If a * C = 0 Then
+    For k = 1 To n
+        Eig(k, 1) = b: Eig(k, 2) = 0
+    Next
+Else
+    'one eigenvalue with multiplicity n
+    q = 2 * Sqr(Abs(a * C))
+    For k = 1 To Int(n / 2)
+        dk = q / Sqr(1 + (Tan(k * PI_GREEK / (n + 1))) ^ 2)
+        i2 = n + 1 - k
+        i1 = k
+        If a * C > 0 Then   'all eigenvalues are real
+            Eig(i1, 1) = b - dk: Eig(i1, 2) = 0
+            Eig(i2, 1) = b + dk: Eig(i2, 2) = 0
+        Else                'all eigenvalues are complex
+            Eig(i1, 1) = b: Eig(i1, 2) = -dk
+            Eig(i2, 1) = b: Eig(i2, 2) = dk
+        End If
+    Next k
+    If n Mod 2 <> 0 Then 'odd matrix
+        i2 = (n + 1) / 2
+        Eig(i2, 1) = b: Eig(i2, 2) = 0
+    End If
+End If
+
+MatEigenvalue_TridUni = Eig
+End Function
+
+
+
+Function MatEigenvector3(Mat3, Eigenvalues, Optional MaxErr)
+'returns the eigenvector associate to a given eigenvalue of a tridiagonal matrix
+'Eigenvalues may be also a vector of eigenvalues
+'mod 3-3-06
+Dim a, a0, L, b#(), u#(), tol#
+Load_Trid_Mat Mat3, a0
+If Err <> 0 Then GoTo Error_Handler
+a = a0
+L = Eigenvalues
+If IsArray(L) Then
+    k_max = UBound(L)
+Else
+    k_max = 1
+End If
+n = UBound(a, 1)
+ReDim u(1 To n, 1 To n), b(1 To n, 1 To 1)
+Lk = 0
+k = 1
+Do Until k > k_max
+    If IsArray(L) Then
+        Lk = L(k, 1)
+    Else
+        Lk = L
+    End If
+    If k > 1 Then a = a0  'reinitialize
+    For i = 1 To n
+        a(i, 2) = a(i, 2) - Lk
+        b(i, 1) = 0
+    Next
+    If IsMissing(MaxErr) Then  'try to estimate tol
+        Det = M_DET3(a)
+        If Det <= 10 ^ -13 Then tol = 10 ^ -13 Else tol = 100 * Abs(Det)
+        If tol > 10 ^ -6 Then tol = 10 ^ -6
+    Else
+        tol = MaxErr
+    End If
+    'solve singolar system
+    Call Sys_Tridiag(a, b, Det, tol)
+    If Det > tol Then  'matrix not singular
+        MatEigenvector3 = b
+        Exit Function
+    End If
+    'inspection of reduced matrix a
+    m = 0
+    For i = 1 To n
+        '      m=0 => non singular matrix
+        '      m=1 => eigenvalue simple
+        '      m>1 => eigenvalue multiple
+        If Abs(a(i, 1)) < tol Then m = m + 1  'fix bug 8.1.06
+    Next
+    
+    For Im = 1 To m
+        i_pivot = n - Im + 1
+        u(i_pivot, k) = 1
+        For i = i_pivot - 1 To 1 Step -1
+            If i = n - 1 Then
+                u(i, k) = -a(i, 2) * u(i + 1, k) / a(i, 1)
+            Else
+                u(i, k) = (-a(i, 2) * u(i + 1, k) - a(i, 3) * u(i + 2, k)) / a(i, 1)
+            End If
+        Next
+        k = k + 1
+    Next Im
+Loop
+Normalize_Eigenvector_Sign u, tol
+NormalizeMatrix u, 2, tol
+MatEigenvector3 = u
+Exit Function
+Error_Handler:
+MatEigenvector3 = "?"
+End Function
+
+Function Mat_QR_iter(Mat, Optional MaxLoops)
+'performs the iterative QR method for triangolarization/diagonalization
+If IsMissing(MaxLoops) Then MaxLoops = 100
+Dim a, b, q(), R(), a1, a2
+a = Mat
+n = UBound(a, 1)
+m = UBound(a, 2)
+If n <> m Then
+    Mat_QR_iter = "?"
+    Exit Function
+End If
+ReDim q(1 To n, 1 To n), R(1 To n, 1 To n)
+k = 1
+Do Until k > MaxLoops
+    b = Mat_QR(a)
+    GoSub Copy_R_Q
+    a = Application.WorksheetFunction.MMult(R, q)
+    k = k + 1
+Loop
+
+Mat_QR_iter = a
+Exit Function
+'internal routine
+Copy_R_Q:
+    For i = 1 To n
+    For j = 1 To n
+        q(i, j) = b(i, j)
+        R(i, j) = b(i, j + n)

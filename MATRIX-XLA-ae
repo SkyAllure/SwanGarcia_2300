@@ -1,0 +1,1500 @@
+    Next j
+    Next i
+Return
+End Function
+
+Sub Eigen_Inverse_Iteration(a, L, u, tol)
+'return the eigenvectors associates to eigenvalues
+'Input  A = matrix (n x n)
+'Input  L = vector (1 x m) of eigenvalues of A
+'Output U = matrix (n x m) of eigenvector of A
+'mod 8.1.06
+Dim k&, i&, j&, y#(), V#(), s#, Ai#(), Iter&, IterErr#, n&, yn#, dot#, Res#, m&
+Dim IterMax
+IterMax = 20
+n = UBound(a)
+m = UBound(L)
+ReDim y(1 To n), V(1 To n, 1 To 1), Ai(1 To n, 1 To n), u(1 To n, 1 To m)
+'compute the perturbation factor
+s = Exp(0.5 * Log(tol))
+'
+ReDim u(1 To n, 1 To m)  'eigenvector matrix
+For k = 1 To m
+    'load initial random values
+    For i = 1 To n
+        y(i) = 1 + 0.3 * Rnd
+    Next
+    Iter = 0
+    Do
+        'build the iteration matrix
+        For i = 1 To n
+            For j = 1 To n
+                Ai(i, j) = a(i, j)
+            Next j
+            Ai(i, i) = Ai(i, i) - L(k) * (1 + s)
+        Next i
+        
+        NormalizeVector y, 0
+        'copy y --> v
+        For i = 1 To n: V(i, 1) = y(i): Next
+        'solve linear system  B x = v
+        Call GJ(Ai, V, , tol)
+        'scalar product v*y
+        dot = 0
+        For i = 1 To n
+            dot = dot + y(i) * V(i, 1)
+        Next
+        'residual
+        Res = 0
+        For i = 1 To n
+            Res = Res + (V(i, 1) - dot * y(i)) ^ 2
+        Next
+        Res = Sqr(Res)
+        'iteration error
+        IterErr = 0
+        If Res <> 0 Then IterErr = Res / Abs(dot)
+        'copy v --> y
+        For i = 1 To n: y(i) = V(i, 1): Next
+        Iter = Iter + 1    'bug 30-12-03 VL
+    Loop Until Iter > IterMax Or IterErr <= tol
+    '
+    NormalizeVector y, 0
+    'save eigenversor --> Uk and clean-up
+    For i = 1 To n
+        u(i, k) = y(i)
+        If Abs(u(i, k)) < tol Then u(i, k) = 0
+    Next
+Next k
+'normalize the eigenvector sign
+Normalize_Eigenvector_Sign u, tol
+
+End Sub
+
+Function MatEigenvectorInv(Mat, Eigenvalue)
+'return the real eigenvectors associated to the given real eigenvalues
+'uses the inverse iteration algorithm
+Dim L(), m&, a, u()
+
+    MaxErr = 10 ^ -10
+    LoadVector L, Eigenvalue, m
+    a = Mat
+    
+    If UBound(a, 1) <> UBound(a, 2) Then GoTo Error_Handler
+    '
+    Eigen_Inverse_Iteration a, L, u, MaxErr
+    '
+    MatEigenvectorInv = u
+Exit Function
+'-------------
+Error_Handler:
+    MatEigenvectorInv = "?"
+End Function
+
+Private Function Cplx_to_Str(x, y, Optional imchar)
+'transform a complex number (x,y) into a complex string x+iy
+'v. 25.7.2006  (0.06 ms)
+Dim sx$, sy$, u$, tol#, d%
+d = 12  'significant digits
+tol = 10 ^ -d 'round-off limit
+If IsMissing(imchar) Then imchar = "j"
+If imchar <> "i" And imchar <> "j" Then imchar = "j"
+If Abs(x) < tol Then x = 0
+If Abs(y) < tol Then y = 0
+x = Roundr(x, d)
+y = Roundr(y, d)
+If x <> 0 Then sx = cstr_(x)
+If y = 1 Then
+    sy = imchar
+ElseIf y = -1 Then
+    sy = "-" & imchar
+ElseIf y <> 0 Then
+    sy = cstr_(y) & imchar
+End If
+If y > 0 And sx <> "" Then sy = "+" & sy
+u = sx & sy
+If u = "" Then u = "0"
+Cplx_to_Str = u
+End Function
+
+Private Function Cplx_from_Str(ByVal s)
+'transform a complex string  x+iy into a complex number (x,y)
+'v. 8.12.2003, (0.05 ms)
+Dim sim$, sre$, C#(1 To 2), p%, i%, ch$, ls%
+'check fast end
+s = Trim(s)
+If s = "" Or s = "0" Then GoTo Return_value
+If s = "i" Or s = "j" Then C(2) = 1: GoTo Return_value
+If s = "-i" Or s = "-j" Then C(2) = -1: GoTo Return_value
+If InStr(1, s, "i") = 0 And InStr(1, s, "j") = 0 Then
+    C(1) = CDbl(s)  'pure number
+    GoTo Return_value
+End If
+'parse begins
+p = 2
+ls = Len(s)
+Do
+    ch = Mid(s, p, 1)
+    If ch = "+" Or ch = "-" Then
+        If UCase(Mid(s, p - 1, 1)) <> "E" Then Exit Do
+    End If
+    p = p + 1
+Loop While p <= ls
+
+If p <= ls Then
+    sre = Trim(Left(s, p - 1))
+    sim = Trim(Mid(s, p, ls - p))
+Else
+    sre = "0"
+    sim = Trim(Left(s, ls - 1))
+End If
+If sim = "+" Then sim = "1"
+If sim = "-" Then sim = "-1"
+C(1) = CDbl(sre)
+C(2) = CDbl(sim)
+Return_value:
+Cplx_from_Str = C
+End Function
+
+Private Function cstr_(x)
+'convert a number into string following the international setting (0.05 ms)
+'fix Excel bug
+'If DecSep = "" Then DecSep = Application.International(xlDecimalSeparator)
+DecSep = Application.International(xlDecimalSeparator)
+s = CStr(x)
+p = InStr(1, s, ".")
+If p > 0 Then
+    If "." <> DecSep Then Mid(s, p, 1) = DecSep
+Else
+    p = InStr(1, s, ",")
+    If p > 0 Then
+        If "," <> DecSep Then Mid(s, p, 1) = DecSep
+    End If
+End If
+cstr_ = s
+End Function
+
+Sub CombLinRow(a, i1, i2, coeff)
+' linear comination rows
+Dim m&, j&
+    m = UBound(a, 2)
+    For j = 1 To m
+        a(i1, j) = a(i1, j) + coeff * a(i2, j)
+    Next j
+End Sub
+
+Sub CombLinCol(a, j1, j2, coeff)
+' linear comination columns
+Dim n&, i&
+    n = UBound(a, 1)
+    For i = 1 To n
+        a(i, j1) = a(i, j1) + coeff * a(i, j2)
+    Next i
+End Sub
+
+Function Mat_Adm(Branch)
+Dim br, i&, j&, k&, Nmax&, m&, n&, y()
+
+br = Branch
+n = UBound(br, 1)
+m = UBound(br, 2)
+'search for max node
+For k = 1 To n
+    If br(k, 1) > Nmax Then Nmax = br(k, 1)
+    If br(k, 2) > Nmax Then Nmax = br(k, 2)
+Next k
+'build the admittance matrix
+ReDim y(1 To Nmax, 1 To 2 * Nmax)
+For k = 1 To n
+    i = br(k, 1)
+    j = br(k, 2)
+    If i <> 0 Then
+        y(i, i) = y(i, i) + br(k, 3)
+        If m = 4 Then y(i, i + Nmax) = y(i, i + Nmax) + br(k, 4)
+    End If
+    If j <> 0 Then
+        y(j, j) = y(j, j) + br(k, 3)
+        If m = 4 Then y(j, j + Nmax) = y(j, j + Nmax) + br(k, 4)
+    End If
+    If i <> 0 And j <> 0 Then
+        y(i, j) = y(i, j) - br(k, 3)
+        y(j, i) = y(i, j)
+        If m = 4 Then
+            y(i, j + Nmax) = y(i, j + Nmax) - br(k, 4)
+            y(j, i + Nmax) = y(i, j + Nmax)
+        End If
+    End If
+Next k
+
+Mat_Adm = y
+Exit Function
+Error_Handler:
+Mat_Adm = "?"
+End Function
+
+Function Mat_Leontief(ExTab, Tot)
+Dim ExT, t(), n&, i&, j&, a(), RetErr
+
+ExT = ExTab   'Interindustry Exchange Matrix
+If UBound(ExT, 1) <> UBound(ExT, 2) Then GoTo Error_Handler
+'load Total Production vector
+LoadVector t, Tot, n
+If n <> UBound(ExT, 1) Then GoTo Error_Handler
+
+'build the consumption matrix
+ReDim a(1 To n, 1 To n)
+For j = 1 To n
+For i = 1 To n
+    a(i, j) = ExT(i, j) / Tot(j)
+Next i, j
+For j = 1 To n
+For i = 1 To n
+    a(i, j) = -a(i, j)
+    If i = j Then a(i, j) = 1 + a(i, j)
+Next i, j
+GJ a, , , tol, RetErr
+If RetErr <> "" Then GoTo Error_Handler
+Mat_Leontief = a
+Exit Function
+'
+Error_Handler:
+Mat_Leontief = "?"
+End Function
+
+
+Private Function strFract(a, b)
+'Convert a, b in string fraction a/b
+    Segno = ""
+    If (a * b) < 0 Then Segno = "-"
+    If Not IsInteger(a) Or Not IsInteger(b) Then
+        s = Str(a / b)
+    Else
+
+        If Abs(a) = 1 And Abs(b) = 1 Then
+            s = Segno + "1"
+        ElseIf Abs(a) = 1 And Abs(b) > 1 Then
+            s = Segno + "1/" + Trim(Str(Abs(b)))
+        ElseIf Abs(a) > 1 And Abs(b) = 1 Then
+            s = Segno + Trim(Str(Abs(a)))
+        Else
+            s = Segno + Trim(Str(Abs(a))) + "/" + Trim(Str(Abs(b)))
+        End If
+    End If
+strFract = s
+End Function
+
+Private Function IsInteger(x) As Boolean
+    IsInteger = False
+    If Not IsNumeric(x) Then Exit Function
+    y = Abs(x)
+    R = y - Int(y)
+    If R = 0 Then IsInteger = True
+End Function
+
+Private Sub swap_rows(a, r1, r2)
+Dim j&, tmp
+For j = 1 To UBound(a, 2)
+    tmp = a(r1, j)
+    a(r1, j) = a(r2, j)
+    a(r2, j) = tmp
+Next j
+End Sub
+
+Private Sub swap_columns(a, c1, c2)
+Dim i&, tmp
+For i = 1 To UBound(a, 1)
+    tmp = a(i, c1)
+    a(i, c1) = a(i, c2)
+    a(i, c2) = tmp
+Next i
+End Sub
+
+Private Function Weig(i, j, n)
+'Weight-function for block-reduction routine - by Leonardo Volpi - v. 14.5.2004
+Weig = (n - i + 1) ^ 2 * j ^ 2
+End Function
+
+Private Function Score1(Mat, p, q)
+'score function for block-reduction routine - by Leonardo Volpi - v. 14.5.2004
+Dim a, i&, j&, k&, m&, n&
+
+a = Mat
+n = UBound(a)
+s0 = 0
+'first ------------------------------------------
+For j = p + 1 To n
+    If a(p, j) = 0 Then s0 = s0 + Weig(p, j, n)
+Next j
+For j = q + 1 To n
+    If a(q, j) = 0 Then s0 = s0 + Weig(q, j, n)
+Next j
+For i = 1 To p - 1
+    If a(i, p) = 0 Then s0 = s0 + Weig(i, p, n)
+Next i
+For i = 1 To q - 1
+    If a(i, q) = 0 Then s0 = s0 + Weig(i, q, n)
+Next i
+If a(p, q) = 0 Then s0 = s0 - Weig(p, q, n)
+
+'after ------------------------------------------
+s1 = 0
+For j = p + 1 To n
+    If a(q, j) = 0 Then s1 = s1 + Weig(p, j, n)
+Next j
+For j = q + 1 To n
+    If a(p, j) = 0 Then s1 = s1 + Weig(q, j, n)
+Next j
+For i = 1 To p - 1
+    If a(i, q) = 0 Then s1 = s1 + Weig(i, p, n)
+Next i
+For i = 1 To q - 1
+    If a(i, p) = 0 Then s1 = s1 + Weig(i, q, n)
+Next i
+If a(q, p) = 0 Then s1 = s1 + Weig(p, q, n)
+
+Score1 = s1 - s0
+
+End Function
+
+Function Mat_Block(Mat)
+'return the block-partitioned matrix using the Score-Algorithm
+' by Leonardo Volpi - Foxes Team - v. 5/2004
+Dim a, n&, i&, j&, k&, Iter&, Iter_max&, s&, s0&
+'Dim conta1, conta2
+Dim Perm() As Integer
+
+a = Mat
+
+n = UBound(a, 1)
+If n <> UBound(a, 2) Then GoTo Error_Handler   '"Matrix not square"
+Iter_max = 2 * n
+
+Block_Matrix_Reduction a, Perm, Iter
+
+If Iter >= Iter_max Then GoTo Error_Handler   '"Iteration overflow"
+
+    Mat_Block = a
+Exit Function
+Error_Handler:
+    Mat_Block = "?"
+End Function
+
+Function Mat_BlockPerm(Mat)
+'returns the permutation vector that reduce a matrix in block-partinioned form
+'use the Score-Algorithm routine, by Leonardo Volpi - Foxes Team - v. 5/2004
+Dim a, n&, i&, j&, k&, Iter&, Iter_max&, s&, s0&
+Dim Block(), Nblock, DimMax, Perm()
+a = Mat
+n = UBound(a, 1)
+If n <> UBound(a, 2) Then GoTo Error_Handler   '"Matrix not square"
+Iter_max = 2 * n
+Block_Matrix_Reduction a, Perm, Iter
+If Iter >= Iter_max Then GoTo Error_Handler    '"Iteration overflow"
+'check the result
+Mat_Block_Extract a, Block, Nblock, DimMax
+If Nblock = 1 Then GoTo Error_Handler         'irriducible matrix
+Mat_BlockPerm = PasteVector(Perm)
+Exit Function
+Error_Handler:
+    Mat_BlockPerm = "?"
+End Function
+
+Sub Block_Matrix_Reduction(a, Perm, Optional Iter)
+'------------------------------------------------------------------------
+' Routine for matrix reduction to the block-partitioned form
+' Uses the Score-Algorithm, by Leonardo Volpi, Foxes Team - v. 5/2004
+' A = input matrix . At the end contains the block-partitioned matrix
+' Parm = permutation vector
+'----------------------------------------------------------------------
+Dim n&, i&, j&, k&, Iter_max&, s&, s0&
+
+n = UBound(a, 1)
+Iter_max = 2 * n
+
+'initialize permutation vector --------
+ReDim Perm(1 To 1, 1 To n)
+For j = 1 To n: Perm(1, j) = j: Next j
+'---------------------------------------
+s0 = 0
+Iter = 0
+'conta1 = 0
+'conta2 = 0
+Do
+    s0 = s
+    'rows scan begins
+    For i = 1 To n
+        For j = n To i + 1 Step -1
+            If a(i, j) <> 0 Then
+                'trova uno zero sulla stella riga
+                For k = 1 To j - 1
+                    If a(i, k) = 0 Then
+                        'conta1 = conta1 + 1   '<<<<<<<< DEBUG
+                        t = Score1(a, k, j)
+                        If t > 0 Then
+                            'conta2 = conta2 + 1 '<<<<<<<< DEBUG
+                            swap_rows a, k, j
+                            swap_columns a, k, j
+                            swap_columns Perm, k, j
+                            s = s + t
+                            Exit For
+                        End If
+                    End If
+                Next k
+            End If
+        Next j
+    Next i
+    
+    'butterfly scan begins
+    For i = 1 To n - 1
+        If a(i, i + 1) <> 0 And a(i + 1, i) = 0 Then
+            'conta1 = conta1 + 1        '<<<<<<<< DEBUG
+            t = Score1(a, i, i + 1)
+            If t > 0 Then
+                'conta2 = conta2 + 1 '<<<<<<<< DEBUG
+                swap_rows a, i, i + 1
+                swap_columns a, i, i + 1
+                swap_columns Perm, i, i + 1
+                s = s + t
+            End If
+        End If
+    Next
+    Iter = Iter + 1
+Loop While s > s0 And Iter < Iter_max
+
+End Sub
+
+Sub Mat_Block_Extract(a, Block, Nblock, DimMax)
+'----------------------------------------------------
+' check if a matrix is in a Block-Jordan's form
+' A = input square matrix
+' Block = vector containing each block's dimension
+' Nblock = max blocks found
+' DimMax = dimension of the largest block
+' by Leonardo volpi - v 15.5.2004
+'---------------------------------------------------
+Dim n&, Ib&, i&, j&, Edge&(), edge_max&, Block_dim&
+n = UBound(a)
+ReDim Block(1 To n), Edge(1 To n)
+'build the right-border vector
+For i = 1 To n
+    For j = n To 1 Step -1
+        If a(i, j) <> 0 Then Exit For
+    Next j
+    Edge(i) = j
+Next i
+'blocks finder begins
+DimMax = 0
+Nblock = 0
+For i = 1 To n
+    Block_dim = Block_dim + 1
+    If Edge(i) > edge_max Then edge_max = Edge(i)
+    If i >= edge_max Then   'one block found
+        Ib = Ib + 1
+        Block(Ib) = Block_dim
+        If Block_dim > DimMax Then DimMax = Block_dim
+        Block_dim = 0
+    End If
+Next i
+Nblock = Ib
+End Sub
+
+Function M_MULT_TPZ(tpz, V)
+'multiply a toeplitz matrix for a vector
+'tpz = vector (2*n-1)
+' v = vector (n)
+Dim a, x, n As Long, p As Long, i As Long, j As Long, R()
+
+    a = tpz
+    x = V
+    n = UBound(x)
+    p = UBound(a)
+    If 2 * n - 1 <> p Or (p + 1) Mod 2 <> 0 Then GoTo Error_Handler
+    ReDim R(1 To n, 1 To 1)
+    For i = 1 To n
+    For j = 1 To n
+        p = n - i + j
+        R(i, 1) = R(i, 1) + a(p, 1) * x(j, 1)
+    Next j, i
+    
+    M_MULT_TPZ = R
+Exit Function
+Error_Handler:
+    M_MULT_TPZ = "?"
+End Function
+
+
+Function SYSLIN_TPZ(tpz, b)
+Dim u, V, n&, m&, nx&, R(), x(), C(), i&, j&, rc, p&, tpzerr#, tiny#
+tiny = 5 * 10 ^ -14
+u = tpz
+V = b
+If UBound(u, 2) = 1 Then
+    p = UBound(u, 1)
+    If (p + 1) Mod 2 <> 0 Then GoTo Error_Handler
+    n = (p + 1) / 2
+    nx = UBound(V)
+    If n <> nx Then GoTo Error_Handler
+    ReDim x(1 To n), C(1 To n), R(1 To p)
+    For i = 1 To n: C(i) = V(i, 1): Next i
+    For i = 1 To p: R(i) = u(i, 1): Next i
+Else
+    n = UBound(u, 1)
+    m = UBound(u, 2)
+    nx = UBound(V)
+    
+    If n <> nx Or n <> m Then GoTo Error_Handler
+    tpzerr = M_TPZ_ERR(u)
+    If tpzerr < 0 Or tpzerr > tiny Then GoTo Error_Handler
+    p = 2 * n - 1
+    ReDim x(1 To n), C(1 To n), R(1 To p)
+    For i = 1 To n: C(i) = V(i, 1): Next i
+    For i = 1 To n: R(i) = u(n - i + 1, 1): Next i
+    For i = 1 To n - 1: R(n + i) = u(1, i + 1): Next i
+End If
+sys_toeplz n, R, C, x, rc
+
+If rc <> 0 Then GoTo Error_Handler
+
+SYSLIN_TPZ = Application.WorksheetFunction.Transpose(x)
+Exit Function
+
+Error_Handler:
+SYSLIN_TPZ = "?"
+End Function
+
+Function M_TPZ_ERR(Mat)
+'check Toeplitz matrix
+'return -1 if is not square
+'otherwise return the error distance form the Toeplitz form
+Dim a, i&, j&, R#, n&, Amax#, Amin#
+a = Mat
+n = UBound(a, 1)
+If n <> UBound(a, 2) Then
+    R = -1
+Else
+    For i = 1 To n
+        Amax = Abs(a(i, 1)): Amin = Amax
+        For j = 2 To n - i + 1
+            Update_Max_Min Abs(a(i + j - 1, j)), Amax, Amin
+        Next j
+        R = R + Amax - Amin
+    Next i
+    
+    For j = 2 To n
+        Amax = Abs(a(1, j)): Amin = Amax
+        For i = 2 To n - j + 1
+            Update_Max_Min Abs(a(i, i + j - 1)), Amax, Amin
+        Next i
+        R = R + Amax - Amin
+    Next j
+End If
+M_TPZ_ERR = R / (2 * n) 'average absolute error
+End Function
+
+Private Sub Update_Max_Min(ByRef x, Amax, Amin)
+    If x > Amax Then Amax = x
+    If x < Amin Then Amin = x
+End Sub
+
+
+Sub sys_toeplz(n, tpz, b, x, Optional rc)
+'solves the real Toeplitz system A * X = B.
+'Input, tpz(2*N-1) = [R-n, ...R-1, R0, R1, ...Rn]
+'with Levinson’s method
+
+Dim i&, k&, r1#, r2#, r3#, r4#, r5#, r6#
+Dim c1#(), c2#(), a#()
+
+ReDim c1(n - 1), c2(n - 1), a(2 * n - 1)
+
+'rearrange input vector
+  For i = 1 To n: a(i) = tpz(n + i - 1):  Next i
+  For i = 1 To n - 1: a(n + i) = tpz(n - i):  Next i
+  rc = 1
+  If (n < 1) Then Exit Sub
+'  Solve the system with the principal minor of order 1.
+  r1 = a(1)
+  If r1 = 0 Then Exit Sub
+  x(1) = b(1) / r1
+
+  If (n = 1) Then Exit Sub
+'
+'  Recurrent process for solving the system with the Toeplitz matrix.
+'
+  For k = 2 To n
+'  Compute multiples of the first and last columns of the inverse of
+'  the principal minor of order k.
+      r5 = a(n + k - 1)
+      r6 = a(k)
+    If (k > 2) Then
+      c1(k - 1) = r2
+      For i = 1 To k - 2
+          r5 = r5 + a(n + i) * c1(k - i)
+          r6 = r6 + a(i + 1) * c2(i)
+      Next i
+    End If
+    If r1 = 0 Then Exit Sub
+    r2 = -r5 / r1
+    r3 = -r6 / r1
+    r1 = r1 + r5 * r3
+
+    If (k > 2) Then
+      r6 = c2(1)
+      c2(k - 1) = 0
+      For i = 2 To k - 1
+        r5 = c2(i)
+        c2(i) = c1(i) * r3 + r6
+        c1(i) = c1(i) + r6 * r2
+        r6 = r5
+      Next i
+    End If
+    c2(1) = r3
+    
+'  Compute the solution of the system with the principal minor of order k.
+    r5 = 0
+    For i = 1 To k - 1
+        r5 = r5 + a(n + i) * x(k - i)
+    Next i
+    If r1 = 0 Then Exit Sub
+    r6 = (b(k) - r5) / r1
+    For i = 1 To k - 1
+        x(i) = x(i) + c2(i) * r6
+    Next i
+    x(k) = r6
+  Next k
+  rc = 0
+End Sub
+
+Function VectAngle(v1, v2)
+'computes the angle between the two vector v1, v2
+'arcos(v1*v2/|v1|*|v2|)
+Dim w1(), w2(), n1&, n2&, norm1, norm2, ps, t, y
+LoadVector w1, v1, n1
+LoadVector w2, v2, n2
+norm1 = VectNorm(w1)
+norm2 = VectNorm(w2)
+ps = ProdS(w1, w2)
+t = ps / norm1 / norm2
+y = Arccos(t)
+VectAngle = y
+End Function
+
+Private Function Arccos(x)
+' argumnt -1 <= x <= 1
+Dim y, tiny
+tiny = 5 * 10 ^ -15
+If Abs(x - 1) < tiny Then  'x=1
+    y = 0
+ElseIf Abs(x) < tiny Then  'x=0
+    y = 2 * Atn(1)  'pi/2
+ElseIf Abs(x + 1) < tiny Then       'x=-1
+    y = 4 * Atn(1)  'pi
+Else
+    t = Sqr(1 - x ^ 2) / x
+    y = Atn(t)
+    If x < 0 Then y = y + 4 * Atn(1)
+End If
+Arccos = y
+End Function
+
+Private Function ProdS(v1, v2)
+'scalar product
+Dim s As Double, i As Long
+    For i = 1 To UBound(v1)
+        s = s + v1(i) * v2(i)
+    Next
+    ProdS = s
+End Function
+
+Function Mat_Pseudoinv(Mat)
+'return the Moore-Penrose pseudoinverse
+Dim a, w(), V(), b(), tiny
+Dim n As Integer, m As Integer, i As Integer
+tiny = 2 * 10 ^ -15
+a = Mat
+m = UBound(a, 1): n = UBound(a, 2)
+
+svd_decomp a, m, n, w, V
+svd_sort a, V, w
+'invert the diagonal element
+For i = 1 To UBound(w)
+    If Abs(w(i)) < tiny Then
+        w(i) = 0
+    Else
+        w(i) = 1 / w(i)
+    End If
+Next i
+
+MMultiply M_DIAG(w), M_T(a), b
+
+Mat_Pseudoinv = Matrix_Mult(V, b)
+
+End Function
+
+Function MatChar(Mat, x)
+'returns the characteristic matrix A-sI
+Dim a, n&, i&, lambda
+a = Mat
+lambda = x
+n = Min(UBound(a, 1), UBound(a, 2))
+For i = 1 To n
+    a(i, i) = a(i, i) - lambda
+Next i
+MatChar = a
+End Function
+
+Function MatChar_C(Mat, z, Optional CFormat)
+'returns the complex characteristic matrix A-zI
+Dim a, b, n, ID, Im
+a = Mat
+n = UBound(a)
+ID = M_ID(n)  'identity matrix
+ReDim Preserve ID(1 To n, 1 To 2 * n)
+If IsMissing(CFormat) Then CFormat = 1
+If CFormat = 2 Then Mat_Complex_Conv ID, 12
+If CFormat = 3 Then Mat_Complex_Conv ID, 13
+
+'optional complex part for format=1 and square matrices. 5-6-2005
+If CFormat = 1 And (UBound(a, 1) = UBound(a, 2)) Then
+    ReDim Preserve a(1 To UBound(a, 1), 1 To 2 * UBound(a, 1))
+End If
+
+b = M_PRODS_C(ID, z, CFormat)
+
+MatChar_C = M_SUB_C(a, b, CFormat)
+End Function
+
+Function M_ADD_C(Mat1, Mat2, Optional CFormat, Optional Segno = 1)
+'performs complex matrix addtion  a3 = a1 + a2
+Dim a1, a2, a3()
+Dim n1&, m1&, n2&, m2&, n3&, m3&
+Dim tiny#, Im
+tiny = 10 ^ -15
+If IsMissing(CFormat) Then CFormat = 1
+a1 = Mat1
+If CFormat = 2 Then Mat_Complex_Conv a1, 21
+If CFormat = 3 Then Mat_Complex_Conv a1, 31, Im
+a2 = Mat2
+If CFormat = 2 Then Mat_Complex_Conv a2, 21
+If CFormat = 3 Then Mat_Complex_Conv a2, 31, Im
+n1 = UBound(a1, 1)
+m1 = UBound(a1, 2)
+n2 = UBound(a2, 1)
+m2 = UBound(a2, 2)
+If m1 Mod 2 <> 0 Or m2 Mod 2 <> 0 Then GoTo Error_Handler
+m1 = m1 / 2
+m2 = m2 / 2
+If m1 <> m2 Or n1 <> n2 Then GoTo Error_Handler
+n3 = n1
+m3 = m1
+ReDim a3(1 To n3, 1 To 2 * m3)
+For i = 1 To n3
+For j = 1 To 2 * m3
+    a3(i, j) = a1(i, j) + Segno * a2(i, j)
+    If Abs(a3(i, j)) < tiny Then a3(i, j) = 0
+Next j
+Next i
+If CFormat = 2 Then Mat_Complex_Conv a3, 12
+If CFormat = 3 Then Mat_Complex_Conv a3, 13, Im
+
+M_ADD_C = a3
+Exit Function
+Error_Handler:
+M_ADD_C = "?"
+End Function
+
+Function M_SUB_C(Mat1, Mat2, Optional CFormat)
+'performs complex matrix subtraction  a3 = a1 + a2
+    M_SUB_C = M_ADD_C(Mat1, Mat2, CFormat, -1)
+End Function
+
+Function M_ABS_C(Mat, Optional CFormat)
+'complex matrix Euclidean Norm
+' 5-6-05
+Dim a, i&, j&, n&, m&, s#
+If IsMissing(CFormat) Then CFormat = 1
+a = Mat
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31
+If UBound(a, 2) Mod 2 <> 0 Then GoTo Error_Handler
+n = UBound(a, 1)
+m = UBound(a, 2) / 2
+For i = 1 To n
+For j = 1 To m
+    s = s + a(i, j) ^ 2 + a(i, j + m) ^ 2
+Next j
+Next i
+M_ABS_C = Sqr(s)
+Exit Function
+
+Error_Handler:
+M_ABS_C = "?"
+End Function
+
+Function MTC(Mat, Optional CFormat, Optional Conj As Boolean = False)
+'transpose of a complex matrix
+' 5-6-05
+Dim a, i&, j&, n&, m&, b(), Im
+If IsMissing(CFormat) Then CFormat = 1
+a = Mat
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+If UBound(a, 2) Mod 2 <> 0 Then GoTo Error_Handler
+n = UBound(a, 1)
+m = UBound(a, 2) / 2
+ReDim b(1 To m, 1 To 2 * n)
+For i = 1 To n
+For j = 1 To m
+    b(j, i) = a(i, j)
+    b(j, i + n) = a(i, j + m)
+    If b(j, i + n) <> 0 And Conj Then b(j, i + n) = -b(j, i + n)
+Next j
+Next i
+
+'convert matrix for output
+If CFormat = 2 Then Mat_Complex_Conv b, 12
+If CFormat = 3 Then Mat_Complex_Conv b, 13, Im
+MTC = b
+Exit Function
+
+Error_Handler:
+MTC = "?"
+End Function
+
+Function MTH(Mat, Optional CFormat)
+'returns the transpose-conjugate
+MTH = MTC(Mat, CFormat, True)
+End Function
+
+
+Function MatCplx(Optional Ar, Optional Ai, Optional CFormat)
+'converts 2 real matrices into a complex matrix
+Dim tmp, n&, m&, b(), i&, j&
+
+If IsMissing(CFormat) Then CFormat = 1
+If IsMissing(Ar) And IsMissing(Ai) Then GoTo Error_Handler
+
+If IsMissing(Ai) Then
+    tmp = Ar
+    n = UBound(tmp, 1)
+    m = UBound(tmp, 2)
+    ReDim b(1 To n, 1 To 2 * m)
+    For i = 1 To n
+    For j = 1 To m
+        b(i, j) = tmp(i, j)
+    Next j, i
+ElseIf IsMissing(Ar) Then
+    tmp = Ai
+    n = UBound(tmp, 1)
+    m = UBound(tmp, 2)
+    ReDim b(1 To n, 1 To 2 * m)
+    For i = 1 To n
+    For j = 1 To m
+        b(i, j + m) = tmp(i, j)
+    Next j, i
+Else
+    tmp = Ar
+    n = UBound(tmp, 1)
+    m = UBound(tmp, 2)
+    ReDim b(1 To n, 1 To 2 * m)
+    For i = 1 To n
+    For j = 1 To m
+        b(i, j) = tmp(i, j)
+    Next j, i
+    
+    Erase tmp
+    tmp = Ai
+    If UBound(tmp, 1) = n And UBound(tmp, 2) = m Then
+        For i = 1 To n
+        For j = 1 To m
+            b(i, j + m) = tmp(i, j)
+        Next j, i
+    Else
+        GoTo Error_Handler 'matrices with different size
+    End If
+End If
+
+'convert matrix for output
+If CFormat = 2 Then Mat_Complex_Conv b, 12
+If CFormat = 3 Then Mat_Complex_Conv b, 13
+
+MatCplx = b
+
+Exit Function
+Error_Handler:
+MatCplx = "?"
+End Function
+
+Sub corth(n, low, igh, Ar, Ai, ortr, orti)
+'
+      Dim i&, j&, m&, ii&, jj&, la&, mp&, kp1&, nm&
+      ReDim ortr(1 To igh), orti(1 To igh)
+      Dim f#, g#, h#, fi#, fr#, scala#
+'
+'     this subroutine is a translation of a complex analogue of
+'     the algol procedure orthes, num. math. 12, 349-368(1968)
+'     by martin and wilkinson.
+'     handbook for auto. comp., vol.ii-linear algebra, 339-358(1971).
+'
+'     given a complex general matrix, this subroutine
+'     reduces a submatrix situated in rows and columns
+'     low through igh to upper hessenberg form by
+'     unitary similarity transformations.
+'
+'     on input
+'
+'        n is the order of the matrix.
+'
+'        low and igh are integers determined by the balancing
+'          subroutine  cbal.  if  cbal  has not been used,
+'          set low=1, igh=n.
+'
+'        ar and ai contain the real and imaginary parts,
+'          respectively, of the complex input matrix.
+'
+'     on output
+'
+'        ar and ai contain the real and imaginary parts,
+'          respectively, of the hessenberg matrix.  information
+'          about the unitary transformations used in the reduction
+'          is stored in the remaining triangles under the
+'          hessenberg matrix.
+'
+'        ortr and orti contain further information about the
+'          transformations.
+'
+'     ------------------------------------------------------------------
+'
+      la = igh - 1
+      kp1 = low + 1
+      nm = m
+      If (la < kp1) Then Exit Sub
+'
+      For m = kp1 To la
+         h = 0#
+         ortr(m) = 0#
+         orti(m) = 0#
+         scala = 0#
+'     .......... scala column (algol tol then not needed) ..........
+         For i = m To igh
+            scala = scala + Abs(Ar(i, m - 1)) + Abs(Ai(i, m - 1))
+         Next i
+'
+         If (scala = 0#) Then Exit For
+         mp = m + igh
+'     .......... for i=igh step -1 until m do -- ..........
+         For ii = m To igh
+            i = mp - ii
+            ortr(i) = Ar(i, m - 1) / scala
+            orti(i) = Ai(i, m - 1) / scala
+            h = h + ortr(i) * ortr(i) + orti(i) * orti(i)
+         Next ii
+'
+         g = Sqr(h)
+         f = Sqr(ortr(m) ^ 2 + orti(m) ^ 2)
+         If (f = 0#) Then 'GoTo 103
+            ortr(m) = g
+            Ar(m, m - 1) = scala
+         Else
+            h = h + f * g
+            g = g / f
+            ortr(m) = (1# + g) * ortr(m)
+            orti(m) = (1# + g) * orti(m)
+         End If
+'     .......... form (i-(u*ut)/h) * a ..........
+         For j = m To n
+            fr = 0#
+            fi = 0#
+'     .......... for i=igh step -1 until m do -- ..........
+            For ii = m To igh
+               i = mp - ii
+               fr = fr + ortr(i) * Ar(i, j) + orti(i) * Ai(i, j)
+               fi = fi + ortr(i) * Ai(i, j) - orti(i) * Ar(i, j)
+            Next ii
+            fr = fr / h
+            fi = fi / h
+            For i = m To igh
+               Ar(i, j) = Ar(i, j) - fr * ortr(i) + fi * orti(i)
+               Ai(i, j) = Ai(i, j) - fr * orti(i) - fi * ortr(i)
+            Next i
+         Next j
+'     .......... form (i-(u*ut)/h)*a*(i-(u*ut)/h) ..........
+         For i = 1 To igh
+            fr = 0#
+            fi = 0#
+'     .......... for j=igh step -1 until m do -- ..........
+            For jj = m To igh
+               j = mp - jj
+               fr = fr + ortr(j) * Ar(i, j) - orti(j) * Ai(i, j)
+               fi = fi + ortr(j) * Ai(i, j) + orti(j) * Ar(i, j)
+'            continue
+            Next jj
+            fr = fr / h
+            fi = fi / h
+            For j = m To igh
+               Ar(i, j) = Ar(i, j) - fr * ortr(j) - fi * orti(j)
+               Ai(i, j) = Ai(i, j) + fr * orti(j) - fi * ortr(j)
+            Next j
+         Next i
+'
+         ortr(m) = scala * ortr(m)
+         orti(m) = scala * orti(m)
+         Ar(m, m - 1) = -g * Ar(m, m - 1)
+         Ai(m, m - 1) = -g * Ai(m, m - 1)
+      Next m
+End Sub
+
+
+'"spagetti" version 10-6-2005, VL
+Sub comqr(n, low, igh, hr, hi, wr, wi, iErr)
+'
+      Dim i&, j&, L&, en&, ll&, nm&, itn&, its&, lp1&, enm1&
+      ReDim wr(1 To n), wi(1 To n)
+      Dim si#, sr#, ti#, tr#, xi#, xr#, yi#, yr#, zzi#, zzr#, Norm#, tst1#, tst2#
+'
+'     this subroutine is a translation of a unitary analogue of the
+'     algol procedure  comlr, num. math. 12, 369-376(1968) by martin
+'     and wilkinson.
+'     handbook for auto. comp., vol.ii-linear algebra, 396-403(1971).
+'     the unitary analogue substitutes the qr algorithm of francis
+'     (comp. jour. 4, 332-345(1962)) for the lr algorithm.
+'
+'     this subroutine finds the eigenvalues of a complex
+'     upper hessenberg matrix by the qr method.
+'
+'     on input
+'
+'        nm must be set to the row dimension of two-dimensional
+'          array parameters as declared in the calling program
+'          dimension statement.
+'
+'        n is the order of the matrix.
+'
+'        low and igh are integers determined by the balancing
+'          subroutine  cbal.  if  cbal  has not been used,
+'          set low=1, igh=n.
+'
+'        hr and hi contain the real and imaginary parts,
+'          respectively, of the complex upper hessenberg matrix.
+'          their lower triangles below the subdiagonal contain
+'          information about the unitary transformations used in
+'          the reduction by  corth, if performed.
+'
+'     on output
+'
+'        the upper hessenberg portions of hr and hi have been
+'          destroyed.  therefore, they must be saved before
+'          calling  comqr  if subsequent calculation of
+'          eigenvectors is to be performed.
+'
+'        wr and wi contain the real and imaginary parts,
+'          respectively, of the eigenvalues.  if an error
+'          exit is made, the eigenvalues should be correct
+'          for indices ierr+1,...,n.
+'
+'        ierr is set to
+'          zero       for normal Exit Sub,
+'          j          if the limit of 30*n iterations is exhausted
+'                     while the j-th eigenvalue is being sought.
+'
+'     calls cdiv for complex division.
+'     calls csroot for complex square root.
+'     calls pythag for  Sqr(a*a + b*b) .
+'
+'     questions and comments should be directed to burton s. garbow,
+'     mathematics and computer science div, argonne national laboratory
+'
+'     this version dated august 1983.
+'
+'     ------------------------------------------------------------------
+'
+      iErr = 0
+      nm = n
+      If (low = igh) Then GoTo 180
+'     .......... create real subdiagonal elements ..........
+      L = low + 1
+'
+      For i = L To igh
+         ll = Min(i + 1, igh)
+         If (hi(i, i - 1) = 0#) Then GoTo 170
+         Norm = pythag(hr(i, i - 1), hi(i, i - 1))
+         yr = hr(i, i - 1) / Norm
+         yi = hi(i, i - 1) / Norm
+         hr(i, i - 1) = Norm
+         hi(i, i - 1) = 0#
+'
+         For j = i To igh
+            si = yr * hi(i, j) - yi * hr(i, j)
+            hr(i, j) = yr * hr(i, j) + yi * hi(i, j)
+            hi(i, j) = si
+         Next j
+'
+         For j = low To ll
+            si = yr * hi(j, i) + yi * hr(j, i)
+            hr(j, i) = yr * hr(j, i) - yi * hi(j, i)
+            hi(j, i) = si
+         Next j
+170:   Next i
+'     .......... store roots isolated by cbal ..........
+180:  For i = 1 To n
+         If (i >= low And i <= igh) Then GoTo 200
+         wr(i) = hr(i, i)
+         wi(i) = hi(i, i)
+200:  Next i
+'
+      en = igh
+      tr = 0#
+      ti = 0#
+      itn = 30 * n
+'     .......... search for next eigenvalue ..........
+Do
+220:  If (en < low) Then GoTo 1001
+      its = 0
+      enm1 = en - 1
+'     .......... look for single small sub-diagonal element
+'                for l=en step -1 until low d0 -- ..........
+    Do
+240:  For ll = low To en
+         L = en + low - ll
+         If (L = low) Then GoTo 300
+         tst1 = Abs(hr(L - 1, L - 1)) + Abs(hi(L - 1, L - 1)) + Abs(hr(L, L)) + Abs(hi(L, L))
+         tst2 = tst1 + Abs(hr(L, L - 1))
+         If (tst2 = tst1) Then GoTo 300
+260:  Next ll
+'     .......... form shift ..........
+300:  If (L = en) Then GoTo 660
+      If (itn = 0) Then GoTo 1000
+      If (its = 10 Or its = 20) Then GoTo 320
+      sr = hr(en, en)
+      si = hi(en, en)
+      xr = hr(enm1, en) * hr(en, enm1)
+      xi = hi(enm1, en) * hr(en, enm1)
+      If (xr = 0# And xi = 0#) Then GoTo 340
+      yr = (hr(enm1, enm1) - sr) / 2#
+      yi = (hi(enm1, enm1) - si) / 2#
+      Call csroot(yr ^ 2 - yi ^ 2 + xr, 2# * yr * yi + xi, zzr, zzi)
+      If (yr * zzr + yi * zzi >= 0#) Then GoTo 310
+      zzr = -zzr
+      zzi = -zzi
+310:  Call cdiv(xr, xi, yr + zzr, yi + zzi, xr, xi)
+      sr = sr - xr
+      si = si - xi
+      GoTo 340
+'     .......... form exceptional shift ..........
+320:  sr = Abs(hr(en, enm1)) + Abs(hr(enm1, en - 2))
+      si = 0#
+'
+340:  For i = low To en
+         hr(i, i) = hr(i, i) - sr
+         hi(i, i) = hi(i, i) - si
+360:  Next i
+'
+      tr = tr + sr
+      ti = ti + si
+      its = its + 1
+      itn = itn - 1
+'     .......... reduce to triangle (rows) ..........
+      lp1 = L + 1
+'
+      For i = lp1 To en
+         sr = hr(i, i - 1)
+         hr(i, i - 1) = 0#
+         Norm = pythag(pythag(hr(i - 1, i - 1), hi(i - 1, i - 1)), sr)
+         xr = hr(i - 1, i - 1) / Norm
+         wr(i - 1) = xr
+         xi = hi(i - 1, i - 1) / Norm
+         wi(i - 1) = xi
+         hr(i - 1, i - 1) = Norm
+         hi(i - 1, i - 1) = 0#
+         hi(i, i - 1) = sr / Norm
+'
+         For j = i To en
+            yr = hr(i - 1, j)
+            yi = hi(i - 1, j)
+            zzr = hr(i, j)
+            zzi = hi(i, j)
+            hr(i - 1, j) = xr * yr + xi * yi + hi(i, i - 1) * zzr
+            hi(i - 1, j) = xr * yi - xi * yr + hi(i, i - 1) * zzi
+            hr(i, j) = xr * zzr - xi * zzi - hi(i, i - 1) * yr
+            hi(i, j) = xr * zzi + xi * zzr - hi(i, i - 1) * yi
+         Next j
+      Next i
+'
+      si = hi(en, en)
+      If (si = 0#) Then GoTo 540
+      Norm = pythag(hr(en, en), si)
+      sr = hr(en, en) / Norm
+      si = si / Norm
+      hr(en, en) = Norm
+      hi(en, en) = 0#
+'     .......... inverse operation (columns) ..........
+540:  For j = lp1 To en
+         xr = wr(j - 1)
+         xi = wi(j - 1)
+'
+         For i = L To j
+            yr = hr(i, j - 1)
+            yi = 0#
+            zzr = hr(i, j)
+            zzi = hi(i, j)
+            If (i = j) Then GoTo 560
+            yi = hi(i, j - 1)
+            hi(i, j - 1) = xr * yi + xi * yr + hi(j, j - 1) * zzi
+560:        hr(i, j - 1) = xr * yr - xi * yi + hi(j, j - 1) * zzr
+            hr(i, j) = xr * zzr + xi * zzi - hi(j, j - 1) * yr
+            hi(i, j) = xr * zzi - xi * zzr - hi(j, j - 1) * yi
+         Next i
+600:  Next j
+'
+      If (si <> 0#) Then
+        For i = L To en
+           yr = hr(i, en)
+           yi = hi(i, en)
+           hr(i, en) = sr * yr - si * yi
+           hi(i, en) = sr * yi + si * yr
+        Next i
+      End If
+'
+    Loop 'GoTo 240: look for single small sub-diagonal element
+'     .......... a root found ..........
+660:  wr(en) = hr(en, en) + tr
+      wi(en) = hi(en, en) + ti
+      en = enm1
+'
+Loop 'GoTo 220 : search for next eigenvalue
+'     .......... set error -- all eigenvalues have not
+'                converged after 30*n iterations ..........
+1000: iErr = en
+1001: Exit Sub
+End Sub
+
+Sub csroot(zr, zi, yr, yi)
+Dim z As Cplx, y
+    z.R = zr
+    z.i = zi
+    y = cplxroot(z)
+    yr = y(1, 1)
+    yi = y(1, 2)
+End Sub
+
+Private Sub cdiv(Ar, Ai, br, bi, cr, ci)
+Dim za As Cplx, zb As Cplx, zc As Cplx
+za.R = Ar
+za.i = Ai
+zb.R = br
+zb.i = bi
+zc = div_(za, zb)
+cr = zc.R
+ci = zc.i
+End Sub
+
+Private Function cplxroot(z As Cplx, Optional n)
+Dim modulo, teta, k, alfa
+    If IsMissing(n) Then n = 2
+    Dim u As Cplx, R As Cplx
+    u = z
+    R = polar_(u)
+    modulo = R.R ^ (1 / n)
+    teta = R.i
+    Dim a()
+    ReDim a(1 To n, 1 To 2)
+    For k = 0 To n - 1
+        alfa = (teta + 2 * k * PI_) / n
+        a(k + 1, 1) = modulo * Cos(alfa)
+        a(k + 1, 2) = modulo * Sin(alfa)
+    Next
+    cplxroot = a
+End Function
+
+Function MatEigenvalue_QRC(Mat, Optional CFormat)
+'Find real and complex eigenvalues of complex matrix with the iterative QR method
+Dim a, b(), wr#(), wi#(), tiny#, n&, Ar#(), Ai#()
+
+If IsMissing(CFormat) Then CFormat = 1
+tiny = 2 * 10 ^ -14
+a = Mat
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31
+'check dimension. Only square matrix here
+If 2 * UBound(a, 1) <> UBound(a, 2) Then RetErr = "?": GoTo ErrorHandler
+n = UBound(a, 1) 'matrix dimension
+ReDim Ar(1 To n, 1 To n), Ai(1 To n, 1 To n)
+For i = 1 To n
+For j = 1 To n
+    Ar(i, j) = a(i, j)
+    Ai(i, j) = a(i, j + n)
+Next j, i
+
+ 'hessember transformation
+Call corth(n, 1, n, Ar, Ai, ortr, orti)
+
+'eigenvalues of hessemberg matrix
+Call comqr(n, 1, n, Ar, Ai, wr, wi, iErr)
+
+'data output
+ReDim b(1 To n, 1 To 2)
+For i = 1 To n
+    If i > iErr Then
+        b(i, 1) = wr(i)
+        b(i, 2) = wi(i)
+    Else
+        b(i, 1) = "?"
+        b(i, 2) = "?"
+    End If
+Next
+b = MatMopUp(b, tiny)
+Call MatrixSort(b, "A")
+MatEigenvalue_QRC = b
+
+Exit Function
+ErrorHandler:
+MatEigenvalue_QRC = RetErr
+End Function
+
+Function MatEigenvectorInv_C(Mat, Eig, Optional CFormat)
+'Eigenvectors of complex matrix with inverse iteration
+Dim a, b, wr#(), wi#(), tiny#, n&, Ar#(), Ai#()
+Dim m&, i&, j&, iErr, sel() As Boolean
+Dim igh, low, ortr#(), orti#()
+Dim zr#(), zi#(), Im
+
+If IsMissing(CFormat) Then CFormat = 1
+MaxErr = 10 ^ -13
+
+a = Mat
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+'optional complex part for format=1 and square matrices. 5-6-2005
+If CFormat = 1 And (UBound(a, 1) = UBound(a, 2)) Then
+    ReDim Preserve a(1 To UBound(a, 1), 1 To 2 * UBound(a, 1))
+End If
+'check dimension. Only square matrix here
+If 2 * UBound(a, 1) <> UBound(a, 2) Then RetErr = "?": GoTo ErrorHandler
+'load complex matrix
+n = UBound(a, 1) 'matrix dimension
+ReDim Ar(1 To n, 1 To n), Ai(1 To n, 1 To n)
+For i = 1 To n
+For j = 1 To n
+    Ar(i, j) = a(i, j)
+    Ai(i, j) = a(i, j + n)
+Next j, i
+Erase a
+'load one or more eigenvalues
+If VarType(Eig) = vbString Then
+    ReDim b(1 To 1, 1 To 1): b(1, 1) = Eig
+Else
+    b = Eig
+End If
+If CFormat = 2 Then Mat_Complex_Conv b, 21
+If CFormat = 3 Then Mat_Complex_Conv b, 31, Im
+'check dimension. Only square matrix here
+If Not (UBound(b, 1) <= n And UBound(b, 2) = 2) Then RetErr = "?": GoTo ErrorHandler
+'load complex eigenvalues
+ReDim wr(1 To n), wi(1 To n), sel(1 To n)
+For i = 1 To UBound(b)
+    wr(i) = b(i, 1)
+    wi(i) = b(i, 2)
+    sel(i) = True
+Next i
+Erase a, b
+''transform into hessemberg
+Call corth(n, 1, n, Ar, Ai, ortr, orti)
+''eigenvector of the hessemberg by inverse-iteration
+Call cinvit(n, Ar, Ai, wr, wi, sel, m, zr, zi, iErr)
+''back-transformation of the eigenvectors
+Call cortb(n, 1, n, Ar, Ai, ortr, orti, m, zr, zi)
+'output result
+ReDim b(1 To n, 1 To 2 * m)
+For i = 1 To n
+For j = 1 To m
+    b(i, j) = zr(i, j)
+    b(i, j + m) = zi(i, j)
+Next j, i
+
+NormalizeMatrix_C b, 2   'normalized |v| = 1
+a = MatMopUp(b, MaxErr)  'clean-up
+If CFormat = 2 Then Mat_Complex_Conv a, 12
+If CFormat = 3 Then Mat_Complex_Conv a, 13, Im
+
+MatEigenvectorInv_C = a
+Exit Function
+
+ErrorHandler:
+MatEigenvectorInv_C = RetErr
+End Function
+
+
+'"spagetti" version 8-6-2005 VL of CINVIT of EISPAK library
+Sub cinvit(n, Ar, Ai, wr, wi, sel, m, zr, zi, iErr)
+'
+      Dim i&, j&, k&, s&, ii&, mp&, uk&, ip1&, its&, km1&, nm&, mm&
+      Dim rm1#(), rm2#(), rv1#(), rv2#()
+      Dim x#, y#, eps3#, Norm#, normv#, growto#, ilambd#, rlambd#, ukroot#
+      ReDim zr(1 To n, 1 To n), zi(1 To n, 1 To n), rm1(1 To n, 1 To n), rm2(1 To n, 1 To n), rv1(1 To n), rv2(1 To n)
+'
+'     this subroutine is a translation of the algol procedure cx invit
+'     by peters and wilkinson.
+'
+'     this subroutine finds those eigenvectors of a complex upper
+'     hessenberg matrix corresponding to specified eigenvalues,
+'     using inverse iteration.
+'
+'     on input
+'
+'        nm must be set to the row dimension of two-dimensional
+'          array parameters as declared in the calling program
+'          dimension statement.
+'
+'        n is the order of the matrix.
+'
+'        ar and ai contain the real and imaginary parts,
+'          respectively, of the hessenberg matrix.
+'
+'        wr and wi contain the real and imaginary parts, respectively,
+'          of the eigenvalues of the matrix.  the eigenvalues must be
+'          stored in a manner identical to that of subroutine  comlr,
+'          which recognizes possible splitting of the matrix.
+'
+'        sel specifies the eigenvectors to be found.  the
+'          eigenvector corresponding to the j-th eigenvalue is
+'          specified by setting sel(j) to .true..
+'
+'        mm should be set to an upper bound for the number of
+'          eigenvectors to be found.
+'
+'     on output
+'
+'        ar, ai, wi, and sel are unaltered.
+'
+'        m is the number of eigenvectors actually found.
+'
+'        zr and zi contain the real and imaginary parts, respectively,
+'          of the eigenvectors.  the eigenvectors are normalized
+'          so that the component of largest magnitude is 1.
+'          any vector which fails the acceptance test is set to zero.
+'
+'        ierr is set to
+'          zero       for normal Exit Sub,
+'          -(2*n+1)   if more than mm eigenvectors have been specified,
+'          -k         if the iteration corresponding to the k-th
+'                     value fails,
+'          -(n+k)     if both error situations occur.
+'
+'     ------------------------------------------------------------------
+'
+      iErr = 0
+      uk = 0
+      s = 1
+      nm = n
+      mm = n
+'
+      For k = 1 To n
+         If (Not sel(k)) Then GoTo 980  'next k
+         If (s > mm) Then GoTo 1000     'set error -- underestimate of eigenvector
+         If (uk >= k) Then GoTo 200
+'     .......... check for possible splitting ..........
+         For uk = k To n - 1
+            If (Ar(uk + 1, uk) = 0# And Ai(uk + 1, uk) = 0#) Then Exit For 'GoTo 140
+         Next uk
+'     .......... compute infinity norm of leading uk by uk
+'                (hessenberg) matrix ..........
+         Norm = 0#

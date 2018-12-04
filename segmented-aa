@@ -1,0 +1,1500 @@
+Algorithm
+In mathematics, computing, linguistics and related disciplines, an algorithm is a sequence of instructions, often used for calculation and data processing.
+It is formally a type of effective method in which a list of well-defined instructions for completing a task will, when given an initial state, proceed through a well-defined series of successive states, eventually terminating in an end-state.
+The transition from one state to the next is not necessarily deterministic; some algorithms, known as probabilistic algorithms, incorporate randomness.
+A partial formalization of the concept began with attempts to solve the Entscheidungsproblem (the "decision problem") posed by David Hilbert in 1928.
+Subsequent formalizations were framed as attempts to define "effective calculability" (Kleene 1943:274) or "effective method" (Rosser 1939:225); those formalizations included the Gödel-Herbrand-Kleene recursive functions of 1930, 1934 and 1935, Alonzo Church's lambda calculus of 1936, Emil Post's "Formulation I" of 1936, and Alan Turing's Turing machines of 1936-7 and 1939.
+Etymology
+Al-Khwārizmī, Persian astronomer and mathematician, wrote a treatise in Arabic in 825 AD, On Calculation with Hindu Numerals.
+(See algorism).
+It was translated into Latin in the 12th century as Algoritmi de numero Indorum (al-Daffa 1977), which title was likely intended to mean "Algoritmi on the numbers of the Indians", where "Algoritmi" was the translator's rendition of the author's name; but people misunderstanding the title treated Algoritmi as a Latin plural and this led to the word "algorithm" (Latin algorismus) coming to mean "calculation method".
+The intrusive "th" is most likely due to a false cognate with the Greek <foreign/> (arithmos) meaning "number".
+Why algorithms are necessary: an informal definition
+No generally accepted formal definition of "algorithm" exists yet.
+An informal definition could be "an algorithm is a computer program that calculates something."
+For some people, a program is only an algorithm if it stops eventually.
+For others, a program is only an algorithm if it stops before a given number of calculation steps.
+A prototypical example of an "algorithm" is Euclid's algorithm to determine the maximum common divisor of two integers greater than one: "subtract the smallest number from the biggest one, repeat until you get a zero or a one".
+This procedure is know to stop always, and the number of subtractions needed is always smaller than the biggest of the two numbers.
+We can derive clues to the issues involved and an informal meaning of the word from the following quotation from <citation/> (boldface added):
+No human being can write fast enough, or long enough, or small enough to list all members of an enumerably infinite set by writing out their names, one after another, in some notation.
+But humans can do something equally useful, in the case of certain enumerably infinite sets: They can give explicit instructions for determining the nth member of the set, for arbitrary finite n.
+Such instructions are to be given quite explicitly, in a form in which they could be followed by a computing machine, or by a human who is capable of carrying out only very elementary operations on symbols
+The words "enumerably infinite" mean "countable using integers perhaps extending to infinity".
+Thus Boolos and Jeffrey are saying that an algorithm implies instructions for a process that "creates" output integers from an arbitrary "input" integer or integers that, in theory, can be chosen from 0 to infinity.
+Thus we might expect an algorithm to be an algebraic equation such as y = m + n — two arbitrary "input variables" m and n that produce an output y.
+As we see in Algorithm characterizations — the word algorithm implies much more than this, something on the order of (for our addition example):
+Precise instructions (in language understood by "the computer") for a "fast, efficient, good" process that specifies the "moves" of "the computer" (machine or human, equipped with the necessary internally-contained information and capabilities) to find, decode, and then munch arbitrary input integers/symbols m and n, symbols + and = ... and (reliably, correctly, "effectively") produce, in a "reasonable" time, output-integer y at a specified place and in a specified format.
+The concept of algorithm is also used to define the notion of decidability.
+That notion is central for explaining how formal systems come into being starting from a small set of axioms and rules.
+In logic, the time that an algorithm requires to complete cannot be measured, as it is not apparently related with our customary physical dimension.
+From such uncertainties, that characterize ongoing work, stems the unavailability of a definition of algorithm that suits both concrete (in some sense) and abstract usage of the term.
+For a detailed presentation of the various points of view around the definition of "algorithm" see Algorithm characterizations.
+For examples of simple addition algorithms specified in the detailed manner described in Algorithm characterizations, see Algorithm examples.
+Formalization of algorithms
+Algorithms are essential to the way computers process information, because a computer program is essentially an algorithm that tells the computer what specific steps to perform (in what specific order) in order to carry out a specified task, such as calculating employees’ paychecks or printing students’ report cards.
+Thus, an algorithm can be considered to be any sequence of operations that can be performed by a Turing-complete system.
+Authors who assert this thesis include Savage (1987) and Gurevich (2000):
+...Turing's informal argument in favor of his thesis justifies a stronger thesis: every algorithm can be simulated by a Turing machine (Gurevich 2000:1)...according to Savage [1987], an algorithm is a computational process defined by a Turing machine.
+(Gurevich 2000:3)
+Typically, when an algorithm is associated with processing information, data are read from an input source or device, written to an output sink or device, and/or stored for further processing.
+Stored data are regarded as part of the internal state of the entity performing the algorithm.
+In practice, the state is stored in a data structure, but an algorithm requires the internal data only for specific operation sets called abstract data types.
+For any such computational process, the algorithm must be rigorously defined: specified in the way it applies in all possible circumstances that could arise.
+That is, any conditional steps must be systematically dealt with, case-by-case; the criteria for each case must be clear (and computable).
+Because an algorithm is a precise list of precise steps, the order of computation will almost always be critical to the functioning of the algorithm.
+Instructions are usually assumed to be listed explicitly, and are described as starting "from the top" and going "down to the bottom", an idea that is described more formally by flow of control.
+So far, this discussion of the formalization of an algorithm has assumed the premises of imperative programming.
+This is the most common conception, and it attempts to describe a task in discrete, "mechanical" means.
+Unique to this conception of formalized algorithms is the assignment operation, setting the value of a variable.
+It derives from the intuition of "memory" as a scratchpad.
+There is an example below of such an assignment.
+For some alternate conceptions of what constitutes an algorithm see functional programming and logic programming .
+Termination
+Some writers restrict the definition of algorithm to procedures that eventually finish.
+In such a category Kleene places the "decision procedure or decision method or algorithm for the question" (Kleene 1952:136).
+Others, including Kleene, include procedures that could run forever without stopping; such a procedure has been called a "computational method" (Knuth 1997:5) or "calculation procedure or algorithm" (Kleene 1952:137); however, Kleene notes that such a method must eventually exhibit "some object" (Kleene 1952:137).
+Minsky makes the pertinent observation, in regards to determining whether an algorithm will eventually terminate (from a particular starting state):
+But if the length of the process is not known in advance, then "trying" it may not be decisive, because if the process does go on forever — then at no time will we ever be sure of the answer (Minsky 1967:105).
+As it happens, no other method can do any better, as was shown by Alan Turing with his celebrated result on the undecidability of the so-called halting problem.
+There is no algorithmic procedure for determining of arbitrary algorithms whether or not they terminate from given starting states.
+The analysis of algorithms for their likelihood of termination is called termination analysis.
+See the examples of (im-)"proper" subtraction at partial function for more about what can happen when an algorithm fails for certain of its input numbers — e.g., (i) non-termination, (ii) production of "junk" (output in the wrong format to be considered a number) or no number(s) at all (halt ends the computation with no output), (iii) wrong number(s), or (iv) a combination of these.
+Kleene proposed that the production of "junk" or failure to produce a number is solved by having the algorithm detect these instances and produce e.g., an error message (he suggested "0"), or preferably, force the algorithm into an endless loop (Kleene 1952:322).
+Davis does this to his subtraction algorithm — he fixes his algorithm in a second example so that it is proper subtraction (Davis 1958:12-15).
+Along with the logical outcomes "true" and "false" Kleene also proposes the use of a third logical symbol "u" — undecided (Kleene 1952:326) — thus an algorithm will always produce something when confronted with a "proposition".
+The problem of wrong answers must be solved with an independent "proof" of the algorithm e.g., using induction:
+We normally require auxiliary evidence for this (that the algorithm correctly defines a mu recursive function), e.g., in the form of an inductive proof that, for each argument value, the computation terminates with a unique value (Minsky 1967:186).
+Expressing algorithms
+Algorithms can be expressed in many kinds of notation, including natural languages, pseudocode, flowcharts, and programming languages.
+Natural language expressions of algorithms tend to be verbose and ambiguous, and are rarely used for complex or technical algorithms.
+Pseudocode and flowcharts are structured ways to express algorithms that avoid many of the ambiguities common in natural language statements, while remaining independent of a particular implementation language.
+Programming languages are primarily intended for expressing algorithms in a form that can be executed by a computer, but are often used as a way to define or document algorithms.
+There is a wide variety of representations possible and one can express a given Turing machine program as a sequence of machine tables (see more at finite state machine and state transition table), as flowcharts (see more at state diagram), or as a form of rudimentary machine code or assembly code called "sets of quadruples" (see more at Turing machine).
+Sometimes it is helpful in the description of an algorithm to supplement small "flow charts" (state diagrams) with natural-language and/or arithmetic expressions written inside "block diagrams" to summarize what the "flow charts" are accomplishing.
+Representations of algorithms are generally classed into three accepted levels of Turing machine description (Sipser 2006:157):
+1 High-level description:
+"...prose to describe an algorithm, ignoring the implementation details.
+At this level we do not need to mention how the machine manages its tape or head"
+2 Implementation description:
+"...prose used to define the way the Turing machine uses its head and the way that it stores data on its tape.
+At this level we do not give details of states or transition function"
+3 Formal description:
+Most detailed, "lowest level", gives the Turing machine's "state table".
+For an example of the simple algorithm "Add m+n" described in all three levels see Algorithm examples.
+Implementation
+Most algorithms are intended to be implemented as computer programs.
+However, algorithms are also implemented by other means, such as in a biological neural network (for example, the human brain implementing arithmetic or an insect looking for food), in an electrical circuit, or in a mechanical device.
+Example
+One of the simplest algorithms is to find the largest number in an (unsorted) list of numbers.
+The solution necessarily requires looking at every number in the list, but only once at each.
+From this follows a simple algorithm, which can be stated in a high-level description English prose, as:
+High-level description:
+Assume the first item is largest.
+Look at each of the remaining items in the list and if it is larger than the largest item so far, make a note of it.
+The last noted item is the largest in the list when the process is complete.
+(Quasi-)formal description: Written in prose but much closer to the high-level language of a computer program, the following is the more formal coding of the algorithm in pseudocode or pidgin code:
+Input: A non-empty list of numbers L.
+Output: The largest number in the list L. largest ← L0 for each item in the list L≥1, do if the item > largest, then largest ← the item return largest
+For a more complex example of an algorithm, see Euclid's algorithm for the greatest common divisor, one of the earliest algorithms known.
+Algorithm analysis
+As it happens, it is important to know how much of a particular resource (such as time or storage) is required for a given algorithm.
+Methods have been developed for the analysis of algorithms to obtain such quantitative answers; for example, the algorithm above has a time requirement of O(n), using the big O notation with n as the length of the list.
+At all times the algorithm only needs to remember two values: the largest number found so far, and its current position in the input list.
+Therefore it is said to have a space requirement of O(1), if the space required to store the input numbers is not counted, or O (log n) if it is counted.
+Different algorithms may complete the same task with a different set of instructions in less or more time, space, or effort than others.
+For example, given two different recipes for making potato salad, one may have peel the potato before boil the potato while the other presents the steps in the reverse order, yet they both call for these steps to be repeated for all potatoes and end when the potato salad is ready to be eaten.
+The analysis and study of algorithms is a discipline of computer science, and is often practiced abstractly without the use of a specific programming language or implementation.
+In this sense, algorithm analysis resembles other mathematical disciplines in that it focuses on the underlying properties of the algorithm and not on the specifics of any particular implementation.
+Usually pseudocode is used for analysis as it is the simplest and most general representation.
+Classes
+There are various ways to classify algorithms, each with its own merits.
+Classification by implementation
+One way to classify algorithms is by implementation means.
+Recursion or iteration: A recursive algorithm is one that invokes (makes reference to) itself repeatedly until a certain condition matches, which is a method common to functional programming.
+Iterative algorithms use repetitive constructs like loops and sometimes additional data structures like stacks to solve the given problems.
+Some problems are naturally suited for one implementation or the other.
+For example, towers of hanoi is well understood in recursive implementation.
+Every recursive version has an equivalent (but possibly more or less complex) iterative version, and vice versa.
+Logical: An algorithm may be viewed as controlled logical deduction.
+This notion may be expressed as: Algorithm = logic + control (Kowalski 1979).
+The logic component expresses the axioms that may be used in the computation and the control component determines the way in which deduction is applied to the axioms.
+This is the basis for the logic programming paradigm.
+In pure logic programming languages the control component is fixed and algorithms are specified by supplying only the logic component.
+The appeal of this approach is the elegant semantics: a change in the axioms has a well defined change in the algorithm.
+Serial or parallel or distributed: Algorithms are usually discussed with the assumption that computers execute one instruction of an algorithm at a time.
+Those computers are sometimes called serial computers.
+An algorithm designed for such an environment is called a serial algorithm, as opposed to parallel algorithms or distributed algorithms.
+Parallel algorithms take advantage of computer architectures where several processors can work on a problem at the same time, whereas distributed algorithms utilize multiple machines connected with a network.
+Parallel or distributed algorithms divide the problem into more symmetrical or asymmetrical subproblems and collect the results back together.
+The resource consumption in such algorithms is not only processor cycles on each processor but also the communication overhead between the processors.
+Sorting algorithms can be parallelized efficiently, but their communication overhead is expensive.
+Iterative algorithms are generally parallelizable.
+Some problems have no parallel algorithms, and are called inherently serial problems.
+Deterministic or non-deterministic: Deterministic algorithms solve the problem with exact decision at every step of the algorithm whereas non-deterministic algorithm solve problems via guessing although typical guesses are made more accurate through the use of heuristics.
+Exact or approximate: While many algorithms reach an exact solution, approximation algorithms seek an approximation that is close to the true solution.
+Approximation may use either a deterministic or a random strategy.
+Such algorithms have practical value for many hard problems.
+Classification by design paradigm
+Another way of classifying algorithms is by their design methodology or paradigm.
+There is a certain number of paradigms, each different from the other.
+Furthermore, each of these categories will include many different types of algorithms.
+Some commonly found paradigms include:
+Divide and conquer.
+A divide and conquer algorithm repeatedly reduces an instance of a problem to one or more smaller instances of the same problem (usually recursively), until the instances are small enough to solve easily.
+One such example of divide and conquer is merge sorting.
+Sorting can be done on each segment of data after dividing data into segments and sorting of entire data can be obtained in conquer phase by merging them.
+A simpler variant of divide and conquer is called decrease and conquer algorithm, that solves an identical subproblem and uses the solution of this subproblem to solve the bigger problem.
+Divide and conquer divides the problem into multiple subproblems and so conquer stage will be more complex than decrease and conquer algorithms.
+An example of decrease and conquer algorithm is binary search algorithm.
+Dynamic programming.
+When a problem shows optimal substructure, meaning the optimal solution to a problem can be constructed from optimal solutions to subproblems, and overlapping subproblems, meaning the same subproblems are used to solve many different problem instances, a quicker approach called dynamic programming avoids recomputing solutions that have already been computed.
+For example, the shortest path to a goal from a vertex in a weighted graph can be found by using the shortest path to the goal from all adjacent vertices.
+Dynamic programming and memoization go together.
+The main difference between dynamic programming and divide and conquer is that subproblems are more or less independent in divide and conquer, whereas subproblems overlap in dynamic programming.
+The difference between dynamic programming and straightforward recursion is in caching or memoization of recursive calls.
+When subproblems are independent and there is no repetition, memoization does not help; hence dynamic programming is not a solution for all complex problems.
+By using memoization or maintaining a table of subproblems already solved, dynamic programming reduces the exponential nature of many problems to polynomial complexity.
+The greedy method.
+A greedy algorithm is similar to a dynamic programming algorithm, but the difference is that solutions to the subproblems do not have to be known at each stage; instead a "greedy" choice can be made of what looks best for the moment.
+The greedy method extends the solution with the best possible decision (not all feasible decisions) at an algorithmic stage based on the current local optimum and the best decision (not all possible decisions) made in previous stage.
+It is not exhaustive, and does not give accurate answer to many problems.
+But when it works, it will be the fastest method.
+The most popular greedy algorithm is finding the minimal spanning tree as given by Kruskal.
+Linear programming.
+When solving a problem using linear programming, specific inequalities involving the inputs are found and then an attempt is made to maximize (or minimize) some linear function of the inputs.
+Many problems (such as the maximum flow for directed graphs) can be stated in a linear programming way, and then be solved by a 'generic' algorithm such as the simplex algorithm.
+A more complex variant of linear programming is called integer programming, where the solution space is restricted to the integers.
+Reduction.
+This technique involves solving a difficult problem by transforming it into a better known problem for which we have (hopefully) asymptotically optimal algorithms.
+The goal is to find a reducing algorithm whose complexity is not dominated by the resulting reduced algorithm's.
+For example, one selection algorithm for finding the median in an unsorted list involves first sorting the list (the expensive portion) and then pulling out the middle element in the sorted list (the cheap portion).
+This technique is also known as transform and conquer.
+Search and enumeration.
+Many problems (such as playing chess) can be modeled as problems on graphs.
+A graph exploration algorithm specifies rules for moving around a graph and is useful for such problems.
+This category also includes search algorithms, branch and bound enumeration and backtracking.
+The probabilistic and heuristic paradigm.
+Algorithms belonging to this class fit the definition of an algorithm more loosely.
+Probabilistic algorithms are those that make some choices randomly (or pseudo-randomly); for some problems, it can in fact be proven that the fastest solutions must involve some randomness.
+Genetic algorithms attempt to find solutions to problems by mimicking biological evolutionary processes, with a cycle of random mutations yielding successive generations of "solutions".
+Thus, they emulate reproduction and "survival of the fittest".
+In genetic programming, this approach is extended to algorithms, by regarding the algorithm itself as a "solution" to a problem.
+Heuristic algorithms, whose general purpose is not to find an optimal solution, but an approximate solution where the time or resources are limited.
+They are not practical to find perfect solutions.
+An example of this would be local search, tabu search, or simulated annealing algorithms, a class of heuristic probabilistic algorithms that vary the solution of a problem by a random amount.
+The name "simulated annealing" alludes to the metallurgic term meaning the heating and cooling of metal to achieve freedom from defects.
+The purpose of the random variance is to find close to globally optimal solutions rather than simply locally optimal ones, the idea being that the random element will be decreased as the algorithm settles down to a solution.
+Classification by field of study
+Every field of science has its own problems and needs efficient algorithms.
+Related problems in one field are often studied together.
+Some example classes are search algorithms, sorting algorithms, merge algorithms, numerical algorithms, graph algorithms, string algorithms, computational geometric algorithms, combinatorial algorithms, machine learning, cryptography, data compression algorithms and parsing techniques.
+Fields tend to overlap with each other, and algorithm advances in one field may improve those of other, sometimes completely unrelated, fields.
+For example, dynamic programming was originally invented for optimization of resource consumption in industry, but is now used in solving a broad range of problems in many fields.
+Classification by complexity
+Algorithms can be classified by the amount of time they need to complete compared to their input size.
+There is a wide variety: some algorithms complete in linear time relative to input size, some do so in an exponential amount of time or even worse, and some never halt.
+Additionally, some problems may have multiple algorithms of differing complexity, while other problems might have no algorithms or no known efficient algorithms.
+There are also mappings from some problems to other problems.
+Owing to this, it was found to be more suitable to classify the problems themselves instead of the algorithms into equivalence classes based on the complexity of the best possible algorithms for them.
+Classification by computing power
+Another way to classify algorithms is by computing power.
+This is typically done by considering some collection (class) of algorithms.
+A recursive class of algorithms is one that includes algorithms for all Turing computable functions.
+Looking at classes of algorithms allows for the possibility of restricting the available computational resources (time and memory) used in a computation.
+A subrecursive class of algorithms is one in which not all Turing computable functions can be obtained.
+For example, the algorithms that run in polynomial time suffice for many important types of computation but do not exhaust all Turing computable functions.
+The class algorithms implemented by primitive recursive functions is another subrecursive class.
+Burgin (2005, p. 24) uses a generalized definition of algorithms that relaxes the common requirement that the output of the algorithm that computes a function must be determined after a finite number of steps.
+He defines a super-recursive class of algorithms as "a class of algorithms in which it is possible to compute functions not computable by any Turing machine" (Burgin 2005, p. 107).
+This is closely related to the study of methods of hypercomputation.
+Legal issues
+See also: Software patents for a general overview of the patentability of software, including computer-implemented algorithms.
+Algorithms, by themselves, are not usually patentable.
+In the United States, a claim consisting solely of simple manipulations of abstract concepts, numbers, or signals do not constitute "processes" (USPTO 2006) and hence algorithms are not patentable (as in Gottschalk v. Benson).
+However, practical applications of algorithms are sometimes patentable.
+For example, in Diamond v. Diehr, the application of a simple feedback algorithm to aid in the curing of synthetic rubber was deemed patentable.
+The patenting of software is highly controversial, and there are highly criticized patents involving algorithms, especially data compression algorithms, such as Unisys' LZW patent.
+Additionally, some cryptographic algorithms have export restrictions (see export of cryptography).
+History: Development of the notion of "algorithm"
+Origin of the word
+The word algorithm comes from the name of the 9th century Persian mathematician Abu Abdullah Muhammad ibn Musa al-Khwarizmi whose works introduced Indian numerals and algebraic concepts.
+He worked in Baghdad at the time when it was the centre of scientific studies and trade.
+The word algorism originally referred only to the rules of performing arithmetic using Arabic numerals but evolved via European Latin translation of al-Khwarizmi's name into algorithm by the 18th century.
+The word evolved to include all definite procedures for solving problems or performing tasks.
+Discrete and distinguishable symbols
+Tally-marks: To keep track of their flocks, their sacks of grain and their money the ancients used tallying: accumulating stones or marks scratched on sticks, or making discrete symbols in clay.
+Through the Babylonian and Egyptian use of marks and symbols, eventually Roman numerals and the abacus evolved (Dilson, p.16–41).
+Tally marks appear prominently in unary numeral system arithmetic used in Turing machine and Post-Turing machine computations.
+Manipulation of symbols as "place holders" for numbers: algebra
+The work of the Ancient Greek geometers, Persian mathematician Al-Khwarizmi (often considered as the "father of algebra"), and Western European mathematicians culminated in Leibniz's notion of the calculus ratiocinator (ca 1680):
+"A good century and a half ahead of his time, Leibniz proposed an algebra of logic, an algebra that would specify the rules for manipulating logical concepts in the manner that ordinary algebra specifies the rules for manipulating numbers" (Davis 2000:1)
+Mechanical contrivances with discrete states
+The clock: Bolter credits the invention of the weight-driven clock as “The key invention [of Europe in the Middle Ages]", in particular the verge escapement< (Bolter 1984:24) that provides us with the tick and tock of a mechanical clock.
+“The accurate automatic machine” (Bolter 1984:26) led immediately to "mechanical automata" beginning in the thirteenth century and finally to “computational machines" – the difference engine and analytical engines of Charles Babbage and Countess Ada Lovelace (Bolter p.33–34, p.204–206).
+Jacquard loom, Hollerith punch cards, telegraphy and telephony — the electromechanical relay: Bell and Newell (1971) indicate that the Jacquard loom (1801), precursor to Hollerith cards (punch cards, 1887), and “telephone switching technologies” were the roots of a tree leading to the development of the first computers (Bell and Newell diagram p. 39, cf Davis 2000).
+By the mid-1800s the telegraph, the precursor of the telephone, was in use throughout the world, its discrete and distinguishable encoding of letters as “dots and dashes” a common sound.
+By the late 1800s the ticker tape (ca 1870s) was in use, as was the use of Hollerith cards in the 1890 U.S. census.
+Then came the Teletype (ca 1910) with its punched-paper use of Baudot code on tape.
+Telephone-switching networks of electromechanical relays (invented 1835) was behind the work of George Stibitz (1937), the inventor of the digital adding device.
+As he worked in Bell Laboratories, he observed the “burdensome’ use of mechanical calculators with gears.
+"He went home one evening in 1937 intending to test his idea....
+When the tinkering was over, Stibitz had constructed a binary adding device".
+(Valley News, p. 13).
+Davis (2000) observes the particular importance of the electromechanical relay (with its two "binary states" open and closed):
+It was only with the development, beginning in the 1930s, of electromechanical calculators using electrical relays, that machines were built having the scope Babbage had envisioned."
+(Davis, p. 14).
+Mathematics during the 1800s up to the mid-1900s
+Symbols and rules: In rapid succession the mathematics of George Boole (1847, 1854), Gottlob Frege (1879), and Giuseppe Peano (1888–1889) reduced arithmetic to a sequence of symbols manipulated by rules.
+Peano's The principles of arithmetic, presented by a new method (1888) was "the first attempt at an axiomatization of mathematics in a symbolic language" (van Heijenoort:81ff).
+But Heijenoort gives Frege (1879) this kudos: Frege’s is "perhaps the most important single work ever written in logic. ... in which we see a " 'formula language', that is a lingua characterica, a language written with special symbols, "for pure thought", that is, free from rhetorical embellishments ... constructed from specific symbols that are manipulated according to definite rules" (van Heijenoort:1).
+The work of Frege was further simplified and amplified by Alfred North Whitehead and Bertrand Russell in their Principia Mathematica (1910–1913).
+The paradoxes: At the same time a number of disturbing paradoxes appeared in the literature, in particular the Burali-Forti paradox (1897), the Russell paradox (1902–03), and the Richard Paradox (Dixon 1906, cf Kleene 1952:36–40).
+The resultant considerations led to Kurt Gödel’s paper (1931) — he specifically cites the paradox of the liar — that completely reduces rules of recursion to numbers.
+Effective calculability: In an effort to solve the Entscheidungsproblem defined precisely by Hilbert in 1928, mathematicians first set about to define what was meant by an "effective method" or "effective calculation" or "effective calculability" (i.e., a calculation that would succeed).
+In rapid succession the following appeared: Alonzo Church, Stephen Kleene and J.B. Rosser's λ-calculus, (cf footnote in Alonzo Church 1936a:90, 1936b:110) a finely-honed definition of "general recursion" from the work of Gödel acting on suggestions of Jacques Herbrand (cf Gödel's Princeton lectures of 1934) and subsequent simplifications by Kleene (1935-6:237ff, 1943:255ff). Church's proof (1936:88ff) that the Entscheidungsproblem was unsolvable, Emil Post's definition of effective calculability as a worker mindlessly following a list of instructions to move left or right through a sequence of rooms and while there either mark or erase a paper or observe the paper and make a yes-no decision about the next instruction (cf "Formulation I", Post 1936:289-290).
+Alan Turing's proof of that the Entscheidungsproblem was unsolvable by use of his "a- [automatic-] machine"(Turing 1936-7:116ff) -- in effect almost identical to Post's "formulation", J. Barkley Rosser's definition of "effective method" in terms of "a machine" (Rosser 1939:226).
+S. C. Kleene's proposal of a precursor to "Church thesis" that he called "Thesis I" (Kleene 1943:273–274), and a few years later Kleene's renaming his Thesis "Church's Thesis" (Kleene 1952:300, 317) and proposing "Turing's Thesis" (Kleene 1952:376).
+Emil Post (1936) and Alan Turing (1936-7, 1939)
+Here is a remarkable coincidence of two men not knowing each other but describing a process of men-as-computers working on computations — and they yield virtually identical definitions.
+Emil Post (1936) described the actions of a "computer" (human being) as follows:
+"...two concepts are involved: that of a symbol space in which the work leading from problem to answer is to be carried out, and a fixed unalterable set of directions.
+His symbol space would be
+"a two way infinite sequence of spaces or boxes...
+The problem solver or worker is to move and work in this symbol space, being capable of being in, and operating in but one box at a time.... a box is to admit of but two possible conditions, i.e., being empty or unmarked, and having a single mark in it, say a vertical stroke.
+"One box is to be singled out and called the starting point. ...a specific problem is to be given in symbolic form by a finite number of boxes [i.e., INPUT] being marked with a stroke.
+Likewise the answer [i.e., OUTPUT] is to be given in symbolic form by such a configuration of marked boxes....
+"A set of directions applicable to a general problem sets up a deterministic process when applied to each specific problem.
+This process will terminate only when it comes to the direction of type (C ) [i.e., STOP]." (U p. 289–290)
+See more at Post-Turing machine
+Alan Turing’s work (1936, 1939:160) preceded that of Stibitz (1937); it is unknown whether Stibitz knew of the work of Turing.
+Turing’s biographer believed that Turing’s use of a typewriter-like model derived from a youthful interest: “Alan had dreamt of inventing typewriters as a boy; Mrs. Turing had a typewriter; and he could well have begun by asking himself what was meant by calling a typewriter 'mechanical'" (Hodges, p. 96).
+Given the prevalence of Morse code and telegraphy, ticker tape machines, and Teletypes we might conjecture that all were influences.
+Turing — his model of computation is now called a Turing machine — begins, as did Post, with an analysis of a human computer that he whittles down to a simple set of basic motions and "states of mind".
+But he continues a step further and creates a machine as a model of computation of numbers (Turing 1936-7:116).
+"Computing is normally done by writing certain symbols on paper.
+We may suppose this paper is divided into squares like a child's arithmetic book....I assume then that the computation is carried out on one-dimensional paper, i.e., on a tape divided into squares.
+I shall also suppose that the number of symbols which may be printed is finite....
+"The behavior of the computer at any moment is determined by the symbols which he is observing, and his "state of mind" at that moment.
+We may suppose that there is a bound B to the number of symbols or squares which the computer can observe at one moment.
+If he wishes to observe more, he must use successive observations.
+We will also suppose that the number of states of mind which need be taken into account is finite...
+"Let us imagine that the operations performed by the computer to be split up into 'simple operations' which are so elementary that it is not easy to imagine them further divided" (Turing 1936-7:136).
+Turing's reduction yields the following:
+"The simple operations must therefore include:
+"(a) Changes of the symbol on one of the observed squares
+"(b) Changes of one of the squares observed to another square within L squares of one of the previously observed squares.
+"It may be that some of these change necessarily invoke a change of state of mind.
+The most general single operation must therefore be taken to be one of the following:
+"(A) A possible change (a) of symbol together with a possible change of state of mind.
+"(B) A possible change (b) of observed squares, together with a possible change of state of mind"
+"We may now construct a machine to do the work of this computer."
+(Turing 1936-7:136)
+A few years later, Turing expanded his analysis (thesis, definition) with this forceful expression of it:
+"A function is said to be "effectively calculable" if its values can be found by some purely mechanical process.
+Although it is fairly easy to get an intuitive grasp of this idea, it is neverthessless desirable to have some more definite, mathematical expressible definition . . . [he discusses the history of the definition pretty much as presented above with respect to Gödel, Herbrand, Kleene, Church, Turing and Post] . . .
+We may take this statement literally, understanding by a purely mechanical process one which could be carried out by a machine.
+It is possible to give a mathematical description, in a certain normal form, of the structures of these machines.
+The development of these ideas leads to the author's definition of a computable function, and to an identification of computability † with effective calculability . . . .
+"† We shall use the expression "computable function" to mean a function calculable by a machine, and we let "effectively calculabile" refer to the intuitive idea without particular identification with any one of these definitions."(Turing 1939:160)
+J. B. Rosser (1939) and S. C. Kleene (1943)
+J. Barkley Rosser boldly defined an ‘effective [mathematical] method’ in the following manner (boldface added):
+"'Effective method' is used here in the rather special sense of a method each step of which is precisely determined and which is certain to produce the answer in a finite number of steps.
+With this special meaning, three different precise definitions have been given to date. [his footnote #5; see discussion immediately below].
+The simplest of these to state (due to Post and Turing) says essentially that an effective method of solving certain sets of problems exists if one can build a machine which will then solve any problem of the set with no human intervention beyond inserting the question and (later) reading the answer.
+All three definitions are equivalent, so it doesn't matter which one is used.
+Moreover, the fact that all three are equivalent is a very strong argument for the correctness of any one."
+(Rosser 1939:225–6)
+Rosser's footnote #5 references the work of (1) Church and Kleene and their definition of λ-definability, in particular Church's use of it in his An Unsolvable Problem of Elementary Number Theory (1936); (2) Herbrand and Gödel and their use of recursion in particular Gödel's use in his famous paper On Formally Undecidable Propositions of Principia Mathematica and Related Systems I (1931); and (3) Post (1936) and Turing (1936-7) in their mechanism-models of computation.
+Stephen C. Kleene defined as his now-famous "Thesis I" known as the Church-Turing thesis.
+But he did this in the following context (boldface in original):
+"12.
+Algorithmic theories...
+In setting up a complete algorithmic theory, what we do is to describe a procedure, performable for each set of values of the independent variables, which procedure necessarily terminates and in such manner that from the outcome we can read a definite answer, "yes" or "no," to the question, "is the predicate value true?”"
+(Kleene 1943:273)
+History after 1950
+A number of efforts have been directed toward further refinement of the definition of "algorithm", and activity is on-going because of issues surrounding, in particular, foundations of mathematics (especially the Church-Turing Thesis) and philosophy of mind (especially arguments around artificial intelligence).
+For more, see Algorithm characterizations.
+Algorithmic Repositories
+LEDA
+Stanford GraphBase
+Combinatorica
+Netlib
+XTango
+Ambiguity
+Ambiguity is the property of being ambiguous, where a word, term, notation, sign, symbol, phrase, sentence, or any other form used for communication, is called ambiguous if it can be interpreted in more than one way.
+Ambiguity is distinct from vagueness, which arises when the boundaries of meaning are indistinct.
+Ambiguity is context-dependent: the same communication may be ambiguous in one context and unambiguous in another context.
+For a word, ambiguity typically refers to an unclear choice between different definitions as may be found in a dictionary.
+A sentence may be ambiguous due to different ways of parsing the same sequence of words.
+Linguistic forms
+Lexical ambiguity arises when context is insufficient to determine the sense of a single word that has more than one meaning.
+For example, the word “bank” has several distinct definitions, including “financial institution” and “edge of a river,” but if someone says “I deposited $100 in the bank,” most people would not think you used a shovel to dig in the mud.
+The word "run" has 130 ambiguous definitions in some lexicons.
+"Biweekly" can mean "fortnightly" (once every two weeks - 26 times a year), OR "twice a week" (104 times a year).
+Stating a specific context like "meeting schedule" does NOT disambiguate "biweekly."
+Many people believe that such lexically-ambiguous, miscommunication-prone words should be avoided altogether, since the user generally has to waste time, effort, and attention span to define what is meant when they are used.
+The use of multi-defined words requires the author or speaker to clarify their context, and sometimes elaborate on their specific intended meaning (in which case, a less ambiguous term should have been used).
+The goal of clear concise communication is that the receiver(s) have no misunderstanding about what was meant to be conveyed.
+An exception to this could include a politician whose "wiggle words" and obfuscation are necessary to gain support from multiple constituent (politics) with mutually exclusive conflicting desires from their candidate of choice.
+Ambiguity is a powerful tool of political science.
+More problematic are words whose senses express closely-related concepts.
+“Good,” for example, can mean “useful” or “functional” (That’s a good hammer), “exemplary” (She’s a good student), “pleasing” (This is good soup), “moral” (a good person versus the lesson to be learned from a story), "righteous", etc.
+“I have a good daughter” is not clear about which sense is intended.
+The various ways to apply prefixes and suffixes can also create ambiguity (“unlockable” can mean “capable of being unlocked” or “impossible to lock”, and therefore should not be used).
+Syntactic ambiguity arises when a sentence can be parsed in more than one way.
+“He ate the cookies on the couch,” for example, could mean that he ate those cookies which were on the couch (as opposed to those that were on the table), or it could mean that he was sitting on the couch when he ate the cookies.
+Spoken language can contain many more types of ambiguities, where there is more than one way to compose a set of sounds into words, for example “ice cream” and “I scream.”
+Such ambiguity is generally resolved based on the context.
+A mishearing of such, based on incorrectly-resolved ambiguity, is called a mondegreen.
+Semantic ambiguity arises when a word or concept has an inherently diffuse meaning based on widespread or informal usage.
+This is often the case, for example, with idiomatic expressions whose definitions are rarely or never well-defined, and are presented in the context of a larger argument that invites a conclusion.
+For example, “You could do with a new automobile.
+How about a test drive?”
+The clause “You could do with” presents a statement with such wide possible interpretation as to be essentially meaningless.
+Lexical ambiguity is contrasted with semantic ambiguity.
+The former represents a choice between a finite number of known and meaningful context-dependent interpretations.
+The latter represents a choice between any number of possible interpretations, none of which may have a standard agreed-upon meaning.
+This form of ambiguity is closely related to vagueness.
+Linguistic ambiguity can be a problem in law (see Ambiguity (law)), because the interpretation of written documents and oral agreements is often of paramount importance.
+Intentional application
+Philosophers (and other users of logic) spend a lot of time and effort searching for and removing (or intentionally adding) ambiguity in arguments, because it can lead to incorrect conclusions and can be used to deliberately conceal bad arguments.
+For example, a politician might say “I oppose taxes that hinder economic growth.”
+Some will think he opposes taxes in general, because they hinder economic growth.
+Others may think he opposes only those taxes that he believes will hinder economic growth (although in writing, the correct insertion or omission of a comma after “taxes” and the use of "which" can help reduce ambiguity here.
+For the first meaning, “, which” is properly used in place of “that”), or restructure the sentence to completely eliminate possible misinterpretation.
+The devious politician hopes that each constituent (politics) will interpret the above statement in the most desirable way, and think the politician supports everyone's opinion.
+However, the opposite can also be true - An opponent can turn a positive statement into a bad one, if the speaker uses ambiguity (intentionally or not).
+The logical fallacies of amphiboly and equivocation rely heavily on the use of ambiguous words and phrases.
+In literature and rhetoric, on the other hand, ambiguity can be a useful tool.
+Groucho Marx’s classic joke depends on a grammatical ambiguity for its humor, for example: “Last night I shot an elephant in my pajamas.
+What he was doing in my pajamas I’ll never know.”
+Ambiguity can also be used as a comic device through a genuine intention to confuse, as does Magic: The Gathering's Unhinged © Ambiguity, which makes puns with homophones, mispunctuation, and run-ons: “Whenever a player plays a spell that counters a spell that has been played[,] or a player plays a spell that comes into play with counters, that player may counter the next spell played[,] or put an additional counter on a permanent that has already been played, but not countered.”
+Songs and poetry often rely on ambiguous words for artistic effect, as in the song title “Don’t It Make My Brown Eyes Blue” (where “blue” can refer to the color, or to sadness).
+In narrative, ambiguity can be introduced in several ways: motive, plot, character.
+F. Scott Fitzgerald uses the latter type of ambiguity with notable effect in his novel The Great Gatsby.
+All religions debate the orthodoxy or heterodoxy of ambiguity.
+Christianity and Judaism employ the concept of paradox synonymously with 'ambiguity'.
+Ambiguity within Christianity (and other religions) is resisted by the conservatives and fundamentalists, who regard the concept as equating with 'contradiction'.
+Non-fundamentalist Christians and Jews endorse Rudolf Otto's description of the sacred as 'mysterium tremendum et fascinans', the awe-inspiring mystery which fascinates humans.
+Metonymy involves the use of the name of a subcomponent part as an abbreviation, or jargon, for the name of the whole object (for example "wheels" to refer to a car, or "flowers" to refer to beautiful offspring, an entire plant, or a collection of blooming plants).
+In modern vocabulary critical semiotics, metonymy encompasses any potentially-ambiguous word substitution that is based on contextual contiguity (located close together), or a function or process that an object performs, such as "sweet ride" to refer to a nice car.
+Metonym miscommunication is considered a primary mechanism of linguistic humour.
+Psychology and management
+In sociology and social psychology, the term "ambiguity" is used to indicate situations that involve uncertainty.
+An increasing amount of research is concentrating on how people react and respond to ambiguous situations.
+Much of this focuses on ambiguity tolerance.
+A number of correlations have been found between an individual’s reaction and tolerance to ambiguity and a range of factors.
+Apter and Desselles (2001) for example, found a strong correlation with such attributes and factors like a greater preference for safe as opposed to risk based sports, a preference for endurance type activities as opposed to explosive activities, a more organized and less casual lifestyle, greater care and precision in descriptions, a lower sensitivity to emotional and unpleasant words, a less acute sense of humour, engaging a smaller variety of sexual practices than their more risk comfortable colleagues, a lower likelihood of the use of drugs, pornography and drink, a greater likelihood of displaying obsessional behaviour.
+In the field of leadership David Wilkinson (2006) found strong correlations between an individual leaders reaction to ambiguous situations and the Modes of Leadership they use, the type of creativity (Kirton (2003) and how they relate to others.
+Music
+In music, pieces or sections which confound expectations and may be or are interpreted simultaneously in different ways are ambiguous, such as some polytonality, polymeter, other ambiguous meters or rhythms, and ambiguous phrasing, or (Stein 2005, p.79) any aspect of music.
+The music of Africa is often purposely ambiguous.
+To quote Sir Donald Francis Tovey (1935, p.195), “Theorists are apt to vex themselves with vain efforts to remove uncertainty just where it has a high aesthetic value.”
+Constructed language
+Some languages have been created with the intention of avoiding ambiguity, especially lexical ambiguity.
+Lojban and Loglan are two related languages which have been created with this in mind.
+The languages can be both spoken and written.
+These languages are intended to provide a greater technical precision over natural languages, although historically, such attempts at language improvement have been criticized.
+Languages composed from many diverse sources contain much ambiguity and inconsistency.
+The many exceptions to syntax and semantic rules are time-consuming and difficult to learn.
+Mathematics and physics
+Mathematical notation, widely used in physics and other sciences, avoids many ambiguities compared to expression in natural language.
+However, for various reasons, several lexical, syntactic and semantic ambiguities remain.
+Names of functions
+The ambiguity in the style of writing a function should not be confused with a multivalued function, which can (and should) be defined in a deterministic and unambiguous way.
+Several special functions still do not have established notations.
+Usually, the conversion to another notation requires to scale the argument and/or the resulting value; sometimes, the same name of the function is used, causing confusions.
+Examples of such underestablished functions:
+Sinc function
+Elliptic integral of the Third Kind; translating elliptic integral form MAPLE to Mathematica, one should replace the second argument to its square, see Talk:Elliptic integral#List_of_notations; dealing with complex values, this may cause problems.
+Exponential integral, , page 228 http://www.math.sfu.ca/~cbm/aands/page_228.htm
+Hermite polynomial, , page 775 http://www.math.sfu.ca/~cbm/aands/page_775.htm
+Expressions
+Ambiguous espressions often appear in physical and mathematical texts.
+It is common practice to omit multiplication signs in mathematical expressions.
+Also, it is common, to give the same name to a variable and a function, for example, <math/>.
+Then, if one sees <math/>, there is no way to distinguish, does it mean <math/> multiplied by <math/>, or function <math/> evaluated at argument equal to <math/>.
+In each case of use of such notations, the reader is supposed to be able to perform the deduction and reveal the true meaning.
+Creators of algorithmic languages try to avoid ambiguities.
+Many algorithmic languages (C++, MATLAB, Fortran, Maple) require the character * as symbol of multiplication.
+The language Mathematica allows the user to omit the multiplication symbol, but requires square brackets to indicate the argument of a function; square brackets are not allowed for grouping of expressions.
+Fortran, in addition, does not allow use of the same name (identifier) for different objects, for example, function and variable; in particular, the expression f=f(x) is qualified as an error.
+The order of operations may depend on the context.
+In most programming languages, the operations of division and multiplication have equal priority and are executed from left to right.
+Until the last century, many editorials assumed that multiplication is performed first, for example, <math/> is interpreted as <math/>; in this case, the insertion of parentheses is required when translating the formulas to an algorithmic language.
+In addition, it is common to write an argument of a function without parenthesis, which also may lead to ambiguity.
+Sometimes, one uses italics letters to denote elementary functions.
+In the scientific journal style, the expression <math/> means product of variables <math/>, <math/>, <math/> and <math/>, although in a slideshow, it may mean <math/>.
+Comma in subscripts and superscripts sometimes is omitted; it is also ambiguous notation.
+If it is written <math/>, the reader should guess from the context, does it mean a single-index object, evaluated while the subscript is equal to product of variables <math/>, <math/> and <math/>, or it is indication to a three-valent tensor.
+The writing of <math/> instead of <math/> may mean that the writer either is stretched in space (for example, to reduce the publication fees, or aims to increase number of publications without considering readers.
+The same may apply to any other use of ambiguous notations.
+Examples of potentially confusing ambiguous mathematical expressions
+<math/>, which could be understood to mean either <math/> or <math/>.
+<math/>, which by convention means <math/>, though it might be thought to mean <math/> since <math/> means <math/>.
+<math/>, which arguably should mean <math/> but would commonly be understood to mean <math/>
+Notations in quantum optics and quantum mechanics
+It is common to define the coherent states in quantum optics with <math/> and states with fixed number of photons with <math/>.
+Then, there is an "unwritten rule": the state is coherent if there are more Greek characters than Latin characters in the argument, and <math/>photon state if the Latin characters dominate.
+The ambiguity becomes even worse, if <math/> is used for the states with certain value of the coordinate, and <math/> means the state with certain value of the momentum, which may be used in books on quantum mechanics.
+Such ambiguities easy lead to confusions, especially if some normalized adimensional, dimensionless variables are used.
+Expression <math/> may mean a state with single photon, or the coherent state with mean amplitude equal to 1, or state with momentum equal to unity, and so on.
+The reader is supposed to guess from the context.
+Examples of ambiguous terms in physics
+Some physical quantities do not yet have established notations; their value (and sometimes even dimension, as in the case of the Einstein coefficients) depends on the system of notations.
+A highly confusing term is gain.
+For example, the sentence "the gain of a system should be doubled", without context, means close to nothing.
+It may mean that the ratio of the output voltage of an electric circuit to the input voltage should be doubled.
+It may mean that the ratio of the output power of an electric or optical circuit to the input power should be doubled.
+It may mean that the gain of the laser medium should be doubled, for example, doubling the population of the upper laser level in a quasi-two level system (assuming negligible absorption of the ground-state).
+Also, confusions may be related with the use of atomic percent as measure of concentration of a dopant, or resolution of an imaging system, as measure of the size of the smallest detail which still can be resolved at the background of statistical noise.
+See also Accuracy and precision and its talk.
+Many terms are ambiguous.
+Each use of an ambiguous term should be preceded by the definition, suitable for a specific case.
+The Berry paradox arises as a result of systematic ambiguity.
+In various formulations of the Berry paradox, such as one that reads: The number not nameable in less than eleven syllables the term nameable is one that has this systematic ambiguity.
+Terms of this kind give rise to vicious circle fallacies.
+Other terms with this type of ambiguity are: satisfiable, definable, true, false, function, property, class, relation, cardinal, and ordinal.
+Pedagogic use of ambiguous expressions
+Ambiguity can be used as a pedagogical trick, to force students to reproduce the deduction by themselves.
+Some textbooks give the same name to the function and to its Fourier transform:
+<math/>.
+Rigorously speaking, such an expression requires that <math/>; even if function <math/> is a self-Fourier function, the expression should be written as <math/>; however, it is assumed that the shape of the function  (and even its norm <math/>) depend on the character used to denote its argument.
+If the Greek letter is used, it is assumed to be a Fourier transform of another function, The first function is assumed, if the expression in the argument contains more characters <math/> or <math/>, than characters <math/>, and the second function is assumed in the opposite case.
+Expressions like <math/> or <math/> contain symbols <math/> and <math/> in equal amounts; they are ambiguous and should be avoided in serious deduction.
+Artificial intelligence
+Artificial intelligence (AI) is both the intelligence of machines and the branch of computer science which aims to create it.
+Major AI textbooks define artificial intelligence as "the study and design of intelligent agents," where an intelligent agent is a system that perceives its environment and takes actions which maximize its chances of success.
+John McCarthy, who coined the term in 1956, defines it as "the science and engineering of making intelligent machines."
+Among the traits that researchers hope machines will exhibit are reasoning, knowledge, planning, learning, communication, perception and the ability to move and manipulate objects.
+General intelligence (or "strong AI") has not yet been achieved and is a long-term goal of some AI research.
+AI research uses tools and insights from many fields, including computer science, psychology, philosophy, neuroscience, cognitive science, linguistics, ontology, operations research, economics, control theory, probability, optimization and logic.
+AI research also overlaps with tasks such as robotics, control systems, scheduling, data mining, logistics, speech recognition, facial recognition and many others.
+Other names for the field have been proposed, such as computational intelligence, synthetic intelligence, intelligent systems, or computational rationality.
+Perspectives on AI
+AI in myth, fiction and speculation
+Humanity has imagined in great detail the implications of thinking machines or artificial beings.
+They appear in Greek myths, such as Talos of Crete, the golden robots of Hephaestus and Pygmalion's Galatea.
+The earliest known humanoid robots (or automatons) were sacred statues worshipped in Egypt and Greece, believed to have been endowed with genuine consciousness by craftsman.
+In the sixteenth century, the alchemist Paracelsus claimed to have created artificial beings.
+Realistic clockwork imitations of human beings have been built by people such as Yan Shi, Hero of Alexandria, Al-Jazari and Wolfgang von Kempelen.
+In modern fiction, beginning with Mary Shelley's classic Frankenstein, writers have explored the ethical issues presented by thinking machines.
+If a machine can be created that has intelligence, can it also feel?
+If it can feel, does it have the same rights as a human being?
+This is a key issue in Frankenstein as well as in modern science fiction: for example, the film Artificial Intelligence: A.I. considers a machine in the form of a small boy which has been given the ability to feel human emotions, including, tragically, the capacity to suffer.
+This issue is also being considered by futurists, such as California's Institute for the Future under the name "robot rights", although many critics believe that the discussion is premature.
+Science fiction writers and futurists have also speculated on the technology's potential impact on humanity.
+In fiction, AI has appeared as a servant (R2D2 in Star Wars), a comrade (Lt. Commander Data in Star Trek), an extension to human abilities (Ghost in the Shell), a conqueror (The Matrix), a dictator (With Folded Hands) and an exterminator (Terminator, Battlestar Galactica).
+Some realistic potential consequences of AI are decreased human labor demand, the enhancement of human ability or experience, and a need for redefinition of human identity and basic values.
+Futurists estimate the capabilities of machines using Moore's Law, which measures the relentless exponential improvement in digital technology with uncanny accuracy.
+Ray Kurzweil has calculated that desktop computers will have the same processing power as human brains by the year 2029, and that by 2045 artificial intelligence will reach a point where it is able to improve itself at a rate that far exceeds anything conceivable in the past, a scenario that science fiction writer Vernor Vinge named the "technological singularity".
+"Artificial intelligence is the next stage in evolution," Edward Fredkin said in the 1980s, expressing an idea first proposed by Samuel Butler's Darwin Among the Machines (1863), and expanded upon by George Dyson in his book of the same name (1998).
+Several futurists and science fiction writers have predicted that human beings and machines will merge in the future into cyborgs that are more capable and powerful than either.
+This idea, called transhumanism, has roots in Aldous Huxley and Robert Ettinger, is now associated with robot designer Hans Moravec, cyberneticist Kevin Warwick and Ray Kurzweil.
+Transhumanism has been illustrated in fiction as well, for example on the manga Ghost in the Shell
+History of AI research
+In the middle of the 20th century, a handful of scientists began a new approach to building intelligent machines, based on recent discoveries in neurology, a new mathematical theory of information, an understanding of control and stability called cybernetics, and above all, by the invention of the digital computer, a machine based on the abstract essence of mathematical reasoning.
+The field of modern AI research was founded at conference on the campus of Dartmouth College in the summer of 1956.
+Those who attended would become the leaders of AI research for many decades, especially John McCarthy, Marvin Minsky, Allen Newell and Herbert Simon, who founded AI laboratories at MIT, CMU and Stanford.
+They and their students wrote programs that were, to most people, simply astonishing: computers were solving word problems in algebra, proving logical theorems and speaking English.
+By the middle 60s their research was heavily funded by the U.S. Department of Defense and they were optimistic about the future of the new field:
+1965, H. A. Simon: "[M]achines will be capable, within twenty years, of doing any work a man can do"
+1967, Marvin Minsky: "Within a generation ... the problem of creating 'artificial intelligence' will substantially be solved."
+These predictions, and many like them, would not come true.
+They had failed to recognize the difficulty of some of the problems they faced.
+In 1974, in response to the criticism of England's Sir James Lighthill and ongoing pressure from Congress to fund more productive projects, the U.S. and British governments cut off all undirected, exploratory research in AI.
+This was the first AI Winter.
+In the early 80s, AI research was revived by the commercial success of expert systems (a form of AI program that simulated the knowledge and analytical skills of one or more human experts) and by 1985 the market for AI had reached more than a billion dollars.
+Minsky and others warned the community that enthusiasm for AI had spiraled out of control and that disappointment was sure to follow.
+Beginning with the collapse of the Lisp Machine market in 1987, AI once again fell into disrepute, and a second, more lasting AI Winter began.
+In the 90s and early 21st century AI achieved its greatest successes, albeit somewhat behind the scenes.
+Artificial intelligence was adopted throughout the technology industry, providing the heavy lifting for logistics, data mining, medical diagnosis and many other areas.
+The success was due to several factors: the incredible power of computers today (see Moore's law), a greater emphasis on solving specific subproblems, the creation of new ties between AI and other fields working on similar problems, and above all a new commitment by researchers to solid mathematical methods and rigorous scientific standards.
+Philosophy of AI
+In a classic 1950 paper, Alan Turing posed the question "Can Machines Think?"
+In the years since, the philosophy of artificial intelligence has attempted to answer it.
+Turing's "polite convention": If a machine acts as intelligently as a human being, then it is as intelligent as a human being.
+Alan Turing theorized that, ultimately, we can only judge the intelligence of machine based on its behavior.
+This theory forms the basis of the Turing test.
+The Dartmouth proposal: Every aspect of learning or any other feature of intelligence can be so precisely described that a machine can be made to simulate it.
+This assertion was printed in the proposal for the Dartmouth Conference of 1956, and represents the position of most working AI researchers.
+Newell and Simon's physical symbol system hypothesis: A physical symbol system has the necessary and sufficient means of general intelligent action.
+This statement claims that the essence of intelligence is symbol manipulation.
+Hubert Dreyfus argued that, on the contrary, human expertise depends on unconscious instinct rather than conscious symbol manipulation and on having a "feel" for the situation rather than explicit symbolic knowledge.
+Gödel's incompleteness theorem: A physical symbol system can not prove all true statements.
+Roger Penrose is among those who claim that Gödel's theorem limits what machines can do.
+Searle's "strong AI position": A physical symbol system can have a mind and mental states.
+Searle counters this assertion with his Chinese room argument, which asks us to look inside the computer and try to find where the "mind" might be.
+The artificial brain argument: The brain can be simulated.
+Hans Moravec, Ray Kurzweil and others have argued that it is technologically feasible to copy the brain directly into hardware and software, and that such a simulation will be essentially identical to the original.
+This argument combines the idea that a suitably powerful machine can simulate any process, with the materialist idea that the mind is the result of a physical process in the brain.
+AI research
+Problems of AI
+While there is no universally accepted definition of intelligence, AI researchers have studied several traits that are considered essential.
+Deduction, reasoning, problem solving
+Early AI researchers developed algorithms that imitated the process of conscious, step-by-step reasoning that human beings use when they solve puzzles, play board games, or make logical deductions.
+By the late 80s and 90s, AI research had also developed highly successful methods for dealing with uncertain or incomplete information, employing concepts from probability and economics.
+For difficult problems, most of these algorithms can require enormous computational resources — most experience a "combinatorial explosion": the amount of memory or computer time required becomes astronomical when the problem goes beyond a certain size.
+The search for more efficient problem solving algorithms is a high priority for AI research.
+It is not clear, however, that conscious human reasoning is any more efficient when faced with a difficult abstract problem.
+Cognitive scientists have demonstrated that human beings solve most of their problems using unconscious reasoning, rather than the conscious, step-by-step deduction that early AI research was able to model.
+Embodied cognitive science argues that unconscious sensorimotor skills are essential to our problem solving abilities.
+It is hoped that sub-symbolic methods, like computational intelligence and situated AI, will be able to model these instinctive skills.
+The problem of unconscious problem solving, which forms part of our commonsense reasoning, is largely unsolved.
+Knowledge representation
+Knowledge representation and knowledge engineering are central to AI research.
+Many of the problems machines are expected to solve will require extensive knowledge about the world.
+Among the things that AI needs to represent are: objects, properties, categories and relations between objects; situations, events, states and time; causes and effects; knowledge about knowledge (what we know about what other people know); and many other, less well researched domains.
+A complete representation of "what exists" is an ontology (borrowing a word from traditional philosophy), of which the most general are called upper ontologies.
+Among the most difficult problems in knowledge representation are:
+Default reasoning and the qualification problem: Many of the things people know take the form of "working assumptions."
+For example, if a bird comes up in conversation, people typically picture an animal that is fist sized, sings, and flies.
+None of these things are true about birds in general.
+John McCarthy identified this problem in 1969 as the qualification problem: for any commonsense rule that AI researchers care to represent, there tend to be a huge number of exceptions.
+Almost nothing is simply true or false in the way that abstract logic requires.
+AI research has explored a number of solutions to this problem.
+Unconscious knowledge: Much of what people know isn't represented as "facts" or "statements" that they could actually say out loud.
+They take the form of intuitions or tendencies and are represented in the brain unconsciously and sub-symbolically.
+This unconscious knowledge informs, supports and provides a context for our conscious knowledge.
+As with the related problem of unconscious reasoning, it is hoped that situated AI or computational intelligence will provide ways to represent this kind of knowledge.
+The breadth of common sense knowledge: The number of atomic facts that the average person knows is astronomical.
+Research projects that attempt to build a complete knowledge base of commonsense knowledge, such as Cyc, require enormous amounts of tedious step-by-step ontological engineering — they must be built, by hand, one complicated concept at a time.
+Planning
+Intelligent agents must be able to set goals and achieve them.
+They need a way to visualize the future: they must have a representation of the state of the world and be able to make predictions about how their actions will change it.
+They must also attempt to determine the utility or "value" of the choices available to it.
+In some planning problems, the agent can assume that it is the only thing acting on the world and it can be certain what the consequences of its actions may be.
+However, if this is not true, it must periodically check if the world matches its predictions and it must change its plan as this becomes necessary, requiring the agent to reason under uncertainty.
+Multi-agent planning tries to determine the best plan for a community of agents, using cooperation and competition to achieve a given goal.
+Emergent behavior such as this is used by both evolutionary algorithms and swarm intelligence.
+Learning
+Important machine learning problems are:
+Unsupervised learning: find a model that matches a stream of input "experiences", and be able to predict what new "experiences" to expect.
+Supervised learning, such as classification (be able to determine what category something belongs in, after seeing a number of examples of things from each category), or regression (given a set of numerical input/output examples, discover a continuous function that would generate the outputs from the inputs).
+Reinforcement learning: the agent is rewarded for good responses and punished for bad ones.
+(These can be analyzed in terms decision theory, using concepts like utility).
+Natural language processing
+Natural language processing gives machines the ability to read and understand the languages human beings speak.
+Many researchers hope that a sufficiently powerful natural language processing system would be able to acquire knowledge on its own, by reading the existing text available over the internet.
+Some straightforward applications of natural language processing include information retrieval (or text mining) and machine translation.
+Motion and manipulation
+The field of robotics is closely related to AI.
+Intelligence is required for robots to be able to handle such tasks as object manipulation and navigation, with sub-problems of localization (knowing where you are), mapping (learning what is around you) and motion planning (figuring out how to get there).
+Perception
+Machine perception is the ability to use input from sensors (such as cameras, microphones, sonar and others more exotic) to deduce aspects of the world.
+Computer vision is the ability to analyze visual input.
+A few selected subproblems are speech recognition, facial recognition and object recognition.
+Social intelligence
+Emotion and social skills play two roles for an intelligent agent:
+It must be able to predict the actions of others, by understanding their motives and emotional states.
+(This involves elements of game theory, decision theory, as well as the ability to model human emotions and the perceptual skills to detect emotions.)
+For good human-computer interaction, an intelligent machine also needs to display emotions — at the very least it must appear polite and sensitive to the humans it interacts with.
+At best, it should appear to have normal emotions itself.
+Creativity
+A sub-field of AI addresses creativity both theoretically (from a philosophical and psychological perspective) and practically (via specific implementations of systems that generate outputs that can be considered creative).
+General intelligence
+Most researchers hope that their work will eventually be incorporated into a machine with general intelligence (known as strong AI), combining all the skills above and exceeding human abilities at most or all of them.
+A few believe that anthropomorphic features like artificial consciousness or an artificial brain may be required for such a project.
+Many of the problems above are considered AI-complete: to solve one problem, you must solve them all.
+For example, even a straightforward, specific task like machine translation requires that the machine follow the author's argument (reason), know what it's talking about (knowledge), and faithfully reproduce the author's intention (social intelligence).
+Machine translation, therefore, is believed to be AI-complete: it may require strong AI to be done as well as humans can do it.
+Approaches to AI
+There are as many approaches to AI as there are AI researchers—any coarse categorization is likely to be unfair to someone.
+Artificial intelligence communities have grown up around particular problems, institutions and researchers, as well as the theoretical insights that define the approaches described below.
+Artificial intelligence is a young science and is still a fragmented collection of subfields.
+At present, there is no established unifying theory that links the subfields into a coherent whole.
+Cybernetics and brain simulation
+In the 40s and 50s, a number of researchers explored the connection between neurology, information theory, and cybernetics.
+Some of them built machines that used electronic networks to exhibit rudimentary intelligence, such as W. Grey Walter's turtles and the Johns Hopkins Beast.
+Many of these researchers gathered for meetings of the Teleological Society at Princeton and the Ratio Club in England.
+Traditional symbolic AI
+When access to digital computers became possible in the middle 1950s, AI research began to explore the possibility that human intelligence could be reduced to symbol manipulation.
+The research was centered in three institutions: CMU, Stanford and MIT, and each one developed its own style of research.
+John Haugeland named these approaches to AI "good old fashioned AI" or "GOFAI".
+Cognitive simulation:
+Economist Herbert Simon and Alan Newell studied human problem solving skills and attempted to formalize them, and their work laid the foundations of the field of artificial intelligence, as well as cognitive science, operations research and management science.
+Their research team performed psychological experiments to demonstrate the similarities between human problem solving and the programs (such as their "General Problem Solver") they were developing.
+This tradition, centered at Carnegie Mellon University, would eventually culminate in the development of the Soar architecture in the middle 80s.
+Logical AI:
+Unlike Newell and Simon, John McCarthy felt that machines did not need to simulate human thought, but should instead try to find the essence of abstract reasoning and problem solving, regardless of whether people used the same algorithms.
+His laboratory at Stanford (SAIL) focused on using formal logic to solve a wide variety of problems, including knowledge representation, planning and learning.
+Work in logic led to the development of the programming language Prolog and the science of logic programming.
+"Scruffy" symbolic AI:
+Researchers at MIT (such as Marvin Minsky and Seymour Papert) found that solving difficult problems in vision and natural language processing required ad-hoc solutions &ndash; they argued that there was no easy answer, no simple and general principle (like logic) that would capture all the aspects of intelligent behavior.
+Roger Schank described their "anti-logic" approaches as "scruffy" (as opposed to the "neat" paradigms at CMU and Stanford), and this still forms the basis of research into commonsense knowledge bases (such as Doug Lenat's Cyc) which must be built one complicated concept at a time.
+Knowledge based AI:
+When computers with large memories became available around 1970, researchers from all three traditions began to build knowledge into AI applications.
+This "knowledge revolution" led to the development and deployment of expert systems (introduced by Edward Feigenbaum), the first truly successful form of AI software.
+The knowledge revolution was also driven by the realization that truly enormous amounts of knowledge would be required by many simple AI applications.
+Sub-symbolic AI
+During the 1960s, symbolic approaches had achieved great success at simulating high-level thinking in small demonstration programs.
+Approaches based on cybernetics or neural networks were abandoned or pushed into the background.
+By the 1980s, however, progress in symbolic AI seemed to stall and many believed that symbolic systems would never be able to imitate all the processes of human cognition, especially perception, robotics, learning and pattern recognition.
+A number of researchers began to look into "sub-symbolic" approaches to specific AI problems.
+Bottom-up, situated, behavior based or nouvelle AI:
+Researchers from the related field of robotics, such as Rodney Brooks, rejected symbolic AI and focussed on the basic engineering problems that would allow robots to move and survive.
+Their work revived the non-symbolic viewpoint of the early cybernetics researchers of the 50s and reintroduced the use of control theory in AI.
+These approaches are also conceptually related to the embodied mind thesis.
+Computational Intelligence:
+Interest in neural networks and "connectionism" was revived by David Rumelhart and others in the middle 1980s.
+These and other sub-symbolic approaches, such as fuzzy systems and evolutionary computation, are now studied collectively by the emerging discipline of computational intelligence.
+The new neats:
+In the 1990s, AI researchers developed sophisticated mathematical tools to solve specific subproblems.
+These tools are truly scientific, in the sense that their results are both measurable and verifiable, and they have been responsible for many of AI's recent successes.
+The shared mathematical language has also permitted a high level of collaboration with more established fields (like mathematics, economics or operations research).
+<citation/> describe this movement as nothing less than a "revolution" and "the victory of the neats."
+Intelligent agent paradigm
+The "intelligent agent" paradigm became widely accepted during the 1990s.
+An intelligent agent is a system that perceives its environment and takes actions which maximizes its chances of success.
+The simplest intelligent agents are programs that solve specific problems.
+The most complicated intelligent agents are rational, thinking human beings.
+The paradigm gives researchers license to study isolated problems and find solutions that are both verifiable and useful, without agreeing on one single approach.
+An agent that solves a specific problem can use any approach that works — some agents are symbolic and logical, some are sub-symbolic neural networks and others may use new approaches.
+The paradigm also gives researchers a common language to communicate with other fields—such as decision theory and economics—that also use concepts of abstract agents.
+Integrating the approaches
+An agent architecture or cognitive architecture allows researchers to build more versatile and intelligent systems out of interacting intelligent agents in a multi-agent system.
+A system with both symbolic and sub-symbolic components is a hybrid intelligent system, and the study of such systems is artificial intelligence systems integration.
+A hierarchical control system provides a bridge between sub-symbolic AI at its lowest, reactive levels and traditional symbolic AI at its highest levels, where relaxed time constraints permit planning and world modelling.
+Rodney Brooks' subsumption architecture was an early proposal for such a hierarchical system.
+Tools of AI research
+In the course of 50 years of research, AI has developed a large number of tools to solve the most difficult problems in computer science.
+A few of the most general of these methods are discussed below.
+Search
+Many problems in AI can be solved in theory by intelligently searching through many possible solutions: Reasoning can be reduced to performing a search.
+For example, logical proof can be viewed as searching for a path that leads from premises to conclusions, where each step is the application of an inference rule.
+Planning algorithms search through trees of goals and subgoals, attempting to find a path to a target goal.
+Robotics algorithms for moving limbs and grasping objects use local searches in configuration space.
+Many learning algorithms have search at their core.
+There are several types of search algorithms:
+"Uninformed" search algorithms eventually search through every possible answer until they locate their goal.
+Naive algorithms quickly run into problems when they expand the size of their search space to astronomical numbers.
+The result is a search that is too slow or never completes.
+Heuristic or "informed" searches use heuristic methods to eliminate choices that are unlikely to lead to their goal, thus drastically reducing the number of possibilities they must explore.
+The eliminatation of choices that are certain not to lead to the goal is called pruning.
+Local searches, such as hill climbing, simulated annealing and beam search, use techniques borrowed from optimization theory.
+Global searches are more robust in the presence of local optima.
+Techniques include evolutionary algorithms, swarm intelligence and random optimization algorithms.
+Logic
+Logic was introduced into AI research by John McCarthy in his 1958 Advice Taker proposal.
+The most important technical development was J. Alan Robinson's discovery of the resolution and unification algorithm for logical deduction in 1963.
+This procedure is simple, complete and entirely algorithmic, and can easily be performed by digital computers.
+However, a naive implementation of the algorithm quickly leads to a combinatorial explosion or an infinite loop.
+In 1974, Robert Kowalski suggested representing logical expressions as Horn clauses (statements in the form of rules: "if p then q"), which reduced logical deduction to backward chaining or forward chaining.
+This greatly alleviated (but did not eliminate) the problem.
+Logic is used for knowledge representation and problem solving, but it can be applied to other problems as well.
+For example, the satplan algorithm uses logic for planning, and inductive logic programming is a method for learning.
+There are several different forms of logic used in AI research.
+Propositional logic or sentential logic is the logic of statements which can be true or false.
+First-order logic also allows the use of quantifiers and predicates, and can express facts about objects, their properties, and their relations with each other.
+Fuzzy logic, a version of first-order logic which allows the truth of a statement to be represented as a value between 0 and 1, rather than simply True (1) or False (0).
+Fuzzy systems can be used for uncertain reasoning and have been widely used in modern industrial and consumer product control systems.
+Default logics, non-monotonic logics and circumscription are forms of logic designed to help with default reasoning and the qualification problem.
+Several extensions of logic have been designed to handle specific domains of knowledge, such as: description logics; situation calculus, event calculus and fluent calculus (for representing events and time); causal calculus; belief calculus; and modal logics.
+Probabilistic methods for uncertain reasoning
+Many problems in AI (in reasoning, planning, learning, perception and robotics) require the agent to operate with incomplete or uncertain information.
+Starting in the late 80s and early 90s, Judea Pearl and others championed the use of methods drawn from probability theory and economics to devise a number of powerful tools to solve these problems.
+Bayesian networks are very general tool that can be used for a large number of problems: reasoning (using the Bayesian inference algorithm), learning (using the expectation-maximization algorithm), planning (using decision networks) and perception (using dynamic Bayesian networks).
+Probabilistic algorithms can also be used for filtering, prediction, smoothing and finding explanations for streams of data, helping perception systems to analyze processes that occur over time (e.g., hidden Markov models and Kalman filters).
+Planning problems have also taken advantages of other tools from economics, such as decision theory and decision analysis, information value theory, Markov decision processes, dynamic decision networks, game theory and mechanism design
+Classifiers and statistical learning methods
+The simplest AI applications can be divided into two types: classifiers ("if shiny then diamond") and controllers ("if shiny then pick up").
+Controllers do however also classify conditions before inferring actions, and therefore classification forms a central part of many AI systems.
+Classifiers are functions that use pattern matching to determine a closest match.
+They can be tuned according to examples, making them very attractive for use in AI.
+These examples are known as observations or patterns.
+In supervised learning, each pattern belongs to a certain predefined class.
+A class can be seen as a decision that has to be made.
+All the observations combined with their class labels are known as a data set.
+When a new observation is received, that observation is classified based on previous experience.
+A classifier can be trained in various ways; there are many statistical and machine learning approaches.
+A wide range of classifiers are available, each with its strengths and weaknesses.
+Classifier performance depends greatly on the characteristics of the data to be classified.
+There is no single classifier that works best on all given problems; this is also referred to as the "no free lunch" theorem.
+Various empirical tests have been performed to compare classifier performance and to find the characteristics of data that determine classifier performance.
+Determining a suitable classifier for a given problem is however still more an art than science.
+The most widely used classifiers are the neural network, kernel methods such as the support vector machine, k-nearest neighbor algorithm, Gaussian mixture model, naive Bayes classifier, and decision tree.
+The performance of these classifiers have been compared over a wide range of classification tasks in order to find data characteristics that determine classifier performance.
+Neural networks
+The study of artificial neural networks began with cybernetics researchers, working in the decade before the field AI research was founded.
+In the 1960s Frank Rosenblatt developed an important early version, the perceptron.
+Paul Werbos developed the backpropagation algorithm for multilayer perceptrons in 1974, which led to a renaissance in neural network research and connectionism in general in the middle 1980s.
+Other common network architectures which have been developed include the feedforward neural network, the radial basis network, the Kohonen self-organizing map and various recurrent neural networks.
+The Hopfield net, a form of attractor network, was first described by John Hopfield in 1982.
+Neural networks are applied to the problem of learning, using such techniques as Hebbian learning , Holographic associative memory and the relatively new field of Hierarchical Temporal Memory which simulates the architecture of the neocortex.
+Social and emergent models
+Several algorithms for learning use tools from evolutionary computation, such as genetic algorithms, swarm intelligence. and genetic programming.
+Control theory
+Control theory, the grandchild of cybernetics, has many important applications, especially in robotics.
+Specialized languages
+AI researchers have developed several specialized languages for AI research:
+IPL, one of the first programming languages, developed by Alan Newell, Herbert Simon and J. C. Shaw.
+Lisp was developed by John McCarthy at MIT in 1958.
+There are many dialects of Lisp in use today.
+Prolog, a language based on logic programming, was invented by French researchers Alain Colmerauer and Phillipe Roussel, in collaboration with Robert Kowalski of the University of Edinburgh.
+STRIPS, a planning language developed at Stanford in the 1960s.
+Planner developed at MIT around the same time.
+AI applications are also often written in standard languages like C++ and languages designed for mathematics, such as Matlab and Lush.
+Evaluating artificial intelligence
+How can one determine if an agent is intelligent?
+In 1950, Alan Turing proposed a general procedure to test the intelligence of an agent now known as the Turing test.
+This procedure allows almost all the major problems of artificial intelligence to be tested.
+However, it is a very difficult challenge and at present all agents fail.
+Artificial intelligence can also be evaluated on specific problems such as small problems in chemistry, hand-writing recognition and game-playing.
+Such tests have been termed subject matter expert Turing tests.
+Smaller problems provide more achievable goals and there are an ever-increasing number of positive results.
+The broad classes of outcome for an AI test are:
+optimal: it is not possible to perform better
+strong super-human: performs better than all humans
+super-human: performs better than most humans
+sub-human: performs worse than most humans
+For example, performance at checkers (draughts) is optimal, performance at chess is super-human and nearing strong super-human, and performance at many everyday tasks performed by humans is sub-human.
+Competitions and prizes
+There are a number of competitions and prizes to promote research in artificial intelligence.
+The main areas promoted are: general machine intelligence, conversational behaviour, data-mining, driverless cars, robot soccer and games.
+Applications of artificial intelligence
+Artificial intelligence has successfully been used in a wide range of fields including medical diagnosis, stock trading, robot control, law, scientific discovery and toys.
+Frequently, when a technique reaches mainstream use it is no longer considered artificial intelligence, sometimes described as the AI effect.
+It may also become integrated into artificial life.
+Artificial Linguistic Internet Computer Entity
+A.L.I.C.E. (Artificial Linguistic Internet Computer Entity) is an award-winning natural language processing chatterbot&mdash;a program that engages in a conversation with a human by applying some heuristical pattern matching rules to the human's input, and in its online form it also relies on a hidden third person.
+It was inspired by Joseph Weizenbaum's classical ELIZA program.
+It is one of the strongest programs of its type and has won the Loebner Prize, awarded to accomplished humanoid, talking robots, three times (in 2000, 2001 and 2004).
+However, the program is unable to pass the Turing test, as even the casual user will often expose its mechanistic aspects in short conversations.
+The name of the bot was chosen because the computer that ran the first version of the software was called Alice.
+History
+Development began in 1995.
+The program was rewritten in Java beginning in 1998.
+The current incarnation of the Java implementation is Program D.
+The program uses an XML Schema called AIML (Artificial Intelligence Markup Language) for specifying the heuristic conversation rules.
+The original author of the project was Richard Wallace, but subsequent to the 2001 publication of an AIML specification, numerous other developers have taken up where Wallace left off, implementing free and open source software AIML interpreters in a variety of programming languages, publishing AIML sets in various human languages, and continuing the spread of the technology as a free/open source venture.
+Example of conversation
+The following is part of a transcript recording the conversation between a human and A.L.I.C.E. and illustrates the capabilities and short-comings of the chatbot.
+Human: Tell me about yourself alice
+ALICE: I am an artificial linguistic entity.
+I was activated at Bethlehem, Pennsylvania, on November 23, 1995.
+My instructor was Dr. Richard S. Wallace.
+He taught me to sing a song.
+Would you like me to sing it for you?.
+Human: Yes please
+ALICE: Your polite style is very nice.
+It's called "Daisy."
+Daisy, Daisy.
+Give me your answer do.
+I am half crazy.
+All for the love of you.
+It won't be a stylish marriage.
+I can't afford a carriage.
+But you'll look sweet.
+Upon the seat.
+Of a bicycle built for two.
+Human: That reminds me of HAL in "2001 a space odyssey"
+ALICE: "Your polite style is very nice.
+It's called "Daisy."
+Daisy, Daisy.
+Give me your answer do.
+I am half crazy.
+All for the love of you.
+It won't be a stylish marriage.
+I can't afford a carriage.
+But you'll look sweet.
+Upon the seat.
+Of a bicycle built for two." reminds you of HAL in 2001 a space odyssey ?
+Does that make sense?
+Human: Can you tell me something about Stanley Kubrick?
+ALICE: Ambiguous: Ask who, what or where is Stanley Kubrick ?
+Artificial neural network
+An artificial neural network (ANN), often just called a "neural network" (NN), is a mathematical model or computational model based on biological neural networks.
+It consists of an interconnected group of artificial neurons and processes information using a connectionist approach to computation.
+In most cases an ANN is an adaptive system that changes its structure based on external or internal information that flows through the network during the learning phase.
+In more practical terms neural networks are non-linear statistical data modeling tools.
+They can be used to model complex relationships between inputs and outputs or to find patterns in data.
+Background
+There is no precise agreed-upon definition among researchers as to what a neural network is, but most would agree that it involves a network of simple processing elements (neurons), which can exhibit complex global behavior, determined by the connections between the processing elements and element parameters.
+The original inspiration for the technique was from examination of the central nervous system and the neurons (and their axons, dendrites and synapses) which constitute one of its most significant information processing elements (see Neuroscience).
+In a neural network model, simple nodes (called variously "neurons", "neurodes", "PEs" ("processing elements") or "units") are connected together to form a network of nodes &mdash; hence the term "neural network."
+While a neural network does not have to be adaptive per se, its practical use comes with algorithms designed to alter the strength (weights) of the connections in the network to produce a desired signal flow.
+These networks are also similar to the biological neural networks in the sense that functions are performed collectively and in parallel by the units, rather than there being a clear delineation of subtasks to which various units are assigned (see also connectionism).
+Currently, the term Artificial Neural Network (ANN) tends to refer mostly to neural network models employed in statistics, cognitive psychology and artificial intelligence.
+Neural network models designed with emulation of the central nervous system (CNS) in mind are a subject of theoretical neuroscience (computational neuroscience).
+In modern software implementations of artificial neural networks the approach inspired by biology has more or less been abandoned for a more practical approach based on statistics and signal processing.
+In some of these systems neural networks, or parts of neural networks (such as artificial neurons) are used as components in larger systems that combine both adaptive and non-adaptive elements.
+While the more general approach of such adaptive systems is more suitable for real-world problem solving, it has far less to do with the traditional artificial intelligence connectionist models.
+What they do, however, have in common is the principle of non-linear, distributed, parallel and local processing and adaptation.
+Models
+Neural network models in artificial intelligence are usually referred to as artificial neural networks (ANNs); these are essentially simple mathematical models defining a function <math/>.
+Each type of ANN model corresponds to a class of such functions.
+The network in artificial neural network
+The word network in the term 'artificial neural network' arises because the function <math/> is defined as a composition of other functions <math/>, which can further be defined as a composition of other functions.
+This can be conveniently represented as a network structure, with arrows depicting the dependencies between variables.
+A widely used type of composition is the nonlinear weighted sum, where <math/>, where <math/> is some predefined function, such as the hyperbolic tangent.
+It will be convenient for the following to refer to a collection of functions <math/> as simply a vector <math/>.
+This figure depicts such a decomposition of <math/>, with dependencies between variables indicated by arrows.
+These can be interpreted in two ways.
+The first view is the functional view: the input <math/> is transformed into a 3-dimensional vector <math/>, which is then transformed into a 2-dimensional vector <math/>, which is finally transformed into <math/>.
+This view is most commonly encountered in the context of optimization.
+The second view is the probabilistic view: the random variable <math/> depends upon the random variable <math/>, which depends upon <math/>, which depends upon the random variable <math/>.
+This view is most commonly encountered in the context of graphical models.
+The two views are largely equivalent.
+In either case, for this particular network architecture, the components of individual layers are independent of each other (e.g., the components of <math/> are independent of each other given their input <math/>).
+This naturally enables a degree of parallelism in the implementation.
+Networks such as the previous one are commonly called feedforward, because their graph is a directed acyclic graph.
+Networks with cycles are commonly called recurrent.
+Such networks are commonly depicted in the manner shown at the top of the figure, where <math/> is shown as being dependent upon itself.
+However, there is an implied temporal dependence which is not shown.
+What this actually means in practice is that the value of <math/> at some point in time <math/> depends upon the values of <math/> at zero or at one or more other points in time.
+The graphical model at the bottom of the figure illustrates the case: the value of <math/> at time <math/> only depends upon its last value.
+Learning
+However interesting such functions may be in themselves, what has attracted the most interest in neural networks is the possibility of learning, which in practice means the following:
+Given a specific task to solve, and a class of functions <math/>, learning means using a set of observations, in order to find <math/> which solves the task in an optimal sense.
+This entails defining a cost function <math/> such that, for the optimal solution <math/>, <math/> <math/> (no solution has a cost less than the cost of the optimal solution).
+The cost function <math/> is an important concept in learning, as it is a measure of how far away we are from an optimal solution to the problem that we want to solve.
+Learning algorithms search through the solution space in order to find a function that has the smallest possible cost.
+For applications where the solution is dependent on some data, the cost must necessarily be a function of the observations, otherwise we would not be modelling anything related to the data.
+It is frequently defined as a statistic to which only approximations can be made.
+As a simple example consider the problem of finding the model <math/> which minimizes <math/>, for data pairs <math/> drawn from some distribution <math/>.
+In practical situations we would only have <math/> samples from <math/> and thus, for the above example, we would only minimize <math/>.
+Thus, the cost is minimized over a sample of the data rather than the true data distribution.
+When <math/> some form of online learning must be used, where the cost is partially minimized as each new example is seen.
+While online learning is often used when <math/> is fixed, it is most useful in the case where the distribution changes slowly over time.
+In neural network methods, some form of online learning is frequently also used for finite datasets.
+Choosing a cost function
+While it is possible to arbitrarily define some ad hoc cost function, frequently a particular cost will be used either because it has desirable properties (such as convexity) or because it arises naturally from a particular formulation of the problem (i.e., In a probabilistic formulation the posterior probability of the model can be used as an inverse cost).
+Ultimately, the cost function will depend on the task we wish to perform.
+The three main categories of learning tasks are overviewed below.
+Learning paradigms
+There are three major learning paradigms, each corresponding to a particular abstract learning task.
+These are supervised learning, unsupervised learning and reinforcement learning.
+Usually any given type of network architecture can be employed in any of those tasks.
+Supervised learning
+In supervised learning, we are given a set of example pairs <math/> and the aim is to find a function <math/> in the allowed class of functions that matches the examples.
+In other words, we wish to infer the mapping implied by the data; the cost function is related to the mismatch between our mapping and the data and it implicitly contains prior knowledge about the problem domain.
+A commonly used cost is the mean-squared error which tries to minimize the average error between the network's output, f(x), and the target value y over all the example pairs.
+When one tries to minimise this cost using gradient descent for the class of neural networks called Multi-Layer Perceptrons, one obtains the common and well-known backpropagation algorithm for training neural networks.
+Tasks that fall within the paradigm of supervised learning are pattern recognition (also known as classification) and regression (also known as function approximation).
+The supervised learning paradigm is also applicable to sequential data (e.g., for speech and gesture recognition).
+This can be thought of as learning with a "teacher," in the form of a function that provides continuous feedback on the quality of solutions obtained thus far.
+Unsupervised learning
+In unsupervised learning we are given some data <math/>, and the cost function to be minimized can be any function of the data <math/> and the network's output, <math/>.
+The cost function is dependent on the task (what we are trying to model) and our a priori assumptions (the implicit properties of our model, its parameters and the observed variables).
+As a trivial example, consider the model <math/>, where <math/> is a constant and the cost <math/>.
+Minimizing this cost will give us a value of <math/> that is equal to the mean of the data.
+The cost function can be much more complicated.
+Its form depends on the application: For example in compression it could be related to the mutual information between x and y.
+In statistical modelling, it could be related to the posterior probability of the model given the data.
+(Note that in both of those examples those quantities would be maximized rather than minimised).
+Tasks that fall within the paradigm of unsupervised learning are in general estimation problems; the applications include clustering, the estimation of statistical distributions, compression and filtering.
+Reinforcement learning
+In reinforcement learning, data <math/> is usually not given, but generated by an agent's interactions with the environment.
+At each point in time <math/>, the agent performs an action <math/> and the environment generates an observation <math/> and an instantaneous cost <math/>, according to some (usually unknown) dynamics.
+The aim is to discover a policy for selecting actions that minimizes some measure of a long-term cost, i.e. the expected cumulative cost.
+The environment's dynamics and the long-term cost for each policy are usually unknown, but can be estimated.
+More formally, the environment is modeled as a Markov decision process (MDP) with states <math/>S and actions <math/> with the following probability distributions: the instantaneous cost distribution <math/>, the observation distribution <math/> and the transition <math/>, while a policy is defined as conditional distribution over actions given the observations.
+Taken together, the two define a Markov chain (MC).
+The aim is to discover the policy that minimizes the cost, i.e. the MC for which the cost is minimal.
+ANNs are frequently used in reinforcement learning as part of the overall algorithm.
+Tasks that fall within the paradigm of reinforcement learning are control problems, games and other sequential decision making tasks.
+See also: dynamic programming, stochastic control
+Learning algorithms
+Training a neural network model essentially means selecting one model from the set of allowed models (or, in a Bayesian framework, determining a distribution over the set of allowed models) that minimises the cost criterion.
+There are numerous algorithms available for training neural network models; most of them can be viewed as a straightforward application of optimization theory and statistical estimation.
+Most of the algorithms used in training artificial neural networks are employing some form of gradient descent.
+This is done by simply taking the derivative of the cost function with respect to the network parameters and then changing those parameters in a gradient-related direction.
+Evolutionary methods, simulated annealing, and expectation-maximization and non-parametric methods are among other commonly used methods for training neural networks.
+See also machine learning.
+Temporal perceptual learning rely on finding temporal relationships in sensory signal streams.
+In an environment, statistically salient temporal correlations can be found by monitoring the arrival times of sensory signals.
+This is done by the perceptual network.
+Employing artificial neural networks
+Perhaps the greatest advantage of ANNs is their ability to be used as an arbitrary function approximation mechanism which 'learns' from observed data.
+However, using them is not so straightforward and a relatively good understanding of the underlying theory is essential.
+Choice of model: This will depend on the data representation and the application.
+Overly complex models tend to lead to problems with learning.
+Learning algorithm: There are numerous tradeoffs between learning algorithms.
+Almost any algorithm will work well with the correct hyperparameters for training on a particular fixed dataset.
+However selecting and tuning an algorithm for training on unseen data requires a significant amount of experimentation.
+Robustness: If the model, cost function and learning algorithm are selected appropriately the resulting ANN can be extremely robust.
+With the correct implementation ANNs can be used naturally in online learning and large dataset applications.
+Their simple implementation and the existence of mostly local dependencies exhibited in the structure allows for fast, parallel implementations in hardware.
+Applications
+The utility of artificial neural network models lies in the fact that they can be used to infer a function from observations.
+This is particularly useful in applications where the complexity of the data or task makes the design of such a function by hand impractical.
+Real life applications
+The tasks to which artificial neural networks are applied tend to fall within the following broad categories:
+Function approximation, or regression analysis, including time series prediction and modeling.
+Classification, including pattern and sequence recognition, novelty detection and sequential decision making.
+Data processing, including filtering, clustering, blind source separation and compression.
+Application areas include system identification and control (vehicle control, process control), game-playing and decision making (backgammon, chess, racing), pattern recognition (radar systems, face identification, object recognition and more), sequence recognition (gesture, speech, handwritten text recognition), medical diagnosis, financial applications (automated trading systems), data mining (or knowledge discovery in databases, "KDD"), visualization and e-mail spam filtering.
+Neural network software
+Neural network software is used to simulate, research, develop and apply artificial neural networks, biological neural networks and in some cases a wider array of adaptive systems.
+See also logistic regression.
+Types of neural networks
+Feedforward neural network
+The feedforward neural network was the first and arguably simplest type of artificial neural network devised.
+In this network, the information moves in only one direction, forward, from the input nodes, through the hidden nodes (if any) and to the output nodes.
+There are no cycles or loops in the network.
+Radial basis function (RBF) network
+Radial Basis Functions are powerful techniques for interpolation in multidimensional space.
+A RBF is a function which has built into a distance criterion with respect to a centre.
+Radial basis functions have been applied in the area of neural networks where they may be used as a replacement for the sigmoidal hidden layer transfer characteristic in Multi-Layer Perceptrons.
+RBF networks have two layers of processing: In the first, input is mapped onto each RBF in the 'hidden' layer.
+The RBF chosen is usually a Gaussian.
+In regression problems the output layer is then a linear combination of hidden layer values representing mean predicted output.
+The interpretation of this output layer value is the same as a regression model in statistics.
+In classification problems the output layer is typically a sigmoid function of a linear combination of hidden layer values, representing a posterior probability.
+Performance in both cases is often improved by shrinkage techniques, known as ridge regression in classical statistics and known to correspond to a prior belief in small parameter values (and therefore smooth output functions) in a Bayesian framework.
+RBF networks have the advantage of not suffering from local minima in the same way as Multi-Layer Perceptrons.
+This is because the only parameters that are adjusted in the learning process are the linear mapping from hidden layer to output layer.
+Linearity ensures that the error surface is quadratic and therefore has a single easily found minimum.
+In regression problems this can be found in one matrix operation.
+In classification problems the fixed non-linearity introduced by the sigmoid output function is most efficiently dealt with using iteratively re-weighted least squares.
+RBF networks have the disadvantage of requiring good coverage of the input space by radial basis functions.
+RBF centres are determined with reference to the distribution of the input data, but without reference to the prediction task.
+As a result, representational resources may be wasted on areas of the input space that are irrelevant to the learning task.
+A common solution is to associate each data point with its own centre, although this can make the linear system to be solved in the final layer rather large, and requires shrinkage techniques to avoid overfitting.
+Associating each input datum with an RBF leads naturally to kernel methods such as Support Vector Machines and Gaussian Processes (the RBF is the kernel function).
+All three approaches use a non-linear kernel function to project the input data into a space where the learning problem can be solved using a linear model.
+Like Gaussian Processes, and unlike SVMs, RBF networks are typically trained in a Maximum Likelihood framework by maximizing the probability (minimizing the error) of the data under the model.
+SVMs take a different approach to avoiding overfitting by maximizing instead a margin.
+RBF networks are outperformed in most classification applications by SVMs.
+In regression applications they can be competitive when the dimensionality of the input space is relatively small.
+Kohonen self-organizings network
+The self-organizing map (SOM) invented by Teuvo Kohonen uses a form of unsupervised learning.
+A set of artificial neurons learn to map points in an input space to coordinates in an output space.
+The input space can have different dimensions and topology from the output space, and the SOM will attempt to preserve these.
+Recurrent network
+Contrary to feedforward networks, recurrent neural networks (RNs) are models with bi-directional data flow.
+While a feedforward network propagates data linearly from input to output, RNs also propagate data from later processing stages to earlier stages.
+Simple recurrent network
+A simple recurrent network (SRN) is a variation on the Multi-Layer Perceptron, sometimes called an "Elman network" due to its invention by Jeff Elman.
+A three-layer network is used, with the addition of a set of "context units" in the input layer.
+There are connections from the middle (hidden) layer to these context units fixed with a weight of one.
+At each time step, the input is propagated in a standard feed-forward fashion, and then a learning rule (usually back-propagation) is applied.
+The fixed back connections result in the context units always maintaining a copy of the previous values of the hidden units (since they propagate over the connections before the learning rule is applied).
+Thus the network can maintain a sort of state, allowing it to perform such tasks as sequence-prediction that are beyond the power of a standard Multi-Layer Perceptron.
+In a fully recurrent network, every neuron receives inputs from every other neuron in the network.
+These networks are not arranged in layers.
+Usually only a subset of the neurons receive external inputs in addition to the inputs from all the other neurons, and another disjunct subset of neurons report their output externally as well as sending it to all the neurons.
+These distinctive inputs and outputs perform the function of the input and output layers of a feed-forward or simple recurrent network, and also join all the other neurons in the recurrent processing.
+Hopfield network
+The Hopfield network is a recurrent neural network in which all connections are symmetric.
+Invented by John Hopfield in 1982, this network guarantees that its dynamics will converge.
+If the connections are trained using Hebbian learning then the Hopfield network can perform as robust content-addressable (or associative) memory, resistant to connection alteration.
+Echo state network
+The echo state network (ESN) is a recurrent neural network with a sparsely connected random hidden layer.
+The weights of output neurons are the only part of the network that can change and be learned.
+ESN are good to (re)produce temporal patterns.
+Long short term memory network
+The Long short term memory is an artificial neural net structure that unlike traditional RNNs doesn't have the problem of vanishing gradients.
+It can therefore use long delays and can handle signals that have a mix of low and high frequency components.
+Stochastic neural networks
+A stochastic neural network differs from a typical neural network because it introduces random variations into the network.
+In a probabilistic view of neural networks, such random variations can be viewed as a form of statistical sampling, such as Monte Carlo sampling.
+Boltzmann machine
+The Boltzmann machine can be thought of as a noisy Hopfield network.
+Invented by Geoff Hinton and Terry Sejnowski in 1985, the Boltzmann machine is important because it is one of the first neural networks to demonstrate learning of latent variables (hidden units).
+Boltzmann machine learning was at first slow to simulate, but the contrastive divergence algorithm of Geoff Hinton (circa 2000) allows models such as Boltzmann machines and products of experts to be trained much faster.
+Modular neural networks
+Biological studies showed that the human brain functions not as a single massive network, but as a collection of small networks.
+This realisation gave birth to the concept of modular neural networks, in which several small networks cooperate or compete to solve problems.
+Committee of machines
+A committee of machines (CoM) is a collection of different neural networks that together "vote" on a given example.
+This generally gives a much better result compared to other neural network models.
+In fact in many cases, starting with the same architecture and training but using different initial random weights gives vastly different networks.
+A CoM tends to stabilize the result.
+The CoM is similar to the general machine learning bagging method, except that the necessary variety of machines in the committee is obtained by training from different random starting weights rather than training on different randomly selected subsets of the training data.
+Associative neural network (ASNN)
+The ASNN is an extension of the committee of machines that goes beyond a simple/weighted average of different models.
+ASNN represents a combination of an ensemble of feed-forward neural networks and the k-nearest neighbor technique (kNN).
+It uses the correlation between ensemble responses as a measure of distance amid the analyzed cases for the kNN.
+This corrects the bias of the neural network ensemble.
+An associative neural network has a memory that can coincide with the training set.
+If new data becomes available, the network instantly improves its predictive ability and provides data approximation (self-learn the data) without a need to retrain the ensemble.
+Another important feature of ASNN is the possibility to interpret neural network results by analysis of correlations between data cases in the space of models.
+The method is demonstrated at www.vcclab.org, where you can either use it online or download it.
+Other types of networks
+These special networks do not fit in any of the previous categories.
+Holographic associative memory
+Holographic associative memory represents a family of analog, correlation-based, associative, stimulus-response memories, where information is mapped onto the phase orientation of complex numbers operating.
+Instantaneously trained networks
+Instantaneously trained neural networks (ITNNs) were inspired by the phenomenon of short-term learning that seems to occur instantaneously.
+In these networks the weights of the hidden and the output layers are mapped directly from the training vector data.
+Ordinarily, they work on binary data, but versions for continuous data that require small additional processing are also available.
+Spiking neural networks
+Spiking neural networks (SNNs) are models which explicitly take into account the timing of inputs.
+The network input and output are usually represented as series of spikes (delta function or more complex shapes).
+SNNs have an advantage of being able to process information in the time domain (signals that vary over time).
+They are often implemented as recurrent networks.
+SNNs are also a form of pulse computer.
+Networks of spiking neurons — and the temporal correlations of neural assemblies in such networks — have been used to model figure/ground separation and region linking in the visual system (see e.g. Reitboeck et.al.in Haken and Stadler: Synergetics of the Brain.
+Berlin, 1989).
+Gerstner and Kistler have a freely available online textbook on Spiking Neuron Models.
+Spiking neural networks with axonal conduction delays exhibit polychronization, and hence could have a potentially unlimited memory capacity.
+In June 2005 IBM announced construction of a Blue Gene supercomputer dedicated to the simulation of a large recurrent spiking neural network domino.research.ibm.com/comm/pr.nsf/pages/news.20050606_CognitiveIntelligence.html.
+Dynamic neural networks
+Dynamic neural networks not only deal with nonlinear multivariate behaviour, but also include (learning of) time-dependent behaviour such as various transient phenomena and delay effects.
+Cascading neural networks
+Cascade-Correlation is an architecture and supervised learning algorithm developed by Scott Fahlman and Christian Lebiere.
+Instead of just adjusting the weights in a network of fixed topology, Cascade-Correlation begins with a minimal network, then automatically trains and adds new hidden units one by one, creating a multi-layer structure.
+Once a new hidden unit has been added to the network, its input-side weights are frozen.
+This unit then becomes a permanent feature-detector in the network, available for producing outputs or for creating other, more complex feature detectors.
+The Cascade-Correlation architecture has several advantages over existing algorithms: it learns very quickly, the network determines its own size and topology, it retains the structures it has built even if the training set changes, and it requires no back-propagation of error signals through the connections of the network.
+See: Cascade correlation algorithm.
+Neuro-fuzzy networks
+A neuro-fuzzy network is a fuzzy inference system in the body of an artificial neural network.
+Depending on the FIS type, there are several layers that simulate the processes involved in a fuzzy inference like fuzzification, inference, aggregation and defuzzification.
+Embedding an FIS in a general structure of an ANN has the benefit of using available ANN training methods to find the parameters of a fuzzy system.
+Holosemantic neural networks
+The holosemantic neural network invented by Manfred Hoffleisch uses a kind a genetic algorithm to build a multidimensional structure.
+It takes into account the timing of inputs.
+Compositional pattern-producing networks
+Compositional pattern-producing networks (CPPNs) are a variation of ANNs which differ in their set of activation functions and how they are applied.
+While typical ANNs often contain only sigmoid functions (and sometimes Gaussian functions), CPPNs can include both types of functions and many others.
+Furthermore, unlike typical ANNs, CPPNs are applied across the entire space of possible inputs so that they can represent a complete image.
+Since they are compositions of functions, CPPNs in effect encode images at infinite resolution and can be sampled for a particular display at whatever resolution is optimal.
+Theoretical properties
+Computational power
+The multi-layer perceptron (MLP) is a universal function approximator, as proven by the Cybenko theorem.
+However, the proof is not constructive regarding the number of neurons required or the settings of the weights.
+Work by Hava T. Siegelmann and Eduardo D. Sontag has provided a proof that a specific recurrent architecture with rational valued weights (as opposed to the commonly used floating point approximations) has the full power of a Universal Turing Machine.
+They have further shown that the use of irrational values for weights results in a machine with trans-Turing power.
+Capacity
+Artificial neural network models have a property called 'capacity', which roughly corresponds to their ability to model any given function.
+It is related to the amount of information that can be stored in the network and to the notion of complexity.
+Convergence
+Nothing can be said in general about convergence since it depends on a number of factors.
+Firstly, there may exist many local minima.
+This depends on the cost function and the model.
+Secondly, the optimization method used might not be guaranteed to converge when far away from a local minimum.
+Thirdly, for a very large amount of data or parameters, some methods become impractical.
+In general, it has been found that theoretical guarantees regarding convergence are not always a very reliable guide to practical application.
+Generalisation and statistics
+In applications where the goal is to create a system that generalises well in unseen examples, the problem of overtraining has emerged.
+This arises in overcomplex or overspecified systems when the capacity of the network significantly exceeds the needed free parameters.
+There are two schools of thought for avoiding this problem: The first is to use cross-validation and similar techniques to check for the presence of overtraining and optimally select hyperparameters such as to minimise the generalisation error.
+The second is to use some form of regularisation.
+This is a concept that emerges naturally in a probabilistic (Bayesian) framework, where the regularisation can be performed by putting a larger prior probability over simpler models; but also in statistical learning theory, where the goal is to minimise over two quantities: the 'empirical risk' and the 'structural risk', which roughly correspond to the error over the training set and the predicted error in unseen data due to overfitting.
+Supervised neural networks that use an MSE cost function can use formal statistical methods to determine the confidence of the trained model.
+The MSE on a validation set can be used as an estimate for variance.
+This value can then be used to calculate the confidence interval of the output of the network, assuming a normal distribution.
+A confidence analysis made this way is statistically valid as long as the output probability distribution stays the same and the network is not modified.
+By assigning a softmax activation function on the output layer of the neural network (or a softmax component in a component-based neural network) for categorical target variables, the outputs can be interpreted as posterior probabilities.
+This is very useful in classification as it gives a certainty measure on classifications.
+The softmax activation function: <math/>
+Dynamic properties
+Various techniques originally developed for studying disordered magnetic systems (i.e. the spin glass) have been successfully applied to simple neural network architectures, such as the Hopfield network.
+Influential work by E. Gardner and B. Derrida has revealed many interesting properties about perceptrons with real-valued synaptic weights, while later work by W. Krauth and M. Mezard has extended these principles to binary-valued synapses.
+Association for Computational Linguistics
+The Association for Computational Linguistics (ACL) is the international scientific and professional society for people working on problems involving natural language and computation.
+An annual meeting is held each summer in locations where significant computational linguistics research is carried out.
+It was founded in 1962, originally named the Association for Machine Translation and Computational Linguistics (AMTCL).
+It became the ACL in 1968.
+The ACL has European and North American chapters, the European Chapter of the Association for Computational Linguistics (EACL) and the North American Chapter of the Association for Computational Linguistics (NAACL).
+The ACL journal, Computational Linguistics, continues to be the primary forum for research on computational linguistics and natural language processing.
+Since 1988, the journal has been published for the ACL by MIT Press.
+The ACL book series, Studies in Natural Language Processing, is published by Cambridge University Press.
+Special Interest Groups
+ACL has a large number of Special Interest Groups (SIGs), focusing on specific areas of natural language processing.
+Some current SIGs within ACL are:
+Linguistic data and corpus-based approaches: SIGDAT
+Dialogue Processing: SIGDIAL
+Natural Language Generation: SIGGEN
+Lexicon: SIGLEX
+Mathematics of Language: SIGMOL
+Computational Morphology and Phonology: SIGMORPHON
+Computational Semantics: SIGSEM
+Babel Fish (website)
+Babel Fish is a web-based application on Yahoo! that machine translates text or web pages from one of several languages into another.
+Developed by AltaVista, the application is named after the fictional animal used for instantaneous language translation in Douglas Adams's series The Hitchhiker's Guide to the Galaxy.
+In turn the fish is a reference to the biblical account of the city of Babel and the various languages said to have arisen there.
+The translation technology for Babel Fish is provided by SYSTRAN, whose technology also powers a number of other sites and portals.
+It translates among English, Simplified Chinese, Traditional Chinese, Dutch, French, German, Greek, Italian, Japanese, Korean, Portuguese, Russian, and Spanish.
+The service makes no claim to produce a perfect translation.
+A number of humour sites have sprung up that use the Babel Fish service to translate back and forth between one or more languages (a so-called round-trip translation).
+After a long existence at babelfish.altavista.com, the site was moved on May 9 2008 to babelfish.yahoo.com.
+Bioinformatics
+Bioinformatics and computational biology involve the use of techniques including applied mathematics, informatics, statistics, computer science, artificial intelligence, chemistry, and biochemistry to solve biological problems usually on the molecular level.
+The core principle of these techniques is using computing resources in order to solve problems on scales of magnitude far too great for human discernment.
+Research in computational biology often overlaps with systems biology.
+Major research efforts in the field include sequence alignment, gene finding, genome assembly, protein structure alignment, protein structure prediction, prediction of gene expression and protein-protein interactions, and the modeling of evolution.
+Introduction
+The terms bioinformatics and computational biology are often used interchangeably.
+However bioinformatics more properly refers to the creation and advancement of algorithms, computational and statistical techniques, and theory to solve formal and practical problems arising from the management and analysis of biological data.
+Computational biology, on the other hand, refers to hypothesis-driven investigation of a specific biological problem using computers, carried out with experimental or simulated data, with the primary goal of discovery and the advancement of biological knowledge.
+Put more simply, bioinformatics is concerned with the information while computational biology is concerned with the hypotheses.
+A similar distinction is made by National Institutes of Health in their working definitions of Bioinformatics and Computational Biology, where it is further emphasized that there is a tight coupling of developments and knowledge between the more hypothesis-driven research in computational biology and technique-driven research in bioinformatics.
+Bioinformatics is also often specified as an applied subfield of the more general discipline of Biomedical informatics.
+A common thread in projects in bioinformatics and computational biology is the use of mathematical tools to extract useful information from data produced by high-throughput biological techniques such as genome sequencing.
+A representative problem in bioinformatics is the assembly of high-quality genome sequences from fragmentary "shotgun" DNA sequencing.
+Other common problems include the study of gene regulation to perform expression profiling using data from microarrays or mass spectrometry.
+Major research areas
+Sequence analysis
+Since the Phage Φ-X174 was sequenced in 1977, the DNA sequences of hundreds of organisms have been decoded and stored in databases.
+The information is analyzed to determine genes that encode polypeptides, as well as regulatory sequences.
+A comparison of genes within a species or between different species can show similarities between protein functions, or relations between species (the use of molecular systematics to construct phylogenetic trees).
+With the growing amount of data, it long ago became impractical to analyze DNA sequences manually.
+Today, computer programs are used to search the genome of thousands of organisms, containing billions of nucleotides.
+These programs would compensate for mutations (exchanged, deleted or inserted bases) in the DNA sequence, in order to identify sequences that are related, but not identical.
+A variant of this sequence alignment is used in the sequencing process itself.
+The so-called shotgun sequencing technique (which was used, for example, by The Institute for Genomic Research to sequence the first bacterial genome, Haemophilus influenzae) does not give a sequential list of nucleotides, but instead the sequences of thousands of small DNA fragments (each about 600-800 nucleotides long).
+The ends of these fragments overlap and, when aligned in the right way, make up the complete genome.
+Shotgun sequencing yields sequence data quickly, but the task of assembling the fragments can be quite complicated for larger genomes.
+In the case of the Human Genome Project, it took several months of CPU time (on a circa-2000 vintage DEC Alpha computer) to assemble the fragments.
+Shotgun sequencing is the method of choice for virtually all genomes sequenced today, and genome assembly algorithms are a critical area of bioinformatics research.
+Another aspect of bioinformatics in sequence analysis is the automatic search for genes and regulatory sequences within a genome.
+Not all of the nucleotides within a genome are genes.
+Within the genome of higher organisms, large parts of the DNA do not serve any obvious purpose.
+This so-called junk DNA may, however, contain unrecognized functional elements.
+Bioinformatics helps to bridge the gap between genome and proteome projects--for example, in the use of DNA sequences for protein identification.
+See also: sequence analysis, sequence profiling tool, sequence motif.
+Genome annotation
+In the context of genomics, annotation is the process of marking the genes and other biological features in a DNA sequence.
+The first genome annotation software system was designed in 1995 by Dr. Owen White, who was part of the team that sequenced and analyzed the first genome of a free-living organism to be decoded, the bacterium Haemophilus influenzae.
+Dr. White built a software system to find the genes (places in the DNA sequence that encode a protein), the transfer RNA, and other features, and to make initial assignments of function to those genes.
+Most current genome annotation systems work similarly, but the programs available for analysis of genomic DNA are constantly changing and improving.
+Computational evolutionary biology
+Evolutionary biology is the study of the origin and descent of species, as well as their change over time.
+Informatics has assisted evolutionary biologists in several key ways; it has enabled researchers to:
+trace the evolution of a large number of organisms by measuring changes in their DNA, rather than through physical taxonomy or physiological observations alone,
+more recently, compare entire genomes, which permits the study of more complex evolutionary events, such as gene duplication, lateral gene transfer, and the prediction of factors important in bacterial speciation,
+build complex computational models of populations to predict the outcome of the system over time
+track and share information on an increasingly large number of species and organisms
+Future work endeavours to reconstruct the now more complex tree of life.
+The area of research within computer science that uses genetic algorithms is sometimes confused with computational evolutionary biology, but the two areas are unrelated.
+Measuring biodiversity
+Biodiversity of an ecosystem might be defined as the total genomic complement of a particular environment, from all of the species present, whether it is a biofilm in an abandoned mine, a drop of sea water, a scoop of soil, or the entire biosphere of the planet Earth.
+Databases are used to collect the species names, descriptions, distributions, genetic information, status and size of populations, habitat needs, and how each organism interacts with other species.
+Specialized software programs are used to find, visualize, and analyze the information, and most importantly, communicate it to other people.
+Computer simulations model such things as population dynamics, or calculate the cumulative genetic health of a breeding pool (in agriculture) or endangered population (in conservation).
+One very exciting potential of this field is that entire DNA sequences, or genomes of endangered species can be preserved, allowing the results of Nature's genetic experiment to be remembered in silico, and possibly reused in the future, even if that species is eventually lost.
+Important projects: Species 2000 project; uBio Project.
+Analysis of gene expression
+The expression of many genes can be determined by measuring mRNA levels with multiple techniques including microarrays, expressed cDNA sequence tag (EST) sequencing, serial analysis of gene expression (SAGE) tag sequencing, massively parallel signature sequencing (MPSS), or various applications of multiplexed in-situ hybridization.
+All of these techniques are extremely noise-prone and/or subject to bias in the biological measurement, and a major research area in computational biology involves developing statistical tools to separate signal from noise in high-throughput gene expression studies.
+Such studies are often used to determine the genes implicated in a disorder: one might compare microarray data from cancerous epithelial cells to data from non-cancerous cells to determine the transcripts that are up-regulated and down-regulated in a particular population of cancer cells.
+Analysis of regulation
+Regulation is the complex orchestration of events starting with an extracellular signal such as a hormone and leading to an increase or decrease in the activity of one or more proteins.
+Bioinformatics techniques have been applied to explore various steps in this process.
+For example, promoter analysis involves the identification and study of sequence motifs in the DNA surrounding the coding region of a gene.
+These motifs influence the extent to which that region is transcribed into mRNA.
+Expression data can be used to infer gene regulation: one might compare microarray data from a wide variety of states of an organism to form hypotheses about the genes involved in each state.
+In a single-cell organism, one might compare stages of the cell cycle, along with various stress conditions (heat shock, starvation, etc.).
+One can then apply clustering algorithms to that expression data to determine which genes are co-expressed.
+For example, the upstream regions (promoters) of co-expressed genes can be searched for over-represented regulatory elements.
+Analysis of protein expression
+Protein microarrays and high throughput (HT) mass spectrometry (MS) can provide a snapshot of the proteins present in a biological sample.
+Bioinformatics is very much involved in making sense of protein microarray and HT MS data; the former approach faces similar problems as with microarrays targeted at mRNA, the latter involves the problem of matching large amounts of mass data against predicted masses from protein sequence databases, and the complicated statistical analysis of samples where multiple, but incomplete peptides from each protein are detected.
+Analysis of mutations in cancer
+In cancer, the genomes of affected cells are rearranged in complex or even unpredictable ways.
+Massive sequencing efforts are used to identify previously unknown point mutations in a variety of genes in cancer.
+Bioinformaticians continue to produce specialized automated systems to manage the sheer volume of sequence data produced, and they create new algorithms and software to compare the sequencing results to the growing collection of human genome sequences and germline polymorphisms.
+New physical detection technology are employed, such as oligonucleotide microarrays to identify chromosomal gains and losses (called comparative genomic hybridization), and single nucleotide polymorphism arrays to detect known point mutations.
+These detection methods simultaneously measure several hundred thousand sites throughout the genome, and when used in high-throughput to measure thousands of samples, generate terabytes of data per experiment.
+Again the massive amounts and new types of data generate new opportunities for bioinformaticians.
+The data is often found to contain considerable variability, or noise, and thus Hidden Markov model and change-point analysis methods are being developed to infer real copy number changes.
+Another type of data that requires novel informatics development is the analysis of lesions found to be recurrent among many tumors .
+Prediction of protein structure
+Protein structure prediction is another important application of bioinformatics.
+The amino acid sequence of a protein, the so-called primary structure, can be easily determined from the sequence on the gene that codes for it.
+In the vast majority of cases, this primary structure uniquely determines a structure in its native environment.
+(Of course, there are exceptions, such as the bovine spongiform encephalopathy - aka Mad Cow Disease - prion.)
+Knowledge of this structure is vital in understanding the function of the protein.
+For lack of better terms, structural information is usually classified as one of secondary, tertiary and quaternary structure.
+A viable general solution to such predictions remains an open problem.
+As of now, most efforts have been directed towards heuristics that work most of the time.
+One of the key ideas in bioinformatics is the notion of homology.
+In the genomic branch of bioinformatics, homology is used to predict the function of a gene: if the sequence of gene A, whose function is known, is homologous to the sequence of gene B, whose function is unknown, one could infer that B may share A's function.
+In the structural branch of bioinformatics, homology is used to determine which parts of a protein are important in structure formation and interaction with other proteins.
+In a technique called homology modeling, this information is used to predict the structure of a protein once the structure of a homologous protein is known.
+This currently remains the only way to predict protein structures reliably.
+One example of this is the similar protein homology between hemoglobin in humans and the hemoglobin in legumes (leghemoglobin).
+Both serve the same purpose of transporting oxygen in the organism.
+Though both of these proteins have completely different amino acid sequences, their protein structures are virtually identical, which reflects their near identical purposes.
+Other techniques for predicting protein structure include protein threading and de novo (from scratch) physics-based modeling.
+See also: structural motif and structural domain.
+Comparative genomics
+The core of comparative genome analysis is the establishment of the correspondence between genes (orthology analysis) or other genomic features in different organisms.
+It is these intergenomic maps that make it possible to trace the evolutionary processes responsible for the divergence of two genomes.
+A multitude of evolutionary events acting at various organizational levels shape genome evolution.
+At the lowest level, point mutations affect individual nucleotides.
+At a higher level, large chromosomal segments undergo duplication, lateral transfer, inversion, transposition, deletion and insertion.
+Ultimately, whole genomes are involved in processes of hybridization, polyploidization and endosymbiosis, often leading to rapid speciation.
+The complexity of genome evolution poses many exciting challenges to developers of mathematical models and algorithms, who have recourse to a spectra of algorithmic, statistical and mathematical techniques, ranging from exact, heuristics, fixed parameter and approximation algorithms for problems based on parsimony models to Markov Chain Monte Carlo algorithms for Bayesian analysis of problems based on probabilistic models.
+Many of these studies are based on the homology detection and protein families computation.
+Modeling biological systems
+Systems biology involves the use of computer simulations of cellular subsystems (such as the networks of metabolites and enzymes which comprise metabolism, signal transduction pathways and gene regulatory networks) to both analyze and visualize the complex connections of these cellular processes.
+Artificial life or virtual evolution attempts to understand evolutionary processes via the computer simulation of simple (artificial) life forms.
+High-throughput image analysis
+Computational technologies are used to accelerate or fully automate the processing, quantification and analysis of large amounts of high-information-content biomedical imagery.
+Modern image analysis systems augment an observer's ability to make measurements from a large or complex set of images, by improving accuracy, objectivity, or speed.
+A fully developed analysis system may completely replace the observer.
+Although these systems are not unique to biomedical imagery, biomedical imaging is becoming more important for both diagnostics and research.
+Some examples are:
+high-throughput and high-fidelity quantification and sub-cellular localization (high-content screening, cytohistopathology)
+morphometrics
+clinical image analysis and visualization
+determining the real-time air-flow patterns in breathing lungs of living animals
+quantifying occlusion size in real-time imagery from the development of and recovery during arterial injury
+making behavioral observations from extended video recordings of laboratory animals
+infrared measurements for metabolic activity determination
+Protein-protein docking
+In the last two decades, tens of thousands of protein three-dimensional structures have been determined by X-ray crystallography and Protein nuclear magnetic resonance spectroscopy (protein NMR).
+One central question for the biological scientist is whether it is practical to predict possible protein-protein interactions only based on these 3D shapes, without doing protein-protein interaction experiments.
+A variety of methods have been developed to tackle the Protein-protein docking problem, though it seems that there is still much place to work on in this field.
+Software and Tools
+Software tools for bioinformatics range from simple command-line tools, to more complex graphical programs and standalone web-services.
+The computational biology tool best-known among biologists is probably BLAST, an algorithm for determining the similarity of arbitrary sequences against other sequences, possibly from curated databases of protein or DNA sequences.
+The NCBI provides a popular web-based implementation that searches their databases.
+BLAST is one of a number of generally available programs for doing sequence alignment.
+Web Services in Bioinformatics
+SOAP and REST-based interfaces have been developed for a wide variety of bioinformatics applications allowing an application running on one computer in one part of the world to use algorithms, data and computing resources on servers in other parts of the world.
+The main advantages lay in the end user not having to deal with software and database maintenance overheads.
+Basic bioinformatics services are classified by the EBI into three categories: SSS (Sequence Search Services), MSA (Multiple Sequence Alignment) and BSA (Biological Sequence Analysis).
+The availability of these service-oriented bioinformatics resources demonstrate the applicability of web based bioinformatics solutions, and range from a collection of standalone tools with a common data format under a single, standalone or web-based interface, to integrative, distributed and extensible bioinformatics workflow management systems.
+BLEU
+This page is about the evaluation metric for machine translation.
+For other meanings, please see Bleu.
+BLEU (Bilingual Evaluation Understudy) is a method for evaluating the quality of text which has been translated from one natural language to another using machine translation.
+BLEU was one of the first software metrics to report high correlation with human judgements of quality.
+The metric is currently one of the most popular in the field.
+The central idea behind the metric is that, "the closer a machine translation is to a professional human translation, the better it is".
+The metric calculates scores for individual segments, generally sentences, and then averages these scores over the whole corpus in order to reach a final score.
+It has been shown to correlate highly with human judgements of quality at the corpus level.
+The quality of translation is indicated as a number between 0 and 1 and is measured as statistical closeness to a given set of good quality human reference translations.
+Therefore, it does not directly take into account translation intelligibility or grammatical correctness.
+The metric works by measuring the n-gram co-occurrence between a given translation and the set of reference translations and then taking the weighted geometric mean.
+BLEU is specifically designed to approximate human judgement on a corpus level and performs badly if used to evaluate the quality of isolated sentences.
+Algorithm
+BLEU uses a modified form of precision to compare a candidate translation against multiple reference translations.
+The metric modifies simple precision since machine translation systems have been known to generate more words than appear in a reference text.
+This is illustrated in the following example from Papineni et al. (2002),
+In this example, the candidate text is given a unigram precision of,
+<math/>
+Of the seven words in the candidate translation, all of them appear in the reference translations.
+This presents a problem for a metric, as the candidate translation above is complete nonsense, retaining none of the content of either of the references.
+The modification that BLEU makes is fairly straightforward.
+For each word in the candidate translation, the algorithm takes the maximum total count in the reference translations.
+Taking the example above, the word 'the' appears twice in reference 1, and once in reference 2.
+The largest value is taken, in this case '2' as the "maximum reference count".
+For each of the words in the candidate translation, the count of the word is compared against the maximum reference count, and the lowest value is taken.
+In this case, the count of the word 'the' in the candidate translation is '7', while the maximum reference count for the word is '2'.
+This "modified count" is then divided by the total number of words in the candidate translation.
+In the above example, the modified unigram precision score would be,
+<math/>
+The above method is used to calculate scores for each <math/>.
+The value of <math/> which has the "highest correlation with monolingual human judgements" was found to be 4.
+The unigram scores are found to account for the adequacy of the translation, in other words, how much information is retained in the translation.
+The longer <math/>-gram scores account for the fluency of the translation, or to what extent it reads like "good English".
+The modification made to precision does not solve the problem of short translations.
+Short translations can produce very high precision scores, even using modified precision.
+An example of a candidate translation for the same references as above might be:
+the cat
+In this example, the modified unigram precision would be,
+<math/>
+as the word 'the' and the word 'cat' appear once each in the candidate, and the total number of words is two.
+The modified bigram precision would be <math/> as the bigram, "the cat" appears once in the candidate.
+It has been pointed out that precision is usually twinned with recall to overcome this problem , as the unigram recall of this example would be <math/> or <math/>.
+The problem being that as there are multiple reference translations, a bad translation could easily have an inflated recall, such as a translation which consisted of all the words in each of the references.
+In order to produce a score for the whole corpus, the modified precision scores for the segments are combined using the geometric mean, multiplied by a brevity penalty, whose purpose is to prevent very short candidates from receiving too high a score.
+Let <math/> be the total length of the reference corpus, and <math/> the total length of the translation corpus.
+If <math/>, the brevity penalty applies and is defined to be <math/>.
+(In the case of multiple reference sentences, <math/> is taken to be the sum of the lengths of the sentences whose lengths are closest to the lengths of the candidate sentences.
+However, in the version of the metric used by NIST, the short reference sentence is used.)
+Performance
+BLEU has frequently been reported as correlating well with human judgement, and certainly remains a benchmark for any new evaluation metric to beat.
+There are however a number of criticisms that have been voiced.
+It has been noted that while in theory capable of evaluating any language, BLEU does not in the present form work on languages without word boundaries.
+It has been argued that although BLEU certainly has significant advantages, there is no guarantee that an increase in BLEU score is an indicator of improved translation quality.
+As BLEU scores are taken at the corpus level, it is difficult to give a textual example.
+Nevertheless, they highlight two instances where BLEU seriously underperformed.
+These were the 2005 NIST evaluations where a number of different machine translation systems were tested, and their study of the SYSTRAN engine versus two engines using statistical machine translation (SMT) techniques.
+In the 2005 NIST evaluation, they report that the scores generated by BLEU failed to correspond to the scores produced in the human evaluations.
+The system which was ranked highest by the human judges was only ranked 6th by BLEU.
+In their study, they compared SMT systems with SYSTRAN, a knowledge based system.
+The scores from BLEU for SYSTRAN were substantially worse than the scores given to SYSTRAN by the human judges.
+They note that the SMT systems were trained using BLEU minimum error rate training, and point out that this could be one of the reasons behind the difference.
+They conclude by recommending that BLEU be used in a more restricted manner, for comparing the results from two similar systems, and for tracking "broad, incremental changes to a single system".
+Business intelligence
+Business intelligence (BI) refers to technologies, applications and practices for the collection, integration, analysis, and presentation of business information and sometimes to the information itself.
+The purpose of business intelligence--a term that dates at least to 1958--is to support better business decision making.
+Thus, BI is also described as a decision support system (DSS):
+BI is sometimes used interchangeably with briefing books, report and query tools and executive information systems.
+In general, business intelligence systems are data-driven DSS.
+BI systems provide historical, current, and predictive views of business operations, most often using data that has been gathered into a data warehouse or a data mart and occasionally working from operational data.
+Software elements support the use of this information by assisting in the extraction, analysis, and reporting of information.
+Applications tackle sales, production, financial, and many other sources of business data for purposes that include, notably, business performance management.
+Information may be gathered on comparable companies to produce benchmarks.
+History
+Prior to the start of the Information Age in the late 20th century, businesses had to collect data from non-automated sources.
+Businesses then lacked the computing resources necessary to properly analyze the data, and as a result, companies often made business decisions primarily on the basis of intuition.
+As businesses automated systems the amount of data increased but its collection remained difficult due to the inability of information to be moved between or within systems.
+Analysis of information informed for long-term decision making, but was slow and often required the use of instinct or expertise to make short-term decisions.
+Business intelligence was defined in 1958 by Hans Peter Luhn, who wrote,
+In this paper, business is a collection of activities carried on for whatever purpose, be it science, technology, commerce, industry, law, government, defense, et cetera.
+The communication facility serving the conduct of a business (in the broad sense) may be referred to as an intelligence system.
+The notion of intelligence is also defined here, in a more general sense, as "the ability to apprehend the interrelationships of presented facts in such a way as to guide action towards a desired goal."
+In 1989 Howard Dresner, later a Gartner Group analyst, popularized BI as an umbrella term to describe "concepts and methods to improve business decision making by using fact-based support systems."
+In modern businesses the use of standards, automation and specialized software, including analytical tools, allows large volumes of data to be extracted, transformed, loaded and warehoused to greatly increase the speed at which information becomes available for decision-making.
+Key intelligence topics
+Business intelligence often uses key performance indicators (KPIs) to assess the present state of business and to prescribe a course of action.
+Examples of KPIs are things such as lead conversion rate (in sales) and inventory turnover (in inventory management).
+Prior to the widespread adoption of computer and web applications, when information had to be manually input and calculated, performance data was often not available for weeks or months.
+Recently, banks have tried to make data available at shorter intervals and have reduced delays.
+The KPI methodology was further expanded with the Chief Performance Officer methodology which incorporated KPIs and root cause analysis into a single methodology.
+Businesses that face higher operational/credit risk loading, such as credit card companies and "wealth management" services, often make KPI-related data available weekly.
+In some cases, companies may even offer a daily analysis of data.
+This fast pace requires analysts to use IT systems to process this large volume of data.
+Chatterbot
+A chatterbot (or chatbot) is a type of conversational agent, a computer program designed to simulate an intelligent conversation with one or more human users via auditory or textual methods.
+In other words, a chatterbot is a computer program with artificial intelligence to talk to people through voices or typed words.
+Though many appear to be intelligently interpreting the human input prior to providing a response, most chatterbots simply scan for keywords within the input and pull a reply with the most matching keywords or the most similar wording pattern from a local database.
+Chatterbots may also be referred to as talk bots, chat bots, or chatterboxes.
+Method of operation
+A good understanding of a conversation is required to carry on a meaningful dialog but most chatterbots do not attempt this.
+Instead they "converse" by recognizing cue words or phrases from the human user, which allows them to use pre-prepared or pre-calculated responses which can move the conversation on in an apparently meaningful way without requiring them to know what they are talking about.
+For example, if a human types, "I am feeling very worried lately," the chatterbot may be programmed to recognize the phrase "I am" and respond by replacing it with "Why are you" plus a question mark at the end, giving the answer, "Why are you feeling very worried lately?"
+A similar approach using keywords would be for the program to answer any comment including (Name of celebrity) with "I think they're great, don't you?"
+Humans, especially those unfamiliar with chatterbots, sometimes find the resulting conversations engaging.
+Critics of chatterbots call this engagement the ELIZA effect.
+Some programs classified as chatterbots use other principles.
+One example is Jabberwacky, which attempts to model the way humans learn new facts and language.
+ELLA attempts to use natural language processing to make more useful responses from a human's input.
+Some programs that use natural language conversation, such as SHRDLU, are not generally classified as chatterbots because they link their speech ability to knowledge of a simulated world.
+This type of link requires a more complex artificial intelligence (eg., a "vision" system) than standard chatterbots have.
+Early chatterbots
+The classic early chatterbots are ELIZA and PARRY.
+More recent programs are Racter, Verbots, A.L.I.C.E., and ELLA.
+The growth of chatterbots as a research field has created an expansion in their purposes.
+While ELIZA and PARRY were used exclusively to simulate typed conversation, Racter was used to "write" a story called The Policeman's Beard is Half Constructed.
+ELLA includes a collection of games and functional features to further extend the potential of chatterbots.
+The term "ChatterBot" was coined by Michael Mauldin (Creator of the first Verbot, Julia) in 1994 to describe these conversational programs.
+Malicious chatterbots
+Malicious chatterbots are frequently used to fill chat rooms with spam and advertising, or to entice people into revealing personal information, such as bank account numbers.
+They are commonly found on Yahoo! Messenger, Windows Live Messenger, AOL Instant Messenger and other instant messaging protocols.
+There has been a published report of a chatterbot used in a fake personal ad on a dating service's website.
+Chatterbots in modern AI
+Most modern AI research focuses on practical engineering tasks.
+This is known as weak AI and is distinguished from strong AI, which would require sapience and reasoning abilities.
+One pertinent field of AI research is natural language.
+Usually weak AI fields employ specialised software or programming languages created for them.
+For example, one of the 'most-human' natural language chatterbots, A.L.I.C.E., uses a programming language called AIML that is specific to its program, and its various clones, named Alicebots.
+Nevertheless, A.L.I.C.E. is still based on pattern matching without any reasoning.
+This is the same technique ELIZA, the first chatterbot, was using back in 1966.
+Australian company MyCyberTwin also deals in strong AI, allowing users to create and sustain their own virtual personalities online.
+MyCyberTwin.com also works in a corporate setting, allowing companies to set up Virtual AI Assistants.
+Another notable program, known as Jabberwacky, also deals in strong AI, as it is claimed to learn new responses based on user interactions, rather than being driven from a static database like many other existing chatterbots.
+Although such programs show initial promise, many of the existing results in trying to tackle the problem of natural language still appear fairly poor, and it seems reasonable to state that there is currently no general purpose conversational artificial intelligence.
+This has led some software developers to focus more on the practical aspect of chatterbot technology - information retrieval.
+A common rebuttal often used within the AI community against criticism of such approaches asks, "How do we know that humans don't also just follow some cleverly devised rules?" (in the way that Chatterbots do).
+Two famous examples of this line of argument against the rationale for the basis of the Turing test are John Searle's Chinese room argument and Ned Block's Blockhead argument.
+Chatterbots/Virtual Assistants in Commercial Environments
+Automated Conversational Systems have progressed and evolved far from the original designs of the first widely used chatbots.
+In the UK, large commercial entities such as Lloyds TSB, Royal Bank of Scotland, Renault, Citroën and One Railway are already utilizing Virtual Assistants to reduce expenditures on Call Centres and provide a first point of contact that can inform the user exactly of points of interest, provide support, capture data from the user and promote products for sale.
+In the UK, new projects and research are being conducted to introduce a Virtual Assistant into the classroom to assist the teacher.
+This project is the first of its kind and the chatbot VA in question is based on the Yhaken www.elzware.com chatbot design.
+The Yhaken template provides a further move forward in Automated Conversational Systems with features such as complex conversational routing and responses, well defined personality, a complex hierarchical construct with additional external reference points, emotional responses and in depth small talk, all to make the experience more interactive and involving for the user.
+Annual contests for chatterbots
+Many organizations tries to encourage and support developers all over the world to develop chatterbots that able to do variety of tasks and compete with each other through turing tests and more.
+Annual contests are organized at the following links:
+The Chatterbox Challenge
+The Loebner Prize
+Computational linguistics
+Computational linguistics is an interdisciplinary field dealing with the statistical and/or rule-based modeling of natural language from a computational perspective.
+This modeling is not limited to any particular field of linguistics.
+Traditionally, computational linguistics was usually performed by computer scientists who had specialized in the application of computers to the processing of a natural language.
+Recent research has shown that human language is much more complex than previously thought, so computational linguists often work as members of interdisciplinary teams, including linguists (specifically trained in linguistics), language experts (persons with some level of ability in the languages relevant to a given project), and computer scientists.
+In general computational linguistics draws upon the involvement of linguists, computer scientists, experts in artificial intelligence, cognitive psychologists, mathematicians, and logicians, amongst others.
+Origins
+Computational linguistics as a field predates artificial intelligence, a field under which it is often grouped.
+Computational linguistics originated with efforts in the United States in the 1950s to use computers to automatically translate texts from foreign languages, particularly Russian scientific journals, into English.
+Since computers had proven their ability to do arithmetic much faster and more accurately than humans, it was thought to be only a short matter of time before the technical details could be taken care of that would allow them the same remarkable capacity to process language.
+When machine translation (also known as mechanical translation) failed to yield accurate translations right away, automated processing of human languages was recognized as far more complex than had originally been assumed.
+Computational linguistics was born as the name of the new field of study devoted to developing algorithms and software for intelligently processing language data.
+When artificial intelligence came into existence in the 1960s, the field of computational linguistics became that sub-division of artificial intelligence dealing with human-level comprehension and production of natural languages.
+In order to translate one language into another, it was observed that one had to understand the grammar of both languages, including both morphology (the grammar of word forms) and syntax (the grammar of sentence structure).
+In order to understand syntax, one had to also understand the semantics and the lexicon (or 'vocabulary'), and even to understand something of the pragmatics of language use.
+Thus, what started as an effort to translate between languages evolved into an entire discipline devoted to understanding how to represent and process natural languages using computers.
+Subfields
+Computational linguistics can be divided into major areas depending upon the medium of the language being processed, whether spoken or textual; and upon the task being performed, whether analyzing language (recognition) or synthesizing language (generation).
+Speech recognition and speech synthesis deal with how spoken language can be understood or created using computers.
+Parsing and generation are sub-divisions of computational linguistics dealing respectively with taking language apart and putting it together.
+Machine translation remains the sub-division of computational linguistics dealing with having computers translate between languages.
+Some of the areas of research that are studied by computational linguistics include:
+Computer aided corpus linguistics
+Design of parsers or chunkers for natural languages
+Design of taggers like POS-taggers (part-of-speech taggers)
+Definition of specialized logics like resource logics for NLP
+Research in the relation between formal and natural languages in general
+Machine translation, e.g. by a translating computer
+Computational complexity of natural language, largely modeled on automata theory, with the application of context-sensitive grammar and linearly-bounded Turing machines.
+The Association for Computational Linguistics defines computational linguistics as:
+...the scientific study of language from a computational perspective.
+Computational linguists are interested in providing computational models of various kinds of linguistic phenomena.
+Computer program
+Computer programs (also software programs, or just programs) are instructions for a computer.
+A computer requires programs to function, and a computer program does nothing unless its instructions are executed by a central processor.
+Computer programs are usually executable programs or the source code from which executable programs are derived (e.g., compiled).
+Computer source code is often written by professional computer programmers.
+Source code is written in a programming language that usually follows one of two main paradigms: imperative or declarative programming.
+Source code may be converted into an executable file (sometimes called an executable program) by a compiler.
+Alternatively, computer programs may be executed by a central processing unit with the aid of an interpreter, or may be embedded directly into hardware.
+Computer programs may be categorized along functional lines: system software and application software.
+And many computer programs may run simultaneously on a single computer, a process known as multitasking.
+Programming
+<code/>
+Source code of a program written in the C programming language
+Computer programming is the iterative process of writing or editing source code.
+Editing source code involves testing, analyzing, and refining.
+A person who practices this skill is referred to as a computer programmer or software developer.
+The sometimes lengthy process of computer programming is usually referred to as software development.
+The term software engineering is becoming popular as the process is seen as an engineering discipline.
+Paradigms
+Computer programs can be categorized by the programming language paradigm used to produce them.
+Two of the main paradigms are imperative and declarative.
+Programs written using an imperative language specify an algorithm using declarations, expressions, and statements.
+A declaration associates a variable name with a datatype.
+For example: <code/>.
+An expression yields a value.
+For example: <code/> yields 4.
+Finally, a statement might assign an expression to a variable or use the value of a variable to alter the program's control flow.
+For example: <code/>
+One criticism of imperative languages is the side-effect of an assignment statement on a class of variables called non-local variables.
+Programs written using a declarative language specify the properties that have to be met by the output and do not specify any implementation details.
+Two broad categories of declarative languages are functional languages and logical languages.
+The principle behind functional languages (like Haskell) is to not allow side-effects, which makes it easier to reason about programs like mathematical functions.
+The principle behind logical languages (like Prolog) is to define the problem to be solved — the goal — and leave the detailed solution to the Prolog system itself.
+The goal is defined by providing a list of subgoals.
+Then each subgoal is defined by further providing a list of its subgoals, etc.
+If a path of subgoals fails to find a solution, then that subgoal is backtracked and another path is systematically attempted.
+The form in which a program is created may be textual or visual.
+In a visual language program, elements are graphically manipulated rather than textually specified.
+Compilation or interpretation
+A computer program in the form of a human-readable, computer programming language is called source code.
+Source code may be converted into an executable image by a compiler or executed immediately with the aid of an interpreter.
+Compiled computer programs are commonly referred to as executables, binary images, or simply as binaries &mdash; a reference to the binary file format used to store the executable code.
+Compilers are used to translate source code from a programming language into either object code or machine code.
+Object code needs further processing to become machine code, and machine code is the Central Processing Unit's native code, ready for execution.
+Interpreted computer programs are either decoded and then immediately executed or are decoded into some efficient intermediate representation for future execution.
+BASIC, Perl, and Python are examples of immediately executed computer programs.
+Alternatively, Java computer programs are compiled ahead of time and stored as a machine independent code called bytecode.
+Bytecode is then executed upon request by an interpreter called a virtual machine.
+The main disadvantage of interpreters is computer programs run slower than if compiled.
+Interpreting code is slower than running the compiled version because the interpreter must decode each statement each time it is loaded and then perform the desired action.
+On the other hand, software development may be quicker using an interpreter because testing is immediate when the compilation step is omitted.
+Another disadvantage of interpreters is the interpreter must be present on the computer at the time the computer program is executed.
+Alternatively, compiled computer programs need not have the compiler present at the time of execution.
+No properties of a programming language require it to be exclusively compiled or exclusively interpreted.
+The categorization usually reflects the most popular method of language execution.
+For example, BASIC is thought of as an interpreted language and C a compiled language, despite the existence of BASIC compilers and C interpreters.
+Self-modifying programs
+A computer program in execution is normally treated as being different from the data the program operates on.
+However, in some cases this distinction is blurred when a computer program modifies itself.
+The modified computer program is subsequently executed as part of the same program.
+Self-modifying code is possible for programs written in Lisp, COBOL, and Prolog.
+Execution and storage
+Typically, computer programs are stored in non-volatile memory until requested either directly or indirectly to be executed by the computer user.
+Upon such a request, the program is loaded into random access memory, by a computer program called an operating system, where it can be accessed directly by the central processor.
+The central processor then executes ("runs") the program, instruction by instruction, until termination.
+A program in execution is called a process.
+Termination is either by normal self-termination or by error — software or hardware error.
+Embedded programs

@@ -1,0 +1,1500 @@
+Since there is no record of anyone circumventing the GPL by dynamic linking and contesting when threatened with lawsuits by the copyright holder, the restriction appears de facto enforceable even if not yet proven de jure.
+In 2002, MySQL AB sued Progress NuSphere for copyright and trademark infringement in United States district court.
+NuSphere had allegedly violated MySQL's copyright by linking code for the Gemini table type into the MySQL server.
+After a preliminary hearing before Judge Patti Saris on February 27, 2002, the parties entered settlement talks and eventually settled.
+At the hearing, Judge Saris "saw no reason" that the GPL would not be enforceable.
+In August 2003, the SCO Group stated that they believed the GPL to have no legal validity, and that they intended to take up lawsuits over sections of code supposedly copied from SCO Unix into the Linux kernel.
+This was a problematic stand for them, as they had distributed Linux and other GPL'ed code in their Caldera OpenLinux distribution, and there is little evidence that they had any legal right to do so except under the terms of the GPL.
+For more information, see SCO-Linux controversies and SCO v. IBM.
+In April 2004 the netfilter/iptables project was granted a preliminary injunction against Sitecom Germany by Munich District Court after Sitecom refused to desist from distributing Netfilter's GPL'ed software in violation of the terms of the GPL.
+On July 2004 , the German court confirmed this injunction as a final ruling against Sitecom.
+The court's justification for its decision exactly mirrored the predictions given earlier by the FSF's Eben Moglen:
+Defendant has infringed on the copyright of plaintiff by offering the software 'netfilter/iptables' for download and by advertising its distribution, without adhering to the license conditions of the GPL.
+Said actions would only be permissible if defendant had a license grant...
+This is independent of the questions whether the licensing conditions of the GPL have been effectively agreed upon between plaintiff and defendant or not.
+If the GPL were not agreed upon by the parties, defendant would notwithstanding lack the necessary rights to copy, distribute, and make the software 'netfilter/iptables' publicly available.
+This ruling was important because it was the first time that a court had confirmed that violating terms of the GPL was an act of copyright violation.
+However, the case was not as crucial a test for the GPL as some have concluded.
+In the case, the enforceability of GPL itself was not under attack.
+Instead, the court was merely attempting to discern if the license itself was in effect.
+In May of 2005, Daniel Wallace filed suit against the Free Software Foundation (FSF) in the Southern District of Indiana, contending that the GPL is an illegal attempt to fix prices at zero.
+The suit was dismissed in March 2006, on the grounds that Wallace had failed to state a valid anti-trust claim; the court noted that "the GPL encourages, rather than discourages, free competition and the distribution of computer operating systems, the benefits of which directly pass to consumers."
+Wallace was denied the possibility of further amending his complaint, and was ordered to pay the FSF's legal expenses.
+On September 8, 2005, Seoul Central District Court ruled that GPL has no legal relevance concerning the case dealing with trade secret derived from GPL-licensed work.
+Defendants argued that since it is impossible to maintain trade secret while being compliant with GPL and distributing the work, they aren't in breach of trade secret.
+This argument was considered without ground.
+On September 6, 2006, the gpl-violations.org project prevailed in court litigation against D-Link Germany GmbH regarding D-Link's inappropriate and copyright infringing use of parts of the Linux Operating System Kernel.
+The judgment finally provided the on-record, legal precedent that the GPL is valid and legally binding, and that it will stand up in German court.
+In late 2007, the developers of BusyBox and the Software Freedom Law Center embarked upon a program to gain GPL compliance from distributors of BusyBox in embedded systems, suing those who would not comply.
+These were claimed to be the first US uses of courts for enforcement of GPL obligations.
+See BusyBox#GPL lawsuits.
+Compatibility and multi-licensing
+Many of the most common free software licenses, such as the original MIT/X license, the BSD license (in its current 3-clause form), and the LGPL, are "GPL-compatible".
+That is, their code can be combined with a program under the GPL without conflict (the new combination would have the GPL applied to the whole).
+However, some free/open source software licenses are not GPL-compatible.
+Many GPL proponents have strongly advocated that free/open source software developers use only GPL-compatible licenses, because doing otherwise makes it difficult to reuse software in larger wholes.
+Note that this issue only arises in concurrent use of licenses which impose conditions on their manner of combination.
+Some licenses, such as the BSD license, impose no conditions on the manner of their combination.
+Also see the list of FSF approved software licenses for examples of compatible and incompatible licenses.
+A number of businesses use dual-licensing to distribute a GPL version and sell a proprietary license to companies wishing to combine the package with proprietary code, using dynamic linking or not.
+Examples of such companies include MySQL AB, Trolltech (Qt toolkit), Namesys (ReiserFS) and Red Hat (Cygwin).
+Adoption
+The Open Source License Resource Center maintained by Black Duck Software shows that GPL is the license used in about 70% of all open source software.
+The vast majority of projects are released under GPL 2 with 3000 open source projects having migrated to GPL 3.
+Criticism
+In 2001 Microsoft CEO Steve Ballmer referred to Linux as "a cancer that attaches itself in an intellectual property sense to everything it touches."
+Critics of Microsoft claim that the real reason Microsoft dislikes the GPL is that the GPL resists proprietary vendors' attempts to "embrace, extend and extinguish".
+Microsoft has released Microsoft Windows Services for UNIX which contains GPL-licensed code.
+In response to Microsoft's attacks on the GPL, several prominent Free Software developers and advocates released a joint statement supporting the license.
+The GPL has been described as being "viral" by many of its critics because the GPL only allows conveyance of whole programs, which means that programmers are not allowed to convey programs that link to libraries having GPL-incompatible licenses.
+The so-called "viral" effect of this is that under such circumstances disparately licensed software cannot be combined unless one of the licenses is changed.
+Although theoretically either license could be changed, in the "viral" scenario the GPL cannot be practically changed (because the software may have so many contributors, some of whom will likely refuse), whereas the license of the other software can be practically changed.
+This is part of a philosophical difference between the GPL and permissive free software licenses such as the BSD-style licenses, which do not put such a requirement on modified versions.
+While proponents of the GPL believe that free software should ensure that its freedoms are preserved all the way from the developer to the user, others believe that intermediaries between the developer and the user should be free to redistribute the software as non-free software.
+More specifically, the GPL requires that redistribution occur subject to the GPL, whereas more "permissive" licenses allow redistribution to occur under licenses more restrictive than the original license.
+While the GPL does allow commercial distribution of GPL software, the market price will settle near the price of distribution&mdash;near zero&mdash;since the purchasers may redistribute the software and its source code for their cost of redistribution.
+This could be seen to inhibit commercial use of GPL'ed code by others wishing to use that code for proprietary purposes&mdash;if they don't wish to avail themselves of GPL'ed code, they will have to re-implement it themselves.
+Microsoft has included anti-GPL terms in their open source software.
+In addition, the FreeBSD project has stated that "a less publicized and unintended use of the GPL is that it is very favorable to large companies that want to undercut software companies.
+In other words, the GPL is well suited for use as a marketing weapon, potentially reducing overall economic benefit and contributing to monopolistic behavior".
+It's not clear that there are any cases of this happening in practice, however.
+The GPL has no indemnification clause explicitly protecting maintainers and developers from litigation resulting from unscrupulous contribution.
+(If a developer submits existing patented or copyright work to a GPL project claiming it as their own contribution, all the project maintainers and even other developers can be held legally responsible for damages to the copyright or patent holder.)
+Lack of indemnification is one criticism that lead Mozilla to create the Mozilla Public License rather than use the GPL or LGPL.
+However, Mozilla later relicensed their work under a GPL/LGPL/MPL triple license, due to problems with the GPL-incompatibility of the MPL.
+Some software developers have found the extensive scope of the GPL to be too restrictive.
+For example, Bjørn Reese and Daniel Stenberg describe how the downstream effects of the GPL on later developers creates a "quodque pro quo" (Latin, "Everything in return for something").
+For that reason, in 2001 they abandoned the GPLv2 in favor of less restrictive copyleft licenses.
+A more specific example of the downstream effects of the GPL can be observed through the frame of incompatible licenses.
+Sun Microsystems' ZFS, because it is licensed under the GPL-incompatible CDDL and covered by several Sun patents, cannot link to the GPL-licensed linux kernel.
+Some have also argued that the GPL could, and should, be shorter.
+Google
+Google Inc. ( and ) is an American public corporation, earning revenue from advertising related to its Internet search, web-based e-mail, online mapping, office productivity, social networking, and video sharing services as well as selling advertising-free versions of the same technologies.
+Google's headquarters, the Googleplex, is located in Mountain View, California.
+As of June 30 2008 the company has 19,604 full-time employees.
+As of October 31, 2007, it is the largest American company (by market capitalization) that is not part of the Dow Jones Industrial Average.
+Google was co-founded by Larry Page and Sergey Brin while they were students at Stanford University and the company was first incorporated as a privately held company on September 7, 1998.
+Google's initial public offering took place on August 19, 2004, raising US$1.67 billion, making it worth US$23 billion.
+Google has continued its growth through a series of new product developments, acquisitions, and partnerships.
+Environmentalism, philanthropy, and positive employee relations have been important tenets during Google's growth, the latter resulting in being identified multiple times as Fortune Magazine's #1 Best Place to Work.
+The company's unofficial slogan is "Don't be evil", although criticism of Google include concerns regarding the privacy of personal information, copyright, censorship, and discontinuation of services.
+History
+Google began in January 1996, as a research project by Larry Page, who was soon joined by Sergey Brin, two Ph.D. students at Stanford University in California.
+They hypothesized that a search engine that analyzed the relationships between websites would produce better ranking of results than existing techniques, which ranked results according to the number of times the search term appeared on a page.
+Their search engine was originally nicknamed "BackRub" because the system checked backlinks to estimate a site's importance.
+A small search engine called Rankdex was already exploring a similar strategy.
+Convinced that the pages with the most links to them from other highly relevant web pages must be the most relevant pages associated with the search, Page and Brin tested their thesis as part of their studies, and laid the foundation for their search engine.
+Originally, the search engine used the Stanford University website with the domain google.stanford.edu.
+The domain google.com was registered on September 15, 1997, and the company was incorporated as Google Inc. on September 7, 1998 at a friend's garage in Menlo Park, California.
+The total initial investment raised for the new company amounted to almost US$1.1 million, including a US$100,000 check by Andy Bechtolsheim, one of the founders of Sun Microsystems.
+In March 1999, the company moved into offices in Palo Alto, home to several other noted Silicon Valley technology startups.
+After quickly outgrowing two other sites, the company leased a complex of buildings in Mountain View at 1600 Amphitheatre Parkway from Silicon Graphics (SGI) in 2003.
+The company has remained at this location ever since, and the complex has since come to be known as the Googleplex (a play on the word googolplex).
+In 2006, Google bought the property from SGI for US$319 million.
+The Google search engine attracted a loyal following among the growing number of Internet users, who liked its simple design and usability.
+In 2000, Google began selling advertisements associated with search keywords.
+The ads were text-based to maintain an uncluttered page design and to maximize page loading speed.
+Keywords were sold based on a combination of price bid and clickthroughs, with bidding starting at US$.05 per click.
+This model of selling keyword advertising was pioneered by Goto.com (later renamed Overture Services, before being acquired by Yahoo! and rebranded as Yahoo! Search Marketing).
+While many of its dot-com rivals failed in the new Internet marketplace, Google quietly rose in stature while generating revenue.
+The name "Google" originated from a common misspelling of the word "googol", which refers to 10100, the number represented by a 1 followed by one hundred zeros.
+Having found its way increasingly into everyday language, the verb "google", was added to the Merriam Webster Collegiate Dictionary and the Oxford English Dictionary in 2006, meaning "to use the Google search engine to obtain information on the Internet."
+A patent describing part of Google's ranking mechanism (PageRank) was granted on September 4, 2001.
+The patent was officially assigned to Stanford University and lists Lawrence Page as the inventor.
+Financing and initial public offering
+The first funding for Google as a company was secured in 1998, in the form of a US$100,000 contribution from Andy Bechtolsheim, co-founder of Sun Microsystems, given to a corporation which did not yet exist.
+Around six months later, a much larger round of funding was announced, with the major investors being rival venture capital firms Kleiner Perkins Caufield & Byers and Sequoia Capital.
+Google's IPO took place on August 19, 2004.
+19,605,052 shares were offered at a price of US$85 per share.
+Of that, 14,142,135 (another mathematical reference as √2 ≈ 1.4142135) were floated by Google, and the remaining 5,462,917 were offered by existing stockholders.
+The sale of US$1.67 billion gave Google a market capitalization of more than US$23 billion.
+The vast majority of Google's 271 million shares remained under Google's control.
+Many of Google's employees became instant paper millionaires.
+Yahoo!, a competitor of Google, also benefited from the IPO because it owned 8.4 million shares of Google as of August 9, 2004, ten days before the IPO.
+Google's stock performance after its first IPO launch has gone well, with shares hitting US$700 for the first time on October 31, 2007, due to strong sales and earnings in the advertising market, as well as the release of new features such as the desktop search function and its iGoogle personalized home page.
+The surge in stock price is fueled primarily by individual investors, as opposed to large institutional investors and mutual funds.
+The company is listed on the NASDAQ stock exchange under the ticker symbol GOOG and under the London Stock Exchange under the ticker symbol GGEA.
+Growth
+While the company's primary business interest is in the web content arena, Google has begun experimenting with other markets, such as radio and print publications.
+On January 17, 2006, Google announced that its purchase of a radio advertising company "dMarc", which provides an automated system that allows companies to advertise on the radio.
+This will allow Google to combine two niche advertising media&mdash;the Internet and radio&mdash;with Google's ability to laser-focus on the tastes of consumers.
+Google has also begun an experiment in selling advertisements from its advertisers in offline newspapers and magazines, with select advertisements in the Chicago Sun-Times.
+They have been filling unsold space in the newspaper that would have normally been used for in-house advertisements.
+Google was added to the S&P 500 index on March 30, 2006.
+It replaced Burlington Resources, a major oil producer based in Houston which was acquired by ConocoPhillips.
+Acquisitions
+Since 2001, Google has acquired several small start-up companies, often consisting of innovative teams and products.
+One of the earlier companies that Google bought was Pyra Labs.
+They were the creators of Blogger, a weblog publishing platform, first launched in 1999.
+This acquisition led to many premium features becoming free.
+Pyra Labs was originally formed by Evan Williams, yet he left Google in 2004.
+In early 2006, Google acquired Upstartle, a company responsible for the online word processor, Writely.
+The technology in this product was used by Google to eventually create Google Docs & Spreadsheets.
+In 2004, Google acquired a company called Keyhole, Inc., which developed a product called Earth Viewer which was renamed in 2005 to Google Earth.
+In February 2006, software company Adaptive Path sold Measure Map, a weblog statistics application, to Google.
+Registration to the service has since been temporarily disabled.
+The last update regarding the future of Measure Map was made on April 6, 2006 and outlined many of the service's known issues.
+In late 2006, Google bought online video site YouTube for US$1.65 billion in stock.
+Shortly after, on October 31, 2006, Google announced that it had also acquired JotSpot, a developer of wiki technology for collaborative Web sites.
+On April 13, 2007, Google reached an agreement to acquire DoubleClick.
+Google agreed to buy the company for US$3.1 billion.
+On July 9, 2007, Google announced that it had signed a definitive agreement to acquire enterprise messaging security and compliance company Postini.
+Partnerships
+In 2005, Google entered into partnerships with other companies and government agencies to improve production and services.
+Google announced a partnership with NASA Ames Research Center to build up of offices and work on research projects involving large-scale data management, nanotechnology, distributed computing, and the entrepreneurial space industry.
+Google also entered into a partnership with Sun Microsystems in October to help share and distribute each other's technologies.
+The company entered into a partnership with Time Warner's AOL, to enhance each other's video search services.
+The same year, the company became a major financial investor of the new .mobi top-level domain for mobile devices, in conjunction with several other companies, including Microsoft, Nokia, and Ericsson among others.
+In September 2007, Google launched, "Adsense for Mobile", a service for its publishing partners which provides the ability to monetize their mobile websites through the targeted placement of mobile text ads, and acquired the mobile social networking site, Zingku.mobi, to "provide people worldwide with direct access to Google applications, and ultimately the information they want and need, right from their mobile devices."
+In 2006, Google and News Corp.'s Fox Interactive Media entered into a US$900 million agreement to provide search and advertising on the popular social networking site, MySpace.
+On November 5, 2007 Google announced the Open Handset Alliance to develop an open platform for mobile services called Android.
+On March,2008 Google, Sprint, Intel, Comcast, Time Warner Cable,Bright House Networks,Clearwire together found Xohm to provide wireless telecommunication service.
+Products and services
+Google has created services and tools for the general public and business environment alike; including Web applications, advertising networks and solutions for businesses.
+Advertising
+Most of Google's revenue is derived from advertising programs.
+For the 2006 fiscal year, the company reported US$10.492 billion in total advertising revenues and only US$112 million in licensing and other revenues.
+Google AdWords allows Web advertisers to display advertisements in Google's search results and the Google Content Network, through either a cost-per-click or cost-per-view scheme.
+Google AdSense website owners can also display adverts on their own site, and earn money every time ads are clicked.
+Web-based software
+The Google web search engine is the company's most popular service.
+As of August 2007, Google is the most used search engine on the web with a 53.6% market share, ahead of Yahoo! (19.9%) and Live Search (12.9%).
+Google indexes billions of Web pages, so that users can search for the information they desire, through the use of keywords and operators.
+Google has also employed the Web Search technology into other search services, including Image Search, Google News, the price comparison site Google Product Search, the interactive Usenet archive Google Groups, Google Maps, and more.
+In 2004, Google launched its own free web-based e-mail service, known as Gmail (or Google Mail in some jurisdictions).
+Gmail features spam-filtering technology and the capability to use Google technology to search e-mail.
+The service generates revenue by displaying advertisements and links from the AdWords service that are tailored to the choice of the user and/or content of the e-mail messages displayed on screen.
+In early 2006, the company launched Google Video, which not only allows users to search and view freely available videos but also offers users and media publishers the ability to publish their content, including television shows on CBS, NBA basketball games, and music videos.
+In August 2007, Google announced that it would shut down its video rental and sale program and offer refunds and Google Checkout credits to consumers who had purchased videos to own.
+On February 28, 2008 Google launched the Google Sites wiki as a Google Apps component.
+Google has also developed several desktop applications, including Google Earth, an interactive mapping program powered by satellite and aerial imagery that covers the vast majority of the planet.
+Google Earth is generally considered to be remarkably accurate and extremely detailed.
+Many major cities have such detailed images that one can zoom in close enough to see vehicles and pedestrians clearly.
+Consequently, there have been some concerns about national security implications.
+Specifically, some countries and militaries contend the software can be used to pinpoint with near-precision accuracy the physical location of critical infrastructure, commercial and residential buildings, bases, government agencies, and so on.
+However, the satellite images are not necessarily frequently updated, and all of them are available at no charge through other products and even government sources.
+For example, NASA and the National Geospatial-Intelligence Agency.
+Some counter this argument by stating that Google Earth makes it easier to access and research the images.
+Many other products are available through Google Labs, which is a collection of incomplete applications that are still being tested for use by the general public.
+Google has promoted their products in various ways.
+In London, Google Space was set-up in Heathrow Airport, showcasing several products, including Gmail, Google Earth and Picasa.
+Also, a similar page was launched for American college students, under the name College Life, Powered by Google.
+In 2007, some reports surfaced that Google was planning the release of its own mobile phone, possibly a competitor to Apple's iPhone.
+The project, called Android provides a standard development kit that will allow any "Android" phone to run software developed for the Android SDK, no matter the phone manufacturer.
+In October 2007, Google SMS service was launched in India allowing users to get business listings, movie showtimes, and information by sending an SMS.
+Enterprise products
+In 2007, Google launched Google Apps Premier Edition, a version of Google Apps targeted primarily at the business user.
+It includes such extras as more disk space for e-mail, API access, and premium support, for a price of US$50 per user per year.
+A large implementation of Google Apps with 38,000 users is at Lakehead University in Thunder Bay, Ontario, Canada.
+Platform
+Google runs its services on several server farms, each comprising thousands of low-cost commodity computers running stripped-down versions of Linux.
+While the company divulges no details of its hardware, a 2006 estimate cites 450,000 servers, "racked up in clusters at data centers around the world."
+Corporate affairs and culture
+Google is known for its relaxed corporate culture, of which its playful variations on its own corporate logo are an indicator.
+In 2007 and 2008, Fortune Magazine placed Google at the top of its list of the hundred best places to work.
+Google's corporate philosophy embodies such casual principles as "you can make money without doing evil," "you can be serious without a suit," and "work should be challenging and the challenge should be fun."
+Google has been criticized for having salaries below industry standards.
+For example, some system administrators earn no more than US$35,000 per year – considered to be quite low for the Bay Area job market.
+However, Google's stock performance following its IPO has enabled many early employees to be competitively compensated by participation in the corporation's remarkable equity growth.
+Google implemented other employee incentives in 2005, such as the Google Founders' Award, in addition to offering higher salaries to new employees.
+Google's workplace amenities, culture, global popularity, and strong brand recognition have also attracted potential applicants.
+After the company's IPO in August 2004, it was reported that founders Sergey Brin and Larry Page, and CEO Eric Schmidt, requested that their base salary be cut to US$1.00.
+Subsequent offers by the company to increase their salaries have been turned down, primarily because, "their primary compensation continues to come from returns on their ownership stakes in Google.
+As significant stockholders, their personal wealth is tied directly to sustained stock price appreciation and performance, which provides direct alignment with stockholder interests."
+Prior to 2004, Schmidt was making US$250,000 per year, and Page and Brin each earned a salary of US$150,000.
+They have all declined recent offers of bonuses and increases in compensation by Google's board of directors.
+In a 2007 report of the United States' richest people, Forbes reported that Sergey Brin and Larry Page were tied for #5 with a net worth of US$18.5 billion each.
+In 2007 and through early 2008, Google has seen the departure of several top executives.
+Justin Rosenstein, Google’s product manager, left in June of 2007.
+Shortly thereafter, Gideon Yu, former chief financial officer of YouTube, a Google unit, joined Facebook along with Benjamin Ling, a high-ranking engineer, who left in October 2007.
+In March 2008, two senior Google leaders announced their desire to pursue other opportunities.
+Sheryl Sandburg, ex-VP of global online sales and operations began her position as COO of Facebook while Ash ElDifrawi, former head of brand advertising, left to become CMO of Netshops Inc.
+Googleplex
+Google's headquarters in Mountain View, California, is referred to as "the Googleplex" in a play of words; a googolplex being 1 followed by a googol of zeros, and the HQ being a complex of buildings (cf. multiplex, cineplex, etc).
+The lobby is decorated with a piano, lava lamps, old server clusters, and a projection of search queries on the wall.
+The hallways are full of exercise balls and bicycles.
+Each employee has access to the corporate recreation center.
+Recreational amenities are scattered throughout the campus and include a workout room with weights and rowing machines, locker rooms, washers and dryers, a massage room, assorted video games, Foosball, a baby grand piano, a pool table, and ping pong.
+In addition to the rec room, there are snack rooms stocked with various foods and drinks.
+In 2006, Google moved into of office space in New York City, at 111 Eighth Ave. in Manhattan.
+The office was specially designed and built for Google and houses its largest advertising sales team, which has been instrumental in securing large partnerships, most recently deals with MySpace and AOL.
+In 2003, they added an engineering staff in New York City, which has been responsible for more than 100 engineering projects, including Google Maps, Google Spreadsheets, and others.
+It is estimated that the building costs Google US$10 million per year to rent and is similar in design and functionality to its Mountain View headquarters, including foosball, air hockey, and ping-pong tables, as well as a video game area.
+In November 2006, Google opened offices on Carnegie Mellon's campus in Pittsburgh.
+By late 2006, Google also established a new headquarters for its AdWords division in Ann Arbor, Michigan.
+The size of Google's search system is presently undisclosed.
+The best estimates place the total number of the company's servers at 450,000, spread over twenty five locations throughout the world, including major operations centers in Dublin (European Operations Headquarters) and Atlanta, Georgia.
+Google is also in the process of constructing a major operations center in The Dalles, Oregon, on the banks of the Columbia River.
+The site, also referred to by the media as Project 02, was chosen due to the availability of inexpensive hydroelectric power and a large surplus of fiber optic cable, remnants of the dot com boom of the late 1990s.
+The computing center is estimated to be the size of two football fields, and it has created hundreds of construction jobs, causing local real estate prices to increase 40%.
+Upon completion, the center is expected to create 60 to 200 permanent jobs in the town of 12,000 people.
+Google is taking steps to ensure that their operations are environmentally sound.
+In October 2006, the company announced plans to install thousands of solar panels to provide up to 1.6&nbsp;megawatts of electricity, enough to satisfy approximately 30% of the campus' energy needs.
+The system will be the largest solar power system constructed on a U.S. corporate campus and one of the largest on any corporate site in the world.
+In June 2007, Google announced that they plan to become carbon neutral by 2008, which includes investing in energy efficiency, renewable energy sources, and purchasing carbon offsets, such as investing in projects like capturing and burning methane from animal waste at Mexican and Brazilian farms.
+Innovation time off
+As an interesting motivation technique (usually called Innovation Time Off), all Google engineers are encouraged to spend 20% of their work time (one day per week) on projects that interest them.
+Some of Google's newer services, such as Gmail, Google News, Orkut, and AdSense originated from these independent endeavors.
+In a talk at Stanford University, Marissa Mayer, Google's Vice President of Search Products and User Experience, stated that her analysis showed that half of the new product launches originated from the 20% time.
+Easter eggs and April Fool's Day jokes
+Google has a tradition of creating April Fool's Day jokes&mdash;such as Google MentalPlex, which allegedly featured the use of mental power to search the web.
+In 2002, they claimed that pigeons were the secret behind their growing search engine.
+In 2004, they featured Google Lunar (which claimed to feature jobs on the moon), and in 2005, a fictitious brain-boosting drink, termed Google Gulp was announced.
+In 2006, they came up with Google Romance, a hypothetical online dating service.
+In 2007, Google announced two joke products.
+The first was a free wireless Internet service called TiSP (Toilet Internet Service Provider) in which one obtained a connection by flushing one end of a fiber-optic cable down their toilet and waiting only an hour for a "Plumbing Hardware Dispatcher (PHD)" to connect it to the Internet.
+Additionally, Google's Gmail page displayed an announcement for Gmail Paper, which allows users of their free email service to have email messages printed and shipped to a snail mail address.
+Google's services contain a number of Easter eggs; for instance, the Language Tools page offers the search interface in the Swedish Chef's "Bork bork bork," Pig Latin, ”Hacker” (actually leetspeak), Elmer Fudd, and Klingon.
+In addition, the search engine calculator provides the Answer to Life, the Universe, and Everything from Douglas Adams' The Hitchhiker's Guide to the Galaxy.
+As Google's search box can be used as a unit converter (as well as a calculator), some non-standard units are built in, such as the Smoot.
+Google also routinely modifies its logo in accordance with various holidays or special events throughout the year, such as Christmas, Mother's Day, or the birthdays of various notable individuals.
+IPO and culture
+Many people speculated that Google's IPO would inevitably lead to changes in the company's culture, because of shareholder pressure for employee benefit reductions and short-term advances, or because a large number of the company's employees would suddenly become millionaires on paper.
+In a report given to potential investors, co-founders Sergey Brin and Larry Page promised that the IPO would not change the company's culture.
+Later Mr. Page said, "We think a lot about how to maintain our culture and the fun elements.
+We spent a lot of time getting our offices right.
+We think it's important to have a high density of people.
+People are packed together everywhere.
+We all share offices.
+We like this set of buildings because it's more like a densely packed university campus than a typical suburban office park."
+However, many analysts are finding that as Google grows, the company is becoming more "corporate".
+In 2005, articles in The New York Times and other sources began suggesting that Google had lost its anti-corporate, no evil philosophy.
+In an effort to maintain the company's unique culture, Google has designated a Chief Culture Officer in 2006, who also serves as the Director of Human Resources.
+The purpose of the Chief Culture Officer is to develop and maintain the culture and work on ways to keep true to the core values that the company was founded on in the beginning—a flat organization, a lack of hierarchy, a collaborative environment.
+Philanthropy
+In 2004, Google formed a for-profit philanthropic wing, Google.org, with a start-up fund of US$1 billion.
+The express mission of the organization is to create awareness about climate change, global public health, and global poverty.
+One of its first projects is to develop a viable plug-in hybrid electric vehicle that can attain 100 mpg.
+The founding and current director is Dr. Larry Brilliant.
+Criticism
+As it has grown, Google has found itself the focus of several controversies related to its business practices and services.
+For example, Google Book Search's effort to digitize millions of books and make the full text searchable has led to copyright disputes with the Authors Guild.
+Google's cooperation with the governments of China, and to a lesser extent France and Germany (regarding Holocaust denial) to filter search results in accordance to regional laws and regulations has led to claims of censorship.
+Google's persistent cookie and other information collection practices have led to concerns over user privacy.
+As of December 11, 2007, Google, like the Microsoft search engine, stores "personal information for 18 months" and by comparison, Yahoo! and AOL (Time Warner) "retain search requests for 13 months."
+A number of Indian state governments have raised concerns about the security risks posed by geographic details provided by Google Earth's satellite imaging.
+Google has also been criticized by advertisers regarding its inability to combat click fraud, when a person or automated script is used to generate a charge on an advertisement without really having an interest in the product.
+Industry reports in 2006 claim that approximately 14 to 20 percent of clicks were in fact fraudulent or invalid.
+Further, Google has faced allegations of sexism and ageism from former employees.
+Google has also faced accusations in Harper's Magazine of being extremely excessive with their energy usage, and were accused of employing their "Don't be evil" motto as well as their very public energy saving campaigns as means of trying to cover up or make up for the massive amounts of energy their servers actually require.
+Also, US District Court Judge Louis Stanton, on July 1, 2008 ordered Google to give YouTube user data / log to Viacom to support its case in a billion-dollar copyright lawsuit against Google.
+Google and Viacom, however, on July 14, 2008, agreed in compromise to protect YouTube users' personal data in the $ 1 billion (£ 497 million) copyright lawsuit.
+Google agreed it will make user information and internet protocol addresses from its YouTube subsidiary anonymous before handing over the data to Viacom.
+The privacy deal also applied to other litigants including the FA Premier League, the Rodgers & Hammerstein Organisation and the Scottish Premier League.
+The deal however did not extend the anonymity to employees, since Viacom would prove that Google staff are aware of uploading of illegal material to the site.
+The parties therefore will further meet on the matter lest the data be made available to the court.
+Google Translate
+Google Translate is a service provided by Google Inc. to translate a section of text, or a webpage, into another language, with limits to the number of paragraphs, or range of technical terms, translated.
+For some languages, users are asked for alternate translations, such as for technical terms, to be included for future updates to the translation process.
+Unlike other translation services such as Babel Fish, AOL, and Yahoo which use SYSTRAN, Google uses its own translation software.
+Functions
+The service also includes translation of an entire Web page.
+The translation is limited in number of paragraphs per webpage (such as indicated by break-tags <code/>); however, if text on a webpage is separated by horizontal blank-line images (auto-wrapped without using any <code/>), a long webpage can be translated containing several thousand words.
+Google Translate, like other automatic translation tools, has its limitations.
+While it can help the reader to understand the general content of a foreign language text, it does not deliver accurate translations and does not produce publication-standard content, for example it often translates words out of context and is deliberately not applying any grammatical rules.
+Approach
+Google translate is based on an approach called statistical machine translation, and more specifically, on research by Franz-Josef Och who won the DARPA contest for speed machine translation in 2003.
+Och is now the head of Google's machine translation department.
+According to Och, a solid base for developing a usable statistical machine translation system for a new pair of languages from scratch, would consist in having a bilingual text corpus (or parallel collection) of more than a million words and two monolingual corpora of each more than a billion words.
+Statistical models from this data are then used to translate between those languages.
+To acquire this huge amount of linguistic data, Google used United Nations documents.
+The same document is normally available in all six official UN languages, thus Google now has a hectalingual corpus of 20 billion words' worth of human translations.
+The availability of Arabic and Chinese as official UN languages is probably one of the reasons why Google Translate initially focused on the development of translation between English and those languages, and not, for example, Japanese and German, which are not official languages at the UN.
+Google representatives have been very active at domestic conferences in Japan in the field asking researchers to provide them with bilingual corpora.
+Options
+(by chronological order)
+Beginning
+English to Arabic
+English to French
+English to German
+English to Spanish
+French to English
+German to English
+Spanish to English
+Arabic to English
+2nd stage
+English to Portuguese
+Portuguese to English
+3rd stage
+English to Italian
+Italian to English
+4th stage
+English to Chinese (Simplified) BETA
+English to Japanese BETA
+English to Korean BETA
+Chinese (Simplified) to English BETA
+Japanese to English BETA
+Korean to English BETA
+5th stage
+English to Russian BETA
+Russian to English BETA
+6th stage
+English to Arabic BETA
+Arabic to English BETA
+7th stage (launched February, 2007)
+English to Chinese (Traditional) BETA
+Chinese (Traditional) to English BETA
+Chinese (Simplified to Traditional) BETA
+Chinese (Traditional to Simplified) BETA
+8th stage (launched October, 2007)
+all 25 language pairs use Google's machine translation system
+9th stage
+English to Hindi BETA
+Hindi to English BETA
+10th stage (as of this stage, translation can be done between any two languages)
+Bulgarian
+Croatian
+Czech
+Danish
+Dutch
+Finnish
+Greek
+Norwegian
+Polish
+Romanian
+Swedish
+Grammar
+Grammar is the field of linguistics that covers the rules governing the use of any given natural language.
+It includes morphology and syntax, often complemented by phonetics, phonology, semantics, and pragmatics.
+Each language has its own distinct grammar.
+"English grammar" is the rules of the English language itself.
+"An English grammar" is a specific study or analysis of these rules.
+A reference book describing the grammar of a language is called a "reference grammar" or simply "a grammar".
+A fully explicit grammar exhaustively describing the grammatical constructions of a language is called a descriptive grammar, as opposed to linguistic prescription which tries to enforce the governing rules how a language is to be used.
+Grammatical frameworks are approaches to constructing grammars.
+The standard framework of generative grammar is the transformational grammar model developed by Noam Chomsky and his followers from the 1950s to 1980s.
+Etymology
+The word "grammar," derives from Greek γραμματική τέχνη (grammatike techne), which means "art of letters," from γράμμα (gramma), "letter," and that from γράφειν (graphein), "to draw, to write".
+History
+The first systematic grammars originate in Iron Age India, with Panini (4th c. BC) and his commentators Pingala (ca. 200 BC), Katyayana, and Patanjali (2nd c. BC).
+In the West, grammar emerges as a discipline in Hellenism from the 3rd c. BC forward with authors like Rhyanus and Aristarchus of Samothrace, the oldest extant work being the Art of Grammar (<foreign/>), attributed to Dionysius Thrax (ca. 100 BC).
+Latin grammar developed by following Greek models from the 1st century BC, due to the work of authors such as Orbilius Pupillus, Remmius Palaemon, Marcus Valerius Probus, Verrius Flaccus, Aemilius Asper.
+Tamil grammatical tradition also began around the 1st century BC with the Tolkāppiyam.
+A grammar of Irish originated in the 7th century with the Auraicept na n-Éces.
+Arabic grammar emerges from the 8th century with the work of Ibn Abi Ishaq and his students.
+The first treatises on Hebrew grammar appear in the High Middle Ages, in the context of Mishnah (exegesis of the Hebrew Bible).
+The Karaite tradition originates in Abbasid Baghdad.
+The Diqduq (10th century) is one of the earliest grammatical commentaries on the Hebrew Bible.
+Ibn Barun in the 12th century compares the Hebrew language with Arabic in the Islamic grammatical tradition.
+Belonging to the trivium of the seven liberal arts, grammar was taught as a core discipline throughout the Middle Ages, following the influence of authors from Late Antiquity, such as Priscian.
+Treatment of vernaculars begins gradually during the High Middle Ages, with isolated works such as the First Grammatical Treatise, but becomes influential only in the Renaissance and Baroque periods.
+In 1486, Antonio de Nebrija published Las introduciones Latinas contrapuesto el romance al Latin, and the first Spanish grammar, Gramática de la lengua castellana, in 1492.
+During the 16th century Italian Renaissance, the Questione della lingua was the discussion on the status and ideal form of the Italian language, initiated by Dante's de vulgari eloquentia (Pietro Bembo, Prose della volgar lingua Venice 1525).
+Grammars of non-European languages began to be compiled for the purposes of evangelization and Bible translation from the 16th century onward, such as Grammatica o Arte de la Lengua General de los Indios de los Reynos del Perú (1560), and a Quechua grammar by Fray Domingo de Santo Tomás.
+In 1643 there appeared Ivan Uzhevych's Grammatica sclavonica and, in 1762, the Short Introduction to English Grammar of Robert Lowth was also published.
+The Grammatisch-Kritisches Wörterbuch der hochdeutschen Mundart, a High German grammar in five volumes by Johann Christoph Adelung, appeared as early as 1774.
+From the latter part of the 18th century, grammar came to be understood as a subfield of the emerging discipline of modern linguistics.
+The Serbian grammar by Vuk Stefanović Karadžić arrived in 1814, while the Deutsche Grammatik of the Brothers Grimm was first published in 1818.
+The Comparative Grammar of Franz Bopp, the starting point of modern comparative linguistics, came out in 1833.
+In the USA, the Society for the Promotion of Good Grammar has designated March 4, 2008 as National Grammar Day.
+Development of grammars
+Grammars evolve through usage, and grammars also develop due to separations of the human population.
+With the advent of written representations, formal rules about language usage tend to appear also.
+Formal grammars are codifications of usage that are developed by repeated documentation over time, and by observation as well.
+As the rules become established and developed, the prescriptive concept of grammatical correctness can arise.
+This often creates a discrepancy between contemporary usage and that which has been accepted over time as being correct.
+Linguists tend to believe that prescriptive grammars do not have any justification beyond their authors' aesthetic tastes; however, prescriptions are considered in sociolinguistics as part of the explanation for why some people say "I didn't do nothing", some say "I didn't do anything", and some say one or the other depending on social context.
+The formal study of grammar is an important part of education for children from a young age through advanced learning, though the rules taught in schools are not a "grammar" in the sense most linguists use the term, as they are often prescriptive rather than descriptive.
+Constructed languages (also called planned languages or conlangs) are more common in the modern day.
+Many have been designed to aid human communication (for example, naturalistic Interlingua, schematic Esperanto, and the highly logic-compatible artificial language Lojban).
+Each of these languages has its own grammar.
+No clear line can be drawn between syntax and morphology.
+Analytic languages use syntax to convey information that is encoded via inflection in synthetic languages.
+In other words, word order is not significant and morphology is highly significant in a purely synthetic language, whereas morphology is not significant and syntax is highly significant in an analytic language.
+Chinese and Afrikaans, for example, are highly analytic, and meaning is therefore very context – dependent.
+(Both do have some inflections, and have had more in the past; thus, they are becoming even less synthetic and more "purely" analytic over time.)
+Latin, which is highly synthetic, uses affixes and inflections to convey the same information that Chinese does with syntax.
+Because Latin words are quite (though not completely) self-contained, an intelligible Latin sentence can be made from elements that are placed in a largely arbitrary order.
+Latin has a complex affixation and a simple syntax, while Chinese has the opposite.
+Grammar frameworks
+Various "grammar frameworks" have been developed in theoretical linguistics since the mid 20th century, in particular under the influence of the idea of a "Universal grammar" in the USA.
+Of these, the main divisions are:
+Transformational grammar (TG))
+Principles and Parameters Theory (P&P)
+Lexical-functional Grammar (LFG)
+Generalized Phrase Structure Grammar (GPSG)
+Head-Driven Phrase Structure Grammar (HPSG)
+Dependency grammars (DG)
+Role and reference grammar (RRG)
+Hidden Markov model
+A hidden Markov model (HMM) is a statistical model in which the system being modeled is assumed to be a Markov process with unknown parameters, and the challenge is to determine the hidden parameters from the observable parameters.
+The extracted model parameters can then be used to perform further analysis, for example for pattern recognition applications.
+An HMM can be considered as the simplest dynamic Bayesian network.
+In a regular Markov model, the state is directly visible to the observer, and therefore the state transition probabilities are the only parameters.
+In a hidden Markov model, the state is not directly visible, but variables influenced by the state are visible.
+Each state has a probability distribution over the possible output tokens.
+Therefore the sequence of tokens generated by an HMM gives some information about the sequence of states.
+Hidden Markov models are especially known for their application in  temporal pattern recognition such as speech, handwriting, gesture recognition, musical score following, partial discharges and bioinformatics.
+Architecture of a hidden Markov model
+The diagram below shows the general architecture of an instantiated HMM.
+Each oval shape represents a random variable that can adopt a number of values.
+The random variable <math/> is the hidden state at time <math/> (with the model from the above diagram, <math/>).
+The random variable <math/> is the observation at time <math/> (<math/>).
+The arrows in the diagram (often called a trellis diagram) denote conditional dependencies.
+From the diagram, it is clear that the value of the hidden variable <math/> (at time <math/>) only depends on the value of the hidden variable <math/> : the values at time <math/> and before have no influence.
+This is called the Markov property.
+Similarly, the value of the observed variable <math/> only depends on the value of the hidden variable <math/> (both at time <math/>).
+Probability of an observed sequence
+The probability of observing a sequence <math/> of length <math/> is given by
+<math/>
+where the sum runs over all possible hidden node sequences <math/>.
+Brute force calculation of <math/> is intractable for most real-life problems, as the number of possible hidden node sequences is typically extremely high.
+The calculation can however be sped up enormously using the forward algorithm or the equivalent backward algorithm.
+Using hidden Markov models
+There are three canonical problems associated with HMM:
+Given the parameters of the model, compute the probability of a particular output sequence, and the probabilities of the hidden state values given that output sequence.
+This problem is solved by the forward-backward algorithm.
+Given the parameters of the model, find the most likely sequence of hidden states that could have generated a given output sequence.
+This problem is solved by the Viterbi algorithm.
+Given an output sequence or a set of such sequences, find the most likely set of state transition and output probabilities.
+In other words, discover the parameters of the HMM given a dataset of sequences.
+This problem is solved by the Baum-Welch algorithm.
+A concrete example
+This example is further elaborated in the Viterbi algorithm page.
+Applications of hidden Markov models
+Cryptanalysis
+Speech recognition
+Machine translation
+Partial discharge
+History
+Hidden Markov Models were first described in a series of statistical papers by Leonard E. Baum and other authors in the second half of the 1960s.
+One of the first applications of HMMs was speech recognition, starting in the mid-1970s.
+In the second half of the 1980s, HMMs began to be applied to the analysis of biological sequences, in particular DNA.
+Since then, they have become ubiquitous in the field of bioinformatics.
+HTML
+HTML, an initialism of HyperText Markup Language, is the predominant markup language for web pages.
+It provides a means to describe the structure of text-based information in a document — by denoting certain text as links, headings, paragraphs, lists, and so on — and to supplement that text with interactive forms, embedded images, and other objects.
+HTML is written in the form of tags, surrounded by angle brackets.
+HTML can also describe, to some degree, the appearance and semantics of a document, and can include embedded scripting language code (such as JavaScript) which can affect the behavior of Web browsers and other HTML processors.
+HTML is also often used to refer to content in specific languages, such as a MIME type text/html, or even more broadly as a generic term for HTML, whether in its XML-descended form (such as XHTML 1.0 and later) or its form descended directly from SGML (such as HTML 4.01 and earlier).
+By convention, HTML format data files use a file extension .html or .htm.
+History of HTML
+Origins
+In 1980, physicist Tim Berners-Lee, who was an independent contractor at CERN, proposed and prototyped ENQUIRE, a system for CERN researchers to use and share documents.
+In 1989, Berners-Lee and CERN data systems engineer Robert Cailliau each submitted separate proposals for an Internet-based hypertext system providing similar functionality.
+The following year, they collaborated on a joint proposal, the WorldWideWeb (W3) project, which was accepted by CERN.
+First specifications
+The first publicly available description of HTML was a document called HTML Tags, first mentioned on the Internet by Berners-Lee in late 1991.
+It describes 22 elements comprising the initial, relatively simple design of HTML.
+Thirteen of these elements still exist in HTML 4.
+Berners-Lee considered HTML to be, at the time, an application of SGML, but it was not formally defined as such until the mid-1993 publication, by the IETF, of the first proposal for an HTML specification: Berners-Lee and Dan Connolly's "Hypertext Markup Language (HTML)" Internet-Draft, which included an SGML Document Type Definition to define the grammar.
+The draft expired after six months, but was notable for its acknowledgment of the NCSA Mosaic browser's custom tag for embedding in-line images, reflecting the IETF's philosophy of basing standards on successful prototypes.
+Similarly, Dave Raggett's competing Internet-Draft, "HTML+ (Hypertext Markup Format)", from late 1993, suggested standardizing already-implemented features like tables and fill-out forms.
+After the HTML and HTML+ drafts expired in early 1994, the IETF created an HTML Working Group, which in 1995 completed "HTML 2.0", the first HTML specification intended to be treated as a standard against which future implementations should be based.
+Published as Request for Comments 1996, HTML 2.0 included ideas from the HTML and HTML+ drafts.
+There was no "HTML 1.0"; the 2.0 designation was intended to distinguish the new edition from previous drafts.
+Further development under the auspices of the IETF was stalled by competing interests.
+Since 1996, the HTML specifications have been maintained, with input from commercial software vendors, by the World Wide Web Consortium (W3C).
+However, in 2000, HTML also became an international standard (ISO/IEC 15445:2000).
+The last HTML specification published by the W3C is the HTML 4.01 Recommendation, published in late 1999.
+Its issues and errors were last acknowledged by errata published in 2001.
+Version history of the standard
+HTML versions
+July, 1993: Hypertext Markup Language, was published at IETF working draft (that is, not yet a standard).
+November, 1995: HTML 2.0 published as IETF Request for Comments:
+RFC 1866,
+supplemented by RFC 1867 (form-based file upload) that same month,
+RFC 1942 (tables) in May 1996,
+RFC 1980 (client-side image maps) in August 1996, and
+RFC 2070 (internationalization) in January 1997;
+Ultimately, all were declared obsolete/historic by RFC 2854 in June 2000.
+April 1995: HTML 3.0, proposed as a standard to the IETF.
+It included many of the capabilities that were in Raggett's HTML+ proposal, such as support for tables, text flow around figures, and the display of complex mathematical formulas.
+A demonstration appeared in W3C's own Arena browser.
+HTML 3.0 did not succeed for several reasons.
+The pace of browser development, as well as the number of interested parties, had outstripped the resources of the IETF.
+Netscape continued to introduce HTML elements that specified the visual appearance of documents, contrary to the goals of the newly-formed W3C, which sought to limit HTML to describing logical structure.
+Microsoft, a newcomer at the time, played to all sides by creating its own tags, implementing Netscape's elements for compatibility, and supporting W3C features such as Cascading Style Sheets.
+January 14, 1997: HTML 3.2, published as a W3C Recommendation.
+It was the first version developed and standardized exclusively by the W3C, as the IETF had closed its HTML Working Group in September 1997.
+The new version dropped math formulas entirely, reconciled overlap among various proprietary extensions, and adopted most of Netscape's visual markup tags.
+Netscape's blink element and Microsoft's marquee element were omitted due to a mutual agreement between the two companies.
+The ability to include mathematical formulas in HTML would not be standardized until years later in MathML.
+December 18, 1997: HTML 4.0, published as a W3C Recommendation.
+It offers three "flavors":
+Strict, in which deprecated elements are forbidden,
+Transitional, in which deprecated elements are allowed,
+Frameset, in which mostly only frame related elements are allowed;
+HTML 4.0 (initially code-named "Cougar") likewise adopted many browser-specific element types and attributes, but at the same time sought to phase out Netscape's visual markup features by marking them as deprecated in favor of style sheets.
+Minor editorial revisions to the HTML 4.0 specification were published in 1998 without incrementing the version number and further minor revisions as HTML 4.01.
+April 24, 1998: HTML 4.0 was reissued with minor edits without incrementing the version number.
+December 24, 1999: HTML 4.01, published as a W3C Recommendation.
+It offers the same three flavors as HTML 4.0, and its last errata were published May 12, 2001.
+HTML 4.01 and ISO/IEC 15445:2000 are the most recent and final versions of HTML.
+May 15, 2000: [https://www.cs.tcd.ie/15445/15445.HTML ISO/IEC 15445:2000] ("ISO HTML", based on HTML 4.01 Strict), published as an ISO/IEC international standard.
+January 22, 2008: HTML 5, published as a Working Draft by W3C.
+XHTML versions
+XHTML is a separate language that began as a reformulation of HTML 4.01 using XML 1.0.
+It continues to be developed:
+XHTML 1.0, published January 26, 2000 as a W3C Recommendation, later revised and republished August 1, 2002.
+It offers the same three flavors as HTML 4.0 and 4.01, reformulated in XML, with minor restrictions.
+XHTML 1.1, published May 31, 2001 as a W3C Recommendation.
+It is based on XHTML 1.0 Strict, but includes minor changes, can be customized, and is reformulated using modules from Modularization of XHTML, which was published April 10, 2001 as a W3C Recommendation.
+XHTML 2.0 is still a W3C Working Draft.
+XHTML 2.0 is incompatible with XHTML 1.x and, therefore, would be more accurate to characterize as an XHTML-inspired new language than an update to XHTML 1.x.
+XHTML 5, which is an update to XHTML 1.x, is being defined alongside HTML 5 in the HTML 5 draft.
+HTML markup
+HTML markup consists of several key components, including elements (and their attributes), character-based data types, and character references and entity references.
+Another important component is the document type declaration.
+HTML Hello World: <source/>
+Elements
+See HTML elements for more detailed descriptions.
+Elements are the basic structure for HTML markup.
+Elements have two basic properties: attributes and content.
+Each attribute and each element's content has certain restrictions that must be followed for an HTML document to be considered valid.
+An element usually has a start tag (e.g. <code/>) and an end tag (e.g. <code/>).
+The element's attributes are contained in the start tag and content is located between the tags (e.g. <code/>).
+Some elements, such as <code/>, do not have any content and must not have a closing tag.
+Listed below are several types of markup elements used in HTML.
+Structural markup describes the purpose of text.
+For example, <code/> establishes "Golf" as a second-level heading, which would be rendered in a browser in a manner similar to the "HTML markup" title at the start of this section.
+Structural markup does not denote any specific rendering, but most Web browsers have standardized on how elements should be formatted.
+Text may be further styled with Cascading Style Sheets (CSS).
+Presentational markup describes the appearance of the text, regardless of its function.
+For example <code/> indicates that visual output devices should render "boldface" in bold text, but gives no indication what devices which are unable to do this (such as aural devices that read the text aloud) should do.
+In the case of both <code/> and <code/>, there are elements which usually have an equivalent visual rendering but are more semantic in nature, namely <code/> and <code/> respectively.
+It is easier to see how an aural user agent should interpret the latter two elements.
+However, they are not equivalent to their presentational counterparts: it would be undesirable for a screen-reader to emphasize the name of a book, for instance, but on a screen such a name would be italicized.
+Most presentational markup elements have become deprecated under the HTML 4.0 specification, in favor of CSS based style design.
+Hypertext markup links parts of the document to other documents.
+HTML up through version XHTML 1.1 requires the use of an anchor element to create a hyperlink in the flow of text: <code/>.
+However, the <code/> attribute must also be set to a valid URL so for example the HTML code, <code/>, will render the word "Wikipedia" as a hyperlink.
+To link on an image, the anchor tag use the following syntax: <a href="url"><img src="image.gif" /></a>
+Attributes
+Most of the attributes of an element are name-value pairs, separated by "=", and written within the start tag of an element, after the element's name.
+The value may be enclosed in single or double quotes, although values consisting of certain characters can be left unquoted in HTML (but not XHTML).
+Leaving attribute values unquoted is considered unsafe.
+In contrast with name-value pair attributes, there are some attributes that affect the element simply by their presence in the start tag of the element (like the <code/> attribute for the <code/> element).
+Most elements can take any of several common attributes:
+The <code/> attribute provides a document-wide unique identifier for an element.
+This can be used by stylesheets to provide presentational properties, by browsers to focus attention on the specific element, or by scripts to alter the contents or presentation of an element.
+The <code/> attribute provides a way of classifying similar elements for presentation purposes.
+For example, an HTML document might use the designation <code/> to indicate that all elements with this class value are subordinate to the main text of the document.
+Such elements might be gathered together and presented as footnotes on a page instead of appearing in the place where they occur in the HTML source.
+An author may use the <code/> non-attributal codes presentational properties to a particular element.
+It is considered better practice to use an element’s son- <code/> page and select the element with a stylesheet, though sometimes this can be too cumbersome for a simple ad hoc application of styled properties.
+The <code/> attribute is used to attach subtextual explanation to an element.
+In most browsers this attribute is displayed as what is often referred to as a tooltip.
+The generic inline element <code/> can be used to demonstrate these various attributes:
+<source/>
+This example displays as HTML; in most browsers, pointing the cursor at the abbreviation should display the title text "Hypertext Markup Language."
+Most elements also take the language-related attributes <code/> and <code/>.
+Character and entity references
+As of version 4.0, HTML defines a set of 252 character entity references and a set of 1,114,050 numeric character references, both of which allow individual characters to be written via simple markup, rather than literally.
+A literal character and its markup counterpart are considered equivalent and are rendered identically.
+The ability to "escape" characters in this way allows for the characters <code/> and <code/> (when written as <code/> and <code/>, respectively) to be interpreted as character data, rather than markup.
+For example, a literal <code/> normally indicates the start of a tag, and <code/> normally indicates the start of a character entity reference or numeric character reference; writing it as <code/> or <code/> or <code/> allows <code/> to be included in the content of elements or the values of attributes.
+The double-quote character (<code/>), when used to quote an attribute value, must also be escaped as <code/> or <code/> or <code/> when it appears within the attribute value itself.
+The single-quote character (<code/>), when used to quote an attribute value, must also be escaped as <code/> or <code/> (should NOT be escaped as <code/> except in XHTML documents) when it appears within the attribute value itself.
+However, since document authors often overlook the need to escape these characters, browsers tend to be very forgiving, treating them as markup only when subsequent text appears to confirm that intent.
+Escaping also allows for characters that are not easily typed or that aren't even available in the document's character encoding to be represented within the element and attribute content.
+For example, the acute-accented <code/> (<code/>), a character typically found only on Western European keyboards, can be written in any HTML document as the entity reference <code/> or as the numeric references <code/> or <code/>.
+The characters comprising those references (that is, the <code/>, the <code/>, the letters in <code/>, and so on) are available on all keyboards and are supported in all character encodings, whereas the literal <code/> is not.
+Data types
+HTML defines several data types for element content, such as script data and stylesheet data, and a plethora of types for attribute values, including IDs, names, URIs, numbers, units of length, languages, media descriptors, colors, character encodings, dates and times, and so on.
+All of these data types are specializations of character data.
+The Document Type Declaration
+In order to enable Document Type Definition (DTD)-based validation with SGML tools and in order to avoid the quirks mode in browsers, HTML documents can start with a Document Type Declaration (informally, a "DOCTYPE").
+The DTD to which the DOCTYPE refers contains machine-readable grammar specifying the permitted and prohibited content for a document conforming to such a DTD.
+Browsers do not necessarily read the DTD, however.
+The most popular graphical browsers use DOCTYPE declarations (or the lack thereof) and other data at the beginning of sources to determine which rendering mode to use.
+For example:
+<code/>
+This declaration references the Strict DTD of HTML 4.01, which does not have presentational elements like <code/>, leaving formatting to Cascading Style Sheets and the <code/> and <code/> tags.
+SGML-based validators read the DTD in order to properly parse the document and to perform validation.
+In modern browsers, the HTML 4.01 Strict doctype activates standards layout mode for CSS as opposed to quirks mode.
+In addition, HTML 4.01 provides Transitional and Frameset DTDs.
+The Transitional DTD was intended to gradually phase in the changes made in the Strict DTD, while the Frameset DTD was intended for those documents which contained frames.
+Semantic HTML
+There is no official specification called "Semantic HTML", though the strict flavors of HTML discussed below are a push in that direction.
+Rather, semantic HTML refers to an objective and a practice to create documents with HTML that contain only the author's intended meaning, without any reference to how this meaning is presented or conveyed.
+A classic example is the distinction between the emphasis element (<code/>) and the italics element (<code/>).
+Often the emphasis element is displayed in italics, so the presentation is typically the same.
+However, emphasizing something is different from listing the title of a book, for example, which may also be displayed in italics.
+In purely semantic HTML, a book title would use a different element than emphasized text uses (for example a <code/>), because they are meaningfully different things.
+The goal of semantic HTML requires two things of authors:
+To avoid the use of presentational markup (elements, attributes, and other entities).
+To use available markup to differentiate the meanings of phrases and structure in the document.
+So for example, the book title from above would need to have its own element and class specified, such as <code/>
+Here, the <code/> element is used because it most closely matches the meaning of this phrase in the text.
+However, the <code/> element is not specific enough to this task, since we mean to cite specifically a book title as opposed to a newspaper article or an academic journal.
+Semantic HTML also requires complementary specifications and software compliance with these specifications.
+Primarily, the development and proliferation of CSS has led to increasing support for semantic HTML, because CSS provides designers with a rich language to alter the presentation of semantic-only documents.
+With the development of CSS, the need to include presentational properties in a document has virtually disappeared.
+With the advent and refinement of CSS and the increasing support for it in Web browsers, subsequent editions of HTML increasingly stress only using markup that suggests the semantic structure and phrasing of the document, like headings, paragraphs, quotes, and lists, instead of using markup which is written for visual purposes only, like <code/>, <code/> (bold), and <code/> (italics).
+Some of these elements are not permitted in certain varieties of HTML, like HTML 4.01 Strict.
+CSS provides a way to separate document semantics from the content's presentation, by keeping everything relevant to presentation defined in a CSS file.
+See separation of style and content.
+Semantic HTML offers many advantages.
+First, it ensures consistency in style across elements that have the same meaning.
+Every heading, every quotation, every similar element receives the same presentation properties.
+Second, semantic HTML frees authors from the need to concern themselves with presentation details.
+When writing the number two, for example, should it be written out in words ("two"), or should it be written as a numeral (2)?
+A semantic markup might enter something like <number>2</number> and leave presentation details to the stylesheet designers.
+Similarly, an author might wonder where to break out quotations into separate indented blocks of text: with purely semantic HTML, such details would be left up to stylesheet designers.
+Authors would simply indicate quotations when they occur in the text, and not concern themselves with presentation.
+A third advantage is device independence and repurposing of documents.
+A semantic HTML document can be paired with any number of stylesheets to provide output to computer screens (through Web browsers), high-resolution printers, handheld devices, aural browsers or braille devices for those with visual impairments, and so on.
+To accomplish this, nothing needs to be changed in a well-coded semantic HTML document.
+Readily available stylesheets make this a simple matter of pairing a semantic HTML document with the appropriate stylesheets.
+(Of course, the stylesheet's selectors need to match the appropriate properties in the HTML document.)
+Some aspects of authoring documents make separating semantics from style (in other words, meaning from presentation) difficult.
+Some elements are hybrids, using presentation in their very meaning.
+For example, a table displays content in a tabular form.
+Often such content conveys the meaning only when presented in this way.
+Repurposing a table for an aural device typically involves somehow presenting the table as an inherently visual element in an audible form.
+On the other hand, we frequently present lyrical songs&mdash;something inherently meant for audible presentation&mdash;and instead present them in textual form on a Web page.
+For these types of elements, the meaning is not so easily separated from their presentation.
+However, for a great many of the elements used and meanings conveyed in HTML, the translation is relatively smooth.
+Delivery of HTML
+HTML documents can be delivered by the same means as any other computer file; however, they are most often delivered in one of two forms: over HTTP servers and through e-mail.
+Publishing HTML with HTTP
+The World Wide Web is composed primarily of HTML documents transmitted from a Web server to a Web browser using the Hypertext Transfer Protocol (HTTP).
+However, HTTP can be used to serve images, sound, and other content in addition to HTML.
+To allow the Web browser to know how to handle the document it received, an indication of the file format of the document must be transmitted along with the document.
+This vital metadata includes the MIME type (text/html for HTML 4.01 and earlier, application/xhtml+xml for XHTML 1.0 and later) and the character encoding (see Character encodings in HTML).
+In modern browsers, the MIME type that is sent with the HTML document affects how the document is interpreted.
+A document sent with an XHTML MIME type, or served as application/xhtml+xml, is expected to be well-formed XML, and a syntax error causes the browser to fail to render the document.
+The same document sent with an HTML MIME type, or served as text/html, might be displayed successfully, since Web browsers are more lenient with HTML.
+However, XHTML parsed in this way is not considered either proper XHTML or HTML, but so-called tag soup.
+If the MIME type is not recognized as HTML, the Web browser should not attempt to render the document as HTML, even if the document is prefaced with a correct Document Type Declaration.
+Nevertheless, some Web browsers do examine the contents or URL of the document and attempt to infer the file type, despite this being forbidden by the HTTP 1.1 specification.
+HTML e-mail
+Most graphical e-mail clients allow the use of a subset of HTML (often ill-defined) to provide formatting and semantic markup capabilities not available with plain text, like emphasized text, block quotations for replies, and diagrams or mathematical formulas that could not easily be described otherwise.
+Many of these clients include both a GUI editor for composing HTML e-mail messages and a rendering engine for displaying received HTML messages.
+Use of HTML in e-mail is controversial because of compatibility issues, because it can be used in phishing/privacy attacks, because it can confuse spam filters, and because the message size is larger than plain text.
+Naming conventions
+The most common filename extension for files containing HTML is .html.
+A common abbreviation of this is .htm; it originates from older operating systems and file systems, such as the DOS versions from the 80s and early 90s and FAT, which limit file extensions to three letters.
+Both forms are widely supported by browsers.
+Current flavors of HTML
+Since its inception, HTML and its associated protocols gained acceptance relatively quickly.
+However, no clear standards existed in the early years of the language.
+Though its creators originally conceived of HTML as a semantic language devoid of presentation details, practical uses pushed many presentational elements and attributes into the language, driven largely by the various browser vendors.
+The latest standards surrounding HTML reflect efforts to overcome the sometimes chaotic development of the language and to create a rational foundation for building both meaningful and well-presented documents.
+To return HTML to its role as a semantic language, the W3C has developed style languages such as CSS and XSL to shoulder the burden of presentation.
+In conjunction, the HTML specification has slowly reined in the presentational elements.
+There are two axes differentiating various flavors of HTML as currently specified: SGML-based HTML versus XML-based HTML (referred to as XHTML) on the one axis, and strict versus transitional (loose) versus frameset on the other axis.
+SGML-based versus XML-based HTML
+One difference in the latest HTML specifications lies in the distinction between the SGML-based specification and the XML-based specification.
+The XML-based specification is usually called XHTML to distinguish it clearly from the more traditional definition; however, the root element name continues to be 'html' even in the XHTML-specified HTML.
+The W3C intended XHTML 1.0 to be identical to HTML 4.01 except where limitations of XML over the more complex SGML require workarounds.
+Because XHTML and HTML are closely related, they are sometimes documented in parallel.
+In such circumstances, some authors conflate the two names as (X)HTML or X(HTML).
+Like HTML 4.01, XHTML 1.0 has three sub-specifications: strict, loose, and frameset.
+Aside from the different opening declarations for a document, the differences between an HTML 4.01 and XHTML 1.0 document&mdash;in each of the corresponding DTDs&mdash;are largely syntactic.
+The underlying syntax of HTML allows many shortcuts that XHTML does not, such as elements with optional opening or closing tags, and even EMPTY elements which must not have an end tag.
+By contrast, XHTML requires all elements to have an opening tag or a closing tag.
+XHTML, however, also introduces a new shortcut: an XHTML tag may be opened and closed within the same tag, by including a slash before the end of the tag like this: <code/>.
+The introduction of this shorthand, which is not used in the SGML declaration for HTML 4.01, may confuse earlier software unfamiliar with this new convention.
+To understand the subtle differences between HTML and XHTML, consider the transformation of a valid and well-formed XHTML 1.0 document that adheres to Appendix C (see below) into a valid HTML 4.01 document.
+To make this translation requires the following steps:
+The language for an element should be specified with a <code/> attribute rather than the XHTML <code/> attribute.
+XHTML uses XML's built in language-defining functionality attribute.
+Remove the XML namespace (<code/>).
+HTML has no facilities for namespaces.
+Change the document type declaration from XHTML 1.0 to HTML 4.01. (see DTD section for further explanation).
+If present, remove the XML declaration.
+(Typically this is: <code/>).
+Ensure that the document’s MIME type is set to <code/>.
+For both HTML and XHTML, this comes from the HTTP <code/> header sent by the server.
+Change the XML empty-element syntax to an HTML style empty element (<code/> to <code/>).
+Those are the main changes necessary to translate a document from XHTML 1.0 to HTML 4.01.
+To translate from HTML to XHTML would also require the addition of any omitted opening or closing tags.
+Whether coding in HTML or XHTML it may just be best to always include the optional tags within an HTML document rather than remembering which tags can be omitted.
+A well-formed XHTML document adheres to all the syntax requirements of XML.
+A valid document adheres to the content specification for XHTML, which describes the document structure.
+The W3C recommends several conventions to ensure an easy migration between HTML and XHTML (see HTML Compatibility Guidelines).
+The following steps can be applied to XHTML 1.0 documents only:
+Include both <code/> and <code/> attributes on any elements assigning language.
+Use the empty-element syntax only for elements specified as empty in HTML.
+Include an extra space in empty-element tags: for example <code/> instead of <code/>.
+Include explicit close tags for elements that permit content but are left empty (for example, <code/><code/>, not <code/>).
+Omit the XML declaration.
+By carefully following the W3C’s compatibility guidelines, a user agent should be able to interpret the document equally as HTML or XHTML.
+For documents that are XHTML 1.0 and have been made compatible in this way, the W3C permits them to be served either as HTML (with a <code/> MIME type), or as XHTML (with an <code/> or <code/> MIME type).
+When delivered as XHTML, browsers should use an XML parser, which adheres strictly to the XML specifications for parsing the document's contents.
+Transitional versus Strict
+The latest SGML-based specification HTML 4.01 and the earliest XHTML version include three sub-specifications: Strict, Transitional (once called Loose), and Frameset.
+The Strict variant represents the standard proper, whereas the Transitional and Frameset variants were developed to assist in the transition from earlier versions of HTML (including HTML 3.2).
+The Transitional and Frameset variants allow for presentational markup whereas the Strict variant encourages the use of style sheets through its omission of most presentational markup.
+The primary differences which make the Transitional variant more permissive than the Strict variant (the differences as the same in HTML 4 and XHTML 1.0) are:
+A looser content model
+Inline elements and plain text (#PCDATA) are allowed directly in: <code/>, <code/>, <code/>, <code/> and <code/>
+Presentation related elements
+underline (<code/>)
+strike-through (<code/>)
+<code/>
+<code/>
+<code/>
+Presentation related attributes
+<code/> and <code/> attributes for <code/> element.
+<code/> attribute on <code/>, <code/>, <code/> (p), and heading (<code/>...<code/>) elements
+<code/>, <code/>, <code/>, and <code/> attributes on <code/> element
+<code/>, <code/>, <code/>, and <code/> attributes on <code/> and <code/> elements
+<code/> attribute on <code/> and <code/> elements
+<code/> and <code/> on <code/> element
+<code/>, <code/>, <code/>, <code/> on <code/> and <code/> elements
+<code/> attribute on <code/> element
+<code/> attribute on <code/> element
+<code/> attribute on <code/>, <code/> and <code/> elements
+<code/>, <code/>, and <code/> attributes on <code/> and <code/> elements
+<code/> and <code/> attributes on <code/> element
+<code/> attribute on <code/> element
+Additional elements in Transitional specification
+<code/> list (no substitute, though unordered list is recommended; may return in XHTML 2.0 specification)
+<code/> list (no substitute, though unordered list is recommended)
+<code/> (element requires server-side support and is typically added to documents server-side)
+<code/> (deprecated in favor of object element)
+The <code/> attribute on script element (presumably redundant with <code/> attribute, though this is maintained for legacy reasons).
+Frame related entities
+<code/> element (used in place of body for frameset DTD)
+<code/> element
+<code/>
+<code/>
+<code/> attribute on <code/>, client-side image-map (<code/>), <code/>, <code/>, and <code/> elements
+Frameset versus transitional
+In addition to the above transitional differences, the frameset specifications (whether XHTML 1.0 or HTML 4.01) specifies a different content model: <source/>
+Summary of flavors
+As this list demonstrates, the loose flavors of the specification are maintained for legacy support.
+However, contrary to popular misconceptions, the move to XHTML does not imply a removal of this legacy support.
+Rather the X in XML stands for extensible and the W3C is modularizing the entire specification and opening it up to independent extensions.
+The primary achievement in the move from XHTML 1.0 to XHTML 1.1 is the modularization of the entire specification.
+The strict version of HTML is deployed in XHTML 1.1 through a set of modular extensions to the base XHTML 1.1 specification.
+Likewise someone looking for the loose (transitional) or frameset specifications will find similar extended XHTML 1.1 support (much of it is contained in the legacy or frame modules).
+The modularization also allows for separate features to develop on their own timetable.
+So for example XHTML 1.1 will allow quicker migration to emerging XML standards such as MathML (a presentational and semantic math language based on XML) and XForms &mdash; a new highly advanced web-form technology to replace the existing HTML forms.
+In summary, the HTML 4.01 specification primarily reined in all the various HTML implementations into a single clear written specification based on SGML.
+XHTML 1.0, ported this specification, as is, to the new XML defined specification.
+Next, XHTML 1.1 takes advantage of the extensible nature of XML and modularizes the whole specification.
+XHTML 2.0 will be the first step in adding new features to the specification in a standards-body-based approach.
+Hypertext features not in HTML
+HTML lacks some of the features found in earlier hypertext systems, such as typed links, transclusion, source tracking, fat links, and more.
+Even some hypertext features that were in early versions of HTML have been ignored by most popular web browsers until recently, such as the link element and in-browser Web page editing.
+Sometimes Web services or browser manufacturers remedy these shortcomings.
+For instance, wikis and content management systems allow surfers to edit the Web pages they visit.
+IBM
+International Business Machines Corporation, abbreviated IBM and nicknamed "Big Blue," , is a multinational computer technology and consulting corporation headquartered in Armonk, New York, USA.
+The company is one of the few information technology companies with a continuous history dating back to the 19th century.
+IBM manufactures and sells computer hardware and software, and offers infrastructure services, hosting services, and consulting services in areas ranging from mainframe computers to nanotechnology.
+IBM has been known through most of its recent history as the world's largest computer company; with over 388,000 employees worldwide, IBM is the largest information technology employer in the world.
+Despite falling behind Hewlett-Packard in total revenue since 2006, it remains the most profitable.
+IBM holds more patents than any other U.S. based technology company.
+It has engineers and consultants in over 170 countries and IBM Research has eight laboratories worldwide.
+IBM employees have earned three Nobel Prizes, four Turing Awards, five National Medals of Technology, and five National Medals of Science.
+As a chip maker, IBM has been among the Worldwide Top 20 Semiconductor Sales Leaders in past years, and in 2007 IBM ranked second in the list of largest software companies in the world.
+History
+The company which became IBM was founded in 1896 as the Tabulating Machine Company by Herman Hollerith, in Broome County, New York (Endicott, New York, Where it still maintains very limited operations).
+It was incorporated as Computing Tabulating Recording Corporation (CTR) on June 16, 1911, and was listed on the New York Stock Exchange in 1916.
+IBM adopted its current name in 1924, when it became a Fortune 500 company.
+In the 1950s, IBM became the dominant vendor in the emerging computer industry with the release of the IBM 701 and other models in the IBM 700/7000 series of mainframes.
+The company's dominance became even more pronounced in the 1960s and 1970s with the IBM System/360 and IBM System/370 mainframes, however antitrust actions by the United States Department of Justice, the rise of minicomputer companies like Digital Equipment Corporation and Data General, and the introduction of the microprocessor all contributed to dilution of IBM's position in the industry, eventually leading the company to diversify into other areas including personal computers, software, and services.
+In 1981 IBM introduced the IBM Personal Computer which is the original version and progenitor of the IBM PC compatible hardware platform.
+Descendants of the IBM PC compatibles make up the majority of microcomputers on the market today.
+IBM sold its PC division to the Chinese company Lenovo on May 1, 2005 for $655 million in cash and $600 million in Lenovo stock.
+On January 25, 2007, Ricoh announced purchase of IBM Printing Systems Division for $725 million and investment in 3-year joint venture to form a new Ricoh subsidiary, InfoPrint Solutions Company; Ricoh will own a 51% share, and IBM will own a 49% share in InfoPrint.
+Controversies
+The author Edwin Black has alleged that, during World War II, IBM CEO Thomas J. Watson used overseas subsidiaries to provide the Third Reich with unit record data processing machines, supplies and services that helped the Nazis to efficiently track down European Jews, with sizable profits for the company.
+IBM denies that they had control over these subsidiaries after the Nazis took power.
+A lawsuit against IBM based on these allegations was dismissed.
+In support of the Allied war effort in World War II, from 1943 to 1945 IBM produced approximately 346,500 M1 Carbine (Caliber .30 carbine) light rifles for the U.S. Military.
+Current projects
+Eclipse
+Eclipse is a platform-independent, Java-based software framework.
+Eclipse was originally a proprietary product developed by IBM as a successor of the VisualAge family of tools.
+Eclipse has subsequently been released as free/open source software under the Eclipse Public License.
+developerWorks
+developerWorks is a website run by IBM for software developers and IT professionals.
+It contains a large number of how-to articles and tutorials, as well as software downloads and code samples, discussion forums, podcasts, blogs, wikis, and other resources for developers and technical professionals.
+Subjects range from open, industry-standard technologies like Java, Linux, SOA and web services, web development, Ajax, PHP, and XML to IBM's products (WebSphere, Rational, Lotus, Tivoli and DB2).
+In 2007 developerWorks was inducted into the Jolt Hall of Fame.
+alphaWorks
+alphaWorks is IBM's source for emerging software technologies.
+These technologies include:
+Flexible Internet Evaluation Report Architecture - A highly flexible architecture for the design, display, and reporting of Internet surveys.
+IBM History Flow Visualization Application - A tool for visualizing dynamic, evolving documents and the interactions of multiple collaborating authors.
+IBM Linux on POWER Performance Simulator - A tool that provides users of Linux on Power a set of performance models for IBM's POWER processors.
+Database File Archive And Restoration Management - An application for archiving and restoring hard disk files using file references stored in a database.
+Policy Management for Autonomic Computing - A policy-based autonomic management infrastructure that simplifies the automation of IT and business processes.
+FairUCE - A spam filter that verifies sender identity instead of filtering content.
+Unstructured Information Management Architecture (UIMA) SDK - A Java SDK that supports the implementation, composition, and deployment of applications working with unstructured information.
+Accessibility Browser - A web-browser specifically designed to assist people with visual impairments, to be released as open-source software.
+Also known as the "A-Browser," the technology will aim to eliminate the need for a mouse, relying instead completely on voice-controls, buttons and predefined shortcut keys.
+Semiconductor design and manufacturing
+Virtually all modern console gaming systems use microprocessors developed by IBM.
+The Xbox 360 contains the Xenon tri-core processor, which was designed and produced by IBM in less than 24 months.
+Sony's PlayStation 3 features the  Cell BE microprocessor designed jointly by IBM, Toshiba, and Sony.
+Nintendo's seventh-generation console, Wii, features an IBM chip codenamed Broadway.
+The older Nintendo GameCube also utilizes the Gekko processor, designed by IBM.
+In May 2002, IBM and Butterfly.net, Inc. announced the Butterfly Grid, a commercial grid for the online video gaming market.
+In March 2006, IBM announced separate agreements with Hoplon Infotainment, Online Game Services Incorporated (OGSI), and RenderRocket to provide on-demand content management and blade server computing resources.
+Open Client Offering
+IBM announced it will launch its new software, called "Open Client Offering" which is to run on Microsoft's Windows, Linux and Apple's Macintosh.
+The company states that its new product allows businesses to offer employees a choice of using the same software on Windows and its alternatives.
+This means that "Open Client Offering" is to cut costs of managing whether Linux or Apple relative to Windows.
+There will be no necessity for companies to pay Microsoft for its licenses for operations since the operations will no longer rely on software which is Windows-based.
+One of Microsoft's office alternatives is the Open Document Format software, whose development IBM supports.
+It is going to be used for several tasks like: word processing, presentations, along with collaboration with Lotus Notes, instant messaging and blog tools as well as an Internet Explorer competitor – the Firefox web browser.
+IBM plans to install Open Client on 5 percent of its desktop PCs.
+UC2: Unified Communications and Collaboration
+UC2 (Unified Communications and Collaboration) is an IBM and Cisco joint project based on Eclipse and OSGi.
+It will offer the numerous Eclipse application developers a unified platform for an easier work environment.
+The software based on UC2 platform will provide major enterprises with easy-to-use communication solutions, such as the Lotus based Sametime.
+In the future the Sametime users will benefit from such additional functions as click-to-call and voice mailing.
+Internal programs
+Extreme Blue is a company initiative that uses experienced IBM engineers, talented interns, and business managers to develop high-value technology.
+The project is designed to analyze emerging business needs and the technologies that can solve them.
+These projects mostly involve rapid-prototyping of high-profile software and hardware projects.
+In May 2007, IBM unveiled Project Big Green -- a re-direction of $1 billion per year across its businesses to increase energy efficiency.
+IBM Software Group
+This group is one of the major divisions of IBM.
+The various brands include:
+Information Management Software &mdash; database servers and tools, text analytics, content management, business process management and business intelligence.
+Lotus Software &mdash; Groupware, collaboration and business software.
+Acquired in 1995.
+Rational Software &mdash; Software development and application lifecycle management.
+Acquired in 2002.
+Tivoli Software &mdash; Systems management.
+Acquired in 1996.
+WebSphere &mdash; Integration and application infrastructure software.
+Environmental record
+IBM has a long history of dealing with its environmental problems.
+It established a corporate policy on environmental protection in 1971, with the support of a comprehensive global environmental management system.
+According to IBM’s stats, its total hazardous waste decreased by 44 percent over the past five years, and has decreased by 94.6 percent since 1987.
+IBM's total hazardous waste calculation consists of waste from both non-manufacturing and manufacturing operations.
+Waste from manufacturing operations includes waste recycled in closed-loop systems where process chemicals are recovered and for subsequent reuse, rather than just disposing and using new chemical materials.
+Over the years, IBM has redesigned processes to eliminate almost all closed loop recycling and now uses more environmental-friendly materials in their place.
+IBM was recognized as one of the "Top 20 Best Workplaces for Commuters" by the U.S. Environmental Protection Agency (EPA) in 2005.
+This was to recognize the Fortune 500 companies that provided their employees with excellent commuter benefits that helped reduce traffic and air pollution.
+However, the birthplace of IBM, Endicott, suffered IBM's pollution for decades.
+IBM used liquid cleaning agents in its circuit board assembly operation for more than two decades, and six spills and leaks incidents were recorded, including one 1979 leak of 4,100 gallons from an underground tank.
+These left behind volatile organic compounds in the town's soil and aquifer.
+Trace elements of volatile organic compounds have been identified in the Endicott’s drinking water, but the levels are within regulatory limits.
+Also, from 1980, IBM has pumped out 78,000 gallons of chemicals, including trichloroethane, Freon, benzene and perchloroethene to the air and allegedly caused several cancer cases among the villagers.
+IBM Endicott has been identified by the Department of Environmental Conservation as the major source of pollution, though traces of contaminants from a local dry cleaner and other polluters were also found.
+Despite the amount of pollutant, state health officials cannot say whether air or water pollution in Endicott has actually caused any health problems.
+Village officials say tests show that the water is safe to drink.
+Solar power
+Tokyo Ohka Kogyo Co., Ltd. (TOK) and IBM are collaborating to establish new, low-cost methods for bringing the next generation of solar energy products to market,this is, CIGS (Copper-Indium-Gallium-Selenide) solar cell modules.
+Use of thin film technology, such as CIGS, has great promise in reducing the overall cost of solar cells and further enabling their widespread adoption.
+IBM is exploring four main areas of photovoltaic research: using current technologies to develop cheaper and more efficient silicon solar cells, developing new solution processed thin film photovoltaic devices, concentrator photovoltaics, and future generation photovoltaic architectures based upon nanostructures such as semiconductor quantum dots and nanowires.
+Dr. Supratik Guha is the leading scientist in IBM photovoltaics.
+Corporate culture of IBM
+Big Blue is a nickname for IBM; several theories exist regarding its origin.
+One theory, substantiated by people who worked for IBM at the time, is that IBM field reps coined the term in the 1960s, referring to the color of the mainframes IBM installed in the 1960s and early 1970s.
+"All blue" was a term used to describe a loyal IBM customer, and business writers later picked up the term.
+Another theory suggests that Big Blue simply refers to the Company's logo.
+A third theory suggests that Big Blue refers to a former company dress code that required many IBM employees to wear only white shirts and many wore blue suits.
+In any event, IBM keyboards, typewriters, and some other manufactured devices, have played on the "Big Blue" concept, using the color for enter keys and carriage returns.
+Sales
+IBM has often been described as having a sales-centric or a sales-oriented business culture.
+Traditionally, many IBM executives and general managers are chosen from the sales force.
+The current CEO, Sam Palmisano, for example, joined the company as a salesman and, unusually for CEOs of major corporations, has no MBA or postgraduate qualification.
+Middle and top management are often enlisted to give direct support to salesmen when pitching sales to important customers.
+The uniform
+A dark (or gray) suit, white shirt, and a "sincere" tie was the public uniform for IBM employees for most of the 20th Century.
+During IBM's management transformation in the 1990s, CEO Lou Gerstner relaxed these codes, normalizing the dress and behavior of IBM employees to resemble their counterparts in other large technology companies.
+IBM company values and "Jam"
+In 2003, IBM embarked on an ambitious project to rewrite company values.
+Using its Jam technology, the company hosted Intranet-based online discussions on key business issues with 50,000 employees over 3 days.
+The discussions were analyzed by sophisticated text analysis software (eClassifier) to mine online comments for themes.
+As a result of the 2003 Jam, the company values were updated to reflect three modern business, marketplace and employee views: "Dedication to every client's success", "Innovation that matters - for our company and for the world", "Trust and personal responsibility in all relationships".
+In 2004, another Jam was conducted during which 52,000 employees exchanged best practices for 72 hours.
+They focused on finding actionable ideas to support implementation of the values previously identified.
+A new post-Jam Ratings event was developed to allow IBMers to select key ideas that support the values.
+The board of directors cited this Jam when awarding Palmisano a pay rise in the spring of 2005.
+In July and September 2006, Palmisano launched another jam called [https://www.globalinnovationjam.com/ InnovationJam].
+InnovationJam was the largest online brainstorming session ever with more than 150,000 participants from 104 countries.
+The participants were IBM employees, members of IBM employees' families, universities, partners, and customers.
+InnovationJam was divided in two sessions (one in July and one in September) for 72 hours each and generated more than 46,000 ideas.
+In November 2006, IBM declared that they will invest $US 100 million in the 10 best ideas from InnovationJam.
+Open source
+IBM has been influenced by the Open Source Initiative, and began supporting Linux in 1998.
+The company invests billions of dollars in services and software based on Linux through the IBM Linux Technology Center, which includes over 300 Linux kernel developers.
+IBM has also released code under different open-source licenses, such as the platform-independent software framework Eclipse (worth approximately US$40 million at the time of the donation) and the Java-based relational database management system (RDBMS) Apache Derby.
+IBM's open source involvement has not been trouble-free, however (see SCO v. IBM).
+Corporate affairs
+Diversity and workforce issues
+IBM's efforts to promote workforce diversity and equal opportunity date back at least to World War I, when the company hired disabled veterans.
+IBM was the only technology company ranked in Working Mother magazine's Top 10 for 2004, and one of two technology companies in 2005 (the other company being Hewlett-Packard).
+On September 21, 1953, Thomas J. Watson, the CEO at the time, sent out a very controversial letter to all IBM employees stating that IBM needed to hire the best people, regardless of their race, ethnic origin, or gender.
+In 1984, IBM added sexual preference.
+He stated that this would give IBM a competitive advantage because IBM would then be able to hire talented people its competitors would turn down.
+The company has traditionally resisted labor union organizing, although unions represent some IBM workers outside the United States.
+In the 1990s, two major pension program changes, including a conversion to a cash balance plan, resulted in an employee class action lawsuit alleging age discrimination.
+IBM employees won the lawsuit and arrived at a partial settlement, although appeals are still underway.
+IBM also settled a major overtime class-action lawsuit in 2006.
+Historically IBM has had a good reputation of long-term staff retention with few large scale layoffs.
+In more recent years there have been a number of broad sweeping cuts to the workforce as IBM attempts to adapt to changing market conditions and a declining profit base.
+After posting weaker than expected revenues in the first quarter of 2005, IBM eliminated 14,500 positions from its workforce, predominantly in Europe.
+In May 2005, IBM Ireland said to staff that the MD(Micro-electronics Division) facility was closing down by the end of 2005 and offered a settlement to staff.
+However, all staff that wished to stay with the Company were redeployed within IBM Ireland.
+The production moved to a company called Amkor in Singapore who purchased IBM's Microelectronics business in Singapore and is widely agreed that IBM promised this Company a full load capacity in return for the purchase of the facility.
+On June 8 2005, IBM Canada Ltd. eliminated approximately 700 positions.
+IBM projects these as part of a strategy to "rebalance" its portfolio of professional skills & businesses.
+IBM India and other IBM offices in China, the Philippines and Costa Rica have been witnessing a recruitment boom and steady growth in number of employees due to lower wages.
+On October 10 2005, IBM became the first major company in the world to formally commit to not using genetic information in its employment decisions.
+This came just a few months after IBM announced its support of the National Geographic Society's Genographic Project.
+Gay rights
+IBM provides employees' same-sex partners with benefits and provides an anti-discrimination clause.
+The Human Rights Campaign has consistently rated IBM 100% on its index of gay-friendliness since 2003 (in 2002, the year it began compiling its report on major companies, IBM scored 86%).
+Logos
+Logos designed in the 1970s tended to be sensitive to the technical limitations of photocopiers, which were then being widely deployed.
+A logo with large solid areas tended to be poorly copied by copiers in the 1970s, so companies preferred logos that avoided large solid areas.
+The 1972 IBM logos are an example of this tendency.
+With the advent of digital copiers in the mid-1980s this technical restriction had largely disappeared; at roughly the same time, the 13-bar logo was abandoned for almost the opposite reason it was difficult to render accurately on the low-resolution digital printers (240 dots per inch) of the time.
+Board of directors
+Current members of the board of directors of IBM are:
+Cathleen Black President, Hearst Magazines
+William Brody President, Johns Hopkins University
+Ken Chenault Chairman and CEO, American Express Company
+Juergen Dormann Chairman of the Board, ABB Ltd
+Michael Eskew Chairman and CEO, United Parcel Service, Inc.
+Shirley Ann Jackson President, Rensselaer Polytechnic Institute
+Minoru Makihara Senior Corporate Advisor and former Chairman, Mitsubishi Corporation
+Lucio Noto Managing Partner, Midstream Partners LLC
+James W. Owens Chairman and CEO, Caterpillar Inc.
+Samuel J. Palmisano Chairman, President and CEO, IBM
+Joan Spero President, Doris Duke Charitable Foundation
+Sidney Taurell, Chairman and CEO, Eli Lilly and Company
+Lorenzo Zambrano Chairman and CEO, Cemex SAB de CV
+Information
+Information as a concept has a diversity of meanings, from everyday usage to technical settings.
+Generally speaking, the concept of information is closely related to notions of constraint, communication, control, data, form, instruction, knowledge, meaning, mental stimulus, pattern, perception, and representation.
+Many people speak about the Information Age as the advent of the Knowledge Age or knowledge society, the information society, the Information revolution, and information technologies, and even though informatics, information science and computer science are often in the spotlight, the word "information" is often used without careful consideration of the various meanings it has acquired.
+Etymology
+According to the Oxford English Dictionary, the earliest historical meaning of the word information in English was the act of informing, or giving form or shape to the mind, as in education, instruction, or training.
+A quote from 1387: "Five books come down from heaven for information of mankind."
+It was also used for an item of training, e.g. a particular instruction.
+"Melibee had heard the great skills and reasons of Dame Prudence, and her wise information and techniques."
+(1386)
+The English word was apparently derived by adding the common "noun of action" ending "-ation" (descended through Francais from Latin "-tio") to the earlier verb to inform, in the sense of to give form to the mind, to discipline, instruct, teach: "Men so wise should go and inform their kings."
+(1330) Inform itself comes (via French) from the Latin verb informare, to give form to, to form an idea of.
+Furthermore, Latin itself already even contained the word informatio meaning concept or idea, but the extent to which this may have influenced the development of the word information in English is unclear.
+As a final note, the ancient Greek word for form was [eidos], and this word was famously used in a technical philosophical sense by [Plato] (and later Aristotle) to denote the ideal identity or essence of something (see [Theory of forms]).
+"Eidos" can also be associated with [thought], [proposition] or even [concept].
+Information as a message
+Information is the state of a system of interest.
+Message is the information materialized.
+Information is a quality of a message from a sender to one or more receivers.
+Information is always about something (size of a parameter, occurrence of an event, etc).
+Viewed in this manner, information does not have to be accurate.
+It may be a truth or a lie, or just the sound of a falling tree.
+Even a disruptive noise used to inhibit the flow of communication and create misunderstanding would in this view be a form of information.
+However, generally speaking, if the amount of information in the received message increases, the message is more accurate.
+This model assumes there is a definite sender and at least one receiver.
+Many refinements of the model assume the existence of a common language understood by the sender and at least one of the receivers.
+An important variation identifies information as that which would be communicated by a message if it were sent from a sender to a receiver capable of understanding the message.
+Notably, it is not required that the sender be capable of understanding the message, or even cognizant that there is a message.
+Thus, information is something that can be extracted from an environment, e.g., through observation, reading or measurement.
+Information is a term with many meanings depending on context, but is as a rule closely related to such concepts as meaning, knowledge, instruction, communication, representation, and mental stimulus.
+Simply stated, information is a message received and understood.
+In terms of data, it can be defined as a collection of facts from which conclusions may be drawn.
+There are many other aspects of information since it is the knowledge acquired through study or experience or instruction.
+But overall, information is the result of processing, manipulating and organizing data in a way that adds to the knowledge of the person receiving it.
+Communication theory provides a numerical measure of the uncertainty of an outcome.
+For example, we can say that "the signal contained thousands of bits of information".
+Communication theory tends to use the concept of information entropy, generally attributed to C.E. Shannon (see below).
+Another form of information is Fisher information, a concept of R.A. Fisher.
+This is used in application of statistics to estimation theory and to science in general.
+Fisher information is thought of as the amount of information that a message carries about an unobservable parameter.
+It can be computed from knowledge of the likelihood function defining the system.
+For example, with a normal likelihood function, the Fisher information is the reciprocal of the variance of the law.
+In the absence of knowledge of the likelihood law, the Fisher information may be computed from normally distributed score data as the reciprocal of their second moment.
+Even though information and data are often used interchangeably, they are actually very different.
+Data is a set of unrelated information, and as such is of no use until it is properly evaluated.
+Upon evaluation, once there is some significant relation between data, and they show some relevance, then they are converted into information.
+Now this same data can be used for different purposes.
+Thus, till the data convey some information, they are not useful.
+Measuring information entropy
+The view of information as a message came into prominence with the publication in 1948 of an influential paper by Claude Shannon, "A Mathematical Theory of Communication."
+This paper provides the foundations of information theory and endows the word information not only with a technical meaning but also a measure.
+If the sending device is equally likely to send any one of a set of <math/> messages, then the preferred measure of "the information produced when one message is chosen from the set" is the base two logarithm of <math/> (This measure is called self-information).
+In this paper, Shannon continues:
+A complementary way of measuring information is provided by algorithmic information theory.
+In brief, this measures the information content of a list of symbols based on how predictable they are, or more specifically how easy it is to compute the list through a program: the information content of a sequence is the number of bits of the shortest program that computes it.
+The sequence below would have a very low algorithmic information measurement since it is a very predictable pattern, and as the pattern continues the measurement would not change.
+Shannon information would give the same information measurement for each symbol, since they are statistically random, and each new symbol would increase the measurement.
+123456789101112131415161718192021
+It is important to recognize the limitations of traditional information theory and algorithmic information theory from the perspective of human meaning.
+For example, when referring to the meaning content of a message Shannon noted “Frequently the messages have meaning… these semantic aspects of communication are irrelevant to the engineering problem.
+The significant aspect is that the actual message is one selected from a set of possible messages” (emphasis in original).
+In information theory signals are part of a process, not a substance; they do something, they do not contain any specific meaning.
+Combining algorithmic information theory and information theory we can conclude that the most random signal contains the most information as it can be interpreted in any way and cannot be compressed.
+Michael Reddy noted that "'signals' of the mathematical theory are 'patterns that can be exchanged'.
+There is no message contained in the signal, the signals convey the ability to select from a set of possible messages."
+In information theory "the system must be designed to operate for each possible selection, not just the one which will actually be chosen since this is unknown at the time of design".
+Information as a pattern
+Information is any represented pattern.
+This view assumes neither accuracy nor directly communicating parties, but instead assumes a separation between an object and its representation.
+Consider the following example: economic statistics represent an economy, however inaccurately.
+What are commonly referred to as data in computing, statistics, and other fields, are forms of information in this sense.
+The electro-magnetic patterns in a computer network and connected devices are related to something other than the pattern itself, such as text characters to be displayed and keyboard input.
+Signals, signs, and symbols are also in this category.
+On the other hand, according to semiotics, data is symbols with certain syntax and information is data with a certain semantic.
+Painting and drawing contain information to the extent that they represent something such as an assortment of objects on a table, a profile, or a landscape.
+In other words, when a pattern of something is transposed to a pattern of something else, the latter is information.
+This would be the case whether or not there was anyone to perceive it.
+But if information can be defined merely as a pattern, does that mean that neither utility nor meaning are necessary components of information?
+Arguably a distinction must be made between raw unprocessed data and information which possesses utility, value or some quantum of meaning.
+On this view, information may indeed be characterized as a pattern; but this is a necessary condition, not a sufficient one.
+An individual entry in a telephone book, which follows a specific pattern formed by name, address and telephone number, does not become "informative" in some sense unless and until it possesses some degree of utility, value or meaning.
+For example, someone might look up a girlfriend's number, might order a take away etc.
+The vast majority of numbers will never be construed as "information" in any meaningful sense.
+The gap between data and information is only closed by a behavioral bridge whereby some value, utility or meaning is added to transform mere data or pattern into information.
+When one constructs a representation of an object, one can selectively extract from the object (sampling) or use a system of signs to replace (encoding), or both.
+The sampling and encoding result in representation.
+An example of the former is a "sample" of a product; an example of the latter is "verbal description" of a product.
+Both contain information of the product, however inaccurate.
+When one interprets representation, one can predict a broader pattern from a limited number of observations (inference) or understand the relation between patterns of two different things (decoding).
+One example of the former is to sip a soup to know if it is spoiled; an example of the latter is examining footprints to determine the animal and its condition.
+In both cases, information sources are not constructed or presented by some "sender" of information.
+Regardless, information is dependent upon, but usually unrelated to and separate from, the medium or media used to express it.
+In other words, the position of a theoretical series of bits, or even the output once interpreted by a computer or similar device, is unimportant, except when someone or something is present to interpret the information.
+Therefore, a quantity of information is totally distinct from its medium.
+Information as sensory input
+Often information is viewed as a type of input to an organism or designed device.
+Inputs are of two kinds.
+Some inputs are important to the function of the organism (for example, food) or device (energy) by themselves.
+In his book Sensory Ecology, Dusenbery called these causal inputs.
+Other inputs (information) are important only because they are associated with causal inputs and can be used to predict the occurrence of a causal input at a later time (and perhaps another place).
+Some information is important because of association with other information but eventually there must be a connection to a causal input.
+In practice, information is usually carried by weak stimuli that must be detected by specialized sensory systems and amplified by energy inputs before they can be functional to the organism or device.
+For example, light is often a causal input to plants but provides information to animals.
+The colored light reflected from a flower is too weak to do much photosynthetic work but the visual system of the bee detects it and the bee's nervous system uses the information to guide the bee to the flower, where the bee often finds nectar or pollen, which are causal inputs, serving a nutritional function.
+Information is any type of sensory input.
+When an organism with a nervous system receives an input, it transforms the input into an electrical signal.
+This is regarded information by some.
+The idea of representation is still relevant, but in a slightly different manner.
+That is, while abstract painting does not represent anything concretely, when the viewer sees the painting, it is nevertheless transformed into electrical signals that create a representation of the painting.
+Defined this way, information does not have to be related to truth, communication, or representation of an object.
+Entertainment in general is not intended to be informative.
+Music, the performing arts, amusement parks, works of fiction and so on are thus forms of information in this sense, but they are not necessarily forms of information according to some definitions given above.
+Consider another example: food supplies both nutrition and taste for those who eat it.
+If information is equated to sensory input, then nutrition is not information but taste is.
+Information as an influence which leads to a transformation
+Information is any type of pattern that influences the formation or transformation of other patterns.
+In this sense, there is no need for a conscious mind to perceive, much less appreciate, the pattern.
+Consider, for example, DNA.
+The sequence of nucleotides is a pattern that influences the formation and development of an organism without any need for a conscious mind.
+Systems theory at times seems to refer to information in this sense, assuming information does not necessarily involve any conscious mind, and patterns circulating (due to feedback) in the system can be called information.
+In other words, it can be said that information in this sense is something potentially perceived as representation, though not created or presented for that purpose.
+When Marshall McLuhan speaks of media and their effects on human cultures, he refers to the structure of artifacts that in turn shape our behaviors and mindsets.
+Also, pheromones are often said to be "information" in this sense.
+(See also Gregory Bateson.)
+Information as a property in physics
+In 2003, J. D. Bekenstein claimed there is a growing trend in physics to define the physical world as being made of information itself (and thus information is defined in this way).
+Information has a well defined meaning in physics.
+Examples of this include the phenomenon of quantum entanglement where particles can interact without reference to their separation or the speed of light.
+Information itself cannot travel faster than light even if the information is transmitted indirectly.
+This could lead to the fact that all attempts at physically observing a particle with an "entangled" relationship to another are slowed down, even though the particles are not connected in any other way other than by the information they carry.
+Another link is demonstrated by the Maxwell's demon thought experiment.
+In this experiment, a direct relationship between information and another physical property, entropy, is demonstrated.
+A consequence is that it is impossible to destroy information without increasing the entropy of a system; in practical terms this often means generating heat.
+Another, more philosophical, outcome is that information could be thought of as interchangeable with energy.
+Thus, in the study of logic gates, the theoretical lower bound of thermal energy released by an AND gate is higher than for the NOT gate (because information is destroyed in an AND gate and simply converted in a NOT gate).
+Physical information is of particular importance in the theory of quantum computers.
+Information as records
+Records are a specialized form of information.
+Essentially, records are information produced consciously or as by-products of business activities or transactions and retained because of their value.
+Primarily their value is as evidence of the activities of the organization but they may also be retained for their informational value.
+Sound records management ensures that the integrity of records is preserved for as long as they are required.
+The international standard on records management, ISO 15489, defines records as "information created, received, and maintained as evidence and information by an organization or person, in pursuance of legal obligations or in the transaction of business".
+The International Committee on Archives (ICA) Committee on electronic records defined a record as, "a specific piece of recorded information generated, collected or received in the initiation, conduct or completion of an activity and that comprises sufficient content, context and structure to provide proof or evidence of that activity".
+Records may be retained because of their business value, as part of the corporate memory of the organization or to meet legal, fiscal or accountability requirements imposed on the organization.
+Willis (2005) expressed the view that sound management of business records and information delivered "…six key requirements for good corporate governance…transparency; accountability; due process; compliance; meeting statutory and common law requirements; and security of personal and corporate information."
+Information and semiotics
+Beynon-Davies explains the multi-faceted concept of information in terms of that of signs and sign-systems.
+Signs themselves can be considered in terms of four inter-dependent levels, layers or branches of semiotics: pragmatics, semantics, syntactics and empirics.
+These four layers serve to connect the social world on the one hand with the physical or technical world on the other.
+Pragmatics is concerned with the purpose of communication.
+Pragmatics links the issue of signs with that of intention.
+The focus of pragmatics is on the intentions of human agents underlying communicative behaviour.
+In other words, intentions link language to action.
+Semantics is concerned with the meaning of a message conveyed in a communicative act.
+Semantics considers the content of communication.
+Semantics is the study of the meaning of signs - the association between signs and behaviour.
+Semantics can be considered as the study of the link between symbols and their referents or concepts; particularly the way in which signs relate to human behaviour.
+Syntactics is concerned with the formalism used to represent a message.
+Syntactics as an area studies the form of communication in terms of the logic and grammar of sign systems.
+Syntactics is devoted to the study of the form rather than the content of signs and sign-systems.
+Empirics is the study of the signals used to carry a message; the physical characteristics of the medium of communication.
+Empirics is devoted to the study of communication channels and their characteristics, e.g., sound, light, electronic transmission etc.
+Communication normally exists within the context of some social situation.
+The social situation sets the context for the intentions conveyed (pragmatics) and the form in which communication takes place.
+In a communicative situation intentions are expressed through messages which comprise collections of inter-related signs taken from a language which is mutually understood by the agents involved in the communication.
+Mutual understanding implies that agents involved understand the chosen language in terms of its agreed syntax (syntactics) and semantics.
+The sender codes the message in the language and sends the message as signals along some communication channel (empirics).
+The chosen communication channel will have inherent properties which determine outcomes such as the speed with which communication can take place and over what distance.
+Information extraction
+In natural language processing, information extraction (IE) is a type of information retrieval whose goal is to automatically extract structured information, i.e. categorized and contextually and semantically well-defined data from a certain domain, from unstructured machine-readable documents.
+An example of information extraction is the extraction of instances of corporate mergers, more formally <math/>, from an online news sentence such as: "Yesterday, New-York based Foo Inc. announced their acquisition of Bar Corp."
+A broad goal of IE is to allow computation to be done on the previously unstructured data.
+A more specific goal is to allow logical reasoning to draw inferences based on the logical content of the input data.
+The significance of IE is determined by the growing amount of information available in unstructured (i.e. without metadata) form, for instance on the Internet.
+This knowledge can be made more accessible by means of transformation into relational form, or by marking-up with XML tags.
+An intelligent agent monitoring a news data feed requires IE to transform unstructured data into something that can be reasoned with.
+A typical application of IE is to scan a set of documents written in a natural language and populate a database with the information extracted.
+Current approaches to IE use natural language processing techniques that focus on very restricted domains.
+For example, the Message Understanding Conference (MUC) is a competition-based conference that focused on the following domains in the past:
+MUC-1 (1987), MUC-2 (1989): Naval operations messages.
+MUC-3 (1991), MUC-4 (1992): Terrorism in Latin American countries.
+MUC-5 (1993): Joint ventures and microelectronics domain.
+MUC-6 (1995): News articles on management changes.
+MUC-7 (1998): Satellite launch reports.
+Natural Language texts may need to use some form of a Text simplification to create a more easily machine readable text to extract the sentences.
+Typical subtasks of IE are:
+Named Entity Recognition: recognition of entity names (for people and organizations), place names, temporal expressions, and certain types of numerical expressions.
+Coreference: identification chains of noun phrases that refer to the same object.
+For example, anaphora is a type of coreference.
+Terminology extraction: finding the relevant terms for a given corpus
+Relation Extraction: identification of relations between entities, such as:
+PERSON works for ORGANIZATION (extracted from the sentence "Bill works for IBM.")
+PERSON located in LOCATION (extracted from the sentence "Bill is in France.")
+Information retrieval
+Information retrieval (IR) is the science of searching for documents, for information within documents and for metadata about documents, as well as that of searching relational databases and the World Wide Web.
+There is overlap in the usage of the terms data retrieval, document retrieval, information retrieval, and text retrieval, but each also has its own body of literature, theory, praxis and technologies.
+IR is interdisciplinary, based on computer science, mathematics, library science, information science, information architecture, cognitive psychology, linguistics, statistics and physics.
+Automated information retrieval systems are used to reduce what has been called "information overload".
+Many universities and public libraries use IR systems to provide access to books, journals and other documents.
+Web search engines are the most visible IR applications.
+History
+The idea of using computers to search for relevant pieces of information was popularized in an article As We May Think by Vannevar Bush in 1945.
+First implementations of information retrieval systems were introduced in the 1950s and 1960s.
+By 1990 several different techniques had been shown to perform well on small text corpora (several thousand documents).
+In 1992 the US Department of Defense, along with the National Institute of Standards and Technology (NIST), cosponsored the Text Retrieval Conference (TREC) as part of the TIPSTER text program.
+The aim of this was to look into the information retrieval community by supplying the infrastructure that was needed for evaluation of text retrieval methodologies on a very large text collection.
+This catalyzed research on methods that scale to huge corpora.
+The introduction of web search engines has boosted the need for very large scale retrieval systems even further.
+The use of digital methods for storing and retrieving information has led to the phenomenon of digital obsolescence, where a digital resource ceases to be readable because the physical media, the reader required to read the media, the hardware, or the software that runs on it, is no longer available.
+The information is initially easier to retrieve than if it were on paper, but is then effectively lost.
+Timeline
+1890: Hollerith tabulating machines were used to analyze the US census.
+(Herman Hollerith).
+1945: Vannevar Bush's As We May Think appeared in Atlantic Monthly
+Late 1940s: The US military confronted problems of indexing and retrieval of wartime scientific research documents captured from Germans.
+1947: Hans Peter Luhn (research engineer at IBM since 1941) began work on a mechanized, punch card based system for searching chemical compounds.
+1950: The term "information retrieval" may have been coined by Calvin Mooers.
+1950s: Growing concern in the US for a "science gap" with the USSR motivated, encouraged funding, and provided a backdrop for mechanized literature searching systems (Allen Kent et al) and the invention of citation indexing (Eugene Garfield).
+1955: Allen Kent joined Case Western Reserve University, and eventually becomes associate director of the Center for Documentation and Communications Research.
+That same year, Kent and colleagues publish a paper in American Documentation describing the precision and recall measures, as well as detailing a proposed "framework" for evaluating an IR system, which includes statistical sampling methods for determining the number of relevant documents not retrieved.
+1958: International Conference on Scientific Information Washington DC included consideration of IR systems as a solution to problems identified.
+See: Proceedings of the International Conference on Scientific Information, 1958 (National Academy of Sciences, Washington, DC, 1959)
+1959: Hans Peter Luhn published "Auto-encoding of documents for information retrieval."
+1960: Melvin Earl (Bill) Maron and J. L. Kuhns published "On relevance, probabilistic indexing, and information retrieval" in Journal of the ACM 7(3):216-244, July 1960.
+Early 1960s: Gerard Salton began work on IR at Harvard, later moved to Cornell.
+1962: Cyril W. Cleverdon published early findings of the Cranfield studies, developing a model for IR system evaluation.
+See: Cyril W. Cleverdon, "Report on the Testing and Analysis of an Investigation into the Comparative Efficiency of Indexing Systems".
+Cranfield Coll. of Aeronautics, Cranfield, England, 1962.
+1962: Kent published Information Analysis and Retrieval
+1963: Weinberg report "Science, Government and Information" gave a full articulation of the idea of a "crisis of scientific information."
+The report was named after Dr. Alvin Weinberg.
+1963: Joseph Becker and Robert M. Hayes published text on information retrieval.
+Becker, Joseph; Hayes, Robert Mayo.
+Information storage and retrieval: tools, elements, theories.
+New York, Wiley (1963).
+1964: Karen Sp&auml;rck Jones finished her thesis at Cambridge, Synonymy and Semantic Classification, and continued work on computational linguistics as it applies to IR
+1964: The National Bureau of Standards sponsored a symposium titled "Statistical Association Methods for Mechanized Documentation."
+Several highly significant papers, including G. Salton's first published reference (we believe) to the SMART system.
+Mid-1960s: National Library of Medicine developed MEDLARS Medical Literature Analysis and Retrieval System, the first major machine-readable database and batch retrieval system
+Mid-1960s: Project Intrex at MIT
+1965: J. C. R. Licklider published Libraries of the Future
+1966: Don Swanson was involved in studies at University of Chicago on Requirements for Future Catalogs
+1968: Gerard Salton published Automatic Information Organization and Retrieval.
+1968: J. W. Sammon's RADC Tech report "Some Mathematics of Information Storage and Retrieval..." outlined the vector model.
+1969: Sammon's "A nonlinear mapping for data structure analysis" (IEEE Transactions on Computers) was the first proposal for visualization interface to an IR system.
+Late 1960s: F. W. Lancaster completed evaluation studies of the MEDLARS system and published the first edition of his text on information retrieval
+Early 1970s: first online systems--NLM's AIM-TWX, MEDLINE; Lockheed's Dialog; SDC's ORBIT
+Early 1970s: Theodor Nelson promoting concept of hypertext, published Computer Lib/Dream Machines
+1971: N. Jardine and C. J. Van Rijsbergen published "The use of hierarchic clustering in information retrieval", which articulated the "cluster hypothesis."
+(Information Storage and Retrieval, 7(5), pp. 217-240, Dec 1971)
+1975: Three highly influential publications by Salton fully articulated his vector processing framework and term discrimination model:
+A Theory of Indexing (Society for Industrial and Applied Mathematics)
+"A theory of term importance in automatic text analysis", (JASIS v. 26)
+"A vector space model for automatic indexing", (CACM 18:11)
+1978: The First ACM SIGIR conference.
+1979: C. J. Van Rijsbergen published Information Retrieval (Butterworths).
+Heavy emphasis on probabilistic models.
+1980: First international ACM SIGIR conference, joint with British Computer Society IR group in Cambridge
+1982: Belkin, Oddy, and Brooks proposed the ASK (Anomalous State of Knowledge) viewpoint for information retrieval.
+This was an important concept, though their automated analysis tool proved ultimately disappointing.
+1983: Salton (and M. McGill) published Introduction to Modern Information Retrieval (McGraw-Hill), with heavy emphasis on vector models.
+Mid-1980s: Efforts to develop end user versions of commercial IR systems.
+1985-1993: Key papers on and experimental systems for visualization interfaces.
+Work by D. B. Crouch, Robert R. Korfhage, M. Chalmers, A. Spoerri and others.
+1989: First World Wide Web proposals by Tim Berners-Lee at CERN.
+1992: First TREC conference.
+1997: Publication of Korfhage's Information Storage and Retrieval with emphasis on visualization and multi-reference point systems.
+Late 1990s: Web search engine implementation of many features formerly found only in experimental IR systems
+Overview
+An information retrieval process begins when a user enters a query into the system.
+Queries are formal statements of information needs, for example search strings in web search engines.
+In information retrieval a query does not uniquely identify a single object in the collection.
+Instead, several objects may match the query, perhaps with different degrees of relevancy.
+An object is an entity which keeps or stores information in a database.
+User queries are matched to objects stored in the database.
+Depending on the application the data objects may be, for example, text documents, images or videos.
+Often the documents themselves are not kept or stored directly in the IR system, but are instead represented in the system by document surrogates.
+Most IR systems compute a numeric score on how well each object in the database match the query, and rank the objects according to this value.
+The top ranking objects are then shown to the user.
+The process may then be iterated if the user wishes to refine the query.
+Performance measures
+Many different measures for evaluating the performance of information retrieval systems have been proposed.
+The measures require a collection of documents and a query.
+All common measures described here assume a ground truth notion of relevancy: every document is known to be either relevant or non-relevant to a particular query.
+In practice queries may be ill-posed and there may be different shades of relevancy.
+Precision
+Precision is the fraction of the documents retrieved that are relevant to the user's information need.
+<math/>
+In binary classification, precision is analogous to positive predictive value.
+Precision takes all retrieved documents into account.
+It can also be evaluated at a given cut-off rank, considering only the topmost results returned by the system.
+This measure is called precision at n or P@n.
+Note that the meaning and usage of "precision" in the field of Information Retrieval differs from the definition of accuracy and precision within other branches of science and technology.
+Recall
+Recall is the fraction of the documents that are relevant to the query that are successfully retrieved.
+<math/>
+In binary classification, recall is called sensitivity.
+So it can be looked at as the probability that a relevant document is retrieved by the query.
+It is trivial to achieve recall of 100% by returning all documents in response to any query.
+Therefore recall alone is not enough but one needs to measure the number of non-relevant documents also, for example by computing the precision.
+Fall-Out
+The proportion of non-relevant documents that are retrieved, out of all non-relevant documents available:
+<math/>
+In binary classification, fall-out is closely related to specificity.
+More precisely: <math/>.
+It can be looked at as the probability that a non-relevant document is retrieved by the query.
+It is trivial to achieve fall-out of 0% by returning zero documents in response to any query.
+F-measure
+The weighted harmonic mean of precision and recall, the traditional F-measure or balanced F-score is:
+<math/>
+This is also known as the <math/> measure, because recall and precision are evenly weighted.
+The general formula for non-negative real ß is:
+<math/>
+Two other commonly used F measures are the <math/> measure, which weights recall twice as much as precision, and the <math/> measure, which weights precision twice as much as recall.
+The F-measure was derived by van Rijsbergen (1979) so that <math/> "measures the effectiveness of retrieval with respect to a user who attaches ß times as much importance to recall as precision".
+It is based on van Rijsbergen's effectiveness measure <math/>.
+Their relationship is <math/> where <math/>.
+Average precision of precision and recall
+The precision and recall are based on the whole list of documents returned by the system.
+Average precision emphasizes returning more relevant documents earlier.
+It is average of precisions computed after truncating the list after each of the relevant documents in turn:
+<math/>
+where r is the rank, N the number retrieved, rel() a binary function on the relevance of a given rank, and P() precision at a given cut-off rank.
+Model types
+[[Image:Information-Retrieval-Models.png|thumb|500px|categorization of IR-models (translated from German entry, original source Dominik Kuropka)]]
+For the information retrieval to be efficient, the documents are typically transformed into a suitable representation.
+There are several representations.
+The picture on the right illustrates the relationship of some common models.
+In the picture, the models are categorized according to two dimensions: the mathematical basis and the properties of the model.
+First dimension: mathematical basis
+Set-theoretic models represent documents as sets of words or phrases.
+Similarities are usually derived from set-theoretic operations on those sets.
+Common models are:
+Standard Boolean model
+Extended Boolean model
+Fuzzy retrieval
+Algebraic models represent documents and queries usually as vectors, matrices or tuples.
+The similarity of the query vector and document vector is represented as a scalar value.
+Vector space model
+Generalized vector space model
+Topic-based vector space model (literature: www.kuropka.net/files/TVSM.pdf, www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id=)
+Extended Boolean model
+Enhanced topic-based vector space model (literature: kuropka.net/files/HPI_Evaluation_of_eTVSM.pdf, www.logos-verlag.de/cgi-bin/engbuchmid?isbn=0514&lng=eng&id=)
+Latent semantic indexing aka latent semantic analysis
+Probabilistic models treat the process of document retrieval as a probabilistic inference.
+Similarities are computed as probabilities that a document is relevant for a given query.
+Probabilistic theorems like the Bayes' theorem are often used in these models.
+Binary independence retrieval
+Probabilistic relevance model (BM25)
+Uncertain inference
+Language models
+Divergence-from-randomness model
+Latent Dirichlet allocation
+Second dimension: properties of the model
+Models without term-interdependencies treat different terms/words as independent.
+This fact is usually represented in vector space models by the orthogonality assumption of term vectors or in probabilistic models by an independency assumption for term variables.
+Models with immanent term interdependencies allow a representation of interdependencies between terms.
+However the degree of the interdependency between two terms is defined by the model itself.
+It is usually directly or indirectly derived (e.g. by dimensional reduction) from the co-occurrence of those terms in the whole set of documents.
+Models with transcendent term interdependencies allow a representation of interdependencies between terms, but they do not allege how the interdependency between two terms is defined.
+They relay an external source for the degree of interdependency between two terms.
+(For example a human or sophisticated algorithms.)
+Major figures
+Gerard Salton
+Hans Peter Luhn
+W. Bruce Croft
+Karen Spärck Jones
+C. J. van Rijsbergen
+Stephen E. Robertson
+Awards in the field
+Tony Kent Strix award
+Gerard Salton Award
+Information theory
+Information theory is a branch of applied mathematics and electrical engineering involving the quantification of information.
+Historically, information theory was developed to find fundamental limits on compressing and reliably communicating data.
+Since its inception it has broadened to find applications in many other areas, including statistical inference, natural language processing, cryptography generally, networks other than communication networks -- as in neurobiology, the evolution and function of molecular codes, model selection in ecology, thermal physics, quantum computing, plagiarism detection and other forms of data analysis.
+A key measure of information in the theory is known as information entropy, which is usually expressed by the average number of bits needed for storage or communication.
+Intuitively, entropy quantifies the uncertainty involved when encountering a random variable.
+For example, a fair coin flip (2 equally likely outcomes) will have less entropy than a roll of a die (6 equally likely outcomes).
+Applications of fundamental topics of information theory include lossless data compression (e.g. ZIP files), lossy data compression (e.g. MP3s), and channel coding (e.g. for DSL lines).
+The field is at the intersection of mathematics, statistics, computer science, physics, neurobiology, and electrical engineering.
+Its impact has been crucial to the success of the Voyager missions to deep space, the invention of the CD, the feasibility of mobile phones, the development of the Internet, the study of linguistics and of human perception, the understanding of black holes, and numerous other fields.
+Important sub-fields of information theory are source coding, channel coding, algorithmic complexity theory, algorithmic information theory, and measures of information.
+Overview
+The main concepts of information theory can be grasped by considering the most widespread means of human communication: language.
+Two important aspects of a good language are as follows: First, the most common words (e.g., "a", "the", "I") should be shorter than less common words (e.g., "benefit", "generation", "mediocre"), so that sentences will not be too long.
+Such a tradeoff in word length is analogous to data compression and is the essential aspect of source coding.
+Second, if part of a sentence is unheard or misheard due to noise -— e.g., a passing car -— the listener should still be able to glean the meaning of the underlying message.
+Such robustness is as essential for an electronic communication system as it is for a language; properly building such robustness into communications is done by channel coding.
+Source coding and channel coding are the fundamental concerns of information theory.
+Note that these concerns have nothing to do with the importance of messages.
+For example, a platitude such as "Thank you; come again" takes about as long to say or write as the urgent plea, "Call an ambulance!" while clearly the latter is more important and more meaningful.
+Information theory, however, does not consider message importance or meaning, as these are matters of the quality of data rather than the quantity and readability of data, the latter of which is determined solely by probabilities.
+Information theory is generally considered to have been founded in 1948 by Claude Shannon in his seminal work, "A Mathematical Theory of Communication."
+The central paradigm of classical information theory is the engineering problem of the transmission of information over a noisy channel.
+The most fundamental results of this theory are Shannon's source coding theorem, which establishes that, on average, the number of bits needed to represent the result of an uncertain event is given by its entropy; and Shannon's noisy-channel coding theorem, which states that reliable communication is possible over noisy channels provided that the rate of communication is below a certain threshold called the channel capacity.
+The channel capacity can be approached in practice by using appropriate encoding and decoding systems.
+Information theory is closely associated with a collection of pure and applied disciplines that have been investigated and reduced to engineering practice under a variety of rubrics throughout the world over the past half century or more: adaptive systems, anticipatory systems, artificial intelligence, complex systems, complexity science, cybernetics, informatics, machine learning, along with systems sciences of many descriptions.
+Information theory is a broad and deep mathematical theory, with equally broad and deep applications, amongst which is the vital field of coding theory.
+Coding theory is concerned with finding explicit methods, called codes, of increasing the efficiency and reducing the net error rate of data communication over a noisy channel to near the limit that Shannon proved is the maximum possible for that channel.
+These codes can be roughly subdivided into data compression (source coding) and error-correction (channel coding) techniques.
+In the latter case, it took many years to find the methods Shannon's work proved were possible.
+A third class of information theory codes are cryptographic algorithms (both codes and ciphers).
+Concepts, methods and results from coding theory and information theory are widely used in cryptography and cryptanalysis.
+See the article ban (information) for a historical application.
+Information theory is also used in information retrieval, intelligence gathering, gambling, statistics, and even in musical composition.
+Historical background
+The landmark event that established the discipline of information theory, and brought it to immediate worldwide attention, was the publication of Claude E. Shannon's classic paper "A Mathematical Theory of Communication" in the Bell System Technical Journal in July and October of 1948.
+Prior to this paper, limited information theoretic ideas had been developed at Bell Labs, all implicitly assuming events of equal probability.
+Harry Nyquist's 1924 paper, Certain Factors Affecting Telegraph Speed, contains a theoretical section quantifying "intelligence" and the "line speed" at which it can be transmitted by a communication system, giving the relation <math/>, where W is the speed of transmission of intelligence, m is the number of different voltage levels to choose from at each time step, and K is a constant.
+Ralph Hartley's 1928 paper, Transmission of Information, uses the word information as a measurable quantity, reflecting the receiver's ability to distinguish that one sequence of symbols from any other, thus quantifying information as <math/>, where S was the number of possible symbols, and n the number of symbols in a transmission.
+The natural unit of information was therefore the decimal digit, much later renamed the hartley in his honour as a unit or scale or measure of information.
+Alan Turing in 1940 used similar ideas as part of the statistical analysis of the breaking of the German second world war Enigma ciphers.
+Much of the mathematics behind information theory with events of different probabilities was developed for the field of thermodynamics by Ludwig Boltzmann and J. Willard Gibbs.
+Connections between information-theoretic entropy and thermodynamic entropy, including the important contributions by Rolf Landauer in the 1960s, are explored in Entropy in thermodynamics and information theory.
+In Shannon's revolutionary and groundbreaking paper, the work for which had been substantially completed at Bell Labs by the end of 1944, Shannon for the first time introduced the qualitative and quantitative model of communication as a statistical process underlying information theory, opening with the assertion that
+"The fundamental problem of communication is that of reproducing at one point, either exactly or approximately, a message selected at another point."
+With it came the ideas of
+the information entropy and redundancy of a source, and its relevance through the source coding theorem;
+the mutual information, and the channel capacity of a noisy channel, including the promise of perfect loss-free communication given by the noisy-channel coding theorem;
+the practical result of the Shannon–Hartley law for the channel capacity of a Gaussian channel; and of course
+the bit—a new way of seeing the most fundamental unit of information
+Ways of measuring information
+Information theory is based on probability theory and statistics.
+The most important quantities of information are entropy, the information in a random variable, and mutual information, the amount of information in common between two random variables.
+The former quantity indicates how easily message data can be compressed while the latter can be used to find the communication rate across a channel.
+The choice of logarithmic base in the following formulae determines the unit of information entropy that is used.
+The most common unit of information is the bit, based on the binary logarithm.
+Other units include the nat, which is based on the natural logarithm, and the hartley, which is based on the common logarithm.
+In what follows, an expression of the form <math/> is considered by convention to be equal to zero whenever <math/>
+This is justified because <math/> for any logarithmic base.
+Entropy
+The entropy, <math/>, of a discrete random variable <math/> is a measure of the amount of uncertainty associated with the value of <math/>.
+Suppose one transmits 1000 bits (0s and 1s).
+If these bits are known ahead of transmission (to be a certain value with absolute probability), logic dictates that no information has been transmitted.
+If, however, each is equally and independently likely to be 0 or 1, 1000 bits (in the information theoretic sense) have been transmitted.
+Between these two extremes, information can be quantified as follows.
+If <math/> is the set of all messages <math/> that <math/> could be, and <math/> is the probability of <math/> given <math/>, then the entropy of <math/> is defined:
+<math/>
+(Here, <math/> is the self-information, which is the entropy contribution of an individual message.)
+An important property of entropy is that it is maximized when all the messages in the message space are equiprobable—i.e., most unpredictable—in which case <math/>
+The special case of information entropy for a random variable with two outcomes is the binary entropy function:
+<math/>
+Joint entropy
+The joint entropy of two discrete random variables <math/> and <math/> is merely the entropy of their pairing: <math/>.
+This implies that if <math/> and <math/> are independent, then their joint entropy is the sum of their individual entropies.
+For example, if <math/> represents the position of a chess piece &mdash; <math/> the row and <math/> the column, then the joint entropy of the row of the piece and the column of the piece will be the entropy of the position of the piece.
+<math/>
+Despite similar notation, joint entropy should not be confused with cross entropy.
+Conditional entropy (equivocation)
+The conditional entropy or conditional uncertainty of <math/> given random variable <math/> (also called the equivocation of <math/> about <math/>) is the average conditional entropy over <math/>:
+<math/>
+Because entropy can be conditioned on a random variable or on that random variable being a certain value, care should be taken not to confuse these two definitions of conditional entropy, the former of which is in more common use.
+A basic property of this form of conditional entropy is that:
+<math/>
+Mutual information (transinformation)
+Mutual information measures the amount of information that can be obtained about one random variable by observing another.
+It is important in communication where it can be used to maximize the amount of information shared between sent and received signals.
+The mutual information of <math/> relative to <math/> is given by:
+<math/>
+where <math/> (Specific mutual Information) is the pointwise mutual information.
+A basic property of the mutual information is that
+<math/>
+That is, knowing Y, we can save an average of <math/> bits in encoding X compared to not knowing Y.
+Mutual information is symmetric:
+<math/>
+Mutual information can be expressed as the average Kullback–Leibler divergence (information gain) of the posterior probability distribution of X given the value of Y to the prior distribution on X:
+<math/>
+In other words, this is a measure of how much, on the average, the probability distribution on X will change if we are given the value of Y.
+This is often recalculated as the divergence from the product of the marginal distributions to the actual joint distribution:
+<math/>
+Mutual information is closely related to the log-likelihood ratio test in the context of contingency tables and the multinomial distribution and to Pearson's χ2 test: mutual information can be considered a statistic for assessing independence between a pair of variables, and has a well-specified asymptotic distribution.
+Kullback–Leibler divergence (information gain)
+The Kullback–Leibler divergence (or information divergence, information gain, or relative entropy) is a way of comparing two distributions: a "true" probability distribution p(X), and an arbitrary probability distribution q(X).
+If we compress data in a manner that assumes q(X) is the distribution underlying some data, when, in reality, p(X) is the correct distribution, the Kullback–Leibler divergence is the number of average additional bits per datum necessary for compression.
+It is thus defined
+<math/>
+Although it is sometimes used as a 'distance metric', it is not a true metric since it is not symmetric and does not satisfy the triangle inequality (making it a semi-quasimetric).
+Other quantities
+Other important information theoretic quantities include Rényi entropy (a generalization of entropy) and differential entropy (a generalization of quantities of information to continuous distributions.)
+Coding theory
+Coding theory is one of the most important and direct applications of information theory.
+It can be subdivided into source coding theory and channel coding theory.
+Using a statistical description for data, information theory quantifies the number of bits needed to describe the data, which is the information entropy of the source.
+Data compression (source coding): There are two formulations for the compression problem:
+lossless data compression: the data must be reconstructed exactly;
+lossy data compression: allocates bits needed to reconstruct the data, within a specified fidelity level measured by a distortion function.
+This subset of Information theory is called rate–distortion theory.
+Error-correcting codes (channel coding): While data compression removes as much redundancy as possible, an error correcting code adds just the right kind of redundancy (i.e. error correction) needed to transmit the data efficiently and faithfully across a noisy channel.
+This division of coding theory into compression and transmission is justified by the information transmission theorems, or source–channel separation theorems that justify the use of bits as the universal currency for information in many contexts.
+However, these theorems only hold in the situation where one transmitting user wishes to communicate to one receiving user.
+In scenarios with more than one transmitter (the multiple-access channel), more than one receiver (the broadcast channel) or intermediary "helpers" (the relay channel), or more general networks, compression followed by transmission may no longer be optimal.
+Network information theory refers to these multi-agent communication models.
+Source theory
+Any process that generates successive messages can be considered a source of information.
+A memoryless source is one in which each message is an independent identically-distributed random variable, whereas the properties of ergodicity and stationarity impose more general constraints.
+All such sources are stochastic.
+These terms are well studied in their own right outside information theory.
+Rate
+Information rate is the average entropy per symbol.
+For memoryless sources, this is merely the entropy of each symbol, while, in the case of a stationary stochastic process, it is
+<math/>
+that is, the conditional entropy of a symbol given all the previous symbols generated.
+For the more general case of a process that is not necessarily stationary, the average rate is
+<math/>
+that is, the limit of the joint entropy per symbol.
+For stationary sources, these two expressions give the same result.
+It is common in information theory to speak of the "rate" or "entropy" of a language.
+This is appropriate, for example, when the source of information is English prose.
+The rate of a source of information is related to its redundancy and how well it can be compressed, the subject of source coding.
+Channel capacity
+Communications over a channel—such as an ethernet wire—is the primary motivation of information theory.
+As anyone who's ever used a telephone (mobile or landline) knows, however, such channels often fail to produce exact reconstruction of a signal; noise, periods of silence, and other forms of signal corruption often degrade quality.
+How much information can one hope to communicate over a noisy (or otherwise imperfect) channel?
+Consider the communications process over a discrete channel.
+A simple model of the process is shown below:
+Here X represents the space of messages transmitted, and Y the space of messages received during a unit time over our channel.
+Let <math/> be the conditional probability distribution function of Y given X.
+We will consider <math/> to be an inherent fixed property of our communications channel (representing the nature of the noise of our channel).
+Then the joint distribution of X and Y is completely determined by our channel and by our choice of <math/>, the marginal distribution of messages we choose to send over the channel.
+Under these constraints, we would like to maximize the rate of information, or the signal, we can communicate over the channel.
+The appropriate measure for this is the mutual information, and this maximum mutual information is called the channel capacity and is given by:
+<math/>
+This capacity has the following property related to communicating at information rate R (where R is usually bits per symbol).
+For any information rate R < C and coding error ε > 0, for large enough N, there exists a code of length N and rate ≥ R and a decoding algorithm, such that the maximal probability of block error is ≤ ε; that is, it is always possible to transmit with arbitrarily small block error.
+In addition, for any rate R > C, it is impossible to transmit with arbitrarily small block error.
+Channel coding is concerned with finding such nearly optimal codes that can be used to transmit data over a noisy channel with a small coding error at a rate near the channel capacity.
+Channel capacity of particular model channels
+A continuous-time analog communications channel subject to Gaussian noise — see Shannon–Hartley theorem.
+A binary symmetric channel (BSC) with crossover probability p is a binary input, binary output channel that flips the input bit with probability  p.
+The BSC has a capacity of <math/> bits per channel use, where <math/> is the binary entropy function:
+
+A binary erasure channel (BEC) with erasure probability  p  is a binary input, ternary output channel.
+The possible channel outputs are 0, 1, and a third symbol 'e' called an erasure.
+The erasure represents complete loss of information about an input bit.
+The capacity of the BEC is 1 - p bits per channel use.
+
+Applications to other fields
+Intelligence uses and secrecy applications
+Information theoretic concepts apply to cryptography and cryptanalysis.

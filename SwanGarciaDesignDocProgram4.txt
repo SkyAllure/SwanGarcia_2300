@@ -1,0 +1,73 @@
+
+Swan Garcia
+
+5 November 2018
+
+CS 2300-001
+
+Design Documentation Program 4
+
+Github Repo: https://github.com/SkyAllure/SwanGarcia_2300.git
+
+The pseudocode bellow will work by adding the test inputs to the layers. Weight[i] is the weight between i in the test layer and layer that is trying to be found. There is also a bias that is added to all of the test inputs.  
+
+for( i = 1; i <= testNum; i++ ) {         
+Bias[j] += testInput[i] * Weight[i][j] ;          
+}
+
+Bellow will convert the separation curve/line that will separate the two parts.
+Layer[j] = 1.0/(1.0 + exp(-Bias[j])); 
+
+The pseudocode bellow implements a weight matrix that will need to be added to show the different layers. Also the dot product is also implements in the code bellow.
+
+for( j = 1 ; j <= numLayer ; j++ ) {         
+Bias[j] = Weight[0][j] ;
+for( i = 1 ; i <= testInput ; i++ ) {
+Bias[j] += Input[i] * Weight[i][j] ; // dot product
+}
+Layer[j] = 1.0/(1.0 + exp(-Bias[j])) ;
+}
+
+for( k = 1 ; k <= Output ; k++ ) {         
+Bias2[k] = Weight2[0][k] ;
+for( j = 1 ; j <= numLayer ; j++ ) {
+Bias2[k] += Layer[j] * Weight2[j][k] ; 
+}
+finalOut[k] = 1.0/(1.0 + exp(-Bias2[k])) ;
+}
+
+For the implementation of prediction, I will try to implement by using the following pseudocode.
+if ((n == -1 && y >= 0.0 ) || ( n == 1 y <= 0.0)){
+	++Wrong;
+}Else
+	++Correct;
+}
+
+The learned category W•X >  0 will be implemented something similar to the bellow
+pseudocode. Below is the back-propagation pseudocode. This creates another matrix but when this is actually implemented into code, I will combine the weight matrix about with the matrix bellow. For now, this is just a step by step logic of each snippet. 
+
+Backprop(void) {
+for (i = 0; i < Layer; i++) {
+changeWeight = logisticRegression2 * 0.0 * Bias[i]orLayer[i];
+	Weight2[j] = changeWeight;
+
+if (Weight2[j] < 0) {
+	Weight2[j] = -1;
+} else 
+Weight2[j] = 1;
+}
+}
+After the back propagation is done then the weight(s) will have to be updated between the layers.
+
+There will also be the standard way to read the file inputs. From there I will use XOR to output the target output by using 0 XOR 0 = 0, 1 XOR 1 = 0, 0 XOR 1 = 1 and 1 XOR 0 = 1. This will be used for the binary non linear MLP.
+
+The Label in the test files will be the “y” target. 
+
+I did not put the pseudo code but there will also be a way to read in the test files and output results to a text file as well.
+
+
+
+
+
+
+

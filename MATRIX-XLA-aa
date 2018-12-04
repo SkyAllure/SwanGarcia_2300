@@ -1,0 +1,1500 @@
+'*******************************************************************************
+'
+'            V  E  R  Y     I  M  P  O  R  T  A  N  T     P  O  I  N  T  S
+'
+'            V  E  R  Y     I  M  P  O  R  T  A  N  T     P  O  I  N  T  S
+'
+'            V  E  R  Y     I  M  P  O  R  T  A  N  T     P  O  I  N  T  S
+'
+'*******************************************************************************
+'  1 - Option explicit must be turned   OFF   in this module
+'
+'  2 - Option Base 1 must be turned   ON   in this module
+'
+'  3 - If a program does not work, it's possible that the problem is because the
+'      dimensions are hardwired, e.g. Dim x(3,4).  Try using a ReDim statement.
+'
+'*******************************************************************************
+'Option Explicit
+Option Base 1
+
+
+'********************************************************************************
+'*  DESCRIPTION OF THIS CODE
+'*
+'*  Except for the PolIteration function, CreateGrid, and InvertGrid subs,
+'*  all code conatined here was
+'*  downloaded from http://digilander.libero.it/foxes/SoftwareDownload.htm
+'*  on 6-10-2010
+'********************************************************************************
+'*  To use these subs and functions, copy the contents of the entire file into an
+'*    empty module.
+'********************************************************************************
+'*   MATRIX.XLA - Matrix and Linear Algebra functions for Excel                 *
+'*   v. 2.3  Jan 2007                        by Leonardo Volpi                  *
+'*                                              & Foxes Team                    *
+'*   Documentation available at
+'*   http://digilander.libero.it/foxes/Documents.htm
+'********************************************************************************
+Type Cplx
+    R As Variant
+    i As Variant
+End Type
+'********************************************************************************
+
+'------*******------*******------*******------*******------*******------*******------*******
+'------*******------*******------*******------*******------*******------*******------*******
+Function XPrime_A_X(X_a_vector As Variant, A_a_matrix As Variant)
+' Always returns a scalar
+
+Dim xm As Variant
+Dim xT As Variant
+
+xm = X_a_vector
+xT = Application.Transpose(xm)
+Dim AM
+AM = A_a_matrix
+
+Dim nrXM, ncXM, nrAM, ncAM, ZZ
+nrXM = UBound(xm, 1)
+ncXM = UBound(xm, 2)
+nrAM = UBound(AM, 1)
+ncAM = UBound(AM, 2)
+
+If Max(nrXM, ncXM) <> Max(nrAM, ncAM) Or Min(nrXM, ncXM) > 1 Then
+    XPrime_A_X = "Not Conformable"
+    Exit Function
+End If
+
+If nrXM > 1 Then ' xPrime * A * x
+    ZZ = Application.MMult(xT, AM)
+    ZZ = RowMatrix(ZZ)
+    ZZ = Application.MMult(ZZ, xm)
+Else
+    ZZ = Application.MMult(xm, AM)
+    ZZ = RowMatrix(ZZ)
+    ZZ = Application.MMult(ZZ, xT)
+End If
+XPrime_A_X = ZZ(1)
+End Function
+'------*******------*******------*******------*******------*******------*******------*******
+Function ColumnMatrix(OneDArray)
+Dim n, xx(), i
+n = UBound(OneDArray, 1)
+ReDim xx(n, 1)
+For i = 1 To n
+    xx(i, 1) = OneDArray(i)
+Next i
+ColumnMatrix = xx
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function RowMatrix(OneDArray)
+Dim n, xx(), i
+n = UBound(OneDArray, 1)
+ReDim xx(1, n)
+For i = 1 To n
+    xx(1, i) = OneDArray(i)
+Next i
+RowMatrix = xx
+End Function
+'------*******------*******------*******------*******------*******------*******------*******
+Sub PolIterationCheck()
+Dim MTM(1 To 5, 1 To 5), R(1 To 5, 1 To 1), beta
+Dim V()
+ReDim V(1 To 5, 1 To 1)
+For i = 1 To 5
+    For j = 1 To 5
+        MTM(i, j) = 1 / 5
+        R(i, 1) = 1
+    Next j
+Next i
+beta = 1 / (1 + 0.1)
+V = PolIteration(MTM, R, beta)
+
+End Sub
+'------*******------*******------*******------*******------*******------*******------*******
+Function PolIteration(MTM_PI0 As Variant, R_PI0 As Variant, Beta_PI)
+' Written Richard Woodward using the MATRIX.XLA subroutines
+' Purpose: Carries out Policy Iteration proces V = ((I-beta*P)^-1)*R
+'
+' Going in MTM_PI a nxn square Markov transition matrix -- rows sum to 1
+'          R_PI   a nx1 vector of payoffs
+'          beta - a scalar 0< beta_PI <1 equal t 1/(1+r) where are is the discount rate
+'
+' Going out Vstar a nx1 (with two dimensions) vector indicating the discounted expected present values given that
+'                 that you receive the payoff vector R_PI in each period
+'
+' Vstar must not be dimensioned directly, that is, DO NOT use a statement like Dim V(1 to 5, 1 to 1).
+'     Vstar may be dimensioned generally, e.g. Dim V() and redimensioned.
+'
+'  USE:
+'  Vstar = PolIteration(MTM_PI, R_PI, Beta_PI)
+'  See PolIterationCheck, above, for an example of its use
+'
+'-----------------------------------------------------------------------
+' Dimension variables to be used in this subroutine
+'-----------------------------------------------------------------------
+On Error GoTo ErrorAndExit
+Dim RowsMTM_PI As Integer, ColsMTM_PI As Integer
+Dim RowsR As Integer, ColsR As Integer
+Dim i()
+Dim Mat1_PI(), Mat2_PI(), Mat3_PI(), Vstar_PI()
+
+' Make Sure Base is set to 1
+Dim MTM_PI As Variant, R_PI As Variant
+MTM_PI = ChangeBase(MTM_PI0, 1, 1)
+R_PI = ChangeBase(R_PI0, 1, 1)
+
+
+'-----------------------------------------------------------------------
+' Find out rows and check for errors in dimensions
+'-----------------------------------------------------------------------
+RowsMTM_PI = UBound(MTM_PI, 1)
+ColsMTM_PI = UBound(MTM_PI, 2)
+If RowsMTM_PI <> ColsMTM_PI Then
+    MsgBox ("You must use a square Markov Transition matrix")
+    Exit Function
+End If
+
+RowsR = UBound(R_PI, 1) - LBound(R_PI, 1) + 1
+ColsR = UBound(R_PI, 2) - LBound(R_PI, 2) + 1
+If ColsR <> 1 Then
+    MsgBox ("The return array must be an nx1 vector")
+    Exit Function
+End If
+
+If RowsR <> RowsMTM_PI Then
+    MsgBox ("The return array and the Markov Transition Matrix must be dimensioned consistently")
+    Exit Function
+End If
+
+'-----------------------------------------------------------------------
+' Now do the policy iteration stuff
+'-----------------------------------------------------------------------
+Mat1_PI = M_PRODS(MTM_PI, Beta_PI)
+i = M_ID(RowsR)
+Mat2_PI = M_SUB(i, Mat1_PI)
+Mat3_PI = M_INV(Mat2_PI)
+Call MMultiply(Mat3_PI, R_PI, Vstar_PI)
+
+' Restore to original Base
+PolIteration = ChangeBase(Vstar_PI, LBound(R_PI0, 1), LBound(R_PI0, 2))
+
+Exit Function
+
+'-----------------------------------------------------------------------
+ErrorAndExit:
+MsgBox ("Error in the PolIteration Subroutine")
+
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function CreateGrid(x_min, x_max, nx)
+Dim Grid()
+Dim GridStep, i
+ReDim Grid(1 To nx)
+
+GridStep = (x_max - x_min) / (nx - 1)
+For i = 1 To nx
+    Grid(i) = x_min + (i - 1) * GridStep
+Next i
+CreateGrid = Grid
+End Function
+'-----------------------------------------------------------------------
+'-----------------------------------------------------------------------
+' THE SUB InvertGrid works only on strictly increasing grids with dimensions of
+'  1, 2 or 3
+'-----------------------------------------------------------------------
+'-----------------------------------------------------------------------
+Sub InvertGrid(x_pt, x_array, ilo, wlo)
+
+Dim nDims As Integer, Bounds()
+nDims = ArrayDims(x_array)
+ReDim Bounds(nDims, 3)
+Dim nRealDims, iRealDim
+For i = 1 To nDims
+    Bounds(i, 1) = LBound(x_array, i)
+    Bounds(i, 2) = UBound(x_array, i)
+    Bounds(i, 3) = Bounds(i, 2) - Bounds(i, 1)
+    If Bounds(i, 3) > 0 Then
+        iRealDim = i
+        nRealDims = nRealDims + 1
+    End If
+Next i
+' First case of Matrices -- cannot work
+ilo = -999
+wlo = -999#
+If nRealDims < 2 Then
+    ' One-dimensional arrays
+    If nDims = 1 Then
+        wlo = 0
+        ilo = Bounds(iRealDim, 2) - 1
+        For i = Bounds(1, 1) + 1 To Bounds(1, 2)
+            If x_pt < x_array(i) Then
+                ilo = i - 1
+                wlo = Min(1 - (x_pt - x_array(ilo)) / (x_array(ilo + 1) - x_array(ilo)), 1)
+                Exit For
+            End If
+        Next i
+    ' Two-dimensional arrays
+' ************ ONLY THIS ONE HAS BEEN FIXED *****************
+    ElseIf nDims = 2 Then
+        wlo = 0
+        ilo = Bounds(iRealDim, 2) - 1
+'       Column Vectors
+        If iRealDim = 1 Then
+            i2 = Bounds(2, 1)
+            For i = Bounds(iRealDim, 1) + 1 To Bounds(iRealDim, 2)
+                If x_pt < x_array(i, i2) Then
+                    ilo = i - 1
+                    wlo = Min(1 - (x_pt - x_array(ilo, i2)) / (x_array(ilo + 1, i2) - x_array(ilo, i2)), 1)
+                    Exit For
+                End If
+            Next i
+            
+'       Row Vectors
+        ElseIf iRealDim = 2 Then
+            i2 = Bounds(1, 1)
+            For i = Bounds(iRealDim, 1) + 1 To Bounds(iRealDim, 2)
+                If x_pt < x_array(i2, i) Then
+                    ilo = i - 1
+                    wlo = Min(1 - (x_pt - x_array(i2, i)) / (x_array(i2, i + 1) - x_array(i2, i)), 1)
+                    Exit For
+                End If
+            Next i
+        End If
+
+    ' Three-dimensional arrays
+    ElseIf nDims = 3 Then
+        wlo = 0
+        ilo = Bounds(iRealDim, 2) - 1
+'       Vectors on 1st dimension
+        If iRealDim = 1 Then
+            i2 = Bounds(2, 1)
+            i3 = Bounds(3, 1)
+            For i = Bounds(1, 1) + 1 To Bounds(1, 2)
+                If x_pt < x_array(i, i2, i3) Then
+                    ilo = i - 1
+                    wlo = Min(1 - (x_pt - x_array(i, i2, i3)) / (x_array(i + 1, i2, i3) - x_array(i, i2, i3)), 1)
+                    Exit For
+                End If
+            Next i
+'       Vectors in 2nd dimension
+        ElseIf iRealDim = 2 Then
+            i2 = Bounds(1, 1)
+            i3 = Bounds(3, 1)
+            For i = Bounds(2, 1) + 1 To Bounds(2, 2)
+                If x_pt < x_array(i2, i, i3) Then
+                    ilo = i - 1
+                    wlo = Min(1 - (x_pt - x_array(i2, i, i3)) / (x_array(i2, i + 1, i3) - x_array(i2, i, i3)), 1)
+                    Exit For
+                End If
+            Next i
+
+'       Vectors in 3rd dimension
+        ElseIf iRealDim = 3 Then
+            i2 = Bounds(1, 1)
+            i3 = Bounds(2, 1)
+            For i = Bounds(3, 1) + 1 To Bounds(3, 2)
+                If x_pt < x_array(i2, i3, i) Then
+                    ilo = i - 1
+                    wlo = Min(1 - (x_pt - x_array(i2, i3, i)) / (x_array(i2, i3, i + 1) - x_array(i2, i3, i)), 1)
+                    Exit For
+                End If
+            Next i
+        End If
+    End If
+End If
+End Sub
+'------*******------*******------*******------*******------*******------*******------*******
+Function ArrayDims(arr As Variant) As Integer
+' From http://www.devx.com/vb2themax/Tip/18265
+    Dim i As Integer, Bound As Long
+    On Error Resume Next
+    For i = 1 To 60
+        Bound = LBound(arr, i)
+        If Err Then
+            ArrayDims = i - 1
+            Exit Function
+        End If
+    Next
+End Function
+'********************************************************************************
+'*  All code below this point was
+'*  downloaded from http://digilander.libero.it/foxes/SoftwareDownload.htm
+'*  on 6-10-2010
+'********************************************************************************
+'*   MATRIX.XLA - Matrix and Linear Algebra functions for Excel                 *
+'*   v. 2.3  Jan 2007                        by Leonardo Volpi                  *
+'*                                              & Foxes Team                    *
+'*   Documentation available at
+'*   http://digilander.libero.it/foxes/Documents.htm
+'********************************************************************************
+
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function add_(a As Cplx, b As Cplx) As Cplx
+add_.R = a.R + b.R
+add_.i = a.i + b.i
+End Function
+
+Private Function sub_(a As Cplx, b As Cplx) As Cplx
+'------*******------*******------*******------*******------*******------*******------*******
+sub_.R = a.R - b.R
+sub_.i = a.i - b.i
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function mult_(a As Cplx, b As Cplx) As Cplx
+mult_.R = a.R * b.R - a.i * b.i
+mult_.i = a.R * b.i + a.i * b.R
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function mults_(s As Double, a As Cplx) As Cplx
+mults_.R = a.R * s
+mults_.i = a.i * s
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function div_(a As Cplx, b As Cplx) As Cplx
+Dim R#, den#
+If Abs(b.R) >= Abs(b.i) Then
+    R = b.i / b.R
+    den = b.R + R * b.i
+    div_.R = (a.R + R * a.i) / den
+    div_.i = (a.i - R * a.R) / den
+Else
+    R = b.R / b.i
+    den = b.i + R * b.R
+    div_.R = (a.R * R + a.i) / den
+    div_.i = (a.i * R - a.R) / den
+End If
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function abs_(z As Cplx)
+Dim x#, y#, temp#
+x = Abs(z.R)
+y = Abs(z.i)
+If x = 0 Then
+    abs_ = y
+ElseIf y = 0 Then
+    abs_ = x
+ElseIf x > y Then
+    temp = y / x
+    abs_ = x * Sqr(1 + temp ^ 2)
+Else
+    temp = x / y
+    abs_ = y * Sqr(1 + temp ^ 2)
+End If
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function polar_(z As Cplx) As Cplx
+'23-7-04
+Dim x#, y#
+Const PI_ As Double = 3.14159265358979
+x = z.R
+y = z.i
+polar_.R = abs_(z)
+If x = 0 Then
+        polar_.i = Sgn(y) * PI_ / 2
+ElseIf x > 0 Then
+    polar_.i = Atn(y / x)
+Else
+    If y <> 0 Then
+        polar_.i = Sgn(y) * PI_ + Atn(y / x)
+    Else
+        polar_.i = PI_
+    End If
+End If
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function rect_(z As Cplx) As Cplx
+Dim m#, teta#
+m = z.R
+teta = z.i
+If m = 0 Then
+        rect_.R = 0: rect_.i = 0
+        Exit Function
+ElseIf teta = 0 Then
+    rect_.R = m: rect_.i = 0
+Else
+    rect_.R = m * Cos(teta)
+    rect_.i = m * Sin(teta)
+End If
+End Function
+
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function inv_(x As Cplx) As Cplx
+    Dim uno As Cplx
+    uno.R = 1: uno.i = 0
+    inv_ = div_(uno, x)
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function neg_(x As Cplx) As Cplx
+    neg_.R = -x.R
+    neg_.i = -x.i
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function IsZero_(x As Cplx, Optional tiny) As Boolean
+If IsMissing(tiny) Then tiny = 0
+IsZero_ = Abs(x.R) <= tiny And Abs(x.i) <= tiny
+End Function
+
+'end of complex routine ----------------------------------------------------------------
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_ID(n)
+'Identity Matrix
+    Dim a()
+    ReDim a(1 To n, 1 To n)
+    For i = 1 To n
+    For j = 1 To n
+        a(i, j) = 0
+        If i = j Then a(i, j) = 1
+    Next j
+    Next i
+    M_ID = a
+End Function
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_Zeros(nr_z, nc_z)
+'A Matrix of Zeros with nr rows and nc columns
+    Dim i, j
+    Dim a()
+    ReDim a(1 To nr_z, 1 To nc_z)
+    For i = 1 To nr_z
+        For j = 1 To nc_z
+            a(i, j) = 0
+        Next j
+    Next i
+    M_Zeros = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MatRnd(n, Optional m, Optional Typ, Optional MatInteger, _
+                Optional Amax, Optional Amin, Optional Sparse)
+'returns a random matrix
+'Parameter are:
+'Typ =  ALL (default) - fill all cells
+'       SYM -simmetrical
+'       TRD - tridiagonal
+'       DIA - Diagonal
+'       TLW - Triangular lower
+'       TUP - Triangular upper
+'MatInteger = True (default) as Integer, False as Decimal
+'Amax   = max number allowed
+'Amin   = min number allowed
+'Sparse = coefficient from 0 to 1 - 0 mean no sparse, 1 mean very sparse
+'4-6-2005
+Dim a()
+If IsMissing(m) Then m = n
+Call Mat_Gen_Rnd(a, n, m, Typ, MatInteger, Amax, Amin, Sparse)
+MatRnd = a
+End Function
+
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MatRndRank(n, Optional Rank, Optional Det, Optional MatInteger)
+'returns a random matrix with a given Rank and Determinant
+'Parameter are:
+'Rank =  rank of matrix
+'Det  = determinant
+'MatInteger = True (default) as Integer, False as Decimal
+'4-6-2005
+Dim a()
+If IsMissing(Det) Then Det = 1
+If IsMissing(MatInteger) Then MatInteger = True
+If IsMissing(Rank) Then Rank = n
+Mat_Gen_RndRank a, n, n, Rank, Det, MatInteger, 10, -10
+MatRndRank = a
+End Function
+
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub Matrix_Dump(a)
+For i = LBound(a, 1) To UBound(a, 1)
+For j = LBound(a, 2) To UBound(a, 2)
+    If j = UBound(a, 2) Then
+        Debug.Print a(i, j)
+    Else
+        Debug.Print a(i, j),
+    End If
+Next j
+Next i
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MatRndSim(n, Optional Rank, Optional Det, Optional MatInteger)
+'returns a random simmetrix matrix of given Rank and Determinant
+'Parameter are:
+'Rank =  rank of matrix
+'Det  = determinant
+'MatInteger = True (default) as Integer, False as Decimal
+Dim a()
+'Dim MatTriaUp As Boolean
+If IsMissing(MatInteger) Then MatInteger = True
+If IsMissing(Rank) Then Rank = n
+If IsMissing(Det) Then Det = 1
+Mat_Gen_RndRank_Sym a, n, n, Rank, Det, MatInteger, 10, -10
+MatRndSim = a
+        
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function IntRound(x)
+    y = Int(x)
+    IntRound = y
+    If x - y > 0.5 Then IntRound = y + 1
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function Matrix_Mult(a1, a2)
+'v. 10.12.2005
+Dim a3()
+MMultiply a1, a2, a3()  'fast multiplication routine
+Matrix_Mult = a3
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+'old moltiplication routine
+'slower then Excel built-in function MMULT
+'but has no array-dimension limitation
+Sub M_Multiply(a1, a2, a3())
+    Dim i&, j&, k&
+    Dim n1&, m1&, n2&, m2&
+    
+    n1 = UBound(a1, 1)
+    m1 = UBound(a1, 2)
+    n2 = UBound(a2, 1)
+    m2 = UBound(a2, 2)
+    'M1=N2
+    ReDim a3(1 To n1, 1 To m2)
+    
+    For i = 1 To n1
+    For j = 1 To m2
+    For k = 1 To m1
+            a3(i, j) = a3(i, j) + a1(i, k) * a2(k, j)
+    Next k, j, i
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+'fast matrix multiplication for Excel
+'using the built-in Excel function MMULT
+'without size limitation
+'19.7.2005. by Foxes Team
+Sub MMultiply(a, b, C, Optional h)
+' [c]=[a]*[b]  where a(n x p) b(p x m) c(n x m)
+Dim i&, j&, k&, n&, m&, p&
+Dim ii&, jj&, kk&, n1&, m1&, p1&, i1&, j1&, nb&, mb&, pb&
+Dim imax&, jmax&, kmax&, imin&, jmin&, kmin&
+Dim a1(), b1(), c1
+
+If IsMissing(h) Then h = 70
+n = UBound(a, 1)  'rows of A
+p = UBound(a, 2)  'columns of A = rows of B
+m = UBound(b, 2)  'columns of B
+If n <= h And m <= h Then
+    'fast multiplication
+    C = WorksheetFunction.MMult(a, b)
+    Exit Sub
+End If
+
+'sub-matrix multiplication begins
+nb = Int(n / h)   'row-blocks of A
+pb = Int(p / h)   'column-blocks of A = row-blocks of B
+mb = Int(m / h)   'column-blocks of B
+If nb * h < n Then nb = nb + 1
+If pb * h < p Then pb = pb + 1
+If mb * h < m Then mb = mb + 1
+ReDim C(1 To n, 1 To m)
+For ii = 1 To nb
+For jj = 1 To mb
+For kk = 1 To pb
+
+    'extract the sub-matrix A(ii, kk) -> A1
+    imin = h * (ii - 1) + 1
+    imax = h * ii
+    If imax > n Then imax = n
+    kmin = h * (kk - 1) + 1
+    kmax = h * kk
+    If kmax > p Then kmax = p
+    n1 = imax - imin + 1
+    p1 = kmax - kmin + 1
+    ReDim a1(1 To n1, 1 To p1)
+    For i = 1 To UBound(a1, 1)
+    For k = 1 To UBound(a1, 2)
+        a1(i, k) = a(i + imin - 1, k + kmin - 1)
+    Next k, i
+
+    'extract the sub-matrix B(kk, jj) -> B1
+    kmin = h * (kk - 1) + 1
+    kmax = h * kk
+    If kmax > p Then kmax = p
+    jmin = h * (jj - 1) + 1
+    jmax = h * jj
+    If jmax > m Then jmax = m
+    p1 = kmax - kmin + 1
+    m1 = jmax - jmin + 1
+    ReDim b1(1 To p1, 1 To m1)
+    For k = 1 To UBound(b1, 1)
+    For j = 1 To UBound(b1, 2)
+        b1(k, j) = b(k + kmin - 1, j + jmin - 1)
+    Next j, k
+    
+    'performs the multiplication of the sub-matrices
+    c1 = WorksheetFunction.MMult(a1, b1)
+    imin = h * (ii - 1) + 1
+    jmin = h * (jj - 1) + 1
+    
+    'accumulate the sub-matrix result
+    For i = 1 To UBound(c1, 1)
+    For j = 1 To UBound(c1, 2)
+        i1 = i + imin - 1
+        j1 = j + jmin - 1
+        C(i1, j1) = C(i1, j1) + c1(i, j)
+    Next j, i
+    
+Next kk
+Next jj
+Next ii
+
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub Mat_Transpose(a, b)
+'  A^T ---> B  (0.5 ms, 800 elem., CPU 1.2Ghz )
+'  A can be also a one dimensional vector
+Dim i&, j&
+On Error GoTo Transpose_Vector
+    ReDim b(LBound(a, 2) To UBound(a, 2), LBound(a, 1) To UBound(a, 1))
+    For i = LBound(a, 1) To UBound(a, 1)
+    For j = LBound(a, 2) To UBound(a, 2)
+        b(j, i) = a(i, j)
+    Next j
+    Next i
+Exit Sub
+Transpose_Vector:
+On Error GoTo 0
+    ReDim b(LBound(a, 1) To UBound(a, 1), LBound(a, 1) To LBound(a, 1))
+    For i = LBound(a, 1) To UBound(a, 1)
+        b(i, LBound(a, 1)) = a(i)
+    Next i
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MatRndEig(Eigenvalues, Optional MatInteger)
+' returns a matrix with a given set of eigenvalues
+'16-12-2003
+Dim a(), Autovalori, ErrMsg
+If IsMissing(MatInteger) Then MatInteger = True
+Autovalori = Eigenvalues
+Call Mat_Gen_RndEig(a, Autovalori, MatInteger, ErrMsg)
+MatRndEig = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MatRndEigSym(Eigenvalues)
+'returns a square matrix having the given eigenvalues
+'16-12-2003VL
+Dim a, Autovalori
+Autovalori = Eigenvalues
+Mat_Gen_RndEig_Sym a, Autovalori
+MatRndEigSym = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Sub Ortho_MGS(a)
+' ortogonalizza  A con il methodo di Gram-Schmidt modified (Mayer)
+Dim i&, j&, k&, R#, w#(), tol#, tol0#, n&, m&
+n = UBound(a, 1)
+m = UBound(a, 2)
+
+tol0 = 10 ^ -14
+tol1 = 10 ^ -7
+ReDim w(1 To m)
+    'compute the vectors-column norm
+    For k = 1 To m
+        For i = 1 To n
+            w(k) = w(k) + a(i, k) ^ 2
+        Next i
+        w(k) = Sqr(w(k))
+    Next k
+    
+    For k = 1 To m
+        R = 0
+        For i = 1 To n
+            R = R + a(i, k) ^ 2
+        Next i
+        R = Sqr(R)
+        'tolerance setting
+        tol = tol0 * w(k)
+        If tol > tol1 Then tol = tol1
+        '
+        If R > tol Then
+        'normalize only if |aik| > tol
+        For i = 1 To n
+             a(i, k) = a(i, k) / R
+        Next i
+        End If
+        'ortogonalizza il vettore k
+        For j = k + 1 To m
+            p = MatProdS(a, k, j)
+            For i = 1 To n
+                a(i, j) = a(i, j) - p * a(i, k)
+                If Abs(a(i, j)) < 0.2 * tol0 Then a(i, j) = 0 'clean-up
+            Next i
+        Next j
+    Next k
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function MatProdS(a, j1, j2)
+'matrix scalar product
+Dim n As Long, s As Double, i As Long
+    n = UBound(a)
+    s = 0
+    For i = 1 To n
+        s = s + a(i, j1) * a(i, j2)
+    Next
+    MatProdS = s
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MatOrthoGS(Mat)
+'returns orthogonal matrix from a set of independent vectors
+'uses Modified Gram-Schmidt algorithm
+    Dim a
+    a = Mat
+    Ortho_MGS a
+    MatOrthoGS = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function ProdScal(v1, v2)
+' returns scalar product (inner)
+'this version can be nested with ProdVect()
+'ver. 27-6-02   thank to Robert Pigeon
+Dim w1(), w2()
+LoadVector w1, v1, n1
+LoadVector w2, v2, n2
+    If n1 <> n2 Then
+        ProdScal = "?"
+        Exit Function
+    End If
+    s = 0
+    For i = 1 To n1
+        s = s + w1(i) * w2(i)
+    Next
+    ProdScal = s
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function ProdVect(v1, v2)
+'return vector product (only 3 dimension)
+'this version can be nested
+'ver. 27-6-02   thank to Robert Pigeon
+Dim w1(), w2()
+Dim V(1 To 3)
+LoadVector w1, v1, n1
+LoadVector w2, v2, n2
+
+If n1 <> n2 Or n1 <> 3 Then
+    ProdVect = "?"
+    Exit Function
+End If
+    
+    V(1) = w1(2) * w2(3) - w2(2) * w1(3)
+    V(2) = w1(3) * w2(1) - w1(1) * w2(3)
+    V(3) = w1(1) * w2(2) - w2(1) * w1(2)
+ProdVect = PasteVector(V)
+End Function
+
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub GaussJordan(a, n, m, Det, f, Optional dTiny)
+'==============================================================
+'Gauss-Jordan algorithm for triangle-diagonal matrix reduction
+'with partial pivot method
+'A = Matrix (n x m), m >= n
+'det =determinant of A (n x n)
+'f = type of reduction : T triangle, D diagonal
+'this version apply the check for too small elements: |aij|<Tiny
+'rev. version of 23-6-2002
+'==============================================================
+Dim i As Integer, j As Integer, k As Integer
+If IsMissing(dTiny) Then dTiny = 0
+Det = 1
+For k = 1 To n
+    If f = "T" Then
+        w = k + 1 ' Triangolarizza
+    ElseIf f = "D" Then
+        w = 1     ' Diagonalizza
+    Else
+        Exit Sub
+    End If
+    'search max pivot in column k
+    ipivot = k
+    PivotMax = Abs(a(k, k))
+    For i = k + 1 To n
+        If Abs(a(i, k)) > PivotMax Then
+            ipivot = i: PivotMax = Abs(a(i, k))
+        End If
+    Next i
+    ' swap row
+    If ipivot > k Then
+        SwapRow a, k, ipivot
+        Det = -Det
+    End If
+    
+    ' check pivot 0
+    If Abs(a(k, k)) <= dTiny Then
+        a(k, k) = 0
+        Det = 0
+        Exit Sub
+    End If
+
+    'normalization
+    pk = a(k, k)
+    Det = Det * pk
+    For j = 1 To m
+        a(k, j) = a(k, j) / pk
+    Next j
+
+    'linear reduction
+    For i = w To n
+        If i <> k And a(i, k) <> 0 Then
+            pk = a(i, k)
+            For j = 1 To m
+                a(i, j) = a(i, j) - pk * a(k, j)
+            Next j
+        End If
+    Next i
+Next k
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub SwapRow(a, k, i)
+    'Swaps rows k and i
+    Dim j&, temp
+    For j = LBound(a, 2) To UBound(a, 2)
+        temp = a(i, j)
+        a(i, j) = a(k, j)
+        a(k, j) = temp
+    Next
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub SwapCol(a, k, j)
+    'Swaps columns k and i  mod. 31-10-06
+    Dim i&, temp, n&
+    n = UBound(a, 1)
+    For i = 1 To n
+        temp = a(i, j)
+        a(i, j) = a(i, k)
+        a(i, k) = temp
+    Next i
+    '
+End Sub
+'------*******------*******------*******------*******------*******------*******------*******
+Sub SwapColC(a, k, j)
+    'Swaps columns k and i  mod. 31-10-06
+    Dim i&, temp, n&
+    n = UBound(a, 1)
+    For i = 1 To n
+        temp = a(i, j)
+        a(i, j) = a(i, k)
+        a(i, k) = temp
+    Next i
+    '
+    If UBound(a, 2) = 2 * n Then 'complex matrix (n x 2*n)
+        For i = 1 To n
+            temp = a(i, j + n)
+            a(i, j + n) = a(i, k + n)
+            a(i, k + n) = temp
+        Next i
+    End If
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function SysLin(Mat, V, Optional IMode, Optional tiny)
+' solves a linear system
+'[Mat]x=[V]
+' Mat = square matrix n x n
+' V = matrice rettangolare n x m
+'v. 8-12-2003
+Dim a, b, x(), m, n, ErrMsg
+a = Mat
+b = V
+If IsMissing(IMode) Then IMode = False
+If IsMissing(tiny) Then tiny = 10 ^ -15
+If UBound(a, 2) <> UBound(a, 1) Or UBound(a, 1) <> UBound(b, 1) Then
+    ErrMsg = "?"
+    GoTo Error_Handler
+End If
+If Not IMode Then
+    GJ a, b, , tiny, ErrMsg    'solve with floating arithmetic
+Else
+    GJI a, b, , tiny, ErrMsg   'solve with integer arithmetic
+End If
+If ErrMsg <> "" Then GoTo Error_Handler
+    
+SysLin = b
+Exit Function
+Error_Handler:
+SysLin = ErrMsg
+End Function
+
+
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function GJ_step(Mat, Optional Typ, Optional Int_value, Optional tiny)
+'Didactic algorithm  - by Leonardo Volpi - Foxes Team
+'triangolarizza o diagonalizza una matrice con l'algoritmo di GAUSS step by step
+'version 20-12-2005
+Dim a, m As Integer, n As Integer
+Dim Flag_NonZero As Boolean
+If IsMissing(Typ) Then Typ = "D"
+If IsMissing(Int_value) Then Int_value = False
+If IsMissing(tiny) Then tiny = 2 * 10 ^ -15
+a = Mat
+n = UBound(a, 1)
+m = UBound(a, 2)
+'------inizio algoritmo-----------
+k = 1
+Label1:  ' up 13-05-2002
+    'search for first non zero element in column k
+    i = 1
+    NonZeroElement a, i, k, Flag_NonZero, Typ, tiny
+    If k > n Or i > n Then GoSub Normalize
+    'search pivot
+    ipivot = k
+    PivotMax = 0
+    For i1 = k To n
+        If Abs(a(i1, k)) > PivotMax Then
+            ipivot = i1: PivotMax = Abs(a(i1, k))
+        End If
+    Next i1
+    ' swap row if need
+    If ipivot > k Then
+        SwapRow a, k, ipivot
+        GoSub Return_Function
+    End If
+    ' pivot nullo
+    If ipivot = k And a(k, k) = 0 Then
+        If k = n Then GoSub Normalize  'last iteration
+        k = k + 1  'continue with next colum
+        GoTo Label1  'horror! a GOTO !!  :-O
+    End If
+    
+    If Not Int_value Then
+        'linear reduction with decimal value. Original Gauss-Jordan Algorith
+        If i <> k And a(i, k) <> 0 Then
+            pk = -a(i, k) / a(k, k)
+            For j = 1 To m
+                a(i, j) = a(i, j) + pk * a(k, j)
+                If Abs(a(i, j)) < tiny Then a(i, j) = 0 'mop-up
+            Next j
+            
+        End If
+    Else
+        'linear reduction with integer value. For didactic scope
+        If i <> k And a(i, k) <> 0 Then
+            MCM_ = MCM_2(Abs(a(k, k)), Abs(a(i, k)))
+            pk = -MCM_ / a(k, k)
+            pi = MCM_ / a(i, k)
+            det_d = det_d * pi
+            For j = 1 To m
+                a(i, j) = pi * a(i, j) + pk * a(k, j)
+            Next j
+        End If
+    End If
+    GoSub Return_Function
+Normalize:
+    For i = 1 To n
+        akk = a(i, i)
+        If akk <> 0 Then
+            For j = i To m
+                a(i, j) = a(i, j) / akk
+            Next j
+        End If
+    Next i
+Return_Function:
+    GJ_step = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Sub NonZeroElement(a, i, j, ElemFound As Boolean, Typ, Optional tiny)
+'returns the first non zero element out of the diagonal
+'searching for row
+'typ=D searchs for all matrix, T serchs for lower-triangular
+If IsMissing(tiny) Then tiny = 0
+n = UBound(a, 1)
+ElemFound = False
+For j1 = j To n
+If Typ = "T" Then w = j1 + 1 Else w = 1
+For i = w To n
+    If Abs(a(i, j1)) <= tiny Then a(i, j1) = 0 'mod. 20-7-03 VL.
+    If i <> j1 And a(i, j1) <> 0 Then
+        ElemFound = True
+        j = j1
+        Exit Sub
+    End If
+Next i
+Next j1
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Private Function IsMatInteger(a) As Boolean
+Dim i&, j&
+For i = 1 To UBound(a, 1)
+For j = 1 To UBound(a, 2)
+    If Not IsInteger(a(i, j)) Then Exit Function
+Next j, i
+IsMatInteger = True
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MCD_2(a, b)
+'Find the MCD between two integer numbers
+'by the Euclid method
+y = a
+x = b
+Do Until x = 0
+    R = y - x * Int(y / x)
+    y = x
+    x = R
+Loop
+MCD_2 = y
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MCM_2(a, b)
+'Find the mcm between two integer numbers
+    d = MCD_2(a, b)
+    MCM_2 = a * b / d
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function SYSLIN_ITER_G(Mat, u, x0, Optional Nmax, Optional w)
+'resolve a linear system with Gauss-Seidel iterative method
+'[Mat]x=U
+' Mat = square matrix (n x n)
+' U = vector  (n x 1)
+' x0 = vector starting point. may be vertical or horizonthal vectors
+' w relaxation parameter
+Dim a, b, x(), m, n, Det, nx, mx
+If IsMissing(Nmax) Then Nmax = 200
+If IsMissing(w) Then w = 1
+a = Mat
+b = u
+na = UBound(a, 1): ma = UBound(a, 2)
+nb = UBound(b, 1): mb = UBound(b, 2)
+ReDim x(1 To nb, 1 To 1)
+If ma <> na Or na <> nb Or mb <> 1 Then
+    SYSLIN_ITER_G = "?"
+    Exit Function
+End If
+'load starting vector
+If IsMissing(x0) Then
+    For i = 1 To nb
+        x(i, 1) = 0
+    Next
+Else
+    For i = 1 To nb
+        x(i, 1) = x0.Cells(i)
+    Next
+End If
+
+Call SYSLIN_ITER_GAUSS_SEIDEL(a, b, x, Nmax, w)
+
+If Application.Caller.Rows.Count = 1 Then
+    SYSLIN_ITER_G = Application.WorksheetFunction.Transpose(x)
+Else
+    SYSLIN_ITER_G = x
+End If
+
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub SYSLIN_ITER_GAUSS_SEIDEL(a, b, x, Nmax, w)
+'resolve a linear system with Gauss-Seidel iterative method
+'A (n x n)
+'B (n x m)
+'X (c x m)
+'At the calling, X contains the initial starting value X0
+'At the end, contains the approximate solution
+'Nmax = iterations step max
+'w relaxation parameter 0 < w < 2
+Dim n&, m&, i&, k&, p&, j&, coeff#
+n = UBound(a, 1)
+m = UBound(b, 2)
+'
+'*******I/P Diagonal Matrix
+
+For i = 1 To n
+    coeff = a(i, i)
+    For k = 1 To m
+        b(i, k) = b(i, k) / coeff
+    Next k
+    For j = 1 To n
+        a(i, j) = a(i, j) / coeff
+    Next j
+Next i
+
+For p = 1 To Nmax
+For k = 1 To m
+    For i = 1 To n
+        s = 0
+        For j = 1 To n
+            s = s + a(i, j) * x(j, k)
+        Next j
+        s = b(i, k) - s
+        x(i, k) = x(i, k) + w * s
+    Next i
+Next k
+Next p
+
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function SYSLIN_ITER_J(Mat, u, x0, Optional Nmax)
+'resolve a linear system with Jacobi iterative method
+'[Mat]x=U
+' Mat = square matrix (n x n)
+' U = vector  (n x 1)
+' X0 = vector starting point. may be vertical or horizonthal vectors
+
+Dim a, b, x(), m, n, Det, nx, mx
+If IsMissing(Nmax) Then Nmax = 200
+a = Mat
+b = u
+na = UBound(a, 1): ma = UBound(a, 2)
+nb = UBound(b, 1): mb = UBound(b, 2)
+ReDim x(1 To nb, 1 To 1)
+If ma <> na Or na <> nb Or mb <> 1 Then
+    SYSLIN_ITER_J = "?"
+    Exit Function
+End If
+'load starting vector
+If IsMissing(x0) Then
+    For i = 1 To nb
+        x(i, 1) = 0
+    Next
+Else
+    For i = 1 To nb
+        x(i, 1) = x0.Cells(i)
+    Next
+End If
+
+Call SYSLIN_ITER_JACOBI(a, b, x, Nmax)
+
+If Application.Caller.Rows.Count = 1 Then
+    SYSLIN_ITER_J = Application.WorksheetFunction.Transpose(x)
+Else
+    SYSLIN_ITER_J = x
+End If
+
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub SYSLIN_ITER_JACOBI(a, b, x, Nmax)
+'resolve a linear system with Jacobi iterative method
+'A (n x n)
+'B (n x m)
+'X (c x m)
+'At the calling X contains the initial starting value X0
+'At the end contains the approximate solution
+'det = determinant
+'Nmax = iterations step max
+n = UBound(a, 1)
+m = UBound(b, 2)
+Dim x0()
+ReDim x0(1 To n, 1 To m)
+
+For p = 1 To Nmax
+'load initial value
+For j = 1 To m
+For i = 1 To n
+    x0(i, j) = x(i, j)
+Next i
+Next j
+
+For k = 1 To m
+    For i = 1 To n
+        s = b(i, k)
+        For j = 1 To n
+            If i <> j Then
+                s = s - a(i, j) * x0(j, k)
+            End If
+        Next j
+        x(i, k) = s / a(i, i)
+    Next i
+Next k
+
+Next p
+
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function Mat_Hilbert(n)
+'returns the Hilbert's matrix
+Dim a()
+'r = Application.Caller.Rows.Count
+'C = Application.Caller.Columns.Count
+Mat_Gen_Hilbert a, n, n
+Mat_Hilbert = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub Mat_Gen_Hilbert(a, n, m)
+Dim i&, j&
+ReDim a(1 To n, 1 To m)
+For i = 1 To n
+For j = 1 To m
+    a(i, j) = 1 / (i + j - 1)
+Next j
+Next i
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function Mat_HilbertInv(n)
+'returns the Inverse of Hilbert's matrix
+Dim a()
+Mat_Gen_Hilbert_inv a, n
+Mat_HilbertInv = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub Mat_Gen_Hilbert_inv(a, n)
+Dim i&, j&, C(), p, q
+ReDim a(1 To n, 1 To n), C(1 To n)
+'compute the coefficients Ck
+C(1) = n
+For i = 2 To n
+    p = (n - i + 1) * (n + i - 1)
+    q = (i - 1) ^ 2
+    C(i) = C(i - 1) * p / q
+Next i
+'compute the inverse of Hilbert's matrix
+For i = 1 To n
+For j = 1 To n
+    a(i, j) = (-1) ^ (i + j) * C(i) * C(j) / (i + j - 1)
+Next j
+Next i
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function Mat_Tartaglia(n)
+'returns the Tartaglia's matrix
+Dim a()
+    Mat_Gen_Tartaglia a, n, n
+Mat_Tartaglia = a
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Sub Mat_Gen_Tartaglia(a, n, m)
+Dim i&, j&
+ReDim a(1 To n, 1 To m)
+For i = 1 To n
+For j = 1 To m
+    If i = 1 Then
+        a(i, j) = 1
+    ElseIf j = 1 Then
+        a(i, j) = 1
+    ElseIf i < j Then
+        For k = 1 To i
+            a(i, j) = a(i, j) + a(k, j - 1)
+        Next k
+    Else
+        For k = 1 To j
+            a(i, j) = a(i, j) + a(i - 1, k)
+        Next k
+    End If
+Next j
+Next i
+End Sub
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_ABS(V)
+'Absolute of matrix (Euclidean norm)
+Dim a, n As Integer, m As Integer, i As Integer, j As Integer
+a = V
+n = UBound(a, 1)
+m = UBound(a, 2)
+s = 0
+For i = 1 To n
+For j = 1 To m
+    s = s + a(i, j) ^ 2
+Next j
+Next i
+M_ABS = Sqr(s)
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_TRANSP(Mat)
+'Transpose matrix (obsolete. too verbouse!)
+Dim a
+a = Mat
+M_TRANSP = Application.WorksheetFunction.Transpose(a)
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_T(Mat)
+'Transpose matrix
+Dim a, b
+a = Mat
+Mat_Transpose a, b
+M_T = b
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MT(Mat)
+'Transpose matrix (another alias)
+MT = M_T(Mat)
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_INV(Mat, Optional IMode, Optional tiny)
+'returns the matrix inverse
+'uses the gauss-jordan algorithm
+'rev 10-5-2003
+Dim a, m, n, RetErr
+a = Mat
+If IsMissing(IMode) Then IMode = False
+If IsMissing(tiny) Then tiny = 2E-16
+If IsArray(a) Then
+    If UBound(a, 1) <> UBound(a, 2) Then
+        RetErr = "?"
+        GoTo HerrorHandler
+    End If
+    If Not IMode Then
+        Call GJ(a, , , tiny, RetErr) 'Gauss-Jordan subroutine
+    Else
+        Call GJI(a, , , tiny, RetErr) ''Gauss-Jordan integer subroutine
+    End If
+    If RetErr <> "" Then GoTo HerrorHandler
+    M_INV = a
+Else
+    If Mat = 0 Then
+        RetErr = "?"
+        GoTo HerrorHandler
+    End If
+    M_INV = 1 / Mat
+End If
+Exit Function
+HerrorHandler:
+M_INV = RetErr
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_PROD(ParamArray Mat())
+Dim b, Mi
+b = Mat(0)
+For i = 1 To UBound(Mat, 1)
+    b = Application.WorksheetFunction.MMult(b, Mat(i))
+Next
+M_PROD = b
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function MProd(ParamArray Mat())
+Dim b, Mi
+b = Mat(0)
+For i = 1 To UBound(Mat, 1)
+    b = Application.WorksheetFunction.MMult(b, Mat(i))
+Next
+MProd = b
+End Function
+
+'------*******------*******------*******------*******------*******------*******------*******
+Function M_TRAC(Mat)
+'matrix trace
+Dim a, s As Double
+a = Mat
+n = UBound(a, 1)
+s = 0
+For i = 1 To n
+    s = s + a(i, i)
+Next i
+M_TRAC = s
+End Function
+
+Function M_ADD(Mat1, Mat2)
+'matrix addition
+Dim a, b, C()
+Dim na As Integer, ma As Integer, nb As Integer, mb As Integer
+Dim i As Integer, j As Integer
+a = Mat1: b = Mat2
+na = UBound(a, 1): ma = UBound(a, 2)
+ReDim C(1 To na, 1 To ma)
+For i = 1 To na
+For j = 1 To ma
+    C(i, j) = a(i, j) + b(i, j)
+Next j
+Next i
+M_ADD = C
+End Function
+
+Function M_SUB(Mat1, Mat2)
+'matrix subtraction
+Dim a, b, C()
+Dim na As Integer, ma As Integer, nb As Integer, mb As Integer
+Dim i As Integer, j As Integer
+a = Mat1: b = Mat2
+na = UBound(a, 1): ma = UBound(a, 2)
+nb = UBound(b, 1): mb = UBound(b, 2)
+Lna = LBound(a, 1): Lma = LBound(a, 2)
+lnb = LBound(b, 1): lmb = LBound(b, 2)
+If Lna <> lnb Or na <> nb Or Lma <> lmb Or ma <> mb Then
+    MsgBox ("Matrices Used in M_Sub are not conformable")
+    Exit Function
+End If
+ReDim C(1 To na, 1 To ma)
+For i = 1 To na
+For j = 1 To ma
+    C(i, j) = a(i, j) - b(i, j)
+Next j
+Next i
+M_SUB = C
+End Function
+
+Function M_DET(Mat, Optional IMode, Optional tiny)
+'matrix determinant
+'mod. 8-12-03
+Dim a, m, n, Det, ErrMsg
+If IsMissing(IMode) Then IMode = False
+If IsMissing(tiny) Then tiny = 2E-16
+a = Mat
+If IsArray(a) Then
+    If UBound(a, 1) <> UBound(a, 2) Then
+        M_DET = "?": Exit Function
+    End If
+    If Not IMode Then
+        Call GJ(a, , Det, tiny, ErrMsg) 'Gauss-Jordan subroutine
+    Else
+        Call GJI(a, , Det, tiny, ErrMsg)
+    End If
+Else
+     Det = Mat
+End If
+If ErrMsg = "overflow" Then
+    M_DET = ErrMsg
+Else
+    M_DET = Det
+End If
+End Function
+
+Function M_DET_C(Mat, Optional CFormat)
+'complex matrix determinant
+'mod. 5-6-05
+Dim a, m, n, Det(1 To 2), ErrMsg, Im
+If IsMissing(CFormat) Then CFormat = 1
+a = Mat
+If CFormat = 2 Then Mat_Complex_Conv a, 21

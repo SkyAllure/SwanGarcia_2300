@@ -1,0 +1,1229 @@
+Automated Big Security Text Pruning and Classification
+
+Abstract—Many security related big data problems require
+analysis of unstructured text, from documents to web traffic,
+to systems logs. For example, consider analyzing company
+documents to determine what documents are too risky to put
+in the cloud, what might be in the cloud if encrypted and what
+data can be stored directly in the cloud. This paper will examine
+machine-learning based analysis of security risk of textual data,
+and how to improve over standard algorithms. In particular,
+we examine labeling documents and label each paragraph in
+the document with one of three levels of security risk. This
+paper analyzes real security data, from WikiLeaks document,
+to demonstrate the effectiveness of the proposed approach. The
+paper uses probabilistic topic modeling with Latent Dirichlet
+Analysis, and then identifies and prunes impure subtopics from
+logistic regression training. Experiments show this pruning
+approach statistically significantly improves the final prediction
+accuracy on held-out testing data, compared to baselines of
+non-pruned logistic regression, SVMs and Naive Bayes.
+Keywords-Security Classification; Cloud Storage; Big Data
+Analysis; Big Data Leaks; Security Detection;
+
+I. I NTRODUCTION AND MOTIVTION
+Myriads of security and privacy related big data problems
+require automated analysis of unstructured text, ranging
+from document management to web traffic monitoring, to
+audits of systems logs. While the work herein should apply
+to most of these test-based security and privacy problems,
+we test only on a three level text classification problem.
+For motivation consider one company acquiring another, and
+the acquirer must decide, ideally via automated document
+security risk analysis, how to integrate the vast array of new
+documents.
+Cloud storage is an attractive solution for big data owners
+due to low cost and resilience against data loss. Depending
+on the nature of the data and services provided, the owner(s)
+of the data can choose between three type of clouds: private,
+public and hybrid. Private clouds provide services to one
+organization; software and hardware are not shared. Public
+clouds are accessible to everyone with some restrictions
+applied to segregate data and services. Hybrid clouds use a
+mixture of both private and public clouds. In general, public
+clouds are more cost-effective and reliable than private
+clouds, due to economies of scale, but public clouds require
+a third party trust and hence security is an issue. In a 2009
+survey conducted by the International Data Corporation
+(IDC) [1], 87.5% of company Chief Information Officers
+(CIOs) voted security as a major challenge/issue in moving
+to the clouds. Also, NIST [2] stated that security is one of
+the major concerns of cloud computing.
+
+Figure 1: To balance security risk and cost, a sensitivityselective hybrid cloud storage uses a Data Sensitivity Detection Module to determine the appropriate level for a
+document in a risk-based storage model. For example, a
+three-level system might determine store the data internal
+to the company if the documents are Secret, store them
+encrypted in the cloud if it they are Confidentital and
+stored them in the cloud without encryption if they offer
+low risk. Exponentially growing repositories require automated tools for such classification. The paper uses machine
+learning to build an automated text-based 3-level security
+risk-classification system and uses it to analyzes WikiLeaks
+security documents.
+
+Assigning sensitivity levels to data grants big data owners
+additional options that can help close the gap between
+security and efficiency. Access to real data in security
+problems is difficult but is important if we are to develop
+realistic solutions. For the problem of automated security
+risk analysis, we use real data from WikiLeaks and use
+a three level of document risk: Secret, with the highest
+level of risk, Confidential which have a medium risk, and
+the low-risk category Unclassified. As illustrated in Fig 1
+an agent or server between the data owner and the cloud
+gateway can analyze the data sensitivity and assign it a
+risk label. This approach takes advantage of cloud storage
+services without the added overhead of encrypting all data,
+and further protecting the critical secrets by keeping within
+
+the organization. Labeling sensitive data and protecting it
+accordingly mitigates the risk of unauthorized user access
+to the data that is stored in the cloud. While we concentrate
+on the three primary labels, because that is all the ground
+truth labels in our real data, the analysis detects subtopics
+and adding subtopic labels would likely add value for other
+data analysis. Once labeled, a broader range of big data
+solutions, from automated discovery to trend analysis, might
+be performed on the less sensitive text. With the rapid growth
+of documents, we seek an automate solution that can learn
+to classify the documents in a particular domain.
+It is well accepted that for machine learning, bigger is
+better, i.e. more data in the training set generally yields better
+the predictions accuracy. However, some instances within the
+training set can cause more harm than good, e.g. mislabeled
+data samples. Locating those instances is a problem that still
+not well studied. This paper examines how to detect noisy
+data in textual analysis, and retrain without it to improve
+overall accuracy.
+Beyond mislabeled training data, another problem in
+textual security analysis is that the text can easily have
+sections from different classes, e.g., a paragraph might be
+a mix of two sensitive and non-sensitive sentences which
+indicates some similarities between paragraphs regardless of
+their class. Mislabeled paragraphs and features overlapping
+between classes will confuse the classifier and reduces its
+performance. We show that one way to reduce the impact of
+the erroneous or ambiguous data is by selectively identifying
+such data and pruning them from the dataset.
+When analyzing documents, we could break them down
+for analysis to the word, sentence, paragraph or whole
+document level. Security analysis requires some level of
+context, so we choose to work with/label paragraphs. Our
+training/testing data is, however, labeled only at the document level so while we try to label individual paragraphs,
+we assign the overall document to the topic of maximum
+likelihood of the many paragraphs in the document. Thus
+we seek a way to cluster different types of paragraphs and
+assign a probabilistic label to paragraphs. We note that
+many different topics/issues can result in a given security
+label, but our data does not contain sub-labels of what
+sub-topic issues resulted in the given label. To this end,
+probabilistic topic modeling can be used to cluster the
+data and discover major themes in a corpus without the
+need for prior annotations or labels. General themes or
+main topics provide a high level summary of a corpus
+and subtopics cover more granular subsets of the main
+themes. For instance, for our document risk assessment,
+we will have three main topics, Secret, Confidential, and
+Unclassified documents. Within an embassy document with
+a given main topics, say “Secret”, the respective subtopics
+might be details of insurgent activities, plans for operations,
+plans for visitors, etc. Latent Dirichlet Allocation (LDA) is
+well-known technique for probabilistic modeling topics[3].
+
+LDA is a statistical model of text that tries to capture the
+intuitive idea of the distribution of different words in the
+text as coming from different topics. LDA is most easily
+described by its generative process – an imaginary random
+process by which the model assumes the text arose. In the
+embassy document analogy above, some words might have
+non-zero probability of association with a unique subtopic,
+e.g. names of known insurgents, or names of potential highlevel visitors, while others might be associated with multiple
+subtopics, e.g. specific locations. LDA develops a model that
+maps word probabilities to different, potentially overlapping,
+subtopics and topics. LDA will aggregate probabilities for
+larger blocks of text into overall distributions. Given the
+LDA model, we can use a model such as logistic regression
+and maximum likelihood over a document to estimate overall
+class probabilities for a document.
+The problem is made more difficult because the classes
+might not be very distinct, especially with small amounts of
+text. Each document, which has one high-level topic label,
+will consist of many paragraphs. However, each paragraph
+in that document might come from a different subtopic and
+potentially from different security classes, thereby adding
+confusion to the overall label. Moreover, there are many
+other factors that contribute to topic classes mixture such as
+dataset imbalance where one class has overwhelmingly more
+instances that another class. While some level of subtopic
+mixing is inherent in the problem, we hypothesize that there
+are mislabeled and/or truly ambiguous subtopic instances,
+and removing them from training will increase the final
+prediction accuracy.
+The contributions of this paper include:
+•
+•
+•
+
+Developing new algorithm for large-scale document
+security analysis.
+Showing that pruning impure topic can improve logistic
+regression-based ML models for security.
+Experimental comparison using real world data form
+WikiLeaks, comparing the proposed approach with
+leading algorithms to show the proposed algorithm
+yields a new state of the art in document security
+analysis.
+
+The remainder of this paper is structured as follows:
+related work and background in Sec II, description of the
+proposed methodology in Sec III, list of the WikiLeaks
+datasets and their statistics in Sec IV, experimental evaluation and results in Sec V, short discussion in Sec VI, and
+finally the paper is concluded in Sec VII.
+II. R ELATED W ORK & BACKGROUND
+In this paper, we focus on detecting sensitive text in
+unstructred textual data. In this section we describe some of
+the other possible application for security text classification
+and list the related work. Security text classification can be
+applied to improve the privacy and security of cloud services,
+
+to prevent information leakage, to monitor user’s behaviours
+and to trick suspicious users.
+Security and Privacy challenges in cloud computing are
+reviewed in [4] and [5]. They highlighted that cloud computing efficiency is impacted by enforcing privacy preserving
+solutions. Another issue in cloud computing privacy, exchanging big block of data is associated with obvious risk to
+violate security requirements. In this paper, we are analyzing
+big texts to detecting sensitive paragraphs, which will reduce
+the risk of security violations in cloud computing and reduce
+high-overhead resulted from privacy preserving solutions.
+Data Leak Prevention(DLP) is a solution to detect, protect
+and track sensitive information within a network. As stated
+by [6], the purpose of DLP is to restrict the flow of sensitive
+information to untrusted channels. Integrating DLP in a Data
+Sensitivy Detection Module protects against both insider and
+third party threats.
+There are many other uses of security text classification.
+Notably, information sensitivity has to be checked before it’s
+shared with other foreign parties. Restriction on information
+sharing due to privacy concerns can be found in healthcare
+[7], business, and government [8]. The receiving party must
+also ensure that the information meets local privacy/security
+regulations.
+Other security text classification applications include,
+labeling logs according to security levels to monitor suspicious users within a network. Security Information and
+Event Management [9] is a solution which detects malicious
+actions by analyzing security logs. Finally, by detecting
+sensitive information and replacing it with artificial sensitive
+information, attackers can be lured into honeypots[10].
+This paper is an interdisciplinary research paper, it’s
+related to machine learning, topic analysis, security, big data
+and Natural language Processing(NLP). In the following
+paragraphs we provide a short review of the related work
+in those areas.
+The most related work is [6], which also analyzed WikiLeaks data. Their approach, Automated Classification Enabled by Security Similarity (ACESS), uses normalized term
+frequency-inverse document frequency (TF-IDF) values, feature selection with k-means clustering and SVM classification. While a good first start on the document classification
+problem, the dataset was not properly partitioned and clustering was applied on the entire dataset, not the training set.
+Their work was for feasibility analysis and incomparable
+with future research due to the randomness in the crossvalidation partitioning process. In the other hand, other DLP
+papers that used statistical analysis to classify sensitive texts
+such as [11], [12], [13], and [14] utilized artificially labeled
+”sensitive documents”. This questions their performance on
+actual sensitive data such as WikiLeaks.
+Topic models are employed in various security areas, to
+estimate priority topics in political press releases [15], to
+discover trends in vulnerability reports [16], to select SQL
+
+injection patterns [17], and to detect phishing attacks [18].
+In literature, topic models are usually applied in smallmedium data sizes. In recent years, more research papers
+are expanding the benefits of big data as knowledge base
+to construct topics. For instances, in [19] a novel approach
+is provided to use big data as past or prior knowledge for
+discovering future topics. In addition, an improvement over
+industrial search engines is established in [20] with use of
+big LDA over big data.
+The impact analysis of noise on the classification performance is not new to the literature [21]. Many researches
+tried to improve the classification performance through data
+pruning such as in image processing [22] and imbalanced
+datasets [23].
+III. M ETHODOLOGY
+The proposed methodology prune the data through eliminating highly impure topics. Our objective is to filter out
+such paragraph while maintaining or slightly improving
+the classifier performance. We assume that the dataset is
+already divided into three sets training, validation, and
+testing. The data pruning is only applied on the training
+set. The paragraphs in the training set is converted into
+paragraph vectors P V ectors associated with paragraphs
+labels P Labels. P Labels is set of labels that could be one
+of following labels Secret, Confidential, and Unclassified,
+notated as {S, C, U }. Few variables are calculated from the
+paragraph/label vectors for later use. the Number of total
+paragraphs is assigned to NP ar . Then percentage of each
+class within the training set is calculated and their values
+stored in the following variables S% , C% , and U% . As
+illustrated in Algorithm 1, the process of data pruning goes
+through three major steps.
+A. Thresholds
+Through observing the baseline results, we found that S
+and U classes are mistakenly classified as C. Compared to
+that, S and U are less likely to be misclassified as each
+other. Therefore, in our topic purity examination process we
+focused on two classes at a time, C with S or with U .
+Each paragraph holds a value and simply removing them
+will harm the classifier instead of improving it. Therefore,
+we are proposing a technique to compute ranges that will
+carefully measure the impurity of topics that have extremely
+mixed classes.
+The purity of a topic is directly linked to the percentage of
+mixture of classes populating a topic. The topic is considered
+highly impure if two classes percentages within a topic, can
+also be called per topic class percentages, fall between a
+ranges of lower(LO) and upper(U P ) values that determined
+based on class percentages within the training set. The LO
+and U P values vary for each class depending on their
+actual size in the training set. Remember that each topic is
+examined for two class impurity. The LO value is basically
+
+the actual class percentage in the training set for all the
+classes.
+
+Algorithm 1: Dataset Pruning Algorithm
+1
+2
+
+XLO = X%
+
+f or
+
+x
+
+in
+
+(S% , C% , U% )
+
+(1)
+
+3
+4
+
+While the U P value is computed as follows.
+
+6
+8
+
+XU P = XLO + 0.33 f or
+
+x
+
+in
+
+(SLO , CLO , ULO )
+(2)
+The 0.33 comes from 1 divided on number of classes. If
+the sum of the SLO or ULO and CU P is greater than 1, then
+the CU P value is limited to 1.
+
+10
+11
+13
+15
+17
+19
+21
+
+B. Main Topic Analysis
+22
+
+LDA is used to outline the possible themes out of the
+training set. LDA Parameters are very essential in the final
+outcome of this pruning procedure. If the number of topics
+is too large, there will be many empty topics. If number of
+topics are too little, then the topics will be very dense and
+then many paragraphs might be falsely removed. Number
+of topics has to reflect the training set size, not the entire
+dataset. In this paper number of topics is the total number
+of paragraphs in the training set divided by 100.
+
+24
+26
+28
+29
+31
+33
+35
+37
+38
+39
+40
+41
+
+k = NP ar /100
+
+(3)
+
+42
+
+Extracting topics from a large dataset is time consuming,
+to mitigate this problem number of topics can be reduced
+by dividing number of paragraphs on higher number.
+The control list in LDA algorithm consist of multiple
+variables, we are only interested in method, α and seed
+variables. The Gibbs Sampling [24] is used as inference
+method in LDA. The Seed value has to be identical throughout the experiment to ensure reproducibility. The α value is
+critical, the suggested value is 50/k according to [25]. A
+high α value scatter paragraphs over topics, while a low
+α value places more paragraphs in fewer topics. Therefore,
+we are using different alpha value for main and subtopics
+generation. In this subsection, we are only focusing on
+the process of generating main topics. The generated main
+topics are taken for further analysis to ensure their impurity.
+Therefore, the choice of αm in the main topics generation
+process has to be low to ensure that extracted topics have as
+much paragraphs as possible. The value of αm is reciprocal
+to k and calculated as follows.
+
+43
+
+αm = 1/NP ar
+
+(4)
+
+Topics have to be stored in a way that can be easily
+recalled and accessed for analysis. Those topics are revisited
+to determine their impurity percentage. Each paragraph in
+the training set is assigned to one of the topics. Per topic
+class percentages are calculated for each one of the topics.
+For one topic the per topic classes percentages can be defined
+as P er.Class% = {P er.S% , P er.C% , P er.U% }, and entire
+
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+57
+59
+60
+62
+64
+
+training.set ← Load training labeled paragraphs file;
+P V ectors ← Interprets each row in the training.set as paragraph vector;
+P Labels ← Extract Labels, {S, C, U }, from the training set that
+corresponds to PVectors;
+Function Threshold
+Input : P Labels
+S% , C% , U% ← calculate the percentage of each class within the
+training set;
+SLO , SU P , CLO , CU P , ULO , UU P ← Calculate the lower and
+upper threshold values for each class as illustrated in III-A;
+Function LDA Parameters
+Input : P V ectors
+P T matrix ← Convert the paragraph vectors into Paragraph Term
+Matrix;
+k ← Number of topics is (Number of Paragraphs / 100 );
+method ← Gibbs Sampling;
+control ← list(seed = Seed, alpha = (αm = 1/NP ar or
+αs = (1/4) ∗ αm ), remaining LDA parameters are as default);
+LDA Algorithm()
+Input : (k, method, control, P T matrix)
+M ain.tm ← Output: k Topics
+tm ← M ain.tm
+Function Impure Topics
+Input : T opicM odel(tm)
+for each topic in tm do
+Labels ← extract the labels that corresponds to the instances
+within the topic;
+P er.S% , P er.C% , P er.U% ← Calculate the percentage of each
+class per topic;
+if P er.S% falls between SLO and L.SU P and
+P er.C% falls between CLO and CU P
+then
+ImpureSet ← Add S and C paragraphs within this topic
+to ImpureSet;
+N ewT rainingSet ← Add U paragraphs within this topic
+to N ewT rainingSet;
+else
+if P er.U% falls between ULO and UU P and
+P er.C% falls between CLO and CU P
+then
+ImpureSet ← Add U and C paragraphs within this
+topic to ImpureSet;
+N ewT rainingSet ← Add S instances within this
+topic to N ewT rainingSet;
+else
+N ewT rainingSet ← Add the entire paragraphs
+within this topic to N ewT rainingSet;
+end
+end
+end
+ImpureV ectors ← Interprets each row in the ImpureSet as paragraph
+vector;
+Generate subtopics from the ImpureSet by feeding ImpureV ectors to
+Function LDA Parameters
+Input : ImpureV ectors
+Sub.tm ← Output: k Subtopics
+Permanently remove impure classes within the subtopic determined by
+Function Impure Topics
+Input : tm ← Sub.tm
+Output: N ewT rainingSet, ImpureSet
+
+topics set, T L.Class% = {P er.Class%1 ...P er.Class%k }.
+If P er.S% &P er.C% or P er.U% &P er.C% in topic j fall
+between their corresponding LO and U P ranges, then paragraphs that belonged to the conditioned classes are added
+to the ImpureSet. In the same time the retained class
+is added to the N ewT rainingSet. If none or less than
+two classes met that condition the entire paragraphs within
+that topics are added to the N ewT rainingSet. After going
+through the entire topics set, the paragraphs from the original
+training set will be divided between the ImpureSet and the
+
+N ewT rainginSet.
+C. Impure Subtopics Elimination
+Unlike main topics, subtopics are generated from the
+ImpureSet. Number of topics is decided based on size of
+the ImpureSet. High alpha value is selected to create less
+dense topics, therefore, less paragraphs will be eliminated.
+The value of αs for the subtopic generation is calculated as
+follows.
+αs = (1/4) ∗ αm
+
+(5)
+
+In the impure subtopics Elimination step, same thresholds
+values III-A and classes impurity conditioning III-B are
+utilized. The major difference is that the impure paragraphs
+that were added to the ImpureSet are permanently removed
+from the training set.
+IV. W IKI L EAKS DATASET
+WikiLeaks is famous for publishing U.S. diplomatic sensitive cables. The cables were posted on WikiLEaks website as
+static HTML format. The authors of [6], reconstructed cables
+from WikiLeaks. The following are the steps conducted by
+the [6] to create the datasets. Cables originated from Baghdad, London, Berlin and Damascus embassies were separately assembled. HTLM tags were stripped and paragraphs
+and their labels were extracted from each cable and stored
+as an individual row in a text file –one per embassy. Three
+classification categories can be found in WikiLeaks dataset:
+Unclassified, Confidential, and Secret. The datasets is known
+as WikiLeaks Dataset. In this paper, we are experimenting
+with paragraphs, though document classification is shown in
+Table I. The document is labeled with highest security label
+across all paragraphs as in Fig 2. However, the authors didn’t
+partition the dataset in proper way for adequate comparison.
+Therefore, we randomly partitioned the datasets into three
+sets, training, testing, and validation set.
+Table I: Document dataset statistics.
+Dataset # Documents # Unclassified # Confidential # Secret
+Baghdad
+6586
+1373
+4069
+1144
+London
+1037
+368
+538
+131
+Berlin
+1706
+719
+721
+266
+Damascus
+1377
+483
+764
+130
+
+Training set is shown in Table II, validation set in
+Table III, and testing set in Table IV , 80%,10%,10%,
+respectively.
+
+Figure 2: Document and Paragraphs Labels. Unclassified
+documents only contains Unclassified paragraphs. Confidential documents may contain both Unclassified and Confidential paragraphs. Finally, Secret Documents may contain all
+three security classes.
+Table II: Train paragraphs dataset statistics. The number of
+instances per sensitivity class per dataset are reported along
+with the number of features.
+Dataset # Paragraphs # Unclassified # Confidential # Secret # Features
+Baghdad
+39965
+10058
+24453
+5454
+45050
+London
+4944
+1973
+2433
+538
+21252
+Berlin
+7705
+3479
+3522
+704
+25240
+Damascus
+6685
+1840
+4155
+690
+24104
+
+Table III: Validation paragraphs dataset statistics.
+Dataset # Paragraphs # Unclassified # Confidential # Secret
+Baghdad
+4995
+1225
+3030
+740
+London
+618
+260
+273
+85
+Berlin
+963
+418
+463
+82
+Damascus
+835
+223
+519
+93
+
+Table IV: Test paragraphs dataset statistics.
+Dataset # Paragraphs # Unclassified # Confidential # Secret
+Baghdad
+4995
+1316
+3014
+665
+London
+618
+258
+297
+63
+Berlin
+963
+420
+454
+89
+Damascus
+835
+248
+499
+88
+
+A. Topics Analysis & LDA Parameters
+V. E XPERIMENTAL E VALUATION
+In this section, we report the results of experiments that
+proved pruning training set reduces noisy and improved prediction performance. Note that we pruned only the training
+set; for validation and test sets we retained all samples.
+
+The seed, α, method and k are the LDA parameters that
+were modified, other parameters are same as the default.
+The method that was used for inference is Gibbs Sampling.
+Seed is randomly selected and kept unchanged. alpha and
+k selection process is explained in section III. The α values
+
+(a) Baghdad
+
+(b) Berlin
+
+(c) Damascus
+
+(d) London
+
+Figure 3: This figure displays number of main topics per dataset and the percentage of each class within the topic. It’s clear
+that most of the topic are mixed, but some topics are more impure than others.
+
+that was used in this experiment can be found in Table V.
+Number of topics k is listed in Tables VIII and X.
+
+The reason behind selecting smaller value for αm than αs
+is to ensure that as much paragraphs as possible are analyzed
+and less paragraphs are permanently removed. The high
+value of alpha in the impure subtopic elimination process
+helps to remove relatively low number of paragraphs than
+low α value.
+To additional exploration of the nature of the topics that
+were extracted from the training set. Table VI lists the top
+ten words or most likely words for each main topic with
+highest per class percentage. The terms are listed based on
+their LDA likelihood.
+
+main topics. The number of main topics for each dataset
+are as follows, Baghdad 267 , London 50, Damascus 67
+and Berlin 76. Number of topics were selected based on the
+number of instances in the training set. Similar to clustering,
+number of topics is not predefined and unknown what the
+best number of topics is. Normally, a topic can consist of
+different security classes. However, the representation of
+class within a topic varies. In figure 3, main topics are
+presented with respect to number of instances that belong
+to a particular classes within a topic. The subsection III-B
+illustrated the steps needed to decide if the main topic is
+impure, the LO and U P thresholds values are in Table VII.
+Table VIII displays number of extracted main topics for each
+dataset. Number of impure main topics along with number
+of extracted paragraphs grows as the training set size is
+larger. Also, the amount of extracted impure S, C, and U
+paragraphs reflect their actual sizes in the training set.
+Retained class is the third class within an impure topic
+where the topic is highly mixed between two classes. The
+Impure main topics retained class paragraphs, either S or
+U , statistics are shown in Table IX. Usually the size of the
+retained class is relatively small compared to the other two
+large classes.
+
+B. Impure Main Topic Analysis
+
+C. Impure Subtopics Removal
+
+As illustrated in the methodology section, a probabilistic
+topic model was applied on the training set to extract the
+
+Table VIII list number of paragraphs that were extracted
+in the main topic analysis process. Subsection III-C explains
+
+Table V: LDA α values. αm and αs are assigned to α
+parameter in main and subtopics generation, respectively.
+
+Dataset
+Baghdad
+London
+Berlin
+Damascus
+
+αm
+0.09363296
+0.5
+0.3289474
+0.3731343
+
+αs
+1.851851851851852
+10
+5
+5.555555555555556
+
+Table VI: Top Ten Words Per Class. Words are the most likely terms for a topic. The topics where choosen based on the
+percentage of the class within the topic. For instance, the topic with highest Secret percentage within Baghdad data set is
+selected, then the most likely terms based on LDA likelihood matrix are computed and listed. Some terms refer to known
+individuals, acronyms, or plain English words.
+Secret
+Confidential
+Unclassified
+Baghdad
+London
+Berlin
+Damascus Baghdad
+London
+Berlin Damascus Baghdad
+London
+Berlin Damascus
+even
+xxxxxxxxxxxx
+pope
+iraq
+iraqi
+rights
+prize
+allim
+azzawi
+london
+berlin
+asad
+another
+iran
+package
+iraqi
+immediately human
+nobel
+policy
+ready
+embassy
+board
+president
+nakeeb
+iranian
+past
+syria
+past
+members committee
+shara
+mya
+time
+foundation bashar
+concerned
+poloff
+whether
+security
+debate
+cuba
+peace
+taki
+future
+information holocaust
+speech
+accusations
+embassy
+details
+foreign
+entire
+usg
+klaus
+foreign
+fact
+travelers indicated
+syrian
+belief
+tehran
+buy
+cooperation removed
+position
+front
+noted
+joined
+hotel
+center
+rhetoric
+intervention
+regime
+away
+maliki
+significantly
+gaerc
+fact
+advisor
+laj
+public
+concern
+august
+attacking
+usg
+protectionism
+border
+engage
+burma
+decision
+mfa
+administration exchange
+anti
+comments
+believes
+irgc
+public
+relations
+fire
+cuban
+olympic
+samir
+lacked
+travel
+right
+meetings
+permission
+bbc
+fact
+fighters
+real
+intelligence nothing
+walid
+accommodate northern
+even
+made
+66%
+51%
+40%
+70%
+100%
+87%
+75%
+96%
+100%
+90%
+61%
+95%
+
+Table VII: Paragraph dataset Lower and Upper Thresholds.
+The lower threshold equals to the class percentage within
+the training set. While the upper values are equals to the
+lower values plus 0.33
+Dataset
+SLO
+SU P
+CLO
+CU P
+ULO
+UU P
+Baghdad 0.1364694 0.4664694 0.6118604 0.9418604 0.2516702 0.5816702
+London 0.1088188 0.4388188 0.4921117 0.8221117 0.3990696 0.7290696
+Berlin 0.09136924 0.4213692 0.4571058 0.7871058 0.451525 0.781525
+Damascus 0.1032162 0.4332162 0.6215408 0.9515408 0.2752431 0.6052431
+
+Table X: Impure Subtopics Statistics.
+Dataset # Impure S.Topics
+Baghdad
+21 out of 54
+London
+7 out of 10
+Berlin
+4 out of 20
+Damascus
+13 out of 18
+
+# S # C# U
+339 1920 233
+84 432 188
+49 336 115
+203 1019 92
+
+Total Mean
+SD
+2492 118.6667 74.70431
+704 100.5714 28.13573
+500
+125 17.68945
+1314 101.0769 42.25806
+
+The new training set size and new feature set that resulted
+from pruning the original training set in Table XI.
+
+Table VIII: Impure Main Topic Statistics.
+Dataset # Impure M.Topics # S # C # U
+Baghdad
+59 out of 267
+5115 22521 9821
+London
+13 out of 50
+144 644 214
+Berlin
+23 out of 76
+144 1247 614
+Damascus
+19 out of 67
+224 1365 221
+
+Total Mean
+SD
+8087 137.0678 147.7581
+1002 77.07692 31.95951
+2005 87.17391 44.88131
+1810 95.26316 66.88451
+
+Table IX: Retained Class Statistics.
+Dataset
+Baghdad
+London
+Berlin
+Damascus
+
+M.Topics
+#S S # Topics # U U # Topics
+435
+20
+1234
+29
+11
+4
+82
+8
+92
+11
+528
+12
+12
+4
+135
+12
+
+S.Topics
+# S S # Topics # U U # Topics
+36
+7
+116
+14
+4
+2
+19
+2
+5
+2
+87
+2
+1
+1
+39
+9
+
+that subtopics are generated from the ImpureSet which was
+derived from the T rainingSet. ImpureSet statistics is in
+Table VIII.
+The same LDA algorithm is applied with αs as in Table V. Also, the same LO and U P threshold ranges in
+table VII are utilized in impure subtopics selection . Number
+of subtopics is determined based on number of paragraphs
+within the ImpureSet not number of T rainingSet.
+Subtopics are conditioned with pairwise class purity.
+The paragraphs that belonged to the impure class pair are
+permanently removed. Table X outline the final paragraphs
+that were taken out from the dataset. The retained class
+paragraphs from impure subtopic removal process are shown
+in Table IX.
+
+Table XI: Pruned Train paragraphs dataset statistics. Compare with original training set shown in Table II
+Dataset # Paragraphs # Unclassified # Confidential # Secret # Features
+Baghdad
+37473
+9825
+22533
+5115
+44111
+London
+4240
+1785
+2001
+454
+19939
+Berlin
+7205
+3364
+3186
+655
+24724
+Damascus
+5371
+1748
+3136
+487
+22720
+
+D. Security Detection
+1) Evaluation Metrics: We assume that all security
+classes – S , C, and U – are equally important, which
+means that raw accuracy numbers alone do not provide an
+adequate measure due to dataset biases (cf. Tables I). Rather,
+we turn to precision, recall, and F1-measure per-class. In this
+paper, only F1-Measure is reported, since it’s comprehensive
+enough for both recall and precision. Where T P , F P , and
+F N are the number of true positives, false positives, and
+false negatives respectively, these measures are defined as
+P recision =
+
+TP
+T P +F P
+
+F 1 − M easure =
+
+Recall =
+
+TP
+T P +F N
+
+2×P recision×Recall
+P recision+Recall .
+
+2) Baseline: Previous evaluation on WikiLeaks dataset
+was conduced in [6]. However, their evaluation is incomparable to ours, since they have used cross-validation across
+their entire dataset and there is no known test or validation
+parts. We have partitioned the dataset into defined sets for
+
+easy comparison with future experiments. Also, They have
+used extensive feature selection search and we don’t perform
+such a thing.
+We established a baseline of classification results by
+conducting a grid-search to tune classifier parameters such as
+C parameter in Support Vector Machine(SVM) and logistic
+Regression and the alpha parameter in the multinomial Naive
+Bayes algorithm on validation set. In addition to classifier
+parameters, feature based parameters are also tuned on the
+validation set, such as features with maximum TF-IDF to
+keep, and TF-IDF normalization methods. Then classifiers
+are retrained on the training set only with best parameters
+performed on the validation set.
+The baseline classifiers are SVM, Naive Bayes, and
+Logistic Regression. For each classifier a wide range of
+parameters is used in three datasets London, Berlin and
+Damascus. Smaller parameter range is used for Baghdad
+dataset to reduce the training time.
+For the pruned data, Multiclass classification One-vs-One
+logistic Regression with a Newton-conjugate gradient (CG)
+as a solver. Parameters such as the maximum term frequency
+and normlization method are selected based on a grid search
+applied on the validation set. The classifier is retrained on
+the best parameters and then the results are obtained from
+the test set. Weights are added to the classes that reflect their
+actual sizes in the new training set.
+
+Figure 4: F1-Measure results for baseline and proposed algorithms. The lower F1-Measure achieved across all the classes
+is over 0.5, therefore, the y axis starts from 0.5. In despite of
+removing a considerable amount of paragraphs in the pruned
+dataset, Logistic Regression on pruned dataset is statistically
+higher than Logistic Regression and the remaining baseline
+algorithms.
+3) Results: Figure 4 displays the results obtained from
+running the baseline algorithms and Logistic Regression
+with a Newton-CG solver. Despite removing a considerable
+number of paragraphs from the training set, Logistic Regression was able to outperform the baseline algorithms. Based
+on the Paired t test between Logistic Regression(pruned) and
+
+Logistic Regression on the original training set, the P value
+equals to 0.0007. The difference is considered extremely
+statistically significant. The increase in F1 scores shows
+that pruning data with removing impure topic models can
+improve the performance of the classifiers.
+VI. D ISCUSSION
+One way to measure internal topic purity is by assigning
+a topic to the majority class or the more frequent class and
+then divide the number of instances that belonged to that
+class on the entire number of instances within the topic.
+Tj P urity = L.NM ajorityClass /L.NP ar
+
+(6)
+
+Where L.NM ajorityClass is number of majority class
+paragraphs within the topic j, and L.NP ar is the total
+number of paragraph within the same topic. There are three
+possible scenarios for three classes/topic purity. First, topic
+is populated with one class only, in this case the Tj P urity
+equals to 1. Second, one class is dominating the topic,
+where the class holds a noticeable amount of the topic
+population. A majority class within the topic not necessarily
+means that the class dominate the topic. The domination
+percentage can be specified independently or with respect
+to other factors such as the topic size or original classes
+size in a training set. Third, the topic is highly mixed
+between two or more classes. Unlike our proposed method,
+this approach computes the purity of a topic for one class.
+With this approach, other classes percentage within a topic
+is unknown.
+Additional dataset pruning by repeating the steps illustrated in our methodology is still not studied. Such an
+approach will further eliminate more paragraphs and might
+actually lead to better performance on the held-out testing
+set. Other future research directions such as cross-domain
+classification where dataset located on different embassies
+are trained to predicted the class of paragraphs on other
+dataset. In addition, the use of word2vec to generate word
+embeddings is also an interesting research to conducted in
+the future that might significantly improve the security text
+classification performance.
+In this paper, paragraph labels are used for predicting
+the paragraph classes. Associating paragraph labels with
+documents labels, also known as multilabeling classsification, to predict paragraphs labels might improve the overall
+classification accuracy.
+VII. C ONCLUSION
+Automated Security Classification enables data owners to
+protect sensitive information and reduces the risk associated
+with services provided on less sensitive data. In stream
+of texts, it’s hard to distinguish between sensitive and
+non-sensitive information. Using statistical approaches on
+prior knowledge base, we can predict future information
+security classes. Essential services such as cloud storage
+
+and information sharing can be less risky with automated
+security classification. We proved that we can improve the
+performance of security text classification, while pruning the
+dataset and removing a considerable amount of paragraphs
+and features.
+R EFERENCES
+[1] F. Gens, “New IDC it cloud services survey: top benefits and
+challenges,” IDC exchange, pp. 17–19, 2009.
+[2] P. Mell and T. Grance, “The NIST definition of cloud computing,” Communications of the ACM, vol. 53, no. 6, p. 50,
+2010.
+
+[15] J. Grimmer, “A bayesian hierarchical topic model for political
+texts: Measuring expressed agendas in senate press releases,”
+Political Analysis, vol. 18, no. 1, pp. 1–35, 2010.
+[16] S. Neuhaus and T. Zimmermann, “Security trend analysis
+with cve topic models,” in 2010 IEEE 21st International
+Symposium on Software Reliability Engineering. IEEE, 2010,
+pp. 111–120.
+[17] Y.-W. Huang, S.-K. Huang, T.-P. Lin, and C.-H. Tsai, “Web
+application security assessment by fault injection and behavior monitoring,” in Proceedings of the 12th international
+conference on World Wide Web. ACM, 2003, pp. 148–159.
+
+[3] D. M. Blei, “Probabilistic topic models,” Communications of
+the ACM, vol. 55, no. 4, pp. 77–84, 2012.
+
+[18] A. Bergholz, J. H. Chang, G. Paass, F. Reichartz, and
+S. Strobel, “Improved phishing detection using model-based
+features.” in CEAS, 2008.
+
+[4] E. Bertino, “Big data-security and privacy,” in 2015 IEEE
+International Congress on Big Data. IEEE, 2015, pp. 757–
+761.
+
+[19] B. Liu and U. EDU, “Topic modeling using topics from many
+domains, lifelong learning and big data,” 2014.
+
+[5] A. Cuzzocrea, “Privacy and security of big data: Current
+challenges and future research perspectives,” in Proceedings
+of the First International Workshop on Privacy and Secuirty
+of Big Data. ACM, 2014, pp. 45–47.
+
+[20] Y. Wang, X. Zhao, Z. Sun, H. Yan, L. Wang, Z. Jin, L. Wang,
+Y. Gao, J. Zeng, Q. Yang et al., “Towards topic modeling
+for big data,” ACM Transactions on Intelligent Systems and
+Technology, vol. 9, no. 4, 2014.
+
+[6] K. Alzhrani, E. Rudd, T. Boult, and C. Chow, “Automated
+big text security classification,” in IEEE Conf on Intelligence
+and Security Informatics (ISI2016). IEEE, 2016, best Paper
+Award.
+
+[21] B. Frénay and M. Verleysen, “Classification in the presence of
+label noise: a survey,” IEEE transactions on neural networks
+and learning systems, vol. 25, no. 5, pp. 845–869, 2014.
+
+[7] G. Perera, A. Holbrook, L. Thabane, G. Foster, and D. J.
+Willison, “Views on health information sharing and privacy
+from primary care practices using electronic medical records,”
+International journal of medical informatics, vol. 80, no. 2,
+pp. 94–101, 2011.
+[8] P. Swire, “Privacy and information sharing in the war on
+terrorism,” Villanova Law Review, vol. 51, 2006.
+[9] K. Kent and M. Souppaya, “Guide to computer security log
+management,” NIST special publication, vol. 92, 2006.
+[10] M. L. Bringer, C. A. Chelmecki, and H. Fujinoki, “A survey:
+Recent advances and future trends in honeypot research,”
+International Journal of Computer Network and Information
+Security, vol. 4, no. 10, p. 63, 2012.
+[11] M. Hart, P. Manadhata, and R. Johnson, “Text classification
+for data loss prevention,” in International Symposium on
+Privacy Enhancing Technologies Symposium.
+Springer,
+2011, pp. 18–37.
+[12] S. Alneyadi, E. Sithirasenan, and V. Muthukkumarasamy,
+“A semantics-aware classification approach for data leakage
+prevention.” in ACISP. Springer, 2014, pp. 413–421.
+[13] G. Katz, Y. Elovici, and B. Shapira, “Coban: A context based
+model for data leakage prevention,” Information Sciences, vol.
+262, pp. 137–158, 2014.
+[14] J. M. Gomez-Hidalgo, J. M. Martin-Abreu, J. Nieves, I. Santos, F. Brezo, and P. G. Bringas, “Data leak prevention
+through named entity recognition,” in Social Computing (SocialCom), 2010 IEEE Second International Conference on.
+IEEE, 2010, pp. 1129–1134.
+
+[22] A. Angelova, Y. Abu-Mostafam, and P. Perona, “Pruning
+training sets for learning of object categories,” in 2005
+IEEE Computer Society Conference on Computer Vision and
+Pattern Recognition (CVPR’05), vol. 1. IEEE, 2005, pp.
+494–501.
+[23] X.-w. Chen, B. Gerlach, and D. Casasent, “Pruning support
+vectors for imbalanced data classification,” in Proceedings.
+2005 IEEE International Joint Conference on Neural Networks, 2005., vol. 3. IEEE, 2005, pp. 1883–1888.
+[24] I. Porteous, D. Newman, A. Ihler, A. Asuncion, P. Smyth, and
+M. Welling, “Fast collapsed gibbs sampling for latent dirichlet allocation,” in Proceedings of the 14th ACM SIGKDD
+international conference on Knowledge discovery and data
+mining. ACM, 2008, pp. 569–577.
+[25] T. L. Griffiths and M. Steyvers, “Finding scientific topics,”
+Proceedings of the National academy of Sciences, vol. 101,
+no. suppl 1, pp. 5228–5235, 2004.
+
+

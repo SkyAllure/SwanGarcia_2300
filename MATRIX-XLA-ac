@@ -1,0 +1,1500 @@
+If a < b Then Min = a Else Min = b
+End Function
+
+Sub svd_decomp(a, m As Integer, n As Integer, w, V)
+'-------------------------------------------------------------
+' SVD Routine
+'------------------------------------------------------------
+'Given a matrix a(1:m,1:n), with physical dimensions mp by np, this routine computes its
+'singular value decomposition, A = U * W * V ^t . The matrix U replaces A on output. The
+'diagonal matrix of singular values W is output as a vector w(1:n). The matrix V (not the
+'transpose V T ) is output as V(1:n,1:n).
+Const Nmax = 500
+Dim i As Integer, its As Integer, j As Integer, jj As Integer, k As Integer, L As Integer, nm As Integer
+Dim Anorm As Double, C As Double, f As Double, g As Double, h As Double, s As Double
+Dim scale_ As Double, x As Double, y As Double, z As Double
+Dim rv1(1 To Nmax) As Double
+ReDim w(1 To n), V(1 To n, 1 To n)
+g = 0# 'Householder reduction to bidiagonal form.
+scale_ = 0#
+Anorm = 0#
+For i = 1 To n
+  L = i + 1
+  rv1(i) = scale_ * g
+  g = 0#
+  s = 0#
+  scale_ = 0#
+  If (i <= m) Then
+    For k = i To m
+      scale_ = scale_ + Abs(a(k, i))
+    Next
+    If (scale_ <> 0#) Then
+      For k = i To m
+        a(k, i) = a(k, i) / scale_
+        s = s + a(k, i) * a(k, i)
+      Next
+      f = a(i, i)
+      g = -Sign(Sqr(s), f)
+      h = f * g - s
+      a(i, i) = f - g
+      For j = L To n
+        s = 0#
+        For k = i To m
+          s = s + a(k, i) * a(k, j)
+        Next
+        f = s / h     'bug
+        For k = i To m
+          a(k, j) = a(k, j) + f * a(k, i)
+        Next
+      Next
+      For k = i To m
+        a(k, i) = scale_ * a(k, i)
+      Next
+    End If
+  End If
+  w(i) = scale_ * g
+  g = 0#
+  s = 0#
+  scale_ = 0#
+  If ((i <= m) And (i <> n)) Then
+    For k = L To n
+      scale_ = scale_ + Abs(a(i, k))
+    Next
+    If (scale_ <> 0#) Then
+      For k = L To n
+        a(i, k) = a(i, k) / scale_
+        s = s + a(i, k) * a(i, k)
+      Next
+      f = a(i, L)
+      g = -Sign(Sqr(s), f)
+      h = f * g - s
+      a(i, L) = f - g
+      For k = L To n
+        rv1(k) = a(i, k) / h
+      Next
+      For j = L To m
+        s = 0#
+        For k = L To n
+          s = s + a(j, k) * a(i, k)
+        Next
+        For k = L To n
+          a(j, k) = a(j, k) + s * rv1(k)
+        Next
+      Next
+      For k = L To n
+        a(i, k) = scale_ * a(i, k)
+      Next
+    End If
+  End If
+  Anorm = Max(Anorm, (Abs(w(i)) + Abs(rv1(i))))
+Next
+
+For i = n To 1 Step -1 'Accumulation of right-hand transformations.
+   If (i < n) Then
+      If (g <> 0#) Then
+         For j = L To n 'Double division to avoid possible under ow.
+            V(j, i) = (a(i, j) / a(i, L)) / g
+         Next
+         For j = L To n
+            s = 0#
+            For k = L To n
+               s = s + a(i, k) * V(k, j)
+            Next
+            For k = L To n
+               V(k, j) = V(k, j) + s * V(k, i)
+            Next
+         Next
+      End If
+      For j = L To n
+         V(i, j) = 0#
+         V(j, i) = 0#
+      Next
+   End If
+   V(i, i) = 1#
+   g = rv1(i)
+   L = i
+Next
+
+For i = Min(m, n) To 1 Step -1 'Accumulation of left-hand transformations.
+   L = i + 1
+   g = w(i)
+   For j = L To n
+      a(i, j) = 0#
+   Next
+   If (g <> 0#) Then
+      g = 1# / g
+      For j = L To n
+         s = 0#
+         For k = L To m
+            s = s + a(k, i) * a(k, j)
+         Next
+         f = (s / a(i, i)) * g
+         For k = i To m
+            a(k, j) = a(k, j) + f * a(k, i)
+         Next
+      Next
+      For j = i To m
+         a(j, i) = a(j, i) * g
+      Next
+   Else
+      For j = i To m
+         a(j, i) = 0#
+      Next
+   End If
+   a(i, i) = a(i, i) + 1#
+Next
+
+For k = n To 1 Step -1 'Diagonalization of the bidiagonal form: Loop over singular values, and over allowed iterations.
+    For its = 1 To 30
+       For L = k To 1 Step -1 'Test for splitting.
+          nm = L - 1
+          If ((Abs(rv1(L)) + Anorm) = Anorm) Then GoTo Label2
+          If ((Abs(w(nm)) + Anorm) = Anorm) Then GoTo Label1
+       Next
+Label1:
+    C = 0# 'Cancellation  if l > 1.
+    s = 1#
+    For i = L To k
+       f = s * rv1(i)
+       rv1(i) = C * rv1(i)
+       If ((Abs(f) + Anorm) = Anorm) Then GoTo Label2
+       g = w(i)
+       h = pythag(f, g)
+       w(i) = h
+       h = 1# / h
+       C = (g * h)
+       s = -(f * h)
+       For j = 1 To m
+          y = a(j, nm)
+          z = a(j, i)
+          a(j, nm) = (y * C) + (z * s)
+          a(j, i) = -(y * s) + (z * C)
+       Next
+    Next
+Label2:
+    z = w(k)
+    If (L = k) Then 'Convergence.
+       If (z < 0#) Then 'Singular value is made nonnegative.
+           w(k) = -z
+           For j = 1 To n
+              V(j, k) = -V(j, k)
+           Next
+       End If
+       GoTo Label3
+    End If
+    If (its = 30) Then Exit Sub 'no convergence in svd_decomp'
+    x = w(L) 'Shift from bottom 2-by-2 minor.
+    nm = k - 1
+    y = w(nm)
+    g = rv1(nm)
+    h = rv1(k)
+    f = ((y - z) * (y + z) + (g - h) * (g + h)) / (2# * h * y)
+    g = pythag(f, 1#)
+    f = ((x - z) * (x + z) + h * ((y / (f + Sign(g, f))) - h)) / x
+    C = 1# 'Next QR transformation:
+    s = 1#
+    For j = L To nm
+       i = j + 1
+       g = rv1(i)
+       y = w(i)
+       h = s * g
+       g = C * g
+       z = pythag(f, h)
+       rv1(j) = z
+       C = f / z
+       s = h / z
+       f = (x * C) + (g * s)
+       g = -(x * s) + (g * C)
+       h = y * s
+       y = y * C
+       For jj = 1 To n
+          x = V(jj, j)
+          z = V(jj, i)
+          V(jj, j) = (x * C) + (z * s)
+          V(jj, i) = -(x * s) + (z * C)
+       Next
+       z = pythag(f, h)
+       w(j) = z 'Rotation can be arbitrary if z = 0.
+       If (z <> 0#) Then
+          z = 1# / z
+          C = f * z
+          s = h * z
+       End If
+       f = (C * g) + (s * y)
+       x = -(s * g) + (C * y)
+       For jj = 1 To m
+          y = a(jj, j)
+          z = a(jj, i)
+          a(jj, j) = (y * C) + (z * s)
+          a(jj, i) = -(y * s) + (z * C)
+       Next
+    Next
+    rv1(L) = 0#
+    rv1(k) = f
+    w(k) = x
+ Next
+Label3:
+ 'continue
+Next
+'return
+End Sub
+
+Private Function pythag(x, y)
+'Computes (a 2 + b 2 ) 1=2 without destructive under ow or over ow.
+Dim absa As Double, absb  As Double
+absa = Abs(x)
+absb = Abs(y)
+If (absa > absb) Then
+   pythag = absa * Sqr(1# + (absb / absa) ^ 2)
+Else
+   If (absb = 0#) Then
+      pythag = 0#
+   Else
+      pythag = absb * Sqr(1# + (absa / absb) ^ 2)
+   End If
+End If
+'return
+End Function
+
+
+Private Function Sign(x, y)
+If y >= 0 Then Sign = Abs(x) Else Sign = -Abs(x)
+End Function
+
+Function SVD_U(Mat)
+'returns the first matrix of SVD decomposition
+'A = U*D*V^t
+Dim a, w(), V()
+Dim n As Integer, m As Integer
+a = Mat
+m = UBound(a, 1): n = UBound(a, 2)
+svd_decomp a, m, n, w, V
+svd_sort a, V, w
+SVD_U = a
+End Function
+
+Function SVD_D(Mat)
+'returns the second matrix of SVD decomposition
+'A = U*D*V^t
+Dim a, w(), V(), d() As Double
+Dim n As Integer, m As Integer
+a = Mat
+m = UBound(a, 1): n = UBound(a, 2)
+svd_decomp a, m, n, w, V
+svd_sort a, V, w
+ReDim d(1 To n, 1 To n)
+For i = 1 To n
+    d(i, i) = w(i)
+Next
+SVD_D = d
+End Function
+
+Function SVD_V(Mat)
+'returns the second matrix of SVD decomposition
+'A = U*D*V^t
+Dim a, w(), V()
+Dim n As Integer, m As Integer
+a = Mat
+m = UBound(a, 1): n = UBound(a, 2)
+svd_decomp a, m, n, w, V
+svd_sort a, V, w
+SVD_V = V
+End Function
+
+Function MatMopUp(Mat, Optional ErrMin)
+'eliminates values too small
+Dim a
+If IsMissing(ErrMin) Then ErrMin = 10 ^ -14
+a = Mat
+
+For i = 1 To UBound(a, 1)
+For j = 1 To UBound(a, 2)
+    If IsNumeric(a(i, j)) Then
+        If Abs(a(i, j)) < ErrMin Then a(i, j) = 0
+    End If
+Next j
+Next i
+MatMopUp = a
+End Function
+
+Sub svd_sort(a, V, w)
+'Descending Sort for mat A, V, w of SVD decomposition
+Dim flag_exchanged As Boolean
+i_min = LBound(w, 1)
+i_max = UBound(w, 1)
+Do
+    flag_exchanged = False
+    For i = i_min To i_max Step 2
+        k = i + 1
+        If k > i_max Then Exit For
+        a1 = Abs(w(i))
+        a2 = Abs(w(k))
+        If (a1 < a2) Then
+            'swap
+            C = w(k): w(k) = w(i): w(i) = C
+            SwapCol a, k, i
+            SwapCol V, k, i
+            flag_exchanged = True
+        End If
+    Next
+    If i_min = LBound(w) Then
+        i_min = LBound(w) + 1
+    Else
+        i_min = LBound(w)
+    End If
+Loop Until flag_exchanged = False And i_min = LBound(w)
+End Sub
+
+Function M_DIAG(Diag)
+' returns scalar product (inner)
+'this version can be nested with ProdVect()
+'ver. 27-6-02   thank to Robert Pigeon
+Dim w(), d()
+LoadVector w, Diag, n
+ReDim d(1 To n, 1 To n)
+For i = 1 To n
+For j = 1 To n
+    If i = j Then d(i, i) = w(i) Else d(i, j) = 0
+Next j
+Next i
+M_DIAG = d
+End Function
+
+Function MatCovar(Mat)
+'returns the covariance matrix of a given mat
+'Input Mat (n x p)
+'Returns (p x p ) matrix
+Dim b(), a
+Dim xm(), s As Double
+a = Mat
+n = UBound(a, 1): m = UBound(a, 2)
+ReDim xm(1 To m) 'average for each column
+ReDim b(1 To m, 1 To m)
+'compute the average
+For j = 1 To m
+    s = 0
+    For i = 1 To n
+        s = s + a(i, j)
+    Next i
+    xm(j) = s / n
+Next j
+'compute the cross covariance matrix
+
+For i = 1 To m
+    For j = 1 To m
+        If j < i Then
+            b(i, j) = b(j, i)
+        Else
+            s = 0
+            For k = 1 To n
+                s = s + (a(k, i) - xm(i)) * (a(k, j) - xm(j))
+            Next k
+            b(i, j) = s / n
+        End If
+    Next j
+Next i
+MatCovar = b
+End Function
+
+Function RegrL(y, x, Optional Intcpt)
+'Linear Regression.  ver. July 2006. by Leonardo Volpi.
+' Returns the coefficients vector [a0, a1,..am] of linear regression function
+' f = a0 + a1*x1 + a2*x2 +a3*x3 +... am*xm
+'and the standard deviation of estimate
+'input Y(n) dependent variable vector
+'input X(n x m) range of independent variables (n > m)
+'input Intcpt = True/False calculate the Y intercept
+'Output vector (m+1) [a0, a1, a2,...am]
+'uses the SVD decomposition method
+'rev. 22.7.2006
+Dim b, a, coeff(), u
+Dim w(), V(), C, n%, m%, p%, i&, j&, k&, alfa()
+Dim ssr, yr, esr(), tmp(), xn()
+b = y
+a = x
+n = UBound(a, 1): m = UBound(a, 2)
+ReDim coeff(0 To m)  'coeff(0)=known terms, coeff(1), coeff(2), ...
+'Computes the mean of x an f(x) vector
+If IsMissing(Intcpt) Then Intcpt = True
+'compute the norm of X columns
+ReDim xn(1 To m)
+For j = 1 To m
+    xn(j) = 0
+    For i = 1 To n
+        xn(j) = xn(j) + a(i, j) ^ 2
+    Next i
+    xn(j) = Sqr(xn(j))
+Next j
+'build the matrix X
+If Intcpt = True Then
+    'complete matrix X
+    ReDim u(1 To n, 1 To m + 1)
+    For i = 1 To n
+        u(i, 1) = 1
+        For j = 1 To m
+            u(i, j + 1) = a(i, j) / xn(j)
+        Next j
+    Next i
+    p = m + 1
+Else
+    'reduced matrix X
+    ReDim u(1 To n, 1 To m)
+    For i = 1 To n
+        For j = 1 To m
+            u(i, j) = a(i, j) / xn(j)
+        Next j
+    Next i
+    p = m
+End If
+
+'perform the SVD decomposition  u*w*v^t => A
+svd_decomp u, n, p, w, V
+
+'build the coefficients vector Coeff=[V]*[1/w]*([A]^t)*y
+ReDim alfa(1 To p)
+For i = 1 To p
+    'scalar product Ui*y
+    For k = 1 To n
+        alfa(i) = alfa(i) + u(k, i) * b(k, 1)
+    Next k
+    alfa(i) = alfa(i) / w(i)
+Next i
+
+If Intcpt = True Then
+    For i = 1 To p
+        For k = 1 To p
+            coeff(i - 1) = coeff(i - 1) + alfa(k) * V(i, k)
+        Next k
+    Next i
+Else
+    coeff(0) = 0
+    For i = 1 To p
+        For k = 1 To p
+            coeff(i) = coeff(i) + alfa(k) * V(i, k)
+        Next k
+    Next i
+End If
+
+'rescaling coefficients
+For i = 1 To m
+    coeff(i) = coeff(i) / xn(i)
+Next i
+
+'regression residual standard error
+For i = 1 To n
+    yr = coeff(0)
+    For j = 1 To m
+        yr = yr + coeff(j) * a(i, j)
+    Next j
+    ssr = ssr + (yr - b(i, 1)) ^ 2
+Next i
+
+If n > p Then
+    ssr = Sqr(ssr / (n - p))
+Else
+    ssr = 0
+End If
+
+'standard deviation of estimates
+ReDim esr(0 To m)
+If Intcpt = True Then
+    For i = 0 To m
+        For j = 1 To p
+            esr(i) = esr(i) + (V(i + 1, j) / w(j)) ^ 2
+        Next j
+        esr(i) = Sqr(esr(i)) * ssr
+    Next i
+Else
+    esr(0) = 0
+    For i = 1 To m
+        For j = 1 To p
+            esr(i) = esr(i) + (V(i, j) / w(j)) ^ 2
+        Next j
+        esr(i) = Sqr(esr(i)) * ssr
+    Next i
+End If
+
+'rescaling stand. deviation
+For i = 1 To m
+    esr(i) = esr(i) / xn(i)
+Next i
+
+'put togheter for output: coefficients + errors
+'vertical format from low to high
+ReDim tmp(1 To m + 1, 1 To 2)
+For i = 1 To m + 1
+    tmp(i, 1) = coeff(i - 1)
+    tmp(i, 2) = esr(i - 1)
+Next i
+
+'orizzontal format from high to low . like the LINEST Excel function
+'ReDim tmp(1 To 2, 1 To m + 1)
+'For i = 1 To m + 1
+'    tmp(1, i) = coeff(m + 1 - i)
+'    tmp(2, i) = esr(m + 1 - i)
+'Next i
+
+'paste output array
+RegrL = tmp
+End Function
+
+Function MyRegrP(Degree, y, x, CoeffNum, Optional Intcpt)
+If IsMissing(Intcpt) Then Intcpt = True
+Dim tmp
+tmp = RegrP(Degree, y, x, Intcpt)
+MyRegrP = tmp(CoeffNum, 1)
+End Function
+Function RegrP(Degree, y, x, Optional Intcpt)
+'Polynomial Regression.
+' Returns the coefficients vector [a0, a1,..am] of linear regression function
+' y = a0 + a1*x + a2*x^2 +a3*x^3 +... am*x^m
+'input Y(n) dependent variable vector
+'input X(n x 1) independent variable
+'input Intcpt= force the Y intercept (if not missing)
+'Output vector (m+1) [a0, a1, a2,...am]
+'It use the SVD decomposition method
+'rev. 22.7.2006
+Dim a(), Vx, Vy, n&, i&, j&, k&, Coef, V(), ym, xm, tmp, cik
+If IsMissing(Intcpt) Then Intcpt = True
+Vy = y
+Vx = x
+n = UBound(Vx)
+'build the power Wandermonde matrix
+ReDim a(1 To n, 1 To Degree)
+For i = 1 To n
+    a(i, 1) = Vx(i, 1)
+    For j = 2 To Degree
+        a(i, j) = a(i, 1) * a(i, j - 1)
+    Next j
+    Vy(i, 1) = Vy(i, 1)
+Next i
+
+tmp = RegrL(Vy, a, Intcpt)
+
+RegrP = tmp
+End Function
+
+'Function REGRL(y, x, Optional ZeroIntcpt As Boolean)
+''Linear Regression.  ver. May 2003. by Leonardo Volpi.
+'' Returns the coefficients vector [a0, a1,..am] of linear regression function
+'' f = a0 + a1*x1 + a2*x2 +a3*x3 +... am*xm
+''input Y(n) dependent variable vector
+''input X(n x m) range of independent variables (n > m)
+''input Intcpt= force the Y intercept (if not missing)
+''Output vector (m+1) [a0, a1, a2,...am]
+''It use the SVD decomposition method
+''rev. 1.5.2003
+'Dim b, A, Xm(), Ym, coeff()
+'Dim w(), v(), c, n As Integer, m As Integer
+'b = y
+'A = x
+'n = UBound(A, 1): m = UBound(A, 2)
+'ReDim coeff(m)  'coeff(0)=known terms, coeff(1), coeff(2), ...
+'ReDim Xm(1 To m)
+''Computes the mean of x an f(x) vector
+'If IsMissing(ZeroIntcpt) Then ZeroIntcpt = False
+'If Not ZeroIntcpt Then
+'    For j = 1 To m
+'        Xm(j) = mat_avg_col(A, j)
+'    Next j
+'        Ym = mat_avg_col(b, 1)
+'    'build the conditioned matrix
+'    For j = 1 To m
+'        For i = 1 To n
+'            A(i, j) = A(i, j) - Xm(j)
+'        Next i
+'    Next j
+'Else
+'    Ym = 0  'force the intercept y(0)= 0
+'End If
+''perform the SVD decomposition
+'svd_decomp A, n, m, w, v
+''build the coefficients vector Coeff=[V]*[1/w]*([A]^t)*b
+'For i = 1 To m
+'    w(i) = 1 / w(i) 'invert the single values
+'Next i
+'For i = 1 To n
+'    b(i, 1) = b(i, 1) - Ym
+'Next
+'c = M_PROD(v, M_DIAG(w), M_TRANSP(A), b)
+''load out vector
+'If m = 1 Then
+'    coeff(1) = c(1)     '1.5.2003 fix bug for one parameter
+'Else
+'    For i = 1 To m
+'        coeff(i) = c(i, 1)
+'    Next
+'End If
+''compute const coefficient
+'If Not ZeroIntcpt Then
+'    q = 0
+'    For i = 1 To m
+'        q = q + coeff(i) * Xm(i)
+'    Next
+'    coeff(0) = Ym - q
+'Else
+'    coeff(0) = 0
+'End If
+''paste output vector
+'REGRL = PasteVector(coeff)
+'End Function
+'
+'
+'Function REGRP(Degree, y, x, Optional ZeroIntcpt As Boolean)
+''Polynomial Regression.  ver. May 2003. by Leonardo Volpi.
+'' Returns the coefficients vector [a0, a1,..am] of linear regression function
+'' y = a0 + a1*x + a2*x^2 +a3*x^3 +... am*x^m
+''input Y(n) dependent variable vector
+''input X(n x 1) independent variable
+''input Intcpt= force the Y intercept (if not missing)
+''Output vector (m+1) [a0, a1, a2,...am]
+''It use the SVD decomposition method
+''rev. 1.12.2003
+'Dim A(), Vx, Vy, n&, Coef, v(), Ym, Xm, tmp
+'If IsMissing(ZeroIntcpt) Then ZeroIntcpt = False
+'Vy = y
+'Vx = x
+'n = UBound(Vx)
+''average of input data --------
+'Ym = 0: Xm = 0
+'If Not ZeroIntcpt Then
+'    For i = 1 To n
+'        Ym = Ym + Vy(i, 1)
+'        Xm = Xm + Vx(i, 1)
+'    Next i
+'    Ym = Ym / n
+'    Xm = Xm / n
+'End If
+''------------------------
+'
+'ReDim A(1 To n, 1 To Degree)
+'For i = 1 To n
+'    A(i, 1) = Vx(i, 1) - Xm
+'    For j = 2 To Degree
+'        A(i, j) = A(i, 1) * A(i, j - 1)
+'    Next j
+'    Vy(i, 1) = Vy(i, 1) - Ym
+'Next i
+'
+'tmp = REGRL(Vy, A, ZeroIntcpt)
+'
+'If Application.Caller.Rows.Count > 1 Then
+'    ReDim Coef(Degree)
+'    For i = 0 To Degree
+'        Coef(i) = tmp(i + 1, 1)
+'    Next
+'Else
+'    Coef = tmp
+'End If
+'
+'If Not ZeroIntcpt Then
+'    'translating Coefficients
+'    Dim Cf()
+'    ReDim Cf(Degree)
+'    Cf(0) = 0 'compute a0
+'    For i = Degree To 0 Step -1
+'        Cf(0) = Cf(0) * Xm + Coef(i) * (-1) ^ i
+'    Next i
+'    Cf(0) = Cf(0) + Ym
+'
+'    For k = 1 To Degree 'compute a1, a2...an
+'        Cf(k) = 0
+'        For i = Degree To k Step -1
+'            cik = Application.WorksheetFunction.Combin(i, k)
+'            Cf(k) = Cf(k) * Xm + cik * Coef(i) * (-1) ^ (i + k)
+'        Next i
+'    Next k
+'Else
+'    Cf = Coef
+'End If
+'REGRP = PasteVector(Cf)
+'End Function
+
+Private Function mat_avg_col(a, j)
+s = 0: n = 0
+For k = LBound(a, 1) To UBound(a, 1)
+    s = s + a(k, j)
+    n = n + 1
+Next
+mat_avg_col = s / n
+End Function
+
+
+Function MatCorr(Mat)
+'returns the correlation matrix of a given mat
+'Input Mat (n x p)
+'Returns (p x p ) matrix
+Dim b(), a
+Dim xm(), s As Double, DevSt()
+a = Mat
+n = UBound(a, 1): m = UBound(a, 2)
+ReDim xm(1 To m) 'average for each column
+ReDim DevSt(1 To m) 'standard deviation for each column
+ReDim b(1 To m, 1 To m)
+'compute average for column
+For j = 1 To m
+    s = 0
+    For i = 1 To n
+        s = s + a(i, j)
+    Next i
+    xm(j) = s / n
+Next j
+'compute standard deviation for column
+For j = 1 To m
+    s = 0
+    For i = 1 To n
+        s = s + (a(i, j) - xm(j)) ^ 2
+    Next i
+    DevSt(j) = Sqr(s / n)
+Next j
+'normalize matrix
+For j = 1 To m
+For i = 1 To n
+    a(i, j) = (a(i, j) - xm(j)) / DevSt(j)
+Next i
+Next j
+'compute the cross covariance matrix
+For i = 1 To m
+    For j = 1 To m
+        If j < i Then
+            b(i, j) = b(j, i)
+        Else
+            s = 0
+            For k = 1 To n
+                s = s + a(k, i) * a(k, j)
+            Next k
+            b(i, j) = s / n
+        End If
+    Next j
+Next i
+MatCorr = b
+End Function
+
+Function MatCmp(Coefficients)
+'returns the companion matrix of a monic polynomial
+'mod. 26-7-03
+Dim Cf, C() As Double
+'Cf = Coeff
+LoadVector Cf, Coefficients, n
+m = UBound(Cf)
+n = m - 1
+ReDim C(1 To n, 1 To n)
+'build subdiagonal (lower)
+For i = 1 To n - 1
+    C(i + 1, i) = 1
+Next i
+'insert coefficients into last column
+For i = 1 To n
+    C(i, n) = -Cf(i) / Cf(m)
+Next i
+MatCmp = C
+End Function
+
+Function MatCmp_C(Coefficients)
+'returns the complex companion matrix of a polynomial
+'mod. 26-7-03
+Dim Cf, C() As Double, zn As Cplx, zm As Cplx, z As Cplx
+Cf = Coefficients
+
+m = UBound(Cf)
+n = m - 1
+ReDim C(1 To n, 1 To 2 * n)
+If Cf(m, 1) <> 1 And Cf(m, 2) = 0 Then
+    'real normalization
+    For i = 1 To m
+       Cf(i, 1) = Cf(i, 1) / Cf(m, 1)
+       Cf(i, 2) = Cf(i, 2) / Cf(m, 1)
+    Next i
+ElseIf Cf(m, 2) <> 0 Then
+    'complex normalization
+    zm.R = Cf(m, 1):    zm.i = Cf(m, 2)
+    For i = 1 To m
+       zn.R = Cf(i, 1): zn.i = Cf(i, 2)
+       z = div_(zn, zm)
+       Cf(i, 1) = z.R: Cf(i, 2) = z.i
+    Next i
+End If
+'build subdiagonal (lower)
+For i = 1 To n - 1
+    C(i + 1, i) = 1
+Next i
+'insert coefficients into last column
+For i = 1 To n
+    C(i, n) = -Cf(i, 1)
+    C(i, 2 * n) = -Cf(i, 2)
+Next i
+
+MatCmp_C = C
+End Function
+
+Private Function PasteVector(V)
+'Paste a vector in horizontal or vertical mode depending on selected cells
+On Error GoTo Error_Handler
+If Application.Caller.Rows.Count > 1 Then
+    PasteVector = Application.WorksheetFunction.Transpose(V)
+Else
+    PasteVector = V
+End If
+Exit Function
+Error_Handler:
+    PasteVector = V
+End Function
+
+Function MatEigenvalue_max(Mat, Optional IterMax)
+'returns max eigenvalues using the power method
+Dim a, Eigenvalue_max, Eigenvector_max#(), IterCounter&, IterErr#, ErrMsg$
+Const tiny = 10 ^ -14
+a = Mat
+If UBound(a, 1) <> UBound(a, 2) Then
+    ErrMsg = "?":  GoTo HerrorHandler
+End If
+'set default
+If IsMissing(IterMax) Then IterMax = 1000
+'search the dominant eigenvalue and associated eigenvector with power algorithm
+Eigen_Power a, Eigenvalue_max, Eigenvector_max, IterMax, IterErr, IterCounter
+If IterCounter >= IterMax And IterErr > 10 ^ 6 * tiny Then
+    ErrMsg = "convergence fails": GoTo HerrorHandler
+End If
+MatEigenvalue_max = Eigenvalue_max
+Exit Function
+'-----------
+HerrorHandler:
+MatEigenvalue_max = ErrMsg
+End Function
+
+Function MatEigenvector_max(Mat, Optional Norm, Optional IterMax)
+'returns max eigenvalues using the power method
+Dim a, Eigenvalue_max, Eigenvector_max#(), IterCounter&, ErrMsg$
+Const tiny = 10 ^ -14
+a = Mat
+If UBound(a, 1) <> UBound(a, 2) Then
+    ErrMsg = "?":  GoTo HerrorHandler
+End If
+'set default
+If IsMissing(Norm) Then Norm = False
+If IsMissing(IterMax) Then IterMax = 1000
+'search the dominant eigenvalue and associated eigenvector with power algorithm
+Eigen_Power a, Eigenvalue_max, Eigenvector_max, IterMax, , IterCounter
+If IterCounter >= IterMax And IterErr > 10 ^ 6 * tiny Then
+    ErrMsg = "convergence fails": GoTo HerrorHandler
+End If
+If Norm Then NormalizeVector Eigenvector_max, 0
+MatEigenvector_max = PasteVector(Eigenvector_max)
+Exit Function
+'--------------
+HerrorHandler:
+MatEigenvector_max = ErrMsg
+End Function
+
+
+Function MatEigenvalue_pow(Mat, Optional IterMax)
+'returns all eigenvalues using the power algorithm and the matrix reduce method
+Dim a, ErrMsg$, Ua#(), V#()
+a = Mat
+If UBound(a, 1) <> UBound(a, 2) Then
+    ErrMsg = "?":  Exit Function
+End If
+'set default
+If IsMissing(IterMax) Then IterMax = 1000
+'search all eigenvalue and associated eigenvector with power algorithm
+Eigen_Power_All a, Ua, V, ErrMsg, IterMax
+If ErrMsg <> "" Then
+    MatEigenvalue_pow = "convergence fails"
+Else
+    MatEigenvalue_pow = PasteVector(V)
+End If
+End Function
+
+Function MatEigenvector_pow(Mat, Optional Norm, Optional IterMax)
+'returns all eigenvalues using the power algorithm and the matrix reduce method
+'mod 8.1.06
+Dim a, ErrMsg$, Ua#(), V#()
+a = Mat
+If UBound(a, 1) <> UBound(a, 2) Then
+    ErrMsg = "?":  Exit Function
+End If
+'set default
+If IsMissing(Norm) Then Norm = False
+If IsMissing(IterMax) Then IterMax = 1000
+'search all eigenvalue and associated eigenvector with power algorithm
+Eigen_Power_All a, Ua, V, ErrMsg, IterMax
+'mormalize the eigenvector sign
+Normalize_Eigenvector_Sign Ua
+'
+If ErrMsg = "" Then
+    If Norm Then NormalizeMatrix Ua, 2
+    MatEigenvector_pow = Ua
+Else
+    MatEigenvector_pow = "?"
+End If
+End Function
+
+Private Sub Eigen_Power(a, Eigenvalue_max, Eigenvector_max#(), ByVal IterMax&, Optional IterErr#, Optional IterCounter&)
+'Computes the max eigenvalue and eigenvector of matrix A with power method
+'IterCount= iteration counter
+'ErrMax = Set the Max error allowed
+'mod. 30.12.05
+Dim V, u#(), u0#(), R#, r0#, n&, Err_value#, Err_vector#, u_norm#
+Const tiny = 4 * 10 ^ -15
+If UBound(a, 1) <> UBound(a, 2) Then
+    ErrMsg = "Matrix must be square": Exit Sub
+End If
+n = UBound(a, 1)
+ReDim u(1 To n, 1 To 1), u0(1 To n, 1 To 1)
+ReDim Eigenvector_max(1 To n)
+If n = 1 Then
+    Eigenvalue_max = a(1, 1)
+    Eigenvector_max(1) = 1
+    ErrMsg = ""
+    Exit Sub
+End If
+'initialize starting vector
+Randomize
+For i = 1 To n
+    u(i, 1) = CDbl(Rnd)
+    'U(i, 1) = 1
+Next
+r0 = 0
+IterCounter = 0
+Do
+    'multiplication matrix
+    V = Application.WorksheetFunction.MMult(a, u)
+    'Rayleigh coefficient computing
+    s1 = 0: s2 = 0
+    For i = 1 To n
+        s1 = s1 + V(i, 1) * u(i, 1)
+        s2 = s2 + u(i, 1) * u(i, 1)
+    Next i
+    R = s1 / s2 'Rayleigh coefficient
+    u_norm = Sqr(s2) 'norma of u
+    s1 = 0: Err_vector = 0
+    For i = 1 To n
+        u(i, 1) = V(i, 1) / u_norm 'load and rescaling next vector
+        Err_vector = Err_vector + Abs(Abs(u(i, 1)) - Abs(u0(i, 1))) 'vector error evaluation
+    Next i
+    If s2 > 1 Then Err_vector = Err_vector / s2
+    'eigenvalue error
+    IterErr = Abs(R - r0)
+    If Abs(R) > 1 Then IterErr = IterErr / Abs(R)
+    IterErr = IterErr + Err_vector
+    r0 = R
+    For i = 1 To n
+        u0(i, 1) = u(i, 1)    'save current vector
+    Next i
+    IterCounter = IterCounter + 1
+Loop While IterCounter < IterMax And (IterErr > tiny)   '
+Eigenvalue_max = R
+'normalize to max value
+R = 0
+For i = 1 To n
+    If Abs(u(i, 1)) > Abs(R) Then R = u(i, 1)
+Next
+For i = 1 To n
+    Eigenvector_max(i) = u(i, 1) / R
+Next i
+Normalize_Eigenvector_Sign u, tiny
+End Sub
+
+Private Sub Eigen_Power_All(a, Ua#(), V#(), ErrMsg$, ByVal IterMax&)
+'Find all eigenvalues and eigenvectors. 2-11-02 by Leonardo Volpi
+'Uses the power algorithm and the matrix reduction method
+'A matrix [n x n]
+'Ua = eigenvector [n x n] of A
+'v  = eigenvalues [n] of A
+Dim u#(), b#(), ub#(), w#(), ID() As Boolean, IterCounter&, IterErr#
+Dim EigMax#, tmp#(), n&, m&, i&, j&, k&, First_1_Element&
+Dim s1#, s2#, s3%
+Const tiny = 10 ^ -15
+'intialize
+ErrMsg = ""
+If UBound(a, 1) <> UBound(a, 2) Then
+    ErrMsg = "?":  GoTo HerrorHandler
+End If
+n = UBound(a, 1)
+ReDim Ua(1 To n, 1 To n), u(1 To n, 1 To n), tmp(1 To n, 1 To n), w(1 To n, 1 To n)
+ReDim V(1 To n), ID(1 To n)
+For i = 1 To n: ID(i) = True: Next i
+k = 1
+Do
+    m = n - k + 1
+    'initialize and extract the reduced matrix
+    ReDim b(1 To m, 1 To m), ub(1 To m)
+    i1 = 0
+    For i = 1 To n
+        If ID(i) Then
+            i1 = i1 + 1: j1 = 0
+            For j = 1 To n
+                If ID(j) Then
+                    j1 = j1 + 1
+                    b(i1, j1) = a(i, j)
+                End If
+            Next j
+        End If
+    Next i
+    
+    'search for the dominant eigenvalues and relative eigenvector
+    Eigen_Power b, EigMax, ub, IterMax, IterErr, IterCounter
+    If IterCounter >= IterMax And IterErr > 10 ^ 6 * tiny Then GoTo HerrorHandler
+    'save results
+    V(k) = EigMax
+    i1 = 0
+    For i = 1 To n
+        If ID(i) Then
+            i1 = i1 + 1
+            u(i, k) = ub(i1)
+        End If
+    Next i
+    'search for first 1 - element
+    For i = 1 To n
+        If u(i, k) = 1 Then
+            First_1_Element = i
+            Exit For
+        End If
+    Next i
+    'save First_1_Element-row
+    For j = 1 To n
+        w(k, j) = a(First_1_Element, j)
+    Next j
+    'compute new reduce matrix
+    For i = 1 To n
+    For j = 1 To n
+        tmp(i, j) = u(i, k) * a(First_1_Element, j)
+    Next j
+    Next i
+    For i = 1 To n
+    For j = 1 To n
+        a(i, j) = a(i, j) - tmp(i, j)
+    Next j
+    Next i
+    k = k + 1
+    ID(First_1_Element) = False
+    'Dump_Matrix A '>>>>>>>>>>>>>>>>>>>>> DEBUG
+    'Dump_Matrix U '>>>>>>>>>>>>>>>>>>>>> DEBUG
+    'Dump_Matrix w '>>>>>>>>>>>>>>>>>>>>> DEBUG
+Loop Until k > n
+'eigenvector transformation
+For k = 1 To n
+    For i = 1 To n
+        Ua(i, k) = u(i, k)
+    Next i
+    For j = 1 To k - 1
+        s1 = V(k) - V(k - j)
+        s2 = 0
+        For i = 1 To n
+            s2 = s2 + w(k - j, i) * Ua(i, k)
+        Next i
+        For i = 1 To n
+            Ua(i, k) = s1 * Ua(i, k) + s2 * u(i, k - j)
+        Next i
+    Next j
+    'rescaling each vector to its max value
+    s1 = 0: s3 = 0
+    For i = 1 To n
+        If Abs(Ua(i, k)) > s1 Then s1 = Abs(Ua(i, k))  'mod. 30.12.2005
+        If s1 > tiny And s3 = 0 Then s3 = Sgn(Ua(i, k)) 'first non zero element
+    Next i
+    If s1 > tiny Then
+        For i = 1 To n
+            Ua(i, k) = s3 * Ua(i, k) / s1
+        Next i
+    End If
+Next k
+    'Dump_Matrix Ua '>>>>>>>>>>>>>>>>>>>>> DEBUG
+Exit Sub
+HerrorHandler:
+ErrMsg = "dubious accuracy"
+End Sub
+
+
+Private Sub Dump_matrix(a)
+n = UBound(a, 1)
+m = UBound(a, 2)
+    Debug.Print String(120, "-")
+    For i = LBound(a, 1) To n
+    For j = LBound(a, 2) To m - 1
+       Debug.Print a(i, j); Tab(24 * j);
+    Next j
+       Debug.Print a(i, m)
+    Next i
+
+End Sub
+
+Private Sub Dump_Vector(V)
+    For i = LBound(V) To UBound(V)
+        Debug.Print V(i)
+    Next i
+End Sub
+
+Sub NormalizeVector(V, ByVal NormType)
+'NormType = 0 (Norma =1), 1 (max)
+n = UBound(V)
+i_min = LBound(V)
+Select Case NormType
+    Case 0
+        s1 = 0 '
+        For i = i_min To n
+             s1 = s1 + V(i) ^ 2
+        Next i
+        s1 = Sqr(s1)
+    Case 1
+        s1 = 0 '
+        For i = i_min To n
+            If Abs(V(i)) > s1 Then s1 = Abs(V(i))
+        Next i
+End Select
+For i = i_min To n
+    V(i) = V(i) / s1
+Next i
+End Sub
+
+Private Sub NormalizeMatrix(a, ByVal NormType, Optional tiny)
+'NormType = 1 (scaled to max) ,  2 (modulo=1),  3 (scaled to min)
+'mod. 20-12-03
+If IsMissing(tiny) Then tiny = 2 * 10 ^ -14
+n = UBound(a, 1)
+m = UBound(a, 2)
+n_min = LBound(a, 1)
+m_min = LBound(a, 2)
+'mop-up
+For j = m_min To m
+For i = n_min To n
+    If Abs(a(i, j)) < tiny Then a(i, j) = 0  '20-12-03
+Next i, j
+'normalize
+For j = m_min To m
+    Select Case NormType
+        Case 2  'module =1
+            s1 = 0 '
+            For i = n_min To n
+                 s1 = s1 + a(i, j) ^ 2
+            Next i
+            s1 = Sqr(s1)
+        Case 3  'max element =1
+            s1 = 0 '
+            For i = n_min To n
+                If Abs(a(i, j)) > Abs(s1) Then s1 = a(i, j)
+            Next i
+        Case 1  'min element =1
+            s1 = 10 ^ 300
+            For i = n_min To n   'fix bug 10.5.2003 VL
+                If Abs(a(i, j)) < Abs(s1) And Abs(a(i, j)) > 0 Then s1 = a(i, j)
+            Next i
+    End Select
+    If Abs(s1) > tiny Then  'fix bug for null vectors . 6-6-05 VL
+        For i = n_min To n
+            a(i, j) = a(i, j) / s1
+        Next i
+    End If
+Next j
+End Sub
+
+Function MatNormalize(Mat, Optional NormType, Optional tiny)
+'NormType = 1 (Min element =1),
+'NormType = 2 (Module =1)
+'NormType = 3 (Max element =1)
+Dim a
+a = Mat
+If IsMissing(NormType) Then NormType = 2
+If IsMissing(tiny) Then tiny = 2 * 10 ^ -14
+NormalizeMatrix a, NormType, tiny
+MatNormalize = a   'fix bug  VL 10.5.2003
+End Function
+
+'===============================================================
+Sub GJ(a, Optional b, Optional Det, Optional dTiny, Optional RetErr)
+'==============================================================
+'Gauss-Jordan algorithm for matrix reduction with full pivot method
+'A is a matrix (n x n); at the end contains the inverse of A
+'B is a matrix (n x m); at the end contains the solution of AX=B
+'this version apply the check for too small elements: |aij|<Tiny
+'RetErr = "singular" (Det=0),  "overflow"
+'rev. version of 2-6-2005
+'==============================================================
+Dim i%, j%, irow%, icol%, ID(), sw%, m, CalcDet As Boolean
+If IsMissing(dTiny) Then dTiny = 2E-16  'change 10.12.05
+If Not IsMissing(Det) Then CalcDet = True
+If IsMissing(b) Then m = 0 Else m = UBound(b, 2)
+n = UBound(a, 1)
+ReDim ID(1 To 2 * n, 1 To 3) 'trace of swaps
+sw = 0 'swap counter
+Det = 1
+RetErr = ""
+On Error GoTo Error_Handler
+For k = 1 To n
+    'search max pivot
+    irow = k: icol = k
+    PivotMax = 0
+    For i = k To n
+    For j = k To n
+        If Abs(a(i, j)) > PivotMax Then
+            irow = i: icol = j: PivotMax = Abs(a(i, j))
+        End If
+    Next j
+    Next i
+    
+    'ignore pivot for this conditions '2-6-2005
+    If irow = icol And Abs(a(k, k)) <> 0 Then
+        irow = k
+        icol = k
+    End If
+
+    ' swap rows and columns
+    If irow > k Then
+        SwapRow a, k, irow
+        If m > 0 Then SwapRow b, k, irow
+        If CalcDet Then Det = -Det
+        sw = sw + 1
+        ID(sw, 1) = k
+        ID(sw, 2) = irow
+        ID(sw, 3) = 1
+    End If
+    If icol > k Then
+        SwapCol a, k, icol
+        If CalcDet Then Det = -Det
+        sw = sw + 1
+        ID(sw, 1) = k
+        ID(sw, 2) = icol
+        ID(sw, 3) = 2
+    End If
+    ' check pivot 0
+    If Abs(a(k, k)) <= dTiny Then
+        a(k, k) = 0: Det = 0
+        RetErr = "singular"
+        Exit Sub
+    End If
+    'normalization
+    pk = a(k, k)
+    If CalcDet Then Det = Det * pk
+    a(k, k) = 1
+    For j = 1 To n
+        a(k, j) = a(k, j) / pk
+    Next j
+    For j = 1 To m
+        b(k, j) = b(k, j) / pk
+    Next j
+    'linear reduction
+    For i = 1 To n
+        If i <> k And a(i, k) <> 0 Then
+            pk = a(i, k)
+            a(i, k) = 0
+            For j = 1 To n
+                a(i, j) = a(i, j) - pk * a(k, j)
+            Next j
+            For j = 1 To m
+                b(i, j) = b(i, j) - pk * b(k, j)
+            Next j
+        End If
+    Next i
+Next k
+'scramble rows
+For i = sw To 1 Step -1
+    If ID(i, 3) = 1 Then
+        SwapCol a, ID(i, 1), ID(i, 2)
+    Else
+        SwapRow a, ID(i, 1), ID(i, 2)
+        If m > 0 Then SwapRow b, ID(i, 1), ID(i, 2)
+    End If
+Next
+Exit Sub
+Error_Handler:
+RetErr = "overflow"
+End Sub
+
+'===============================================================
+Sub GJC(a, Optional b, Optional Det, Optional dTiny, Optional RetErr)
+'==============================================================
+'Gauss-Jordan algorithm for complex matrix reduction with full pivot method
+'A is a matrix (n x 2*n); A=[Are, Aim] at the end contains the inverse of A
+'B is a matrix (n x 2*m); B=[Bre, Bim] at the end contains the solution of AX=B
+'this version apply the check for too small elements: |aij|<Tiny
+'RetErr = "singular" (Det=0),  "overflow"
+'rev. version of 2-6-2004
+'==============================================================
+Dim i%, j%, irow%, icol%, ID(), sw%, m%, CalcDet As Boolean
+Dim C() As Cplx, d() As Cplx, pk As Cplx, Detc As Cplx
+'
+If IsMissing(dTiny) Then dTiny = 0
+If Not IsMissing(Det) Then CalcDet = True
+If IsMissing(b) Then m = 0 Else m = UBound(b, 2) / 2
+n = UBound(a, 1)
+ReDim ID(1 To 2 * n, 1 To 3) 'trace of swaps
+sw = 0 'swap counter
+Detc.R = 1: Detc.i = 0
+RetErr = ""
+On Error GoTo Error_Handler
+'convert the original matrices in complex matrices
+ReDim C(1 To n, 1 To n)
+If m > 0 Then ReDim d(1 To n, 1 To m)
+For i = 1 To n
+For j = 1 To n
+    C(i, j).R = a(i, j): C(i, j).i = a(i, j + n)
+Next j, i
+For j = 1 To m
+For i = 1 To n
+    d(i, j).R = b(i, j): d(i, j).i = b(i, j + m)
+Next i, j
+'
+For k = 1 To n
+    'search max pivot
+    irow = k: icol = k
+    PivotMax = 0
+    For i = k To n
+    For j = k To n
+        If abs_(C(i, j)) > PivotMax Then
+            irow = i: icol = j: PivotMax = abs_(C(i, j)) 'bugfix 2005.3.29 thank to Jim Lux
+        End If
+    Next j
+    Next i
+    ' swap rows and columns
+    If irow > k Then
+        SwapRow_Cplx C, k, irow
+        If m > 0 Then SwapRow_Cplx C, k, irow
+        If CalcDet Then Detc = neg_(Detc)
+        sw = sw + 1
+        ID(sw, 1) = k
+        ID(sw, 2) = irow
+        ID(sw, 3) = 1
+    End If
+    If icol > k Then
+        SwapCol_Cplx C, k, icol
+        If CalcDet Then Detc = neg_(Detc)
+        sw = sw + 1
+        ID(sw, 1) = k
+        ID(sw, 2) = icol
+        ID(sw, 3) = 2
+    End If
+    ' check pivot 0
+    If abs_(C(k, k)) <= dTiny Then
+        C(k, k).R = 0: C(k, k).i = 0
+        Det(1) = 0: Det(2) = 0
+        RetErr = "singular"
+        Exit Sub
+    End If
+    'normalization
+    pk = C(k, k)
+    If CalcDet Then Detc = mult_(Detc, pk)
+    C(k, k).R = 1: C(k, k).i = 0
+    For j = 1 To n
+        C(k, j) = div_(C(k, j), pk)
+    Next j
+    For j = 1 To m
+        d(k, j) = div_(d(k, j), pk)
+    Next j
+    'linear reduction
+    For i = 1 To n
+        If i <> k And Not IsZero_(C(i, k), tiny) Then
+            pk = C(i, k)
+            C(i, k).R = 0: C(i, k).i = 0
+            For j = 1 To n
+                C(i, j) = sub_(C(i, j), mult_(pk, C(k, j)))
+            Next j
+            For j = 1 To m
+                d(i, j) = sub_(d(i, j), mult_(pk, d(k, j)))
+            Next j
+        End If
+    Next i
+Next k
+
+'convert the matrices from complex to double
+For i = 1 To n
+For j = 1 To n
+   a(i, j) = C(i, j).R: a(i, j + n) = C(i, j).i
+Next j, i
+For j = 1 To m
+For i = 1 To n
+    b(i, j) = d(i, j).R: b(i, j + m) = d(i, j).i
+Next i, j
+
+'scramble rows
+For i = sw To 1 Step -1
+    If ID(i, 3) = 1 Then
+        SwapColC a, ID(i, 1), ID(i, 2)
+    Else
+        SwapRow a, ID(i, 1), ID(i, 2)
+        If m > 0 Then SwapRow b, ID(i, 1), ID(i, 2)
+    End If
+Next
+
+If CalcDet Then
+    Det(1) = Detc.R: Det(2) = Detc.i
+End If
+Exit Sub
+Error_Handler:
+RetErr = "overflow"
+End Sub
+
+Private Sub SwapRow_Cplx(a() As Cplx, k, i)
+    'Swaps rows k and i
+    Dim j&, temp As Cplx
+    For j = LBound(a, 2) To UBound(a, 2)
+        temp = a(i, j)
+        a(i, j) = a(k, j)
+        a(k, j) = temp
+    Next
+End Sub
+
+Private Sub SwapCol_Cplx(a() As Cplx, k, j)
+    'Swaps columns k and i  mod. 8-12-03
+    Dim i&, temp As Cplx, n&
+    n = UBound(a, 1)
+    For i = 1 To n
+        temp = a(i, j)
+        a(i, j) = a(i, k)
+        a(i, k) = temp
+    Next i
+    '
+End Sub
+
+
+Private Sub Mat_Complex_Conv(a, ConvType, Optional ImSym, Optional RetErr)
+'convert a complex matrix A
+'Format= 1  is a complex matrix (n x 2m) A = [Ar],[Ai] (2 matrices)
+'Format= 2  is a complex matrix (n x 2m) A = [Ar,Ai]   (2 cells)
+'Format= 3  is a complex matrix (n x m)  A = [Ar+jAi]   (string)
+'ConvType= 21 from 2 to 1
+'ConvType= 31 from 3 to 1
+'ConvType= 12 from 1 to 2
+'ConvType= 13 from 1 to 3
+Dim n&, m&, i&, j&, k&, ja&, b, z
+b = a
+n = UBound(b, 1)
+m = UBound(b, 2)
+RetErr = ""
+Select Case ConvType
+    Case 12
+        If m Mod 2 <> 0 Then GoTo Error_Handler
+        ReDim a(1 To n, 1 To m)
+        k = m / 2
+        For j = 1 To k
+            ja = 2 * j - 1
+        For i = 1 To n
+            a(i, ja) = b(i, j)
+            a(i, ja + 1) = b(i, j + k)
+        Next i, j
+    
+    Case 13
+        If m Mod 2 <> 0 Then GoTo Error_Handler
+        k = m / 2
+        ReDim a(1 To n, 1 To k)
+        For j = 1 To k
+        For i = 1 To n
+            a(i, j) = Cplx_to_Str(b(i, j), b(i, j + k), ImSym)
+        Next i, j
+        
+    Case 21
+        If m Mod 2 <> 0 Then GoTo Error_Handler
+        ReDim a(1 To n, 1 To m)
+        k = m / 2
+        For j = 1 To k
+            ja = 2 * j - 1
+        For i = 1 To n
+            a(i, j) = b(i, ja)
+            a(i, j + k) = b(i, ja + 1)
+        Next i, j
+    
+    Case 31
+        ReDim a(1 To n, 1 To 2 * m)
+        For j = 1 To m
+        For i = 1 To n
+            ImSym = getImagSym(b(i, j))
+            z = Cplx_from_Str(b(i, j))

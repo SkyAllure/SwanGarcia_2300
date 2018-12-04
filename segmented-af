@@ -1,0 +1,1500 @@
+Genetic programming
+Holographic associative memory
+Inductive Logic Programming
+Gaussian process regression
+Linear discriminant analysis
+K-nearest neighbor
+Minimum message length
+Perceptron
+Quadratic classifier
+Radial basis function networks
+Support vector machines
+Algorithms for estimating model parameters:
+Dynamic programming
+Expectation-maximization algorithm
+Modeling probability density functions through generative models:
+Graphical models including Bayesian networks and Markov random fields
+Generative topographic map
+Approximate inference techniques
+Monte Carlo methods
+Variational Bayes
+Variable-order Markov models
+Variable-order Bayesian networks
+Loopy belief propagation
+Optimization
+Most of methods listed above either use optimization or are instances of optimization algorithms
+Meta-learning (ensemble methods)
+Boosting
+Bootstrap aggregating
+Random forest
+Weighted majority algorithm
+Inductive transfer and learning to learn
+Inductive transfer
+Reinforcement learning
+Temporal difference learning
+Monte-Carlo method
+Machine translation
+Machine translation, sometimes referred to by the abbreviation MT, is a sub-field of computational linguistics that investigates the use of computer software to translate text or speech from one natural language to another.
+At its basic level, MT performs simple substitution of words in one natural language for words in another.
+Using corpus techniques, more complex translations may be attempted, allowing for better handling of differences in linguistic typology, phrase recognition, and translation of idioms, as well as the isolation of anomalies.
+Current machine translation software often allows for customisation by domain or profession (such as weather reports) &mdash; improving output by limiting the scope of allowable substitutions.
+This technique is particularly effective in domains where formal or formulaic language is used.
+It follows then that machine translation of government and legal documents more readily produces usable output than conversation or less standardised text.
+Improved output quality can also be achieved by human intervention: for example, some systems are able to translate more accurately if the user has unambiguously identified which words in the text are names.
+With the assistance of these techniques, MT has proven useful as a tool to assist human translators, and in some cases can even produce output that can be used "as is".
+However, current systems are unable to produce output of the same quality as a human translator, particularly where the text to be translated uses casual language.
+History
+The history of machine translation begins in the 1950s, after World War II.
+The Georgetown experiment (1954) involved fully-automatic translation of over sixty Russian sentences into English.
+The experiment was a great success and ushered in an era of substantial funding for machine-translation research.
+The authors claimed that within three to five years, machine translation would be a solved problem.
+Real progress was much slower, however, and after the ALPAC report (1966), which found that the ten-year-long research had failed to fulfill expectations, funding was greatly reduced.
+Beginning in the late 1980s, as computational power increased and became less expensive, more interest was shown in statistical models for machine translation.
+The idea of using digital computers for translation of natural languages was proposed as early as 1946 by A.D.Booth and possibly others.
+The Georgetown experiment was by no means the first such application, and a demonstration was made in 1954 on the APEXC machine at Birkbeck College (London Univ.) of a rudimentary translation of English into French.
+Several papers on the topic were published at the time, and even articles in popular journals (see for example Wireless World, Sept. 1955, Cleave and Zacharov).
+A similar application, also pioneered at Birkbeck College at the time, was reading and composing Braille texts by computer.
+Recently, Internet has emerged as global information infrastructure, revolutionizing access to any information, as well as fast information transfer and exchange.
+Using Internet and e-mail technology, people need to communicate rapidly over long distances across continent boundaries.
+Not all of these Internet users, however, can use their own language for global communication to different people with different languages.
+Therefore, using machine translation software, people can possibly communicate and contact one to another around the world in their own mother tongue, in the near future.
+Translation process
+The translation process may be stated as:
+Decoding the meaning of the source text; and
+Re-encoding this meaning in the target language.
+Behind this ostensibly simple procedure lies a complex cognitive operation.
+To decode the meaning of the source text in its entirety, the translator must interpret and analyse all the features of the text, a process that requires in-depth knowledge of the grammar, semantics, syntax, idioms, etc., of the source language, as well as the culture of its speakers.
+The translator needs the same in-depth knowledge to re-encode the meaning in the target language.
+Therein lies the challenge in machine translation: how to program a computer that will "understand" a text as a person does, and that will "create" a new text in the target language that "sounds" as if it has been written by a person.
+This problem may be approached in a number of ways.
+Approaches
+Machine translation can use a method based on linguistic rules, which means that words will be translated in a linguistic way &mdash; the most suitable (orally speaking) words of the target language will replace the ones in the source language.
+It is often argued that the success of machine translation requires the problem of natural language understanding to be solved first.
+Generally, rule-based methods parse a text, usually creating an intermediary, symbolic representation, from which the text in the target language is generated.
+According to the nature of the intermediary representation, an approach is described as interlingual machine translation or transfer-based machine translation.
+These methods require extensive lexicons with morphological, syntactic, and semantic information, and large sets of rules.
+Given enough data, machine translation programs often work well enough for a native speaker of one language to get the approximate meaning of what is written by the other native speaker.
+The difficulty is getting enough data of the right kind to support the particular method.
+For example, the large multilingual corpus of data needed for statistical methods to work is not necessary for the grammar-based methods.
+But then, the grammar methods need a skilled linguist to carefully design the grammar that they use.
+To translate between closely related languages, a technique referred to as shallow-transfer machine translation may be used.
+Rule-based
+The rule-based machine translation paradigm includes transfer-based machine translation, interlingual machine translation and dictionary-based machine translation paradigms.
+Transfer-based machine translation
+Interlingual
+Interlingual machine translation is one instance of rule-based machine-translation approaches.
+In this approach, the source language, i.e. the text to be translated, is transformed into an interlingual, i.e. source-/target-language-independent representation.
+The target language is then generated out of the interlingua.
+Dictionary-based
+Machine translation can use a method based on dictionary entries, which means that the words will be translated as they are by a dictionary.
+Statistical
+Statistical machine translation tries to generate translations using statistical methods based on bilingual text corpora, such as the Canadian Hansard corpus, the English-French record of the Canadian parliament and EUROPARL, the record of the European Parliament.
+Where such corpora are available, impressive results can be achieved translating texts of a similar kind, but such corpora are still very rare.
+The first statistical machine translation software was CANDIDE from IBM.
+Google used SYSTRAN for several years, but has switched to a statistical translation method in October 2007.
+Recently, they improved their translation capabilities by inputting approximately 200 billion words from United Nations materials to train their system.
+Accuracy of the translation has improved.
+Example-based
+Example-based machine translation (EBMT) approach is often characterised by its use of a bilingual corpus as its main knowledge base, at run-time.
+It is essentially a translation by analogy and can be viewed as an implementation of case-based reasoning approach of machine learning.
+Major issues
+Disambiguation
+Word sense disambiguation concerns finding a suitable translation when a word can have more than one meaning.
+The problem was first raised in the 1950s by Yehoshua Bar-Hillel.
+He pointed out that without a "universal encyclopedia", a machine would never be able to distinguish between the two meanings of a word.
+Today there are numerous approaches designed to overcome this problem.
+They can be approximately divided into "shallow" approaches and "deep" approaches.
+Shallow approaches assume no knowledge of the text.
+They simply apply statistical methods to the words surrounding the ambiguous word.
+Deep approaches presume a comprehensive knowledge of the word.
+So far, shallow approaches have been more successful.
+Named entities
+Related to named entity recognition in information extraction.
+Applications
+There are now many software programs for translating natural language, several of them online, such as the SYSTRAN system which powers both Google translate and AltaVista's Babel Fish as well as Promt that powers online translation services at Voila.fr and Orange.fr.
+Although no system provides the holy grail of "fully automatic high quality machine translation" (FAHQMT), many systems produce reasonable output.
+Despite their inherent limitations, MT programs are used around the world.
+Probably the largest institutional user is the European Commission.
+Toggletext uses a transfer-based system (known as Kataku) to translate between English and Indonesian.
+Google has claimed that promising results were obtained using a proprietary statistical machine translation engine.
+The statistical translation engine used in the Google language tools for Arabic <-> English and Chinese <-> English has an overall score of 0.4281 over the runner-up IBM's BLEU-4 score of 0.3954 (Summer 2006) in tests conducted by the National Institute for Standards and Technology.
+Uwe Muegge has implemented a demo website that uses a controlled language in combination with the Google tool to produce fully automatic, high-quality machine translations of his English, German, and French web sites.
+With the recent focus on terrorism, the military sources in the United States have been investing significant amounts of money in natural language engineering.
+In-Q-Tel (a venture capital fund, largely funded by the US Intelligence Community, to stimulate new technologies through private sector entrepreneurs) brought up companies like Language Weaver.
+Currently the military community is interested in translation and processing of languages like Arabic, Pashto, and Dari.
+Information Processing Technology Office in DARPA hosts programs like TIDES and Babylon Translator.
+US Air Force has awarded a $1 million contract to develop a language translation technology.
+Evaluation
+There are various means for evaluating the performance of machine-translation systems.
+The oldest is the use of human judges to assess a translation's quality.
+Even though human evaluation is time-consuming, it is still the most reliable way to compare different systems such as rule-based and statistical systems.
+Automated means of evaluation include BLEU, NIST and METEOR.
+Relying exclusively on machine translation ignores that communication in human language is context-embedded, and that it takes a human to adequately comprehend the context of the original text.
+Even purely human-generated translations are prone to error.
+Therefore, to ensure that a machine-generated translation will be of publishable quality and useful to a human, it must be reviewed and edited by a human.
+It has, however, been asserted that in certain applications, e.g. product descriptions written in a controlled language, a dictionary-based machine-translation system has produced satisfactory translations that require no human intervention.
+Metadata
+Metadata (meta data, or sometimes metainformation) is "data about data", of any sort in any media.
+An item of metadata may describe an individual datum, or content item, or a collection of data including multiple content items and hierarchical levels, for example a database schema.
+Purpose
+Metadata provides context for data.
+Metadata is used to facilitate the understanding, characteristics, and management usage of data.
+The metadata required for effective data management varies with the type of data and context of use.
+In a library, where the data is the content of the titles stocked, metadata about a title would typically include a description of the content, the author, the publication date and the physical location.
+Examples of Metadata
+Camera
+In the context of a camera, where the data is the photographic image, metadata would typically include the date the photograph was taken and details of the camera settings (lens, focal length, aperture, shutter timing, white balance, etc.).
+Digital Music Player
+On a digital portable music player, the album names, song titles and album art embedded in the music files are used to generate the artist and song listings, and are considered the metadata.
+Information system
+In the context of an information system, where the data is the content of the computer files, metadata about an individual data item would typically include the name of the field and its length.
+Metadata about a collection of data items, a computer file, might typically include the name of the file, the type of file and the name of the data administrator.
+Italic text
+Real world location
+If we consider a particular place in the real world, this may be described by data, for example:
+1 "E83BJ" .
+2 "17"
+3 "Sunny"
+To make sense of and use this data, context is important, and can be provided by metadata.
+The metadata for the above three items of data might include:
+1.1 "Post Code" – This is a brief description (or name) of the data item "E83BJ"
+1.2 "The unique identifier of a postal district" – This is another description (a definition) of "E83BJ"
+1.3 "27 June 2006" – This could also help describe "E83BJ", for example by giving the date it was last updated
+2 "Average temperature in degrees Celsius" – This is a possible description of "17"
+3 "Yesterday's weather" – This is a description of "sunny"
+An item of metadata is itself data and therefore may have its own metadata.
+For example, "Post Code" might have the following metadata:
+1.1.1 "data item name"
+1.1.2 "5 characters, starting with A – Z"
+"27 June 2006" might have the following metadata:
+1.3.1 "date last changed"
+1.3.2 "dd MMM yyyy"
+Levels
+The hierarchy of metadata descriptions can go on forever, but usually context or semantic understanding makes extensively detailed explanations unnecessary.
+The role played by any particular datum depends on the context.
+For example, when considering the geography of London, "E83BJ" would be a datum and "Post Code" would be metadatum.
+But, when considering the data management of an automated system that manages geographical data, "Post Code" might be a datum and then "data item name" and "5 characters, starting with A – Z" would be metadata.
+In any particular context, metadata characterizes the data it describes, not the entity described by that data.
+So, in relation to "E83BJ", the datum "is in London" is a further description of the place in the real world which has the post code "E83BJ", not of the code itself.
+Therefore, although it is providing information connected to "E83BJ" (telling us that this is the post code of a place in London), this would not normally be considered metadata, as it is describing "E83BJ" qua place in the real world and not qua data.
+Definitions
+Etymology
+Meta is a classical Greek preposition (μετ’ αλλων εταιρων) and prefix (μεταβασις) conveying the following senses in English, depending upon the case of the associated noun: among; along with; with; by means of; in the midst of; after; behind.
+In epistemology, the word means "about (its own category)"; thus metadata is "data about the data".
+Varying definitions
+The term was introduced intuitively, without a formal definition.
+Because of that, today there are various definitions.
+The most common one is the literal translation:
+"Data about data are referred to as metadata."
+Example: "12345" is data, and with no additional context is meaningless.
+When "12345" is given a meaningful name (metadata) of "ZIP code", one can understand (at least in the United States, and further placing "ZIP code" within the context of a postal address) that "12345" refers to the General Electric plant in Schenectady, New York.
+As for most people the difference between data and information is merely a philosophical one of no relevance in practical use, other definitions are:
+Metadata is information about data.
+Metadata is information about information.
+Metadata contains information about that data or other data
+There are more sophisticated definitions, such as:
+"Metadata is structured, encoded data that describe characteristics of information-bearing entities to aid in the identification, discovery, assessment, and management of the described entities."
+"[Metadata is a set of] optional structured descriptions that are publicly available to explicitly assist in locating objects."
+These are used more rarely because they tend to concentrate on one purpose of metadata — to find "objects", "entities" or "resources" — and ignore others, such as using metadata to optimize compression algorithms, or to perform additional computations using the data.
+The metadata concept has been extended into the world of systems to include any "data about data": the names of tables, columns, programs, and the like.
+Different views of this "system metadata" are detailed below, but beyond that is the recognition that metadata can describe all aspects of systems: data, activities, people and organizations involved, locations of data and processes, access methods, limitations, timing and events, as well as motivation and rules.
+Fundamentally, then, metadata is "the data that describe the structure and workings of an organization's use of information, and which describe the systems it uses to manage that information".
+To do a model of metadata is to do an "Enterprise model" of the information technology industry itself.
+Metadata and Markup
+In the context of the web and the work of the W3C in providing markup technologies of HTML, XML and SGML the concept of metadata has specific context that is perhaps clearer than in other information domains.
+With markup technologies there is metadata, markup and data content.
+The metadata describes characteristics about the data, while the markup identifies the specific type of data content and acts as a container for that document instance.
+This page in Wikipedia is itself an example of such usage, where the textual information is data, how it is packaged, linked, referenced, styled and displayed is markup and aspects and characteristics of that markup are metadata set globally across Wikipedia.
+In the context of markup the metadata is architected to allow optimization of document instances to contain only a minimum amount of metadata, while the metadata itself is likely referenced externally such as in a schema definition (XSD) instance.
+Also it should be noted that markup provides specialised mechanisms that handle referential data, again avoiding confusion over what is metadata or data, and allowing optimizations.
+The reference and ID mechanisms in markup allowing reference links between related data items, and links to data items that can then be repeated about a data item, such as an address or product details.
+These are then all themselves simply more data items and markup instances rather than metadata.
+Similarly there are concepts such as classifications, ontologies and associations for which markup mechanisms are provided.
+A data item can then be linked to such categories via markup and hence providing a clean delineation between what is metadata, and actual data instances.
+Therefore the concepts and descriptions in a classification would be metadata, but the actual classification entry for a data item is simply another data instance.
+Some examples can illustrate the points here.
+Items in bold are data content, in italic are metadata, normal text items are all markup.
+The two examples show in-line use of metadata within markup relating to a data instance (XML) compared to simple markup (HTML).
+A simple HTML instance example:
+&lt;span style="normalText"&gt;Example&lt;/span&gt;
+And then a XML instance example with metadata:
+<PersonMiddleName nillable="true">John</PersonMiddleName>
+Where the inline assertion that a person's middle name may be an empty data item is metadata about the data item.
+Such definitions however are usually not placed inline in XML.
+Instead these definitions are moved away into the schema definition that contains the metadata for the entire document instance.
+This again illustrates another important aspect of metadata in the context of markup.
+The metadata is optimally defined only once for a collection of data instances.
+Hence repeated items of markup are rarely metadata, but rather more markup data instances themselves.
+Hierarchies of metadata
+When structured into a hierarchical arrangement, metadata is more properly called an ontology or schema.
+Both terms describe "what exists" for some purpose or to enable some action.
+For instance, the arrangement of subject headings in a library catalog serves not only as a guide to finding books on a particular subject in the stacks, but also as a guide to what subjects "exist" in the library's own ontology and how more specialized topics are related to or derived from the more general subject headings.
+Metadata is frequently stored in a central location and used to help organizations standardize their data.
+This information is typically stored in a metadata registry.
+Difference between data and metadata
+Usually it is not possible to distinguish between (plain) data and metadata because:
+Something can be data and metadata at the same time.
+The headline of an article is both its title (metadata) and part of its text (data).
+Data and metadata can change their roles.
+A poem, as such, would be regarded as data, but if there were a song that used it as lyrics, the whole poem could be attached to an audio file of the song as metadata.
+Thus, the labeling depends on the point of view.
+These considerations apply no matter which of the above definitions is considered, except where explicit markup is used to denote what is data and what is metadata.
+Use
+Metadata has many different applications; this section lists some of the most common.
+Metadata is used to speed up and enrich searching for resources.
+In general, search queries using metadata can save users from performing more complex filter operations manually.
+It is now common for web browsers (with the notable exception of Mozilla Firefox), P2P applications and media management software to automatically download and locally cache metadata, to improve the speed at which files can be accessed and searched.
+Metadata may also be associated to files manually.
+This is often the case with documents which are scanned into a document storage repository such as FileNet or Documentum.
+Once the documents have been converted into an electronic format a user brings the image up in a viewer application, manually reads the document and keys values into an online application to be stored in a metadata repository.
+Metadata provide additional information to users of the data it describes.
+This information may be descriptive ("These pictures were taken by children in the school's third grade class.") or algorithmic ("Checksum=139F").
+Metadata helps to bridge the semantic gap.
+By telling a computer how data items are related and how these relations can be evaluated automatically, it becomes possible to process even more complex filter and search operations.
+For example, if a search engine understands that "Van Gogh" was a "Dutch painter", it can answer a search query on "Dutch painters" with a link to a web page about Vincent Van Gogh, although the exact words "Dutch painters" never occur on that page.
+This approach, called knowledge representation, is of special interest to the semantic web and artificial intelligence.
+Certain metadata is designed to optimize lossy compression.
+For example, if a video has metadata that allows a computer to tell foreground from background, the latter can be compressed more aggressively to achieve a higher compression rate.
+Some metadata is intended to enable variable content presentation.
+For example, if a picture has metadata that indicates the most important region — the one where there is a person — an image viewer on a small screen, such as on a mobile phone's, can narrow the picture to that region and thus show the user the most interesting details.
+A similar kind of metadata is intended to allow blind people to access diagrams and pictures, by converting them for special output devices or reading their description using text-to-speech software.
+Other descriptive metadata can be used to automate workflows.
+For example, if a "smart" software tool knows content and structure of data, it can convert it automatically and pass it to another "smart" tool as input.
+As a result, users save the many copy-and-paste operations required when analyzing data with "dumb" tools.
+Metadata is becoming an increasingly important part of electronic discovery.
+www.lexbe.com/hp/indepth-e-discovery-rule-metadata.htm Application and file system metadata derived from electronic documents and files can be important evidence.
+Recent changes to the Federal Rules of Civil Procedure make metadata routinely discoverable as part of civil litigation.
+Parties to litigation are required to maintain and produce metadata as part of discovery, and spoliation of metadata can lead to sanctions.
+Metadata has become important on the World Wide Web because of the need to find useful information from the mass of information available.
+Manually-created metadata adds value because it ensures consistency.
+If a web page about a certain topic contains a word or phrase, then all web pages about that topic should contain that same word or phrase.
+Metadata also ensures variety, so that if a topic goes by two names each will be used.
+For example, an article about "sport utility vehicles" would also be tagged "4 wheel drives", "4WDs" and "four wheel drives", as this is how SUVs are known in some countries.
+Examples of metadata for an audio CD include the MusicBrainz project and All Media Guide's Allmusic.
+Similarly, MP3 files have metadata tags in a format called ID3.
+Types of metadata
+Metadata can be classified by:
+Content.
+Metadata can either describe the resource itself (for example, name and size of a file) or the content of the resource (for example, "This video shows a boy playing football").
+Mutability.
+With respect to the whole resource, metadata can be either immutable (for example, the "Title" of a video does not change as the video itself is being played) or mutable (the "Scene description" does change).
+Logical function.
+There are three layers of logical function: at the bottom the subsymbolic layer that contains the raw data itself, then the symbolic layer with metadata describing the raw data, and on the top the logical layer containing metadata that allows logical reasoning using the symbolic layer
+Important issues
+To successfully develop and use metadata, several important issues should be treated with care:
+Metadata risks
+Microsoft Office files include metadata beyond their printable content, such as the original author's name, the creation date of the document, and the amount of time spent editing it.
+Unintentional disclosure can be awkward or even, in professional practices requiring confidentiality, raise malpractice concerns.
+Some of Microsoft Office document's metadata can be seen by clicking File then Properties from the program's menu.
+Other metadata is not visible except through external analysis of a file, such as is done in forensics.
+The author of the Microsoft Word-based Melissa computer virus in 1999 was caught due to Word metadata that uniquely identified the computer used to create the original infected document.
+Metadata lifecycle
+Even in the early phases of planning and designing it is necessary to keep track of all metadata created.
+It is not economical to start attaching metadata only after the production process has been completed.
+For example, if metadata created by a digital camera at recording time is not stored immediately, it may have to be restored afterwards manually with great effort.
+Therefore, it is necessary for different groups of resource producers to cooperate using compatible methods and standards.
+Manipulation.
+Metadata must adapt if the resource it describes changes.
+It should be merged when two resources are merged.
+These operations are seldom performed by today's software; for example, image editing programs usually do not keep track of the Exif metadata created by digital cameras.
+Destruction.
+It can be useful to keep metadata even after the resource it describes has been destroyed, for example in change histories within a text document or to archive file deletions due to digital rights management.
+None of today's metadata standards consider this phase.
+Storage
+Metadata can be stored either internally, in the same file as the data, or externally, in a separate file.
+Metadata that are embedded with content is called embedded metadata.
+A data repository typically stores the metadata detached from the data.
+Both ways have advantages and disadvantages:
+Internal storage allows transferring metadata together with the data it describes; thus, metadata is always at hand and can be manipulated easily.
+This method creates high redundancy and does not allow holding metadata together.
+External storage allows bundling metadata, for example in a database, for more efficient searching.
+There is no redundancy and metadata can be transferred simultaneously when using streaming.
+However, as most formats use URIs for that purpose, the method of how the metadata is linked to its data should be treated with care.
+What if a resource does not have a URI (resources on a local hard disk or web pages that are created on-the-fly using a content management system)?
+What if metadata can only be evaluated if there is a connection to the Web, especially when using RDF?
+How to realize that a resource is replaced by another with the same name but different content?
+Moreover, there is the question of data format: storing metadata in a human-readable format such as XML can be useful because users can understand and edit it without specialized tools.
+On the other hand, these formats are not optimized for storage capacity; it may be useful to store metadata in a binary, non-human-readable format instead to speed up transfer and save memory.
+Criticisms
+Although the majority of computer scientists see metadata as a chance for better interoperability, some critics argue:
+Metadata is too expensive and time-consuming.
+The argument is that companies will not produce metadata without need because it costs extra money, and private users also will not produce complex metadata because its creation is very time-consuming.
+Metadata is too complicated.
+Private users will not create metadata because existing formats, especially MPEG-7, are too complicated.
+As long as there are no automatic tools for creating metadata, it will not be created.
+Metadata is subjective and depends on context.
+Most probably, two persons will attach different metadata to the same resource due to their different points of view.
+Moreover, metadata can be misinterpreted due to its dependency on context.
+For example searching for "post-modern art" may miss a certain item because the expression was not in use at the time when that work of art was created, or searching for "pictures taken at 1:00" may produce confusing results due to local time differences.
+There is no end to metadata.
+For example, when annotating a match of soccer with metadata, one can describe all the players and their actions in time and stop there.
+One can also describe the advertisements in the background and the clothes the players wear.
+One can also describe each fan on the tribune and the clothes they wear.
+All of this metadata can be interesting to one party or another — such as the spectators, sponsors or a counter-terrorist unit of the police — and even for a simple resource the amount of possible metadata can be gigantic.
+Metadata is useless.
+Many of today's search engines are very efficient at finding text.
+Other techniques for finding pictures, videos and music (namely query-by-example) will become more and more powerful in the future.
+Thus, there is no real need for metadata.
+The opposers of metadata sometimes use the term metacrap to refer to the unsolved problems of metadata in some scenarios.
+These people are also referred to as "Meta Haters."
+Types
+In general, there are two distinct classes of metadata: structural or control metadata and guide metadata.
+Structural metadata is used to describe the structure of computer systems such as tables, columns and indexes.
+Guide metadata is used to help humans find specific items and is usually expressed as a set of keywords in a natural language.
+Metatadata can be divided into 3 distinct categories:
+Descriptive
+Administrative
+Structural
+Relational database metadata
+Each relational database system has its own mechanisms for storing metadata.
+Examples of relational-database metadata include:
+Tables of all tables in database, their names, sizes and number of rows in each table.
+Tables of columns in each database, what tables they are used in, and the type of data stored in each column.
+In database terminology, this set of metadata is referred to as the catalog.
+The SQL standard specifies a uniform means to access the catalog, called the <code/>, but not all databases implement it, even if they implement other aspects of the SQL standard.
+For an example of database-specific metadata access methods, see Oracle metadata.
+Data warehouse metadata
+Data warehouse metadata systems are sometimes separated into two sections:
+back room metadata that are used for Extract, transform, load functions to get OLTP data into a data warehouse
+front room metadata that are used to label screens and create reports
+Kimball lists the following types of metadata in a data warehouse (See also www.fortunecity.com/skyscraper/oracle/699/orahtml/dbmsmag/9803d05.html):
+source system metadata
+source specifications, such as repositories, and source logical schemas
+source descriptive information, such as ownership descriptions, update frequencies, legal limitations, and access methods
+process information, such as job schedules and extraction code
+data staging metadata
+data acquisition information, such as data transmission scheduling and results, and file usage
+dimension table management, such as definitions of dimensions, and surrogate key assignments
+transformation and aggregation, such as data enhancement and mapping, DBMS load scripts, and aggregate definitions
+audit, job logs and documentation, such as data lineage records, data transform logs
+DBMS metadata, such as:
+DBMS system table contents
+processing hints
+Michael Bracket defines metadata (what he calls "Data resource data") as "any data about the organization's data resource".
+Adrienne Tannenbaum defines metadata as "the detailed description of instance data.
+The format and characteristics of populated instance data: instances and values, dependent on the role of the metadata recipient".
+These definitions are characteristic of the "data about data" definition.
+Business Intelligence metadata
+Business Intelligence is the process of analyzing large amounts of corporate data, usually stored in large databases such as the Data Warehouse, tracking business performance, detecting patterns and trends, and helping enterprise business users make better decisions.
+Business Intelligence metadata describes how data is queried, filtered, analyzed, and displayed in Business Intelligence software tools, such as Reporting tools, OLAP tools, Data Mining tools.
+Examples:
+OLAP metadata: The descriptions and structures of Dimensions, Cubes, Measures (Metrics), Hierarchies, Levels, Drill Paths
+Reporting metadata: The descriptions and structures of Reports, Charts, Queries, DataSets, Filters, Variables, Expressions
+Data Mining metadata: The descriptions and structures of DataSets, Algorithms, Queries
+Business Intelligence metadata can be used to understand how corporate financial reports reported to Wall Street are calculated, how the revenue, expense and profit are aggregated from individual sales transactions stored in the data warehouse.
+A good understanding of Business Intelligence metadata is required to solve complex problems such as compliance with corporate governance standards, such as Sarbanes Oxley (SOX) or Basel II.
+General IT metadata
+In contrast, David Marco, another metadata theorist, defines metadata as "all physical data and knowledge from inside and outside an organization, including information about the physical data, technical and business processes, rules and constraints of the data, and structures of the data used by a corporation."
+Others have included web services, systems and interfaces.
+In fact, the entire Zachman framework (see Enterprise Architecture) can be represented as metadata.
+Notice that such definitions expand metadata's scope considerably, to encompass most or all of the data required by the Management Information Systems capability.
+In this sense, the concept of metadata has significant overlaps with the ITIL concept of a Configuration Management Database (CMDB), and also with disciplines such as Enterprise Architecture and IT portfolio management.
+This broader definition of metadata has precedent.
+Third generation corporate repository products (such as those eventually merged into the CA Advantage line) not only store information about data definitions (COBOL copybooks, DBMS schema), but also about the programs accessing those data structures, and the Job Control Language and batch job infrastructure dependencies as well.
+These products (some of which are still in production) can provide a very complete picture of a mainframe computing environment, supporting exactly the kinds of impact analysis required for ITIL-based processes such as Incident and Change Management.
+The ITIL Back Catalogue includes the Data Management volume which recognizes the role of these metadata products on the mainframe, posing the CMDB as the distributed computing equivalent.
+CMDB vendors however have generally not expanded their scope to include data definitions, and metadata solutions are also available in the distributed world.
+Determining the appropriate role and scope for each is thus a challenge for large IT organizations requiring the services of both.
+Since metadata is pervasive, centralized attempts at tracking it need to focus on the most highly leveraged assets.
+Enterprise Assets may only constitute a small percentage of the entire IT portfolio.
+Some practitioners have successfully managed IT metadata using the Dublin Core metamodel.
+IT metadata management products
+First generation data dictionary/metadata repository tools would be those only supporting a specific DBMS, such as IDMS's IDD (integrated data dictionary), the IMS Data Dictionary, and ADABAS's Predict.
+Second generation would be ASG's DATAMANAGER product which could support many different file and DBMS types.
+Third generation repository products became briefly popular in the early 1990s along with the rise of widespread use of RDBMS engines such as IBM's DB2.
+Fourth generation products link the repository with more Extract, transform, load tools and can be connected with architectural modeling tools.
+Examples include Adaptive Metadata Manager from Adaptive, Rochade from ASG,InfoLibrarian Metadata Integration Framework and Troux Technologies Metis Server product.
+File system metadata
+Nearly all file systems keep metadata about files out-of-band.
+Some systems keep metadata in directory entries; others in specialized structure like inodes or even in the name of a file.
+Metadata can range from simple timestamps, mode bits, and other special-purpose information used by the implementation itself, to icons and free-text comments, to arbitrary attribute-value pairs.
+With more complex and open-ended metadata, it becomes useful to search for files based on the metadata contents.
+The Unix find utility was an early example, although inefficient when scanning hundreds of thousands of files on a modern computer system.
+Apple Computer's Mac OS X operating system supports cataloguing and searching for file metadata through a feature known as Spotlight, as of version 10.4.
+Microsoft worked in the development of similar functionality with the Instant Search system in Windows Vista, as well as being present in SharePoint Server.
+Linux implements file metadata using extended file attributes.
+Image metadata
+Examples of image files containing metadata include Exchangeable image file format (EXIF) and Tagged Image File Format (TIFF).
+Having metadata about images embedded in TIFF or EXIF files is one way of acquiring additional data about an image.
+Tagging pictures with subjects, related emotions, and other descriptive phrases helps Internet users find pictures easily rather than having to search through entire image collections.
+A prime example of an image tagging service is Flickr, where users upload images and then describe the contents.
+Other patrons of the site can then search for those tags.
+Flickr uses a folksonomy: a free-text keyword system in which the community defines the vocabulary through use rather than through a controlled vocabulary.
+Users can also tag photos for organization purposes using Adobe's Extensible Metadata Platform (XMP) language, for example.
+Digital photography is increasingly making use of technical metadata tags describing the conditions of exposure.
+Photographers shooting Camera RAW file formats can use applications such as Adobe Bridge or Apple Computer's Aperture to work with camera metadata for post-processing.
+Audio Metadata
+Audio metadata generally relates to the how the data should be written in order for a processor to efficiently process it.
+These technologies are usually seen in Audio Engine Programming such as Microsoft RIFF (Resource Interchange File Format) technologies for .wave file.
+Codes generally develop their own metadata standards for compression purpose.
+Program metadata
+Metadata is casually used to describe the controlling data used in software architectures that are more abstract or configurable.
+Most executable file formats include what may be termed "metadata" that specifies certain, usually configurable, behavioral runtime characteristics.
+However, it is difficult if not impossible to precisely distinguish program "metadata" from general aspects of stored-program computing architecture; if the machine reads it and acts upon it, it is a computational instruction, and the prefix "meta" has little significance.
+In Java, the class file format contains metadata used by the Java compiler and the Java virtual machine to dynamically link classes and to support reflection.
+The J2SE 5.0 version of Java included a metadata facility to allow additional annotations that are used by development tools.
+In MS-DOS, the COM file format does not include metadata, while the EXE file and Windows PE formats do.
+These metadata can include the company that published the program, the date the program was created, the version number and more.
+In the Microsoft .NET executable format, extra metadata is included to allow reflection at runtime.
+Existing software metadata
+Object Management Group (OMG) has defined metadata format for representing entire existing applications for the purposes of software mining, software modernization and software assurance.
+This specification, called the OMG Knowledge Discovery Metamodel (KDM) is the OMG's foundation for "modeling in reverse".
+KDM is a common language-independent intermediate representation that provides an integrated view of an entire enterprise application, including its behavior (program flow), data, and structure.
+One of the applications of KDM is Business Rules Mining.
+Knowledge Discovery Metamodel includes a fine grained low-level representation (called "micro KDM"), suitable for performing static analysis of programs.
+Document metadata
+Most programs that create documents, including Microsoft SharePoint, Microsoft Word and other Microsoft Office products, save metadata with the document files.
+These metadata can contain the name of the person who created the file (obtained from the operating system), the name of the person who last edited the file, how many times the file has been printed, and even how many revisions have been made on the file.
+Other saved material, such as deleted text (saved in case of an undelete command), document comments and the like, is also commonly referred to as "metadata", and the inadvertent inclusion of this material in distributed files has sometimes led to undesirable disclosures.
+Document Metadata is particularly important in legal environments where litigation can request this sensitive information (metadata) which can include many elements of private detrimental data.
+This data has been linked to multiple lawsuits that have got corporations into legal complications.
+Many legal firms today use "Metadata Management Software", also known as "Metadata Removal Tools".
+This software can be used to clean documents before they are sent outside of their firm.
+This process, known as metadata management, protects lawfirms from potentially unsafe leaking of sensitive data through Electronic Discovery.
+For a list of executable formats, see object file.
+Metamodels
+Metadata on Models are called Metamodels.
+In Model Driven Engineering, a Model has to conform to a given Metamodel.
+According to the MDA guide, a metamodel is a model and each model conforms to a given metamodel.
+Meta-modeling allows strict and agile automatic processing of models and metamodels.
+The Object Management Group (OMG) defines 4 layers of meta-modeling.
+Each level of modeling is defined, validated by the next layer:
+M0: instance object, data row, record -> "John Smith"
+M1: model, schema -> "Customer" UML Class or database Table
+M2: metamodel -> Unified Modeling Language (UML), Common Warehouse Metamodel (CWM), Knowledge Discovery Metamodel (KDM)
+M3: meta-metamodel -> Meta-Object Facility (MOF)
+Meta-metadata
+Since metadata are also data, it is possible to have metadata of metadata&ndash;"meta-metadata."
+Machine-generated meta-metadata, such as the reversed index created by a free-text search engine, is generally not considered metadata, though.
+Digital library metadata
+There are three categories of metadata that are frequently used to describe objects in a digital library:
+descriptive - Information describing the intellectual content of the object, such as MARC cataloguing records, finding aids or similar schemes.
+It is typically used for bibliographic purposes and for search and retrieval.
+structural - Information that ties each object to others to make up logical units (e.g., information that relates individual images of pages from a book to the others that make up the book).
+administrative - Information used to manage the object or control access to it.
+This may include information on how it was scanned, its storage format, copyright and licensing information, and information necessary for the long-term preservation of the digital objects.
+Geospatial metadata
+Metadata that describe geographic objects (such as datasets, maps, features, or simply documents with a geospatial component) have a history going back to at least 1994 (refer MIT Library page on FGDC Metadata).
+This class of metadata is described more fully on the Geospatial metadata page.
+Microsoft Windows
+Microsoft Windows is a series of software operating systems produced by Microsoft.
+Microsoft first introduced an operating environment named Windows in November 1985 as an add-on to MS-DOS in response to the growing interest in graphical user interfaces (GUIs).
+Microsoft Windows came to dominate the world's personal computer market, overtaking Mac OS, which had been introduced previously.
+At the 2004 IDC Directions conference, it was stated that Windows had approximately 90% of the client operating system market.
+The most recent client version of Windows is Windows Vista; the current server version is Windows Server 2008.
+Versions
+The term Windows collectively describes any or all of several generations of Microsoft (MS) operating system (OS) products.
+These products are generally categorized as follows:
+16-bit operating environments
+The early versions of Windows were often thought of as just graphical user interfaces, mostly because they ran on top of MS-DOS and used it for file system services.
+However, even the earliest 16-bit Windows versions already assumed many typical operating system functions, notably, having their own executable file format and providing their own device drivers (timer, graphics, printer, mouse, keyboard and sound) for applications.
+Unlike MS-DOS, Windows allowed users to execute multiple graphical applications at the same time, through cooperative multitasking.
+Finally, Windows implemented an elaborate, segment-based, software virtual memory scheme, which allowed it to run applications larger than available memory: code segments and resources were swapped in and thrown away when memory became scarce, and data segments moved in memory when a given application had relinquished processor control, typically waiting for user input.
+16-bit Windows versions include Windows 1.0 (1985), Windows 2.0 (1987) and its close relatives, Windows/286-Windows/386.
+Hybrid 16/32-bit operating environments
+Windows/386 introduced a 32-bit protected mode kernel and virtual machine monitor.
+For the duration of a Windows session, it created one or more virtual 8086 environments and provided device virtualization for the video card, keyboard, mouse, timer and interrupt controller inside each of them.
+The user-visible consequence was that it became possible to preemptively multitask multiple MS-DOS environments in separate windows, although graphical MS-DOS applications required full screen mode.
+Also, Windows applications were multi-tasked cooperatively inside one such virtual 8086 environment.
+Windows 3.0 (1990) and Windows 3.1 (1992) improved the design, mostly because of virtual memory and loadable virtual device drivers (VxDs) which allowed them to share arbitrary devices between multitasked DOS windows.
+Also, Windows applications could now run in protected mode (when Windows was running in Standard or 386 Enhanced Mode), which gave them access to several megabytes of memory and removed the obligation to participate in the software virtual memory scheme.
+They still ran inside the same address space, where the segmented memory provided a degree of protection, and multi-tasked cooperatively.
+For Windows 3.0, Microsoft also rewrote critical operations from C into assembly, making this release faster and less memory-hungry than its predecessors.
+Hybrid 16/32-bit operating systems
+With the introduction of the 32-bit Windows for Workgroups 3.11, Windows was able to stop relying on DOS for file management.
+Leveraging this, Windows 95 introduced Long File Names, reducing the 8.3 filename DOS environment to the role of a boot loader.
+MS-DOS was now bundled with Windows; this notably made it (partially) aware of long file names when its utilities were run from within Windows.
+The most important novelty was the possibility of running 32-bit multi-threaded preemptively multitasked graphical programs.
+However, the necessity of keeping compatibility with 16-bit programs meant the GUI components were still 16-bit only and not fully reentrant, which resulted in reduced performance and stability.
+There were three releases of Windows 95 (the first in 1995, then subsequent bug-fix versions in 1996 and 1997, only released to OEMs, which added extra features such as FAT32 and primitive USB support).
+Microsoft's next OS was Windows 98; there were two versions of this (the first in 1998 and the second, named "Windows 98 Second Edition", in 1999).
+In 2000, Microsoft released Windows Me (Me standing for Millennium Edition), which used the same core as Windows 98 but adopted some aspects of Windows 2000 and removed the option boot into DOS mode.
+It also added a new feature called System Restore, allowing the user to set the computer's settings back to an earlier date.
+32-bit operating systems
+The NT family of Windows systems was fashioned and marketed for higher reliability business use, and was unencumbered by any Microsoft DOS patrimony.
+The first release was Windows NT 3.1 (1993, numbered "3.1" to match the Windows version and to one-up OS/2 2.1, IBM's flagship OS co-developed by Microsoft and was Windows NT's main competitor at the time), which was followed by NT 3.5 (1994), NT 3.51 (1995), NT 4.0 (1996), and Windows 2000 (essentially NT 5.0).
+NT 4.0 was the first in this line to implement the "Windows 95" user interface (and the first to include Windows 95's built-in 32-bit runtimes).
+Microsoft then moved to combine their consumer and business operating systems.
+Windows XP, coming in both home and professional versions (and later niche market versions for tablet PCs and media centers) improved stability, user experience and backwards compatibility.
+Then, Windows Server 2003 brought Windows Server up to date with Windows XP.
+Since then, a new version, Windows Vista was released and Windows Server 2008, released on February 27, 2008, brings Windows Server up to date with Windows Vista.
+Windows CE, Microsoft's offering in the mobile and embedded markets, is also a true 32-bit operating system that offers various services for all sub-operating workstations.
+64-bit operating systems
+Windows NT included support for several different platforms before the x86-based personal computer became dominant in the professional world.
+Versions of NT from 3.1 to 4.0 variously supported PowerPC, DEC Alpha and MIPS R4000, some of which were 64-bit processors, although the operating system treated them as 32-bit processors.
+With the introduction of the Intel Itanium architecture, which is referred to as IA-64, Microsoft released new versions of Windows to support it.
+Itanium versions of Windows XP and Windows Server 2003 were released at the same time as their mainstream x86 (32-bit) counterparts.
+On April 25 2005, Microsoft released Windows XP Professional x64 Edition and x64 versions of Windows Server 2003 to support the AMD64/Intel64 (or x64 in Microsoft terminology) architecture.
+Microsoft dropped support for the Itanium version of Windows XP in 2005.
+Windows Vista is the first end-user version of Windows that Microsoft has released simultaneously in 32-bit and x64 editions.
+Windows Vista does not support the Itanium architecture.
+The modern 64-bit Windows family comprises AMD64/Intel64 versions of Windows Vista, and Windows Server 2003 and Windows Server 2008, in both Itanium and x64 editions.
+History
+Microsoft has taken two parallel routes in its operating systems.
+One route has been for the home user and the other has been for the professional IT user.
+The dual routes have generally led to home versions having greater multimedia support and less functionality in networking and security, and professional versions having inferior multimedia support and better networking and security.
+The first version of Microsoft Windows, version 1.0, released in November 1985, lacked a degree of functionality and achieved little popularity, and was to compete with Apple's own operating system.
+Windows 1.0 is not a complete operating system; rather, it extends MS-DOS.
+Microsoft Windows version 2.0 was released in November, 1987 and was slightly more popular than its predecessor.
+Windows 2.03 (release date January 1988) had changed the OS from tiled windows to overlapping windows.
+The result of this change led to Apple Computer filing a suit against Microsoft alleging infringement on Apple's copyrights.
+Microsoft Windows version 3.0, released in 1990, was the first Microsoft Windows version to achieve broad commercial success, selling 2 million copies in the first six months.www.islandnet.com/~kpolsson/compsoft/soft1991.htmwww.thocp.net/companies/microsoft/microsoft_company.htm
+It featured improvements to the user interface and to multitasking capabilities.
+It received a facelift in Windows 3.1, made generally available on March 1, 1992.
+Windows 3.1 support ended on December 31, 2001.
+In July 1993, Microsoft released Windows NT based on a new kernel.
+NT was considered to be the professional OS and was the first Windows version to utilize preemptive multitasking..
+Windows NT would later be retooled to also function as a home operating system, with Windows XP.
+On August 24th 1995, Microsoft released Windows 95, a new, and major, consumer version that made further changes to the user interface, and also used preemptive multitasking.
+Windows 95 was designed to replace not only Windows 3.1, but also Windows for Workgroups, and MS-DOS.
+It was also the first Windows operating system to use Plug and Play capabilities.
+The changes Windows 95 brought to the desktop were revolutionary, as opposed to evolutionary, such as those in Windows 98 and Windows Me.
+Mainstream support for Windows 95 ended on December 31, 2000 and extended support for Windows 95 ended on December 31, 2001.
+The next in the consumer line was Microsoft Windows 98 released on June 25th, 1998.
+It was substantially criticized for its slowness and for its unreliability compared with Windows 95, but many of its basic problems were later rectified with the release of Windows 98 Second Edition in 1999.
+Mainstream support for Windows 98 ended on June 30, 2002 and extended support for Windows 98 ended on July 11, 2006.
+As part of its "professional" line, Microsoft released Windows 2000 in February 2000.
+The consumer version following Windows 98 was Windows Me (Windows Millennium Edition).
+Released in September 2000, Windows Me implemented a number of new technologies for Microsoft: most notably publicized was "Universal Plug and Play."
+In October 2001, Microsoft released Windows XP, a version built on the Windows NT kernel that also retained the consumer-oriented usability of Windows 95 and its successors.
+This new version was widely praised in computer magazines.
+It shipped in two distinct editions, "Home" and "Professional", the former lacking many of the superior security and networking features of the Professional edition.
+Additionally, the first "Media Center" edition was released in 2002, with an emphasis on support for DVD and TV functionality including program recording and a remote control.
+Mainstream support for Windows XP will continue until April 14, 2009 and extended support will continue until April 8, 2014.
+In April 2003, Windows Server 2003 was introduced, replacing the Windows 2000 line of server products with a number of new features and a strong focus on security; this was followed in December 2005 by Windows Server 2003 R2.
+On January 30, 2007 Microsoft released Windows Vista.
+It contains a number of new features, from a redesigned shell and user interface to significant technical changes, with a particular focus on security features.
+It is available in a number of different editions, and has been subject to some criticism.
+Timeline of releases
+Security
+Security has been a hot topic with Windows for many years, and even Microsoft itself has been the victim of security breaches.
+Consumer versions of Windows were originally designed for ease-of-use on a single-user PC without a network connection, and did not have security features built in from the outset.
+Windows NT and its successors are designed for security (including on a network) and multi-user PCs, but are not designed with Internet security in mind as much since, when it was first developed in the early 1990s, Internet use was less prevalent.
+These design issues combined with flawed code (such as buffer overflows) and the popularity of Windows means that it is a frequent target of worm and virus writers.
+In June 2005, Bruce Schneier's Counterpane Internet Security reported that it had seen over 1,000 new viruses and worms in the previous six months.
+Microsoft releases security patches through its Windows Update service approximately once a month (usually the second Tuesday of the month), although critical updates are made available at shorter intervals when necessary.
+In Windows 2000 (SP3 and later), Windows XP and Windows Server 2003, updates can be automatically downloaded and installed if the user selects to do so.
+As a result, Service Pack 2 for Windows XP, as well as Service Pack 1 for Windows Server 2003, were installed by users more quickly than it otherwise might have been.
+Windows Defender
+On 6 January 2005, Microsoft released a beta version of Microsoft AntiSpyware, based upon the previously released Giant AntiSpyware.
+On 14 February, 2006, Microsoft AntiSpyware became Windows Defender with the release of beta 2.
+Windows Defender is a freeware program designed to protect against spyware and other unwanted software.
+Windows XP and Windows Server 2003 users who have genuine copies of Microsoft Windows can freely download the program from Microsoft's web site, and Windows Defender ships as part of Windows Vista.
+Third-party analysis
+In an article based on a report by Symantec, internetnews.com has described Microsoft Windows as having the "fewest number of patches and the shortest average patch development time of the five operating systems it monitored in the last six months of 2006."
+And the number of vulnerabilities found in Windows has significantly increased— Windows: 12+, Red Hat + Fedora: 2, Mac OS X: 1, HP-UX: 2, Solaris: 1.
+A study conducted by Kevin Mitnick and marketing communications firm Avantgarde in 2004 found that an unprotected and unpatched Windows XP system with Service Pack 1 lasted only 4 minutes on the Internet before it was compromised, and an unprotected and also unpatched Windows Server 2003 system was compromised after being connected to the internet for 8 hours.
+However, it is important to note that this study does not apply to Windows XP systems running the Service Pack 2 update (released in late 2004), which vastly improved the security of Windows XP.
+The computer that was running Windows XP Service Pack 2 was not compromised.
+The AOL National Cyber Security Alliance Online Safety Study of October 2004 determined that 80% of Windows users were infected by at least one spyware/adware product.
+Much documentation is available describing how to increase the security of Microsoft Windows products.
+Typical suggestions include deploying Microsoft Windows behind a hardware or software firewall, running anti-virus and anti-spyware software, and installing patches as they become available through Windows Update.
+Windows Lifecycle Policy
+Microsoft has stopped releasing updates and hotfixes for many old Windows operating systems, including all versions of Windows 9x and earlier versions of Windows NT.
+Windows versions prior to XP are no longer supported, with the exception of Windows 2000, which is currently in the Extended Support Period, that will end on July 13, 2010.
+Windows XP versions prior to SP2 are no longer supported either.
+Also, support for Windows XP 64-bit Edition ended after the release of the more recent Windows XP Professional x64 Edition.
+No new updates are created for unsupported versions of Windows.
+Emulation software
+Emulation allows the use of some Windows applications without using Microsoft Windows.
+These include:
+Wine - a free and open source software implementation of the Windows API, allowing one to run many Windows applications on x86-based platforms, including Linux.
+Wine is technically not an emulator but a "compatibility layer"; while an emulator effectively 'pretends' to be a different CPU, Wine instead makes use of Windows-style APIs to 'simulate' the Windows environment directly.
+CrossOver - A Wine package with licensed fonts.
+Its developers are regular contributors to Wine, and focus on Wine running officially supported applications.
+Cedega - TransGaming Technologies' proprietary fork of Wine, designed specifically for running games written for Microsoft Windows under Linux.
+Darwine - This project intends to port and develop Wine as well as other supporting tools that will allow Darwin and Mac OS X users to run Microsoft Windows applications, and to provide Win32 API compatibility at application source code level.
+ReactOS - An open-source OS that is intended to run the same software as Windows, originally designed to imitate Windows NT 4.0, now aiming at Windows XP compatibility.
+It has been in the development stage since 1996.
+Morphology (linguistics)
+Morphology is the field of linguistics that studies the internal structure of words.
+(Words as units in the lexicon are the subject matter of lexicology.)
+While words are generally accepted as being (with clitics) the smallest units of syntax, it is clear that in most (if not all) languages, words can be related to other words by rules.
+For example, English speakers recognize that the words dog, dogs, and dog-catcher are closely related.
+English speakers recognize these relations from their tacit knowledge of the rules of word-formation in English.
+They intuit that dog is to dogs as cat is to cats; similarly, dog is to dog-catcher as dish is to dishwasher.
+The rules understood by the speaker reflect specific patterns (or regularities) in the way words are formed from smaller units and how those smaller units interact in speech.
+In this way, morphology is the branch of linguistics that studies patterns of word-formation within and across languages, and attempts to formulate rules that model the knowledge of the speakers of those languages.
+History
+The history of morphological analysis dates back to the ancient Indian linguist , who formulated the 3,959 rules of Sanskrit morphology in the text by using a Constituency Grammar.
+The Graeco-Roman grammatical tradition also engaged in morphological analysis.
+The term morphology was coined by August Schleicher in 1859
+Fundamental concepts
+Lexemes and word forms
+The distinction between these two senses of "word" is arguably the most important one in morphology.
+The first sense of "word," the one in which dog and dogs are "the same word," is called lexeme.
+The second sense is called word-form.
+We thus say that dog and dogs are different forms of the same lexeme.
+Dog and dog-catcher, on the other hand, are different lexemes; for example, they refer to two different kinds of entities.
+The form of a word that is chosen conventionally to represent the canonical form of a word is called a lemma, or citation form.
+Prosodic word vs. morphological word
+Here are examples from other languages of the failure of a single phonological word to coincide with a single morphological word-form.
+In Latin, one way to express the concept of 'NOUN-PHRASE1 and NOUN-PHRASE2' (as in "apples and oranges") is to suffix '-que' to the second noun phrase: "apples oranges-and", as it were.
+An extreme level of this theoretical quandary posed by some phonological words is provided by the Kwak'wala language.
+In Kwak'wala, as in a great many other languages, meaning relations between nouns, including possession and "semantic case", are formulated by affixes instead of by independent "words".
+The three word English phrase, "with his club", where 'with' identifies its dependent noun phrase as an instrument and 'his' denotes a possession relation, would consist of two words or even just one word in many languages.
+But affixation for semantic relations in Kwak'wala differs dramatically (from the viewpoint of those whose language is not Kwak'wala) from such affixation in other languages for this reason: the affixes phonologically attach not to the lexeme they pertain to semantically, but to the preceding lexeme.
+Consider the following example (in Kwakw'ala, sentences begin with what corresponds to an English verb):
+kwixʔid-i-da bəgwanəmai-χ-a q'asa-s-isi t'alwagwayu
+Morpheme by morpheme translation:
+kwixʔid-i-da = clubbed-PIVOT-DETERMINER
+bəgwanəma-χ-a = man-ACCUSATIVE-DETERMINER
+q'asa-s-is = otter-INSTRUMENTAL-3.PERSON.SINGULAR-POSSESSIVE
+t'alwagwayu = club.
+"the man clubbed the otter with his club"
+(Notation notes:
+1. accusative case marks an entity that something is done to.
+2. determiners are words such as "the", "this", "that".
+3. the concept of "pivot" is a theoretical construct that is not relevant to this discussion.)
+That is, to the speaker of Kwak'wala, the sentence does not contain the "words" 'him-the-otter' or 'with-his-club' Instead, the markers -i-da (PIVOT-'the'), referring to man, attaches not to bəgwanəma ('man'), but instead to the "verb"; the markers -χ-a (ACCUSATIVE-'the'), referring to otter, attach to bəgwanəma instead of to q'asa ('otter'), etc.
+To summarize differently: a speaker of Kwak'wala does not perceive the sentence to consist of these phonological words:
+kwixʔid i-da-bəgwanəma χ-a-q'asa s-isi-t'alwagwayu
+"clubbed PIVOT-the-mani hit-the-otter with-hisi-club
+A central publication on this topic is the recent volume edited by Dixon and Aikhenvald (2007), examining the mismatch between prosodic-phonological and grammatical definitions of "word" in various Amazonian, Australian Aboriginal, Caucasian, Eskimo, Indo-European, Native North American, and West African languages, and in sign languages.
+Apparently, a wide variety of languages make use of the hybrid linguistic unit clitic, possessing the grammatical features of independent words but the prosodic-phonological lack of freedom of bound morphemes.
+The intermediate status of clitics poses a considerable challenge to linguistic theory.
+Inflection vs. word-formation
+Given the notion of a lexeme, it is possible to distinguish two kinds of morphological rules.
+Some morphological rules relate to different forms of the same lexeme; while other rules relate to different lexemes.
+Rules of the first kind are called inflectional rules, while those of the second kind are called word-formation.
+The English plural, as illustrated by dog and dogs, is an inflectional rule; compounds like dog-catcher or dishwasher provide an example of a word-formation rule.
+Informally, word-formation rules form "new words" (that is, new lexemes), while inflection rules yield variant forms of the "same" word (lexeme).
+There is a further distinction between two kinds of word-formation: derivation and compounding.
+Compounding is a process of word-formation that involves combining complete word-forms into a single compound form; dog-catcher is therefore a compound, because both dog and catcher are complete word-forms in their own right before the compounding process has been applied, and are subsequently treated as one form.
+Derivation involves affixing bound (non-independent) forms to existing lexemes, whereby the addition of the affix derives a new lexeme.
+One example of derivation is clear in this case: the word independent is derived from the word dependent by prefixing it with the derivational prefix in-, while dependent itself is derived from the verb depend.
+The distinction between inflection and word-formation is not at all clear-cut.
+There are many examples where linguists fail to agree whether a given rule is inflection or word-formation.
+The next section will attempt to clarify this distinction.
+Paradigms and morphosyntax
+A paradigm is the complete set of related word-forms associated with a given lexeme.
+The familiar examples of paradigms are the conjugations of verbs, and the declensions of nouns.
+Accordingly, the word-forms of a lexeme may be arranged conveniently into tables, by classifying them according to shared inflectional categories such as tense, aspect, mood, number, gender or case.
+For example, the personal pronouns in English can be organized into tables, using the categories of person (1st., 2nd., 3rd.), number (singular vs. plural), gender (masculine, feminine, neuter), and case (subjective, objective, and possessive).
+See English personal pronouns for the details.
+The inflectional categories used to group word-forms into paradigms cannot be chosen arbitrarily; they must be categories that are relevant to stating the syntactic rules of the language.
+For example, person and number are categories that can be used to define paradigms in English, because English has grammatical agreement rules that require the verb in a sentence to appear in an inflectional form that matches the person and number of the subject.
+In other words, the syntactic rules of English care about the difference between dog and dogs, because the choice between these two forms determines which form of the verb is to be used.
+In contrast, however, no syntactic rule of English cares about the difference between dog and dog-catcher, or dependent and independent.
+The first two are just nouns, and the second two just adjectives, and they generally behave like any other noun or adjective behaves.
+An important difference between inflection and word-formation is that inflected word-forms of lexemes are organized into paradigms, which are defined by the requirements of syntactic rules, whereas the rules of word-formation are not restricted by any corresponding requirements of syntax.
+Inflection is therefore said to be relevant to syntax, and word-formation is not.
+The part of morphology that covers the relationship between syntax and morphology is called morphosyntax, and it concerns itself with inflection and paradigms, but not with word-formation or compounding.
+Allomorphy
+In the exposition above, morphological rules are described as analogies between word-forms: dog is to dogs as cat is to cats, and as dish is to dishes.
+In this case, the analogy applies both to the form of the words and to their meaning: in each pair, the first word means "one of X", while the second "two or more of X", and the difference is always the plural form -s affixed to the second word, signaling the key distinction between singular and plural entities.
+One of the largest sources of complexity in morphology is that this one-to-one correspondence between meaning and form scarcely applies to every case in the language.
+In English, we have word form pairs like ox/oxen, goose/geese, and sheep/sheep, where the difference between the singular and the plural is signaled in a way that departs from the regular pattern, or is not signaled at all.
+Even cases considered "regular", with the final -s, are not so simple; the -s in dogs is not pronounced the same way as the -s in cats, and in a plural like dishes, an "extra" vowel appears before the -s.
+These cases, where the same distinction is effected by alternative forms of a "word", are called allomorphy.
+Phonological rules constrain which sounds can appear next to each other in a language, and morphological rules, when applied blindly, would often violate phonological rules, by resulting in sound sequences that are prohibited in the language in question.
+For example, to form the plural of dish by simply appending an -s to the end of the word would result in the form *<ipa/>, which is not permitted by the phonotactics of English.
+In order to "rescue" the word, a vowel sound is inserted between the root and the plural marker, and <ipa/> results.
+Similar rules apply to the pronunciation of the -s in dogs and cats: it depends on the quality (voiced vs. unvoiced) of the final preceding phoneme.
+Lexical morphology
+Lexical morphology is the branch of morphology that deals with the lexicon, which, morphologically conceived, is the collection of lexemes in a language.
+As such, it concerns itself primarily with word-formation: derivation and compounding.
+Models of morphology
+There are three principal approaches to morphology, which each try to capture the distinctions above in different ways.
+These are,
+Morpheme-based morphology, which makes use of an Item-and-Arrangement approach.
+Lexeme-based morphology, which normally makes use of an Item-and-Process approach.
+Word-based morphology, which normally makes use of a Word-and-Paradigm approach.
+Note that while the associations indicated between the concepts in each item in that list is very strong, it is not absolute.
+Morpheme-based morphology
+In morpheme-based morphology, word-forms are analyzed as arrangements of morphemes.
+A morpheme is defined as the minimal meaningful unit of a language.
+In a word like independently, we say that the morphemes are in-, depend, -ent, and ly; depend is the root and the other morphemes are, in this case, derivational affixes.
+In a word like dogs, we say that dog is the root, and that -s is an inflectional morpheme.
+This way of analyzing word-forms as if they were made of morphemes put after each other like beads on a string, is called Item-and-Arrangement.
+The morpheme-based approach is the first one that beginners to morphology usually think of, and which laymen tend to find the most obvious.
+This is so to such an extent that very often beginners think that morphemes are an inevitable, fundamental notion of morphology, and many five-minute explanations of morphology are, in fact, five-minute explanations of morpheme-based morphology.
+This is, however, not so.
+The fundamental idea of morphology is that the words of a language are related to each other by different kinds of rules.
+Analyzing words as sequences of morphemes is a way of describing these relations, but is not the only way.
+In actual academic linguistics, morpheme-based morphology certainly has many adherents, but is by no means the dominant approach.
+Lexeme-based morphology
+Lexeme-based morphology is (usually) an Item-and-Process approach.
+Instead of analyzing a word-form as a set of morphemes arranged in sequence, a word-form is said to be the result of applying rules that alter a word-form or stem in order to produce a new one.
+An inflectional rule takes a stem, changes it as is required by the rule, and outputs a word-form; a derivational rule takes a stem, changes it as per its own requirements, and outputs a derived stem; a compounding rule takes word-forms, and similarly outputs a compound stem.
+Word-based morphology
+Word-based morphology is a (usually) Word-and-paradigm approach.
+This theory takes paradigms as a central notion.
+Instead of stating rules to combine morphemes into word-forms, or to generate word-forms from stems, word-based morphology states generalizations that hold between the forms of inflectional paradigms.
+The major point behind this approach is that many such generalizations are hard to state with either of the other approaches.
+The examples are usually drawn from fusional languages, where a given "piece" of a word, which a morpheme-based theory would call an inflectional morpheme, corresponds to a combination of grammatical categories, for example, "third person plural."
+Morpheme-based theories usually have no problems with this situation, since one just says that a given morpheme has two categories.
+Item-and-Process theories, on the other hand, often break down in cases like these, because they all too often assume that there will be two separate rules here, one for third person, and the other for plural, but the distinction between them turns out to be artificial.
+Word-and-Paradigm approaches treat these as whole words that are related to each other by analogical rules.
+Words can be categorized based on the pattern they fit into.
+This applies both to existing words and to new ones.
+Application of a pattern different than the one that has been used historically can give rise to a new word, such as older replacing elder (where older follows the normal pattern of adjectival superlatives) and cows replacing kine (where cows fits the regular pattern of plural formation).
+While a Word-and-Paradigm approach can explain this easily, other approaches have difficulty with phenomena such as this.
+Morphological typology
+In the 19th century, philologists devised a now classic classification of languages according to their morphology.
+According to this typology, some languages are isolating, and have little to no morphology; others are agglutinative, and their words tend to have lots of easily-separable morphemes; while others yet are inflectional or fusional, because their inflectional morphemes are said to be "fused" together.
+This leads to one bound morpheme conveying multiple pieces of information.
+The classic example of an isolating language is Chinese; the classic example of an agglutinative language is Turkish; both Latin and Greek are classic examples of fusional languages.
+Considering the variability of the world's languages, it becomes clear that this classification is not at all clear-cut, and many languages do not neatly fit any one of these types, and some fit in more than one.
+A continuum of complex morphology of language may be adapted when considering languages.
+The three models of morphology stem from attempts to analyze languages that more or less match different categories in this typology.
+The Item-and-Arrangement approach fits very naturally with agglutinative languages; while the Item-and-Process and Word-and-Paradigm approaches usually address fusional languages.
+The reader should also note that the classical typology also mostly applies to inflectional morphology.
+There is very little fusion going on with word-formation.
+Languages may be classified as synthetic or analytic in their word formation, depending on the preferred way of expressing notions that are not inflectional: either by using word-formation (synthetic), or by using syntactic phrases (analytic).
+Named entity recognition
+Named entity recognition (NER) (also known as entity identification (EI) and entity extraction) is a subtask of information extraction that seeks to locate and classify atomic elements in text into predefined categories such as the names of persons, organizations, locations, expressions of times, quantities, monetary values, percentages, etc.
+For example, a NER system producing MUC-style output might tag the sentence,
+Jim bought 300 shares of Acme Corp. in 2006.
+<ENAMEX TYPE="PERSON">Jim</ENAMEX> bought <NUMEX TYPE="QUANTITY">300</NUMEX> shares of <ENAMEX TYPE="ORGANIZATION">Acme Corp.</ENAMEX> in <TIMEX TYPE="DATE">2006</TIMEX>.
+NER systems have been created that use linguistic grammar-based techniques as well as statistical models.
+Hand-crafted grammar-based systems typically obtain better results, but at the cost of months of work by experienced linguists.
+Statistical NER systems typically require a large amount of manually annotated training data.
+Since about 1998, there has been a great deal of interest in entity identification in the molecular biology, bioinformatics, and medical natural language processing communities.
+The most common entity of interest in that domain has been names of genes and gene products.
+Named entity types
+In the expression named entity, the word named restricts the task to those entities for which one or many rigid designators, as defined by Kripke, stands for the referent.
+For instance, the automotive company created by Henry Ford in 1903 is referred to as Ford or Ford Motor Company.
+Rigid designators include proper names as well as certain natural kind terms like biological species and substances.
+There is a general agreement to include temporal expressions and some numerical expressions such as money and measures in named entities.
+While some instances of these types are good examples of rigid designators (e.g., the year 2001) there are also many invalid ones (e.g., I take my vacations in “June”).
+In the first case, the year 2001 refers to the 2001st year of the Gregorian calendar.
+In the second case, the month June may refer to the month of an undefined year (past June, next June, June 2020, etc.).
+It is arguable that the named entity definition is loosened in such cases for practical reasons.
+At least two hierarchies of named entity types have been proposed in the literature.
+BBN categories www.ldc.upenn.edu/Catalog/docs/LDC2005T33/BBN-Types-Subtypes.html, proposed in 2002, is used for Question Answering and consists of 29 types and 64 subtypes.
+Sekine's extended hierarchy nlp.cs.nyu.edu/ene/, proposed in 2002, is made of 200 subtypes.
+Evaluation
+Benchmarking and evaluations have been performed in the Message Understanding Conferences (MUC) organized by DARPA, International Conference on Language Resources and Evaluation (LREC), Computational Natural Language Learning (CoNLL) workshops, Automatic Content Extraction (ACE) organized by NIST, the Multilingual Entity Task Conference (MET), Information Retrieval and Extraction Exercise (IREX) and in HAREM (Portuguese language only).
+State-of-the-art systems produce near-human performance.
+For instance, the best system entering MUC-7 scored 93.39% of f-measure while human annotators scored 97.60% and 96.95%.
+Natural language
+In the philosophy of language, a natural language (or ordinary language) is a language that is spoken, written, or signed by animals for general-purpose communication, as distinguished from formal languages (such as computer-programming languages or the "languages" used in the study of formal logic, especially mathematical logic) and from constructed languages.
+Defining natural language
+Though the exact definition is debatable, natural language is often contrasted with artificial or constructed languages such as Esperanto, Latino Sexione, and Occidental.
+Linguists have an incomplete understanding of all aspects of the rules underlying natural languages, and these rules are therefore objects of study.
+The understanding of natural languages reveals much about not only how language works (in terms of syntax, semantics, phonetics, phonology, etc), but also about how the human mind and the human brain process language.
+In linguistic terms, 'natural language' only applies to a language that has evolved naturally, and the study of natural language primarily involves native (first language) speakers.
+The theory of universal grammar proposes that all natural languages have certain underlying rules which constrain the structure of the specific grammar for any given language.
+While grammarians, writers of dictionaries, and language policy-makers all have a certain influence on the evolution of language, their ability to influence what people think they 'ought' to say is distinct from what people actually say.
+Natural language applies to the latter, and is thus a 'descriptive' rather than a 'prescriptive' term.
+Thus non-standard language varieties (such as African American Vernacular English) are considered to be natural while standard language varieties (such as Standard American English) which are more 'prescripted' can be considered to be at least somewhat artificial or constructed.
+Native language learning
+The learning of one's own native language, typically that of one's parents, normally occurs spontaneously in early human childhood and is biologically driven.
+A crucial role of this process is performed by the neural activity of a portion of the human brain known as Broca's area.
+There are approximately 7,000 current human languages, and many, if not most seem to share certain properties, leading to the belief in the existence of Universal Grammar, as shown by generative grammar studies pioneered by the work of Noam Chomsky.
+Recently, it has been demonstrated that a dedicated network in the human brain (crucially involving Broca's area, a portion of the left inferior frontal gyrus), is selectively activated by complex verbal structures (but not simple ones) of those languages that meet the Universal Grammar requirements.
+Origins of natural language
+There is disagreement among anthropologists on when language was first used by humans (or their ancestors).
+Estimates range from about two million (2,000,000) years ago, during the time of Homo habilis, to as recently as forty thousand (40,000) years ago, during the time of Cro-Magnon man.
+However recent evidence suggests modern human language was invented or evolved in Africa prior to the dispersal of humans from Africa around 50,000 years ago.
+Since all people including the most isolated indigenous groups such as the Andamanese or the Tasmanian aboriginals possess language, then it must have been present in the ancestral populations in Africa before the human population split into various groups to colonize the rest of the world.
+Some claim that all nautural languages came out of one single language, known as Adamic.
+Linguistic diversity
+As of early 2007, there are 6,912 known living human languages.
+A "living language" is simply one which is in wide use by a specific group of living people.
+The exact number of known living languages will vary from 5,000 to 10,000, depending generally on the precision of one's definition of "language", and in particular on how one classifies dialects.
+There are also many dead or extinct languages.
+There is no clear distinction between a language and a dialect, notwithstanding linguist Max Weinreich's famous aphorism that "a language is a dialect with an army and navy."
+In other words, the distinction may hinge on political considerations as much as on cultural differences, distinctive writing systems, or degree of mutual intelligibility.
+It is probably impossible to accurately enumerate the living languages because our worldwide knowledge is incomplete, and it is a "moving target", as explained in greater detail by the Ethnologue's Introduction, p. 7 - 8.
+With the 15th edition, the 103 newly added languages are not new but reclassified due to refinements in the definition of language.
+Although widely considered an encyclopedia, the Ethnologue actually presents itself as an incomplete catalog, including only named languages that its editors are able to document.
+With each edition, the number of catalogued languages has grown.
+Beginning with the 14th edition (2000), an attempt was made to include all known living languages.
+SIL used an internal 3-letter code fashioned after airport codes to identify languages.
+This was the precursor to the modern ISO 639-3 standard, to which SIL contributed.
+The standard allows for over 14,000 languages.
+In turn, the 15th edition was revised to conform to the pending ISO 639-3 standard.
+Of the catalogued languages, 497 have been flagged as "nearly extinct" due to trends in their usage.
+Per the 15th edition, 6,912 living languages are shared by over 5.7 billion speakers. (p. 15)
+Taxonomy
+The classification of natural languages can be performed on the basis of different underlying principles (different closeness notions, respecting different properties and relations between languages); important directions of present classifications are:
+paying attention to the historical evolution of languages results in a genetic classification of languages&mdash;which is based on genetic relatedness of languages,
+paying attention to the internal structure of languages (grammar) results in a typological classification of languages&mdash;which is based on similarity of one or more components of the language's grammar across languages,
+and respecting geographical closeness and contacts between language-speaking communities results in areal groupings of languages.
+The different classifications do not match each other and are not expected to, but the correlation between them is an important point for many linguistic research works.
+(There is a parallel to the classification of species in biological phylogenetics here: consider monophyletic vs. polyphyletic groups of species.)
+The task of genetic classification belongs to the field of historical-comparative linguistics, of typological&mdash;to linguistic typology.
+See also Taxonomy, and Taxonomic classification for the general idea of classification and taxonomies.
+Genetic classification
+The world's languages have been grouped into families of languages that are believed to have common ancestors.
+Some of the major families are the Indo-European languages, the Afro-Asiatic languages, the Austronesian languages, and the Sino-Tibetan languages.
+The shared features of languages from one family can be due to shared ancestry.
+(Compare with homology in biology.)
+Typological classification
+An example of a typological classification is the classification of languages on the basis of the basic order of the verb, the subject and the object in a sentence into several types: SVO, SOV, VSO, and so on, languages.
+(English, for instance, belongs to the SVO language type.)
+The shared features of languages of one type (= from one typological class) may have arisen completely independently.
+(Compare with analogy in biology.)
+Their cooccurence might be due to the universal laws governing the structure of natural languages&mdash;language universals.
+Areal classification
+The following language groupings can serve as some linguistically significant examples of areal linguistic units, or sprachbunds: Balkan linguistic union, or the bigger group of European languages; Caucasian languages; East Asian languages.
+Although the members of each group are not closely genetically related, there is a reason for them to share similar features, namely: their speakers have been in contact for a long time within a common community and the languages converged in the course of the history.
+These are called "areal features".
+One should be careful about the underlying classification principle for groups of languages which have apparently a geographical name: besides areal linguistic units, the taxa of the genetic classification (language families) are often given names which themselves or parts of which refer to geographical areas.
+Controlled languages
+Controlled natural languages are subsets of natural languages whose grammars and dictionaries have been restricted in order to reduce or eliminate both ambiguity and complexity.
+The purpose behind the development and implementation of a controlled natural language typically is to aid non-native speakers of a natural language in understanding it, or to ease computer processing of a natural language.
+An example of a widely used controlled natural language is Simplified English, which was originally developed for aerospace industry maintenance manuals.
+Constructed languages and international auxiliary languages
+Constructed international auxiliary languages such as Esperanto and Interlingua that have native speakers are by some also considered natural languages.
+However, constructed languages, while they are clearly languages, are not generally considered natural languages.
+The problem is that other languages have been used to communicate and evolve in a natural way, while Esperanto has been selectively designed by L.L. Zamenhof from natural languages, not grown from the natural fluctuations in vocabulary and syntax.
+Nor has Esperanto been naturally "standardized" by children's natural tendency to correct for illogical grammar structures in their parents' language, which can be seen in the development of pidgin languages into creole languages (as explained by Steven Pinker in The Language Instinct).
+The possible exception to this are true native speakers of such languages.
+More substantive basis for this designation is that the vocabulary, grammar, and orthography of Interlingua are natural; they have been standardized and presented by a linguistic research body, but they predated it and are not themselves considered a product of human invention.
+Most experts, however, consider Interlingua to be naturalistic rather than natural.
+Latino Sine Flexione, a second naturalistic auxiliary language, is also naturalistic in content but is no longer widely spoken.
+Natural Language Processing
+Natural language processing (NLP) is a subfield of artificial intelligence and computational linguistics.
+It studies the problems of automated generation and understanding of natural human languages.
+Natural-language-generation systems convert information from computer databases into normal-sounding human language.
+Natural-language-understanding systems convert samples of human language into more formal representations that are easier for computer programs to manipulate.
+Modalities
+Natural language manifests itself in modalities other than speech.
+Sign languages
+In linguistic terms, sign languages are as rich and complex as any oral language, despite the previously common misconception that they are not "real languages".
+Professional linguists have studied many sign languages and found them to have every linguistic component required to be classed as true natural languages.
+Sign languages are not pantomime, much as most spoken language is not onomatopoeic.
+The signs do tend to exploit iconicity (visual connections with their referents) more than what is common in spoken language, but they are above all conventional and hence generally incomprehensible to non-speakers, just like spoken words and morphemes.
+They are not a visual rendition of an oral language either.
+They have complex grammars of their own, and can be used to discuss any topic, from the simple and concrete to the lofty and abstract.
+Written languages
+In a sense, written language should be distinguished from natural language.
+Until recently in the developed world, it was common for many people to be fluent in spoken or signed languages and yet remain illiterate; this is still the case in poor countries today.
+Furthermore, natural language acquisition during childhood is largely spontaneous, while literacy must usually be intentionally acquired.
+Natural language processing
+Natural language processing (NLP) is a subfield of artificial intelligence and computational linguistics.
+It studies the problems of automated generation and understanding of natural human languages.
+Natural-language-generation systems convert information from computer databases into normal-sounding human language.
+Natural-language-understanding systems convert samples of human language into more formal representations that are easier for computer programs to manipulate.
+Tasks and limitations
+In theory, natural-language processing is a very attractive method of human-computer interaction.
+Early systems such as SHRDLU, working in restricted "blocks worlds" with restricted vocabularies, worked extremely well, leading researchers to excessive optimism, which was soon lost when the systems were extended to more realistic situations with real-world ambiguity and complexity.
+Natural-language understanding is sometimes referred to as an AI-complete problem, because natural-language recognition seems to require extensive knowledge about the outside world and the ability to manipulate it.
+The definition of "understanding" is one of the major problems in natural-language processing.
+Concrete problems
+Some examples of the problems faced by natural-language-understanding systems:
+The sentences We gave the monkeys the bananas because they were hungry and We gave the monkeys the bananas because they were over-ripe have the same surface grammatical structure.
+However, the pronoun they refers to monkeys in one sentence and bananas in the other, and it is impossible to tell which without a knowledge of the properties of monkeys and bananas.
+A string of words may be interpreted in different ways.
+For example, the string Time flies like an arrow may be interpreted in a variety of ways:
+The common simile: time moves quickly just like an arrow does;
+measure the speed of flies like you would measure that of an arrow (thus interpreted as an imperative) - i.e. (You should) time flies as you would (time) an arrow.;
+measure the speed of flies like an arrow would - i.e. Time flies in the same way that an arrow would (time them).;
+measure the speed of flies that are like arrows - i.e. Time those flies that are like arrows;
+all of a type of flying insect, "time-flies," collectively enjoys a single arrow (compare Fruit flies like a banana);
+each of a type of flying insect, "time-flies," individually enjoys a different arrow (similar comparison applies);
+A concrete object, for example the magazine, Time, travels through the air in an arrow-like manner.
+English is particularly challenging in this regard because it has little inflectional morphology to distinguish between parts of speech.
+English and several other languages don't specify which word an adjective applies to.
+For example, in the string "pretty little girls' school".
+Does the school look little?
+Do the girls look little?
+Do the girls look pretty?
+Does the school look pretty?
+We will often imply additional information in spoken language by the way we place stress on words.
+The sentence "I never said she stole my money" demonstrates the importance stress can play in a sentence, and thus the inherent difficulty a natural language processor can have in parsing it.
+Depending on which word the speaker places the stress, this sentence could have several distinct meanings:
+"I never said she stole my money" - Someone else said it, but I didn't.
+"I never said she stole my money" - I simply didn't ever say it.
+"I never said she stole my money" - I might have implied it in some way, but I never explicitly said it.
+"I never said she stole my money" - I said someone took it; I didn't say it was she.
+"I never said she stole my money" - I just said she probably borrowed it.
+"I never said she stole my money" - I said she stole someone else's money.
+"I never said she stole my money" - I said she stole something, but not my money.
+Subproblems
+Speech segmentation:
+In most spoken languages, the sounds representing successive letters blend into each other, so the conversion of the analog signal to discrete characters can be a very difficult process.
+Also, in natural speech there are hardly any pauses between successive words; the location of those boundaries usually must take into account grammatical and semantic constraints, as well as the context.
+Text segmentation:
+Some written languages like Chinese, Japanese and Thai do not have single-word boundaries either, so any significant text parsing usually requires the identification of word boundaries, which is often a non-trivial task.
+Word sense disambiguation:
+Many words have more than one meaning; we have to select the meaning which makes the most sense in context.
+Syntactic ambiguity:
+The grammar for natural languages is ambiguous, i.e. there are often multiple possible parse trees for a given sentence.
+Choosing the most appropriate one usually requires semantic and contextual information.
+Specific problem components of syntactic ambiguity include sentence boundary disambiguation.
+Imperfect or irregular input :
+Foreign or regional accents and vocal impediments in speech; typing or grammatical errors, OCR errors in texts.
+Speech acts and plans:
+A sentence can often be considered an action by the speaker.
+The sentence structure, alone, may not contain enough information to define this action.
+For instance, a question is actually the speaker requesting some sort of response from the listener.
+The desired response may be verbal, physical, or some combination.
+For example, "Can you pass the class?" is a request for a simple yes-or-no answer, while "Can you pass the salt?" is requesting a physical action to be performed.
+It is not appropriate to respond with "Yes, I can pass the salt," without the accompanying action (although "No" or "I can't reach the salt" would explain a lack of action).
+Statistical NLP
+Statistical natural-language processing uses stochastic, probabilistic and statistical methods to resolve some of the difficulties discussed above, especially those which arise because longer sentences are highly ambiguous when processed with realistic grammars, yielding thousands or millions of possible analyses.
+Methods for disambiguation often involve the use of  corpora and Markov models.
+Statistical NLP comprises all quantitative approaches to automated language processing, including probabilistic modeling, information theory, and linear algebra.
+The technology for statistical NLP comes mainly from machine learning and data mining, both of which are fields of artificial intelligence that involve learning from data.
+Major tasks in NLP
+Automatic summarization
+Foreign language reading aid
+Foreign language writing aid
+Information extraction
+Information retrieval
+Machine translation
+Named entity recognition
+Natural language generation
+Natural language understanding
+Optical character recognition
+Question answering
+Speech recognition
+Spoken dialogue system
+Text simplification
+Text to speech
+Text-proofing
+Evaluation of natural language processing
+Objectives
+The goal of NLP evaluation is to measure one or more qualities of an algorithm or a system, in order to determine if (or to what extent) the system answers the goals of its designers, or the needs of its users.
+Research in NLP evaluation has received considerable attention, because the definition of proper evaluation criteria is one way to specify precisely an NLP problem, going thus beyond the vagueness of tasks defined only as language understanding or language generation.
+A precise set of evaluation criteria, which includes mainly evaluation data and evaluation metrics, enables several teams to compare their solutions to a given NLP problem.
+Short history of evaluation in NLP
+The first evaluation campaign on written texts seems to be a campaign dedicated to message understanding in 1987 (Pallet 1998).
+Then, the Parseval/GEIG project compared phrase-structure grammars (Black 1991).
+A series of campaigns within Tipster project were realized on tasks like summarization, translation and searching (Hirshman 1998).
+In 1994, in Germany, the Morpholympics compared German taggers.
+Then, the Senseval and Romanseval campaigns were conducted with the objectives of semantic disambiguation.
+In 1996, the Sparkle campaign compared syntactic parsers in four different languages (English, French, German and Italian).
+In France, the Grace project compared a set of 21 taggers for French in 1997 (Adda 1999).
+In 2004, during the Technolangue/Easy project, 13 parsers for French were compared.
+Large-scale evaluation of dependency parsers were performed in the context of the CoNLL shared tasks in 2006 and 2007.
+In Italy, the evalita campaign was conducted in 2007 to compare various tools for Italian evalita web site.
+In France, within the ANR-Passage project (end of 2007), 10 parsers for French were compared passage web site.
+Adda G., Mariani J., Paroubek P., Rajman M. 1999 L'action GRACE d'évaluation de l'assignation des parties du discours pour le français. Langues vol-2
+Black E., Abney S., Flickinger D., Gdaniec C., Grishman R., Harrison P., Hindle D., Ingria R., Jelinek F., Klavans J., Liberman M., Marcus M., Reukos S., Santoni B., Strzalkowski T. 1991 A procedure for quantitatively comparing the syntactic coverage of English grammars. DARPA Speech and Natural Language Workshop
+Hirshman L. 1998 Language understanding evaluation: lessons learned from MUC and ATIS. LREC Granada
+Pallet D.S. 1998 The NIST role in automatic speech recognition benchmark tests. LREC Granada
+Different types of evaluation
+Depending on the evaluation procedures, a number of distinctions are traditionally made in NLP evaluation.
+Intrinsic vs. extrinsic evaluation
+Intrinsic evaluation considers an isolated NLP system and characterizes its performance mainly with respect to a gold standard result, pre-defined by the evaluators.
+Extrinsic evaluation, also called evaluation in use considers the NLP system in a more complex setting, either as an embedded system or serving a precise function for a human user.
+The extrinsic performance of the system is then characterized in terms of its utility with respect to the overall task of the complex system or the human user.
+Black-box vs. glass-box evaluation
+Black-box evaluation requires one to run an NLP system on a given data set and to measure a number of parameters related to the quality of the process (speed, reliability, resource consumption) and, most importantly, to the quality of the result (e.g. the accuracy of data annotation or the fidelity of a translation).
+Glass-box evaluation looks at the design of the system, the algorithms that are implemented, the linguistic resources it uses (e.g. vocabulary size), etc.
+Given the complexity of NLP problems, it is often difficult to predict performance only on the basis of glass-box evaluation, but this type of evaluation is more informative with respect to error analysis or future developments of a system.
+Automatic vs. manual evaluation
+In many cases, automatic procedures can be defined to evaluate an NLP system by comparing its output with the gold standard (or desired) one.
+Although the cost of producing the gold standard can be quite high, automatic evaluation can be repeated as often as needed without much additional costs (on the same input data).
+However, for many NLP problems, the definition of a gold standard is a complex task, and can prove impossible when inter-annotator agreement is insufficient.
+Manual evaluation is performed by human judges, which are instructed to estimate the quality of a system, or most often of a sample of its output, based on a number of criteria.
+Although, thanks to their linguistic competence, human judges can be considered as the reference for a number of language processing tasks, there is also considerable variation across their ratings.
+This is why automatic evaluation is sometimes referred to as objective evaluation, while the human kind appears to be more subjective.
+Shared tasks (Campaigns)
+BioCreative
+Message Understanding Conference
+Technolangue/Easy
+Text Retrieval Conference
+Standardization in NLP
+An ISO sub-committee is working in order to ease interoperability between Lexical resources and NLP programs.
+The sub-committee is part of ISO/TC37 and is called ISO/TC37/SC4.
+Some ISO standards are already published but most of them are under construction, mainly on lexicon representation (see LMF), annotation and data category registry.
+Neural network
+Traditionally, the term neural network had been used to refer to a network or circuit of biological neurons.
+The modern usage of the term often refers to artificial neural networks, which are composed of artificial neurons or nodes.
+Thus the term has two distinct usages:
+Biological neural networks are made up of real biological neurons that are connected or functionally-related in the peripheral nervous system or the central nervous system.
+In the field of neuroscience, they are often identified as groups of neurons that perform a specific physiological function in laboratory analysis.
+Artificial neural networks are made up of interconnecting artificial neurons (programming constructs that mimic the properties of biological neurons).
+Artificial neural networks may either be used to gain an understanding of biological neural networks, or for solving artificial intelligence problems without necessarily creating a model of a real biological system.
+This article focuses on the relationship between the two concepts; for detailed coverage of the two different concepts refer to the separate articles: Biological neural network and Artificial neural network.
+Characterization
+In general a biological neural network is composed of a group or groups of chemically connected or functionally associated neurons.
+A single neuron may be connected to many other neurons and the total number of neurons and connections in a network may be extensive.
+Connections, called synapses, are usually formed from axons to dendrites, though dendrodendritic microcircuits and other connections are possible.
+Apart from the electrical signaling, there are other forms of signaling that arise from neurotransmitter diffusion, which have an effect on electrical signaling.
+As such, neural networks are extremely complex.
+Artificial intelligence and cognitive modeling try to simulate some properties of neural networks.
+While similar in their techniques, the former has the aim of solving particular tasks, while the latter aims to build mathematical models of biological neural systems.
+In the artificial intelligence field, artificial neural networks have been applied successfully to speech recognition, image analysis and adaptive control, in order to construct software agents (in computer and video games) or autonomous robots.
+Most of the currently employed artificial neural networks for artificial intelligence are based on statistical estimation, optimization and control theory.
+The cognitive modelling field involves the physical or mathematical modeling of the behaviour of neural systems; ranging from the individual neural level (e.g. modelling the spike response curves of neurons to a stimulus), through the neural cluster level (e.g. modelling the release and effects of dopamine in the basal ganglia) to the complete organism (e.g. behavioural modelling of the organism's response to stimuli).
+The brain, neural networks and computers
+Neural networks, as used in artificial intelligence, have traditionally been viewed as simplified models of neural processing in the brain, even though the relation between this model and brain biological architecture is debated.
+A subject of current research in theoretical neuroscience is the question surrounding the degree of complexity and the properties that individual neural elements should have to reproduce something resembling animal intelligence.
+Historically, computers evolved from the von Neumann architecture, which is based on sequential processing and execution of explicit instructions.
+On the other hand, the origins of neural networks are based on efforts to model information processing in biological systems, which may rely largely on parallel processing as well as implicit instructions based on recognition of patterns of 'sensory' input from external sources.
+In other words, at its very heart a neural network is a complex statistical processor (as opposed to being tasked to sequentially process and execute).
+Neural networks and artificial intelligence
+An artificial neural network (ANN), also called a simulated neural network (SNN) or commonly just neural network (NN) is an interconnected group of artificial neurons that uses a mathematical or computational model for information processing based on a connectionistic approach to computation.
+In most cases an ANN is an adaptive system that changes its structure based on external or internal information that flows through the network.
+In more practical terms neural networks are non-linear statistical data modeling or decision making tools.
+They can be used to model complex relationships between inputs and outputs or to find patterns in data.
+Background
+An artificial neural network involves a network of simple processing elements (artificial neurons) which can exhibit complex global behaviour, determined by the connections between the processing elements and element parameters.
+One classical type of artificial neural network is the Hopfield net.
+In a neural network model simple nodes, which can be called variously "neurons", "neurodes", "Processing Elements" (PE) or "units", are connected together to form a network of nodes &mdash; hence the term "neural network".
+While a neural network does not have to be adaptive per se, its practical use comes with algorithms designed to alter the strength (weights) of the connections in the network to produce a desired signal flow.
+In modern software implementations of artificial neural networks the approach inspired by biology has more or less been abandoned for a more practical approach based on statistics and signal processing.
+In some of these systems neural networks, or parts of neural networks (such as artificial neurons) are used as components in larger systems that combine both adaptive and non-adaptive elements.
+The concept of a neural network appears to have first been proposed by Alan Turing in his 1948 paper "Intelligent Machinery".
+Applications
+The utility of artificial neural network models lies in the fact that they can be used to infer a function from observations and also to use it.
+This is particularly useful in applications where the complexity of the data or task makes the design of such a function by hand impractical.
+Real life applications
+The tasks to which artificial neural networks are applied tend to fall within the following broad categories:
+Function approximation, or regression analysis, including time series prediction and modelling.
+Classification, including pattern and sequence recognition, novelty detection and sequential decision making.
+Data processing, including filtering, clustering, blind signal separation and compression.
+Application areas include system identification and control (vehicle control, process control), game-playing and decision making (backgammon, chess, racing), pattern recognition (radar systems, face identification, object recognition, etc.), sequence recognition (gesture, speech, handwritten text recognition), medical diagnosis, financial applications, data mining (or knowledge discovery in databases, "KDD"), visualization and e-mail spam filtering.
+Neural network software
+Main article: Neural network software
+Neural network software is used to simulate, research, develop and apply artificial neural networks, biological neural networks and in some cases a wider array of adaptive systems.
+Learning paradigms
+There are three major learning paradigms, each corresponding to a particular abstract learning task.
+These are supervised learning, unsupervised learning and reinforcement learning.
+Usually any given type of network architecture can be employed in any of those tasks.
+Supervised learning
+In supervised learning, we are given a set of example pairs <math/> and the aim is to find a function <math/> in the allowed class of functions that matches the examples.
+In other words, we wish to infer how the mapping implied by the data and the cost function is related to the mismatch between our mapping and the data.
+Unsupervised learning
+In unsupervised learning we are given some data <math/>, and a cost function which is to be minimized which can be any function of <math/> and the network's output, <math/>.
+The cost function is determined by the task formulation.
+Most applications fall within the domain of estimation problems such as statistical modeling, compression, filtering, blind source separation and clustering.
+Reinforcement learning
+In reinforcement learning, data <math/> is usually not given, but generated by an agent's interactions with the environment.
+At each point in time <math/>, the agent performs an action <math/> and the environment generates an observation <math/> and an instantaneous cost <math/>, according to some (usually unknown) dynamics.
+The aim is to discover a policy for selecting actions that minimises some measure of a long-term cost, i.e. the expected cumulative cost.
+The environment's dynamics and the long-term cost for each policy are usually unknown, but can be estimated.
+ANNs are frequently used in reinforcement learning as part of the overall algorithm.
+Tasks that fall within the paradigm of reinforcement learning are control problems, games and other sequential decision making tasks.
+Learning algorithms
+There are many algorithms for training neural networks; most of them can be viewed as a straightforward application of optimization theory and statistical estimation.
+Evolutionary computation methods, simulated annealing, expectation maximization and non-parametric methods are among other commonly used methods for training neural networks.
+See also machine learning.
+Recent developments in this field also saw the use of particle swarm optimization and other swarm intelligence techniques used in the training of neural networks.
+Neural networks and neuroscience
+Theoretical and computational neuroscience is the field concerned with the theoretical analysis and computational modeling of biological neural systems.
+Since neural systems are intimately related to cognitive processes and behaviour, the field is closely related to cognitive and behavioural modeling.
+The aim of the field is to create models of biological neural systems in order to understand how biological systems work.
+To gain this understanding, neuroscientists strive to make a link between observed biological processes (data), biologically plausible mechanisms for neural processing and learning (biological neural network models) and theory (statistical learning theory and information theory).
+Types of models
+Many models are used in the field, each defined at a different level of abstraction and trying to model different aspects of neural systems.
+They range from models of the short-term behaviour of individual neurons, through models of how the dynamics of neural circuitry arise from interactions between individual neurons, to models of how behaviour can arise from abstract neural modules that represent complete subsystems.
+These include models of the long-term and short-term plasticity of neural systems and its relation to learning and memory, from the individual neuron to the system level.
+Current research
+While initially research had been concerned mostly with the electrical characteristics of neurons, a particularly important part of the investigation in recent years has been the exploration of the role of neuromodulators such as dopamine, acetylcholine, and serotonin on behaviour and learning.
+Biophysical models, such as BCM theory, have been important in understanding mechanisms for synaptic plasticity, and have had applications in both computer science and neuroscience.
+Research is ongoing in understanding the computational algorithms used in the brain, with some recent biological evidence for radial basis networks and neural backpropagation as mechanisms for processing data.
+History of the neural network analogy
+The concept of neural networks started in the late-1800s as an effort to describe how the human mind performed.
+These ideas started being applied to computational models with the Perceptron.
+In early 1950s Friedrich Hayek was one of the first to posit the idea of spontaneous order in the brain arising out of decentralized networks of simple units (neurons).
+In the late 1940s, Donald Hebb made one of the first hypotheses for a mechanism of neural plasticity (i.e. learning), Hebbian learning.
+Hebbian learning is considered to be a 'typical' unsupervised learning rule and it (and variants of it) was an early model for long term potentiation.
+The Perceptron is essentially a linear classifier for classifying data <math/> specified by parameters <math/> and an output function <math/>.
+Its parameters are adapted with an ad-hoc rule similar to stochastic steepest gradient descent.
+Because the inner product is a linear operator in the input space, the Perceptron can only perfectly classify a set of data for which different classes are linearly separable in the input space, while it often fails completely for non-separable data.
+While the development of the algorithm initially generated some enthusiasm, partly because of its apparent relation to biological mechanisms, the later discovery of this inadequacy caused such models to be abandoned until the introduction of non-linear models into the field.
+The Cognitron (1975) was an early multilayered neural network with a training algorithm.
+The actual structure of the network and the methods used to set the interconnection weights change from one neural strategy to another, each with its advantages and disadvantages.
+Networks can propagate information in one direction only, or they can bounce back and forth until self-activation at a node occurs and the network settles on a final state.
+The ability for bi-directional flow of inputs between neurons/nodes was produced with the Hopfield's network (1982), and specialization of these node layers for specific purposes was introduced through the first hybrid network.
+The parallel distributed processing of the mid-1980s became popular under the name connectionism.
+The rediscovery of the backpropagation algorithm was probably the main reason behind the repopularisation of neural networks after the publication of "Learning Internal Representations by Error Propagation" in 1986 (Though backpropagation itself dates from 1974).
+The original network utilised multiple layers of weight-sum units of the type <math/>, where <math/> was a sigmoid function or logistic function such as used in logistic regression.
+Training was done by a form of stochastic steepest gradient descent.
+The employment of the chain rule of differentiation in deriving the appropriate parameter updates results in an algorithm that seems to 'backpropagate errors', hence the nomenclature.
+However it is essentially a form of gradient descent.
+Determining the optimal parameters in a model of this type is not trivial, and steepest gradient descent methods cannot be relied upon to give the solution without a good starting point.
+In recent times, networks with the same architecture as the backpropagation network are referred to as Multi-Layer Perceptrons.
+This name does not impose any limitations on the type of algorithm used for learning.
+The backpropagation network generated much enthusiasm at the time and there was much controversy about whether such learning could be implemented in the brain or not, partly because a mechanism for reverse signalling was not obvious at the time, but most importantly because there was no plausible source for the 'teaching' or 'target' signal.
+Criticism
+A. K. Dewdney, a former Scientific American columnist, wrote in 1997, “Although neural nets do solve a few toy problems, their powers of computation are so limited that I am surprised anyone takes them seriously as a general problem-solving tool.”
+(Dewdney, p.82)
+Arguments against Dewdney's position are that neural nets have been successfully used to solve many complex and diverse tasks, ranging from autonomously flying aircraftwww.nasa.gov/centers/dryden/news/NewsReleases/2003/03-49.html to detecting credit card fraudwww.visa.ca/en/about/visabenefits/innovation.cfm.
+Technology writer Roger Bridgman commented on Dewdney's statements about neural nets:
+Neural networks, for instance, are in the dock not only because they have been hyped to high heaven, (what hasn't?) but also because you could create a successful net without understanding how it worked: the bunch of numbers that captures its behaviour would in all probability be "an opaque, unreadable table...valueless as a scientific resource".
+In spite of his emphatic declaration that science is not technology, Dewdney seems here to pillory neural nets as bad science when most of those devising them are just trying to be good engineers.
+An unreadable table that a useful machine could read would still be well worth having.
+N-gram
+An n-gram is a sub-sequence of n items from a given sequence.
+n-grams are used in various areas of statistical natural language processing and genetic sequence analysis.
+The items in question can be letters, words or base pairs according to the application.
+An n-gram of size 1 is a "unigram"; size 2 is a "bigram" (or, more etymologically sound but less commonly used, a "digram"); size 3 is a "trigram"; and size 4 or more is simply called an "n-gram".
+Some language models built from n-grams are "(n&nbsp;&minus;&nbsp;1)-order Markov models".
+Examples
+Here are examples of word level 3-grams and 4-grams (and counts of the number of times they appeared) from the Google n-gram corpus.
+ceramics collectables collectibles (55)
+ceramics collectables fine (130)
+ceramics collected by (52)
+ceramics collectible pottery (50)
+ceramics collectibles cooking (45)
+4-grams
+serve as the incoming (92)
+serve as the incubator (99)
+serve as the independent (794)
+serve as the index (223)
+serve as the indication (72)
+serve as the indicator (120)
+n-gram models
+An n-gram model models sequences, notably natural languages, using the statistical properties of n-grams.
+This idea can be traced to an experiment by Claude Shannon's work in information theory.
+His question was, given a sequence of letters (for example, the sequence "for ex"), what is the likelihood of the next letter?
+From training data, one can derive a probability distribution for the next letter given a history of size <math/>: a = 0.4, b = 0.00001, c = 0, ....; where the probabilities of all possible "next-letters" sum to 1.0.
+More concisely, an n-gram model predicts <math/> based on <math/>.
+In Probability terms, this is nothing but <math/>.
+When used for language modeling independence assumptions are made so that each word depends only on the last n words.
+This Markov model is used as an approximation of the true underlying language.
+This assumption is important because it massively simplifies the problem of learning the language model from data.
+In addition, because of the open nature of language, it is common to group words unknown to the language model together.
+n-gram models are widely used in statistical natural language processing.
+In speech recognition, phonemes and sequences of phonemes are modeled using a n-gram distribution.
+For parsing, words are modeled such that each n-gram is composed of n words.
+For language recognition, sequences of letters are modeled for different languages.
+For a sequence of words, (for example "the dog smelled like a skunk"), the trigrams would be: "the dog smelled", "dog smelled like", "smelled like a", and "like a skunk".
+For sequences of characters, the 3-grams (sometimes referred to as "trigrams") that can be generated from "good morning" are "goo", "ood", "od ", "d m", " mo", "mor" and so forth.
+Some practitioners preprocess strings to remove spaces, most simply collapse whitespace to a single space while preserving paragraph marks.
+Punctuation is also commonly reduced or removed by preprocessing.
+n-grams can also be used for sequences of words or, in fact, for almost any type of data.
+They have been used for example for extracting features for clustering large sets of satellite earth images and for determining what part of the Earth a particular image came from.
+They have also been very successful as the first pass in genetic sequence search and in the identification of which species short sequences of DNA were taken from.
+N-gram models are often criticized because they lack any explicit representation of long range dependency.
+While it is true that the only explicit dependency range is (n-1) tokens for an n-gram model, it is also true that the effective range of dependency is significantly longer than this although long range correlations drop exponentially with distance for any Markov model.
+Alternative Markov language models that incorporate some degree of local state can exhibit very long range dependencies.
+This is often done using hand-crafted state variables that represent, for instance, the position in a sentence, the general topic of discourse or a grammatical state variable.
+Some of the best parsers of English currently in existence are roughly of this form.
+Another criticism that has been leveled is that Markov models of language, including n-gram models, do not explicitly capture the performance/competence distinction introduced by Noam Chomsky.
+This criticism fails to explain why parsers that are the best at parsing text seem to uniformly lack any such distinction and most even lack any clear distinction between semantics and syntax.
+Most proponents of n-gram and related language models opt for a fairly pragmatic approach to language modeling that emphasizes empirical results over theoretical purity.
+n-grams for approximate matching
+n-grams can also be used for efficient approximate matching.
+By converting a sequence of items to a set of n-grams, it can be embedded in a vector space (in other words, represented as a histogram), thus allowing the sequence to be compared to other sequences in an efficient manner.
+For example, if we convert strings with only letters in the English alphabet into 3-grams, we get a <math/>-dimensional space (the first dimension measures the number of occurrences of "aaa", the second "aab", and so forth for all possible combinations of three letters).
+Using this representation, we lose information about the string.
+For example, both the strings "abcba" and "bcbab" give rise to exactly the same 2-grams.
+However, we know empirically that if two strings of real text have a similar vector representation (as measured by cosine distance) then they are likely to be similar.
+Other metrics have also been applied to vectors of n-grams with varying, sometimes better, results.
+For example z-scores have been used to compare documents by examining how many standard deviations each n-gram differs from its mean occurrence in a large collection, or text corpus, of documents (which form the "background" vector).
+In the event of small counts, the g-score may give better results for comparing alternative models.
+It is also possible to take a more principled approach to the statistics of n-grams, modeling similarity as the likelihood that two strings came from the same source directly in terms of a problem in Bayesian inference.
+Other applications
+n-grams find use in several areas of computer science, computational linguistics, and applied mathematics.
+They have been used to:
+design kernels that allow machine learning algorithms such as support vector machines to learn from string data
+find likely candidates for the correct spelling of a misspelled word
+improve compression in compression algorithms where a small area of data requires n-grams of greater length
+assess the probability of a given word sequence appearing in text of a language of interest in pattern recognition systems, speech recognition, OCR (optical character recognition), Intelligent Character Recognition (ICR), machine translation and similar applications
+improve retrieval in information retrieval systems when it is hoped to find similar "documents" (a term for which the conventional meaning is sometimes stretched, depending on the data set) given a single query document and a database of reference documents
+improve retrieval performance in genetic sequence analysis as in the BLAST family of programs
+identify the language a text is in or the species a small sequence of DNA was taken from
+predict letters or words at random in order to create text, as in the dissociated press algorithm.
+Bias-versus-variance trade-off
+What goes into picking the n for the n-gram?
+There are problems of balance weight between infrequent grams (for example, if a proper name appeared in the training data) and frequent grams.
+Also, items not seen in the training data will be given a probability of 0.0 without smoothing.
+For unseen but plausible data from a sample, one can introduce pseudocounts.
+Pseudocounts are generally motivated on Bayesian grounds.
+Smoothing techniques
+Linear interpolation (e.g., taking the weighted mean of the unigram, bigram, and trigram)
+Good-Turing discounting
+Witten-Bell discounting
+Katz's back-off model (trigram)
+Google use of N-gram
+Google uses n-gram models for a variety of R&D projects, such as statistical machine translation, speech recognition, checking spelling, entity detection, and data mining.
+In September of 2006 Google announced that they made their n-grams public at the Linguistic Data Consortium (LDC).
+Noun
+In linguistics, a noun is a member of a large, open lexical category whose members can occur as the main word in the subject of a clause, the object of a verb, or the object of a preposition.
+Lexical categories are defined in terms of how their members combine with other kinds of expressions.
+The syntactic rules for nouns differ from language to language.
+In English, nouns may be defined as those words which can occur with articles and attributive adjectives and can function as the head of a noun phrase.
+In traditional English grammar, the noun is one of the eight parts of speech.
+History
+The word comes from the Latin nomen meaning "name".
+Word classes like nouns were first described by the Sanskrit grammarian [[Panini (grammarian)|Pāṇini]] and ancient Greeks like Dionysios Thrax; and were defined in terms of their morphological properties.
+For example, in Ancient Greek, nouns inflect for grammatical case, such as dative or accusative.
+Verbs, on the other hand, inflect for tenses, such as past, present or future, while nouns do not.
+Aristotle also had a notion of onomata (nouns) and rhemata (verbs) which, however, does not exactly correspond with modern notions of nouns and verbs.
+Vinokurova 2005 has a more detailed discussion of the historical origin of the notion of a noun.
+Different definitions of nouns
+Expressions of natural language have properties at different levels.
+They have formal properties, like what kinds of morphological prefixes or suffixes they take and what kinds of other expressions they combine with; but they also have semantic properties, i.e. properties pertaining to their meaning.
+The definition of a noun at the outset of this page is thus a formal, traditional grammatical definition.
+That definition, for the most part, is considered uncontroversial and furnishes the propensity for certain language users to effectively distinguish most nouns from non-nouns.
+However, it has the disadvantage that it does not apply to nouns in all languages.
+For example in Russian, there are no definite articles, so one cannot define nouns as words that are modified by definite articles.
+There are also several attempts of defining nouns in terms of their semantic properties.
+Many of these are controversial, but some are discussed below.
+Names for things
+In traditional school grammars, one often encounters the definition of nouns that they are all and only those expressions that refer to a person, place, thing, event, substance, quality, or idea, etc.
+This is a semantic definition.
+It has been criticized by contemporary linguists as being uninformative.
+Contemporary linguists generally agree that one cannot successfully define nouns (or other grammatical categories) in terms of what sort of object in the world they refer to or signify.
+Part of the conundrum is that the definition makes use of relatively general nouns ("thing", "phenomenon", "event") to define what nouns are.
+The existence of such general nouns demonstrates that nouns refer to entities that are organized in taxonomic hierarchies.
+But other kinds of expressions are also organized into such structured taxonomic relationships.
+For example the verbs "stroll","saunter", "stride", and "tread" are more specific words than the more general "walk".
+Moreover, "walk" is more specific than the verb "move", which, in turn, is less general than "change".
+But it is unlikely that such taxonomic relationships can be used to define nouns and verbs.
+We cannot define verbs as those words that refer to "changes" or "states", for example, because the nouns change and state probably refer to such things, but, of course, aren't verbs.
+Similarly, nouns like "invasion", "meeting", or "collapse" refer to things that are "done" or "happen".
+In fact, an influential theory has it that verbs like "kill" or "die" refer to events, which is among the sort of thing that nouns are supposed to refer to.
+The point being made here is not that this view of verbs is wrong, but rather that this property of verbs is a poor basis for a definition of this category, just like the property of having wheels is a poor basis for a definition of cars (some things that have wheels, such as my suitcase or a jumbo jet, aren't cars).
+Similarly, adjectives like "yellow" or "difficult" might be thought to refer to qualities, and adverbs like "outside" or "upstairs" seem to refer to places, which are also among the sorts of things nouns can refer to.
+But verbs, adjectives and adverbs are not nouns, and nouns aren't verbs, adjectives or adverbs.
+One might argue that "definitions" of this sort really rely on speakers' prior intuitive knowledge of what nouns, verbs and adjectives are, and, so don't really add anything over and beyond this.
+Speakers' intuitive knowledge of such things might plausibly be based on formal criteria, such as the traditional grammatical definition of English nouns aforementioned.
+Prototypically referential expressions
+Another semantic definition of nouns is that they are prototypically referential.
+That definition is also not very helpful in distinguishing actual nouns from verbs.
+But it may still correctly identify a core property of nounhood.
+For example, we will tend to use nouns like "fool" and "car" when we wish to refer to fools and cars, respectively.
+The notion that this is prototypical reflects the fact that such nouns can be used, even though nothing with the corresponding property is referred to:
+John is no fool.
+If I had a car, I'd go to Marrakech.
+The first sentence above doesn't refer to any fools, nor does the second one refer to any particular car.
+Predicates with identity criteria
+The British logician Peter Thomas Geach proposed a very subtle semantic definition of nouns.
+He noticed that adjectives like "same" can modify nouns, but no other kinds of parts of speech, like verbs or adjectives.
+Not only that, but there also doesn't seem to be any other expressions with similar meaning that can modify verbs and adjectives.
+Consider the following examples.
+Good: John and Bill participated in the same fight.
+Bad: *John and Bill samely fought.
+There is no English adverb "samely".
+In some other languages, like Czech, however there are adverbs corresponding to "samely".
+Hence, in Czech, the translation of the last sentence would be fine; however, it would mean that John and Bill fought in the same way: not that they participated in the same fight.
+Geach proposed that we could explain this, if nouns denote logical predicates with identity criteria.
+An identity criterion would allow us to conclude, for example, that "person x at time 1 is the same person as person y at time 2".
+Different nouns can have different identity criteria.
+A well known example of this is due to Gupta:
+National Airlines transported 2 million passengers in 1979.
+National Airlines transported (at least) 2 million persons in 1979.
+Given that, in general, all passengers are persons, the last sentence above ought to follow logically from the first one.
+But it doesn't.
+It is easy to imagine, for example, that on average, every person who travelled with National Airlines in 1979, travelled with them twice.
+In that case, one would say that the airline transported 2 million passengers but only 1 million persons.
+Thus, the way that we count passengers isn't necessarily the same as the way that we count persons.
+Put somewhat differently: At two different times, you may correspond to two distinct passengers, even though you are one and the same person.
+For a precise definition of identity criteria, see Gupta.
+Recently, Baker has proposed that Geach's definition of nouns in terms of identity criteria allows us to explain the characteristic properties of nouns.
+He argues that nouns can co-occur with (in-)definite articles and numerals, and are "prototypically referential" because they are all and only those parts of speech that provide identity criteria.
+Baker's proposals are quite new, and linguists are still evaluating them.
+Classification of nouns in English
+Proper nouns and common nouns
+Proper nouns (also called proper names) are nouns representing unique entities (such as London, Universe or John), as distinguished from common nouns which describe a class of entities (such as city, planet or person).
+In English and most other languages that use the Latin alphabet, proper nouns are usually capitalized.
+Languages differ in whether most elements of multiword proper nouns are capitalised (e.g., American English House of Representatives) or only the initial element (e.g., Slovenian Državni zbor 'National Assembly').
+In German, nouns of all types are capitalized.
+The convention of capitalizing all nouns was previously used in English, but ended circa 1800.
+In America, the shift in capitalization is recorded in several noteworthy documents.
+The end (but not the beginning) of the Declaration of Independence (1776) and all of the Constitution (1787) show nearly all nouns capitalized, the Bill of Rights (1789) capitalizes a few common nouns but not most of them, and the Thirteenth Constitutional Amendment (1865) only capitalizes proper nouns.
+Sometimes the same word can function as both a common noun and a proper noun, where one such entity is special.
+For example the common noun god denotes all deities, while the proper noun God references the monotheistic God specifically.
+Owing to the essentially arbitrary nature of orthographic classification and the existence of variant authorities and adopted house styles, questionable capitalization of words is not uncommon, even in respected newspapers and magazines.
+Most publishers, however, properly require consistency, at least within the same document, in applying their specified standard.
+The common meaning of the word or words constituting a proper noun may be unrelated to the object to which the proper noun refers.
+For example, someone might be named "Tiger Smith" despite being neither a tiger nor a smith.
+For this reason, proper nouns are usually not translated between languages, although they may be transliterated.
+For example, the German surname Knödel becomes Knodel or Knoedel in English (not the literal Dumpling).
+However, the transcription of place names and the names of monarchs, popes, and non-contemporary authors is common and sometimes universal.
+For instance, the Portuguese word Lisboa becomes Lisbon in English; the English London becomes Londres in French; and the Greek Aristotelēs becomes Aristotle in English.
+Countable and uncountable nouns
+Count nouns are common nouns that can take a plural, can combine with numerals or quantifiers (e.g. "one", "two", "several", "every", "most"), and can take an indefinite article ("a" or "an").
+Examples of count nouns are "chair", "nose", and "occasion".
+Mass nouns (or non-count nouns) differ from count nouns in precisely that respect: they can't take plural or combine with number words or quantifiers.
+Examples from English include "laughter", "cutlery", "helium", and "furniture".
+For example, it is not possible to refer to "a furniture" or "three furnitures".
+This is true even though the pieces of furniture comprising "furniture" could be counted.
+Thus the distinction between mass and count nouns shouldn't be made in terms of what sorts of things the nouns refer to, but rather in terms of how the nouns present these entities.
+Collective nouns
+Collective nouns are nouns that refer to groups consisting of more than one individual or entity, even when they are inflected for the singular.
+Examples include "committee", "herd", and "school" (of herring).
+These nouns have slightly different grammatical properties than other nouns.
+For example, the noun phrases that they head can serve as the subject of a collective predicate, even when they are inflected for the singular.
+A collective predicate is a predicate that normally can't take a singular subject.
+An example of the latter is "talked to each other".
+Good: The boys talked to each other.
+Bad: *The boy talked to each other.
+Good: The committee talked to each other.
+Concrete nouns and abstract nouns
+Concrete nouns refer to physical bodies which you use at least one of your senses to observe.
+For instance, "chair", "apple", or "Janet".
+Abstract nouns on the other hand refer to abstract objects, that is ideas or concepts, such as "justice" or "hate".
+While this distinction is sometimes useful, the boundary between the two of them is not always clear; consider, for example, the noun "art".
+In English, many abstract nouns are formed by adding noun-forming suffixes ("-ness", "-ity", "-tion") to adjectives or verbs.
+Examples are "happiness", "circulation" and "serenity".
+Nouns and pronouns
+Noun phrases can typically be replaced by pronouns, such as "he", "it", "which", and "those", in order to avoid repetition or explicit identification, or for other reasons.
+For example, in the sentence "Janet thought that he was weird", the word "he" is a pronoun standing in place of the name of the person in question.
+The English word one can replace parts of noun phrases, and it sometimes stands in for a noun.
+An example is given below:
+John's car is newer than the one that Bill has.
+But one can also stand in for bigger subparts of a noun phrase.
+For example, in the following example, one can stand in for new car.
+This new car is cheaper than that one.
+Substantive as a word for "noun"
+Starting with old Latin grammars, many European languages use some form of the word substantive as the basic term for noun.
+Nouns in the dictionaries of such languages are demarked by the abbreviation "s" instead of "n", which may be used for proper nouns instead.
+This corresponds to those grammars in which nouns and adjectives phase into each other in more areas than, for example, the English term predicate adjective entails.
+In French and Spanish, for example, adjectives frequently act as nouns referring to people who have the characteristics of the adjective.
+An example in English is:
+The poor you have always with you.
+Similarly, an adjective can also be used for a whole group or organization of people:
+The Socialist International.
+Hence, these words are substantives that are usually adjectives in English.
+Ontology (information science)
+In both computer science and information science, an ontology is a formal representation of a set of concepts within a domain and the relationships between those concepts.
+It is used to reason about the properties of that domain, and may be used to define the domain.
+Ontologies are used in artificial intelligence, the Semantic Web, software engineering, biomedical informatics, library science, and information architecture as a form of knowledge representation about the world or some part of it.
+Common components of ontologies include:
+Individuals: instances or objects (the basic or "ground level" objects)
+Classes: sets, collections, concepts or types of objects
+Attributes: properties, features, characteristics, or parameters that objects (and classes) can have
+Relations: ways that classes and objects can be related to one another
+Function terms: complex structures formed from certain relations that can be used in place of an individual term in a statement
+Restrictions: formally stated descriptions of what must be true in order for some assertion to be accepted as input
+Rules: statements in the form of an if-then (antecedent-consequent) sentence that describe the logical inferences that can be drawn from an assertion in a particular form
+Axioms: assertions (including rules) in a logical form that together comprise the overall theory that the ontology describes in its domain of application.
+This definition differs from that of "axioms" in generative grammar and formal logic.
+In these disciplines, axioms include only statements asserted as a priori knowledge.
+As used here, "axioms" also include the theory derived from axiomatic statements.
+Events: the changing of attributes or relations
+Ontologies are commonly encoded using ontology languages.
+Elements
+Contemporary ontologies share many structural similarities, regardless of the language in which they are expressed.
+As mentioned above, most ontologies describe individuals (instances), classes (concepts), attributes, and relations.
+In this section each of these components is discussed in turn.
+Individuals
+Individuals (instances) are the basic, "ground level" components of an ontology.
+The individuals in an ontology may include concrete objects such as people, animals, tables, automobiles, molecules, and planets, as well as abstract individuals such as numbers and words.
+Strictly speaking, an ontology need not include any individuals, but one of the general purposes of an ontology is to provide a means of classifying individuals, even if those individuals are not explicitly part of the ontology.
+In formal extensional ontologies, only the utterances of words and numbers are considered individuals – the numbers and names themselves are classes.
+In a 4D ontology, an individual is identified by its spatio-temporal extent.
+Examples of formal extensional ontologies are ISO 15926 and the model in development by the IDEAS Group.
+Classes
+Classes &ndash; concepts that are also called type, sort, category, and kind &ndash; are abstract groups, sets, or collections of objects.
+They may contain individuals, other classes, or a combination of both.
+Some examples of classes:
+Person, the class of all people
+Vehicle, the class of all vehicles
+Car, the class of all cars
+Class, representing the class of all classes
+Thing, representing the class of all things
+Ontologies vary on whether classes can contain other classes, whether a class can belong to itself, whether there is a universal class (that is, a class containing everything), etc.
+Sometimes restrictions along these lines are made in order to avoid certain well-known paradoxes.
+The classes of an ontology may be extensional or intensional in nature.
+A class is extensional if and only if it is characterized solely by its membership.
+More precisely, a class C is extensional if and only if for any class C', if C' has exactly the same members as C, then C and C' are identical.
+If a class does not satisfy this condition, then it is intensional.
+While extensional classes are more well-behaved and well-understood mathematically, as well as less problematic philosophically, they do not permit the fine grained distinctions that ontologies often need to make.
+For example, an ontology may want to distinguish between the class of all creatures with a kidney and the class of all creatures with a heart, even if these classes happen to have exactly the same members.
+In the upper ontologies mentioned above, the classes are defined intensionally.
+Intensionally defined classes usually have necessary conditions associated with membership in each class.
+Some classes may also have sufficient conditions, and in those cases the combination of necessary and sufficient conditions make that class a fully defined class.
+Importantly, a class can subsume or be subsumed by other classes; a class subsumed by another is called a subclass of the subsuming class.
+For example, Vehicle subsumes Car, since (necessarily) anything that is a member of the latter class is a member of the former.
+The subsumption relation is used to create a hierarchy of classes, typically with a maximally general class like Thing at the top, and very specific classes like 2002 Ford Explorer at the bottom.
+The critically important consequence of the subsumption relation is the inheritance of properties from the parent (subsuming) class to the child (subsumed) class.
+Thus, anything that is necessarily true of a parent class is also necessarily true of all of its subsumed child classes.
+In some ontologies, a class is only allowed to have one parent (single inheritance), but in most ontologies, classes are allowed to have any number of parents (multiple inheritance), and in the latter case all necessary properties of each parent are inherited by the subsumed child class.
+Thus a particular class of animal (HouseCat) may be a child of the class Cat and also a child of the class Pet.
+A partition is a set of related classes and associated rules that allow objects to be placed into the appropriate class.
+For example, to the right is the partial diagram of an ontology that has a partition of the Car class into the classes 2-Wheel Drive and 4-Wheel Drive.
+The partition rule determines if a particular car is placed in the 2-Wheel Drive or the 4-Wheel Drive class.
+If the partition rule(s) guarantee that a single Car cannot be in both classes, then the partition is called a disjoint partition.
+If the partition rules ensure that every concrete object in the super-class is an instance of at least one of the partition classes, then the partition is called an exhaustive partition.
+Attributes
+Objects in the ontology can be described by assigning attributes to them.
+Each attribute has at least a name and a value, and is used to store information that is specific to the object it is attached to.
+For example the Ford Explorer object has attributes such as:
+Name: Ford Explorer
+Number-of-doors: 4
+Engine: {4.0L, 4.6L}
+Transmission: 6-speed
+The value of an attribute can be a complex data type; in this example, the value of the attribute called Engine is a list of values, not just a single value.
+If you did not define attributes for the concepts you would have either a taxonomy (if hyponym relationships exist between concepts) or a controlled vocabulary.
+These are useful, but are not considered true ontologies.
+Relationships
+An important use of attributes is to describe the relationships (also known as relations) between objects in the ontology.
+Typically a relation is an attribute whose value is another object in the ontology.
+For example in the ontology that contains the Ford Explorer and the Ford Bronco, the Ford Bronco object might have the following attribute:
+Successor: Ford Explorer
+This tells us that the Explorer is the model that replaced the Bronco.
+Much of the power of ontologies comes from the ability to describe these relations.
+Together, the set of relations describes the semantics of the domain.
+The most important type of relation is the subsumption relation (is-superclass-of, the converse of is-a, is-subtype-of or is-subclass-of).
+This defines which objects are members of classes of objects.
+For example we have already seen that the Ford Explorer is-a 4-wheel drive, which in turn is-a Car:
+The addition of the is-a relationships has created a hierarchical taxonomy; a tree-like structure (or, more generally, a partially ordered set) that clearly depicts how objects relate to one another.
+In such a structure, each object is the 'child' of a 'parent class' (Some languages restrict the is-a relationship to one parent for all nodes, but many do not).
+Another common type of relations is the meronymy relation, written as part-of, that represents how objects combine together to form composite objects.
+For example, if we extended our example ontology to include objects like Steering Wheel, we would say that "Steering Wheel is-part-of Ford Explorer" since a steering wheel is one of the components of a Ford Explorer.
+If we introduce meronymy relationships to our ontology, we find that this simple and elegant tree structure quickly becomes complex and significantly more difficult to interpret manually.
+It is not difficult to understand why; an entity that is described as 'part of' another entity might also be 'part of' a third entity.
+Consequently, entities may have more than one parent.
+The structure that emerges is known as a directed acyclic graph (DAG).
+As well as the standard is-a and part-of relations, ontologies often include additional types of relation that further refine the semantics they model.
+These relations are often domain-specific and are used to answer particular types of question.
+For example in the domain of automobiles, we might define a made-in relationship which tells us where each car is built.
+So the Ford Explorer is made-in Louisville.
+The ontology may also know that Louisville is-in Kentucky and Kentucky is-a state of the USA.
+Software using this ontology could now answer a question like "which cars are made in the U.S.?"
+Domain ontologies and upper ontologies
+A domain ontology (or domain-specific ontology) models a specific domain, or part of the world.
+It represents the particular meanings of terms as they apply to that domain.
+For example the word card has many different meanings.
+An ontology about the domain of poker would model the "playing card" meaning of the word, while an ontology about the domain of computer hardware would model the "punch card" and "video card" meanings.
+An upper ontology (or foundation ontology) is a model of the common objects that are generally applicable across a wide range of domain ontologies.
+It contains a core glossary in whose terms objects in a set of domains can be described.
+There are several standardized upper ontologies available for use, including Dublin Core, GFO, OpenCyc/ResearchCyc, SUMO, and DOLCEl.
+WordNet, while considered an upper ontology by some, is not an ontology: it is a unique combination of a taxonomy and a controlled vocabulary (see above, under Attributes).
+The Gellish ontology is an example of a combination of an upper and a domain ontology.
+Since domain ontologies represent concepts in very specific and often eclectic ways, they are often incompatible.
+As systems that rely on domain ontologies expand, they often need to merge domain ontologies into a more general representation.
+This presents a challenge to the ontology designer.
+Different ontologies in the same domain can also arise due to different perceptions of the domain based on cultural background, education, ideology, or because a different representation language was chosen.
+At present, merging ontologies is a largely manual process and therefore time-consuming and expensive.
+Using a foundation ontology to provide a common definition of core terms can make this process manageable.
+There are studies on generalized techniques for merging ontologies, but this area of research is still largely theoretical.
+Ontology languages
+An ontology language is a formal language used to encode the ontology.
+There are a number of such languages for ontologies, both proprietary and standards-based:
+OWL is a language for making ontological statements, developed as a follow-on from RDF and RDFS, as well as earlier ontology language projects including OIL, DAML and DAML+OIL.
+OWL is intended to be used over the World Wide Web, and all its elements (classes, properties and individuals) are defined as RDF resources, and identified by URIs.
+KIF is a syntax for first-order logic that is based on S-expressions.
+The Cyc project has its own ontology language called CycL, based on first-order predicate calculus with some higher-order extensions.
+Rule Interchange Format (RIF) and F-Logic combine ontologies and rules.
+The Gellish language includes rules for its own extension and thus integrates an ontology with an ontology language.
+Relation to the philosophical term
+The term ontology has its origin in philosophy, where it is the name of one fundamental branch of metaphysics, concerned with analyzing various types or modes of existence, often with special attention to the relations between particulars and universals, between intrinsic and extrinsic properties, and between essence and existence.
+According to Tom Gruber at Stanford University, the meaning of ontology in the context of computer science is “a description of the concepts and relationships that can exist for an agent or a community of agents.”
+He goes on to specify that an ontology is generally written, “as a set of definitions of formal vocabulary.”
+What ontology has in common in both computer science and philosophy is the representation of entities, ideas, and events, along with their properties and relations, according to a system of categories.
+In both fields, one finds considerable work on problems of ontological relativity (e.g. Quine and Kripke in philosophy, Sowa and Guarino in computer science (Top-level ontological categories.
+By: Sowa, John F.
+In International Journal of Human-Computer Studies, v. 43 (November/December 1995) p. 669-85.), and debates concerning whether a normative ontology is viable (e.g. debates over foundationalism in philosophy, debates over the Cyc project in AI).
+Differences between the two are largely matters of focus.
+Philosophers are less concerned with establishing fixed, controlled vocabularies than are researchers in computer science, while computer scientists are less involved in discussions of first principles (such as debating whether there are such things as fixed essences, or whether entities must be ontologically more primary than processes).
+During the second half of the 20th century, philosophers extensively debated the possible methods or approaches to building ontologies, without actually building any very elaborate ontologies themselves.
+By contrast, computer scientists were building some large and robust ontologies (such as WordNet and Cyc) with comparatively little debate over how they were built.
+In the early years of the 21st century, the interdisciplinary project of cognitive science has been bringing the two circles of scholars closer together.
+For example, there is talk of a "computational turn in philosophy" which includes philosophers analyzing the formal ontologies of computer science (sometimes even working directly with the software), while researchers in computer science have been making more references to those philosophers who work on ontology (sometimes with direct consequences for their methods).
+Still, many scholars in both fields are uninvolved in this trend of cognitive science, and continue to work independently of one another, pursuing separately their different concerns.
+Resources
+Examples of published ontologies
+Dublin Core, a simple ontology for documents and publishing.
+Cyc for formal representation of the universe of discourse.
+Suggested Upper Merged Ontology, which is a formal upper ontology
+Basic Formal Ontology (BFO), a formal upper ontology designed to support scientific research
+Gellish English dictionary, an ontology that includes a dictionary and taxonomy that includes an upper ontology and a lower ontology that focusses on industrial and business applications in engineering, technology and procurement.
+Generalized Upper Model, a linguistically-motivated ontology for mediating between clients systems and natural language technology
+WordNet Lexical reference system
+OBO Foundry: a suite of interoperable reference ontologies in biomedicine.
+The Ontology for Biomedical Investigations is an open access, integrated ontology for the description of biological and clinical investigations.
+COSMO: An OWL ontology that is a merger of the basic elements of the OpenCyc and SUMO ontologies, with additional elements.
+Gene Ontology for genomics
+PRO, the Protein Ontology of the Protein Information Resource, Georgetown University.
+Protein Ontology for proteomics
+Foundational Model of Anatomy for human anatomy
+SBO, the Systems Biology Ontology, for computational models in biology
+Plant Ontology for plant structures and growth/development stages, etc.
+CIDOC CRM (Conceptual Reference Model) - an ontology for "cultural heritage information".
+GOLD  (General Ontology for Linguistic Description )
+Linkbase A formal representation of the biomedical domain, founded upon Basic Formal Ontology (BFO).
+Foundational, Core and Linguistic Ontologies

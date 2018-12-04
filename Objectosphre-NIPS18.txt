@@ -1,0 +1,1179 @@
+Reducing Network Agnostophobia
+
+Akshay Raj Dhamija, Manuel Günther and Terrance E. Boult ∗
+Vision and Security Technology Lab, University of Colorado Colorado Springs
+{adhamija | mgunther | tboult} @ vast.uccs.edu
+
+Abstract
+Agnostophobia, the fear of the unknown, can be experienced by deep learning
+engineers while applying their networks to real-world applications. Unfortunately,
+network behavior is not well defined for inputs far from its training. In an uncontrolled environment, networks face many instances which are not of interest to
+them and have to be rejected in order to avoid a false positive. This problem has
+previously been tackled by researchers by either a) thresholding softmax, which
+by construction cannot return none of the known classes, or b) using an additional
+background or garbage class. In this paper, we show that both of these approaches
+help, but are generally insufficient when previously unseen classes are encountered.
+We introduce a new evaluation metric which focuses on comparing the performance
+of multiple approaches in scenarios where unknowns are encountered. Our major
+contributions are our simple yet effective Entropic Openset and Objectosphere
+losses, which similar to the current approaches train with negative samples. However, these novel losses are designed to maximize entropy for unknown inputs
+while also increasing separation in deep feature magnitude between known and
+unknown classes. Experiments on MNIST and CIFAR-10 show that our novel loss
+is significantly better at dealing with unknown inputs from datasets such as letters,
+Devanagari, NotMNIST and SVHN.
+
+1
+
+Introduction and Problem Formulation
+
+Ever since a convolutional neural network (CNN) [20] won the ImageNet Large Scale Visual
+Recognition Challenge (ILSVRC) in 2012 [33], the extraordinary increase in the performance of
+deep learning architectures has contributed to the growing application of computer vision algorithms.
+Many of these algorithms presume detection before classification or directly belong to the space
+of detection algorithms, ranging from object detection [15, 14, 32, 24, 31], face detection [18],
+pedestrian detection [43] and alike. Interestingly, though each year new state-of-the-art-algorithms
+emerge from each of these domains, a crucial component of their architecture remains unchanged –
+handling unwanted or unknown inputs.
+Object detectors have evolved over time from using feature-based detectors to sliding windows [34],
+to region proposals [32], and finally to anchor boxes [31]. The majority of these approaches can be
+seen as having two parts, the proposal network and the classification network. During training the
+classification network includes a background class to identify a proposal as not having an object of
+interest. However, even for the state-of-the-art systems it has been reported that the object proposals
+to the classifier “still contain a large proportion of background regions” and “the existence of many
+background samples makes the feature representation capture less intra-category variance and more
+inter-category variance ... causing many false positives between ambiguous object categories” [42].
+In a system that both detects and recognizes objects, the ability to handle unknown samples is critical.
+Our goal is to improve the ability to classify correct classes while reducing the impact of unknown
+inputs.In order to better understand the problem, let us assume Y ⊂ N be the infinite label space of
+all classes which can be broadly categorized into:
+∗
+
+Supported in Part by ...
+
+32nd Conference on Neural Information Processing Systems (NIPS 2018), Montréal, Canada.
+
+Correct Classification Rate
+
+1.0
+0.8
+0.6
+0.4
+0.2
+0.0
+10
+
+4
+
+10
+
+3
+
+10
+
+2
+
+10
+
+1
+
+100
+
+False Positive Rate : Total Unknowns 10032
+10000
+1000
+100
+10
+1
+0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+
+(a) Softmax
+
+10000
+1000
+100
+10
+1
+
+0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+
+(b) Background
+
+10000
+1000
+100
+10
+1
+0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+
+(c) Objectosphere
+
+SoftMax
+Background
+Entropic OpenSet Loss
+
+ObjectSphere
+OpenMax
+
+(d) OpenSet Recognition Curve
+
+Figure 1: L E N ET ++ R ESPONSES T O K NOWNS AND U NKNOWNS. The network in (a) was only trained
+to classify the 10 MNIST classes while the networks in (b) and (c) added MNIST digits[17] as background
+examples (known unknowns). In the feature representation plots on top, colored dots represent Dc , i.e., test
+samples from the ten MNIST classes, while black dots represent samples from the Devanagari[29] dataset
+(Da ). The dashed gray-white lines indicate class borders, i.e., where softmax scores for neighboring classes are
+equal. This paper addresses how to improve recognition by reducing the overlap of network features from known
+samples Dc with features from background or unknown samples Du . The figures in the bottom are histograms of
+softmax probability values for samples of Dc and Da with a logarithmic vertical axis. For known samples Dc ,
+the probability of the correct class is used, while for samples of Da the maximum probability of any known class
+is displayed. In an application, a score threshold θ should be chosen to optimally separate unknown from known
+samples. Unfortunately, such a threshold is difficult to find for either (a) or (b), a better separation is achievable
+with the Objectosphere loss (c). The proposed Open-Set Classification Rate (OSCR) curve in (d) depicts the high
+accuracy of our approach even at a low false positive rate.
+
+• C = {1, . . . , C} ⊂ Y: The known classes of interest, which the network shall identify.
+• U = Y − C: The unknown classes. This set contains all types of classes the network needs
+to reject. Since Y is infinite and C is finite, U is also infinite. This set can further be divided:
+1. B ⊂ U: The background, garbage, or known unknown classes. Since U is infinitely
+large, during training only a small subset can be used, which is represented by B.
+2. A = U − B = Y − C − B: The unknown unknown classes. This subset represents the
+rest of the infinite space U, samples from which are never available during training but
+only occur during testing.
+Let the samples seen during training belonging to B be depicted as Db0 and the ones seen during
+testing depicted as Db . Similarly, the samples seen during testing belonging to A are represented as
+Da . The samples belonging to the known classes of interest C, seen during training and testing are
+represented as Dc0 and Dc , respectively. Finally, we call the unknown test samples Du = Db ∪ Da .
+In this paper, we propose two new loss functions that focus not on rejecting unknowns but on
+developing deep features that are more robust to unknown inputs. While we train our models with
+samples from the background Db0 , we do not add an additional softmax output for the background
+class. Instead, for x ∈ Db0 , the Entropic Open-Set loss maximizes entropy at the softmax layer.
+The Objectosphere loss additionally reduces deep feature magnitude, which in turn minimizes the
+softmax responses of unknown samples. Both yield networks where thresholding on the softmax
+scores is effective at rejecting unknown samples x ∈ Du . The novel model of this paper improves the
+performance of classification module of detection networks by better handling false positives from
+the region proposal network.
+Our Contributions: In this paper, we make four major contributions: a) we derive a novel loss function, the Entropic Open-Set loss, which increases the entropy of the softmax scores for background
+training samples and improve the handling of background and unknown inputs, b) we extend that loss
+into the Objectosphere loss, which further increases softmax entropy and performance by minimizing
+the Euclidean length of deep representations of unknown samples, c) we propose a new evaluation
+metric for comparing the performance of different approaches in an unknown space, and d) we show
+that the new loss functions advance the state of the art for open-set image classification.
+
+2
+
+Background and Related Work
+
+For traditional learning systems, learning with rejection or background classes has been around for
+decades [7], [6]. Recently, approaches for deep networks have been developed that more formally
+2
+
+address the rejection of samples x ∈ Du . These approaches are called open-set [1, 5, 4], outlierrejection [41, 27] or selective prediction [13]. In addition there is also active research in network-based
+uncertainty estimation [16, 12, 36, 21].
+In these prior works there are two goals. First, for a sample x of class ĉ, where ĉ ∈ C, P (c|x)
+is computed such that arg maxc P (c|x) = ĉ. Second, for a sample x of class u, where u ∈ Ul,
+either the system provides an uncertainty score P (u|x) or the system provides a low P (c|x) from
+which arg maxc P (c|x) is thresholded to reject a sample as an unknown. Rather than approximating
+P (u|x), this paper aims at reducing P (c|x) for unknown classes (x ∈ Ul) by improving the feature
+representation and network output to be more robust to unknown or out of distribution samples.
+Our approach is largely orthogonal to and could be integrated with multiple prior works such as
+[1, 13, 21], all of which build upon network outputs.
+We review a few details of the most related approaches to which we compare: thresholding softmax
+scores, uncertainty estimation, taking an open-set approach and using a negative/background class.
+Thresholding Softmax Scores: This approach assumes that samples from a class on which the
+network was not trained would have probability scores distributed across all the known classes,
+hence making the maximum softmax score for any of the known classes low. Therefore, if the
+system thresholds the maximum score, it may avoid classifying such a sample as one of the known
+classes. While rejecting unknown inputs by thresholding some type of score is common [25, 9, 11],
+thresholding softmax is problematic. Almost since its inception [3], softmax has been known to
+bias the probabilities towards a certain class even though the difference between the logit values of
+the winner class and its neighboring classes is minimal. This was highlighted by Matan et al. [25]
+who noted that softmax would increase scores for a particular class even though they may have
+very limited activation on the logit level. In order to train the network to provide better logit values,
+they includedan additional parameter
+α in the softmax loss by modifying the loss function as:
+
+PC
+Sc = log elc / eα + c0 =1 elc0 . This modification forced the network to have a higher loss when
+the logit values lc are smaller than α during training, and decrease the softmax scores when all logit
+values were smaller than α. This additional parameter can also be interpreted as an additional node in
+the output layer that is not updated during back propagation. The authors also viewed this node as a
+representation of none of the above, i.e., the node accounts for x ∈ Du .
+Uncertainty Estimation: In 2017, Lakshminarayanan et al. [21] introduced an approach to predict
+uncertainty estimates using MLP ensembles trained with MNIST digits and their adversarial examples.
+Rather than approximating P (u|x), their approach was focused at reducing maxc∈C P (c|x), whenever
+x ∈ Du , which they show the ensemble does. We compare our approach to their results using their
+evaluation processes as well as using our Open-Set Classification Rate (OSCR) curve.
+Open-Set Approaches - OpenMax: The OpenMax approach introduced by Bendale and Boult
+[1] tackles deep networks in a similar way to the softmax approach as it does not use background
+samples during training, i.e., Db0 = ∅. OpenMax aimed at directly estimating P (U|x). Using the
+scores from training samples, it builds a per-class probabilistic model of the input not belonging to
+that classes, combining these in the OpenMax estimate of each class probability including P (U|x).
+Though this approach provided the first steps to formally address the open-set issue for deep networks,
+it is an offline solution after the network had already been trained. It does not improve the feature
+representation to better detect unknown classes.
+Background Class: Interestingly, none of the previous work compared with or combined with the
+background class modeling approach that dominates state-of-the-art detection approaches, i.e., most of
+the above approaches assumed Db = ∅. The Background class approach can be seen as an extension
+of the softmax approach by Matan et al. [25] seen above. In this variation the network is trained to
+find optimal value of α for each sample such that the resulting plane separates unknown samples
+from the rest of the classes. Systems that train with a background class use samples from Db0 , hoping
+that these samples are sufficiently representative of Du , so that after training the system correctly
+labels unknown, i.e., they assume ∀x ∈ Db0 , P (U|x) ≈ 1 =⇒ ∀z ∈ Da , P (U|z) > maxc∈C P (c|z).
+While this is true by construction for most of the academic datasets like PASCAL [10] and MS-COCO
+[23], where algorithms are often evaluated, it is a likely source of ”negative” dataset bias [38] and
+does not necessarily hold true in the real world where the negative space has near infinite variety of
+3
+
+inputs that should be rejected. To the best of our knowledge, this approach has never been formally
+tested for open-set effectiveness, i.e., handling unknown unknown samples from Da .
+Though all of these approaches provide partial solutions to address the problem of unknown samples,
+we show that our novel approach advances the state of the art in open-set image classification.
+
+3
+
+Visualizing Deep Feature Responses to Unknown Samples
+
+In order to highlight some of the issues, we visualize the responses of deep networks to known
+and unknown samples. We use the LeNet++ network [39], which enables the visualization of
+deep features by creating a two dimensional representation of samples in order to classify digits
+of the MNIST hand-written digit database [22]. More example visualizations can be found in the
+supplemental material including other character sets such as Devanagari and CIFAR10 examples, the
+latter highlighting the importance of using hard-negative background examples.
+We train the network to classify the MNIST digits (Dc ) and then we feed to this network characters
+from an Unknown (Da ) dataset in order to visualize the different feature representations for different
+unknowns. In Fig 1, we tested with unknowns Devanagari[29] dataset, while other plots use other
+”unknown” data. When using the standard softmax approach, as seen in Figure 1(a), there is a lot of
+overlap between features for Dc and Da . Furthermore, from the histogram of the softmax scores it
+is clear that majority of unknown samples have a high softmax score for one of the known classes.
+This means that if a probability threshold θ has to be chosen such that we get a low number of false
+positives, we would reject most of the known samples to be unknown. Clearly, when a network is not
+trained to identify unknown samples it can result in significant confusion of known and unknown
+samples.
+The goal of adding a separate background class trained with samples from Db0 is to account for any
+unknown inputs Da that occur at test time. Results from such a model are displayed in Fig. 1(b), where
+the majority of the unknown samples fall within the region of the background class. However, there
+are still many unknown samples (black points) overlapping the other class regions, mostly around the
+origin, where low probabilities are to be expected, but many samples range into neighboring classes
+far from the origin and, therewith, with high prediction probabilities for those classes.
+With the Objectosphere loss, the subject of this paper, the MNIST digits are in lobes that are pushed
+farther from the origin. The unknowns Du are generally mapped to be near the origin, and with the
+margin to known class data, the unknowns are more easily separated.
+
+4
+
+Approach
+
+One of the limitations with the background class is that it requires the features of all unknown samples
+to be in one region of feature space, independent of the similarity of that class to the known classes.
+An important question not addressed in prior work is if there exists a better and simpler representation,
+especially one that is more effective for low false accept performance.
+From the depiction of the test set of MNIST and letters dataset in Figs. 1(a) and 2(a), we see that
+magnitude for the unknown samples in deep feature space is often lower than that of known samples
+(MNIST). We believe that the magnitude of the deep feature captures information about unknown
+samples. We want to exploit and exaggerate this property to develop a network where for x ∈ Db0 we
+maximize entropy of the softmax scores and reduce the deep feature magnitude (kF (x)k), separating
+them from the known samples. This allows the network to have unknowns that share features with
+known classes as long as the response is small and may allow the network to focus learning capacity
+to respond to the known classes. We do this in two stages. First, we introduce the Entropic Open-Set
+Loss to make the softmax responses of unknown samples uniform. Second, we expand this loss into
+the Objectosphere Loss, which requires the samples of Dc0 to have a magnitude above a specified
+minimum while driving the magnitude of the features of samples from Db0 to zero, providing a margin
+in both magnitude and entropy between known and unknown samples. Our code for both training
+and evaluation will be publicly released.
+In the following, for classes c ∈ {1, . . . , C} let Sc (x) be the standard softmax score for class c
+lc (x)
+with Sc (x) = Pe lc0 (x) , where lc (x) represents the logit value for class c. Let F (x) be deep feature
+e
+
+c0
+
+4
+
+representation from the fully connected layer that feeds into the logits. For brevity, we do not show
+the dependency on input x when its obvious.
+4.1
+
+Entropic Open-Set Loss
+
+In deep networks, the most commonly used loss function is the standard softmax loss given above.
+While we keep the softmax loss calculation untouched for samples of Dc0 , we modify it for training
+with the samples from Db0 seeking to equalize their logit values lc , which will result in equal softmax
+scores Sc . The intuition here is that if an input is unknown, we know nothing about what classes it
+relates to or what features we want it to have and, hence, we want the maximum entropy distribution
+of uniform probabilities over the known classes. Let Sc be the softmax score as above, our Entropic
+Open-Set Loss JE is defined as:
+
+if x ∈ Dc0 is from class c
+− log Sc (x)
+C
+P
+JE (x) =
+(1)
+− C1
+log Sc (x) if x ∈ Db0
+c=1
+
+We now show that the minimum of the loss JE for sample x ∈ Db is achieved when the softmax
+scores Sc (x) for all known classes are identical.
+Lemma 4.1. For an input x ∈ Db , loss JE (x) is minimized when all softmax responses Sc (x) are
+equal: ∀c ∈ {1, . . . , C} : Sc (x) = S = C1 .
+For x ∈ Db0 the loss JE (x) is similar in form to entropy over the per-class softmax scores. Thus,
+based on Shannon’s work[35], it should be intuitive that the term is minimized when all values are
+equal. JE (x) is not exactly entropy, so a formal proof is given in the supplementary material.
+Lemma 4.2. When the logit values are equal, the loss JE (x) is minimized.
+Proof. If the logits are equal, say lc = η, then each softmax has an equivalent numerator (eη ) and,
+hence, all softmax scores are equal.
+Theorem 4.1. For networks whose logit layer does not have bias terms, and for x ∈ Db0 , the loss
+JE (x) is minimized when the deep feature is the zero vector, at which point the softmax responses
+Sc (x) are equal: ∀c ∈ {1, . . . , C} : Sc (x) = S = C1 and the softmax and deep feature entropy is
+maximized.
+Proof. Let F ∈ RM be our deep feature vector, and Wc ∈ RM be the weights in the layer that
+connects F to the logit lc . Since the network does not have bias terms, lc = Wc · F , so when F = ~0,
+then the logits are all equal to zero: ∀c : lc = 0. By Lemma 4.2, we have when the logits are all equal
+the loss JE (x) is minimized and softmax scores are equal, and maximize entropy.
+Note the theorem does not show that F = ~0 is the only minimum because it is possible there is a
+subspace of the feature space that is orthogonal to all Wc . Minimizing loss JE (x) may, but does not
+have to, result in a small magnitude on unknown inputs. A small perturbation from such a subspace
+may quickly increase decrease entropy, so we seek a more stable solution.
+1.0
+
+1.0
+
+1.0
+
+0.5
+
+0.5
+
+0.5
+
+0.0
+
+100
+
+101
+
+102
+
+(a) Softmax
+
+0.0
+
+10
+
+1
+
+101
+
+100
+
+102
+
+(b) Entropic Open-set Loss
+
+0.0
+
+100
+
+101
+
+102
+
+(c) Objectosphere Loss
+
+Figure 2: N ORMALIZED H ISTOGRAMS OF D EEP F EATURE M AGNITUDES. In (a) the magnitude
+of the unknown samples are generally lower than the magnitudes of the known samples for a typical deep
+network. Using our novel Entropic Open-Set loss (b) we are able to further decrease the magnitudes of unknown
+samples and using our Objectosphere loss (c) we are able to create an even better separation between known
+and unknown samples.
+
+4.2
+
+Objectosphere Loss
+
+Following the above theorem, the Entropic Open-Set loss produces a network that generally does
+represent the unknown samples with very low magnitudes, which can be seen in Fig. 2(b), while
+also producing high softmax entropy. However, there is often a modest overlap between the feature
+5
+
+magnitudes of known Dc and unknown samples Du . This should not be surprising as nothing is
+forcing known samples to have a large feature magnitude or always force unknown samples to have
+small feature magnitude. Thus we attempt to put a distance margin between them. In particular, we
+seek to push known samples into what we call the Objectosphere, where they have large feature
+magnitude and low entropy – we are training the network to have a large response to known classes.
+Also, we penalize kF (x)k for x ∈ Db0 , to minimize feature length and maximize entropy, with the
+goal of producing a network that does not highly respond anything unknown other than the class
+samples. Targeting the deep feature layer helps ensure there is no accidental minima. To formalize
+this the Objectosphere loss is calculated as:
+
+max(ξ − ||F (x)||, 0)2 if x ∈ Dc0
+JR = JE + λ
+(2)
+||F (x)||2
+if x ∈ Db0
+Note this both penalizes the known classes if their feature magnitude is inside the boundary of the
+Objectosphere, and unknown classes if their magnitude is greater than zero. We now prove this has
+only one minimum.
+Theorem 4.2. For networks whose logit layer does not have bias terms, given an known unknown
+input x, loss JR (x) is minimized if and only if the deep feature F = ~0 which in turn ensures the
+softmax responses Sc (x) are equal: ∀c ∈ {1, . . . , C} : Sc (x) = S = C1 , maximizing entropy.
+Proof. The ”if” follows directly from Theorem 4.1 and the fact that adding 0 does not change the
+minimum and given F = ~0, the logits are zero and the softmax scores must be equal. For the only if,
+observe that of all features with (Wc · F ) = 0, c = 1 . . . C that minimize JE , the added ||F (x)||2
+ensures that the only minimum is at F = ~0.
+The parameter ξ sets the margin, but also implicitly increases scaling and can impact learning rate; in
+practice one can determine ξ using cross-class validation. Note that larger ξ values will generally
+scale up deep features, including the unknown samples, but what matters is the overall separation. As
+seen in the histogram plots of Fig. 2(c), the Objectosphere loss provides an improved separation in
+feature magnitudes, as compared to the Entropic Open-Set Loss. Finally, for ObjectoSphere’s final
+output scores we can report just the final softmax Sc (x), and when the feature dimension is large, we
+use Sc (x) · kF (x)k, i.e. we can scale by the deep feature magnitude.
+4.3
+
+Evaluating Open-Set Systems
+
+An open-set system has two-fold goal, it needs to reject samples coming from unknown classes Du
+as well as to classify the samples from the correct classes Dc . This makes evaluating open-set more
+complex. Traditionally, there are two major evaluation metrics used: the accuracy versus confidence
+curve [21] and the precision-recall curve, which is popularly used to evaluate all detection tasks.
+These evaluations have the following major drawbacks.
+• On the y axis these plots consider the accuracy or the precision, both of which do not allow
+any clear separation between elements from known and unknown classes.
+• Comparing different algorithms is tricky. Confidences across algorithms cannot be related
+meaningfully. An algorithm may provide an equal number of false positives at a confidence
+of 0.1 to another algorithm at a confidence of 0.9, but still have the same precision due to
+different number of true positives.
+To properly address open-set system evaluation, we introduce the Open-Set Classification Rate
+(OSCR) curve, which is an adaptation of the Detection and Identification Rate (DIR) curve used in
+open-set face recognition [30]. For evaluation, we split the test samples into Dc (samples from known
+classes) and Da (samples from unknown classes). Let θ be a probability threshold. For samples
+from Dc , we calculate the Correct Classification Rate (CCR) as the fraction of the samples where
+the correct class c∗ has maximum probability and has a probability greater than θ. We compute the
+False Positive Rate (FPR) as the fraction of samples from Da that are classified as any known class
+c = 1, . . . , C with a probability greater than θ.
+FPR(θ) =
+
+{x | x ∈ Da ∧ maxc P (c | x) ≥ θ}
+,
+|Da |
+
+CCR(θ) =
+
+{x | x ∈ Dc ∧ arg maxc P (c | x) = c∗ ∧ P (c∗ |x) > θ}
+.
+|Dc |
+6
+
+(3)
+
+Precision
+
+0.9
+
+SoftMax
+Background
+Entropic OpenSet Loss
+ObjectSphere
+MLP with Ensemble
+Squared MLP with Ensemble
+
+0.8
+0.7
+0.6
+0.5
+0.4
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+Confidence Threshold
+
+1.0
+
+Correct Classification Rate
+
+1.0
+
+1.0
+0.8
+0.6
+0.4
+0.2
+0.0
+
+10
+
+4
+
+10
+
+3
+
+10
+
+2
+
+10
+
+1
+
+100
+
+False Positive Rate : Total Unknowns 18724
+
+(a) Precision V/s Confidence Curve
+
+(b) Open-Set Classification Rate Curve
+
+Figure 3: C OMPARISON OF E VALUATION M ETRICS. In (a), our algorithms are compared to the MLP
+ensemble of [21] using their style plot on the with MNIST as known and NotMNIST as unknown samples. In
+(b) the proposed Open-Set Classification Rate curves are provided for the same algorithms. While MLP and
+Squared MLP actually come from the same algorithm, they have a different performance in (a), but are identical
+in (b).
+
+Finally, we plot CCR versus FPR, varying the probability threshold from θ = 1 on the left side to
+θ = 0 on the right side. For θ = 0, the CCR is identical to the closed-set classification accuracy.2
+
+5
+
+Experiments
+
+The first experimental setup, using LeNet++ and MNIST, was described in the visualization Section 3,
+and shown in Fig. 1. The new algorithms significantly outperform the recent state of the art OpenMax
+[1]. In Fig. 3b, we see they significantly outperform the NIPS 2017 Adversarial trained MLP
+ensembles from Lakshminarayanan et al. [21]. In Tab. 1, we show that the new algorithms do increase
+entropy and decrease magnitude for unknown inputs. We also tested that same trained network with
+different sets of unknowns Du , including letters from the Devanagari script [29] and CIFAR-10. We
+summarize the corresponding Correct Classification Rates (CCR) at various False Positive Rates
+(FPR) values in Tab. 2. In each case, one of the new approaches is the best, and in the 2D examples,
+there is not a significant difference between the two approaches in a 2D feature space.
+Known
+U nknown
+Known
+U nknown
+Algorithm
+Entropy
+Entropy
+M agnitude
+M agnitude
+SoftMax
+0.015± .084
+0.318± .312
+94.90± 27.47 32.27 ± 18.47
+Entropic OpenSet 0.050± .159
+1.984± .394
+50.14± 17.36
+1.50 ± 2.50
+ObjectoSphere
+0.056± .168
+2.031± .432
+76.80± 28.55
+2.19 ± 4.73
+Table 1: Entropy and Distance Measures for Known and Unknown test samples for different algorithms on Experiment #1. As predicted by the theory, ObjectoSphere has the highest entropy
+for unknowns and greatest separation and between known and unknown for both entropy and deep
+feature magnitude.
+Our second set of experiments show that our loss is also applicable on other architectures. We created
+a custom protocol using the CIFAR-10 and CIFAR-100 datasets. We train a ResNet 18 architecture to
+classify the ten classes from CIFAR-10, i.e., CIFAR-10 are our known samples Dc . Our background
+class Db0 consists of all the samples from CIFAR-100 that contain any of the vehicle classes. We use
+4500 samples from remaining of the CIFAR-100 as Da , i.e., the unknown samples. We also test using
+26032 samples of Street View House Numbers (SVHN) [28] as Da . With the 1024 feature dimension
+of ResNet, the scaling by feature magnitude provides a noticeable improvement. This highlights the
+importance of minimizing the deep feature magnitude and using the magnitude margin for separation.
+The results are also shown in Tab. 2, and while using background class does better than Entropic
+Openset and ObjectoSphere at very low FAR, the Scaled-Objectosphere is the best.
+
+6
+
+Conclusion and Discussion
+
+The experimental evidence supports the theories put forward in this paper that by minimizing the
+deep features magnitude and maximizing the entropy of the softmax scores for samples from the
+2
+When classification is performed in combination with detectors that produce different numbers of background samples, the normalization of FPR with an algorithm specific Da might be misleading, and it is better to
+use the raw number of false positives on the x-axis.
+
+7
+
+CCR at FAR of
+10−4
+10−3
+10−2
+10−1
+SoftMax
+0.0
+0.0 0.0777 0.9007
+Background
+0.0 0.4402 0.7527 0.9313
+Devanagri
+Entropic Openset 0.7142 0.8746 0.9580 0.9788
+10032
+ObjectoSphere
+0.7350 0.9108 0.9658 0.9791
+LeNet++
+SoftMax
+0.0 0.3397 0.4954 0.8288
+Architecture
+Background
+0.3806 0.7179 0.9068 0.9624
+NotMNIST
+Trained with
+Entropic Openset 0.4201 0.8578 0.9515 0.9780
+18724
+MNIST digits as
+ObjectoSphere
+0.512 0.8965 0.9563 0.9773
+Dc and NIST
+SoftMax
+0.7684 0.8617 0.9288 0.9641
+Letters as Db
+Background
+0.8232 0.9546 0.9726
+0.973
+CIFAR10
+Entropic Openset
+0.973 0.9787 0.9804 0.9806
+10000
+ObjectoSphere
+0.9656 0.9735 0.9785 0.9794
+SoftMax
+0.1924 0.2949 0.4599 0.6473
+Background
+0.2012 0.3022 0.4803 0.6981
+ResNet-18
+SVHN
+Entropic Openset 0.1071 0.2338 0.4277 0.6214
+Architecture
+26032
+ObjectoSphere
+0.1862 0.3387 0.5074 0.6886
+Trained with
+Scaled-Objecto
+0.2547 0.3896 0.5454 0.7013
+CIFAR-10
+SoftMax
+N/A 0.0706 0.2339 0.5139
+Classes as Dc and
+Background
+N/A 0.1598 0.3429 0.6049
+Subset of
+CIFAR-100
+Entropic
+Openset
+N/A 0.1776 0.3501 0.5855
+CIFAR-100 as Db
+Subset
+ObjectoSphere
+N/A 0.1866 0.3595 0.6345
+4500
+Scaled-Objecto
+N/A 0.2584 0.4334 0.6647
+Table 2: Correct Classification Rates (CCR) at different False Positive Rates (FPR) for multiple
+algorithms tested on different datasets. For each experiment at each FAR rate, the best performance
+is in bold. We show Scaled-Objectosphere only when it was better than ObjectoSphere; magnitude
+scaling does not help in the 2D feature space of LeNet++.
+Experiment
+
+Unknowns
+|Da |
+
+Algorithm
+
+background class we improve network robustness to unknown classes. The approach improves
+performance not only on the samples from the background training classes, but it also generalizes
+well to examples from classes never seen before; samples from unseen classes also generally have
+low feature magnitude, higher softmax entropy and better separation from the known classes.
+The proposed solutions are not, however, without their limitations which we now discuss. The added
+terms can make the networks a bit more complicated to train, compared to regular softmax; training
+with the Entropic Open-Set loss is at about the same complexity as dealing with a background
+class. The Objectosphere loss requires determining λ, which is used to balance two elements of
+the loss, as well as choosing η, the minimum feature magnitude for known samples. These can be
+chosen systematically, using cross-class calibration, where one trains with a subset of the background
+classes, say half of them, then tests on the remaining unseen background classes. However, this adds
+complexity and computational cost. We note that for some datasets or random initializations during
+training, the Entropic Open-Set Loss test performance is as good, and sometimes even slightly better
+than Objectosphere.
+While not shown, we have found that the representative quality of the employed background examples
+is important, e.g., training with CIFAR as the background classes does not improve the robustness to
+unknown letter-like data near as much. This is consistent with the known value of hard-negatives.
+The new evaluation with the Open-Set Classification Rate Curve allows better analysis and limits
+the potential for playing games in scaling. In Fig. 3(a), there is a curve labeled squared MLP with
+Ensemble, which on that plot appears to be better than the MLP ensemble of [21] using their style
+plot. However, this is not a better algorithm since all we did was to square and re-normalize all the
+scores; a proper comparison should be independent of any monotonic re-normalization of the scores.
+Our OSCR, which sorts on the score and then plots for increasing false-positive rate, depends only on
+the sorting order, not the actual scores.
+While there was considerable prior work on using a background class in detection, as well as work
+on open set, rejection or uncertainty estimation, this paper presents the first theoretically grounded
+significant steps to an improved network representation to address unknown classes and, hence,
+reduce network agnostophobia.
+8
+
+References
+[1] Abhijit Bendale and Terrance E Boult. Towards open set deep networks. In Proceedings of the
+IEEE conference on computer vision and pattern recognition, pages 1563–1572, 2016.
+[2] Jinbo Bi and Murat Dundar. System and method for joint optimization of cascaded classifiers
+for computer aided detection, June 14 2011. US Patent 7,962,428.
+[3] J Bridle. Probablistic interpretation of feedforward classification network outputs, with relationships to statistical pattern recognition. Neuro-computing: Algorithms, Architectures,
+1989.
+[4] P Panareda Busto and Juergen Gall. Open set domain adaptation. In The IEEE International
+Conference on Computer Vision (ICCV), volume 1, page 3, 2017.
+[5] Douglas O Cardoso, João Gama, and Felipe MG França. Weightless neural networks for open
+set recognition. Machine Learning, 106(9-10):1547–1567, 2017.
+[6] Eric I Chang and Richard P Lippmann. Figure of merit training for detection and spotting. In
+Advances in Neural Information Processing Systems, pages 1019–1026, 1994.
+[7] Chi-Keung Chow. An optimum character recognition system using decision functions. IRE
+Transactions on Electronic Computers, (4):247–254, 1957.
+[8] David Cox, Walter Scheirer, Samuel Anthony, and Ken Nakayama. Systems and methods for
+machine learning enhanced by human measurements, October 17 2017. US Patent 9,792,532.
+[9] Claudio De Stefano, Carlo Sansone, and Mario Vento. To reject or not to reject: that is the
+question-an answer in case of neural classifiers. IEEE Transactions on Systems, Man, and
+Cybernetics, Part C (Applications and Reviews), 30(1):84–94, 2000.
+[10] Mark Everingham, Luc Van Gool, Christopher KI Williams, John Winn, and Andrew Zisserman.
+The pascal visual object classes (voc) challenge. International Journal of Computer Vision,
+88(2):303–338, 2010.
+[11] Giorgio Fumera and Fabio Roli. Support vector machines with embedded reject option. In
+Pattern recognition with support vector machines, pages 68–82. Springer, 2002.
+[12] Yarin Gal and Zoubin Ghahramani. Dropout as a bayesian approximation: Representing model
+uncertainty in deep learning. In international conference on machine learning, pages 1050–1059,
+2016.
+[13] Yonatan Geifman and Ran El-Yaniv. Selective classification for deep neural networks. In
+Advances in neural information processing systems, pages 4885–4894, 2017.
+[14] Ross Girshick. Fast R-CNN. In Proceedings of the IEEE international conference on computer
+vision, pages 1440–1448, 2015.
+[15] Ross Girshick, Jeff Donahue, Trevor Darrell, and Jitendra Malik. Rich feature hierarchies for
+accurate object detection and semantic segmentation. In Proceedings of the IEEE conference on
+computer vision and pattern recognition, pages 580–587, 2014.
+[16] Alex Graves. Practical variational inference for neural networks. In Advances in Neural
+Information Processing Systems, pages 2348–2356, 2011.
+[17] Patrick Grother and Kayee Hanaoka. Nist special database 19 handprinted forms and characters
+2nd edition. National Institute of Standards and Technology, Tech. Rep, 2016.
+[18] Peiyun Hu and Deva Ramanan. Finding tiny faces. In The IEEE Conference on Computer
+Vision and Pattern Recognition (CVPR), July 2017.
+[19] Katarzyna Janocha and Wojciech Marian Czarnecki. On loss functions for deep neural networks
+in classification. 2017. arXiv preprint arXiv:1702.05659.
+9
+
+[20] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton. Imagenet classification with deep
+convolutional neural networks. In F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinberger,
+editors, Advances in Neural Information Processing Systems (NIPS), pages 1097–1105. 2012.
+[21] Balaji Lakshminarayanan, Alexander Pritzel, and Charles Blundell. Simple and scalable
+predictive uncertainty estimation using deep ensembles. In Advances in Neural Information
+Processing Systems, pages 6405–6416, 2017.
+[22] Yann LeCun, Corinna Cortes, and Christopher J. C. Burges. The MNIST database of handwritten
+digits, 1998.
+[23] Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr
+Dollár, and C Lawrence Zitnick. Microsoft coco: Common objects in context. In European
+Conference on Computer Vision, pages 740–755. Springer, 2014.
+[24] Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott Reed, Cheng-Yang
+Fu, and Alexander C Berg. SSD: Single shot multibox detector. In European conference on
+computer vision, pages 21–37. Springer, 2016.
+[25] Ofer Matan, RK Kiang, CE Stenard, B Boser, JS Denker, D Henderson, RE Howard, W Hubbard,
+LD Jackel, and Yann Le Cun. Handwritten character recognition using neural network architectures. In Proceedings of the 4th USPS advanced technology conference, pages 1003–1011,
+1990.
+[26] Volodymyr Mnih and Geoffrey E Hinton. System and method for labelling aerial images,
+August 10 2017. US Patent App. 15/497,378.
+[27] Noam Mor and Lior Wolf. Confidence prediction for lexicon-free OCR. In Proceedings of the
+IEEE Winter conference on Applications of Computer Vision, 2018.
+[28] Yuval Netzer, Tao Wang, Adam Coates, Alessandro Bissacco, Bo Wu, and Andrew Y Ng.
+Reading digits in natural images with unsupervised feature learning. In NIPS workshop on deep
+learning and unsupervised feature learning, volume 2011, page 5, 2011.
+[29] Ashok Kumar Pant, Sanjeeb Prasad Panday, and Shashidhar Ram Joshi. Off-line nepali
+handwritten character recognition using multilayer perceptron and radial basis function neural
+networks. In 2012 Third Asian Himalayas International Conference on Internet, pages 1–5.
+IEEE, 2012.
+[30] P. Jonathon Phillips, Patrick Grother, and Ross Micheals. Handbook of Face Recognition,
+chapter Evaluation Methods in Face Recognition. Springer, 2nd edition, 2011.
+[31] Joseph Redmon, Santosh Divvala, Ross Girshick, and Ali Farhadi. You only look once: Unified,
+real-time object detection. In Proceedings of the IEEE Conference on Computer Vision and
+Pattern Recognition, pages 779–788, 2016.
+[32] Shaoqing Ren, Kaiming He, Ross Girshick, and Jian Sun. Faster R-CNN: Towards real-time
+object detection with region proposal networks. In Advances in neural information processing
+systems, pages 91–99, 2015.
+[33] Olga Russakovsky, Jia Deng, Zhiheng Huang, Alexander C. Berg, and Li Fei-Fei. Detecting
+avocados to zucchinis: what have we done, and where are we going? In International Conference
+on Computer Vision (ICCV), 2013.
+[34] Pierre Sermanet, David Eigen, Xiang Zhang, Michael Mathieu, Rob Fergus, and Yann Lecun.
+Overfeat: Integrated recognition, localization and detection using convolutional networks. 12
+2013.
+[35] C. E. Shannon. A mathematical theory of communication. Bell Systems Technical Journal,
+27:623–656, 1948.
+[36] Jost Tobias Springenberg, Aaron Klein, Stefan Falkner, and Frank Hutter. Bayesian optimization
+with robust bayesian neural networks. In Advances in Neural Information Processing Systems,
+pages 4134–4142, 2016.
+10
+
+[37] Rafid A Sukkar. Rejection of non-digit strings for connected digit speech recognition, March 18
+1997. US Patent 5,613,037.
+[38] Tatiana Tommasi, Novi Patricia, Barbara Caputo, and Tinne Tuytelaars. A deeper look at dataset
+bias. In Domain Adaptation in Computer Vision Applications, pages 37–55. Springer, 2017.
+[39] Yandong Wen, Kaipeng Zhang, Zhifeng Li, and Yu Qiao. A discriminative feature learning
+approach for deep face recognition. In European Conference on Computer Vision, pages
+499–515. Springer, 2016.
+[40] Jason Weston and Ronan Collobert. Method for training a learning machine having a deep
+multi-layered network with labeled and unlabeled training data, July 31 2012. US Patent
+8,234,228.
+[41] Li Xu, Jimmy SJ Ren, Ce Liu, and Jiaya Jia. Deep convolutional neural network for image
+deconvolution. In Advances in Neural Information Processing Systems, pages 1790–1798, 2014.
+[42] Bin Yang, Junjie Yan, Zhen Lei, and Stan Z Li. Craft objects from images. In Computer Vision
+and Pattern Recognition (CVPR), 2016 IEEE Conference on, pages 6043–6051. IEEE, 2016.
+[43] Shanshan Zhang, Rodrigo Benenson, Mohamed Omran, Jan Hosang, and Bernt Schiele. Towards
+reaching human performance in pedestrian detection. IEEE transactions on pattern analysis
+and machine intelligence, 40(4):973–986, 2018.
+
+11
+
+Supplementary Material: Reducing Network Agnostophobia
+Proof of Lemma 4.1
+Lemma 4.1
+For an input x ∈ Db0 , Entropic Open-Set loss JE (x) is minimized when all softmax responses Sc (x)
+are equal: ∀c ∈ {1, . . . , C} : Sc (x) = S = C1 .
+
+Proof. Assume that at the minimum, softmax responses are not equal. We can represent any small
+deviation from equality as ∃{δc | c ∈ {1, . . . , K} ∧ 0 < δc ≤ S} with K < C such that Sc = S + δc .
+Simultaneously, ∃{δc0 | c0 ∈ {K + 1, . . . , C} ∧ 0 ≤ δc0 ≤ S} with Sc0 = S − δc0 . Note that δc0
+PK
+PC
+cannot be larger than S since Sc0 cannot be smaller than 0. Finally, c=1 δc = c0 =K+1 δc0 . If this
+reduces the loss JE (x) then:
+
+−
+
+K
+X
+
+!
+
+C
+X
+
+log (S + δc ) +
+
+log(S − δc0 )
+
+<−
+
+c0 =K+1
+
+c=1
+
+C
+X
+
+log Sc .
+
+c=1
+
+With log(S + δ) = log(S · (1 + δ/S)) = log(S) + log(1 + δ/S), we have:
+K
+X
+c=1
+
+
+
+δc
+log S + log 1 +
+S
+
+!
+
+C
+X
+
++
+
+
+
+δc 0
+log S + log 1 −
+S
+
+c0 =K+1
+
+!
+>
+
+C
+X
+
+log Sc
+
+c=1
+
+
+
+
+ X
+C
+C
+C
+ X
+
+X
+
+
+δj
+δc
+ Sc >
+ Sc
++
+log 1 −
++
+log 1 +
+log
+log
+
+
+S
+S
+c=1
+c=1
+c=1
+c0 =K+1
+
+
+
+
+
+
+C
+K
+X
+X
+δc0
+δc
++
+log 1 −
+>0
+log 1 +
+S
+S
+0
+c=1
+
+K
+X
+
+c =K+1
+
+Using the Taylor series log(1 + x) =
+
+(−1)n−1 xn
+n
+
+P∞
+
+n=1
+
+K
+∞
+X
+X
+(−1)n−1 δcn
+nS n
+c=1 n=1
+
+!
+
+K
+∞
+X
+δc X (−1)n−1 δcn
++
+S n=2
+nS n
+c=1
+
+!
+
+Rearranging and using the constraint that
+K
+X
+δc
+c=1
+
+S
+
+−
+
+and log(1 − x) = −
+
+C
+X
+
+−
+
+c0 =K+1
+
+∞
+
+C
+X
+
+−
+
+c0 =k+1
+
+PK
+
+c=1 δc
+
+=
+
+∞
+X
+δcn0
+nS n
+n=1
+
+PC
+
+we get:
+
+!
+>0
+
+δc0 X δcn0
++
+S
+nS n
+n=2
+
+0
+c0 =K+1 δc ,
+
+xn
+n=1 n ,
+
+P∞
+
+!
+>0
+
+we obtain:
+
+C
+K X
+∞
+C
+∞
+X
+X
+X
+X
+
+0
+δ
+(−1)n−1 δcn
+δcn0
+ c +
+−
+>0
+nS n
+nS n
+ S
+c=1 n=2
+c=K+1
+c0 =K+1 n=2
+
+>0
+
+This yields a contradiction as we assumed ∀c ∈ {1, . . . , C} : 0 < δc ≤ S. The right sum is subtracted
+and is always < 0. The left sum yields −δc2 /(2S 2 ) + δc3 /(3S 3 ) − . . . which is strictly smaller than
+0 for 0 < δc ≤ S. Thus for unknown inputs, the loss is minimized when all softmax outputs have
+equal value.
+12
+
+Response to Known Unknown Samples: Letters
+
+(d) OpenSet Recognition Curve
+
+(b) Background
+(a) Softmax
+
+(c) Objectosphere
+
+Figure 4: L E N ET ++ R ESPONSES T O K NOWN U NKNOWNS. This figure shows responses of a network
+trained to classify MNIST digits and reject Latin letters when exposed to samples of classes that the network was
+trained on.
+
+Response to Unknown Unknown Samples: CIFAR
+
+(a) Softmax
+
+(b) Background
+
+(d) OpenSet Recognition Curve
+(c) Objectosphere
+
+Figure 5: L E N ET ++ R ESPONSES T O CIFAR I MAGES. This figure shows responses of a network trained
+to classify MNIST digits and reject Latin letters when exposed to samples from CIFAR dataset, which are very
+different from both the classes of interest (MNIST) and the background classes (Letters).
+
+Response to Unknown Unknown Samples: Devanagari
+
+(d) OpenSet Recognition Curve
+(a) Softmax
+
+(b) Background
+
+(c) Objectosphere
+
+Figure 6: L E N ET ++ R ESPONSES TO C HARACTERS FROM D EVANAGARI S CRIPT. This figure shows
+responses of a network trained to classify MNIST digits and reject Latin letters when exposed to characters
+from the Devanagari Script. These characters contain characteristics similar to the MNIST digits and, thus, are
+difficult to reject for both the Background class and standalone softmax. However, Objectosphere is able to
+handle such a change easily.
+
+13
+
+Correct Classification Rate
+
+Response to Unknown Unknown Samples: Devanagari
+1.0
+0.8
+0.6
+
+Softmax
+BG
+Entropic OpenSet
+ObjectoSphere
+Scaled ObjectoSphere
+
+0.4
+0.2
+0.0
+
+10
+
+3
+
+10
+
+2
+
+10
+
+1
+
+100
+
+False Positive Rate : Total Unknowns 4500
+(b) ResNet-18 On SVHN
+
+(a) ResNet-18 On CIFAR
+
+Figure 7: L E N ET ++ R ESPONSES TO C HARACTERS FROM D EVANAGARI S CRIPT. This figure shows
+responses of a network trained to classify MNIST digits and reject Latin letters when exposed to characters
+from the Devanagari Script. These characters contain characteristics similar to the MNIST digits and, thus, are
+difficult to reject for both the Background class and standalone softmax. However, Objectosphere is able to
+handle such a change easily.
+
+14
+
+

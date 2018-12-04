@@ -1,0 +1,1500 @@
+Some computer programs are embedded into hardware.
+A stored-program computer requires an initial computer program stored in its read-only memory to boot.
+The boot process is to identify and initialize all aspects of the system, from CPU registers to device controllers to memory contents.
+Following the initialization process, this initial computer program loads the operating system and sets the program counter to begin normal operations.
+Independent of the host computer, a hardware device might have embedded firmware to control its operation.
+Firmware is used when the computer program is rarely or never expected to change, or when the program must not be lost when the power is off.
+Manual programming
+Computer programs historically were manually input to the central processor via switches.
+An instruction was represented by a configuration of on/off settings.
+After setting the configuration, an execute button was pressed.
+This process was then repeated.
+Computer programs also historically were manually input via paper tape or punched cards.
+After the medium was loaded, the starting address was set via switches and the execute button pressed.
+Automatic program generation
+Generative programming is a style of computer programming that creates source code through generic classes, prototypes, templates, aspects, and code generators to improve programmer productivity.
+Source code is generated with programming tools such as a template processor or an Integrated Development Environment.
+The simplest form of source code generator is a macro processor, such as the C preprocessor, which replaces patterns in source code according to relatively simple rules.
+Software engines output source code or markup code that simultaneously become the input to another computer process.
+The analogy is that of one process driving another process, with the computer code being burned as fuel.
+Application servers are software engines that deliver applications to client computers.
+For example, a Wiki is an application server that allows users to build dynamic content assembled from articles.
+Wikis generate HTML, CSS, Java, and Javascript which are then interpreted by a web browser.
+Simultaneous execution
+Many operating systems support multitasking which enables many computer programs to appear to be running simultaneously on a single computer.
+Operating systems may run multiple programs through process scheduling — a software mechanism to switch the CPU among processes frequently so that users can interact with each program while it is running.
+Within hardware, modern day multiprocessor computers or computers with multicore processors may run multiple programs.
+Functional categories
+Computer programs may be categorized along functional lines.
+These functional categories are system software and application software.
+System software includes the operating system which couples the computer's hardware with the application software.
+The purpose of the operating system is to provide an environment in which application software executes in a convenient and efficient manner.
+In addition to the operating system, system software includes utility programs that help manage and tune the computer.
+If a computer program is not system software then it is application software.
+Application software includes middleware, which couples the system software with the user interface.
+Application software also includes utility programs that help users solve application problems, like the need for sorting.
+Computer science
+Computer science (or computing science) is the study and the science of the theoretical foundations of information and computation and their implementation and application in computer systems.
+Computer science has many sub-fields; some emphasize the computation of specific results (such as computer graphics), while others relate to properties of computational problems (such as computational complexity theory).
+Still others focus on the challenges in implementing computations.
+For example, programming language theory studies approaches to describing computations, while computer programming applies specific programming languages to solve specific computational problems.
+A further subfield, human-computer interaction, focuses on the challenges in making computers and computations useful, usable and universally accessible to people.
+History
+The early foundations of what would become computer science predate the invention of the modern digital computer.
+Machines for calculating fixed numerical tasks, such as the abacus, have existed since antiquity.
+Wilhelm Schickard built the first mechanical calculator in 1623.
+Charles Babbage designed a difference engine in Victorian times (between 1837 and 1901) helped by Ada Lovelace.
+Around 1900, the IBM corporation sold punch-card machines.
+However, all of these machines were constrained to perform a single task, or at best some subset of all possible tasks.
+During the 1940s, as newer and more powerful computing machines were developed, the term computer came to refer to the machines rather than their human predecessors.
+As it became clear that computers could be used for more than just mathematical calculations, the field of computer science broadened to study computation in general.
+Computer science began to be established as a distinct academic discipline in the 1960s, with the creation of the first computer science departments and degree programs.
+Since practical computers became available, many applications of computing have become distinct areas of study in their own right.
+Many initially believed it impossible that "computers themselves could actually be a scientific field of study" (Levy 1984, p. 11), though it was in the "late fifties" (Levy 1984, p.11) that it gradually became accepted among the greater academic population.
+It is the now well-known IBM brand that formed part of the computer science revolution during this time.
+'IBM' (short for International Business Machines) released the IBM 704 and later the IBM 709 computers, which were widely used during the exploration period of such devices.
+"Still, working with the IBM [computer] was frustrating...if you had misplaced as much as one letter in one instruction, the program would crash, and you would have to start the whole process over again" (Levy 1984, p.13).
+During the late 1950s, the computer science discipline was very much in its developmental stages, and such issues were commonplace.
+Time has seen significant improvements in the useability and effectiveness of computer science technology.
+Modern society has seen a significant shift from computers being used solely by experts or professionals to a more widespread user base.
+By the 1990s, computers became accepted as being the norm within everyday life.
+During this time data entry was a primary component of the use of computers, many preferring to streamline their business practices through the use of a computer.
+This also gave the additional benefit of removing the need of large amounts of documentation and file records which consumed much-needed physical space within offices.
+Major achievements
+Despite its relatively short history as a formal academic discipline, computer science has made a number of fundamental contributions to science and society.
+These include:
+Applications within computer science
+A formal definition of computation and computability, and proof that there are computationally unsolvable and intractable problems.
+The concept of a programming language, a tool for the precise expression of methodological information at various levels of abstraction.
+Applications outside of computing
+Sparked the Digital Revolution which led to the current Information Age and the Internet.
+In cryptography, breaking the Enigma machine was an important factor contributing to the Allied victory in World War II.
+Scientific computing enabled advanced study of the mind and mapping the human genome was possible with Human Genome Project.
+Distributed computing projects like Folding@home explore protein folding.
+Algorithmic trading has increased the efficiency and liquidity of financial markets by using artificial intelligence, machine learning and other statistical and numerical techniques on a large scale.
+Relationship with other fields
+Despite its name, a significant amount of computer science does not involve the study of computers themselves.
+Because of this, several alternative names have been proposed.
+Danish scientist Peter Naur suggested the term datalogy, to reflect the fact that the scientific discipline revolves around data and data treatment, while not necessarily involving computers.
+The first scientific institution to use the term was the Department of Datalogy at the University of Copenhagen, founded in 1969, with Peter Naur being the first professor in datalogy.
+The term is used mainly in the Scandinavian countries.
+Also, in the early days of computing, a number of terms for the and practitioners of the field of computing were suggested in the Communications are of the ACM—turingineer, turologist, flow-charts-man, applied meta-mathematician, and applied epistemologist.
+Three months later in the same journal, comptologist was suggested, followed next year by hypologist.
+Recently the term computics has been suggested.
+Informatik was a term used in Europe with more frequency.
+The renowned computer scientist Edsger Dijkstra stated, "Computer science is no more about computers than astronomy is about telescopes."
+The design and deployment of computers and computer systems is generally considered the province of disciplines other than computer science.
+For example, the study of computer hardware is usually considered part of computer engineering, while the study of commercial computer systems and their deployment is often called information technology or information systems.
+Computer science is sometimes criticized as being insufficiently scientific, a view espoused in the statement "Science is to computer science as hydrodynamics is to plumbing", credited to Stan Kelly-Bootle and others.
+However, there has been much cross-fertilization of ideas between the various computer-related disciplines.
+Computer science research has also often crossed into other disciplines, such as cognitive science, economics, mathematics, physics (see quantum computing), and linguistics.
+Computer science is considered by some to have a much closer relationship with mathematics than many scientific disciplines.
+Early computer science was strongly influenced by the work of mathematicians such as Kurt Gödel and Alan Turing, and there continues to be a useful interchange of ideas between the two fields in areas such as mathematical logic, category theory, domain theory, and algebra.
+The relationship between computer science and software engineering is a contentious issue, which is further muddied by disputes over what the term "software engineering" means, and how computer science is defined.
+David Parnas, taking a cue from the relationship between other engineering and science disciplines, has claimed that the principal focus of computer science is studying the properties of computation in general, while the principal focus of software engineering is the design of specific computations to achieve practical goals, making the two separate but complementary disciplines.
+The academic, political, and funding aspects of computer science tend to have roots as to whether a department in the U.S. formed with either a mathematical emphasis or an engineering emphasis.
+In general, electrical engineering-based computer science departments have tended to succeed as computer science and/or engineering departments.
+Computer science departments with a mathematics emphasis and with a numerical orientation consider alignment computational science.
+Both types of departments tend to make efforts to bridge the field educationally if not across all research.
+Fields of computer science
+Computer science searches for concepts and formal proofs to explain and describe computational systems of interest.
+As with all sciences, these theories can then be utilised to synthesize practical engineering applications, which in turn may suggest new systems to be studied and analysed.
+While the ACM Computing Classification System can be used to split computer science up into different topics of fields, a more descriptive breakdown follows:
+Mathematical foundations
+Mathematical logic
+Boolean logic and other ways of modeling logical queries; the uses and limitations of formal proof methods.
+Number theory
+Theory of proofs and heuristics for finding proofs in the simple domain of integers.
+Used in cryptography as well as a test domain in artificial intelligence.
+Graph theory
+Foundations for data structures and searching algorithms.
+Type theory
+Formal analysis of the types of data, and the use of these types to understand properties of programs, especially program safety.
+Category theory
+Category theory provides a means of capturing all of math and computation in a single synthesis.
+Computational geometry
+The study of algorithms to solve problems stated in terms of geometry.
+Numerical analysis
+Foundations for algorithms in discrete mathematics, as well as the study of the limitations of floating point computation, including round-off errors.
+Theory of computation
+Automata theory
+Different logical structures for solving problems.
+Computability theory
+What is calculable with the current models of computers.
+Proofs developed by Alan Turing and others provide insight into the possibilities of what can be computed and what cannot.
+Computational complexity theory
+Fundamental bounds (especially time and storage space) on classes of computations; in practice, study of which problems a computer can solve with reasonable resources (while computability theory studies which problems can be solved at all).
+Quantum computing theory
+Representation and manipulation of data using the quantum properties of particles and quantum mechanism.
+Algorithms and data structures
+Analysis of algorithms
+Time and space complexity of algorithms.
+Algorithms
+Formal logical processes used for computation, and the efficiency of these processes.
+Programming languages and compilers
+Compilers
+Ways of translating computer programs, usually from higher level languages to lower level ones.
+Interpreters
+A program that takes in as input a computer program and executes it.
+Programming languages
+Formal language paradigms for expressing algorithms, and the properties of these languages (e.g., what problems they are suited to solve).
+Concurrent, parallel, and distributed systems
+Concurrency
+The theory and practice of simultaneous computation; data safety in any multitasking or multithreaded environment.
+Distributed computing
+Computing using multiple computing devices over a network to accomplish a common objective or task and thereby reducing the latency involved in single processor contributions for any task.
+Parallel computing
+Computing using multiple concurrent threads of execution.
+Software engineering
+Algorithm design
+Using ideas from algorithm theory to creatively design solutions to real tasks
+Computer programming
+The practice of using a programming language to implement algorithms
+Formal methods
+Mathematical approaches for describing and reasoning about software designs.
+Reverse engineering
+The application of the scientific method to the understanding of arbitrary existing software
+Software development
+The principles and practice of designing, developing, and testing programs, as well as proper engineering practices.
+System architecture
+Computer architecture
+The design, organization, optimization and verification of a computer system, mostly about CPUs and memory subsystems (and the bus connecting them).
+Computer organization
+The implementation of computer architectures, in terms of descriptions of their specific electrical circuitry
+Operating systems
+Systems for managing computer programs and providing the basis of a useable system.
+Communications
+Computer audio
+Algorithms and data structures for the creation, manipulation, storage, and transmission of digital audio recordings.
+Also important in voice recognition applications.
+Networking
+Algorithms and protocols for communicating data across different shared or dedicated media, often including error correction.
+Cryptography
+Applies results from complexity, probability and number theory to invent and break codes.
+Databases
+Data mining
+Data mining is the extraction of relevant data from all sources of data.
+Relational databases
+Study of algorithms for searching and processing information in documents and databases; closely related to information retrieval.
+OLAP
+Online Analytical Processing, or OLAP, is an approach to quickly provide answers to analytical queries that are multi-dimensional in nature.
+OLAP is part of the broader category business intelligence, which also encompasses relational reporting and data mining.
+Artificial intelligence
+Artificial intelligence
+The implementation and study of systems that exhibit an autonomous intelligence or behaviour of their own.
+Artificial life
+The study of digital organisms to learn about biological systems and evolution.
+Automated reasoning
+Solving engines, such as used in Prolog, which produce steps to a result given a query on a fact and rule database.
+Computer vision
+Algorithms for identifying three dimensional objects from one or more two dimensional pictures.
+Machine learning
+Automated creation of a set of rules and axioms based on input.
+Natural language processing/Computational linguistics
+Automated understanding and generation of human language
+Robotics
+Algorithms for controlling the behavior of robots.
+Visual rendering (or Computer graphics)
+Computer graphics
+Algorithms both for generating visual images synthetically, and for integrating or altering visual and spatial information sampled from the real world.
+Image processing
+Determining information from an image through computation.
+Human-Computer Interaction
+Human computer interaction
+The study of making computers and computations useful, usable and universally accessible to people, including the study and design of computer interfaces through which people use computers.
+Scientific computing
+Bioinformatics
+The use of computer science to maintain, analyse, and store biological data, and to assist in solving biological problems such as protein folding, function prediction and phylogeny.
+Cognitive Science
+Computational modelling of real minds
+Computational chemistry
+Computational modelling of theoretical chemistry in order to determine chemical structures and properties
+Computational neuroscience
+Computational modelling of real brains
+Computational physics
+Numerical simulations of large non-analytic systems
+Numerical algorithms
+Algorithms for the numerical solution of mathematical problems such as root-finding, integration, the solution of ordinary differential equations and the approximation/evaluation of special functions.
+Symbolic mathematics
+Manipulation and solution of expressions in symbolic form, also known as Computer algebra.
+Didactics of computer science/informatics
+The subfield didactics of computer science focuses on cognitive approaches of developing competencies of computer science and specific strategies for analysis, design, implementation and evaluation of excellent lessons in computer science.
+Computer science education
+Some universities teach computer science as a theoretical study of computation and algorithmic reasoning.
+These programs often feature the theory of computation, analysis of algorithms, formal methods, concurrency theory, databases, computer graphics and systems analysis, among others.
+They typically also teach computer programming, but treat it as a vessel for the support of other fields of computer science rather than a central focus of high-level study.
+Other colleges and universities, as well as secondary schools and vocational programs that teach computer science, emphasize the practice of advanced computer programming rather than the theory of algorithms and computation in their computer science curricula.
+Such curricula tend to focus on those skills that are important to workers entering the software industry.
+The practical aspects of computer programming are often referred to as software engineering.
+However, there is a lot of disagreement over what the term "software engineering" actually means, and whether it is the same thing as programming.
+Corpus linguistics
+Corpus linguistics is the study of language as expressed in samples (corpora) or "real world" text.
+This method represents a digestive approach to deriving a set of abstract rules by which a natural language is governed or else relates to another language.
+Originally done by hand, corpora are largely derived by an automated process, which is corrected.
+Computational methods had once been viewed as a holy grail of linguistic research, which would ultimately manifest a ruleset for natural language processing and machine translation at a high level.
+Such has not been the case, and since the cognitive revolution, cognitive linguistics has been largely critical of many claimed practical uses for corpora.
+However, as computation capacity and speed have increased, the use of corpora to study language and term relationships en masse has gained some respectability.
+The corpus approach runs counter to Noam Chomsky's view that real language is riddled with performance-related errors, thus requiring careful analysis of small speech samples obtained in a highly controlled laboratory setting.
+Corpus linguistics does away with Chomsky's competence/performance split; adherents believe that reliable language analysis best occurs on field-collected samples, in natural contexts and with minimal experimental interference.
+History
+A landmark in modern corpus linguistics was the publication by Henry Kucera and Nelson Francis of Computational Analysis of Present-Day American English in 1967, a work based on the analysis of the Brown Corpus, a carefully compiled selection of current American English, totalling about a million words drawn from a wide variety of sources.
+Kucera and Francis subjected it to a variety of computational analyses, from which they compiled a rich and variegated opus, combining elements of linguistics, language teaching, psychology, statistics, and sociology.
+A further key publication was Randolph Quirk's 'Towards a description of English Usage' (1960, Transactions of the Philological Society, 40-61) in which he introduced The Survey of English Usage.
+Shortly thereafter, Boston publisher Houghton-Mifflin approached Kucera to supply a million word, three-line citation base for its new American Heritage Dictionary, the first dictionary to be compiled using corpus linguistics.
+The AHD made the innovative step of combining prescriptive elements (how language should be used) with descriptive information (how it actually is used).
+Other publishers followed suit.
+The British publisher Collins' COBUILD monolingual learner's dictionary, designed for users learning English as a foreign language, was compiled using the Bank of English.
+The Brown Corpus has also spawned a number of similarly structured corpora: the LOB Corpus (1960s British English), Kolhapur (Indian English), Wellington (New Zealand English), Australian Corpus of English (Australian English), the Frown Corpus (early 1990s American English), and the FLOB Corpus (1990s British English).
+Other corpora represent many languages, varieties and modes, and include the International Corpus of English, and the British National Corpus, a 100 million word collection of a range of spoken and written texts, created in the 1990s by a consortium of publishers, universities (Oxford and Lancaster) and the British Library.
+For contemporary American English, work has stalled on the American National Corpus, but the 360 million word Corpus of Contemporary American English (COCA) (1990-present) is now available.
+Methods
+This means dealing with real input data, where descriptions based on a linguist's intuition are not usually helpful.
+Cross-platform
+Cross-platform (also known as multi-platform) is a term used in computing to refer to computer programs, operating systems, computer languages, programming languages, or other computer software and their implementations which can be made to work on multiple computer platforms.
+“Cross-platform” and “multi-platform” both refer to the idea that a given piece of computer software is able to be run on more than one computer platform.
+There are two major types of cross-platform software; one requires building for each platform that it supports (e.g., is written in a compiled language, such as Pascal), and the other one can be directly run on any platform which supports it (e.g., software written in an interpreted language such as Perl, Python, or shell script) or software written in a language which compiles to bytecode and the bytecode is redistributed (such as is the case with Java and languages used in the .NET Framework) such as Chrome.
+For example, a cross-platform application may run on Microsoft Windows on the x86 architecture, Linux on the x86 architecture and Mac OS X on either the PowerPC or x86 based Apple Macintosh systems.
+A cross-platform application may run on as many as all existing platforms, or on as few as two platforms.
+Platforms
+A platform is a combination of hardware and software used to run software applications.
+A platform can be described simply as an operating system or computer architecture, or it could be the combination of both.
+Probably the most familiar platform is Microsoft Windows running on the x86 architecture.
+Other well-known desktop computer platforms include Linux and Mac OS X (both of which are themselves cross-platform).
+There are, however, many devices such as cellular telephones that are also effectively computer platforms but less commonly thought about in that way.
+Application software can be written to depend on the features of a particular platform—either the hardware, operating system, or virtual machine it runs on.
+The Java platform is a virtual machine platform which runs on many operating systems and hardware types, and is a common platform for software to be written for.
+Hardware platforms
+A hardware platform can refer to a computer’s architecture or processor architecture.
+For example, the x86 and x86-64 CPUs make up one of the most common computer architectures in use in home machines today.
+These machines commonly run Microsoft Windows, though they can run other operating systems as well, including Linux, OpenBSD, NetBSD, Mac OS X and FreeBSD.
+Software platforms
+Software platforms can either be an operating system or programming environment, though more commonly it is a combination of both.
+A notable exception to this is Java, which uses an operating system independent virtual machine for its compiled code, known in the world of Java as bytecode.
+Examples of software platforms include:
+MS-DOS (x86), DR-DOS (x86), FreeDOS (x86) etc.
+Microsoft Windows (x86, x64)
+Linux (x86, x64, PowerPC, various other architectures)
+Mac OS X (PowerPC, x86)
+OS/2, eComStation
+AmigaOS (m68k), AROS (x86, PowerPC, m68k), MorphOS (PowerPC)
+Java
+Java platform
+As previously noted, the Java platform is an exception to the general rule that an operating system is a software platform.
+The Java language provides a virtual machine, or a “virtual CPU” which runs all of the code that is written for the language.
+This enables the same executable binary to run on all systems which support the Java software, through the Java Virtual Machine.
+Java executables do not run directly on the operating system; that is, neither Windows nor Linux execute Java programs directly.
+Because of this, however, Java is limited in that it does not directly support system-specific functionality.
+JNI can be used to access system specific functions, but then the code is likely no longer portable.
+Java programs can run on at least the Microsoft Windows, Mac OS X, Linux, and Solaris operating systems, and so the language is limited to functionality that exists on all these systems.
+This includes things such as computer networking, Internet sockets, but not necessarily raw hardware input/output.
+Cross-platform software
+In order for software to be considered cross-platform, it must be able to function on more than one computer architecture or operating system.
+This can be a time-consuming task given that different operating systems have different application programming interfaces or APIs (for example, Linux uses a different API for application software than Windows does).
+Just because a particular operating system may run on different computer architectures, that does not mean that the software written for that operating system will automatically work on all architectures that the operating system supports.
+One example as of August, 2006 was OpenOffice.org, which did not natively run on the AMD64 or EM64T lines of processors implementing the x86-64 64-bit standards for computers; this has since been changed, and the OpenOffice.org suite of software is “mostly” ported to these 64-bit systemswiki.services.openoffice.org/wiki/Porting_to_x86-64_(AMD64,_EM64T).
+This also means that just because a program is written in a popular programming language such as C or C++, it does not mean it will run on all operating systems that support that programming language.
+Web applications
+Web applications are typically described as cross-platform because, ideally, they are accessible from any of various web browsers within different operating systems.
+Such applications generally employ a client-server system architecture, and vary widely in complexity and functionality.
+This wide variability significantly complicates the goal of cross-platform capability, which is routinely at odds with the goal of advanced functionality.
+Basic applications
+Basic web applications perform all or most processing from a stateless web server, and pass the result to the client web browser.
+All user interaction with the application consists of simple exchanges of data requests and server responses.
+These types of applications were the norm in the early phases of World Wide Web application development.
+Such applications follow a simple transaction model, identical to that of serving static web pages.
+Today, they are still relatively common, especially where cross-platform compatibility and simplicity are deemed more critical than advanced functionality.
+Advanced applications
+Prominent examples of advanced web applications include the Web interface to Gmail, A9.com, and the maps.live.com section of Live Search.
+Such advanced applications routinely depend on additional features found only in the more recent versions of popular web browsers.
+These dependencies include Ajax, JavaScript, “Dynamic” HTML, SVG, and other components of rich internet applications.
+Older versions of popular browsers tend to lack support for certain features.
+Design strategies
+Because of the competing interests of cross-platform compatibility and advanced functionality, numerous alternative web application design strategies have emerged.
+Such strategies include:
+Graceful degradation
+Graceful degradation attempts to provide the same or similar functionality to all users and platforms, while diminishing that functionality to a ‘least common denominator’ for more limited client browsers.
+For example, a user attempting to use a limited-feature browser to access Gmail may notice that Gmail switches to “Basic Mode,” with reduced functionality.
+Some view this strategy as a lesser form of cross-platform capability.
+Separation of functionality
+Separation of functionality attempts to simply omit those subsets of functionality that are not capable from within certain client browsers or operating systems, while still delivering a ‘complete’ application to the user. (see also Separation of concerns).
+Multiple codebase
+Multiple codebase applications present different versions of an application depending on the specific client in use.
+This strategy is arguably the most complicated and expensive way to fulfill cross-platform capability, since even different versions of the same client browser (within the same operating system) can differ dramatically between each other.
+This is further complicated by the support for “plugins” which may or may not be present for any given installation of a particular browser version.
+Third party libraries
+Third party libraries attempt to simplify cross-platform capability by ‘hiding’ the complexities of client differentiation behind a single, unified API.
+Testing strategies
+One complicated aspect of cross-platform web application design is the need for software testing.
+In addition to the complications mentioned previously, there is the additional restriction that some browsers prohibit installation of different versions of the same browser on the same operating system.
+Techniques such as full virtualization are sometimes used as a workaround for this problem.
+Traditional applications
+Although web applications are becoming increasingly popular, many computer users still use traditional application software which does not rely on a client/web-server architecture.
+The distinction between “traditional” and “web” applications is not always unambiguous, however, because applications have many different features, installation methods and architectures; and some of these can overlap and occur in ways that blur the distinction.
+Nevertheless, this simplifying distinction is a common and useful generalization.
+Binary software
+Traditionally in modern computing, application software has been distributed to end-users as binary images, which are stored in executables, a specific type of binary file.
+Such executables only support the operating system and computer architecture that they were built for—which means that making a “cross-platform executable” would be something of a massive task, and is generally not done.
+For software that is distributed as a binary executable, such as software written in C or C++, the programmer must build the software for each different operating system and computer architecture.
+For example, Mozilla Firefox, an open-source web browser, is available on Microsoft Windows, Mac OS X (both PowerPC and x86 through something Apple calls a Universal binary), and Linux on multiple computer architectures.
+The three platforms (in this case, Windows, Mac OS X, and Linux) are separate executable distributions, although they come from the same source code.
+In the context of binary software, cross-platform programs are written in the source code and then “translated” to each system that it runs on through compiling it on different platforms.
+Also, software can be ported to a new computer architecture or operating system so that the program becomes more cross-platform than it already is.
+For example, a program such as Firefox, which already runs on Windows on the x86 family, can be modified and re-built to run on Linux on the x86 (and potentially other architectures) as well.
+As an alternative to porting, cross-platform virtualization allows applications compiled for one CPU and operating system to run on a system with a different CPU and/or operating system, without modification to the source code or binaries.
+As an example, Apple's Rosetta software, which is built into Intel-based Apple Macintosh computers, runs applications compiled for the previous generation of Macs that used PowerPC CPUs.
+Another example is IBM PowerVM Lx86, which allows Linux/x86 applications to run unmodified on the Linux/Power operating system.
+Scripts and interpreted languages
+A script can be considered to be cross-platform if the scripting language is available on multiple platforms and the script only uses the facilities provided by the language.
+That is, a script written in Python for a Unix-like system will likely run with little or no modification on Windows, because Python also runs on Windows; there is also more than one implementation of Python that will run the same scripts (e.g., IronPython for .NET).
+The same goes for many of the open source programming languages that are available and are scripting languages.
+Unlike binary executables, the same script can be used on all computers that have software to interpret the script.
+This is because the script is generally stored in plain text in a text file.
+There may be some issues, however, such as the type of new line character that sits between the lines.
+Generally, however, little or no work has to be done to make a script written for one system, run on another.
+Some quite popular cross-platform scripting or interpreted languages are:
+bash—A Unix shell commonly run on Linux and other modern Unix-like systems, as well as on Windows via the Cygwin POSIX compatibility layer.
+Python—A modern scripting language where the focus is on rapid application development and ease-of-writing, instead of program run-time efficiency.
+Perl—A scripting language first released in 1987.
+Used for CGI WWW programming, small system administration tasks, and more.
+PHP—A scripting language most popular in use on the WWW for web applications.
+Ruby—A scripting language who's purpose is to be object-oriented and easy to read.
+Can also be used on the web through Ruby on Rails.
+Tcl - A dynamic programming language, suitable for a wide range of uses, including web and desktop applications, networking, administration, testing and many more.
+Video games
+Cross-platform is a term that can also apply to video games.
+Such games are released on a range of video game consoles and handheld game consoles, which are specialized computers dedicated to the task of playing games (and thus, are a platform as any other computer).
+Examples of these games include:
+Miner 2049er, the first major multiplatform game
+Phantasy Star Online
+Lara Croft Tomb Raider: Legend
+FIFA Series
+Shadow of Legend
+… which are spread across a variety of platforms, such as the Nintendo GameCube, PlayStation 2, Xbox, PC, and mobile devices.
+In some cases, depending on the hardware of a particular system it may take longer than expected to create a video game across multiple platforms.
+So, a video game may only get released on a few platforms and then later released on the remaining platforms.
+Typically, this is what occurs when a new system is released, because the developers of the video game need to become acquainted with the hardware and software associated with the new console.
+Some games may not become cross-platform because of licensing agreements between the developers and the maker of the video game console which state that the game will only be made for one particular console.
+As an example, Disney could create a new game and wish to release it on the latest Nintendo and Sony game consoles.
+If Disney licenses the game with Sony first, Disney may be required to only release the game on Sony’s console for a short time, or indefinitely—effectively prohibiting the game from cross-platform at least for a period of time.
+Several developers have developed ways to play games online while using different platforms.
+Epic Games, Microsoft and Valve Software all have this technology, that allows Xbox 360 gamers and PS3 gamers to play with PC gamers, allowing gamers to finally decide which platform is the best for a game.
+The first game released to allow this interactivity between PC and Console games was Quake 3.
+Games that feature cross-platform online play include:
+Champions Online
+Lost Planet: Colonies
+Phantasy Star Online
+Shadowrun
+UNO
+Final Fantasy XI Online
+Platform independent software
+Software that is platform independent does not rely on any special features of any single platform, or, if it does, handles those special features such that it can deal with multiple platforms.
+All algorithms, such as the quicksort algorithm, are able to be implemented on different platforms.
+Cross-platform programming
+Cross-platform programming is the practice of actively writing software that will work on more than one platform.
+Approaches to cross-platform programming
+There are different ways of approaching the problem of writing a cross-platform application program.
+One such approach is simply to create multiple versions of the same program in different source trees—in other words, the Windows version of a program might have one set of source code files and the Macintosh version might have another, while a FOSS *nix system might have another.
+While this is a straightforward approach to the problem, it has the potential to be considerably more expensive in development cost, development time, or both, especially for the corporate entities.
+The idea behind this is to create more than two different programs that have the ability to behave similarly to each other.
+It is also possible that this means of developing a cross-platform application will result in more problems with bug tracking and fixing, because the two different source trees would have different programmers, and thus different defects in each version.
+The smaller the programming team, the quicker the bug fixes tend to be.
+Another approach that is used is to depend on pre-existing software that hides the differences between the platforms—called abstraction of the platform—such that the program itself is unaware of the platform it is running on.
+It could be said that such programs are platform agnostic.
+Programs that run on the Java Virtual Machine (JVM) are built in this fashion.
+Some applications mix various methods of cross-platform programming to create the final application.
+An example of this is the Firefox web browser, which uses abstraction to build some of the lower-level components, separate source subtrees for implementing platform specific features (like the GUI), and the implementation of more than one scripting language to help facilitate ease of portability.
+Firefox implements XUL, CSS and JavaScript for extending the browser, in addition to classic Netscape-style browser plugins.
+Much of the browser itself is written in XUL, CSS, and JavaScript, as well.
+Cross-platform programming toolkits
+There are a number of tools which are available to help facilitate the process of cross-platform programming:
+Simple DirectMedia Layer—An open source cross-platform multimedia library written in C that creates an abstraction over various platforms’ graphics, sound, and input APIs.
+It runs on many operating systems including Linux, Windows and Mac OS X and is aimed at games and multimedia applications.
+Cairo−A free software library used to provide a vector graphics-based, device-independent API.
+It is designed to provide primitives for 2-dimensional drawing across a number of different backends.
+Cairo is written in C and has bindings for many programming languages.
+ParaGUI—ParaGUI is a cross-platform high-level application framework and GUI library.
+It can be compiled on various platforms(Linux, Win32, BeOS, Mac OS, ...).
+ParaGUI is based on the Simple DirectMedia Layer (SDL).
+ParaGUI is targeted on crossplatform multimedia applications and embedded devices operating on framebuffer displays.
+wxWidgets—An open source widget toolkit that is also an application framework.
+It runs on Unix-like systems with X11, Microsoft Windows and Mac OS X. It permits applications written to use it to run on all of the systems that it supports, if the application does not use any operating system-specific programming in addition to it.
+Qt—An application framework and widget toolkit for Unix-like systems with X11, Microsoft Windows, Mac OS X, and other systems—available under both open source and commercial licenses.
+GTK+—An open source widget toolkit for Unix-like systems with X11 and Microsoft Windows.
+FLTK—Another open source cross platform toolkit, but more light weight because it restricts itself to the GUI.
+Mozilla—An open source platform for building Mac, Windows and Linux applications.
+Mono (and more specifically, Microsoft .NET)—A cross-platform framework for applications and programming languages.
+molib—A robust commercial application toolkit library that abstracts the system calls through C++ objects (such as the file system, database system and thread implementation.).
+This allows for the creation of applications that compile and run under Microsoft Windows, Mac OS X, GNU/Linux, and other uses (Sun OS, AIX, HP-UX, 32/64 bit, SMP).
+Use in concert with the sandbox to create GUI-based applications.
+fpGUI - An open source widget toolkit that is completely implemented in Object Pascal.
+It currently supports Linux, Windows and a bit of Windows CE.
+fpGUI does not rely on any large libraries, instead it talks directly to Xlib (Linux) or GDI (Windows).
+The framework is compiled with the Free Pascal compiler.
+Mac OS support is also in the works.
+Tcl/Tk - Tcl (Tool Command Language) is a dynamic programming language, suitable for a wide range of uses, including web and desktop applications, networking, administration, testing and many more.
+Open source and business-friendly, Tcl is a mature yet evolving language that is truly cross platform, easily deployed and highly extensible.
+Tk is a graphical user interface toolkit that takes developing desktop applications to a higher level than conventional approaches.
+Tk is the standard GUI not only for Tcl, but for many other dynamic languages, and can produce rich, native applications that run unchanged across Windows, Mac OS X, Linux and more.
+The combination of Tcl and the Tk GUI toolkit is referred to as Tcl/Tk.
+XVT is a cross-platform toolkit for creating enterprise and desktop applications in C/C++ on Windows, Linux and Unix (Solaris, HPUX, AIX), and Mac.
+Most recent release is 5.8, in April 2007
+Cross-platform development environments
+Cross-platform applications can also be built using proprietary IDEs, or so-called Rapid Application Development tools.
+There are a number of development environments which allow developers to build and deploy applications across multiple platforms:
+Eclipse—An Open source software framework and IDE extendable through plug-ins including the C++ Development Toolkit.
+Eclipse is available on any operating system with a modern Java virtual machine (including Windows, Linux, and Mac OS X, Sun, HP-UX, and other systems).
+IntelliJ IDEA—A proprietary IDE
+NetBeans—An Open source software framework and IDE extendable through plug-ins.
+NetBeans is available on any operating system with a modern Java virtual machine (including Windows, Linux, and Mac OS X, Sun, HP-UX, and other systems).
+Similar to Eclipse in features and functionality.
+Promoted by Sun Microsystems
+Omnis Studio—A proprietary IDE or Rapid Application Development tool for creating enterprise and web applications for Windows, Linux, and Mac OS X.
+Runtime Revolution—a proprietary IDE, compiler engine and CGI builder that cross compiles to Windows, Mac OS X (PPC, Intel), Linux, Solaris, BSD, and Irix.
+Code::Blocks—A free/open source, cross platform IDE.
+It is developed in C++ using wxWidgets.
+Using a plugin architecture, its capabilities and features are defined by the provided plugins.
+Lazarus (software)—Lazarus is a cross platform Visual IDE developed for and supported by the open source Free Pascal compiler.
+It aims to provide a Rapid Application Development Delphi Clone for Pascal and Object Pascal developers.
+REALbasic—REALbasic (RB) is an object-oriented dialect of the BASIC programming language developed and commercially marketed by REAL Software, Inc in Austin, Texas for Mac OS X, Microsoft Windows, and Linux.
+Criticisms of cross-platform development
+There are certain issues associated with cross-platform development.
+Some of these include:
+Testing cross-platform applications may also be considerably more complicated, since different platforms can exhibit slightly different behaviors or subtle bugs.
+This problem has led some developers to deride cross-platform development as “Write Once, Debug Everywhere”, a take on Sun’s “Write Once, Run Anywhere” marketing slogan.
+Developers are often restricted to using the lowest common denominator subset of features which are available on all platforms.
+This may hinder the application's performance or prohibit developers from using platforms’ most advanced features.
+Different platforms often have different user interface conventions, which cross-platform applications do not always accommodate.
+For example, applications developed for Mac OS X and GNOME are supposed to place the most important button on the right-hand side of windows and dialogs, whereas Microsoft Windows and KDE have the opposite convention.
+Though many of these differences are subtle, a cross-platform application which does not conform appropriately to these conventions may feel clunky or alien to the user.
+When working quickly, such opposing conventions may even result in data loss, such as in a dialog box confirming whether the user wants to save or discard changes to a file.
+Scripting languages and virtual machines must be translated into native executable code each time the application is executed, imposing a performance penalty.
+This performance hit can be alleviated using advanced techniques like just-in-time compilation; but even using such techniques, some performance overhead may be unavoidable.
+Data
+Data (singular: datum) are collected of natural phenomena descriptors including the results of experience, observation or experiment, or a set of premises.
+This may consist of numbers, words, or images, particularly as measurements or observations of a set of variables.
+Etymology
+The word data is the plural of Latin datum, neuter past participle of dare, "to give", hence "something given".
+The past participle of "to give" has been used for millennia, in the sense of a statement accepted at face value; one of the works of Euclid, circa 300 BC, was the Dedomena (in Latin, Data).
+In discussions of problems in geometry, mathematics, engineering, and so on, the terms givens and data are used interchangeably.
+Such usage is the origin of data as a concept in computer science: data are numbers, words, images, etc., accepted as they stand.
+Pronounced dey-tuh, dat-uh, or dah-tuh.
+Experimental data are data generated within the context of a scientific investigation.
+Mathematically, data can be grouped in many ways.
+Usage in English
+In English, the word datum is still used in the general sense of "something given", and more specifically in cartography, geography, geology, NMR and drafting to mean a reference point, reference line, or reference surface.
+More generally speaking, any measurement or result can be called a (single) datum, but data point is more common.
+Both datums (see usage in datum article) and the originally Latin plural data are used as the plural of datum in English, but data is more commonly treated as a mass noun and used in the singular, especially in day-to-day usage.
+For example, "This is all the data from the experiment".
+This usage is inconsistent with the rules of Latin grammar and traditional English, which would instead suggest "These are all the data from the experiment".
+Some British and UN academic, scientific, and professional style guides (e.g., see page 43 of the World Health Organization Style Guide) request that authors treat data as a plural noun.
+Other international organization, such as the IEEE computing society , allow its usage as either a mass noun or plural based on author preference.
+It is now usually treated as a singular mass noun in informal usage, but usage in scientific publications shows a strong UK/U.S divide.
+U.S. usage tends to treat data in the singular, including in serious and academic publishing, although some major newspapers (such as the New York Times) regularly use it in the plural.
+"The plural usage is still common, as this headline from the New York Times attests: “Data Are Elusive on the Homeless.”
+Sometimes scientists think of data as plural, as in These data do not support the conclusions.
+But more often scientists and researchers think of data as a singular mass entity like information, and most people now follow this in general usage.
+"www.bartleby.com/61/51/D0035100.html</ref> UK usage now widely accepts treating data as singular in standard English, including everyday newspaper usage at least in non-scientific use.
+UK scientific publishing usually still prefers treating it as a plural..
+Some UK university style guides recommend using data for both singular and plural use and some recommend treating it only as a singular in connection with computers.
+Uses of data in science and computing
+Raw data are numbers, characters, images or other outputs from devices to convert physical quantities into symbols, in a very broad sense.
+Such data are typically further processed by a human or input into a computer, stored and processed there, or transmitted (output) to another human or computer.
+Raw data is a relative term; data processing commonly occurs by stages, and the "processed data" from one stage may be considered the "raw data" of the next.
+Mechanical computing devices are classified according to the means by which they represent data.
+An analog computer represents a datum as a voltage, distance, position, or other physical quantity.
+A digital computer represents a datum as a sequence of symbols drawn from a fixed alphabet.
+The most common digital computers use a binary alphabet, that is, an alphabet of two characters, typically denoted "0" and "1".
+More familiar representations, such as numbers or letters, are then constructed from the binary alphabet.
+Some special forms of data are distinguished.
+A computer program is a collection of data, which can be interpreted as instructions.
+Most computer languages make a distinction between programs and the other data on which programs operate, but in some languages, notably Lisp and similar languages, programs are essentially indistinguishable from other data.
+It is also useful to distinguish metadata, that is, a description of other data.
+A similar yet earlier term for metadata is "ancillary data."
+The prototypical example of metadata is the library catalog, which is a description of the contents of books.
+Meaning of data, information and knowledge
+The terms information and knowledge are frequently used for overlapping concepts.
+The main difference is in the level of abstraction being considered.
+Data is the lowest level of abstraction, information is the next level, and finally, knowledge is the highest level among all three.
+For example, the height of Mt. Everest is generally considered as "data", a book on Mt. Everest geological characteristics may be considered as "information", and a report containing practical information on the best way to reach Mt. Everest's peak may be considered as "knowledge".
+Information as a concept bears a diversity of meanings, from everyday usage to technical settings.
+Generally speaking, the concept of information is closely related to notions of constraint, communication, control, data, form, instruction, knowledge, meaning, mental stimulus, pattern, perception, and representation.
+Beynon-Davies uses the concept of a sign to distinguish between data and information.
+Data are symbols.
+Information occurs when symbols are used to refer to something.
+Data analysis
+Data analysis is the process of looking at and summarizing data with the intent to extract useful information and develop conclusions.
+Data analysis is closely related to data mining, but data mining tends to focus on larger data sets, with less emphasis on making inference, and often uses data that was originally collected for a different purpose.
+In statistical applications, some people divide data analysis into descriptive statistics, exploratory data analysis and confirmatory data analysis, where the EDA focuses on discovering new features in the data, and CDA on confirming or falsifying existing hypotheses.
+Data analysis assumes different aspects, and possibly different names, in different fields.
+The term data analysis is also used as a synonym for data modeling, which is unrelated to the subject of this article.
+Nuclear and particle physics
+In nuclear and particle physics the data usually originate from the experimental apparatus via a data acquisition system.
+It is then processed, in a step usually called data reduction, to apply calibrations and to extract physically significant information.
+Data reduction is most often, especially in large particle physics experiments, an automatic, batch-mode operation carried out by software written ad-hoc.
+The resulting data n-tuples are then scrutinized by the physicists, using specialized software tools like ROOT or PAW, comparing the results of the experiment with theory.
+The theoretical models are often difficult to compare directly with the results of the experiments, so they are used instead as input for Monte Carlo simulation software like Geant4 that predict the response of the detector to a given theoretical event, producing simulated events which are then compared to experimental data.
+See also: Computational physics.
+Social sciences
+Qualitative data analysis (QDA) or qualitative research is the analysis of non-numerical data, for example words, photographs, observations, etc..
+Information technology
+A special case is the data analysis in information technology audits.
+Business
+See
+Analytics
+Business intelligence
+Data mining
+Database
+A database is a structured collection of records or data.
+A computer database relies upon software to organize the storage of data.
+The software models the database structure in what are known as database models.
+The model in most common use today is the relational model.
+Other models such as the hierarchical model and the network model use a more explicit representation of relationships (see below for explanation of the various database models).
+Database management systems (DBMS) are the software used to organize and maintain the database.
+These are categorized according to the database model that they support.
+The model tends to determine the query languages that are available to access the database.
+A great deal of the internal engineering of a DBMS, however, is independent of the data model, and is concerned with managing factors such as performance, concurrency, integrity, and recovery from hardware failures.
+In these areas there are large differences between products.
+History
+The earliest known use of the term data base was in November 1963, when the System Development Corporation sponsored a symposium under the title Development and Management of a Computer-centered Data Base.
+Database as a single word became common in Europe in the early 1970s and by the end of the decade it was being used in major American newspapers.
+(The abbreviation DB, however, survives.)
+The first database management systems were developed in the 1960s.
+A pioneer in the field was Charles Bachman.
+Bachman's early papers show that his aim was to make more effective use of the new direct access storage devices becoming available: until then, data processing had been based on punched cards and magnetic tape, so that serial processing was the dominant activity.
+Two key data models arose at this time: CODASYL developed the network model based on Bachman's ideas, and (apparently independently) the hierarchical model was used in a system developed by North American Rockwell later adopted by IBM as the cornerstone of their IMS product.
+While IMS along with the CODASYL IDMS were the big, high visibility databases developed in the 1960s, several others were also born in that decade, some of which have a significant installed base today.
+Two worthy of mention are the PICK and MUMPS databases, with the former developed originally as an operating system with an embedded database and the latter as a programming language and database for the development of healthcare systems.
+The relational model was proposed by E. F. Codd in 1970.
+He criticized existing models for confusing the abstract description of information structure with descriptions of physical access mechanisms.
+For a long while, however, the relational model remained of academic interest only.
+While CODASYL products (IDMS) and network model products (IMS) were conceived as practical engineering solutions taking account of the technology as it existed at the time, the relational model took a much more theoretical perspective, arguing (correctly) that hardware and software technology would catch up in time.
+Among the first implementations were Michael Stonebraker's Ingres at Berkeley, and the System R project at IBM.
+Both of these were research prototypes, announced during 1976.
+The first commercial products, Oracle and DB2, did not appear until around 1980.
+The first successful database product for microcomputers was dBASE for the CP/M and PC-DOS/MS-DOS operating systems.
+During the 1980s, research activity focused on distributed database systems and database machines.
+Another important theoretical idea was the Functional Data Model, but apart from some specialized applications in genetics, molecular biology, and fraud investigation, the world took little notice.
+In the 1990s, attention shifted to object-oriented databases.
+These had some success in fields where it was necessary to handle more complex data than relational systems could easily cope with, such as spatial databases, engineering data (including software repositories), and multimedia data.
+Some of these ideas were adopted by the relational vendors, who integrated new features into their products as a result.
+The 1990s also saw the spread of Open Source databases, such as PostgreSQL and MySQL.
+In the 2000s, the fashionable area for innovation is the XML database.
+As with object databases, this has spawned a new collection of start-up companies, but at the same time the key ideas are being integrated into the established relational products.
+XML databases aim to remove the traditional divide between documents and data, allowing all of an organization's information resources to be held in one place, whether they are highly structured or not.
+Database models
+Various techniques are used to model data structure.
+Most database systems are built around one particular data model, although it is increasingly common for products to offer support for more than one model.
+For any one logical model various physical implementations may be possible, and most products will offer the user some level of control in tuning the physical implementation, since the choices that are made have a significant effect on performance.
+Here are three examples:
+Hierarchical model
+In a hierarchical model, data is organized into an inverted tree-like structure, implying a multiple downward link in each node to describe the nesting, and a sort field to keep the records in a particular order in each same-level list.
+This structure arranges the various data elements in a hierarchy and helps to establish logical relationships among data elements of multiple files.
+Each unit in the model is a record which is also known as a node.
+In such a model, each record on one level can be related to multiple records on the next lower level.
+A record that has subsidiary records is called a parent and the subsidiary records are called children.
+Data elements in this model are well suited for one-to-many relationships with other data elements in the database.
+This model is advantageous when the data elements are inherently hierarchical.
+The disadvantage is that in order to prepare the database it becomes necessary to identify the requisite groups of files that are to be logically integrated.
+Hence, a hierarchical data model may not always be flexible enough to accommodate the dynamic needs of an organization.
+Network model
+The network model tends to store records with links to other records.
+Each record in the database can have multiple parents, i.e., the relationships among data elements can have a many to many relationship.
+Associations are tracked via "pointers".
+These pointers can be node numbers or disk addresses.
+Most network databases tend to also include some form of hierarchical model.
+Databases can be translated from hierarchical model to network and vice versa.
+The main difference between the network model and hierarchical model is that in a network model, a child can have a number of parents whereas in a hierarchical model, a child can have only one parent.
+The network model provides greater advantage than the hierarchical model in that promotes greater flexibility and data accessibility, since records at a lower level can be accessed without accessing the records above them.
+This model is more efficient than hierarchical model, easier to understand and can be applied to many real world problems that require routine transactions.
+The disadvantages are that: It is a complex process to design and develop a network database; It has to be refined frequently; It requires that the relationships among all the records be defined before development starts, and changes often demand major programming efforts; Operation and maintenance of the network model is expensive and time consuming.
+Examples of database engines that have network model capabilities are RDM Embedded and RDM Server.
+Relational model
+The basic data structure of the relational model is a table where information about a particular entity (say, an employee) is represented in columns and rows.
+The columns enumerate the various attributes of an entity (e.g. employee_name, address, phone_number).
+Rows (also called records) represent instances of an entity (e.g. specific employees).
+The "relation" in "relational database" comes from the mathematical notion of relations from the field of set theory.
+A relation is a set of tuples, so rows are sometimes called tuples.
+All tables in a relational database adhere to three basic rules.
+The ordering of columns is immaterial
+Identical rows are not allowed in a table
+Each row has a single (separate) value for each of its columns (each tuple has an atomic value).
+If the same value occurs in two different records (from the same table or different tables) it can imply a relationship between those records.
+Relationships between records are often categorized by their cardinality (1:1, (0), 1:M, M:M).
+Tables can have a designated column or set of columns that act as a "key" to select rows from that table with the same or similar key values.
+A "primary key" is a key that has a unique value for each row in the table.
+Keys are commonly used to join or combine data from two or more tables.
+For example, an employee table may contain a column named address which contains a value that matches the key of an address table.
+Keys are also critical in the creation of indexes, which facilitate fast retrieval of data from large tables.
+It is not necessary to define all the keys in advance; a column can be used as a key even if it was not originally intended to be one.
+Relational operations
+Users (or programs) request data from a relational database by sending it a query that is written in a special language, usually a dialect of SQL.
+Although SQL was originally intended for end-users, it is much more common for SQL queries to be embedded into software that provides an easier user interface.
+Many web applications, such as Wikipedia, perform SQL queries when generating pages.
+In response to a query, the database returns a result set, which is the list of rows constituting the answer.
+The simplest query is just to return all the rows from a table, but more often, the rows are filtered in some way to return just the answer wanted.
+Often, data from multiple tables are combined into one, by doing a join.
+There are a number of relational operations in addition to join.
+Normal forms
+Relations are classified based upon the types of anomalies to which they're vulnerable.
+A database that's in the first normal form is vulnerable to all types of anomalies, while a database that's in the domain/key normal form has no modification anomalies.
+Normal forms are hierarchical in nature.
+That is, the lowest level is the first normal form, and the database cannot meet the requirements for higher level normal forms without first having met all the requirements of the lesser normal form.
+Database Management Systems
+Relational database management systems
+An RDBMS implements the features of the relational model outlined above.
+In this context, Date's Information Principle states:
+The entire information content of the database is represented in one and only one way.
+Namely as explicit values in column positions (attributes) and rows in relations (tuples) Therefore, there are no explicit pointers between related tables.
+Post-relational database models
+Several products have been identified as post-relational because the data model incorporates relations but is not constrained by the Information Principle, requiring that all information is represented by data values in relations.
+Products using a post-relational data model typically employ a model that actually pre-dates the relational model.
+These might be identified as a directed graph with trees on the nodes.
+Examples of models that could be classified as post-relational are PICK aka MultiValue, and MUMPS.
+Object database models
+In recent years, the object-oriented paradigm has been applied to database technology, creating a new programming model known as object databases.
+These databases attempt to bring the database world and the application programming world closer together, in particular by ensuring that the database uses the same type system as the application program.
+This aims to avoid the overhead (sometimes referred to as the impedance mismatch) of converting information between its representation in the database (for example as rows in tables) and its representation in the application program (typically as objects).
+At the same time, object databases attempt to introduce the key ideas of object programming, such as encapsulation and polymorphism, into the world of databases.
+A variety of these ways have been tried for storing objects in a database.
+Some products have approached the problem from the application programming end, by making the objects manipulated by the program persistent.
+This also typically requires the addition of some kind of query language, since conventional programming languages do not have the ability to find objects based on their information content.
+Others have attacked the problem from the database end, by defining an object-oriented data model for the database, and defining a database programming language that allows full programming capabilities as well as traditional query facilities.
+DBMS internals
+Storage and physical database design
+Database tables/indexes are typically stored in memory or on hard disk in one of many forms, ordered/unordered flat files, ISAM, heaps, hash buckets or B+ trees.
+These have various advantages and disadvantages discussed further in the main article on this topic.
+The most commonly used are B+ trees and ISAM.
+Other important design choices relate to the clustering of data by category (such as grouping data by month, or location), creating pre-computed views known as materialized views, partitioning data by range or hash.
+As well memory management and storage topology can be important design choices for database designers.
+Just as normalization is used to reduce storage requirements and improve the extensibility of the database, conversely denormalization is often used to reduce join complexity and reduce execution time for queries.
+Indexing
+All of these databases can take advantage of indexing to increase their speed.
+This technology has advanced tremendously since its early uses in the 1960s and 1970s.
+The most common kind of index is a sorted list of the contents of some particular table column, with pointers to the row associated with the value.
+An index allows a set of table rows matching some criterion to be located quickly.
+Typically, indexes are also stored in the various forms of data-structure mentioned above (such as B-trees, hashes, and linked lists).
+Usually, a specific technique is chosen by the database designer to increase efficiency in the particular case of the type of index required.
+Relational DBMS's have the advantage that indexes can be created or dropped without changing existing applications making use of it.
+The database chooses between many different strategies based on which one it estimates will run the fastest.
+In other words, indexes are transparent to the application or end-user querying the database; while they affect performance, any SQL command will run with or without index to compute the result of an SQL statement.
+The RDBMS will produce a plan of how to execute the query, which is generated by analyzing the run times of the different algorithms and selecting the quickest.
+Some of the key algorithms that deal with joins are nested loop join, sort-merge join and hash join.
+Which of these is chosen depends on whether an index exists, what type it is, and its cardinality.
+An index speeds up access to data, but it has disadvantages as well.
+First, every index increases the amount of storage on the hard drive necessary for the database file, and second, the index must be updated each time the data are altered, and this costs time.
+(Thus an index saves time in the reading of data, but it costs time in entering and altering data.
+It thus depends on the use to which the data are to be put whether an index is on the whole a net plus or minus in the quest for efficiency.)
+A special case of an index is a primary index, or primary key, which is distinguished in that the primary index must ensure a unique reference to a record.
+Often, for this purpose one simply uses a running index number (ID number).
+Primary indexes play a significant role in relational databases, and they can speed up access to data considerably.
+Transactions and concurrency
+In addition to their data model, most practical databases ("transactional databases") attempt to enforce a database transaction .
+Ideally, the database software should enforce the ACID rules, summarized here:
+Atomicity: Either all the tasks in a transaction must be done, or none of them.
+The transaction must be completed, or else it must be undone (rolled back).
+Consistency: Every transaction must preserve the integrity constraints — the declared consistency rules — of the database.
+It cannot place the data in a contradictory state.
+Isolation: Two simultaneous transactions cannot interfere with one another.
+Intermediate results within a transaction are not visible to other transactions.
+Durability: Completed transactions cannot be aborted later or their results discarded.
+They must persist through (for instance) restarts of the DBMS after crashes
+In practice, many DBMS's allow most of these rules to be selectively relaxed for better performance.
+Concurrency control is a method used to ensure that transactions are executed in a safe manner and follow the ACID rules.
+The DBMS must be able to ensure that only serializable, recoverable schedules are allowed, and that no actions of committed transactions are lost while undoing aborted transactions .
+Replication
+Replication of databases is closely related to transactions.
+If a database can log its individual actions, it is possible to create a duplicate of the data in real time.
+The duplicate can be used to improve performance or availability of the whole database system.
+Common replication concepts include:
+Master/Slave Replication: All write requests are performed on the master and then replicated to the slaves
+Quorum: The result of Read and Write requests are calculated by querying a "majority" of replicas.
+Multimaster: Two or more replicas sync each other via a transaction identifier.
+Parallel synchronous replication of databases enables transactions to be replicated on multiple servers simultaneously, which provides a method for backup and security as well as data availability.
+Security
+Database security denotes the system, processes, and procedures that protect a database from unintended activity.
+Security is usually enforced through access control, auditing, and encryption.
+Access control ensures and restricts who can connect and what can be done to the database.
+Auditing logs what action or change has been performed, when and by who.
+Encryption: Since security has become a major issue in recent years, many commercial database vendors provide built-in encryption mechanism.
+Data is encoded natively into the tables and deciphered "on the fly" when a query comes in.
+Connections can also be secured and encrypted if required using DSA, MD5, SSL or legacy encryption standard.
+Enforcing security is one of the major tasks of the DBA.
+In the United Kingdom, legislation protecting the public from unauthorized disclosure of personal information held on databases falls under the Office of the Information Commissioner.
+United Kingdom based organizations holding personal data in electronic format (databases for example) are required to register with the Data Commissioner.
+Locking
+Locking is how the database handle multiple concurent operations.
+This is the way how concurency and some form of basic intergrity is managed within the database system.
+Such locks can be applied on a row level, or on other levels like page (a basic data block), extend (multiple array of pages) or even an entire table.
+This helps maintain the integrity of the data by ensuring that only one process at a time can modify the same data.
+Unlike a basic filesystem files or folders, where only one lock at the time can be set, restricting the usage to one process only.
+A database can set and hold mutiples locks at the same time on the different level of the physical data structure.
+How locks are set, last is determined by the database engine locking scheme based on the submitted SQL or transactions by the users.
+Generaly speaking no activity on the database should be translated by no or very light locking.
+For most DBMS systems existing on the market, locks are generaly shared or exclusive.
+Exclusive locks mean that no other lock can acquire the current data object as long as the exclusive lock lasts.
+Exclusive locks are usually set while the database needs to change data, like during an UPDATE or DELETE operation.
+Shared locks can take ownership one from the other of the current data structure.
+Shared locks are usually used while the database is reading data, during a SELECT operation.
+The number, nature of locks and time the lock holds a data block can have a huge impact on the database performances.
+Bad locking can lead to desastrous performance response (usually the result of poor SQL requests, or inadequate database physical structure)
+Default locking behavior is enforced by the isolation level of the dataserver.
+Changing the isolation level will affect how shared or exclusive locks must be set on the data for the entire database system.
+Default isolation is generaly 1, where data can not be read while it is modfied, forbiding to return "ghost data" to end user.
+At some point intensive or inappropriate exclusive locking, can lead to the "dead lock" situation between two locks.
+Where none of the locks can be released because they try to acquire ressources mutually from each other.
+The Database has a fail safe mecanism and will automaticly "sacrifice" one of the locks releasing the ressource.
+Doing so processes or transactions involved in the "dead lock" will be rolled back.
+Databases can also be locked for other reasons, like access restrictions for given levels of user.
+Databases are also locked for routine database maintenance, which prevents changes being made during the maintenance.
+See IBM for more detail.)
+Architecture
+Depending on the intended use, there are a number of database architectures in use.
+Many databases use a combination of strategies.
+On-line Transaction Processing systems (OLTP) often use a row-oriented datastore architecture, while data-warehouse and other retrieval-focused applications like Google's BigTable, or bibliographic database(library catalogue) systems may use a column-oriented datastore architecture.
+Document-Oriented, XML, Knowledgebases, as well as frame databases and rdf-stores (aka Triple-Stores), may also use a combination of these architectures in their implementation.
+Finally it should be noted that not all database have or need a database 'schema' (so called schema-less databases).
+Applications of databases
+Databases are used in many applications, spanning virtually the entire range of computer software.
+Databases are the preferred method of storage for large multiuser applications, where coordination between many users is needed.
+Even individual users find them convenient, and many electronic mail programs and personal organizers are based on standard database technology.
+Software database drivers are available for most database platforms so that application software can use a common Application Programming Interface to retrieve the information stored in a database.
+Two commonly used database APIs are JDBC and ODBC.
+For example suppliers database contains the data relating to suppliers such as;
+supplier name
+supplier code
+supplier address
+It is often used by schools to teach students and grade them.
+Links to DBMS products
+4D
+ADABAS
+Alpha Five
+Apache Derby (Java, also known as IBM Cloudscape and Sun Java DB)
+BerkeleyDB
+CouchDB
+CSQL
+Datawasp
+Db4objects
+dBase
+FileMaker
+Firebird (database server)
+H2 (Java)
+Hsqldb (Java)
+IBM DB2
+IBM IMS (Information Management System)
+IBM UniVerse
+Informix
+Ingres
+Interbase
+InterSystems Caché
+MaxDB (formerly SapDB)
+Microsoft Access
+Microsoft SQL Server
+Model 204
+MySQL
+Nomad
+Objectivity/DB
+ObjectStore
+OpenLink Virtuoso
+OpenOffice.org Base
+Oracle Database
+Paradox (database)
+Polyhedra DBMS
+PostgreSQL
+Progress 4GL
+RDM Embedded
+ScimoreDB
+Sedna
+SQLite
+Superbase
+Sybase
+Teradata
+Vertica
+Visual FoxPro
+Cluster analysis
+Clustering is the classification of objects into different groups, or more precisely, the partitioning of a data set into subsets (clusters), so that the data in each subset (ideally) share some common trait - often proximity according to some defined distance measure.
+Data clustering is a common technique for statistical data analysis, which is used in many fields, including machine learning, data mining, pattern recognition, image analysis and bioinformatics.
+The computational task of classifying the data set into k clusters is often referred to as k-clustering.
+Besides the term data clustering (or just clustering), there are a number of terms with similar meanings, including cluster analysis, automatic classification, numerical taxonomy, botryology and typological analysis.
+Types of clustering
+Data clustering algorithms can be hierarchical.
+Hierarchical algorithms find successive clusters using previously established clusters.
+Hierarchical algorithms can be agglomerative ("bottom-up") or divisive ("top-down").
+Agglomerative algorithms begin with each element as a separate cluster and merge them into successively larger clusters.
+Divisive algorithms begin with the whole set and proceed to divide it into successively smaller clusters.
+Partitional algorithms typically determine all clusters at once, but can also be used as divisive algorithms in the hierarchical clustering.
+Two-way clustering, co-clustering or biclustering are clustering methods where not only the objects are clustered but also the features of the objects, i.e., if the data is represented in a data matrix, the rows and columns are clustered simultaneously.
+Another important distinction is whether the clustering uses symmetric or asymmetric distances.
+A property of Euclidean space is that distances are symmetric (the distance from object A to B is the same as the distance from B to A).
+In other applications (e.g., sequence-alignment methods, see Prinzie & Van den Poel (2006)), this is not the case.
+Distance measure
+An important step in any clustering is to select a distance measure, which will determine how the similarity of two elements is calculated.
+This will influence the shape of the clusters, as some elements may be close to one another according to one distance and further away according to another.
+For example, in a 2-dimensional space, the distance between the point (x=1, y=0) and the origin (x=0, y=0) is always 1 according to the usual norms, but the distance between the point (x=1, y=1) and the origin can be 2,<math/> or 1 if you take respectively the 1-norm, 2-norm or infinity-norm distance.
+Common distance functions:
+The Euclidean distance (also called distance as the crow flies or 2-norm distance).
+A review of cluster analysis in health psychology research found that the most common distance measure in published studies in that research area is the Euclidean distance or the squared Euclidean distance.
+The Manhattan distance (also called taxicab norm or 1-norm)
+The maximum norm
+The Mahalanobis distance corrects data for different scales and correlations in the variables
+The angle between two vectors can be used as a distance measure when clustering high dimensional data.
+See Inner product space.
+The Hamming distance (sometimes edit distance) measures the minimum number of substitutions required to change one member into another.
+Hierarchical clustering
+Creating clusters
+Hierarchical clustering builds (agglomerative), or breaks up (divisive), a hierarchy of clusters.
+The traditional representation of this hierarchy is a tree (called a dendrogram), with individual elements at one end and a single cluster containing every element at the other.
+Agglomerative algorithms begin at the top of the tree, whereas divisive algorithms begin at the root.
+(In the figure, the arrows indicate an agglomerative clustering.)
+Cutting the tree at a given height will give a clustering at a selected precision.
+In the following example, cutting after the second row will yield clusters {a} {b c} {d e} {f}.
+Cutting after the third row will yield clusters {a} {b c} {d e f}, which is a coarser clustering, with a smaller number of larger clusters.
+Agglomerative hierarchical clustering
+For example, suppose this data is to be clustered, and the euclidean distance is the distance metric.
+The hierarchical clustering dendrogram would be as such:
+This method builds the hierarchy from the individual elements by progressively merging clusters.
+In our example, we have six elements {a} {b} {c} {d} {e} and {f}.
+The first step is to determine which elements to merge in a cluster.
+Usually, we want to take the two closest elements, according to the chosen distance.
+Optionally, one can also construct a distance matrix at this stage, where the number in the i-th row j-th column is the distance between the i-th and j-th elements.
+Then, as clustering progresses, rows and columns are merged as the clusters are merged and the distances updated.
+This is a common way to implement this type of clustering, and has the benefit of caching distances between clusters.
+A simple agglomerative clustering algorithm is described in the single linkage clustering page; it can easily be adapted to different types of linkage (see below).
+Suppose we have merged the two closest elements b and c, we now have the following clusters {a}, {b, c}, {d}, {e} and {f}, and want to merge them further.
+To do that, we need to take the distance between {a} and {b c}, and therefore define the distance between two clusters.
+Usually the distance between two clusters <math/> and <math/> is one of the following:
+The maximum distance between elements of each cluster (also called complete linkage clustering):
+<math/>
+The minimum distance between elements of each cluster (also called single linkage clustering):
+<math/>
+The mean distance between elements of each cluster (also called average linkage clustering, used e.g. in UPGMA):
+<math/>
+The sum of all intra-cluster variance
+The increase in variance for the cluster being merged (Ward's criterion)
+The probability that candidate clusters spawn from the same distribution function (V-linkage)
+Each agglomeration occurs at a greater distance between clusters than the previous agglomeration, and one can decide to stop clustering either when the clusters are too far apart to be merged (distance criterion) or when there is a sufficiently small number of clusters (number criterion).
+Concept clustering
+Another variation of the agglomerative clustering approach is conceptual clustering.
+Partitional clustering
+K-means and derivatives
+K-means clustering
+The K-means algorithm assigns each point to the cluster whose center (also called centroid) is nearest.
+The center is the average of all the points in the cluster — that is, its coordinates are the arithmetic mean for each dimension separately over all the points in the cluster...
+Example: The data set has three dimensions and the cluster has two points: X = (x1, x2, x3) and Y = (y1, y2, y3).
+Then the centroid Z becomes Z = (z1, z2, z3), where z1 = (x1&nbsp;+&nbsp;y1)/2 and z2 = (x2&nbsp;+&nbsp;y2)/2 and z3 = (x3&nbsp;+&nbsp;y3)/2.
+The algorithm steps are (J. MacQueen, 1967):
+Choose the number of clusters, k.
+Randomly generate k clusters and determine the cluster centers, or directly generate k random points as cluster centers.
+Assign each point to the nearest cluster center.
+Recompute the new cluster centers.
+Repeat the two previous steps until some convergence criterion is met (usually that the assignment hasn't changed).
+The main advantages of this algorithm are its simplicity and speed which allows it to run on large datasets.
+Its disadvantage is that it does not yield the same result with each run, since the resulting clusters depend on the initial random assignments.
+It minimizes intra-cluster variance, but does not ensure that the result has a global minimum of variance.
+Fuzzy c-means clustering
+In fuzzy clustering, each point has a degree of belonging to clusters, as in fuzzy logic, rather than belonging completely to just one cluster.
+Thus, points on the edge of a cluster, may be in the cluster to a lesser degree than points in the center of cluster.
+For each point x we have a coefficient giving the degree of being in the kth cluster <math/>.
+Usually, the sum of those coefficients is defined to be 1:
+<math/>
+With fuzzy c-means, the centroid of a cluster is the mean of all points, weighted by their degree of belonging to the cluster:
+<math/>
+The degree of belonging is related to the inverse of the distance to the cluster
+<math/>
+then the coefficients are normalized and fuzzyfied with a real parameter <math/> so that their sum is 1.
+So
+<math/>
+For m equal to 2, this is equivalent to normalising the coefficient linearly to make their sum 1.
+When m is close to 1, then cluster center closest to the point is given much more weight than the others, and the algorithm is similar to k-means.
+The fuzzy c-means algorithm is very similar to the k-means algorithm:
+Choose a number of clusters.
+Assign randomly to each point coefficients for being in the clusters.
+Repeat until the algorithm has converged (that is, the coefficients' change between two iterations is no more than <math/>, the given sensitivity threshold) :
+Compute the centroid for each cluster, using the formula above.
+For each point, compute its coefficients of being in the clusters, using the formula above.
+The algorithm minimizes intra-cluster variance as well, but has the same problems as k-means, the minimum is a local minimum, and the results depend on the initial choice of weights.
+The Expectation-maximization algorithm is a more statistically formalized method which includes some of these ideas: partial membership in classes.
+It has better convergence properties and is in general preferred to fuzzy-c-means.
+QT clustering algorithm
+QT (quality threshold) clustering (Heyer et al, 1999) is an alternative method of partitioning data, invented for gene clustering.
+It requires more computing power than k-means, but does not require specifying the number of clusters a priori, and always returns the same result when run several times.
+The algorithm is:
+The user chooses a maximum diameter for clusters.
+Build a candidate cluster for each point by including the closest point, the next closest, and so on, until the diameter of the cluster surpasses the threshold.
+Save the candidate cluster with the most points as the first true cluster, and remove all points in the cluster from further consideration.
+Must clarify what happens if more than 1 cluster has the maximum number of points ?
+Recurse with the reduced set of points.
+The distance between a point and a group of points is computed using complete linkage, i.e. as the maximum distance from the point to any member of the group (see the "Agglomerative hierarchical clustering" section about distance between clusters).
+Locality-sensitive hashing
+Locality-sensitive hashing can be used for clustering.
+Feature space vectors are sets, and the metric used is the Jaccard distance.
+The feature space can be considered high-dimensional.
+The min-wise independent permutations LSH scheme (sometimes MinHash) is then used to put similar items into buckets.
+With just one set of hashing methods, there are only clusters of very similar elements.
+By seeding the hash functions several times (eg 20), it is possible to get bigger clusters.
+Graph-theoretic methods
+Formal concept analysis is a technique for generating clusters of objects and attributes, given a bipartite graph representing the relations between the objects and attributes.
+Other methods for generating overlapping clusters (a cover rather than a partition) are discussed by Jardine and Sibson (1968) and Cole and Wishart (1970).
+Elbow criterion
+The elbow criterion is a common rule of thumb to determine what number of clusters should be chosen, for example for k-means and agglomerative hierarchical clustering.
+It should also be noted that the initial assignment of cluster seeds has bearing on the final model performance.
+Thus, it is appropriate to re-run the cluster analysis multiple times.
+The elbow criterion says that you should choose a number of clusters so that adding another cluster doesn't add sufficient information.
+More precisely, if you graph the percentage of variance explained by the clusters against the number of clusters, the first clusters will add much information (explain a lot of variance), but at some point the marginal gain will drop, giving an angle in the graph (the elbow).
+This elbow cannot always be unambiguously identified.
+Percentage of variance explained is the ratio of the between-group variance to the total variance.
+On the following graph, the elbow is indicated by the red circle.
+The number of clusters chosen should therefore be 4.
+Spectral clustering
+Given a set of data points A, the similarity matrix may be defined as a matrix <math/> where <math/> represents a measure of the similarity between points <math/>.
+Spectral clustering techniques make use of the spectrum of the similarity matrix of the data to perform dimensionality reduction for clustering in fewer dimensions.
+One such technique is the Shi-Malik algorithm, commonly used for image segmentation.
+It partitions points into two sets <math/> based on the eigenvector <math/> corresponding to the second-smallest eigenvalue of the Laplacian matrix
+<math/>
+of <math/>, where <math/> is the diagonal matrix
+<math/>
+This partitioning may be done in various ways, such as by taking the median <math/> of the components in <math/>, and placing all points whose component in <math/> is greater than <math/> in <math/>, and the rest in <math/>.
+The algorithm can be used for hierarchical clustering by repeatedly partitioning the subsets in this fashion.
+A related algorithm is the Meila-Shi algorithm, which takes the eigenvectors corresponding to the k largest eigenvalues of the matrix <math/> for some k, and then invokes another (e.g. k-means) to cluster points by their respective k components in these eigenvectors.
+Applications
+Biology
+In biology clustering has many applications
+In imaging, data clustering may take different form based on the data dimensionality.
+For example, the SOCR EM Mixture model segmentation activity and applet shows how to obtain point, region or volume classification using the online SOCR computational libraries.
+In the fields of plant and animal ecology, clustering is used to describe and to make spatial and temporal comparisons of communities (assemblages) of organisms in heterogeneous environments; it is also used in plant systematics to generate artificial phylogenies or clusters of organisms (individuals) at the species, genus or higher level that share a number of attributes
+In computational biology and bioinformatics:
+In transcriptomics, clustering is used to build groups of genes with related expression patterns (also known as coexpressed genes).
+Often such groups contain functionally related proteins, such as enzymes for a specific pathway, or genes that are co-regulated.
+High throughput experiments using expressed sequence tags (ESTs) or DNA microarrays can be a powerful tool for genome annotation, a general aspect of genomics.
+In sequence analysis, clustering is used to group homologous sequences into gene families.
+This is a very important concept in bioinformatics, and evolutionary biology in general.
+See evolution by gene duplication.
+In high-throughput genotyping platforms clustering algorithms are used to automatically assign genotypes.
+Medicine
+In medical imaging, such as PET scans, cluster analysis can be used to differentiate between different types of tissue and blood in a three dimensional image.
+In this application, actual position does not matter, but the voxel intensity is considered as a vector, with a dimension for each image that was taken over time.
+This technique allows, for example, accurate measurement of the rate a radioactive tracer is delivered to the area of interest, without a separate sampling of arterial blood, an intrusive technique that is most common today.
+Market research
+Cluster analysis is widely used in market research when working with multivariate data from surveys and test panels.
+Market researchers use cluster analysis to partition the general population of consumers into market segments and to better understand the relationships between different groups of consumers/potential customers.
+Segmenting the market and determining target markets
+Product positioning
+New product development
+Selecting test markets (see : experimental techniques)
+Other applications
+Social network analysis: In the study of social networks, clustering may be used to recognize communities within large groups of people.
+Image segmentation: Clustering can be used to divide a digital image into distinct regions for border detection or object recognition.
+Data mining: Many data mining applications involve partitioning data items into related subsets; the marketing applications discussed above represent some examples.
+Another common application is the division of documents, such as World Wide Web pages, into genres.
+Search result grouping: In the process of intelligent grouping of the files and websites, clustering may be used to create a more relevant set of search results compared to normal search engines like Google.
+There are currently a number of web based clustering tools such as Clusty.
+Slippy map optimization: Flickr's map of photos and other map sites use clustering to reduce the number of markers on a map.
+This makes it both faster and reduces the amount of visual clutter.
+IMRT segmentation: Clustering can be used to divide a fluence map into distinct regions for conversion into deliverable fields in MLC-based Radiation Therapy.
+Grouping of Shopping Items: Clustering can be used to group all the shopping items available on the web into a set of unique products.
+For example, all the items on eBay can be grouped into unique products.
+(eBay doesn't have the concept of a SKU)
+Mathematical chemistry: To find structural similarity, etc., for example, 3000 chemical compounds were clustered in the space of 90 topological indices.
+Petroleum Geology: Cluster Analysis is used to reconstruct missing bottom hole core data or missing log curves in order to evaluate reservoir properties.
+Comparisons between data clusterings
+There have been several suggestions for a measure of similarity between two clusterings.
+Such a measure can be used to compare how well different data clustering algorithms perform on a set of data.
+Many of these measures are derived from the matching matrix (aka confusion matrix), e.g., the Rand measure and the Fowlkes-Mallows Bk measures.
+Marina Meila's Variation of Information metric is a more recent approach for measuring distance between clusterings.
+It uses mutual information and entropy to approximate the distance between two clusterings across the lattice of possible clusterings.
+Algorithms
+In recent years considerable effort has been put into improving algorithm performance (Z. Huang, 1998).
+Among the most popular are CLARANS (Ng and Han,1994), DBSCAN (Ester et al., 1996) and BIRCH (Zhang et al., 1996).
+Data mining
+Data mining is the process of sorting through large amounts of data and picking out relevant information.
+It is usually used by business intelligence organizations, and financial analysts, but is increasingly being used in the sciences to extract information from the enormous data sets generated by modern experimental and observational methods.
+It has been described as "the nontrivial extraction of implicit, previously unknown, and potentially useful information from data" and "the science of extracting useful information from large data sets or databases.
+" Data mining in relation to enterprise resource planning is the statistical and logical analysis of large sets of transaction data, looking for patterns that can aid decision making.
+Background
+Traditionally, business analysts have performed the task of extracting useful information from recorded data, but the increasing volume of data in modern business and science calls for computer-based approaches.
+As data sets have grown in size and complexity, there has been a shift away from direct hands-on data analysis toward indirect, automatic data analysis using more complex and sophisticated tools.
+The modern technologies of computers, networks, and sensors have made data collection and organization much easier.
+However, the captured data needs to be converted into information and knowledge to become useful.
+Data mining is the entire process of applying computer-based methodology, including new techniques for knowledge discovery, to data.
+Data mining identifies trends within data that go beyond simple analysis.
+Through the use of sophisticated algorithms, non-statistician users have the opportunity to identify key attributes of business processes and target opportunities.
+However, abdicating control of this process from the statistician to the machine may result in false-positives or no useful results at all.
+Although data mining is a relatively new term, the technology is not.
+For many years, businesses have used powerful computers to sift through volumes of data such as supermarket scanner data to produce market research reports (although reporting is not considered to be data mining).
+Continuous innovations in computer processing power, disk storage, and statistical software are dramatically increasing the accuracy and usefulness of data analysis.
+Web 2.0 technologies have generated a colossal amount of user-generated data and media, making it hard to aggregate and consume information in a meaningful way without getting overloaded.
+Given the size of the data on the Internet, and the difficulty in contextualizing it, it is unclear whether the traditional approach to data mining is computationally viable.
+The term data mining is often used to apply to the two separate processes of knowledge discovery and prediction.
+Knowledge discovery provides explicit information that has a readable form and can be understood by a user.
+Forecasting, or predictive modeling provides predictions of future events and may be transparent and readable in some approaches (e.g., rule-based systems) and opaque in others such as neural networks.
+Moreover, some data-mining systems such as neural networks are inherently geared towards prediction and pattern recognition, rather than knowledge discovery.
+Metadata, or data about a given data set, are often expressed in a condensed data-minable format, or one that facilitates the practice of data mining.
+Common examples include executive summaries and scientific abstracts.
+Data mining relies on the use of real world data.
+This data is extremely vulnerable to collinearity precisely because data from the real world may have unknown interrelations.
+An unavoidable weakness of data mining is that the critical data that may expose any relationship might have never been observed.
+Alternative approaches using an experiment-based approach such as Choice Modelling for human-generated data may be used.
+Inherent correlations are either controlled for or removed altogether through the construction of an experimental design.
+Recently, there were some efforts to define a standard for data mining, for example the CRISP-DM standard for analysis processes or the Java Data-Mining Standard.
+Independent of these standardization efforts, freely available open-source software systems like RapidMiner and  Weka have become an informal standard for defining data-mining processes.
+Privacy concerns
+There are also privacy and human rights concerns associated with data mining, specifically regarding the source of the data analyzed.
+Data mining provides information that may be difficult to obtain otherwise.
+When the data collected involves individual people, there are many questions concerning privacy, legality, and ethics.
+In particular, data mining government or commercial data sets for national security or law enforcement purposes has raised privacy concerns.
+Notable uses of data mining
+Combatting Terrorism
+Data mining has been cited as the method by which the U.S. Army unit Able Danger had identified the September 11, 2001 attacks leader, Mohamed Atta, and three other 9/11 hijackers as possible members of an Al Qaeda cell operating in the U.S. more than a year before the attack.
+It has been suggested that both the Central Intelligence Agency and the Canadian Security Intelligence Service have employed this method.
+Previous data mining to stop terrorist programs under the US government include the Terrorism Information Awareness (TIA) program, Computer-Assisted Passenger Prescreening System (CAPPS II), Analysis, Dissemination, Visualization, Insight, and Semantic Enhancement (ADVISE), Multistate Anti-Terrorism Information Exchange (MATRIX), and the Secure Flight program Security-MSNBC.
+These programs have been discontinued due to controversy over whether they violate the US Constitution's 4th amendment.
+Games
+Since the early 1960s, with the availability of oracles for certain combinatorial games, also called tablebases (e.g. for 3x3-chess) with any beginning configuration, small-board dots-and-boxes, small-board-hex, and certain endgames in chess, dots-and-boxes, and hex; a new area for data mining has been opened up.
+This is the extraction of human-usable strategies from these oracles.
+Current pattern recognition approaches do not seem to fully have the required high level of abstraction in order to be applied successfully.
+Instead, extensive experimentation with the tablebases, combined with an intensive study of tablebase-answers to well designed problems and with knowledge of prior art, i.e. pre-tablebase knowledge, is used to yield insightful patterns.
+Berlekamp in dots-and-boxes etc. and John Nunn in chess endgames are notable examples of researchers doing this work, though they were not and are not involved in tablebase generation.
+Business
+Data mining in customer relationship management applications can contribute significantly to the bottom line.
+Rather than contacting a prospect or customer through a call center or sending mail, only prospects that are predicted to have a high likelihood of responding to an offer are contacted.
+More sophisticated methods may be used to optimize across campaigns so that we can predict which channel and which offer an individual is most likely to respond to - across all potential offers.
+Finally, in cases where many people will take an action without an offer, uplift modeling can be used to determine which people will have the greatest increase in responding if given an offer.
+Data clustering can also be used to automatically discover the segments or groups within a customer data set.
+Businesses employing data mining quickly see a return on investment, but also they recognize that the number of predictive models can quickly become very large.
+Rather than one model to predict which customers will churn, a business could build a separate model for each region and customer type.
+Then instead of sending an offer to all people that are likely to churn, it may only want to send offers to customers that will likely take to offer.
+And finally, it may also want to determine which customers are going to be profitable over a window of time and only send the offers to those that are likely to be profitable.
+In order to maintain this quantity of models, they need to manage model versions and move to automated data mining.
+Data mining can also be helpful to human-resources departments in identifying the characteristics of their most successful employees.
+Information obtained, such as universities attended by highly successful employees, can help HR focus recruiting efforts accordingly.
+Additionally, Strategic Enterprise Management applications help a company translate corporate-level goals, such as profit and margin share targets, into operational decisions, such as production plans and workforce levels.
+Another example of data mining, often called the market basket analysis, relates to its use in retail sales.
+If a clothing store records the purchases of customers, a data-mining system could identify those customers who favour silk shirts over cotton ones.
+Although some explanations of relationships may be difficult, taking advantage of it is easier.
+The example deals with association rules within transaction-based data.
+Not all data are transaction based and logical or inexact rules may also be present within a database.
+In a manufacturing application, an inexact rule may state that 73% of products which have a specific defect or problem will develop a secondary problem within the next six months.
+Related to an integrated-circuit production line, an example of data mining is described in the paper "Mining IC Test Data to Optimize VLSI Testing."
+In this paper the application of data mining and decision analysis to the problem of die-level functional test is described.
+Experiments mentioned in this paper demonstrate the ability of applying a system of mining historical die-test data to create a probabilistic model of patterns of die failure which are then utilized to decide in real time which die to test next and when to stop testing.
+This system has been shown, based on experiments with historical test data, to have the potential to improve profits on mature IC products.
+Science and engineering
+In recent years, data mining has been widely used in area of science and engineering, such as bioinformatics, genetics, medicine, education, and electrical power engineering.
+In the area of study on human genetics, the important goal is to understand the mapping relationship between the inter-individual variation in human DNA sequences and variability in disease susceptibility.
+In lay terms, it is to find out how the changes in an individual's DNA sequence affect the risk of developing common diseases such as cancer.
+This is very important to help improve the diagnosis, prevention and treatment of the diseases.
+The data mining technique that is used to perform this task is known as multifactor dimensionality reduction.
+In the area of electrical power engineering, data mining techniques have been widely used for condition monitoring of high voltage electrical equipment.
+The purpose of condition monitoring is to obtain valuable information on the insulation's health status of the equipment.
+Data clustering such as self-organizing map (SOM) has been applied on the vibration monitoring and analysis of transformer on-load tap-changers(OLTCS).
+Using vibration monitoring, it can be observed that each tap change operation generates a signal that contains information about the condition of the tap changer contacts and the drive mechanisms.
+Obviously, different tap positions will generate different signals.
+However, there was considerable variability amongst normal condition signals for the exact same tap position.
+SOM has been applied to detect abnormal conditions and to estimate the nature of the abnormalities.
+Data mining techniques have also been applied for dissolved gas analysis (DGA) on power transformers.
+DGA, as a diagnostics for power transformer, has been available for centuries.
+Data mining techniques such as SOM has been applied to analyse data and to determine trends which are not obvious to the standard DGA ratio techniques such as Duval Triangle.
+A fourth area of application for data mining in science/engineering is within educational research, where data mining has been used to study the factors leading students to choose to engage in behaviors which reduce their learning and to understand the factors influencing university student retention.
+Other examples of applying data mining technique applications are biomedical data facilitated by domain ontologies, mining clinical trial data, traffic analysis using SOM, et cetera.
+Data set
+A data set (or dataset) is a collection of data, usually presented in tabular form.
+Each column represents a particular variable.
+Each row corresponds to a given member of the data set in question.
+It lists values for each of the variables, such as height and weight of an object or values of random numbers.
+Each value is known as a datum.
+The data set may comprise data for one or more members, corresponding to the number of rows.
+Historically, the term originated in the mainframe field, where it had a well-defined meaning, very close to contemporary computer file.
+This topic is not covered here.
+In the simplest case, there is only one variable, and then the data set consists of a single column of values, often represented as a list.
+The values may be numbers, such as real numbers or integers, for example representing a person's height in centimeters, but may also be nominal data (i.e., not consisting of numerical values), for example representing a person's ethnicity.
+More generally, values may be of any of the kinds described as a level of measurement.
+For each variable, the values will normally all be of the same kind.
+However, there may also be "missing values", which need to be indicated in some way.
+In statistics data sets usually come from actual observations obtained by sampling a statistical population, and each row corresponds to the observations on one element of that population.
+Data sets may further be generated by algorithms for the purpose of testing certain kinds of software.
+Some modern statistical analysis software such as PSPP still present their data in the classical dataset fashion.
+Classic data sets
+Several classic data sets have been used extensively in the statistical literature:
+Iris flower data set - multivariate data set introduced by Ronald Fisher (1936).
+Categorical data analysis - Data sets used in the book, An Introduction to Categorical Data Analysis, by Agresti are provided on-line by StatLib.
+Robust statistics - Data sets used in Robust Regression and Outlier Detection (Rousseeuw and Leroy, 1986). Provided on-line at the University of Cologne.
+Time series - Data used in Chatfield's book, The Analysis of Time Series, are provided on-line by StatLib.
+Extreme values - Data used in the book, An Introduction to the Statistical Modeling of Extreme Values are provided on-line by Stuart Coles, the book's author.
+Bayesian Data Analysis - Data used in the book, Bayesian Data Analysis, are provided on-line by Andrew Gelman, one of the book's authors.
+The Bupa liver data, used in several papers in the machine learning (data mining) literature.
+ELIZA
+ELIZA is a computer program by Joseph Weizenbaum, designed in 1966, which parodied a Rogerian therapist, largely by rephrasing many of the patient's statements as questions and posing them to the patient.
+Thus, for example, the response to "My head hurts" might be "Why do you say your head hurts?"
+The response to "My mother hates me" might be "Who else in your family hates you?"
+ELIZA was named after Eliza Doolittle, a working-class character in George Bernard Shaw's play Pygmalion, who is taught to speak with an upper class accent.
+Overview
+It is sometimes inaccurately said that ELIZA simulates a therapist.
+Weizenbaum said that ELIZA provided a "parody" of "the responses of a non-directional psychotherapist in an initial psychiatric interview."
+He chose the context of psychotherapy to "sidestep the problem of giving the program a data base of real-world knowledge", the therapeutic situation being one of the few real human situations in which a human being can reply to a statement with a question that indicates very little specific knowledge of the topic under discussion.
+For example, it is a context in which the question "Who is your favorite composer?" can be answered acceptably with responses such as "What about your own favorite composer?" or "Does that question interest you?"
+First implemented in Weizenbaum's own SLIP list-processing language, ELIZA worked by simple parsing and substitution of key words into canned phrases.
+Depending upon the initial entries by the user the illusion of a human writer could be instantly dispelled, or could continue through several interchanges.
+It was sometimes so convincing that there are many anecdotes about people becoming very emotionally caught up in dealing with ELIZA for several minutes until the machine's true lack of understanding became apparent.
+This was likely due to people's tendency to attach meanings to words which the computer never put there.
+In 1966, interactive computing (via a teletype) was new.
+It was 15 years before the personal computer became familiar to the general public, and two decades before most people encountered attempts at natural language processing in Internet services like Ask.com or PC help systems such as Microsoft Office Clippy.
+Although those programs included years of research and work (while Ecala eclipsed the functionality of ELIZA after less than two weeks of work by a single programmer), ELIZA remains a milestone simply because it was the first time a programmer had attempted such a human-machine interaction with the goal of creating the illusion (however brief) of human-human interaction.
+In the article "theNewMediaReader" an excerpt from "From Computer Power and Human Reason" by Joseph Weizenbaum in 1976, edited by Noah Wardrip-Fruin and Nick Montfort he references how quickly and deeply people became emotionally involved with the computer program, taking offence when he asked to view the transcripts, saying it was an invasion of their privacy, even asking him to leave the room while they were working with ELIZA.
+Influence on games
+ELIZA impacted a number of early computer games by demonstrating additional kinds of interface designs.
+Don Daglow wrote an enhanced version of the program called Ecala on a PDP-10 mainframe computer at Pomona College in 1973 before writing what was possibly the second or third computer role-playing game, Dungeon (1975) (The first was probably "dnd", written on and for the PLATO system in 1974, and the second may have been Moria, written in 1975).
+It is likely that ELIZA was also on the system where Will Crowther created Adventure, the 1975 game that spawned the interactive fiction genre.
+But both these games appeared some nine years after the original ELIZA.
+Response and legacy
+Lay responses to ELIZA were disturbing to Weizenbaum and motivated him to write his book Computer Power and Human Reason: From Judgment to Calculation, in which he explains the limits of computers, as he wants to make clear in people's minds his opinion that the anthropomorphic views of computers are just a reduction of the human being and any life form for that matter.
+There are many programs based on ELIZA in different languages in addition to Ecala.
+For example, in 1980, a company called "Don't Ask Software", founded by Randy Simon, created a version for the Apple II, Atari, and Commodore PCs, which verbally abused the user based on the user's input.
+In Spain, Jordi Perez developed the famous ZEBAL in 1993, written in Clipper for MS-DOS.
+Other versions adapted ELIZA around a religious theme, such as ones featuring Jesus (both serious and comedic) and another Apple II variant called I Am Buddha.
+The 1980 game The Prisoner incorporated ELIZA-style interaction within its gameplay.
+ELIZA has also inspired a podcast called "The Eliza Podcast", in which the host engages in self-analysis using a computer generated voice prompting with questions in the same style as the ELIZA program.
+Implementations
+Using JavaScript: http://www.manifestation.com/neurotoys/eliza.php3
+Source code in Java: http://chayden.net/eliza/Eliza.html
+Another Java-implementation of ELIZA: http://www.wedesoft.demon.co.uk/eliza/
+Using C on the TI-89: http://kaikostack.com/ti89_en.htm#eliza
+Using z80 Assembly on the TI-83 Plus: http://www.ticalc.org/archives/files/fileinfo/354/35463.html
+A perl module Chatbot::Eliza &mdash; example implementation
+Trans-Tex Software has released shareware versions for Classic Mac OS and Mac OS X: http://www.tex-edit.com/index.html#Eliza
+<code/> (circa 1985) in Emacs.
+Source code in Tcl: http://wiki.tcl.tk/9235
+The Indy Delphi oriented TCP/IP components suite has an Eliza implementation as demo.
+Pop-11 Eliza in the poplog system.
+Goes back to about 1976, when it was used for teaching AI at Sussex University.
+Now part of the free open source Poplog system.
+Source code in BASIC: http://www.atariarchives.org/bigcomputergames/showpage.php?page=22
+ECC-Eliza for Windows (actual program is for DOS, but unpacker is for Windows) (rename .txt to .exe before running): http://www5.domaindlx.com/ecceliza1/ecceliza.txt.
+More recent version at http://web.archive.org/web/20041117123025/http://www5.domaindlx.com/ecceliza1/ecceliza.txt.
+English language
+English is an Indo-European, West Germanic language originating in England, and is the first language for most people in the United Kingdom, the United States, Canada, Australia, New Zealand, Ireland, and the Anglophone Caribbean.
+It is used extensively as a second language and as an official language throughout the world, especially in Commonwealth countries and in many international organizations.
+Significance
+Modern English, sometimes described as the first global lingua franca, is the dominant international language in communications, science, business, aviation, entertainment, radio and diplomacy.
+The initial reason for its enormous spread beyond the bounds of the British Isles where it was originally a native tongue was the British Empire, and by the late nineteenth century its influence had won a truly global reach.
+It is the dominant language in the United States and the growing economic and cultural influence of that federal union as a global superpower since World War II has significantly accelerated adoption of English as a language across the planet.
+A working knowledge of English has become a requirement in a number of fields, occupations and professions such as medicine and as a consequence over a billion people speak English to at least a basic level (see English language learning and teaching).
+Linguists such as David Crystal recognize that one impact of this massive growth of English, in common with other global languages, has been to reduce native linguistic diversity in many parts of the world historically, most particularly in Australasia and North America, and its huge influence continues to play an important role in language attrition.
+By a similar token, historical linguists, aware of the complex and fluid dynamics of language change, are always alive to the potential English contains through the vast size and spread of the communities that use it and its natural internal variety, such as in its creoles and pidgins, to produce a new family of distinct languages over time.
+English is one of six official languages of the United Nations.
+History
+English is a West Germanic language that originated from the Anglo-Frisian dialects brought to Britain by Germanic settlers and Roman auxiliary troops from various parts of what is now northwest Germany and the Northern Netherlands.
+Initially, Old English was a diverse group of dialects, reflecting the varied origins of the Anglo-Saxon Kingdoms of England.
+One of these dialects, Late West Saxon, eventually came to dominate.
+The original Old English language was then influenced by two waves of invasion.
+The first was by language speakers of the Scandinavian branch of the Germanic family; they conquered and colonized parts of Britain in the 8th and 9th centuries.
+The second was the Normans in the 11th century, who spoke Old Norman and ultimately developed an English variety of this called Anglo-Norman.
+These two invasions caused English to become "mixed" to some degree (though it was never a truly mixed language in the strict linguistic sense of the word; mixed languages arise from the cohabitation of speakers of different languages, who develop a hybrid tongue for basic communication).
+Cohabitation with the Scandinavians resulted in a significant grammatical simplification and lexical supplementation of the Anglo-Frisian core of English; the later Norman occupation led to the grafting onto that Germanic core of a more elaborate layer of words from the Italic branch of the European languages.
+This Norman influence entered English largely through the courts and government.
+Thus, English developed into a "borrowing" language of great flexibility and with a huge vocabulary.
+Classification and related languages
+The English language belongs to the western sub-branch of the Germanic branch of the Indo-European family of languages.
+The closest living relative of English is Scots, spoken primarily in Scotland and parts of Northern Ireland, which is viewed by linguists as either a separate language or a group of dialects of English.
+The next closest relative to English after Scots is Frisian, spoken in the Northern Netherlands and Northwest Germany.
+Other less closely related living West Germanic languages include Dutch, Low German, German and Afrikaans.
+The North Germanic languages of Scandinavia are less closely related to English than the West Germanic languages.
+Many French words are also intelligible to an English speaker (though pronunciations are often quite different) because English absorbed a large vocabulary from Norman and French, via Anglo-Norman after the Norman Conquest and directly from French in subsequent centuries.
+As a result, a large portion of English vocabulary is derived from French, with some minor spelling differences (word endings, use of old French spellings, etc.), as well as occasional divergences in meaning, in so-called "faux amis", or false friends.
+The pronunciation of French loanwords in English has become completely anglicized and follows a typically Germanic pattern of stress.
+Geographical distribution
+Approximately 375 million people speak English as their first language.
+English today is probably the third largest language by number of native speakers, after Mandarin Chinese and Spanish.
+However, when combining native and non-native speakers it is probably the most commonly spoken language in the world, though possibly second to a combination of the Chinese languages, depending on whether or not distinctions in the latter are classified as "languages" or "dialects."
+Estimates that include second language speakers vary greatly from 470 million to over a billion depending on how literacy or mastery is defined.
+There are some who claim that non-native speakers now outnumber native speakers by a ratio of 3 to 1.
+The countries with the highest populations of native English speakers are, in descending order: United States (215 million), United Kingdom (58 million), Canada (18.2 million), Australia (15.5 million), Ireland (3.8 million), South Africa (3.7 million), and New Zealand (3.0-3.7 million).
+Countries such as Jamaica and Nigeria also have millions of native speakers of dialect continua ranging from an English-based creole to a more standard version of English.
+Of those nations where English is spoken as a second language, India has the most such speakers ('Indian English') and linguistics professor David Crystal claims that, combining native and non-native speakers, India now has more people who speak or understand English than any other country in the world.
+Following India is the People's Republic of China.
+Countries in order of total speakers
+English is the primary language in Anguilla, Antigua and Barbuda, Australia (Australian English), the Bahamas, Barbados, Bermuda, Belize (Belizean Kriol), the British Indian Ocean Territory, the British Virgin Islands, Canada (Canadian English), the Cayman Islands, the Falkland Islands, Gibraltar, Grenada, Guam, Guernsey (Channel Island English), Guyana, Ireland (Hiberno-English), Isle of Man (Manx English), Jamaica (Jamaican English), Jersey, Montserrat, Nauru, New Zealand (New Zealand English), Pitcairn Islands, Saint Helena, Saint Kitts and Nevis, Saint Vincent and the Grenadines, Singapore, South Georgia and the South Sandwich Islands, Trinidad and Tobago, the Turks and Caicos Islands, the United Kingdom, the U.S. Virgin Islands, and the United States.
+In many other countries, where English is not the most spoken language, it is an official language; these countries include Botswana, Cameroon, Dominica, Fiji, the Federated States of Micronesia, Ghana, Gambia, India, Kenya, Kiribati, Lesotho, Liberia, Madagascar, Malta, the Marshall Islands, Mauritius, Namibia, Nigeria, Pakistan, Palau, Papua New Guinea, the Philippines, Puerto Rico, Rwanda, the Solomon Islands, Saint Lucia, Samoa, Seychelles, Sierra Leone, Sri Lanka, Swaziland, Tanzania, Uganda, Zambia, and Zimbabwe.
+It is also one of the 11 official languages that are given equal status in South Africa (South African English).
+English is also the official language in current dependent territories of Australia (Norfolk Island, Christmas Island and Cocos Island) and of the United States (Northern Mariana Islands, American Samoa and Puerto Rico), and in the former British colony of Hong Kong.
+English is an important language in several former colonies and protectorates of the United Kingdom but falls short of official status, such as in Malaysia, Brunei, United Arab Emirates and Bahrain.
+English is also not an official language in either the United States or the United Kingdom.
+Although the United States federal government has no official languages, English has been given official status by 30 of the 50 state governments.
+English as a global language
+Because English is so widely spoken, it has often been referred to as a "world language", the lingua franca of the modern era.
+While English is not an official language in most countries, it is currently the language most often taught as a second language around the world.
+Some linguists believe that it is no longer the exclusive cultural sign of "native English speakers", but is rather a language that is absorbing aspects of cultures worldwide as it continues to grow.
+It is, by international treaty, the official language for aerial and maritime communications.
+English is an official language of the United Nations and many other international organizations, including the International Olympic Committee.
+English is the language most often studied as a foreign language in the European Union (by 89% of schoolchildren), followed by French (32%), German (18%), and Spanish (8%).
+In the EU, a large fraction of the population reports being able to converse to some extent in English.
+Among non-English speaking countries, a large percentage of the population claimed to be able to converse in English in the Netherlands (87%), Sweden (85%), Denmark (83%), Luxembourg (66%), Finland (60%), Slovenia (56%), Austria (53%), Belgium (52%), and Germany (51%).
+Norway and Iceland also have a large majority of competent English-speakers.
+Books, magazines, and newspapers written in English are available in many countries around the world.
+English is also the most commonly used language in the sciences.
+In 1997, the Science Citation Index reported that 95% of its articles were written in English, even though only half of them came from authors in English-speaking countries.
+Dialects and regional varieties
+The expansion of the British Empire and—since WWII—the primacy of the United States have spread English throughout the globe.
+Because of that global spread, English has developed a host of English dialects and English-based creole languages and pidgins.
+The major varieties of English include, in most cases, several subvarieties, such as Cockney within British English; Newfoundland English within Canadian English; and African American Vernacular English ("Ebonics") and Southern American English within American English.
+English is a pluricentric language, without a central language authority like France's Académie française; and, although no variety is clearly considered the only standard, there are a number of accents considered to be more prestigious, such as Received Pronunciation in Britain.
+Scots developed—largely independently—from the same origins, but following the Acts of Union 1707 a process of language attrition began, whereby successive generations adopted more and more features from English causing dialectalisation.
+Whether it is now a separate language or a dialect of English better described as Scottish English is in dispute.
+The pronunciation, grammar and lexis of the traditional forms differ, sometimes substantially, from other varieties of English.
+Because of the wide use of English as a second language, English speakers have many different accents, which often signal the speaker's native dialect or language.
+For the more distinctive characteristics of regional accents, see Regional accents of English, and for the more distinctive characteristics of regional dialects, see List of dialects of the English language.
+Just as English itself has borrowed words from many different languages over its history, English loanwords now appear in a great many languages around the world, indicative of the technological and cultural influence of its speakers.
+Several pidgins and creole languages have formed using an English base, such as Jamaican Patois, Nigerian Pidgin, and Tok Pisin.
+There are many words in English coined to describe forms of particular non-English languages that contain a very high proportion of English words.
+Franglais, for example, is used to describe French with a very high English word content; it is found on the Channel Islands.
+Another variant, spoken in the border bilingual regions of Québec in Canada, is called Frenglish.
+In Wales, which is part of the United Kingdom, the languages of Welsh and English are sometimes mixed together by fluent or comfortable Welsh speakers, the result of which is called Wenglish.
+Constructed varieties of English
+Basic English is simplified for easy international use.
+It is used by manufacturers and other international businesses to write manuals and communicate.
+Some English schools in Asia teach it as a practical subset of English for use by beginners.
+Special English is a simplified version of English used by the Voice of America.
+It uses a vocabulary of only 1500 words.
+English reform is an attempt to improve collectively upon the English language.
+Seaspeak and the related Airspeak and Policespeak, all based on restricted vocabularies, were designed by Edward Johnson in the 1980s to aid international cooperation and communication in specific areas.
+There is also a tunnelspeak for use in the Channel Tunnel.
+Euro-English is a concept of standardising English for use as a second language in continental Europe.
+Manually Coded English — a variety of systems have been developed to represent the English language with hand signals, designed primarily for use in deaf education.
+These should not be confused with true sign languages such as British Sign Language and American Sign Language used in Anglophone countries, which are independent and not based on English.
+E-Prime excludes forms of the verb to be.
+Euro-English (also EuroEnglish or Euro-English) terms are English translations of European concepts that are not native to English-speaking countries.
+Because of the United Kingdom's (and even the Republic of Ireland's) involvement in the European Union, the usage focuses on non-British concepts.
+This kind of Euro-English was parodied when English was "made" one of the constituent languages of Europanto.
+Phonology
+Vowels
+Notes:
+It is the vowels that differ most from region to region.
+Where symbols appear in pairs, the first corresponds to American English, General American accent; the second corresponds to British English, Received Pronunciation.
+American English lacks this sound; words with this sound are pronounced with <ipa/> or <ipa/>.
+See Lot-cloth split.
+Some dialects of North American English do not have this vowel.
+See Cot-caught merger.
+The North American variation of this sound is a rhotic vowel.
+Many speakers of North American English do not distinguish between these two unstressed vowels.
+For them, roses and Rosa's are pronounced the same, and the symbol usually used is schwa <ipa/>.
+This sound is often transcribed with <ipa/> or with <ipa/>.
+The diphthongs <ipa/> and <ipa/> are monophthongal for many General American speakers, as <ipa/> and <ipa/>.
+The letter <U> can represent either <ipa/> or the iotated vowel <ipa/>.
+In BRP, if this iotated vowel <ipa/> occurs after <ipa/>, <ipa/>, <ipa/> or <ipa/>, it often triggers palatalization of the preceding consonant, turning it to <ipa/>, <ipa/>, <ipa/> and <ipa/> respectively, as in tune, during, sugar, and azure.
+In American English, palatalization does not generally happen unless the <ipa/> is followed by r, with the result that <ipa/> turn to <ipa/>, <ipa/>, <ipa/> and <ipa/> respectively, as in nature, verdure, sure, and treasure.
+Vowel length plays a phonetic role in the majority of English dialects, and is said to be phonemic in a few dialects, such as Australian English and New Zealand English.
+In certain dialects of the modern English language, for instance General American, there is allophonic vowel length: vowel phonemes are realized as long vowel allophones before voiced consonant phonemes in the coda of a syllable.
+Before the Great Vowel Shift, vowel length was phonemically contrastive.
+This sound only occurs in non-rhotic accents.
+In some accents, this sound may be, instead of <ipa/>, <ipa/>.
+See English-language vowel changes before historic r.
+This sound only occurs in non-rhotic accents.
+In some accents, the schwa offglide of <ipa/> may be dropped, monophthising and lengthening the sound to <ipa/>.
+See also IPA chart for English dialects for more vowel charts.
+Consonants
+This is the English consonantal system using symbols from the International Phonetic Alphabet (IPA).
+The velar nasal <ipa/> is a non-phonemic allophone of /n/ in some northerly British accents, appearing only before /k/ and /g/.
+In all other dialects it is a separate phoneme, although it only occurs in syllable codas.
+The alveolar tap <ipa/> is an allophone of /t/ and /d/ in unstressed syllables in North American English and Australian English.
+This is the sound of tt or dd in the words latter and ladder, which are homophones for many speakers of North American English.
+In some accents such as Scottish English and Indian English it replaces <ipa/>.
+This is the same sound represented by single r in most varieties of Spanish.
+In some dialects, such as Cockney, the interdentals /θ/ and /ð/ are usually merged with /f/ and /v/, and in others, like African American Vernacular English, /ð/ is merged with dental /d/.
+In some Irish varieties, /θ/ and /ð/ become the corresponding dental plosives, which then contrast with the usual alveolar plosives.
+The sounds <ipa/> are labialised in some dialects.
+Labialisation is never contrastive in initial position and therefore is sometimes not transcribed.
+Most speakers of General American realize <r> (always rhoticized) as the retroflex approximant <ipa/>, whereas the same is realized in Scottish English, etc. as the alveolar trill.
+The voiceless palatal fricative /ç/ is in most accents just an allophone of /h/ before /j/; for instance human /çjuːmən/.
+However, in some accents (see this), the /j/ is dropped, but the initial consonant is the same.
+The voiceless velar fricative /x/ is used by Scottish or Welsh speakers of English for Scots/Gaelic words such as loch <ipa/> or by some speakers for loanwords from German and Hebrew like Bach <ipa/> or Chanukah /xanuka/. /x/ is also used in South African English.
+In some dialects such as Scouse (Liverpool) either <ipa/> or the affricate <ipa/> may be used as an allophone of /k/ in words such as docker <ipa/>.
+Most native speakers have a great deal of trouble pronouncing it correctly when learning a foreign language.
+Most speakers use the sounds [k] and [h] instead.
+Voiceless w <ipa/> is found in Scottish and Irish English, as well as in some varieties of American, New Zealand, and English English.
+In most other dialects it is merged with /w/, in some dialects of Scots it is merged with /f/.
+Voicing and aspiration
+Voicing and aspiration of stop consonants in English depend on dialect and context, but a few general rules can be given:
+Voiceless plosives and affricates (/<ipa/>/, /<ipa/>/, /<ipa/>/, and /<ipa/>/) are aspirated when they are word-initial or begin a stressed syllable — compare pin <ipa/> and spin <ipa/>, crap <ipa/> and scrap <ipa/>.
+In some dialects, aspiration extends to unstressed syllables as well.
+In other dialects, such as Indian English, all voiceless stops remain unaspirated.
+Word-initial voiced plosives may be devoiced in some dialects.
+Word-terminal voiceless plosives may be unreleased or accompanied by a glottal stop in some dialects (e.g. many varieties of American English) — examples: tap [<ipa/>], sack [<ipa/>].
+Word-terminal voiced plosives may be devoiced in some dialects (e.g. some varieties of American English) — examples: sad [<ipa/>], bag [<ipa/>].
+In other dialects they are fully voiced in final position, but only partially voiced in initial position.
+Supra-segmental features
+Tone groups
+English is an intonation language. This means that the pitch of the voice is used syntactically, for example, to convey surprise and irony, or to change a statement into a question.
+In English, intonation patterns are on groups of words, which are called tone groups, tone units, intonation groups or sense groups.
+Tone groups are said on a single breath and, as a consequence, are of limited length, more often being on average five words long or lasting roughly two seconds.
+For example:
+-<ipa/> Do you need anything?
+-<ipa/> I don't, no
+-<ipa/> I don't know (contracted to, for example, -<ipa/> or <ipa/> I dunno in fast or colloquial speech that de-emphasises the pause between don't and know even further)
+Characteristics of intonation
+English is a strongly stressed language, in that certain syllables, both within words and within phrases, get a relative prominence/loudness during pronunciation while the others do not.
+The former kind of syllables are said to be accentuated/stressed and the latter are unaccentuated/unstressed.
+All good dictionaries of English mark the accentuated syllable(s) by either placing an apostrophe-like ( <ipa/> ) sign either before (as in IPA, Oxford English Dictionary, or Merriam-Webster dictionaries) or after (as in many other dictionaries) the syllable where the stress accent falls.
+Hence in a sentence, each tone group can be subdivided into syllables, which can either be stressed (strong) or unstressed (weak).
+The stressed syllable is called the nuclear syllable.
+For example:
+That | was | the | best | thing | you | could | have | done!
+Here, all syllables are unstressed, except the syllables/words best and done, which are stressed.
+Best is stressed harder and, therefore, is the nuclear syllable.
+The nuclear syllable carries the main point the speaker wishes to make.
+For example:
+John had not stolen that money. (...
+Someone else had.)
+John had not stolen that money. (...
+Someone said he had. or ...
+Not at that time, but later he did.)
+John had not stolen that money. (...
+He acquired the money by some other means.)
+John had not stolen that money. (...
+He had stolen some other money.)
+John had not stolen that money. (...
+He had stolen something else.)
+Also
+I did not tell her that. (...
+Someone else told her)
+I did not tell her that. (...
+You said I did. or ... but now I will)
+I did not tell her that. (...
+I did not say it; she could have inferred it, etc)
+I did not tell her that. (...
+I told someone else)
+I did not tell her that. (...
+I told her something else)
+This can also be used to express emotion:
+Oh really? (...I did not know that)
+Oh really? (...I disbelieve you. or ...
+That's blatantly obvious)
+The nuclear syllable is spoken more loudly than the others and has a characteristic change of pitch.
+The changes of pitch most commonly encountered in English are the rising pitch and the falling pitch, although the fall-rising pitch and/or the rise-falling pitch are sometimes used.
+In this opposition between falling and rising pitch, which plays a larger role in English than in most other languages, falling pitch conveys certainty and rising pitch uncertainty.
+This can have a crucial impact on meaning, specifically in relation to polarity, the positive–negative opposition; thus, falling pitch means "polarity known", while rising pitch means "polarity unknown".
+This underlies the rising pitch of yes/no questions.
+For example:
+When do you want to be paid?
+Now?
+(Rising pitch.
+In this case, it denotes a question: "Can I be paid now?" or "Do you desire to pay now?")
+Now.
+(Falling pitch.
+In this case, it denotes a statement: "I choose to be paid now.")
+Grammar
+English grammar has minimal inflection compared with most other Indo-European languages.
+For example, Modern English, unlike Modern German or Dutch and the Romance languages, lacks grammatical gender and adjectival agreement.
+Case marking has almost disappeared from the language and mainly survives in pronouns.
+The patterning of strong (e.g. speak/spoke/spoken) versus weak verbs inherited from its Germanic origins has declined in importance in modern English, and the remnants of inflection (such as plural marking) have become more regular.
+At the same time, the language has become more analytic, and has developed features such as modal verbs and word order as resources for conveying meaning.
+Auxiliary verbs mark constructions such as questions, negative polarity, the passive voice and progressive aspect.
+Vocabulary
+The English vocabulary has changed considerably over the centuries.
+Like many languages deriving from Proto-Indo-European (PIE), many of the most common words in English can trace back their origin (through the Germanic branch) to PIE.
+Such words include the basic pronouns I, from Old English ic, (cf. Latin ego, Greek ego, Sanskrit aham), me (cf. Latin me, Greek eme, Sanskrit mam), numbers (e.g. one, two, three, cf. Latin unus, duo, tres, Greek oinos "ace (on dice)", duo, treis), common family relationships such as mother, father, brother, sister etc (cf. Greek "meter", Latin "mater", Sanskrit "matṛ"; mother), names of many animals (cf. Sankrit mus, Greek mys, Latin mus; mouse), and many common verbs (cf. Greek gignōmi, Latin gnoscere, Hittite kanes; to know).
+Germanic words (generally words of Old English or to a lesser extent Norse origin) tend to be shorter than the Latinate words of English, and more common in ordinary speech.
+This includes nearly all the basic pronouns, prepositions, conjunctions, modal verbs etc. that form the basis of English syntax and grammar.
+The longer Latinate words are often regarded as more elegant or educated.
+However, the excessive use of Latinate words is considered at times to be either pretentious or an attempt to obfuscate an issue.
+George Orwell's essay "Politics and the English Language" is critical of this, as well as other perceived misuse of the language.
+An English speaker is in many cases able to choose between Germanic and Latinate synonyms: come or arrive; sight or vision; freedom or liberty.
+In some cases there is a choice between a Germanic derived word (oversee), a Latin derived word (supervise), and a French word derived from the same Latin word (survey).
+Such synonyms harbor a variety of different meanings and nuances, enabling the speaker to express fine variations or shades of thought.
+Familiarity with the etymology of groups of synonyms can give English speakers greater control over their linguistic register.
+See: List of Germanic and Latinate equivalents in English.
+An exception to this and a peculiarity perhaps unique to English is that the nouns for meats are commonly different from, and unrelated to, those for the animals from which they are produced, the animal commonly having a Germanic name and the meat having a French-derived one.
+Examples include: deer and venison; cow and beef; swine/pig and pork, or sheep and mutton.
+This is assumed to be a result of the aftermath of the Norman invasion, where a French-speaking elite were the consumers of the meat, produced by Anglo-Saxon lower classes.
+Since the majority of words used in informal settings will normally be Germanic, such words are often the preferred choices when a speaker wishes to make a point in an argument in a very direct way.
+A majority of Latinate words (or at least a majority of content words) will normally be used in more formal speech and writing, such as a courtroom or an encyclopedia article.
+However, there are other Latinate words that are used normally in everyday speech and do not sound formal; these are mainly words for concepts that no longer have Germanic words, and are generally assimilated better and in many cases do not appear Latinate.
+For instance, the words mountain, valley, river, aunt, uncle, move, use, push and stay are all Latinate.
+English easily accepts technical terms into common usage and often imports new words and phrases.
+Examples of this phenomenon include: cookie, Internet and URL (technical terms), as well as genre, über, lingua franca and amigo (imported words/phrases from French, German, modern Latin, and Spanish, respectively).
+In addition, slang often provides new meanings for old words and phrases.
+In fact, this fluidity is so pronounced that a distinction often needs to be made between formal forms of English and contemporary usage.
+See also: sociolinguistics.
+Number of words in English
+The General Explanations at the beginning of the Oxford English Dictionary states:
+The vocabulary of English is undoubtedly vast, but assigning a specific number to its size is more a matter of definition than of calculation.
+Unlike other languages, such as French, German, Spanish and Italian there is no Academy to define officially accepted words and spellings.
+Neologisms are coined regularly in medicine, science and technology and other fields, and new slang is constantly developed.
+Some of these new words enter wide usage; others remain restricted to small circles.
+Foreign words used in immigrant communities often make their way into wider English usage.
+Archaic, dialectal, and regional words might or might not be widely considered as "English".
+The Oxford English Dictionary, 2nd edition (OED2) includes over 600,000 definitions, following a rather inclusive policy:
+The editors of Webster's Third New International Dictionary, Unabridged (475,000 main headwords) in their preface, estimate the number to be much higher.
+It is estimated that about 25,000 words are added to the language each year.
+Word origins
+One of the consequences of the French influence is that the vocabulary of English is, to a certain extent, divided between those words which are Germanic (mostly West Germanic, with a smaller influence from the North Germanic branch) and those which are "Latinate" (Latin-derived, either directly or from Norman French or other Romance languages).
+Numerous sets of statistics have been proposed to demonstrate the origins of English vocabulary.
+None, as yet, is considered definitive by most linguists.
+A computerised survey of about 80,000 words in the old Shorter Oxford Dictionary (3rd ed.) was published in Ordered Profusion by Thomas Finkenstaedt and Dieter Wolff (1973) that estimated the origin of English words as follows:
+Langue d'oïl, including French and Old Norman: 28.3%
+Latin, including modern scientific and technical Latin: 28.24%
+Other Germanic languages (including words directly inherited from Old English): 25%
+Greek: 5.32%
+No etymology given: 4.03%
+Derived from proper names: 3.28%
+All other languages contributed less than 1%
+A survey by Joseph M. Williams in Origins of the English Language of 10,000 words taken from several thousand business letters gave this set of statistics:
+French (langue d'oïl): 41%
+"Native" English: 33%
+Latin: 15%
+Danish: 2%
+Dutch: 1%
+Other: 10%
+However, 83% of the 1,000 most-common, and all of the 100 most-common English words are Germanic.
+Dutch origins
+Words describing the navy, types of ships, and other objects or activities on the water are often from Dutch origin.
+Yacht (jacht) and cruiser (kruiser) are examples.
+French origins
+There are many words of French origin in English, such as competition, art, table, publicity, police, role, routine, machine, force, and many others that have been and are being anglicised; they are now pronounced according to English rules of phonology, rather than French.
+A large portion of English vocabulary is of French or Langues d'oïl origin, most derived from, or transmitted via, the Anglo-Norman spoken by the upper classes in England for several hundred years after the Norman conquest of England.
+Writing system
+English has been written using the Latin alphabet since around the ninth century.
+(Before that, Old English had been written using Anglo-Saxon runes.)
+The spelling system, or orthography, is multilayered, with elements of French, Latin and Greek spelling on top of the native Germanic system; it has grown to vary significantly from the phonology of the language.
+The spelling of words often diverges considerably from how they are spoken.
+Though letters and sounds may not correspond in isolation, spelling rules that take into account syllable structure, phonetics, and accents are 75% or more reliable.
+Some phonics spelling advocates claim that English is more than 80% phonetic.
+In general, the English language, being the product of many other languages and having only been codified orthographically in the 16th century, has fewer consistent relationships between sounds and letters than many other languages.
+The consequence of this orthographic history is that reading can be challenging.
+It takes longer for students to become completely fluent readers of English than of many other languages, including French, Greek, and Spanish.
+Basic sound-letter correspondence
+Only the consonant letters are pronounced in a relatively regular way:
+Written accents
+Unlike most other Germanic languages, English has almost no diacritics except in foreign loanwords (like the acute accent in café), and in the uncommon use of a diaeresis mark (often in formal writing) to indicate that two vowels are pronounced separately, rather than as one sound (e.g. naïve, Zoë).
+It is almost always acceptable to leave out the marks, especially in digital communications where the QWERTY keyboard lacks any marked letters, but it depends on the context where the word is used.
+Some English words retain the diacritic to distinguish them from others, such as animé, exposé, lamé, öre, øre, pâté, piqué, and rosé, though these are sometimes also dropped (résumé/resumé is usually spelled resume in the United States).
+There are loan words which occasionally use a diacritic to represent their pronunciation that is not in the original word, such as maté, from Spanish yerba mate, following the French usage, but they are extremely rare.
+Formal written English
+A version of the language almost universally agreed upon by educated English speakers around the world is called formal written English.
+It takes virtually the same form no matter where in the English-speaking world it is written.
+In spoken English, by contrast, there are a vast number of differences between dialects, accents, and varieties of slang, colloquial and regional expressions.
+In spite of this, local variations in the formal written version of the language are quite limited, being restricted largely to the spelling differences between British and American English.
+Basic and simplified versions
+To make English easier to read, there are some simplified versions of the language.
+One basic version is named Basic English, a constructed language with a small number of words created by Charles Kay Ogden and described in his book Basic English: A General Introduction with Rules and Grammar (1930).
+The language is based on a simplified version of English.
+Ogden said that it would take seven years to learn English, seven months for Esperanto, and seven weeks for Basic English, comparable with Ido.
+Thus Basic English is used by companies who need to make complex books for international use, and by language schools that need to give people some knowledge of English in a short time.
+Ogden did not put any words into Basic English that could be said with a few other words and he worked to make the words work for speakers of any other language.
+He put his set of words through a large number of tests and adjustments.
+He also made the grammar simpler, but tried to keep the grammar normal for English users.
+The concept gained its greatest publicity just after the Second World War as a tool for world peace.
+Although it was not built into a program, similar simplifications were devised for various international uses.
+Another version, Simplified English, exists, which is a controlled language originally developed for aerospace industry maintenance manuals.
+It offers a carefully limited and standardised subset of English.
+Simplified English has a lexicon of approved words and those words can only be used in certain ways.
+For example, the word close can be used in the phrase "Close the door" but not "do not go close to the landing gear".
+Esperanto
+is by far the most widely spoken constructed international auxiliary language in the world.
+Its name derives from Doktoro Esperanto, the pseudonym under which L. L. Zamenhof published the first book detailing Esperanto, the Unua Libro, in 1887.
+The word esperanto means 'one who hopes' in the language itself.
+Zamenhof's goal was to create an easy and flexible language that would serve as a universal second language to foster peace and international understanding.
+Esperanto has had continuous usage by a community estimated at between 100,000 and 2 million speakers for over a century.
+By most estimates, there are approximately one thousand native speakers.
+However, no country has adopted the language officially.
+Today, Esperanto is employed in world travel, correspondence, cultural exchange, conventions, literature, language instruction, television, and radio broadcasting.
+Also, there is an Esperanto Wikipedia that contains over 100,000 articles as of June 2008.
+There is evidence that learning Esperanto may provide a good foundation for learning languages in general.
+Some state education systems offer basic instruction and elective courses in Esperanto.

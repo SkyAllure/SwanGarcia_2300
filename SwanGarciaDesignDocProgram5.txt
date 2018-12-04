@@ -1,0 +1,93 @@
+Swan Garcia
+CS 2300-001
+
+Design Documentation Program 5
+
+Repo: https://github.com/SkyAllure/SwanGarcia_2300.git
+
+For this program I will use C# in the previous programs I used C, but I found it easier to find libraries to implement in C# and I am taking a C# course this semester and feel more comfortable with the language as the semester is coming to an end. The libraries that I will be using for this program is the Math.Net library for the SVD implementation and Bluebit.MatrixLibrary, I found both of these libraries through the “Add NuGet Packages” on Visual Studios. A SortedDictionary will be used to dynamically add words as you parse the files. Hopefully, by doing so it will automatically sort alphabetically.
+
+	Rank the documents by using the latent semantic indexing for the query.    
+static List wordDoc = new List();
+static SortedDictionary sortedList = new SortedDictionary(); 
+wordDoc.Sort(); 
+static string[] docs ={…} // test file will go here when given them/create them
+
+	Get the weights to develop a matrix and a query matrix. Documents can only retain 50 dimensions.
+static Random random = new Random();
+static int[,] MatrixWeight(int x, int y)
+{
+                 int[] matrix = new int[x, y];
+     for (int i = 0; i < x; i++){
+           for (int j = 0; j < y; j++){
+           matrixWeight[i,j] = random.Next(50);
+           return matrixWeight
+          }
+     } 
+}
+
+* Possible re-use some code from program 4. 
+
+	Decompose matrix
+A = USV^T
+var decomp = new SVD (Mat);
+dcomp.ExecuteDecomposition();
+I will create a matrix for each letter U, S, V and T (uMat = decomp.u;).
+
+	Create a new vector which will hold the eigenvector value, that will be the coordinates (Possible implement a rank 2). Find if the word is a 1 or 0 and similar to a term document matrix.
+public static void Vector()
+{
+   decompMatrix = new double[wordDoc.Count, docs.Length-1];
+   for (int j = 0; j < docs.Length; j++)
+   {
+       Vector = new double[wordDoc.Count];
+for (int i = 0; i < wordlist.Count; i++)
+   {
+       if (j != 0) 
+          {
+             decompMatrix[i, j-1] = termDoc;
+           }
+        if (j = 0)
+       {  
+         q[i] = termDoc;
+       }
+ }
+   	     }
+	}
+
+	A new vector query will be found. 
+q = q^T TU_k S_k
+queryMat = queryMat.Transpose()* T * U_k * S_k.Inverse();
+Also there will need implement a Vector.DotProduct that will the be divide my the vector query.
+ 
+	The query documents should be ranked in decreasing order. Not fully sure how I will do this part, but I know that I use the equation (q*d)/(|q||d|).
+
+Along with the steps above there will also be an implementation on reading in the text files and the list of stop words that need to be ignored. The stop word code will look something like the pseudo code bellow:
+
+public static bool StopWord(string words)
+{ 
+    for (int i = 0; i < wordDoc.Length; i++)
+    {
+       word[i] = word[i].Trim();
+     }
+          for (int i = 0; i < word.Length; i++)
+          {
+              if (match.Count <= 0 && word[i].Trim().Length > 0
+                 && !IgnoreList.StopWord(word[i]))
+                 termDoc.Add(words[i]);
+            } 
+       }
+   }
+
+As for a program as a whole I think that I will create different classes for the finding the weights, the SVD, the stop words, reading the text files and the main class will call all of the subclasses. 
+
+
+
+
+
+
+
+
+
+
+

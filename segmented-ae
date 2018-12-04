@@ -1,0 +1,1500 @@
+Turing's information unit, the ban, was used in the Ultra project, breaking the German Enigma machine code and hastening the end of WWII in Europe.
+Shannon himself defined an important concept now called the unicity distance.
+Based on the redundancy of the plaintext, it attempts to give a minimum amount of ciphertext necessary to ensure unique decipherability.
+Information theory leads us to believe it is much more difficult to keep secrets than it might first appear.
+A brute force attack can break systems based on asymmetric key algorithms or on most commonly used methods of symmetric key algorithms (sometimes called secret key algorithms), such as block ciphers.
+The security of all such methods currently comes from the assumption that no known attack can break them in a practical amount of time.
+Information theoretic security refers to methods such as the one-time pad that are not vulnerable to such brute force attacks.
+In such cases, the positive conditional mutual information between the plaintext and ciphertext (conditioned on the  key) can ensure proper transmission, while the unconditional mutual information between the plaintext and ciphertext remains zero, resulting in absolutely secure communications.
+In other words, an eavesdropper would not be able to improve his or her guess of the plaintext by gaining knowledge of the ciphertext but not of the key.
+However, as in any other cryptographic system, care must be used to correctly apply even information-theoretically secure methods; the Venona project was able to crack the one-time pads of the Soviet Union due to their improper reuse of key material.
+Pseudorandom number generation
+Pseudorandom number generators are widely available in computer language libraries and application programs.
+They are, almost universally, unsuited to cryptographic use as they do not evade the deterministic nature of modern computer equipment and software.
+A class of improved random number generators is termed Cryptographically secure pseudorandom number generators, but even they require external to the software random seeds to work as intended.
+These can be obtained via extractors, if done carefully.
+The measure of sufficient randomness in extractors is min-entropy, a value related to Shannon entropy through Rényi entropy; Rényi entropy is also used in evaluating randomness in cryptographic systems.
+Although related, the distinctions among these measures mean that a random variable with high Shannon entropy is not necessarily satisfactory for use in an extractor and so for cryptography uses.
+Miscellaneous applications
+Information theory also has applications in gambling and investing, black holes, bioinformatics, and music.
+Italian language
+Italian (, or lingua italiana) is a Romance language spoken as a first language by about 63 million people, primarily in Italy.
+In Switzerland, Italian is one of four official languages.
+It is also the official language of San Marino.
+It is the primary language of the Vatican City.
+Standard Italian, adopted by the state after the unification of Italy, is based on Tuscan and is somewhat intermediate between Italo-Dalmatian languages of the South and Northern Italian dialects of the North.
+Unlike most other Romance languages, Italian has retained the contrast between short and long consonants which existed in Latin.
+As in most Romance languages, stress is distinctive.
+Of the Romance languages, Italian is considered to be one of the closest resembling Latin in terms of vocabulary.
+According to Ethnologue, lexical similarity is 89% with French, 87% with Catalan, 85% with Sardinian, 82% with Spanish, 78% with Rheto-Romance, and 77% with Romanian.
+It is affectionately called il parlar gentile (the gentle language) by its speakers.
+Writing system
+Italian is written using the Latin alphabet.
+The letters J, K, W, X and Y are not considered part of the standard Italian alphabet, but appear in loanwords (such as jeans, whisky, taxi).
+X has become a commonly used letter in genuine Italian words with the prefix extra-.
+J in Italian is an old-fashioned orthographic variant of I, appearing in the first name "Jacopo" as well as in some Italian place names, e.g., the towns of Bajardo, Bojano, Joppolo, Jesolo, Jesi, among numerous others, and in the alternate spelling Mar Jonio (also spelled Mar Ionio) for the Ionian Sea.
+J may also appear in many words from different dialects, but its use is discouraged in contemporary Italian, and it is not part of the standard 21-letter contemporary Italian alphabet.
+Each of these foreign letters had an Italian equivalent spelling: gi for j, c or ch for k, u or v for w (depending on what sound it makes), s, ss, or cs for x, and i for y.
+Italian uses the acute accent over the letter E (as in perché, why/because) to indicate a front mid-close vowel, and the grave accent (as in tè, tea) to indicate a front mid-open vowel.
+The grave accent is also used on letters A, I, O, and U to mark stress when it falls on the final vowel of a word (for instance gioventù, youth).
+Typically, the penultimate syllable is stressed.
+If syllables other than the last one are stressed, the accent is not mandatory, unlike in Spanish, and, in virtually all cases, it is omitted.
+In some cases, when the word is ambiguous (as principi), the accent mark is sometimes used in order to disambiguate its meaning (in this case, prìncipi, princes, or princìpi, principles).
+This is, however, not compulsory.
+Rare words with three or more syllables can confuse Italians themselves, and the pronunciation of Istanbul is a common example of a word in which placement of stress is not clearly established.
+Turkish, like French, tends to put the accent on ultimate syllable, but Italian doesn't.
+So we can hear "Istànbul" or "Ìstanbul".
+Another instance is the American State of Florida: the correct way to pronounce it in Italian is like in Spanish, "Florìda", but since there is an Italian word meaning the same ("flourishing"), "flòrida", and because of the influence of English, most Italians pronounce it that way.
+Dictionaries give the latter as an alternative pronunciation.
+The letter H at the beginning of a word is used to distinguish ho, hai, ha, hanno (present indicative of avere, 'to have') from o ('or'), ai ('to the'), a ('to'), anno ('year').
+In the spoken language this letter is always silent for the cases given above.
+H is also used in combinations with other letters (see below), but no phoneme <ipa/> exists in Italian.
+In foreign words entered in common use, like "hotel" or "hovercraft", the H is commonly silent, so they are pronounced as <ipa/> and <ipa/>
+The letter Z represents <ipa/>, for example: Zanzara <ipa/> (mosquito), or <ipa/>, for example: Nazione <ipa/> (nation), depending on context, though there are few minimal pairs.
+The same goes for S, which can represent <ipa/> or <ipa/>.
+However, these two phonemes are in complementary distribution everywhere except between two vowels in the same word, and even in such environment there are extremely few minimal pairs, so that this distinction is being lost in many varieties.
+The letters C and G represent affricates: [[Voiceless postalveolar affricate|<ipa/>]] as in "chair" and [[Voiced postalveolar affricate|<ipa/>]] as in "gem", respectively, before the front vowels I and E.
+They are pronounced as plosives <ipa/>, <ipa/> (as in "call" and "gall") otherwise.
+Front/back vowel rules for C and G are similar in French, Romanian, Spanish, and to some extent English (including Old English).
+Swedish and Norwegian have similar rules for K and G.
+(See also palatalization.)
+However, an H can be added between C or G and E or I to represent a plosive, and an I can be added between C or G and A, O or U to signal that the consonant is an affricate.
+For example:
+Note that the H is silent in the digraphs CH and GH, as also the I in cia, cio, ciu and even cie is not pronounced as a separate vowel, unless it carries the primary stress.
+For example, it is silent in ciao <ipa/> and cielo <ipa/>, but it is pronounced in farmacia <ipa/> and farmacie <ipa/>.
+There are three other special digraphs in Italian: GN, GL and SC.
+GN represents [[Palatal nasal|<ipa/>]].
+GL represents [[Palatal lateral approximant|<ipa/>]] only before i, and never at the beginning of a word, except in the personal pronoun and definite article gli.
+(Compare with Spanish ñ and ll, Portuguese nh and lh.)
+SC represents fricative [[Voiceless postalveolar fricative|<ipa/>]] before i or e.
+Except in the speech of some Northern Italians, all of these are normally geminate between vowels.
+In general, all letters or digraphs represent phonemes rather clearly, and, in standard varieties of Italian, there is little allophonic variation.
+The most notable exceptions are assimilation of /n/ in point of articulation before consonants, assimilatory voicing of /s/ to following voiced consonants, and vowel length (vowels are long in stressed open syllables, and short elsewhere) &mdash; compare with the enormous number of allophones of the English phoneme /t/.
+Spelling is clearly phonemic and difficult to mistake given a clear pronunciation.
+Exceptions are generally only found in foreign borrowings.
+There are fewer cases of dyslexia than among speakers of languages such as English , and the concept of a spelling bee is strange to Italians.
+History
+The history of the Italian language is long, but the modern standard of the language was largely shaped by relatively recent events.
+The earliest surviving texts which can definitely be called Italian (or more accurately, vernacular, as opposed to its predecessor Vulgar Latin) are legal formulae from the region of Benevento dating from 960-963.
+What would come to be thought of as Italian was first formalized in the first years of the 14th century through the works of Dante Alighieri, who mixed southern Italian languages, especially Sicilian, with his native Tuscan in his epic poems known collectively as the Commedia, to which Giovanni Boccaccio later affixed the title Divina.
+Dante's much-loved works were read throughout Italy and his written dialect became the "canonical standard" that all educated Italians could understand.
+Dante is still credited with standardizing the Italian language and, thus, the dialect of Tuscany became the basis for what would become the official language of Italy.
+Italy has always had a distinctive dialect for each city since the cities were until recently thought of as city-states.
+The latter now has considerable variety, however.
+As Tuscan-derived Italian came to be used throughout the nation, features of local speech were naturally adopted, producing various versions of Regional Italian.
+The most characteristic differences, for instance, between Roman Italian and Milanese Italian are the gemination of initial consonants and the pronunciation of stressed "e", and of "s" in some cases (e.g. va bene "all right": is pronounced <ipa/> by a Roman, <ipa/> by a Milanese; a casa "at home": Roman <ipa/>, Milanese <ipa/>).
+In contrast to the dialects of northern Italy, southern Italian dialects were largely untouched by the Franco-Occitan influences introduced to Italy, mainly by bards from France, during the Middle Ages.
+Even in the case of Northern Italian dialects, however, scholars are careful not to overstate the effects of outsiders on the natural indigenous developments of the languages.
+(See La Spezia-Rimini Line.)
+The economic might and relative advanced development of Tuscany at the time (Late Middle Ages), gave its dialect weight, though Venetian remained widespread in medieval Italian commercial life.
+Also, the increasing cultural relevance of Florence during the periods of 'Umanesimo (Humanism)' and the Rinascimento (Renaissance) made its volgare (dialect), or rather a refined version of it, a standard in the arts.
+The re-discovery of Dante's De vulgari eloquentia and a renewed interest in linguistics in the 16th century sparked a debate which raged throughout Italy concerning which criteria should be chosen to establish a modern Italian standard to be used as much as a literary as a spoken language.
+Scholars were divided into three factions: the purists, headed by Pietro Bembo who in his Gli Asolani claimed that the language might only be based on the great literary classics (notably, Petrarch, and Boccaccio but not Dante as Bembo believed that the Divine Comedy was not dignified enough as it used elements from other dialects), Niccolò Machiavelli and other Florentines who preferred the version spoken by ordinary people in their own times, and the Courtesans like Baldassarre Castiglione and Gian Giorgio Trissino who insisted that each local vernacular must contribute to the new standard.
+Eventually Bembo's ideas prevailed, the result being the publication of the first Italian dictionary in 1612 and the foundation of the Accademia della Crusca in Florence (1582-3), the official legislative body of the Italian language.
+Italian literature's first modern novel, I Promessi Sposi (The Betrothed), by Alessandro Manzoni further defined the standard by "rinsing" his Milanese 'in the waters of the Arno" (Florence's river), as he states in the Preface to his 1840 edition.
+After unification a huge number of civil servants and soldiers recruited from all over the country introduced many more words and idioms from their home dialects ("ciao" is Venetian, "panettone" is Milanese etc.).
+Classification
+Italian is most closely related to the other two Italo-Dalmatian languages, Sicilian and the extinct Dalmatian.
+The three are part of the Italo-Western grouping of the Romance languages, which are a subgroup of the Italic branch of Indo-European.
+Geographic distribution
+The total speakers of Italian as maternal language are between 60 and 70 million.
+The speakers who use Italian as second or cultural language are estimated around 110-120 million .
+Italian is the official language of Italy and San Marino, and one of the official languages of Switzerland, spoken mainly in Ticino and Grigioni cantons, a region referred to as Italian Switzerland.
+It is also the second official language in some areas of Istria, in Slovenia and Croatia, where an Italian minority exists.
+It is the primary language of the Vatican City and is widely used and taught in Monaco and Malta.
+It is also widely understood in France with over one million speakers (especially in Corsica and the County of Nice, areas that historically spoke Italian dialects before annexation to France), and in Albania.
+Italian is also spoken by some in former Italian colonies in Africa (Libya, Somalia and Eritrea).
+However, its use has sharply dropped off since the colonial period.
+In Eritrea Italian is widely understood .
+In fact, for fifty years, during the colonial period, Italian was the language of instruction, but as of 1997, there is only one Italian language school remaining, with 470 pupils.
+In Somalia Italian used to be a major language but due to the civil war and lack of education only the older generation still uses it.
+Italian and Italian dialects are widely used by Italian immigrants and many of their descendants (see Italians) living throughout Western Europe (especially France, Germany, Belgium, Switzerland, the United Kingdom and Luxembourg), the United States, Canada, Australia, and Latin America (especially Uruguay, Brazil, Argentina, and Venezuela).
+In the United States, Italian speakers are most commonly found in four cities: Boston (7,000), Chicago (12,000), New York City (140,000), and Philadelphia (15,000).
+In Canada there are large Italian-speaking communities in Montreal (120,000) and Toronto (195,000).
+Italian is the second most commonly-spoken language in Australia, where 353,605 Italian Australians, or 1.9% of the population, reported speaking Italian at home in the 2001 Census.
+In 2001 there were 130,000 Italian speakers in Melbourne, and 90,000 in Sydney.
+Italian language education
+Italian is widely taught in many schools around the world, but rarely as the first non-native language of pupils; in fact, Italian generally is the fourth or fifth most taught second-language in the world.
+In anglophone parts of Canada, Italian is, after French, the third most taught language.
+In francophone Canada it is third after English.
+In the United States and the United Kingdom, Italian ranks fourth (after Spanish-French-German and French-German-Spanish respectively).
+Throughout the world, Italian is the fifth most taught non-native language, after English, French, Spanish, and German.
+In the European Union, Italian is spoken as a mother tongue by 13% of the population (64 million, mainly in Italy itself) and as a second language by 3% (14 million); among EU member states, it is most likely to be desired (and therefore learned) as a second language in Malta (61%), Croatia (14%), Slovenia (12%), Austria (11%), Romania (8%), France (6%), and Greece (6%).
+It is also an important second language in Albania and Switzerland, which are not EU members or candidates.
+Influence and derived languages
+From the late 19th to the mid 20th century, thousands of Italians settled in Argentina, Uruguay and southern Brazil, where they formed a very strong physical and cultural presence (see the Italian diaspora).
+In some cases, colonies were established where variants of Italian dialects were used, and some continue to use a derived dialect.
+An example is Rio Grande do Sul, Brazil, where Talian is used and in the town of Chipilo near Puebla, Mexico each continuing to use a derived form of Venetian dating back to the 19th century.
+Another example is Cocoliche, an Italian-Spanish pidgin once spoken in Argentina and especially in Buenos Aires, and Lunfardo.
+Rioplatense Spanish, and particularly the speech of the city of Buenos Aires, has intonation patterns that resemble those of Italian dialects, due to the fact that Argentina had a constant, large influx of Italian settlers since the second half of the nineteenth century; initially primarily from Northern Italy then, since the beginning of the twentieth century, mostly from Southern Italy.
+Lingua Franca
+Starting in late medieval times, Italian language variants replaced Latin to become the primary commercial language for much of Europe and Mediterranean Sea (especially the Tuscan and Venetian variants).
+This became solidified during the Renaissance with the strength of Italian banking and the rise of humanism in the arts.
+During the period of the Renaissance, Italy held artistic sway over the rest of Europe.
+All educated European gentlemen were expected to make the Grand Tour, visiting Italy to see its great historical monuments and works of art.
+It thus became expected that educated Europeans would learn at least some Italian; the English poet John Milton, for instance, wrote some of his early poetry in Italian.
+In England, Italian became the second most common modern language to be learned, after French (though the classical languages, Latin and Greek, came first).
+However, by the late eighteenth century, Italian tended to be replaced by German as the second modern language on the curriculum.
+Yet Italian loanwords continue to be used in most other European languages in matters of art and music.
+Today, the Italian language continues to be used as a lingua franca in some environments.
+Within the Catholic church Italian is known by a large part of the ecclesiastic hierarchy, and is used in substitution of Latin in some official documents.
+The presence of Italian as the primary language in the Vatican City indicates not only use within the Holy See, but also throughout the world where an episcopal seat is present.
+It continues to be used in music and opera.
+Other examples where Italian is sometimes used as a means communication is in some sports (sometimes in football and motorsports) and in the design and fashion industries.
+Dialects
+In Italy, all Romance languages spoken as the vernacular, other than standard Italian and other unrelated, non-Italian languages, are termed "Italian dialects".
+Many Italian dialects are, in fact, historical languages in their own right.
+These include recognized language groups such as Friulian, Neapolitan, Sardinian, Sicilian, Venetian, and others, and regional variants of these languages such as Calabrian.
+The division between dialect and language has been used by scholars (such as by Francesco Bruni) to distinguish between the languages that made up the Italian koine, and those which had very little or no part in it, such as Albanian, Greek, German, Ladin, and Occitan, which are still spoken by minorities.
+Dialects are generally not used for general mass communication and are usually limited to native speakers in informal contexts.
+In the past, speaking in dialect was often deprecated as a sign of poor education.
+Younger generations, especially those under 35 (though it may vary in different areas), speak almost exclusively standard Italian in all situations, usually with local accents and idioms.
+Regional differences can be recognized by various factors: the openness of vowels, the length of the consonants, and influence of the local dialect (for example, annà replaces andare in the area of Rome for the infinitive "to go").
+Sounds
+<ipa/>
+Vowels
+Italian has seven vowel phonemes: <ipa/>, <ipa/>, <ipa/>, <ipa/>, <ipa/>, <ipa/>, <ipa/>.
+The pairs <ipa/>-<ipa/> and <ipa/>-<ipa/> are seldom distinguished in writing and often confused, even though most varieties of Italian employ both phonemes consistently.
+Compare, for example: "perché" <ipa/> (why, because) and "senti" <ipa/> (you listen, you are listening, listen!), employed by some northern speakers, with <ipa/> and <ipa/>, as pronounced by most central and southern speakers.
+As a result, the usage is strongly indicative of a person's origin.
+The standard (Tuscan) usage of these vowels is listed in vocabularies, and employed outside Tuscany mainly by specialists, especially actors and very few (television) journalists.
+These are truly different phonemes, however: compare <ipa/> (fishing) and <ipa/> (peach), both spelled pesca .
+Similarly <ipa/> ('barrel') and <ipa/> ('beatings'), both spelled botte, discriminate <ipa/> and <ipa/> .
+In general, vowel combinations usually pronounce each vowel separately.
+Diphthongs exist (e.g. uo, iu, ie, ai), but are limited to an unstressed u or i before or after a stressed vowel.
+The unstressed u in a diphthong approximates the English semivowel w, the unstressed i approximates the semivowel y.
+E.g.: buono <ipa/>, ieri <ipa/>.
+Triphthongs exist in Italian as well, like "continuiamo" ("we continue").
+Three vowel combinations exist only in the form semiconsonant (<ipa/> or <ipa/>), followed by a vowel, followed by a desinence vowel (usually <ipa/>), as in miei, suoi, or two semiconsonants followed by a vowel, as the group -uia- exemplified above, or -iuo- in the word aiuola.
+Mobile diphthongs
+Many Latin words with a short e or o have Italian counterparts with a mobile diphthong (ie and uo respectively).
+When the vowel sound is stressed, it is pronounced and written as a diphthong; when not stressed, it is pronounced and written as a single vowel.
+So Latin focus gave rise to Italian fuoco (meaning both "fire" and "optical focus"): when unstressed, as in focale ("focal") the "o" remains alone.
+Latin pes (more precisely its accusative form pedem) is the source of Italian piede (foot): but unstressed "e" was left unchanged in pedone (pedestrian) and pedale (pedal).
+From Latin iocus comes Italian giuoco ("play", "game"), though in this case gioco is more common: giocare means "to play (a game)".
+From Latin homo comes Italian uomo (man), but also umano (human) and ominide (hominid).
+From Latin ovum comes Italian uovo (egg) and ovaie (ovaries).
+(The same phenomenon occurs in Spanish: juego (play, game) and jugar (to play), nieve (snow) and nevar (to snow)).
+Consonants
+Two symbols in a table cell denote the voiceless and voiced consonant, respectively.
+Nasals undergo assimilation when followed by a consonant, e.g., when preceding a velar (<ipa/> or <ipa/>) only <ipa/> appears, etc.
+Italian has geminate, or double, consonants, which are distinguished by length.
+Length is distinctive for all consonants except for <ipa/>, <ipa/>, <ipa/>, <ipa/> <ipa/>, which are always geminate, and <ipa/> which is always single.
+Geminate plosives and affricates are realised as lengthened closures.
+Geminate fricatives, nasals, and <ipa/> are realized as lengthened continuants.
+The flap consonant <ipa/> is typically dialectal, and it is called erre moscia.
+The correct standard pronunciation is <ipa/>.
+Of special interest to the linguistic study of Italian is the Gorgia Toscana, or "Tuscan Throat", the weakening or lenition of certain intervocalic consonants in Tuscan dialects.
+See also Syntactic doubling.
+Assimilation
+Italian has few diphthongs, so most unfamiliar diphthongs that are heard in foreign words (in particular, those beginning with vowel "a", "e", or "o") will be assimilated as the corresponding diaeresis (i.e., the vowel sounds will be pronounced separately).
+Italian phonotactics do not usually permit polysyllabic nouns and verbs to end with consonants, excepting poetry and song, so foreign words may receive extra terminal vowel sounds.
+Grammar
+Common variations in the writing systems
+Some variations in the usage of the writing system may be present in practical use.
+These are scorned by educated people, but they are so common in certain contexts that knowledge of them may be useful.
+Usage of x instead of per: this is very common among teenagers and in SMS abbreviations.
+The multiplication operator is pronounced "per" in Italian, and so it is sometimes used to replace the word "per", which means "for"; thus, for example, "per te" ("for you") is shortened to "x te" (compare with English "4 U").
+Words containing per can also have it replaced with x: for example, perché (both "why" and "because") is often shortened as xché or xké or x' (see below).
+This usage might be useful to jot down quick notes or to fit more text into the low character limit of an SMS, but it is considered unacceptable in formal writing.
+Usage of foreign letters such as k, j and y, especially in nicknames and SMS language: ke instead of che, Giusy instead of Giuseppina (or sometimes Giuseppe).
+This is curiously mirrored in the usage of i in English names such as Staci instead of Stacey, or in the usage of c in Northern Europe (Jacob instead of Jakob).
+The use of "k" instead of "ch" or "c" to represent a plosive sound is documented in some historical texts from before the standardization of the Italian language; however, that usage is no longer standard in Italian.
+Possibly because it is associated with the German language, the letter "k" has sometimes also been used in satire to suggest that a political figure is an authoritarian or even a "pseudo-nazi": Francesco Cossiga was famously nicknamed Kossiga by rioting students during his tenure as minister of internal affairs.
+[Cf. the politicized spelling Amerika in the USA.]
+Usage of the following abbreviations is limited to the electronic communications media and is deprecated in all other cases: nn instead of non (not), cmq instead of comunque (anyway, however), cm instead of come (how, like, as), d instead of di (of), (io/loro) sn instead of (io/loro) sono (I am/they are), (io) dv instead of (io) devo (I must/I have to) or instead of dove (where), (tu) 6 instead of (tu) sei (you are).
+Inexperienced typists often replace accents with apostrophes, such as in perche<nowiki>'</nowiki> instead of perché.
+Uppercase È is particularly rare, as it is absent from the Italian keyboard layout, and is very often written as E (even though there are several ways of producing the uppercase È on a computer).
+This never happens in books or other professionally typeset material.
+Samples
+Examples
+Cheers: "Salute!"
+English: inglese <ipa/>
+Good-bye: arrivederci <ipa/>
+Hello: ciao <ipa/>
+Good day: buon giorno <ipa/>
+Good evening: buona sera <ipa/>
+Yes: sì <ipa/>
+No: no <ipa/>
+How are you? : Come stai <ipa/> (informal); Come sta <ipa/> (formal)
+Sorry: mi dispiace <ipa/>
+Excuse me: scusa <ipa/> (informal); scusi <ipa/> (formal)
+Again: di nuovo, /<ipa/>/; ancora /<ipa/>/
+Always: sempre /<ipa/>/
+When: quando <ipa/>
+Where: dove <ipa/>
+Why/Because: perché <ipa/>
+How: come <ipa/>
+How much is it?: quanto costa?
+<ipa/>
+Thank you!: grazie!
+<ipa/>
+Bon appetit: buon appetito <ipa/>
+You're welcome!: prego!
+<ipa/>
+I love you: Ti amo <ipa/>, Ti voglio bene <ipa/>.
+The difference is that you use "Ti amo" when you are in a romantic relationship, "Ti voglio bene" in any other occasion (to parents, to relatives, to friends...)
+Counting to twenty:
+One: uno <ipa/>
+Two: due <ipa/>
+Three: tre <ipa/>
+Four: quattro <ipa/>
+Five: cinque <ipa/>
+Six: sei <ipa/>
+Seven: sette <ipa/>
+Eight: otto <ipa/>
+Nine: nove <ipa/>
+Ten: dieci <ipa/>
+Eleven: undici <ipa/>
+Twelve: dodici <ipa/>
+Thirteen: tredici <ipa/>
+Fourteen: quattordici <ipa/>
+Fifteen: quindici <ipa/>
+Sixteen: sedici <ipa/>
+Seventeen: diciassette <ipa/>
+Eighteen: diciotto <ipa/>
+Nineteen: diciannove <ipa/>
+Twenty: venti <ipa/>
+The days of the week:
+Monday: lunedì <ipa/>
+Tuesday: martedì <ipa/>
+Wednesday: mercoledì <ipa/>
+Thursday: giovedì <ipa/>
+Friday: venerdì <ipa/>
+Saturday: sabato <ipa/>
+Sunday: domenica <ipa/>
+Sample texts
+There is a recording of Dante's Divine Comedy read by Lino Pertile available at http://etcweb.princeton.edu/dante/pdp/
+Japanese language
+<foreign/> is a language spoken by over 130 million people in Japan and in Japanese emigrant communities.
+It is related to the Ryukyuan languages, but whatever relationships with other languages it may have remain undemonstrated.
+It is an agglutinative language and is distinguished by a complex system of honorifics reflecting the hierarchical nature of Japanese society, with verb forms and particular vocabulary to indicate the relative status of speaker, listener and the third person mentioned in conversation whether he is there or not.
+The sound inventory of Japanese is relatively small, and it has a lexically distinct pitch-accent system.
+It is a mora-timed language.
+The Japanese language is written with a combination of three different types of scripts: Chinese characters called kanji (漢字 / かんじ), and two syllabic scripts made up of modified Chinese characters, hiragana (平仮名 / ひらがな) and katakana (片仮名 / カタカナ).
+The Latin alphabet, rōmaji (ローマ字), is also often used in modern Japanese, especially for company names and logos, advertising, and when entering Japanese text into a computer.
+Western style Arabic numerals are generally used for numbers, but traditional Sino-Japanese numerals are also commonplace.
+Japanese vocabulary has been heavily influenced by loanwords from other languages.
+A vast number of words were borrowed from Chinese, or created from Chinese models, over a period of at least 1,500 years.
+Since the late 19th century, Japanese has borrowed a considerable number of words from Indo-European languages, primarily English.
+Because of the special trade relationship between Japan and first Portugal in the 16th century, and then mainly the Netherlands in the 17th century, Portuguese, German and Dutch have also been influential.
+Geographic distribution
+Although Japanese is spoken almost exclusively in Japan, it has been and sometimes still is spoken elsewhere.
+When Japan occupied Korea, Taiwan, parts of the Chinese mainland, and various Pacific islands before and during World War II, locals in those countries were forced to learn Japanese in empire-building programs.
+As a result, there are many people in these countries who can speak Japanese in addition to the local languages.
+Japanese emigrant communities (the largest of which are to be found in Brazil) sometimes employ Japanese as their primary language.
+Approximately 5% of Hawaii residents speak Japanese, with Japanese ancestry the largest single ancestry in the state (over 24% of the population).
+Japanese emigrants can also be found in Peru, Argentina, Australia (especially Sydney, Brisbane, and Melbourne), the United States (notably California, where 1.2% of the population has Japanese ancestry, and Hawaii), and the Philippines (particularly in Davao and Laguna).
+Their descendants, who are known as <foreign/> (<foreign/>, literally Japanese descendants), however, rarely speak Japanese fluently after the second generation.
+There are estimated to be several million non-Japanese studying the language as well.
+Official status
+Japanese is the de facto official language of Japan.
+There is a form of the language considered standard: <foreign/> Standard Japanese, or <foreign/> the common language.
+The meanings of the two terms are almost the same.
+<foreign/> or <foreign/> is a conception that forms the counterpart of dialect.
+This normative language was born after the <foreign/> from the language spoken in uptown Tokyo for communicating necessity.
+<foreign/> is taught in schools and used on television and in official communications, and is the version of Japanese discussed in this article.
+Formerly, standard <foreign/> was different from <foreign/>.
+The two systems have different rules of grammar and some variance in vocabulary.
+<foreign/> was the main method of writing Japanese until about 1900; since then <foreign/> gradually extended its influence and the two methods were both used in writing until the 1940s.
+<foreign/> still has some relevance for historians, literary scholars, and lawyers (many Japanese laws that survived World War II are still written in <foreign/>, although there are ongoing efforts to modernize their language).
+<foreign/> is the predominant method of both speaking and writing Japanese today, although <foreign/> grammar and vocabulary are occasionally used in modern Japanese for effect.
+Dialects
+Dozens of dialects are spoken in Japan.
+The profusion is due to many factors, including the length of time the archipelago has been inhabited, its mountainous island terrain, and Japan's long history of both external and internal isolation.
+Dialects typically differ in terms of pitch accent, inflectional morphology, vocabulary, and particle usage.
+Some even differ in vowel and consonant inventories, although this is uncommon.
+The main distinction in Japanese accents is between <foreign/> and <foreign/>, though Kyūshū-type dialects form a third, smaller group.
+Within each type are several subdivisions.
+Kyoto-Osaka-type dialects are in the central region, with borders roughly formed by Toyama, Kyōto, Hyōgo, and Mie Prefectures; most Shikoku dialects are also that type.
+The final category of dialects are those that are descended from the Eastern dialect of Old Japanese; these dialects are spoken in Hachijō-jima island and few islands.
+Dialects from peripheral regions, such as Tōhoku or Tsushima, may be unintelligible to speakers from other parts of the country.
+The several dialects of Kagoshima in southern Kyūshū are famous for being unintelligible not only to speakers of standard Japanese but to speakers of nearby dialects elsewhere in Kyūshū as well.
+This is probably due in part to the Kagoshima dialects' peculiarities of pronunciation, which include the existence of closed syllables (i.e., syllables that end in a consonant, such as <ipa/> or <ipa/> for Standard Japanese <ipa/> "spider").
+A dialects group of Kansai is spoken and known by many Japanese, and Osaka dialect in particular is associated with comedy (See Kansai dialect).
+Dialects of Tōhoku and North Kantō are associated with typical farmers.
+The Ryūkyūan languages, spoken in Okinawa and Amami Islands that are politically part of Kagoshima, are distinct enough to be considered a separate branch of the Japonic family.
+But many Japanese common people tend to consider the Ryūkyūan languages as dialects of Japanese.
+Not only is each language unintelligible to Japanese speakers, but most are unintelligible to those who speak other Ryūkyūan languages.
+Recently, Standard Japanese has become prevalent nationwide (including the Ryūkyū islands) due to education, mass media, and increase of mobility networks within Japan, as well as economic integration.
+Sounds
+<ipa/>
+Japanese vowels are "pure" sounds.
+The only unusual vowel is the high back vowel <ipa/> , which is like <ipa/>, but compressed instead of rounded.
+Japanese has five vowels, and vowel length is phonemic, so each one has both a short and a long version.
+Some Japanese consonants have several allophones, which may give the impression of a larger inventory of sounds.
+However, some of these allophones have since become phonemic.
+For example, in the Japanese language up to and including the first half of the twentieth century, the phonemic sequence <ipa/> was palatalized and realized phonetically as <ipa/>, approximately chi ; however, now <ipa/> and <ipa/> are distinct, as evidenced by words like tī <ipa/> "Western style tea" and chii <ipa/> "social status."
+The 'r' of the Japanese language (technically a lateral apical postalveolar flap), is of particular interest, sounding to most English speakers to be something between an 'l' and a retroflex 'r' depending on its position in a word.
+The syllabic structure and the phonotactics are very simple: the only consonant clusters allowed within a syllable consist of one of a subset of the consonants plus <ipa/>.
+These type of clusters only occur in onsets.
+However, consonant clusters across syllables are allowed as long as the two consonants are a nasal followed by a homo-organic consonant.
+Consonant length (gemination) is also phonemic.
+Grammar
+Sentence structure
+Japanese word order is classified as Subject Object Verb.
+However, unlike many Indo-European languages, Japanese sentences only require that verbs come last for intelligibility.
+This is because the Japanese sentence elements are marked with particles that identify their grammatical functions.
+The basic sentence structure is topic-comment.
+For example, <foreign/> (<foreign/>).
+<foreign/> ("this") is the topic of the sentence, indicated by the particle -wa.
+The verb is <foreign/>, a copula, commonly translated as "to be" or "it is" (though there are other verbs that can be translated as "to be").
+As a phrase, <foreign/> is the comment.
+This sentence loosely translates to "As for this person, (it) is Mr./Mrs./Miss Tanaka."
+Thus Japanese, like Chinese, Korean, and many other Asian languages, is often called a topic-prominent language, which means it has a strong tendency to indicate the topic separately from the subject, and the two do not always coincide.
+The sentence <foreign/>　(<foreign/>) literally means, "As for elephants, (their) noses are long".
+The topic is <foreign/> "elephant", and the subject is <foreign/> "nose".
+Japanese is a pro-drop language, meaning that the subject or object of a sentence need not be stated if it is obvious from context.
+In addition, it is commonly felt, particularly in spoken Japanese, that the shorter a sentence is, the better.
+As a result of this grammatical permissiveness and tendency towards brevity, Japanese speakers tend naturally to omit words from sentences, rather than refer to them with pronouns.
+In the context of the above example, <foreign/> would mean "[their] noses are long," while <foreign/> by itself would mean "[they] are long."
+A single verb can be a complete sentence: <foreign/>
+"[I / we / they / etc] did [it]!".
+In addition, since adjectives can form the predicate in a Japanese sentence (below), a single adjective can be a complete sentence: <foreign/>
+"[I'm] jealous [of it]!".
+While the language has some words that are typically translated as pronouns, these are not used as frequently as pronouns in some Indo-European languages, and function differently.
+Instead, Japanese typically relies on special verb forms and auxiliary verbs to indicate the direction of benefit of an action: "down" to indicate the out-group gives a benefit to the in-group; and "up" to indicate the in-group gives a benefit to the out-group.
+Here, the in-group includes the speaker and the out-group doesn't, and their boundary depends on context.
+For example, <foreign/> (literally, "explained" with a benefit from the out-group to the in-group) means "[he/she/they] explained it to [me/us]".
+Similarly, <foreign/> (literally, "explained" with a benefit from the in-group to the out-group) means "[I/we] explained [it] to [him/her/them]".
+Such beneficiary auxiliary verbs thus serve a function comparable to that of pronouns and prepositions in Indo-European languages to indicate the actor and the recipient of an action.
+Japanese "pronouns" also function differently from most modern Indo-European pronouns (and more like nouns) in that they can take modifiers as any other noun may.
+For instance, one cannot say in English:
+*The amazed he ran down the street. (grammatically incorrect)
+But one can grammatically say essentially the same thing in Japanese:
+<foreign/> (grammatically correct)
+This is partly due to the fact that these words evolved from regular nouns, such as <foreign/> "you" (<foreign/> "lord"), <foreign/> "you" (<foreign/> "that side, yonder"), and <foreign/> "I" (<foreign/> "servant").
+This is why some linguists do not classify Japanese "pronouns" as pronouns, but rather as referential nouns.
+Japanese personal pronouns are generally used only in situations requiring special emphasis as to who is doing what to whom.
+The choice of words used as pronouns is correlated with the sex of the speaker and the social situation in which they are spoken: men and women alike in a formal situation generally refer to themselves as <foreign/> (<foreign/> "private") or <foreign/> (also <foreign/>), while men in rougher or intimate conversation are much more likely to use the word <foreign/> (<foreign/> "oneself", "myself") or <foreign/>.
+Similarly, different words such as <foreign/>, <foreign/>, and <foreign/> (<foreign/>, more formally <foreign/> "the one before me") may be used to refer to a listener depending on the listener's relative social position and the degree of familiarity between the speaker and the listener.
+When used in different social relationships, the same word may have positive (intimate or respectful) or negative (distant or disrespectful) connotations.
+Japanese often use titles of the person referred to where pronouns would be used in English.
+For example, when speaking to one's teacher, it is appropriate to use <foreign/> (<foreign/>, teacher), but inappropriate to use <foreign/>.
+This is because <foreign/> is used to refer to people of equal or lower status, and one's teacher has allegedly higher status.
+For English speaking learners of Japanese, a frequent beginners mistake is to include <foreign/> or <foreign/> at the beginning of sentences as one would with I or you in English.
+Though these sentences are not grammatically incorrect, even in formal settings it would be considered unnatural and would equate in English to repeatedly using a noun where a pronoun would suffice.
+Inflection and conjugation
+Japanese nouns have no grammatical number, gender or article aspect.
+The noun <foreign/> (<foreign/>) may refer to a single book or several books; <foreign/> (<foreign/>) can mean "person" or "people"; and <foreign/> (<foreign/>) can be "tree" or "trees".
+Where number is important, it can be indicated by providing a quantity (often with a counter word) or (rarely) by adding a suffix.
+Words for people are usually understood as singular.
+Thus <foreign/> usually means Mr./Mrs./Miss. Tanaka.
+Words that refer to people and animals can be made to indicate a group of individuals through the addition of a collective suffix (a noun suffix that indicates a group), such as <foreign/>, but this is not a true plural: the meaning is closer to the English phrase "and company".
+A group described as <foreign/> may include people not named Tanaka.
+Some Japanese nouns are effectively plural, such as <foreign/> "people" and <foreign/> "we/us", while the word <foreign/> "friend" is considered singular, although plural in form.
+Verbs are conjugated to show tenses, of which there are two: past and present, or non-past, which is used for the present and the future.
+For verbs that represent an ongoing process, the -te iru form indicates a continuous (or progressive) tense.
+For others that represent a change of state, the <foreign/> form indicates a perfect tense.
+For example, <foreign/> means "He has come (and is still here)", but <foreign/> means "He is eating".
+Questions (both with an interrogative pronoun and yes/no questions) have the same structure as affirmative sentences, but with intonation rising at the end.
+In the formal register, the question particle <foreign/> is added.
+For example, <foreign/> (<foreign/>) "It is OK" becomes <foreign/> (<foreign/>) "Is it OK?".
+In a more informal tone sometimes the particle <foreign/> (<foreign/>) is added instead to show a personal interest of the speaker: <foreign/>
+"Why aren't (you) coming?".
+Some simple queries are formed simply by mentioning the topic with an interrogative intonation to call for the hearer's attention: <foreign/>
+"(What about) this?"; <foreign/> (<foreign/>) "(What's your) name?".
+Negatives are formed by inflecting the verb.
+For example, <foreign/> (<foreign/>) "I will eat bread" or "I eat bread" becomes <foreign/> (<foreign/>) "I will not eat bread" or "I do not eat bread".
+The so-called <foreign/> verb form is used for a variety of purposes: either progressive or perfect aspect (see above); combining verbs in a temporal sequence (<foreign/> "I'll eat breakfast and leave at once"), simple commands, conditional statements and permissions (<foreign/> "May I go out?"), etc.
+The word <foreign/> (plain), <foreign/> (polite) is the copula verb.
+It corresponds approximately to the English be, but often takes on other roles, including a marker for tense, when the verb is conjugated into its past form <foreign/> (plain), <foreign/> (polite).
+This comes into use because only <foreign/> adjectives and verbs can carry tense in Japanese.
+Two additional common verbs are used to indicate existence ("there is") or, in some contexts, property: <foreign/> (negative <foreign/>) and <foreign/> (negative <foreign/>), for inanimate and animate things, respectively.
+For example, <foreign/> "There's a cat", <foreign/> "[I] haven't got a good idea".
+Note that the negative forms of the verbs <foreign/> and <foreign/> are actually i-adjectives and inflect as such, e.g. <foreign/> "There was no cat".
+The verb "to do" (<foreign/>, polite form <foreign/>) is often used to make verbs from nouns (<foreign/> "to cook", <foreign/> "to study", etc.) and has been productive in creating modern slang words.
+Japanese also has a huge number of compound verbs to express concepts that are described in English using a verb and a preposition (e.g. <foreign/> "to fly out, to flee," from <foreign/> "to fly, to jump" + <foreign/> "to put out, to emit").
+There are three types of adjective (see also Japanese adjectives):
+<foreign/> <foreign/>, or <foreign/> adjectives, which have a conjugating ending <foreign/> (<foreign/>) (such as <foreign/> <foreign/> "to be hot") which can become past (<foreign/> <foreign/> "it was hot"), or negative (<foreign/> <foreign/> "it is not hot").
+Note that <foreign/> is also an <foreign/> adjective, which can become past (<foreign/> <foreign/> "it was not hot").
+<foreign/> <foreign/> "a hot day".
+<foreign/> <foreign/>, or <foreign/> adjectives, which are followed by a form of the copula, usually <foreign/>.
+For example <foreign/> (strange)
+<foreign/> <foreign/> "a strange person".
+<foreign/> <foreign/>, also called true adjectives, such as <foreign/> "that"
+<foreign/> <foreign/> "that mountain".
+Both <foreign/> and <foreign/> may predicate sentences.
+For example,
+<foreign/> <foreign/>
+"The rice is hot."
+<foreign/> <foreign/>
+"He's strange."
+Both inflect, though they do not show the full range of conjugation found in true verbs.
+The <foreign/> in Modern Japanese are few in number, and unlike the other words, are limited to directly modifying nouns.
+They never predicate sentences.
+Examples include <foreign/> "big", <foreign/> "this", <foreign/> "so-called" and <foreign/> "amazing".
+Both <foreign/> and <foreign/> form adverbs, by following with <foreign/> in the case of <foreign/>:
+<foreign/> <foreign/> "become strange",
+and by changing <foreign/> to <foreign/> in the case of <foreign/>:
+<foreign/> <foreign/> "become hot".
+The grammatical function of nouns is indicated by postpositions, also called particles.
+These include for example:
+<foreign/> <foreign/> for the nominative case.
+Not necessarily a subject.
+<foreign/><foreign/>
+"He did it."
+<foreign/> <foreign/> for the dative case.
+<foreign/> <foreign/> "Please give it to Mr. Tanaka."
+It is also used for the lative case, indicating a motion to a location.
+<foreign/> <foreign/> "I want to go to Japan."
+<foreign/> <foreign/> for the genitive case, or nominalizing phrases.
+<foreign/> <foreign/> "my camera"
+<foreign/> <foreign/> "(I) like going skiing."
+<foreign/> <foreign/> for the accusative case.
+Not necessarily an object.
+<foreign/> <foreign/>
+"What will (you) eat?"
+<foreign/> <foreign/> for the topic.
+It can co-exist with case markers above except <foreign/>, and it overrides <foreign/> and <foreign/>.
+<foreign/> <foreign/>
+"As for me, Thai food is good."
+The nominative marker <foreign/> after <foreign/> is hidden under <foreign/>.
+(Note that English generally makes no distinction between sentence topic and subject.)
+Note: The difference between <foreign/> and <foreign/> goes beyond the English distinction between sentence topic and subject.
+While <foreign/> indicates the topic, which the rest of the sentence describes or acts upon, it carries the implication that the subject indicated by <foreign/> is not unique, or may be part of a larger group.
+<foreign/>
+"As for Mr. Ikeda, he is forty-two years old."
+Others in the group may also be of that age.
+Absence of <foreign/> often means the subject is the focus of the sentence.
+<foreign/>
+"It is Mr. Ikeda who is forty-two years old."
+This is a reply to an implicit or explicit question who in this group is forty-two years old.
+Politeness
+Unlike most western languages, Japanese has an extensive grammatical system to express politeness and formality.
+Most relationships are not equal in Japanese society.
+The differences in social position are determined by a variety of factors including job, age, experience, or even psychological state (e.g., a person asking a favour tends to do so politely).
+The person in the lower position is expected to use a polite form of speech, whereas the other might use a more plain form.
+Strangers will also speak to each other politely.
+Japanese children rarely use polite speech until they are teens, at which point they are expected to begin speaking in a more adult manner.
+See uchi-soto.
+Whereas <foreign/> (<foreign/>) (polite language) is commonly an inflectional system, <foreign/> (<foreign/>) (respectful language) and <foreign/> (<foreign/>) (humble language) often employ many special honorific and humble alternate verbs: <foreign/> "go" becomes <foreign/> in polite form, but is replaced by <foreign/> in honorific speech and <foreign/> or <foreign/> in humble speech.
+The difference between honorific and humble speech is particularly pronounced in the Japanese language.
+Humble language is used to talk about oneself or one's own group (company, family) whilst honorific language is mostly used when describing the interlocutor and his/her group.
+For example, the <foreign/> suffix ("Mr" "Mrs." or "Miss") is an example of honorific language.
+It is not used to talk about oneself or when talking about someone from one's company to an external person, since the company is the speaker's "group".
+When speaking directly to one's superior in one's company or when speaking with other employees within one's company about a superior, a Japanese person will use vocabulary and inflections of the honorific register to refer to the in-group superior and his or her speech and actions.
+When speaking to a person from another company (i.e., a member of an out-group), however, a Japanese person will use the plain or the humble register to refer to the speech and actions of his or her own in-group superiors.
+In short, the register used in Japanese to refer to the person, speech, or actions of any particular individual varies depending on the relationship (either in-group or out-group) between the speaker and listener, as well as depending on the relative status of the speaker, listener, and third-person referents.
+For this reason, the Japanese system for explicit indication of social register is known as a system of "relative honorifics."
+This stands in stark contrast to the Korean system of "absolute honorifics," in which the same register is used to refer to a particular individual (e.g. one's father, one's company president, etc.) in any context regardless of the relationship between the speaker and interlocutor.
+Thus, polite Korean speech can sound very presumptuous when translated verbatim into Japanese, as in Korean it is acceptable and normal to say things like "Our Mr. Company-President..." when communicating with a member of an out-group, which would be very inappropriate in a Japanese social context.
+Most nouns in the Japanese language may be made polite by the addition of <foreign/> or <foreign/> as a prefix.
+<foreign/> is generally used for words of native Japanese origin, whereas <foreign/> is affixed to words of Chinese derivation.
+In some cases, the prefix has become a fixed part of the word, and is included even in regular speech, such as <foreign/> 'cooked rice; meal.'
+Such a construction often indicates deference to either the item's owner or to the object itself.
+For example, the word <foreign/> 'friend,' would become <foreign/> when referring to the friend of someone of higher status (though mothers often use this form to refer to their children's friends).
+On the other hand, a polite speaker may sometimes refer to <foreign/> 'water' as <foreign/> in order to show politeness.
+Most Japanese people employ politeness to indicate a lack of familiarity.
+That is, they use polite forms for new acquaintances, but if a relationship becomes more intimate, they no longer use them.
+This occurs regardless of age, social class, or gender.
+Vocabulary
+The original language of Japan, or at least the original language of a certain population that was ancestral to a significant portion of the historical and present Japanese nation, was the so-called <foreign/> (<foreign/> or infrequently <foreign/>, i.e. "Yamato words"), which in scholarly contexts is sometimes referred to as <foreign/> (<foreign/> or rarely <foreign/>, i.e. the <foreign/> words").
+In addition to words from this original language, present-day Japanese includes a great number of words that were either borrowed from Chinese or constructed from Chinese roots following Chinese patterns.
+These words, known as <foreign/> (<foreign/>), entered the language from the fifth century onwards via contact with Chinese culture.
+According to a Japanese dictionary Shinsen-kokugojiten (新選国語辞典), Chinese-based words comprise 49.1% of the total vocabulary, Wago is 33.8% and other foreign words are 8.8%.
+Like Latin-derived words in English, <foreign/> words typically are perceived as somewhat formal or academic compared to equivalent Yamato words.
+Indeed, it is generally fair to say that an English word derived from Latin/French roots typically corresponds to a Sino-Japanese word in Japanese, whereas a simpler Anglo-Saxon word would best be translated by a Yamato equivalent.
+A much smaller number of words has been borrowed from Korean and Ainu.
+Japan has also borrowed a number of words from other languages, particularly ones of European extraction, which are called <foreign/>.
+This began with borrowings from Portuguese in the 16th century, followed by borrowing from Dutch during Japan's long isolation of the Edo period.
+With the Meiji Restoration and the reopening of Japan in the 19th century, borrowing occurred from German, French and English.
+Currently, words of English origin are the most commonly borrowed.
+In the Meiji era, the Japanese also coined many neologisms using Chinese roots and morphology to translate Western concepts.
+The Chinese and Koreans imported many of these pseudo-Chinese words into Chinese, Korean, and Vietnamese via their kanji in the late 19th and early 20th centuries.
+For example, <foreign/> <foreign/> ("politics"), and <foreign/> <foreign/> ("chemistry") are words derived from Chinese roots that were first created and used by the Japanese, and only later borrowed into Chinese and other East Asian languages.
+As a result, Japanese, Chinese, Korean, and Vietnamese share a large common corpus of vocabulary in the same way a large number of Greek- and Latin-derived words are shared among modern European languages, although many academic words formed from such roots were certainly coined by native speakers of other languages, such as English.
+In the past few decades, <foreign/> (made-in-Japan English) has become a prominent phenomenon.
+Words such as <foreign/> <foreign/> (< one + pattern, "to be in a rut", "to have a one-track mind") and <foreign/>　<foreign/> (< skin + -ship, "physical contact"), although coined by compounding English roots, are nonsensical in most non-Japanese contexts; exceptions exist in nearby languages such as Korean however, which often use words such as skinship and rimokon (remote control) in the same way as in Japanese.
+Additionally, many native Japanese words have become commonplace in English, due to the popularity of many Japanese cultural exports.
+Words such as futon, haiku, judo, kamikaze, karaoke, karate, ninja, origami, rickshaw (from <foreign/> <foreign/>), samurai, sayonara, sumo, sushi, tsunami, tycoon and many others have become part of the English language.
+See list of English words of Japanese origin for more.
+Writing system
+Literacy was introduced to Japan in the form of the Chinese writing system, by way of Baekje before the 5th century.
+Using this language, the Japanese emperor Yūryaku sent a letter to a Chinese emperor Liu Song in 478 CE.
+After the ruin of Baekje, Japan invited scholars from China to learn more of the Chinese writing system.
+Japanese Emperors gave an official rank to Chinese scholars (続守言/薩弘格/袁晋卿) and spread the use of Chinese characters from the 7th century to the 8th century.
+At first, the Japanese wrote in Classical Chinese, with Japanese names represented by characters used for their meanings and not their sounds.
+Later, during the seventh century CE, the Chinese-sounding phoneme principle was used to write pure Japanese poetry and prose (comparable to Akkadian's retention of Sumerian cuneiform), but some Japanese words were still written with characters for their meaning and not the original Chinese sound.
+This is when the history of Japanese as a written language begins in its own right.
+By this time, the Japanese language was already distinct from the Ryukyuan languages.
+The Korean settlers and their descendants used Kudara-on or Baekje pronunciation (百済音), which was also called Tsushima-pronunciation (対馬音) or Go-on (呉音).
+An example of this mixed style is the Kojiki, which was written in 712 AD.
+They then started to use Chinese characters to write Japanese in a style known as <foreign/>, a syllabic script which used Chinese characters for their sounds in order to transcribe the words of Japanese speech syllable by syllable.
+Over time, a writing system evolved.
+Chinese characters (kanji) were used to write either words borrowed from Chinese, or Japanese words with the same or similar meanings.
+Chinese characters were also used to write grammatical elements, were simplified, and eventually became two syllabic scripts: hiragana and katakana.
+Modern Japanese is written in a mixture of three main systems: kanji, characters of Chinese origin used to represent both Chinese loanwords into Japanese and a number of native Japanese morphemes; and two syllabaries: hiragana and katakana.
+The Latin alphabet is also sometimes used.
+Arabic numerals are much more common than the kanji when used in counting, but kanji numerals are still used in compounds, such as <foreign/> <foreign/> ("unification").
+Hiragana are used for words without kanji representation, for words no longer written in kanji, and also following kanji to show conjugational endings.
+Because of the way verbs (and adjectives) in Japanese are conjugated, kanji alone cannot fully convey Japanese tense and mood, as kanji cannot be subject to variation when written without losing its meaning.
+For this reason, hiragana are suffixed to the ends of kanji to show verb and adjective conjugations.
+Hiragana used in this way are called okurigana.
+Hiragana are also written in a superscript called furigana above or beside a kanji to show the proper reading.
+This is done to facilitate learning, as well as to clarify particularly old or obscure (or sometimes invented) readings.
+Katakana, like hiragana, are a syllabary; katakana are primarily used to write foreign words, plant and animal names, and for emphasis.
+For example "Australia" has been adapted as <foreign/> (<foreign/>), and "supermarket" has been adapted and shortened into <foreign/> (<foreign/>).
+The Latin alphabet (in Japanese referred to as Rōmaji (<foreign/>), literally "Roman letters") is used for some loan words like "CD" and "DVD", and also for some Japanese creations like "Sony".
+Historically, attempts to limit the number of kanji in use commenced in the mid-19th century, but did not become a matter of government intervention until after Japan's defeat in the Second World War.
+During the period of post-war occupation (and influenced by the views of some U.S. officials), various schemes including the complete abolition of kanji and exclusive use of rōmaji were considered.
+The <foreign/> ("common use kanji", originally called <foreign/> [kanji for general use]) scheme arose as a compromise solution.
+Japanese students begin to learn kanji from their first year at elementary school.
+A guideline created by the Japanese Ministry of Education, the list of <foreign/> ("education kanji", a subset of <foreign/>), specifies the 1,006 simple characters a child is to learn by the end of sixth grade.
+Children continue to study another 939 characters in junior high school, covering in total 1,945 <foreign/>.
+The official list of <foreign/> was revised several times, but the total number of officially sanctioned characters remained largely unchanged.
+As for kanji for personal names, the circumstances are somewhat complicated.
+<foreign/> and <foreign/> (an appendix of additional characters for names) are approved for registering personal names.
+Names containing unapproved characters are denied registration.
+However, as with the list of <foreign/>, criteria for inclusion were often arbitrary and led to many common and popular characters being disapproved for use.
+Under popular pressure and following a court decision holding the exclusion of common characters unlawful, the list of <foreign/> was substantially extended from 92 in 1951 (the year it was first decreed) to 983 in 2004.
+Furthermore, families whose names are not on these lists were permitted to continue using the older forms.
+Many writers rely on newspaper circulation to publish their work with officially sanctioned characters.
+This distribution method is more efficient than traditional pen and paper publications.
+Study by non-native speakers
+Many major universities throughout the world provide Japanese language courses, and a number of secondary and even primary schools worldwide offer courses in the language.
+International interest in the Japanese language dates from the 1800s but has become more prevalent following Japan's economic bubble of the 1980s and the global popularity of Japanese pop culture (such as anime and video games) since the 1990s.
+About 2.3 million people studied the language worldwide in 2003: 900,000 South Koreans, 389,000 Chinese, 381,000 Australians, and 140,000 Americans study Japanese in lower and higher educational institutions.
+In Japan, more than 90,000 foreign students study at Japanese universities and Japanese language schools, including 77,000 Chinese and 15,000 South Koreans in 2003.
+In addition, local governments and some NPO groups provide free Japanese language classes for foreign residents, including Japanese Brazilians and foreigners married to Japanese nationals.
+In the United Kingdom, studies are supported by the British Association for Japanese Studies.
+In Ireland, Japanese is offered as a language in the Leaving Certificate in some schools.
+The Japanese government provides standardised tests to measure spoken and written comprehension of Japanese for second language learners; the most prominent is the Japanese Language Proficiency Test (JLPT).
+The Japanese External Trade Organisation JETRO organises the Business Japanese Proficiency Test which tests the learner's ability to understand Japanese in a business setting.
+When learning Japanese in a college setting, students are usually first taught how to pronounce romaji.
+From that point, they are taught the two main syllabaries, with kanji usually being introduced in the second semester.
+Focus is usually first on polite (distal) speech, as students that might interact with native speakers would be expected to use.
+Casual speech and formal speech usually follow polite speech, as well as the usage of honourifics.
+Java (programming language)
+Java is a programming language originally developed by Sun Microsystems and released in 1995 as a core component of Sun Microsystems' Java platform.
+The language derives much of its syntax from C and C++ but has a simpler object model and fewer low-level facilities.
+Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of computer architecture.
+The original and reference implementation Java compilers, virtual machines, and class libraries were developed by Sun from 1995.
+As of May 2007, in compliance with the specifications of the Java Community Process, Sun made available most of their Java technologies as free software under the GNU General Public License.
+Others have also developed alternative implementations of these Sun technologies, such as the GNU Compiler for Java and GNU Classpath.
+History
+The Java language was created by James Gosling in June 1991 for use in one of his many set-top box projects.
+The language was initially called Oak, after an oak tree that stood outside Gosling's office—and also went by the name Green—and ended up later being renamed to Java, from a list of random words.
+Gosling's goals were to implement a virtual machine and a language that had a familiar C/C++ style of notation.
+The first public implementation was Java 1.0 in 1995.
+It promised "Write Once, Run Anywhere" (WORA), providing no-cost runtimes on popular platforms.
+It was fairly secure and its security was configurable, allowing network and file access to be restricted.
+Major web browsers soon incorporated the ability to run secure Java applets within web pages.
+Java quickly became popular.
+With the advent of Java 2, new versions had multiple configurations built for different types of platforms.
+For example, J2EE was for enterprise applications and the greatly stripped down version J2ME was for mobile applications.
+J2SE was the designation for the Standard Edition.
+In 2006, for marketing purposes, new J2 versions were renamed Java EE, Java ME, and Java SE, respectively.
+In 1997, Sun Microsystems approached the ISO/IEC JTC1 standards body and later the Ecma International to formalize Java, but it soon withdrew from the process.
+Java remains a de facto standard that is controlled through the Java Community Process.
+At one time, Sun made most of its Java implementations available without charge although they were proprietary software.
+Sun's revenue from Java was generated by the selling of licenses for specialized products such as the Java Enterprise System.
+Sun distinguishes between its Software Development Kit (SDK) and Runtime Environment (JRE) that is a subset of the SDK, the primary distinction being that in the JRE, the compiler, utility programs, and many necessary header files are not present.
+On 13 November 2006, Sun released much of Java as free and open-source software under the terms of the GNU General Public License (GPL).
+On 8 May 2007 Sun finished the process, making all of Java's core code free and open-source, aside from a small portion of code to which Sun did not hold the copyright.
+Philosophy
+Primary goals
+There were five primary goals in the creation of the Java language:
+It should use the object-oriented programming methodology.
+It should allow the same program to be executed on multiple operating systems.
+It should contain built-in support for using computer networks.
+It should be designed to execute code from remote sources securely.
+It should be easy to use by selecting what were considered the good parts of other object-oriented languages.
+Platform independence
+One characteristic, platform independence, means that programs written in the Java language must run similarly on any supported hardware/operating-system platform.
+One should be able to write a program once, compile it once, and run it anywhere.
+This is achieved by most Java compilers by compiling the Java language code halfway (to Java bytecode) – simplified machine instructions specific to the Java platform.
+The code is then run on a virtual machine (VM), a program written in native code on the host hardware that interprets and executes generic Java bytecode.
+(In some JVM versions, bytecode can also be compiled to native code, either before or during program execution, resulting in faster execution.)
+Further, standardized libraries are provided to allow access to features of the host machines (such as graphics, threading and networking) in unified ways.
+Note that, although there is an explicit compiling stage, at some point, the Java bytecode is interpreted or converted to native machine code by the JIT compiler.
+The first implementations of the language used an interpreted virtual machine to achieve portability.
+These implementations produced programs that ran slower than programs compiled to native executables, for instance written in C or C++, so the language suffered a reputation for poor performance.
+More recent JVM implementations produce programs that run significantly faster than before, using multiple techniques.
+One technique, known as just-in-time compilation (JIT), translates the Java bytecode into native code at the time that the program is run, which results in a program that executes faster than interpreted code but also incurs compilation overhead during execution.
+More sophisticated VMs use dynamic recompilation, in which the VM can analyze the behavior of the running program and selectively recompile and optimize critical parts of the program.
+Dynamic recompilation can achieve optimizations superior to static compilation because the dynamic compiler can base optimizations on knowledge about the runtime environment and the set of loaded classes, and can identify the hot spots (parts of the program, often inner loops, that take up the most execution time).
+JIT compilation and dynamic recompilation allow Java programs to take advantage of the speed of native code without losing portability.
+Another technique, commonly known as static compilation, is to compile directly into native code like a more traditional compiler.
+Static Java compilers, such as GCJ, translate the Java language code to native object code, removing the intermediate bytecode stage.
+This achieves good performance compared to interpretation, but at the expense of portability; the output of these compilers can only be run on a single architecture.
+Some see avoiding the VM in this manner as defeating the point of developing in Java; however it can be useful to provide both a generic bytecode version, as well as an optimised native code version of an application.
+Implementations
+Sun Microsystems officially licenses the Java Standard Edition platform for Microsoft Windows, Linux, and Solaris.
+Through a network of third-party vendors and licensees, alternative Java environments are available for these and other platforms.
+To qualify as a certified Java licensee, an implementation on any particular platform must pass a rigorous suite of validation and compatibility tests.
+This method enables a guaranteed level of compliance and platform through a trusted set of commercial and non-commercial partners.
+Sun's trademark license for usage of the Java brand insists that all implementations be "compatible".
+This resulted in a legal dispute with Microsoft after Sun claimed that the Microsoft implementation did not support the RMI and JNI interfaces and had added platform-specific features of their own.
+Sun sued in 1997, and in 2001 won a settlement of $20 million as well as a court order enforcing the terms of the license from Sun.
+As a result, Microsoft no longer ships Java with Windows, and in recent versions of Windows, Internet Explorer cannot support Java applets without a third-party plugin.
+However, Sun and others have made available Java run-time systems at no cost for those and other versions of Windows.
+Platform-independent Java is essential to the Java Enterprise Edition strategy, and an even more rigorous validation is required to certify an implementation.
+This environment enables portable server-side applications, such as Web services, servlets, and Enterprise JavaBeans, as well as with Embedded systems based on OSGi, using Embedded Java environments.
+Through the new GlassFish project, Sun is working to create a fully functional, unified open-source implementation of the Java EE technologies.
+Automatic memory management
+One of the ideas behind Java's automatic memory management model is that programmers be spared the burden of having to perform manual memory management.
+In some languages the programmer allocates memory for the creation of objects stored on the heap and the responsibility of later deallocating that memory also resides with the programmer.
+If the programmer forgets to deallocate memory or writes code that fails to do so, a memory leak occurs and the program can consume an arbitrarily large amount of memory.
+Additionally, if the program attempts to deallocate the region of memory more than once, the result is undefined and the program may become unstable and may crash.
+Finally, in non garbage collected environments, there is a certain degree of overhead and complexity of user-code to track and finalize allocations.
+Often developers may box themselves into certain designs to provide reasonable assurances that memory leaks will not occur.
+In Java, this potential problem is avoided by automatic garbage collection.
+The programmer determines when objects are created, and the Java runtime is responsible for managing the object's lifecycle.
+The program or other objects can reference an object by holding a reference to it (which, from a low-level point of view, is its address on the heap).
+When no references to an object remain, the unreachable object is eligible for release by the Java garbage collector - it may be freed automatically by the garbage collector at any time.
+Memory leaks may still occur if a programmer's code holds a reference to an object that is no longer needed—in other words, they can still occur but at higher conceptual levels.
+The use of garbage collection in a language can also affect programming paradigms.
+If, for example, the developer assumes that the cost of memory allocation/recollection is low, they may choose to more freely construct objects instead of pre-initializing, holding and reusing them.
+With the small cost of potential performance penalties (inner-loop construction of large/complex objects), this facilitates thread-isolation (no need to synchronize as different threads work on different object instances) and data-hiding.
+The use of transient immutable value-objects minimizes side-effect programming.
+Comparing Java and C++, it is possible in C++ to implement similar functionality (for example, a memory management model for specific classes can be designed in C++ to improve speed and lower memory fragmentation considerably), with the possible cost of adding comparable runtime overhead to that of Java's garbage collector, and of added development time and application complexity if one favors manual implementation over using an existing third-party library.
+In Java, garbage collection is built-in and virtually invisible to the developer.
+That is, developers may have no notion of when garbage collection will take place as it may not necessarily correlate with any actions being explicitly performed by the code they write.
+Depending on intended application, this can be beneficial or disadvantageous: the programmer is freed from performing low-level tasks, but at the same time loses the option of writing lower level code.
+Additionally, the garbage collection capability demands some attention to tuning the JVM, as large heaps will cause apparently random stalls in performance.
+Java does not support pointer arithmetic as is supported in, for example, C++.
+This is because the garbage collector may relocate referenced objects, invalidating such pointers.
+Another reason that Java forbids this is that type safety and security can no longer be guaranteed if arbitrary manipulation of pointers is allowed.
+Syntax
+The syntax of Java is largely derived from C++.
+Unlike C++, which combines the syntax for structured, generic, and object-oriented programming, Java was built exclusively as an object oriented language.
+As a result, almost everything is an object and all code is written inside a class.
+The exceptions are the intrinsic data types (ordinal and real numbers, boolean values, and characters), which are not classes for performance reasons.
+Hello, world program
+This is a minimal Hello world program in Java with syntax highlighting:
+<source/>
+To execute a Java program, the code is saved as a file named <code/>.
+It must first be compiled into bytecode using a Java compiler, which produces a file named <code/>.
+This class is then launched.
+The above example merits a bit of explanation.
+All executable statements in Java are written inside a class, including stand-alone programs.
+Source files are by convention named the same as the class they contain, appending the mandatory suffix .java.
+A <code/> that is declared <code/> is required to follow this convention.
+(In this case, the class <code/> is public, therefore the source must be stored in a file called Hello.java).
+The compiler will generate a class file for each class defined in the source file.
+The name of the class file is the name of the class, with .class appended.
+For class file generation, anonymous classes are treated as if their name was the concatenation of the name of their enclosing class, a $, and an integer.
+The keyword <code/> denotes that a method can be called from code in other classes, or that a class may be used by classes outside the class hierarchy.
+The keyword <code/> indicates that the method is a static method, associated with the class rather than object instances.
+The keyword <code/> indicates that the main method does not return any value to the caller.
+The method name "<code/>" is not a keyword in the Java language.
+It is simply the name of the method the Java launcher calls to pass control to the program.
+Java classes that run in managed environments such as applets and Enterprise Java Beans do not use or need a <code/> method.
+The main method must accept an array of <javadoc/> objects.
+By convention, it is referenced as <code/> although any other legal identifier name can be used.
+Since Java 5, the main method can also use variable arguments, in the form of <code/>, allowing the main method to be invoked with an arbitrary number of <code/> arguments.
+The effect of this alternate declaration is semantically identical (the <code/> parameter is still an array of <code/> objects), but allows an alternate syntax for creating and passing the array.
+The Java launcher launches Java by loading a given class (specified on the command line) and starting its <code/> method.
+Stand-alone programs must declare this method explicitly.
+The <code/> parameter is an array of <javadoc/> objects containing any arguments passed to the class.
+The parameters to <code/> are often passed by means of a command line.
+The printing facility is part of the Java standard library: The <javadoc/> class defines a public static field called <javadoc/>.
+The <code/> object is an instance of the <javadoc/> class and provides the method <javadoc/> for displaying data to the screen while creating a new line (standard out).
+A more comprehensive example
+<source/>
+The import statement imports the <javadoc/> class from the <javadoc/> package.
+The <code/> class declares a single <code/> field of type <code/> named <code/>.
+Every instance of the <code/> class has its own copy of the <code/> field.
+The private declaration means that no other class can access (read or write) the <code/> field.
+<code/> is a <code/> constructor.
+Constructors have the same name as the enclosing class they are declared in, and unlike a method, have no return type.
+A constructor is used to initialize an object that is a newly created instance of the class.
+The dialog returns a <code/> that is converted to an <code/> by the <javadoc/> method.
+The <code/> method is declared without the <code/> keyword.
+This means that the method is invoked using a specific instance of the <code/> class.
+(The reference used to invoke the method is passed as an undeclared parameter of type <code/> named <code/>.)
+The method tests the expression <code/> using the <code/> keyword to see if the remainder of dividing the <code/> field belonging to the instance of the class by two is zero.
+If this expression is true, then it prints Even; if this expression is false it prints Odd.
+(The <code/> field can be equivalently accessed as <code/>, which explicitly uses the undeclared <code/> parameter.)
+<code/> declares a local object reference variable in the <code/> method named <code/>.
+This variable can hold a reference to an object of type <code/>.
+The declaration initializes <code/> by first creating an instance of the <code/> class, using the <code/> keyword and the <code/> constructor, and then assigning this instance to the variable.
+The statement <code/> calls the calculate method.
+The instance of <code/> object referenced by the <code/> local variable is used to invoke the method and passed as the undeclared <code/> parameter to the <code/> method.
+For simplicity, error handling has been ignored in this example.
+Entering a value that is not a number will cause the program to crash.
+This can be avoided by catching and handling the <javadoc/> thrown by <code/>.
+Applet
+Java applets are programs that are embedded in other applications, typically in a Web page displayed in a Web browser.
+<source/>
+The <code/> statements direct the Java compiler to include the <javadoc/> and <javadoc/> classes in the compilation.
+The import statement allows these classes to be referenced in the source code using the simple class name (i.e. <code/>) instead of the fully qualified class name (i.e. <code/>).
+The <code/> class <code/> (subclasses) the <code/> class; the <code/> class provides the framework for the host application to display and control the lifecycle of the applet.
+The <code/> class is an Abstract Windowing Toolkit (AWT) <javadoc/>, which provides the applet with the capability to display a graphical user interface (GUI) and respond to user events.
+The <code/> class overrides the <javadoc/> method inherited from the <javadoc/> superclass to provide the code to display the applet.
+The <code/> method is passed a <code/> object that contains the graphic context used to display the applet.
+The <code/> method calls the graphic context <javadoc/> method to display the "Hello, world!" string at a pixel offset of (<code/>) from the upper-left corner in the applet's display.
+<source/>
+An applet is placed in an HTML document using the <code/> HTML element.
+The <code/> tag has three attributes set: <code/> specifies the name of the <code/> class and <code/> sets the pixel width and height of the applet.
+Applets may also be embedded in HTML using either the <code/> or <code/> element, although support for these elements by Web browsers is inconsistent.
+However, the <code/> tag is deprecated, so the <code/> tag is preferred where supported.
+The host application, typically a Web browser, instantiates the <code/> applet and creates an <javadoc/> for the applet.
+Once the applet has initialized itself, it is added to the AWT display hierarchy.
+The <code/> method is called by the AWT event dispatching thread whenever the display needs the applet to draw itself.
+Servlet
+Java Servlet technology provides Web developers with a simple, consistent mechanism for extending the functionality of a Web server and for accessing existing business systems.
+Servlets are server-side Java EE components that generate responses (typically HTML pages) to requests (typically HTTP requests) from clients.
+A servlet can almost be thought of as an applet that runs on the server side—without a face.
+<source/>
+The <code/> statements direct the Java compiler to include all of the public classes and interfaces from the <javadoc/> and <javadoc/> packages in the compilation.
+The <code/> class <code/> the <javadoc/> class; the <code/> class provides the interface for the server to forward requests to the servlet and control the servlet's lifecycle.
+The <code/> class overrides the <javadoc/> method defined by the <javadoc/> interface to provide the code for the service request handler.
+The <code/> method is passed a <javadoc/> object that contains the request from the client and a <javadoc/> object used to create the response returned to the client.
+The <code/> method declares that it <code/> the exceptions <javadoc/> and <javadoc/> if a problem prevents it from responding to the request.
+The <javadoc/> method in the response object is called to set the MIME content type of the returned data to "text/html".
+The <javadoc/> method in the response returns a <javadoc/> object that is used to write the data that is sent to the client.
+The <javadoc/> method is called to write the "Hello, world!" string to the response and then the <javadoc/> method is called to close the print writer, which causes the data that has been written to the stream to be returned to the client.
+JavaServer Page
+JavaServer Pages (JSPs) are server-side Java EE components that generate responses, typically HTML pages, to HTTP requests from clients.
+JSPs embed Java code in an HTML page by using the special delimiters <code/> and <code/>.
+A JSP is compiled to a Java servlet, a Java application in its own right, the first time it is accessed.
+After that, the generated servlet creates the response.
+Swing application
+Swing is a graphical user interface library for the Java SE platform.
+This example Swing application creates a single window with "Hello, world!" inside:
+<source/>
+The first <code/> statement directs the Java compiler to include the <javadoc/> class from the <javadoc/> package in the compilation; the second <code/> includes all of the public classes and interfaces from the <javadoc/> package.
+The <code/> class <code/> the <javadoc/> class; the <code/> class implements a window with a title bar and a close control.
+The <code/> constructor initializes the frame by first calling the superclass constructor, passing the parameter <code/>, which is used as the window's title.
+It then calls the <javadoc/> method inherited from <code/> to set the default operation when the close control on the title bar is selected to <javadoc/> — this causes the <code/> to be disposed of when the frame is closed (as opposed to merely hidden), which allows the JVM to exit and the program to terminate.
+Next, the layout of the frame is set to a <code/>; this tells Swing how to arrange the components that will be added to the frame.
+A <javadoc/> is created for the string "Hello, world!" and the <javadoc/> method inherited from the <javadoc/> superclass is called to add the label to the frame.
+The <javadoc/> method inherited from the <javadoc/> superclass is called to size the window and lay out its contents, in the manner indicated by the <code/>.
+The <code/> method is called by the JVM when the program starts.
+It instantiates a new <code/> frame and causes it to be displayed by calling the <javadoc/> method inherited from the <javadoc/> superclass with the boolean parameter <code/>.
+Note that once the frame is displayed, exiting the <code/> method does not cause the program to terminate because the AWT event dispatching thread remains active until all of the Swing top-level windows have been disposed.
+Criticism
+Java's performance has improved substantially since the early versions, and performance of JIT compilers relative to native compilers has in some tests been shown to be quite similar.
+The performance of the compilers does not necessarily indicate the performance of the compiled code; only careful testing can reveal the true performance issues in any system.
+The default look and feel of GUI applications written in Java using the Swing toolkit is very different from native applications.
+It is possible to specify a different look and feel through the pluggable look and feel system of Swing.
+Clones of Windows, GTK and Motif are supplied by Sun.
+Apple also provides an Aqua look and feel for Mac OS X.
+Though prior implementations of these looks and feels have been considered lacking, Swing in Java SE 6 addresses this problem by using more native widget drawing routines of the underlying platforms.
+Alternatively, third party toolkits such as wx4j, Qt Jambi or SWT may be used for increased integration with the native windowing system.
+As in C++ and some other object-oriented languages, variables of Java's primitive types were not originally objects.
+Values of primitive types are either stored directly in fields (for objects) or on the stack (for methods) rather than on the heap, as is the common case for objects (but see Escape analysis).
+This was a conscious decision by Java's designers for performance reasons.
+Because of this, Java was not considered to be a pure object-oriented programming language.
+However, as of Java 5.0, autoboxing enables programmers to write as if primitive types are their wrapper classes, with their object-oriented counterparts representing classes of their own, and freely interchange between them for improved flexibility.
+Java suppresses several features (such as operator overloading and multiple inheritance) for classes in order to simplify the language, to "save the programmers from themselves", and to prevent possible errors and anti-pattern design.
+This has been a source of criticism, relating to a lack of low-level features, but some of these limitations may be worked around.
+Java interfaces have always had multiple inheritance.
+Resources
+Java Runtime Environment
+The Java Runtime Environment, or JRE, is the software required to run any application deployed on the Java Platform.
+End-users commonly use a JRE in software packages and Web browser plugins.
+Sun also distributes a superset of the JRE called the Java 2 SDK (more commonly known as the JDK), which includes development tools such as the Java compiler, Javadoc, Jar and debugger.
+One of the unique advantages of the concept of a runtime engine is that errors (exceptions) should not 'crash' the system.
+Moreover, in runtime engine environments such as Java there exist tools that attach to the runtime engine and every time that an exception of interest occurs they record debugging information that existed in memory at the time the exception was thrown (stack and heap values).
+These Automated Exception Handling tools provide 'root-cause' information for exceptions in Java programs that run in production, testing or development environments.
+Components
+Java libraries are the compiled byte codes of source code developed by the JRE implementor to support application development in Java.
+Examples of these libraries are:
+The core libraries, which include:
+Collection libraries that implement data structures such as lists, dictionaries, trees and sets
+XML Processing (Parsing, Transforming, Validating) libraries
+Security
+Internationalization and localization libraries
+The integration libraries, which allow the application writer to communicate with external systems.
+These libraries include:
+The Java Database Connectivity (JDBC) API for database access
+Java Naming and Directory Interface (JNDI) for lookup and discovery
+RMI and CORBA for distributed application development
+User Interface libraries, which include:
+The (heavyweight, or native) Abstract Windowing Toolkit (AWT), which provides GUI components, the means for laying out those components and the means for handling events from those components
+The (lightweight) Swing libraries, which are built on AWT but provide (non-native) implementations of the AWT widgetry
+APIs for audio capture, processing, and playback
+A platform dependent implementation of Java virtual machine (JVM) that is the means by which the byte codes of the Java libraries and third party applications are executed
+Plugins, which enable applets to be run in Web browsers
+Java Web Start, which allows Java applications to be efficiently distributed to end users across the Internet
+Licensing and documentation
+APIs
+Sun has defined three platforms targeting different application environments and segmented many of its APIs so that they belong to one of the platforms.
+The platforms are:
+Java Platform, Micro Edition (Java ME) — targeting environments with limited resources,
+Java Platform, Standard Edition (Java SE) — targeting workstation environments, and
+Java Platform, Enterprise Edition (Java EE) — targeting large distributed enterprise or Internet environments.
+The classes in the Java APIs are organized into separate groups called packages.
+Each package contains a set of related interfaces, classes and exceptions.
+Refer to the separate platforms for a description of the packages available.
+The set of APIs is controlled by Sun Microsystems in cooperation with others through the Java Community Process program.
+Companies or individuals participating in this process can influence the design and development of the APIs.
+This process has been a subject of controversy.
+Language
+A language is a dynamic set of visual, auditory, or tactile symbols of communication and the elements used to manipulate them.
+Language can also refer to the use of such systems as a general phenomenon.
+Language is considered to be an exclusively human mode of communication; although other animals make use of quite sophisticated communicative systems, none of these are known to make use of all of the properties that linguists use to define language.
+Properties of language
+A set of agreed-upon symbols is only one feature of language; all languages must define the structural relationships between these symbols in a system of grammar.
+Rules of grammar are what distinguish language from other forms of communication.
+They allow a finite set of symbols to be manipulated to create a potentially infinite number of grammatical utterances.
+Another property of language is that its symbols are arbitrary.
+Any concept or grammatical rule can be mapped onto a symbol.
+Most languages make use of sound, but the combinations of sounds used do not have any inherent meaning – they are merely an agreed-upon convention to represent a certain thing by users of that language.
+For instance, there is nothing about the Spanish word <foreign/> itself that forces Spanish speakers to convey the idea of "nothing".
+Another set of sounds (for example, the English word nothing) could equally be used to represent the same concept, but all Spanish speakers have acquired or learned to correlate this meaning for this particular sound pattern.
+For Slovenian, Croatian, Serbian/Kosovan or Bosnian speakers on the other hand, <foreign/> means something else; it means "hope".
+The study of language
+Linguistics
+Linguistics is the scientific and philosophical study of language, encompassing a number of sub-fields.
+At the core of theoretical linguistics are the study of language structure (grammar) and the study of meaning (semantics).
+The first of these encompasses morphology (the formation and composition of words), syntax (the rules that determine how words combine into phrases and sentences) and phonology (the study of sound systems and abstract sound units).
+Phonetics is a related branch of linguistics concerned with the actual properties of speech sounds (phones), non-speech sounds, and how they are produced and perceived.
+Theoretical linguistics is mostly concerned with developing models of linguistic knowledge.
+The fields that are generally considered as the core of theoretical linguistics are syntax, phonology, morphology, and semantics.
+Applied linguistics attempts to put linguistic theories into practice through areas like translation, stylistics, literary criticism and theory, discourse analysis, speech therapy, speech pathology and foreign language teaching.
+History
+The historical record of linguistics begins in India with Pāṇini, the 5th century BCE grammarian who formulated 3,959 rules of Sanskrit morphology, known as the Aṣṭādhyāyī (अष्टाध्यायी) and with Tolkāppiyar, the 3rd century BCE grammarian of the Tamil work Tolkāppiyam. grammar is highly systematized and technical.
+Inherent in its analytic approach are the concepts of the phoneme, the morpheme, and the root; Western linguists only recognized the phoneme some two millennia later.
+Tolkāppiyar's work is perhaps the first to describe articulatory phonetics for a language.
+Its classification of the alphabet into consonants and vowels, and elements like nouns, verbs, vowels, and consonants, which he put into classes, were also breakthroughs at the time.
+In the Middle East, the Persian linguist Sibawayh (سیبویه) made a detailed and professional description of Arabic in 760 CE in his monumental work, Al-kitab fi al-nahw (الكتاب في النحو, The Book on Grammar), bringing many linguistic aspects of language to light.
+In his book, he distinguished phonetics from phonology.
+Later in the West, the success of science, mathematics, and other formal systems in the 20th century led many to attempt a formalization of the study of language as a "semantic code".
+This resulted in the academic discipline of linguistics, the founding of which is attributed to Ferdinand de Saussure.
+In the 20th century, substantial contributions to the understanding of language came from Ferdinand de Saussure, Hjelmslev, Émile Benveniste and Roman Jakobson, which are characterized as being highly systematic.
+Human languages
+Human languages are usually referred to as natural languages, and the science of studying them falls under the purview of linguistics.
+A common progression for natural languages is that they are considered to be first spoken, then written, and then an understanding and explanation of their grammar is attempted.
+Languages live, die, move from place to place, and change with time.
+Any language that ceases to change or develop is categorized as a dead language.
+Conversely, any language that is a living language, that is, it is in a continuous state of change, is known as a modern language.
+Making a principled distinction between one language and another is usually impossible.
+For instance, there are a few dialects of German similar to some dialects of Dutch.
+The transition between languages within the same language family is sometimes gradual (see dialect continuum).
+Some like to make parallels with biology, where it is not possible to make a well-defined distinction between one species and the next.
+In either case, the ultimate difficulty may stem from the interactions between languages and populations.
+(See Dialect or August Schleicher for a longer discussion.)
+The concepts of Ausbausprache, Abstandsprache and Dachsprache are used to make finer distinctions about the degrees of difference between languages or dialects.
+Artificial languages
+Constructed languages
+Some individuals and groups have constructed their own artificial languages, for practical, experimental, personal, or ideological reasons.
+International auxiliary languages are generally constructed languages that strive to be easier to learn than natural languages; other constructed languages strive to be more logical ("loglangs") than natural languages; a prominent example of this is Lojban.
+Some writers, such as J. R. R. Tolkien, have created fantasy languages, for literary, artistic or personal reasons.
+The fantasy language of the Klingon race has in recent years been developed by fans of the Star Trek series, including a vocabulary and grammar.
+Constructed languages are not necessarily restricted to the properties shared by natural languages.
+This part of ISO 639 also includes identifiers that denote constructed (or artificial) languages.
+In order to qualify for inclusion the language must have a literature and it must be designed for the purpose of human communication.
+Specifically excluded are reconstructed languages and computer programming languages.
+International auxiliary languages
+Some languages, most constructed, are meant specifically for communication between people of different nationalities or language groups as an easy-to-learn second language.
+Several of these languages have been constructed by individuals or groups.
+Natural, pre-existing languages may also be used in this way - their developers merely catalogued and standardized their vocabulary and identified their grammatical rules.
+These languages are called naturalistic.
+One such language, Latino Sine Flexione, is a simplified form of Latin.
+Two others, Occidental and Novial, were drawn from several Western languages.
+To date, the most successful auxiliary language is Esperanto, invented by Polish ophthalmologist Zamenhof.
+It has a relatively large community roughly estimated at about 2 million speakers worldwide, with a large body of literature, songs, and is the only known constructed language to have native speakers, such as the Hungarian-born American businessman George Soros.
+Other auxiliary languages with a relatively large number of speakers and literature are Interlingua and Ido.
+Controlled languages
+Controlled natural languages are subsets of natural languages whose grammars and dictionaries have been restricted in order to reduce or eliminate both ambiguity and complexity.
+The purpose behind the development and implementation of a controlled natural language typically is to aid non-native speakers of a natural language in understanding it, or to ease computer processing of a natural language.
+An example of a widely used controlled natural language is Simplified English, which was originally developed for aerospace industry maintenance manuals.
+Formal languages
+Mathematics and computer science use artificial entities called formal languages (including programming languages and markup languages, and some that are more theoretical in nature).
+These often take the form of character strings, produced by a combination of formal grammar and semantics of arbitrary complexity.
+Programming languages
+A programming language is an extreme case of a formal language that can be used to control the behavior of a machine, particularly a computer, to perform specific tasks.
+Programming languages are defined using syntactic and semantic rules, to determine structure and meaning respectively.
+Programming languages are used to facilitate communication about the task of organizing and manipulating information, and to express algorithms precisely.
+Some authors restrict the term "programming language" to those languages that can express all possible algorithms; sometimes the term "computer language" is used for artificial languages that are more limited.
+Animal communication
+The term "animal languages" is often used for non-human languages.
+Linguists do not consider these to be "language", but describe them as animal communication, because the interaction between animals in such communication is fundamentally different in its underlying principles from human language.
+Nevertheless, some scholars have tried to disprove this mainstream premise through experiments on training chimpanzees to talk.
+Karl von Frisch received the Nobel Prize in 1973 for his proof of the language and dialects of the bees.
+In several publicized instances, non-human animals have been taught to understand certain features of human language.
+Chimpanzees, gorillas, and orangutans have been taught hand signs based on American Sign Language.
+The African Grey Parrot, which possesses the ability to mimic human speech with a high degree of accuracy, is suspected of having sufficient intelligence to comprehend some of the speech it mimics.
+Most species of parrot, despite expert mimicry, are believed to have no linguistic comprehension at all.
+While proponents of animal communication systems have debated levels of semantics, these systems have not been found to have anything approaching human language syntax.
+Language model
+A statistical language model assigns a probability to a sequence of m words <math/> by means of a probability distribution.
+Language modeling is used in many natural language processing applications such as speech recognition, machine translation, part-of-speech tagging, parsing and information retrieval.
+In speech recognition and in data compression, such a model tries to capture the properties of a language, and to predict the next word in a speech sequence.
+When used in information retrieval, a language model is associated with a document in a collection.
+With query Q as input, retrieved documents are ranked based on the probability that the document's language model would generate the terms of the query, P(Q|Md).
+Estimating the probability of sequences can become difficult in corpora, in which phrases or sentences can be arbitrarily long and hence some sequences are not observed during training of the language model (data sparseness problem of overfitting).
+For that reason these models are often approximated using smoothed N-gram models.
+N-gram models
+In an n-gram model, the probability <math/> of observing the sentence w1,...,wm is approximated as
+<math/>
+Here, it is assumed that the probability of observing the ith word wi in the context history of the preceding i-1 words can be approximated by the probability of observing it in the shortened context history of the preceding n-1 words (nth order Markov property).
+The conditional probability can be calculated from n-gram frequency counts: <math/>
+The words bigram and trigram language model denote n-gram language models with n=2 and n=3, respectively.
+Example
+In a bigram (n=2) language model, the probability of the sentence I saw the red house is approximated as <math/>
+whereas in a trigram (n=3) language model, the approximation is <math/>
+Latent semantic analysis
+Latent semantic analysis (LSA) is a technique in natural language processing, in particular in vectorial semantics, of analyzing relationships between a set of documents and the terms they contain by producing a set of concepts related to the documents and terms.
+LSA was patented in 1988 (US Patent 4,839,853) by Scott Deerwester, Susan Dumais, George Furnas, Richard Harshman, Thomas Landauer, Karen Lochbaum and Lynn Streeter.
+In the context of its application to information retrieval, it is sometimes called latent semantic indexing (LSI).
+Occurrence matrix
+LSA can use a term-document matrix which describes the occurrences of terms in documents; it is a sparse matrix whose rows correspond to terms and whose columns correspond to documents, typically stemmed words that appear in the documents.
+A typical example of the weighting of the elements of the matrix is tf-idf (term frequency–inverse document frequency): the element of the matrix is proportional to the number of times the terms appear in each document, where rare terms are upweighted to reflect their relative importance.
+This matrix is also common to standard semantic models, though it is not necessarily explicitly expressed as a matrix, since the mathematical properties of matrices are not always used.
+LSA transforms the occurrence matrix into a relation between the terms and some concepts, and a relation between those concepts and the documents.
+Thus the terms and documents are now indirectly related through the concepts.
+Applications
+The new concept space typically can be used to:
+Compare the documents in the concept space (data clustering, document classification)......
+Find similar documents across languages, after analyzing a base set of translated documents (cross language retrieval).
+Find relations between terms (synonymy and polysemy).
+Given a query of terms, translate it into the concept space, and find matching documents (information retrieval).
+Synonymy and polysemy are fundamental problems in natural language processing:
+Synonymy is the phenomenon where different words describe the same idea.
+Thus, a query in a search engine may fail to retrieve a relevant document that does not contain the words which appeared in the query.
+For example, a search for "doctors" may not return a document containing the word "physicians", even though the words have the same meaning.
+Polysemy is the phenomenon where the same word has multiple meanings.
+So a search may retrieve irrelevant documents containing the desired words in the wrong meaning.
+For example, a botanist and a computer scientist looking for the word "tree" probably desire different sets of documents.
+Rank lowering
+After the construction of the occurrence matrix, LSA finds a low-rank approximation to the term-document matrix.
+There could be various reasons for these approximations:
+The original term-document matrix is presumed too large for the computing resources; in this case, the approximated low rank matrix is interpreted as an approximation (a "least and necessary evil").
+The original term-document matrix is presumed noisy: for example, anecdotal instances of terms are to be eliminated.
+From this point of view, the approximated matrix is interpreted as a de-noisified matrix (a better matrix than the original).
+The original term-document matrix is presumed overly sparse relative to the "true" term-document matrix.
+That is, the original matrix lists only the words actually in each document, whereas we might be interested in all words related to each document--generally a much larger set due to synonymy.
+The consequence of the rank lowering is that some dimensions are combined and depend on more than one term:
+{(car), (truck), (flower)} --> {(1.3452 * car + 0.2828 * truck), (flower)}
+This mitigates synonymy, as the rank lowering is expected to merge the dimensions associated with terms that have similar meanings.
+It also mitigates polysemy, since components of polysemous words that point in the "right" direction are added to the components of words that share a similar meaning.
+Conversely, components that point in other directions tend to either simply cancel out, or, at worst, to be smaller than components in the directions corresponding to the intended sense.
+Derivation
+Let <math/> be a matrix where element <math/> describes the occurrence of term <math/> in document <math/> (this can be, for example, the frequency).
+<math/> will look like this:
+<math/>
+Now a row in this matrix will be a vector corresponding to a term, giving its relation to each document:
+<math/>
+Likewise, a column in this matrix will be a vector corresponding to a document, giving its relation to each term:
+<math/>
+Now the dot product <math/> between two term vectors gives the correlation between the terms over the documents.
+The matrix product <math/> contains all these dot products.
+Element <math/> (which is equal to element <math/>) contains the dot product <math/> (<math/>).
+Likewise, the matrix <math/> contains the dot products between all the document vectors, giving their correlation over the terms: <math/>.
+Now assume that there exists a decomposition of <math/> such that <math/> and <math/> are orthonormal matrices and <math/> is a diagonal matrix.
+This is called a singular value decomposition (SVD):
+<math/>
+The matrix products giving us the term and document correlations then become
+<math/>
+Since <math/> and <math/> are diagonal we see that <math/> must contain the eigenvectors of <math/>, while <math/> must be the eigenvectors of <math/>.
+Both products have the same non-zero eigenvalues, given by the non-zero entries of <math/>, or equally, by the non-zero entries of <math/>.
+Now the decomposition looks like this:
+<math/>
+The values <math/> are called the singular values, and <math/> and <math/> the left and right singular vectors.
+Notice how the only part of <math/> that contributes to <math/> is the <math/> row.
+Let this row vector be called <math/>.
+Likewise, the only part of <math/> that contributes to <math/> is the <math/> column, <math/>.
+These are not the eigenvectors, but depend on all the eigenvectors.
+It turns out that when you select the <math/> largest singular values, and their corresponding singular vectors from <math/> and <math/>, you get the rank <math/> approximation to X with the smallest error (Frobenius norm).
+The amazing thing about this approximation is that not only does it have a minimal error, but it translates the term and document vectors into a concept space.
+The vector <math/> then has <math/> entries, each giving the occurrence of term <math/> in one of the <math/> concepts.
+Likewise, the vector <math/> gives the relation between document <math/> and each concept.
+We write this approximation as
+<math/>
+You can now do the following:
+See how related documents <math/> and <math/> are in the concept space by comparing the vectors <math/> and <math/> (typically by cosine similarity).
+This gives you a clustering of the documents.
+Comparing terms <math/> and <math/> by comparing the vectors <math/> and <math/>, giving you a clustering of the terms in the concept space.
+Given a query, view this as a mini document, and compare it to your documents in the concept space.
+To do the latter, you must first translate your query into the concept space.
+It is then intuitive that you must use the same transformation that you use on your documents:
+<math/>
+<math/>
+This means that if you have a query vector <math/>, you must do the translation <math/> before you compare it with the document vectors in the concept space.
+You can do the same for pseudo term vectors:
+<math/>
+<math/>
+<math/>
+Implementation
+The SVD is typically computed using large matrix methods (for example, Lanczos methods) but may also be computed incrementally and with greatly reduced resources via a neural network-like approach, which does not require the large, full-rank matrix to be held in memory (Gorrell and Webb, 2005).
+A fast, incremental, low-memory, large-matrix SVD algorithm has recently been developed (Brand, 2006).
+Unlike Gorrell and Webb's (2005) stochastic approximation, Brand's (2006) algorithm provides an exact solution.
+Limitations
+LSA has two drawbacks:
+The resulting dimensions might be difficult to interpret.
+For instance, in
+{(car), (truck), (flower)} --> {(1.3452 * car + 0.2828 * truck), (flower)}
+the (1.3452 * car + 0.2828 * truck) component could be interpreted as "vehicle".
+However, it is very likely that cases close to
+{(car), (bottle), (flower)} --> {(1.3452 * car + 0.2828 * bottle), (flower)}
+will occur.
+This leads to results which can be justified on the mathematical level, but have no interpretable meaning in natural language.
+The probabilistic model of LSA does not match observed data: LSA assumes that words and documents form a joint Gaussian model (ergodic hypothesis), while a Poisson distribution has been observed.
+Thus, a newer alternative is probabilistic latent semantic analysis, based on a multinomial model, which is reported to give better results than standard LSA .
+Linguistics
+Linguistics is the scientific study of language, encompassing a number of sub-fields.
+An important topical division is between the study of language structure (grammar) and the study of meaning (semantics).
+Grammar encompasses morphology (the formation and composition of words), syntax (the rules that determine how words combine into phrases and sentences) and phonology (the study of sound systems and abstract sound units).
+Phonetics is a related branch of linguistics concerned with the actual properties of speech sounds (phones), non-speech sounds, and how they are produced and perceived.
+Over the twentieth century, following the work of Noam Chomsky, linguistics came to be dominated by the Generativist school, which is chiefly concerned with explaining how human beings acquire language and the biological constraints on this acquisition; generative theory is modularist in character.
+While this remains the dominant paradigm, other linguistic theories have increasingly gained in popularity &mdash; cognitive linguistics being a prominent example.
+There are many sub-fields in linguistics, which may or may not be dominated by a particular theoretical approach: evolutionary linguistics, for example, attempts to account for the origins of language; historical linguistics explores language change; and sociolinguistics looks at the relation between linguistic variation and social structures.
+A variety of intellectual disciplines are relevant to the study of language.
+Although certain linguists have downplayed the relevance of some other fields, linguistics &mdash; like other sciences &mdash; is highly interdisciplinary and draws on work from such fields as psychology, informatics, computer science, philosophy, biology, human anatomy, neuroscience, sociology, anthropology, and acoustics.
+Names for the discipline
+Before the twentieth century (the word is first attested 1716), the term "philology" was commonly used to refer to the science of language, which was then predominately historical in focus.
+Since Ferdinand de Saussure's insistence on the importance of synchronic analysis, however, this focus has shifted and the term "philology" is now generally used for the "study of a language's grammar, history and literary tradition", especially in the USA., where it was never as popular as elsewhere in the sense "science of language".
+The term "linguistics" dates from 1847, although "linguist" in the sense a student of language" dates from 1641.
+It is now the usual academic term in English for the scientific study of language.
+Fundamental concerns and divisions
+Linguistics concerns itself with describing and explaining the nature of human language.
+Relevant to this are the questions of what is universal to language, how language can vary, and how human beings come to know languages.
+All humans (setting aside extremely pathological cases) achieve competence in whatever language is spoken (or signed, in the case of signed languages) around them when growing up, with apparently little need for explicit conscious instruction.
+While non-humans acquire their own communication systems, they do not acquire human language in this way (although many non-human animals can learn to respond to language, or can even be trained to use it to a degree).
+Therefore, linguists assume, the ability to acquire and use language is an innate, biologically-based potential of modern human beings, similar to the ability to walk.
+There is no consensus, however, as to the extent of this innate potential, or its domain-specificity (the degree to which such innate abilities are specific to language), with some theorists claiming that there is a very large set of highly abstract and specific binary settings coded into the human brain, while others claim that the ability to learn language is a product of general human cognition.
+It is, however, generally agreed that there are no strong genetic differences underlying the differences between languages: an individual will acquire whatever language(s) they are exposed to as a child, regardless of parentage or ethnic origin.
+Linguistic structures are pairings of meaning and form (which may consist of sound patterns, movements of the hand, written symbols, and so on); such pairings are known as Saussurean signs.
+Linguists may specialize in some sub-area of linguistic structure, which can be arranged in the following terms, from form to meaning:
+Phonetics, the study of the physical properties of speech (or signed) production and perception
+Phonology, the study of sounds (adjusted appropriately for signed languages) as discrete, abstract elements in the speaker's mind that distinguish meaning
+Morphology, the study of internal structures of words and how they can be modified
+Syntax, the study of how words combine to form grammatical sentences
+Semantics, the study of the meaning of words (lexical semantics) and fixed word combinations (phraseology), and how these combine to form the meanings of sentences
+Pragmatics, the study of how utterances are used (literally, figuratively, or otherwise) in communicative acts
+Discourse analysis, the analysis of language use in texts (spoken, written, or signed)
+Many linguists would agree that these divisions overlap considerably, and the independent significance of each of these areas is not universally acknowledged.
+Regardless of any particular linguist's position, each area has core concepts that foster significant scholarly inquiry and research.
+Intersecting with these domains are fields arranged around the kind of external factors that are considered.
+For example
+Linguistic typology, the study of the common properties of diverse unrelated languages, properties that may, given sufficient attestation, be assumed to be innate to human language capacity.
+Stylistics, the study of linguistic factors that place a discourse in context.
+Developmental linguistics, the study of the development of linguistic ability in an individual, particularly the acquisition of language in childhood.
+Historical linguistics or Diachronic linguistics, the study of language change.
+Language geography, the study of the spatial patterns of languages.
+Evolutionary linguistics, the study of the origin and subsequent development of language.
+Psycholinguistics, the study of the cognitive processes and representations underlying language use.
+Sociolinguistics, the study of social patterns and norms of linguistic variability.
+Clinical linguistics, the application of linguistic theory to the area of Speech-Language Pathology.
+Neurolinguistics, the study of the brain networks that underlie grammar and communication.
+Biolinguistics, the study of natural as well as human-taught communication systems in animals compared to human language.
+Computational linguistics, the study of computational implementations of linguistic structures.
+Applied linguistics, the study of language related issues applied in everyday life, notably language. policies, planning, and education.
+Constructed language fits under Applied linguistics.
+The related discipline of semiotics investigates the relationship between signs and what they signify.
+From the perspective of semiotics, language can be seen as a sign or symbol, with the world as its representation.
+Variation and universality
+Much modern linguistic research, particularly within the paradigm of generative grammar, has concerned itself with trying to account for differences between languages of the world.
+This has worked on the assumption that if human linguistic ability is narrowly constrained by human biology, then all languages must share certain fundamental properties.
+In generativist theory, the collection of fundamental properties all languages share are referred to as universal grammar (UG).
+The specific characteristics of this universal grammar are a much debated topic.
+Typologists and non-generativist linguists usually refer simply to language universals, or universals of language.
+Similarities between languages can have a number of different origins.
+In the simplest case, universal properties may be due to universal aspects of human experience.
+For example, all humans experience water, and all human languages have a word for water.
+Other similarities may be due to common descent: the Latin language spoken by the Ancient Romans developed into Spanish in Spain and Italian in Italy; similarities between Spanish and Italian are thus in many cases due to both being descended from Latin.
+In other cases, contact between languages &mdash; particularly where many speakers are bilingual &mdash; can lead to much borrowing of structures, as well as words.
+Similarity may also, of course, be due to coincidence.
+English much and Spanish mucho are not descended from the same form or borrowed from one language to the other; nor is the similarity due to innate linguistic knowledge (see False cognate).
+Arguments in favor of language universals have also come from documented cases of sign languages (such as Al-Sayyid Bedouin Sign Language) developing in communities of congenitally deaf people, independently of spoken language.
+The properties of these sign languages conform generally to many of the properties of spoken languages.
+Other known and suspected sign language isolates include Kata Kolok, Nicaraguan Sign Language, and Providence Island Sign Language.
+Structures
+It has been perceived that languages tend to be organized around grammatical categories such as noun and verb, nominative and accusative, or present and past, though, importantly, not exclusively so.
+The grammar of a language is organized around such fundamental categories, though many languages express the relationships between words and syntax in other discrete ways (cf. some Bantu languages for noun/verb relations, ergative/absolutive systems for case relations, several Native American languages for tense/aspect relations).
+In addition to making substantial use of discrete categories, language has the important property that it organizes elements into recursive structures; this allows, for example, a noun phrase to contain another noun phrase (as in “the chimpanzee’s lips”) or a clause to contain a clause (as in “I think that it’s raining”).
+Though recursion in grammar was implicitly recognized much earlier (for example by Jespersen), the importance of this aspect of language became more popular after the 1957 publication of Noam Chomsky’s book “Syntactic Structures”, - that presented a formal grammar of a fragment of English.
+Prior to this, the most detailed descriptions of linguistic systems were of phonological or morphological systems.
+Chomsky used a context-free grammar augmented with transformations.
+Since then, following the trend of Chomskyan linguistics, context-free grammars have been written for substantial fragments of various languages (for example GPSG, for English), but it has been demonstrated that human languages include cross-serial dependencies, which cannot be handled adequately by context-free grammars.
+Some selected sub-fields
+Diachronic linguistics
+Studying languages at a particular point in time (usually the present) is "synchronic", while diachronic linguistics examines how language changes through time, sometimes over centuries.
+It enjoys both a rich history and a strong theoretical foundation for the study of language change.
+In universities in the United States, the non-historic perspective is often out of fashion.
+The shift in focus to a non-historic perspective started with Saussure and became pre-dominant with Noam Chomsky.
+Explicitly historical perspectives include historical-comparative linguistics and etymology.
+Contextual linguistics
+Contextual linguistics may include the study of linguistics in interaction with other academic disciplines.
+The interdisciplinary areas of linguistics consider how language interacts with the rest of the world.
+Sociolinguistics, anthropological linguistics, and linguistic anthropology are seen as areas that bridge the gap between linguistics and society as a whole.
+Psycholinguistics and neurolinguistics relate linguistics to the medical sciences.
+Other cross-disciplinary areas of linguistics include evolutionary linguistics, computational linguistics and cognitive science.
+Applied linguistics
+Linguists are largely concerned with finding and describing the generalities and varieties both within particular languages and among all language.
+Applied linguistics takes the result of those findings and “applies” them to other areas.
+Often “applied linguistics” refers to the use of linguistic research in language teaching, but results of linguistic research are used in many other areas, as well.
+Today in the age of information technology, many areas of applied linguistics attempt to involve the use of computers.
+Speech synthesis and speech recognition use phonetic and phonemic knowledge to provide voice interfaces to computers.
+Applications of computational linguistics in machine translation, computer-assisted translation, and natural language processing are areas of applied linguistics which have come to the forefront.
+Their influence has had an effect on theories of syntax and semantics, as modeling syntactic and semantic theories on computers constraints.
+Description and prescription
+Main articles: Descriptive linguistics, Linguistic prescription
+Linguistics is descriptive; linguists describe and explain features of language without making subjective judgments on whether a particular feature is "right" or "wrong".
+This is analogous to practice in other sciences: a zoologist studies the animal kingdom without making subjective judgments on whether a particular animal is better or worse than another.
+Prescription, on the other hand, is an attempt to promote particular linguistic usages over others, often favouring a particular dialect or "acrolect".
+This may have the aim of establishing a linguistic standard, which can aid communication over large geographical areas.
+It may also, however, be an attempt by speakers of one language or dialect to exert influence over speakers of other languages or dialects (see Linguistic imperialism).
+An extreme version of prescriptivism can be found among censors, who attempt to eradicate words and structures which they consider to be destructive to society.
+Speech and writing
+Most contemporary linguists work under the assumption that spoken (or signed) language is more fundamental than written language.
+This is because:
+Speech appears to be a human "universal", whereas there have been many cultures and speech communities that lack written communication;
+Speech evolved before human beings discovered writing;
+People learn to speak and process spoken languages more easily and much earlier than writing;
+Linguists nonetheless agree that the study of written language can be worthwhile and valuable.
+For research that relies on corpus linguistics and computational linguistics, written language is often much more convenient for processing large amounts of linguistic data.
+Large corpora of spoken language are difficult to create and hard to find, and are typically transcribed and written.
+Additionally, linguists have turned to text-based discourse occurring in various formats of computer-mediated communication as a viable site for linguistic inquiry.
+The study of writing systems themselves is in any case considered a branch of linguistics.
+History
+Some of the earliest linguistic activities can be recalled from Iron Age India with the analysis of Sanskrit.
+The Pratishakhyas (from ca. the 8th century BC) constitute as it were a proto-linguistic ad hoc collection of observations about mutations to a given corpus particular to a given Vedic school.
+Systematic study of these texts gives rise to the Vedanga discipline of Vyakarana, the earliest surviving account of which is the work of Pānini (c. 520 – 460 BC), who, however, looks back on what are probably several generations of grammarians, whose opinions he occasionally refers to.
+Pānini formulates close to 4,000 rules which together form a compact generative grammar of Sanskrit.
+Inherent in his analytic approach are the concepts of the phoneme, the morpheme and the root.
+Due to its focus on brevity, his grammar has a highly unintuitive structure, reminiscent of contemporary "machine language" (as opposed to "human readable" programming languages).
+Indian linguistics maintained a high level for several centuries; Patanjali in the 2nd century BC still actively criticizes Panini.
+In the later centuries BC, however, Panini's grammar came to be seen as prescriptive, and commentators came to be fully dependent on it.
+Bhartrihari (c. 450 – 510) theorized the act of speech as being made up of four stages: first, conceptualization of an idea, second, its verbalization and sequencing (articulation) and third, delivery of speech into atmospheric air, the interpretation of speech by the listener, the interpreter.
+In the Middle East, the Persian linguist Sibawayh made a detailed and professional description of Arabic in 760, in his monumental work, Al-kitab fi al-nahw (الكتاب في النحو, The Book on Grammar), bringing many linguistic aspects of language to light.
+In his book he distinguished phonetics from phonology.
+Western linguistics begins in Classical Antiquity with grammatical speculation such as Plato's Cratylus.
+Sir William Jones noted that Sanskrit shared many common features with classical Latin and Greek, notably verb roots and grammatical structures, such as the case system.
+This led to the theory that all languages sprung from a common source and to the discovery of the Indo-European language family.
+He began the study of comparative linguistics, which would uncover more language families and branches.
+Some early-19th-century linguists were Jakob Grimm, who devised a principle of consonantal shifts in pronunciation &ndash; known as Grimm's Law &ndash; in 1822; Karl Verner, who formulated Verner's Law; August Schleicher, who created the "Stammbaumtheorie" ("family tree"); and Johannes Schmidt, who developed the "Wellentheorie" ("wave model") in 1872.
+Ferdinand de Saussure was the founder of modern structural linguistics.
+Edward Sapir, a leader in American structural linguistics, was one of the first who explored the relations between language studies and anthropology.
+His methodology had strong influence on all his successors.
+Noam Chomsky's formal model of language, transformational-generative grammar, developed under the influence of his teacher Zellig Harris, who was in turn strongly influenced by Leonard Bloomfield, has been the dominant model since the 1960s.
+Noam Chomsky remains a pop-linguistic figure.
+Linguists (working in frameworks such as Head-Driven Phrase Structure Grammar (HPSG) or Lexical Functional Grammar (LFG)) are increasingly seen to stress the importance of formalization and formal rigor in linguistic description, and may distance themselves somewhat from Chomsky's more recent work (the "Minimalist" program for Transformational grammar), connecting more closely to his earlier works.
+Other linguists working in Optimality Theory state generalizations in terms of violable constraints that interact with each other, and abandon the traditional rule-based formalism first pioneered by early work in generativist linguistics.
+Functionalist linguists working in functional grammar and Cognitive Linguistics tend to stress the non-autonomy of linguistic knowledge and the non-universality of linguistic structures, thus differing significantly from the Chomskyan school.
+They reject Chomskyan intuitive introspection as a scientific method, relying instead on typological evidence.
+Linux
+Linux (commonly pronounced <ipa/> in English; variants exist) is a Unix-like computer operating system.
+Linux is one of the most prominent examples of free software and open source development: typically all underlying source code can be freely modified, used, and redistributed by anyone.
+The name "Linux" comes from the Linux kernel, originally written in 1991 by Linus Torvalds.
+The system's utilities and libraries usually come from the GNU operating system, announced in 1983 by Richard Stallman.
+The GNU contribution is the basis for the alternative name GNU/Linux.
+Predominantly known for its use in servers, Linux is supported by corporations such as Dell, Hewlett-Packard, IBM, Novell, Oracle Corporation, Red Hat, and Sun Microsystems.
+It is used as an operating system for a wide variety of computer hardware, including desktop computers, supercomputers, video game systems, such as the PlayStation 2 and PlayStation 3, several arcade games, and embedded devices such as mobile phones, routers, and stage lighting systems.
+History
+The Unix operating system was conceived and implemented in the 1960s and first released in 1970.
+Its wide availability and portability meant that it was widely adopted, copied and modified by academic institutions and businesses, with its design being influential on authors of other systems.
+The GNU Project, started in 1984, had the goal of creating a "complete Unix-compatible software system" made entirely of free software.
+In 1985, Richard Stallman created the Free Software Foundation and developed the GNU General Public License (GNU GPL).
+Many of the programs required in an OS (such as libraries, compilers, text editors, a Unix shell, and a windowing system) were completed by the early 1990s, although low level elements such as device drivers, daemons, and the kernel were stalled and incomplete.
+Linus Torvalds has said that if the GNU kernel had been available at the time (1991), he would not have decided to write his own.
+MINIX
+MINIX, a Unix-like system intended for academic use, was released by Andrew S. Tanenbaum in 1987.
+While source code for the system was available, modification and redistribution were restricted (that is not the case today).
+In addition, MINIX's 16-bit design was not well adapted to the 32-bit design of the increasingly cheap and popular Intel 386 architecture for personal computers.
+In 1991, Torvalds began to work on a non-commercial replacement for MINIX while he was attending the University of Helsinki.
+This eventually became the Linux kernel.
+In 1992, Tanenbaum posted an article on Usenet claiming Linux was obsolete.
+In the article, he criticized the operating system as being monolithic in design and being tied closely to the x86 architecture and thus not portable, as he described "a fundamental error."
+Tanenbaum suggested that those who wanted a modern operating system should look into one based on the microkernel model.
+The posting elicited the response of Torvalds and Ken Thompson, one of the founders of Unix, which resulted in a well known debate over the microkernel and monolithic kernel designs.
+Linux was dependent on the MINIX user space at first.
+With code from the GNU system freely available, it was advantageous if this could be used with the fledgling OS.
+Code licensed under the GNU GPL can be used in other projects, so long as they also are released under the same or a compatible license.
+In order to make the Linux kernel compatible with the components from the GNU Project, Torvalds initiated a switch from his original license (which prohibited commercial redistribution) to the GNU GPL.
+Linux and GNU developers worked to integrate GNU components with Linux to make a fully functional and free operating system.
+Commercial and popular uptake
+Today Linux is used in numerous domains, from embedded systems to supercomputers, and has secured a place in server installations with the popular LAMP application stack.
+Torvalds continues to direct the development of the kernel.
+Stallman heads the Free Software Foundation, which in turn supports the GNU components.
+Finally, individuals and corporations develop third-party non-GNU components.
+These third-party components comprise a vast body of work and may include both kernel modules and user applications and libraries.
+Linux vendors and communities combine and distribute the kernel, GNU components, and non-GNU components, with additional package management software in the form of Linux distributions.
+Design
+Linux is a modular Unix-like operating system.
+It derives much of its basic design from principles established in Unix during the 1970s and 1980s.
+Linux uses a monolithic kernel, the Linux kernel, which handles process control, networking, and peripheral and file system access.
+Device drivers are integrated directly with the kernel.
+Much of Linux's higher-level functionality is provided by separate projects which interface with the kernel.
+The GNU userland is an important part of most Linux systems, providing the shell and Unix tools which carry out many basic operating system tasks.
+On top these tools form a Linux system with a graphical user interface that can be used, usually running in the X Window System.
+User interface
+Linux can be controlled by one or more of a text-based command line interface (CLI), graphical user interface (GUI) (usually the default for desktop), or through controls on the device itself (common on embedded machines).
+On desktop machines, KDE, GNOME and Xfce are the most popular user interfaces, though a variety of other user interfaces exist.
+Most popular user interfaces run on top of the X Window System (X), which provides network transparency, enabling a graphical application running on one machine to be displayed and controlled from another.
+Other GUIs include X window managers such as FVWM, Enlightenment and Window Maker.
+The window manager provides a means to control the placement and appearance of individual application windows, and interacts with the X window system.
+A Linux system usually provides a CLI of some sort through a shell, which is the traditional way of interacting with a Unix system.
+A Linux distribution specialized for servers may use the CLI as its only interface.
+A “headless system” run without even a monitor can be controlled by the command line via a protocol such as SSH or telnet.
+Most low-level Linux components, including the GNU Userland, use the CLI exclusively.
+The CLI is particularly suited for automation of repetitive or delayed tasks, and provides very simple inter-process communication.
+A graphical terminal emulator program is often used to access the CLI from a Linux desktop.
+Development
+The primary difference between Linux and many other popular contemporary operating systems is that the Linux kernel and other components are free and open source software.
+Linux is not the only such operating system, although it is the best-known and most widely used.
+Some free and open source software licences are based on the principle of copyleft, a kind of reciprocity: any work derived from a copyleft piece of software must also be copyleft itself.
+The most common free software license, the GNU GPL, is a form of copyleft, and is used for the Linux kernel and many of the components from the GNU project.
+As an operating system underdog competing with mainstream operating systems, Linux cannot rely on a monopoly advantage; in order for Linux to be convenient for users, Linux aims for interoperability with other operating systems and established computing standards.
+Linux systems adhere to POSIX, SUS, ISO and ANSI standards where possible, although to date only one Linux distribution has been POSIX.1 certified, Linux-FT.
+Free software projects, although developed in a collaborative fashion, are often produced independently of each other.
+However, given that the software licenses explicitly permit redistribution, this provides a basis for larger scale projects that collect the software produced by stand-alone projects and make it available all at once in the form of a Linux distribution.
+A Linux distribution, commonly called a “distro”, is a project that manages a remote collection of Linux-based software, and facilitates installation of a Linux operating system.
+Distributions are maintained by individuals, loose-knit teams, volunteer organizations, and commercial entities.
+They include system software and application software in the form of packages, and distribution-specific software for initial system installation and configuration as well as later package upgrades and installs.
+A distribution is responsible for the default configuration of installed Linux systems, system security, and more generally integration of the different software packages into a coherent whole.
+Community
+Linux is largely driven by its developer and user communities.
+Some vendors develop and fund their distributions on a volunteer basis, Debian being a well-known example.
+Others maintain a community version of their commercial distributions, as Red Hat does with Fedora.
+In many cities and regions, local associations known as Linux Users Groups (LUGs) seek to promote Linux and by extension free software.
+They hold meetings and provide free demonstrations, training, technical support, and operating system installation to new users.
+There are also many Internet communities that seek to provide support to Linux users and developers.
+Most distributions and open source projects have IRC chatrooms or newsgroups.
+Online forums are another means for support, with notable examples being LinuxQuestions.org and the Gentoo forums.
+Linux distributions host mailing lists; commonly there will be a specific topic such as usage or development for a given list.
+There are several technology websites with a Linux focus.
+Linux Weekly News is a weekly digest of Linux-related news; the Linux Journal is an online magazine of Linux articles published monthly; Slashdot is a technology-related news website with many stories on Linux and open source software; Groklaw has written in depth about Linux-related legal proceedings and there are many articles relevant to the Linux kernel and its relationship with GNU on the GNU project's website.
+Print magazines on Linux often include cover disks including software or even complete Linux distributions.
+Although Linux is generally available free of charge, several large corporations have established business models that involve selling, supporting, and contributing to Linux and free software.
+These include Dell, IBM, HP, Sun Microsystems, Novell, and Red Hat.
+The free software licenses on which Linux is based explicitly accommodate and encourage commercialization; the relationship between Linux as a whole and individual vendors may be seen as symbiotic.
+One common business model of commercial suppliers is charging for support, especially for business users.
+A number of companies also offer a specialized business version of their distribution, which adds proprietary support packages and tools to administer higher numbers of installations or to simplify administrative tasks.
+Another business model is to give away the software in order to sell hardware.
+Programming on Linux
+Most Linux distributions support dozens of programming languages.
+The most common collection of utilities for building both Linux applications and operating system programs is found within the GNU toolchain, which includes the GNU Compiler Collection (GCC) and the GNU build system.
+Amongst others, GCC provides compilers for Ada, C, C++, Java, and Fortran.
+The Linux kernel itself is written to be compiled with GCC.
+Proprietary compilers for Linux include the Intel C++ Compiler and IBM XL C/C++ Compiler.
+Most distributions also include support for Perl, Ruby, Python and other dynamic languages.
+Examples of languages that are less common, but still well-supported, are C# via the Mono project, sponsored by Novell, and Scheme.
+A number of Java Virtual Machines and development kits run on Linux, including the original Sun Microsystems JVM (HotSpot), and IBM's J2SE RE, as well as many open-source projects like Kaffe.
+The two main frameworks for developing graphical applications are those of GNOME and KDE.
+These projects are based on the GTK+ and Qt widget toolkits, respectively, which can also be used independently of the larger framework.
+Both support a wide variety of languages.
+There are a number of Integrated development environments available including Anjuta, Code::Blocks, Eclipse, KDevelop, Lazarus, MonoDevelop, NetBeans, and Omnis Studio while the long-established editors Vim and Emacs remain popular.
+Uses
+As well as those designed for general purpose use on desktops and servers, distributions may be specialized for different purposes including: computer architecture support, embedded systems, stability, security, localization to a specific region or language, targeting of specific user groups, support for real-time applications, or commitment to a given desktop environment.
+Furthermore, some distributions deliberately include only free software.
+Currently, over three hundred distributions are actively developed, with about a dozen distributions being most popular for general-purpose use.
+Linux is a widely ported operating system.
+While the Linux kernel was originally designed only for Intel 80386 microprocessors, it now runs on a more diverse range of computer architectures than any other operating system: in the hand-held ARM-based iPAQ and the mainframe IBM System z9, in devices ranging from mobile phones to supercomputers.
+Specialized distributions exist for less mainstream architectures.
+The ELKS kernel fork can run on Intel 8086 or Intel 80286 16-bit microprocessors, while the µClinux kernel fork may run on systems without a memory management unit.
+The kernel also runs on architectures that were only ever intended to use a manufacturer-created operating system, such as Macintosh computers, PDAs, video game consoles, portable music players, and mobile phones.
+Desktop
+Although there is a lack of Linux ports for some Mac OS X and Microsoft Windows programs in domains such as desktop publishing and professional audio, applications equivalent to those available for Mac and Windows are available for Linux.
+Most Linux distributions provide a program for browsing a list of thousands of free software applications that have already been tested and configured for a specific distribution.
+These free programs can be downloaded and installed with one mouse click and a digital signature guarantees that no one has added a virus or a spyware to these programs.
+Many free software titles that are popular on Windows, such as Pidgin, Mozilla Firefox, Openoffice.org, and GIMP, are available for Linux.
+A growing amount of proprietary desktop software is also supported under Linux, examples being Adobe Flash Player, Acrobat Reader, Matlab, Nero Burning ROM, Opera, RealPlayer, and Skype.
+In the field of animation and visual effects, most high end software, such as AutoDesk Maya, Softimage XSI and Apple Shake, is available for Linux, Windows and/or Mac OS X.
+CrossOver is a proprietary solution based on the open source Wine project that supports running older Windows versions of Microsoft Office and Adobe Photoshop versions through CS2.
+Microsoft Office 2007 and Adobe Photoshop CS3 are known not to work.
+Besides the free Windows compatibility layer Wine, most distributions offer Dual boot and X86 virtualization for running both Linux and Windows on the same computer.
+Linux's open nature allows distributed teams to localize Linux distributions for use in locales where localizing proprietary systems would not be cost-effective.
+For example the Sinhalese language version of the Knoppix distribution was available for a long time before Microsoft Windows XP was translated to Sinhalese.
+In this case the Lanka Linux User Group played a major part in developing the localized system by combining the knowledge of university professors, linguists, and local developers.
+The performance of Linux on the desktop has been a controversial topic, with at least one key Linux kernel developer, Con Kolivas, accusing the Linux community of favouring performance on servers.
+He quit Linux development because he was frustrated with this lack of focus on the desktop, and then gave a 'tell all' interview on the topic.
+Servers and supercomputers
+Historically, Linux has mainly been used as a server operating system, and has risen to prominence in that area; Netcraft reported in September 2006 that eight of the ten most reliable internet hosting companies run Linux on their web servers.
+This is due to its relative stability and long uptime, and the fact that desktop software with a graphical user interface for servers is often unneeded.
+Enterprise and non-enterprise Linux distributions may be found running on servers.
+Linux is the cornerstone of the LAMP server-software combination (Linux, Apache, MySQL, Perl/PHP/Python) which has achieved popularity among developers, and which is one of the more common platforms for website hosting.
+Linux is commonly used as an operating system for supercomputers.
+As of November 2007, out of the top 500 systems, 426 (85.2%) run Linux.
+Embedded devices
+Due to its low cost and ability to be easily modified, an embedded Linux is often used in embedded systems.
+Linux has become a major competitor to the proprietary Symbian OS found in the majority of smartphones — 16.7% of smartphones sold worldwide during 2006 were using Linux — and it is an alternative to the proprietary Windows CE and Palm OS operating systems on mobile devices.
+Cell phones or PDAs running on Linux and built on open source platform became a trend from 2007, like Nokia N810, Openmoko's Neo1973 and the on-going Google Android.
+The popular TiVo digital video recorder uses a customized version of Linux.
+Several network firewall and router standalone products, including several from Linksys, use Linux internally, using its advanced firewall and routing capabilities.
+The Korg OASYS and the Yamaha Motif XS music workstations also run Linux.
+Further more Linux is used in the leading stage lighting control system, FlyingPig/HighEnd WholeHogIII Console .
+Market share and uptake
+Many quantitative studies of open source software focus on topics including market share and reliability, with numerous studies specifically examining Linux.
+The Linux market is growing rapidly, and the revenue of servers, desktops, and packaged software running Linux is expected to exceed $35.7 billion by 2008.
+IDC's report for Q1 2007 says that Linux now holds 12.7% of the overall server market.
+This estimate was based on the number of Linux servers sold by various companies.
+Desktop adoption of Linux is approximately 1%.
+In comparison, Microsoft operating systems hold more than 90%.
+The frictional cost of switching operating systems and lack of support for certain hardware and application programs designed for Microsoft Windows have been two factors that have inhibited adoption.
+Proponents and analysts attribute the relative success of Linux to its security, reliability, low cost, and freedom from vendor lock-in.
+Also most recently Google has begun to fund Wine, which acts as a compatibility layer, allowing users to run some Windows programs under Linux.
+The XO laptop project of One Laptop Per Child is creating a new and potentially much larger Linux community, planned to reach several hundred million schoolchildren and their families and communities in developing countries.
+Six countries have ordered a million or more units each for delivery in 2007 to distribute to schoolchildren at no charge.
+Google, Red Hat, and eBay are major supporters of the project.
+Copyright and naming
+The Linux kernel and most GNU software are licensed under the GNU General Public License (GPL).
+The GPL requires that anyone who distributes the Linux kernel must make the source code (and any modifications) available to the recipient under the same terms.
+In 1997, Linus Torvalds stated, “Making Linux GPL'd was definitely the best thing I ever did.”
+Other key components of a Linux system may use other licenses; many libraries use the GNU Lesser General Public License (LGPL), a more permissive variant of the GPL, and the X Window System uses the MIT License.
+Torvalds has publicly stated that he would not move the Linux kernel (currently licensed under GPL version 2) to version 3 of the GPL, released in mid-2007, specifically citing some provisions in the new license which prohibit the use of the software in digital rights management.
+A 2001 study of Red Hat Linux 7.1 found that this distribution contained 30 million source lines of code.
+Using the Constructive Cost Model, the study estimated that this distribution required about eight thousand man-years of development time.
+According to the study, if all this software had been developed by conventional proprietary means, it would have cost about 1.08 billion dollars (year 2000 U.S. dollars) to develop in the United States.
+Most of the code (71%) was written in the C programming language, but many other languages were used, including C++, assembly language, Perl, Python, Fortran, and various shell scripting languages.
+Slightly over half of all lines of code were licensed under the GPL.
+The Linux kernel itself was 2.4 million lines of code, or 8% of the total.
+In a later study, the same analysis was performed for Debian GNU/Linux version 4.0.
+This distribution contained over 283 million source lines of code, and the study estimated that it would have cost 5.4 billion Euros to develop by conventional means.
+In the United States, the name Linux is a trademark registered to Linus Torvalds.
+Initially, nobody registered it, but on August 15 1994, William R. Della Croce, Jr. filed for the trademark Linux, and then demanded royalties from Linux distributors.
+In 1996, Torvalds and some affected organizations sued him to have the trademark assigned to Torvalds, and in 1997 the case was settled.
+The licensing of the trademark has since been handled by the Linux Mark Institute.
+Torvalds has stated that he only trademarked the name to prevent someone else from using it, but was bound in 2005 by United States trademark law to take active measures to enforce the trademark.
+As a result, the LMI sent out a number of letters to distribution vendors requesting that a fee be paid for the use of the name, and a number of companies have complied.
+GNU/Linux
+The Free Software Foundation views Linux distributions which use GNU software as GNU variants and they ask that such operating systems be referred to as GNU/Linux or a Linux-based GNU system.
+However, the media and population at large refers to this family of operating systems simply as Linux.
+While some distributors make a point of using the aggregate form, most notably Debian with the Debian GNU/Linux distribution, the term's use outside of the enthusiast community is limited.
+The distinction between the Linux kernel and distributions based on it plus the GNU system is a source of confusion to many newcomers, and the naming remains controversial, as many large Linux distributions (e.g. Ubuntu and SuSE Linux) are simply using the Linux name, rather than GNU/Linux.
+List of chatterbots
+Chatterbot Directories
+
+Chatterbot Central at The Simon Laven Page
+The Chatterbot Collection
+AI Hub - A directory of news, programs, and links all related to chatterbots and Artificial Intelligence
+The Chatterbox Challenge Bots Directory at The Chatterbox Challenge
+Classic Chatterbots
+Dr. Sbaitso
+ELIZA
+PARRY
+Racter
+General Chatterbots
+A.L.I.C.E. and other Alicebot/pandorabot-based (iGod, Mitsuku, FriendBot, etc.)
+Albert One
+ALIMbot
+CHAT and TIPS
+Chat-bot
+Claude
+Dadorac
+DAI2 - A dynamic artificial intelligence which learns from its surrounding community
+Elbot
+Ella
+Fred
+Jabberwacky
+Jabberwock
+Jeeney AI
+JIxperts – collection of wiki chatterbots.
+KAR Intelligent Computer
+Kyle – A unique learning Artificial Intelligence chatbot, which employs contextual learning algorithms.
+MegaHal
+Mr Know-It-All
+Oliverbot
+Poseidon
+RoboMatic X1 - A chatbot which controls the user's PC through chatting by their voice or by typing.
+Splotchy
+Spookitalk - A chatterbot used for NPCs in Douglas Adams' Starship Titanic video game.
+Thomas
+Ultra Hal Assistant
+Verbot
+Yhaken
+ScientioBot - A new technology chatterbot using concept mining techniques accessible via a free web service.
+NICOLE A simple chatterbot with the ability to learn new phrases.
+IM Chatterbots
+DAI2 is also available on the MSN / Windows Live network as dai2@dai2.co.uk
+MSN Quickbot
+SmarterChild
+Spleak
+MrMovie - searching actors/movies/dvd's in IM (Skype, AOL/AIM or MSN/Live)
+InsideMessenger
+Inocu - (MSN/Live)
+FriendBot-An AIM Chatterbot
+amsnEliza plugin for aMSN
+TrixieMouse
+Infobot - Polish informational bot for Gadu-gadu, Skype and Jabber
+AIML Chatterbots
+Alan - In Turing Enigma Alan Turing's spirit has infiltrated the World War II encrypting device Enigma.
+Deeb0t
+Chomsky A chatbot that uses a smiley face to convey emotions.
+It uses the information in Wikipedia to build its conversations and has links to Wikipedia articles.
+John Lennon Artificial Intelligence Project
+SitePal
+JFred Chatterbots
+The Turing Hub
+Educational Chatterbots
+Elizabeth Aims to teach AI techniques and concepts, starting from chatterbot design.
+Accompanied by self-teaching materials, as used at the University of Leeds.
+Non-English Chatterbots
+Amanda - (French) with source code for Windows.
+Proteus
+[msnim:chat?contact=senhorbot@hotmail.com Senhor Bot] (Brazillian bot for MSN)
+Loebner prize
+The Loebner Prize is an annual competition that awards prizes to the Chatterbot considered by the judges to be the most humanlike of those entered.
+The format of the competition is that of a standard Turing test.
+In the Loebner Prize, as in a Turing test, a human judge is faced with two computer screens.
+One is under the control of a computer, the other is under the control of a human.
+The judge poses questions to the two screens and receives answers.
+Based upon the answers, the judge must decide which screen is controlled by the human and which is controlled by the computer program.
+The contest was begun in 1990 by Hugh Loebner in conjunction with the Cambridge Center for Behavioral Studies of Massachusetts, United States.
+It has since been associated with Flinders University, Dartmouth College, the Science Museum in London, and most recently the University of Reading.
+Within the field of artificial intelligence, the Loebner Prize is somewhat controversial; the most prominent critic, Marvin Minsky, has called it a publicity stunt that does not help the field along.
+Prizes
+The prizes for each year include:
+$2,000 for the most human-seeming of all chatterbots for that year - awarded every year.
+In 2005, the prize was increased to $3,000, and the prize was $2,250 in 2006.
+In 2008 the prize will be $3000.00
+$25,000 for the first chatterbot that judges cannot distinguish from a real human in a text-only Turing test, and that can convince judges that the other (human) entity they are talking to simultaneously is a computer.
+(to be awarded once only)
+$100,000 to the first chatterbot that judges cannot distinguish from a real human in a Turing test that includes deciphering and understanding text, visual, and auditory input.
+(to be awarded once only)
+The Loebner Prize dissolves once the $100,000 prize is won.
+2008 Loebner Prize
+The 2008 Competition is to be held on Sunday 12 October in University of Reading, UK.
+The event, which is being co-directed by Kevin Warwick, will include a direct challenge on the Turing test as originally proposed by Alan Turing.
+The first place winner will receive $3000.00 and a bronze medal.
+2007 Loebner Prize
+The 2007 Competition was held on Sunday, 21 October in New York City.
+The participants in the contest were:
+Rollo Carpenter from Icogno, creator of Jabberwacky
+Noah Duncan, private entry, creator of Cletus
+Robert Medeksza from Zabaware, creator of Ultra Hal Assistant
+No bot passed the Turing test but the judges ranked the bots as "most human".
+The results of the contest were:
+1st place: Robert Medeksza
+2nd place: Noah Duncan
+3rd place: Rollo Carpenter
+The winner received $2250 and the Annual Medal.
+The runners up received $250 each.
+2006 Loebner Prize
+On Wednesday, August 30, the finalists for the 2006 Loebner Prize were announced.
+The finalists were:
+Rollo Carpenter
+Richard Churchill and Marie-Claire Jenkins
+Noah Duncan
+Robert Medeksza
+The contest was held on Sunday, 17 September at the Torrington Theatre, University College London.
+Winners
+Machine learning
+As a broad subfield of artificial intelligence, machine learning is concerned with the design and development of algorithms and techniques that allow computers to "learn".
+At a general level, there are two types of learning: inductive, and deductive.
+Inductive machine learning methods extract rules and patterns out of massive data sets.
+The major focus of machine learning research is to extract information from data automatically, by computational and statistical methods.
+Hence, machine learning is closely related not only to data mining and statistics, but also theoretical computer science.
+Applications
+Machine learning has a wide spectrum of applications including natural language processing, syntactic pattern recognition, search engines, medical diagnosis, bioinformatics, brain-machine interfaces and cheminformatics, detecting credit card fraud, stock market analysis, classifying DNA sequences, speech and handwriting recognition, object recognition in computer vision, game playing and robot locomotion.
+Human interaction
+Some machine learning systems attempt to eliminate the need for human intuition in the analysis of the data, while others adopt a collaborative approach between human and machine.
+Human intuition cannot be entirely eliminated since the designer of the system must specify how the data is to be represented and what mechanisms will be used to search for a characterization of the data.
+Machine learning can be viewed as an attempt to automate parts of the scientific method.
+Some statistical machine learning researchers create methods within the framework of Bayesian statistics.
+Algorithm types
+Machine learning algorithms are organized into a taxonomy, based on the desired outcome of the algorithm.
+Common algorithm types include:
+Supervised learning &mdash; in which the algorithm generates a function that maps inputs to desired outputs.
+One standard formulation of the supervised learning task is the classification problem: the learner is required to learn (to approximate) the behavior of a function which maps a vector <math/> into one of several classes by looking at several input-output examples of the function.
+Unsupervised learning &mdash; An agent which models a set of inputs: labeled examples are not available.
+Semi-supervised learning &mdash; which combines both labeled and unlabeled examples to generate an appropriate function or classifier.
+Reinforcement learning &mdash; in which the algorithm learns a policy of how to act given an observation of the world.
+Every action has some impact in the environment, and the environment provides feedback that guides the learning algorithm.
+Transduction &mdash; similar to supervised learning, but does not explicitly construct a function: instead, tries to predict new outputs based on training inputs, training outputs, and test inputs which are available while training.
+Leaning to learn &mdash; in which the algorithm learns its own inductive bias based on previous experience.
+The computational analysis of machine learning algorithms and their performance is a branch of theoretical computer science known as computational learning theory.
+Machine learning topics
+This list represents the topics covered on a typical machine learning course.
+Prerequisites
+Bayesian theory
+Modeling conditional probability density functions<nowiki>: </nowiki> regression and classification
+Artificial neural networks
+Decision trees
+Gene expression programming
+Genetic algorithms

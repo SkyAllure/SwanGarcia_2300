@@ -1,0 +1,762 @@
+         mp = 1
+'
+         For i = 1 To uk
+            x = 0#
+            For j = mp To uk
+                x = x + pythag(Ar(i, j), Ai(i, j))
+            Next j
+'
+            If (x > Norm) Then Norm = x
+            mp = i
+         Next i
+'     .......... eps3 replaces zero pivot in decomposition
+'                and close roots are modified by eps3 ..........
+         If (Norm = 0#) Then Norm = 1#
+         eps3 = Norm * 2 * 10 ^ -16
+'     .......... growto is the criterion for growth ..........
+         ukroot = uk
+         ukroot = Sqr(ukroot)
+         growto = 0.1 / ukroot
+200:     rlambd = wr(k)
+         ilambd = wi(k)
+         If (k = 1) Then GoTo 280
+         km1 = k - 1
+         GoTo 240
+'     .......... perturb eigenvalue if it is close to any previous eigenvalue ..........
+220:     rlambd = rlambd + eps3
+'     .......... for i=k-1 step -1 until 1 do -- ..........
+240:     For ii = 1 To km1
+            i = k - ii
+            If (sel(i) And Abs(wr(i) - rlambd) < eps3 And Abs(wi(i) - ilambd) < eps3) Then GoTo 220
+260:     Next ii
+'
+         wr(k) = rlambd
+'     .......... form upper hessenberg (ar,ai)-(rlambd,ilambd)*i   and initial complex vector ..........
+280:     mp = 1
+         For i = 1 To uk
+'
+            For j = mp To uk
+               rm1(i, j) = Ar(i, j)
+               rm2(i, j) = Ai(i, j)
+'            continue
+            Next j
+'
+            rm1(i, i) = rm1(i, i) - rlambd
+            rm2(i, i) = rm2(i, i) - ilambd
+            mp = i
+            rv1(i) = eps3
+         Next i
+'     .......... triangular decomposition with interchanges,
+'                replacing zero pivots by eps3 ..........
+         If (uk = 1) Then GoTo 420
+'
+         For i = 2 To uk
+            mp = i - 1
+            If (pythag(rm1(i, mp), rm2(i, mp)) <= pythag(rm1(mp, mp), rm2(mp, mp))) Then GoTo 360
+'
+            For j = mp To uk
+               y = rm1(i, j)
+               rm1(i, j) = rm1(mp, j)
+               rm1(mp, j) = y
+               y = rm2(i, j)
+               rm2(i, j) = rm2(mp, j)
+               rm2(mp, j) = y
+            Next j
+'
+360:        If (rm1(mp, mp) = 0# And rm2(mp, mp) = 0#) Then rm1(mp, mp) = eps3
+            Call cdiv(rm1(i, mp), rm2(i, mp), rm1(mp, mp), rm2(mp, mp), x, y)
+            If (x = 0# And y = 0#) Then GoTo 400
+'
+            For j = mp To uk
+               rm1(i, j) = rm1(i, j) - x * rm1(mp, j) + y * rm2(mp, j)
+               rm2(i, j) = rm2(i, j) - x * rm2(mp, j) - y * rm1(mp, j)
+            Next j
+400:     Next i
+'
+420:     If (rm1(uk, uk) = 0# And rm2(uk, uk) = 0#) Then rm1(uk, uk) = eps3
+         its = 0
+'     .......... back substitution  -- ..........
+         Do
+             For ii = 1 To uk
+                i = uk + 1 - ii
+                x = rv1(i)
+                y = 0#
+                If (i <> uk) Then
+                    ip1 = i + 1
+                    For j = ip1 To uk
+                       x = x - rm1(i, j) * rv1(j) + rm2(i, j) * rv2(j)
+                       y = y - rm1(i, j) * rv2(j) - rm2(i, j) * rv1(j)
+                    Next j
+                End If
+               Call cdiv(x, y, rm1(i, i), rm2(i, i), rv1(i), rv2(i))
+             Next ii
+    '     .......... acceptance test for eigenvector and normalization ..........
+             its = its + 1
+             Norm = 0#
+             normv = 0#
+    '
+             For i = 1 To uk
+                x = pythag(rv1(i), rv2(i))
+                If Not (normv >= x) Then
+                    normv = x
+                    j = i
+                End If
+                Norm = Norm + x
+             Next i
+    '
+             If (Norm < growto) Then GoTo 840
+    '     .......... accept vector ..........
+             x = rv1(j)
+             y = rv2(j)
+    '
+             For i = 1 To uk
+                Call cdiv(rv1(i), rv2(i), x, y, zr(i, s), zi(i, s))
+             Next i
+    '
+             If (uk = n) Then GoTo 940
+             j = uk + 1
+             GoTo 900
+    '     .......... in-line procedure for choosing
+    '                a new starting vector ..........
+840:         If (its >= uk) Then Exit Do
+             x = ukroot
+             y = eps3 / (x + 1#)
+             rv1(1) = eps3
+    '
+             For i = 2 To uk
+                rv1(i) = y
+             Next i
+             j = uk - its + 1
+             rv1(j) = rv1(j) - eps3 * x
+         Loop  'back substitution
+'     .......... set error -- unaccepted eigenvector ..........
+         j = 1
+         iErr = -k
+'     .......... set remaining vector components to zero ..........
+900:     For i = j To n
+            zr(i, s) = 0#
+            zi(i, s) = 0#
+         Next i
+'
+940:     s = s + 1
+'      continue
+980:  Next k
+'
+      m = s - 1
+      Exit Sub
+'     .......... set error -- underestimate of eigenvector
+'                space required ..........
+1000: If (iErr <> 0) Then iErr = iErr - n
+      If (iErr = 0) Then iErr = -(2 * n + 1)
+      m = s - 1
+End Sub
+
+
+Sub cortb(nm, low, igh, Ar, Ai, ortr, orti, m, zr, zi)
+'
+      Dim i&, j&, la&, mm&, mp&, kp1&, mp1&
+      Dim h#, gi#, gr#
+'
+'     this subroutine is a translation of a complex analogue of
+'     the algol procedure ortbak, num. math. 12, 349-368(1968)
+'     by martin and wilkinson.
+'     handbook for auto. comp., vol.ii-linear algebra, 339-358(1971).
+'
+'     this subroutine forms the eigenvectors of a complex general
+'     matrix by back transforming those of the corresponding
+'     upper hessenberg matrix determined by  corth.
+'
+'     on input
+'
+'        nm must be set to the row dimension of two-dimensional
+'          array parameters as declared in the calling program
+'          dimension statement.
+'
+'        low and igh are integers determined by the balancing
+'          subroutine  cbal.  if  cbal  has not been used,
+'          set low=1 and igh equal to the order of the matrix.
+'
+'        ar and ai contain information about the unitary
+'          transformations used in the reduction by  corth
+'          in their strict lower triangles.
+'
+'        ortr and orti contain further information about the
+'          transformations used in the reduction by  corth.
+'          only elements low through igh are used.
+'
+'        m is the number of columns of zr and zi to be back transformed.
+'
+'        zr and zi contain the real and imaginary parts,
+'          respectively, of the eigenvectors to be
+'          back transformed in their first m columns.
+'
+'     on output
+'
+'        zr and zi contain the real and imaginary parts,
+'          respectively, of the transformed eigenvectors
+'          in their first m columns.
+'
+'        ortr and orti have been altered.
+'
+'     ------------------------------------------------------------------
+'
+      If (m = 0) Then Exit Sub
+      la = igh - 1
+      kp1 = low + 1
+      If (la < kp1) Then Exit Sub
+'     .......... for mp=igh-1 step -1 until low+1 do -- ..........
+      For mm = kp1 To la
+         mp = low + igh - mm
+         If (Ar(mp, mp - 1) = 0# And Ai(mp, mp - 1) = 0#) Then GoTo 140
+'     .......... h below is negative of h formed in corth ..........
+         h = Ar(mp, mp - 1) * ortr(mp) + Ai(mp, mp - 1) * orti(mp)
+         mp1 = mp + 1
+         For i = mp1 To igh
+            ortr(i) = Ar(i, mp - 1)
+            orti(i) = Ai(i, mp - 1)
+         Next i
+         For j = 1 To m
+            gr = 0#
+            gi = 0#
+            For i = mp To igh
+               gr = gr + ortr(i) * zr(i, j) + orti(i) * zi(i, j)
+               gi = gi + ortr(i) * zi(i, j) - orti(i) * zr(i, j)
+            Next i
+            gr = gr / h
+            gi = gi / h
+            For i = mp To igh
+               zr(i, j) = zr(i, j) + gr * ortr(i) - gi * orti(i)
+               zi(i, j) = zi(i, j) + gr * orti(i) + gi * ortr(i)
+            Next i
+         Next j
+140:  Next mm
+End Sub
+
+
+Sub Rootfinder_Ruffini(Coef, Root, Root_count, n, Optional Trials As Long = 1000)
+'Riffini's polynomial integer rootfinder
+' v. 12.6.05  VL
+Dim a(), b(), poss, i&, j&, Degree, x_max, x_min, loop_max&
+
+Degree = UBound(Coef) - 1
+If Degree < 2 Then Exit Sub
+ReDim a(1 To Degree + 1)
+ReDim Root(1 To Degree)
+
+'load vector coefficients in descendent order
+For i = 1 To Degree + 1: a(i) = Coef(Degree - i + 2): Next i
+
+'find the lowest possible integer roots
+loop_max = Trials
+'x = 1
+x_min = 0
+Root_count = 0
+n = Degree
+Do
+    j = j + 1
+    'cerca una possibile radice intera
+    x_max = 10 * Round(Abs(a(n + 1)) ^ (1 / n) + Abs(a(2)) / n, 0)
+    If x_max - x_min > loop_max Then Exit Sub 'eliminate the "hanging" if the sub is used by the Excel function
+    'get the next divisor of a0 greater then xmin
+    x = Next_Divisor(a(n + 1), x_min, x_max, Trials)
+    If x = 0 Then GoTo Ruffini_End
+    'Ruffini's integer rootfinder starts
+    Do
+        'reduce the polynomial by the syntetic division
+        ReDim b(1 To n + 1)
+        b(1) = a(1)
+        For i = 2 To n + 1
+            b(i) = a(i) + x * b(i - 1)
+        Next i
+        'check if x is an integer root
+        If b(n + 1) = 0 Then
+            'OK. Take the root
+            Root_count = Root_count + 1
+            Root(Root_count) = x
+            'load the reduced polynomial
+            For i = 1 To n + 1: a(i) = b(i): Next i
+            n = n - 1
+        Else
+            If x > 0 Then
+                x = -x 'try with the opposite value
+            Else
+                x_min = x_min + 1 'try with the next divisor
+                Exit Do
+            End If
+        End If
+    Loop
+
+Loop Until n = 0
+
+Ruffini_End:
+ReDim Coef(1 To n + 1)
+If n > 0 Then
+    For i = 0 To n
+        Coef(i + 1) = a(n + 1 - i)
+    Next i
+End If
+
+End Sub
+
+Private Function Next_Divisor(a0, x_min, x_max, Optional It_max)
+'finds the first divisor of a0 starting from x_min
+Dim i&, x
+If IsMissing(It_max) Then It_max = 1000
+x = x_min + 1
+d = Abs(a0)
+i = 0
+Do
+    q = d / x
+    If q < 1 Or x > x_max Or i > It_max Then
+        x = 0
+        Exit Do
+    End If
+    R = q - Int(q)
+    If R = 0 Then Exit Do
+    x = x + 1
+    i = i + 1
+Loop
+Next_Divisor = x
+End Function
+
+Private Function IsTriangular(Mat, Optional tiny)
+' returns 1 = triangular lower, 2 = triangular upper, 3 = diagonal, 0 = else
+Dim i As Long, j As Long, n As Long, m As Long, k As Integer
+Dim flag_low As Boolean, flag_up As Boolean, R
+Dim a
+     a = Mat
+     If IsMissing(tiny) Then tiny = 5 * 10 ^ -16
+     n = UBound(a, 1)
+     m = UBound(a, 2)
+    
+     If n <> m Then GoTo 200
+     flag_low = True
+     For i = 1 To n
+     For j = i + 1 To n
+        If Abs(a(i, j)) > tiny Then flag_low = False: GoTo 100
+     Next j, i
+
+100: flag_up = True
+     For i = 1 To n
+     For j = i + 1 To n
+        If Abs(a(j, i)) > tiny Then flag_up = False: GoTo 200
+     Next j, i
+
+200: If flag_up And flag_low Then
+        R = 3
+     ElseIf flag_up And Not flag_low Then
+        R = 2
+     ElseIf Not flag_up And flag_low Then
+        R = 1
+     Else
+        R = 0
+     End If
+     Erase a
+     IsTriangular = R
+End Function
+
+Private Function IsTridiagonal(Mat, Optional tiny)
+' returns 1 = tridiagonal,  2 = tridiagonal uniform, 0 = else
+Dim i As Long, j As Long, n As Long, m As Long, k As Integer
+Dim flag_triuni As Boolean, flag_tri As Boolean, R
+Dim a
+    a = Mat
+     If IsMissing(tiny) Then tiny = 5 * 10 ^ -16
+     n = UBound(a, 1)
+     m = UBound(a, 2)
+     
+     If n <> m Then GoTo 200
+     For i = 1 To n
+     For j = i + 2 To n
+        If Abs(a(i, j)) > tiny Then GoTo 100
+        If Abs(a(j, i)) > tiny Then GoTo 100
+     Next j, i
+     flag_tri = True
+     
+100: If flag_tri Then
+        For i = 2 To n - 1
+            If Abs(a(i, i + 1) - a(i - 1, i)) > tiny Then GoTo 200
+            If Abs(a(i + 1, i) - a(i, i - 1)) > tiny Then GoTo 200
+        Next i
+    
+        For i = 2 To n
+            If Abs(a(i, i) - a(i - 1, i - 1)) > tiny Then GoTo 200
+        Next i
+        flag_triuni = True
+     End If
+    
+200: If flag_tri Then
+        If flag_triuni Then R = 2 Else R = 1
+     Else
+        R = 0
+     End If
+     Erase a
+     IsTridiagonal = R
+End Function
+
+Private Sub NormalizeMatrix_C(a, ByVal NormType, Optional tiny)
+'NormType = 1 (scaled to max) ,  2 (modulo=1),  3 (scaled to min)
+'mod. 20-12-03
+Dim n&, m&, tmp, x As Cplx, m2, y As Cplx, V As Cplx
+If IsMissing(tiny) Then tiny = 2 * 10 ^ -14
+n = UBound(a, 1)
+m = UBound(a, 2) / 2
+'mop-up
+For j = 1 To 2 * m
+For i = 1 To n
+    If Abs(a(i, j)) < tiny Then a(i, j) = 0  '20-12-03
+Next i, j
+'normalize
+For j = 1 To m
+    Select Case NormType
+        Case 2  'module =1
+            m2 = 0 '
+            For i = 1 To n
+                 tmp = a(i, j) ^ 2 + a(i, j + m) ^ 2
+                 m2 = m2 + tmp
+            Next i
+            m2 = Sqr(m2)
+        Case 3  'max element =1
+            m2 = 0 '
+            For i = 1 To n
+                tmp = a(i, j) ^ 2 + a(i, j + m) ^ 2
+                If tmp > m2 Then
+                    x.R = a(i, j)
+                    x.i = a(i, j + m)
+                    m2 = tmp
+                End If
+            Next i
+        Case 1  'min element =1
+            m2 = 10 ^ 300 '
+            For i = 1 To n
+                tmp = a(i, j) ^ 2 + a(i, j + m) ^ 2
+                If tmp > 1000 * tiny And tmp < m2 Then
+                    x.R = a(i, j)
+                    x.i = a(i, j + m)
+                    m2 = tmp
+                End If
+            Next i
+    End Select
+    
+    If Abs(m2) > tiny Then  'fix bug for null vectors . 6-6-05 VL
+        If NormType = 2 Then
+            For i = 1 To n
+                a(i, j) = a(i, j) / m2
+                a(i, j + m) = a(i, j + m) / m2
+            Next i
+        Else
+            For i = 1 To n
+                y.R = a(i, j)
+                y.i = a(i, j + m)
+                V = div_(y, x)
+                a(i, j) = V.R
+                a(i, j + m) = V.i
+                If Abs(a(i, j)) < tiny Then a(i, j) = 0
+                If Abs(a(i, j + m)) < tiny Then a(i, j + m) = 0
+            Next i
+        End If
+    End If
+Next j
+End Sub
+
+Function MatNormalize_C(Mat, Optional NormType, Optional CFormat, Optional tiny)
+'NormType = 1 (Min element =1),
+'NormType = 2 (Module =1)
+'NormType = 3 (Max element =1)
+Dim a, Im
+a = Mat
+If IsMissing(CFormat) Then CFormat = 1
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+If IsMissing(NormType) Then NormType = 2
+If IsMissing(tiny) Then tiny = 2 * 10 ^ -13
+
+NormalizeMatrix_C a, NormType, tiny
+
+If CFormat = 2 Then Mat_Complex_Conv b, 21
+If CFormat = 3 Then Mat_Complex_Conv b, 31, Im
+MatNormalize_C = a   'fix bug  VL 10.5.2003
+End Function
+
+Function Mat_QH(Mat, V, Optional step)
+'returns the Q H factorization matrices where
+'Q = orthonormal and H = hessemberg being [Q^t]*[A]*[Q]=[H]
+'it uses the Arnoldi's algorithm.
+'For symmetric matrix uses the faster Lanczos' algorithm
+Dim a, b(), u, n, i, j, tmp#(), h(), q()
+a = Mat
+u = V
+If UBound(a, 1) <> UBound(a, 2) Then GoTo Error_Handler
+If UBound(u, 1) <> UBound(a, 1) Then GoTo Error_Handler
+n = UBound(a)
+If IsMissing(step) Then step = n
+ReDim b(1 To n): For i = 1 To n: b(i) = u(i, 1): Next i
+
+If IsMatSym(a) Then
+    Call Lanczos_Factoriz(a, b, h, q, step)
+Else
+    Call Arnoldi_Factoriz(a, b, h, q, step)
+End If
+'arrange the output matrix
+ReDim tmp(1 To n, 1 To 2 * n)
+For i = 1 To n
+For j = 1 To n
+    tmp(i, j) = q(i, j)
+    tmp(i, j + n) = h(i, j)
+Next j, i
+
+Mat_QH = tmp
+Exit Function
+Error_Handler:
+Mat_QH = "?"
+End Function
+
+
+Sub Arnoldi_Factoriz(a, b, h, q, s_max)
+'Arnoldi factorization of the linear system Ax = b
+'returns the Arnoldi's factorization matrices Q,H where [Q^t]*[A]*[Q]=[H]
+Dim s&, i&, j&, k&, vnorm#, V#(), tol#, n&
+
+n = UBound(a)
+tol = 5 * 10 ^ -16
+ReDim q(1 To n, 1 To n), h(1 To n, 1 To n), V(1 To n)
+'compute the norm of the vector
+vnorm = VectNorm(b)
+'load the first vector q1
+For i = 1 To n
+    q(i, 1) = b(i) / vnorm
+Next i
+s = 1 'step counter
+Do
+    'multiplication v=A*q(s)
+    For i = 1 To n
+        V(i) = 0
+        For j = 1 To n
+            V(i) = V(i) + a(i, j) * q(j, s)
+        Next j
+    Next i
+    For i = 1 To s
+        'h(i,s)= q(i)^t*v
+        h(i, s) = 0
+        For k = 1 To n
+            h(i, s) = h(i, s) + q(k, i) * V(k)
+        Next k
+        'v=v-h(i,s)*q(i)
+        For k = 1 To n
+            V(k) = V(k) - h(i, s) * q(k, i)
+        Next k
+    Next i
+    'h(s+1,s)=|v|
+    If s = n Or s = s_max Then Exit Do
+    h(s + 1, s) = VectNorm(V)
+    For k = 1 To n
+        q(k, s + 1) = V(k) / h(s + 1, s)
+    Next k
+    s = s + 1
+Loop Until s = n + 1 Or Abs(h(s, s - 1)) < tol
+End Sub
+
+Private Function IsMatSym(a) As Boolean
+Dim i&, j&
+IsMatSym = False
+If UBound(a, 1) <> UBound(a, 2) Then Exit Function
+For i = 1 To UBound(a, 1)
+For j = 1 To UBound(a, 2)
+    If a(i, j) <> a(j, i) Then Exit Function
+Next j, i
+IsMatSym = True
+End Function
+
+Sub Lanczos_Factoriz(a, b, h, q, s_max)
+'Lanczos factorization of the linear system Ax = b
+'returns the Lanczos's factorization matrices Q,H where [Q^t]*[A]*[Q]=[H]
+Dim s&, i&, j&, k&, vnorm#, V#(), tol#, n&, beta#, q0(), Alpha#
+
+n = UBound(a)
+tol = 5 * 10 ^ -16
+ReDim q0(1 To n, 1 To n), q(1 To n, 1 To n), h(1 To n, 1 To n), V(1 To n)
+
+'compute the norm of the vector
+vnorm = VectNorm(b)
+'load the first vector q1
+For i = 1 To n
+    q(i, 1) = b(i) / vnorm
+Next i
+s = 1 'step counter
+Do
+    'multiplication v=A*q(s)
+    For i = 1 To n
+        V(i) = 0
+        For j = 1 To n
+            V(i) = V(i) + a(i, j) * q(j, s)
+        Next j
+    Next i
+    
+    Alpha = 0
+    For i = 1 To n
+        Alpha = Alpha + V(i) * q(i, s)
+    Next i
+    
+    If s = 1 Then
+        For i = 1 To n
+            V(i) = V(i) - Alpha * q(i, s)
+        Next i
+    Else
+        For i = 1 To n
+            V(i) = V(i) - Alpha * q(i, s) - beta * q(i, s - 1)
+        Next i
+    End If
+    beta = VectNorm(V)
+    h(s, s) = Alpha
+    If s > 1 Then h(s - 1, s) = h(s, s - 1)
+    If s = n Or s = s_max Then Exit Do
+    h(s + 1, s) = beta
+    For i = 1 To n
+        q(i, s + 1) = V(i) / beta
+    Next i
+    s = s + 1
+Loop Until s = n + 1 Or Abs(h(s, s - 1)) < tol
+End Sub
+
+Sub Normalize_Eigenvector_Sign(a, Optional tol)
+'normalize the sign of each eigenvector making positive the first
+'non zero element  |aij| > tol
+Dim n&, m&, i&, j&, sg
+If IsMissing(tol) Then tol = 2 * 10 ^ -15
+n = UBound(a, 1)
+m = UBound(a, 2)
+For j = 1 To m
+    sg = 0
+    For i = 1 To n
+        If Abs(a(i, j)) > 1000 * tol Then
+            If sg = 0 Then sg = Sgn(a(i, j))
+            If sg < 0 Then
+                a(i, j) = -a(i, j)
+            Else
+                Exit For 'exit inner for
+            End If
+        End If
+    Next i
+Next j
+End Sub
+
+
+
+Function ChangeBase(Mat, rBase As Integer, cBase As Integer) As Variant
+' *****************************************************************************
+' Written Richard Woodward
+' Takes a matrix and creates another matrix of the same size with different bases
+' *****************************************************************************
+rLo = LBound(Mat, 1)
+rHi = UBound(Mat, 1)
+cLo = LBound(Mat, 2)
+cHi = UBound(Mat, 2)
+
+nr = rHi - rLo + 1
+nc = cHi - cLo + 1
+Dim Mat2()
+ReDim Mat2(rBase To nr + rBase - 1, cBase To nc + cBase - 1)
+ir1 = rBase
+For ir = rLo To rHi
+    ic1 = cBase
+    For ic = cLo To cHi
+        Mat2(ir1, ic1) = Mat(ir, ic)
+        ic1 = ic1 + 1
+    Next ic
+    ir1 = ir1 + 1
+Next ir
+ChangeBase = Mat2
+
+End Function
+
+Function xprimex(x)
+xm = x
+xT = Application.Transpose(xm)
+xprimex = Matrix_Mult(xT, xm)
+End Function
+
+Function MyRegression(y As Range, x As Range, iWhichCoefficient, Optional Intercept)
+Dim xm(), ym(), xpx(), xpxi(), xpy(), beta()
+
+
+xm = x
+ym = y
+k = UBound(xm, 2)
+n = UBound(xm, 1)
+
+If IsMissing(Intercept) Then Intercept = True
+iExtra = 0
+If Intercept Then iExtra = 1
+If iWhichCoefficient > k + iExtra Then
+    MyRegression = -888888
+    Exit Function
+End If
+
+
+If UBound(ym, 1) <> n Then
+    MyRegression = -99999
+    Exit Function
+End If
+Dim BadRows()
+ReDim BadRows(n)
+For i = 1 To n
+    For j = 1 To k
+    If Application.IsNumber(xm(i, j)) = False Then
+        BadRows(i) = 1
+        Exit For
+    End If
+    Next j
+    If Application.IsNumber(y(i, 1)) = False Then BadRows(i) = 1
+Next i
+Dim nBadRows
+nBadRows = 0
+For i = 1 To n
+    nBadRows = nBadRows + BadRows(i)
+Next i
+
+If nBadRows > 0 Then
+    Dim xm1(), ym1()
+    ReDim xm1(n - nBadRows, k)
+    ReDim ym1(n - nBadRows, 1)
+    i1 = 0
+    For i = 1 To n
+        If BadRows(i) <> 1 Then
+            i1 = i1 + 1
+            ym1(i1, 1) = y(i, 1)
+            For j = 1 To k
+                xm1(i1, j) = xm(i, j)
+            Next j
+        End If
+    Next i
+xm = xm1
+ym = ym1
+n = n - nBadRows
+End If
+
+
+            
+If Intercept = True Then
+    xm = AddSummer(xm)
+End If
+xpx = xprimex(xm)
+xpxi = M_INV(xpx)
+xT = Application.Transpose(xm)
+xpy = Matrix_Mult(xT, ym)
+beta = Matrix_Mult(xpxi, xpy)
+MyRegression = beta(iWhichCoefficient, 1)
+
+End Function
+Function AddSummer(xm)
+Dim i, j, k, n, m
+Dim xm2()
+k = UBound(xm, 2)
+n = UBound(xm, 1)
+ReDim xm2(n, k + 1)
+For i = 1 To n
+    xm2(i, 1) = 1
+    For j = 1 To k
+        xm2(i, j + 1) = xm(i, j)
+    Next j
+Next i
+AddSummer = xm2
+End Function

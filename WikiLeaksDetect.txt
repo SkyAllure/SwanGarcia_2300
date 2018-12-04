@@ -1,0 +1,1509 @@
+WikiLeaksDetect : Automated Sensitive Texts Detection Model for Data Leaks
+PreventionI
+Author 11,, Author 2, Author 3
+
+Abstract
+In recent years, traditional cybersecurity safeguards have proven ineffective against insider threats. Famous cases
+of sensitive information leaks caused by insiders such as WikiLeaks and Edward Snowden greatly harmed the U.S.
+government’s relationship with other governments and its citizens. Data Leak Prevention (DLP) is an evolving system with a main objective of combating insider threats by detecting and preventing information leaks from within
+the organization’s network. However, current state of art in DLP detection model is only able to detect very limited
+types of sensitive information. Several papers proposed statistical analysis solutions to automate and improve DLP
+detection model performance. Due to the lack of classified texts, researchers focused on document-based detection
+with artificially labeled “confidential documents”. This paper is the first to directly analyze real world detection of
+confidential/classified documents. Security labels are usually assigned to the entire document or article, but in reality
+only a portion of the document is sensitive. Document-based security labeling increases the chances of preventing
+authorized users from accessing non-sensitive information within the sensitive documents. New innovative detection
+model WikiLeaksDetect is developed in this paper to detect multilevel and single classified paragraphs. WikiLeaksDetect performance was evaluated on genuine sensitive documents, also known as U.S. diplomatic cables, which were
+leaked from U.S. embassies to WikiLeaks. While WikiLeaksDetect model enhances the DLP detection rate, efficient
+protection model is required to prevent the data leaks.
+Keywords: Insider Threats, Data Leaks, Data Leak Prevention, Security Classification, Machine Learning
+
+1. Introduction
+As a result of the lack of adequate protection measures, labeled U.S. diplomatic cables were leaked.
+Drawing a line between security and convenience that
+separates users’ rights and the misuse of data has never
+been without complication. Trending industrial and
+academic solutions, for instance, have considered legitimate but potentially malicious users to be insider
+threats. Conventional security measures are not as efficient as they should be against insiders [2] [18] which
+have greater accessibility than external attackers. User’s
+behavior analysis techniques [27] [7] are unconventional security measures to detect anomalous behavior
+that might replicate malicious user actions. Others extended the analysis of users’ behavior outside the organization’s scope through analyzing user’s behavior in
+the social media[11] [19]. The leaking of data is one
+of the risks associated with insider threats. One way to
+mitigate data leaks is by quantifying the amount of sensitive information revealed to the users [5][14]. A different prospective on causes of data leaks, user’s honest
+Preprint submitted to Computer & Security
+
+actions might unknowingly leak sensitive information.
+This problem is addressed through validating users’ intended and unintended actions [29] or by enhancing
+their security awareness [3].
+While many innovative and promising techniques
+were proposed to combat information leaks, information explosion is still untouched issue that escalates the
+information leak prevention problem. Along with increasingly unaccountable insider threats, data sizes are
+expanding exceptionally every year. Gantz et al. [9]
+stated that more than 2.8 trillion gigabytes of data were
+generated in 2012 alone. Undoubtedly, among the vast
+amount of newly generated data, some sensitive information might simply go unlabeled. Even if the sensitive data was initially labeled, the label consistency
+across the network is not guaranteed. A malicious or
+an unaware user might leak unlabeled, sensitive information without being noticed. Manually labeling sensitive documents is not practical for large amount of
+unlabeled data and it requires the trust of multiple individuals. Therefore, we argue that sensitive informaMay 10, 2016
+
+tion must be automatically marked and tracked before
+any protection can take place. The ability to automatically detect sensitive information enhances the capabilities of information leakage and insider threat detection
+mechanisms. This raises the following question: How
+can we detect substantial amounts of unlabeled sensitive texts anywhere within the network without relying
+on the users?
+Sensitive data resides alongside regular data and is
+found anywhere from small business websites to ministries’ large databases. Noticeable volumes of raw or
+processed data are in the form of texts. The security
+value of textual information is estimated by the cost or
+impact of its leakage. Measuring textual sensitive information leakage impact requires a deep understanding of
+the information value itself. Sensitive information leakage occurs when data passes from trusted to untrusted
+channels. Data Leak Prevention/Loss Systems aim to
+detect, monitor, and protect sensitive data. Leading cybersecurity vendors started to adopt DLP [21] [25] to
+prevent sensitive information leakage. The purpose of
+DLP’s detection model is to differentiate in one way
+or another between sensitive and non-sensitive information. Automated data sensitivity detection empowers
+DLP with the ability to monitor users’ actions toward a
+particular portion of sensitive data rather than tracking
+all the data. The current detection models are incapable
+of capturing unlabeled sensitive texts.
+Text classification is one of the prominent areas of
+Machine Learning (ML). Through training a classifier
+on annotated documents, predictions can be made on
+future unlabeled texts. Handling sensitive text detection
+as a text classification problem comes with some concerns. Security features are not the same as topical or
+sentiment features. Also, security features are diverse
+from one document to another. In text multilevel security classification, security features can be correlated
+with more than one security class.
+It’s important to protect the sensitive information
+within a document, and in the same time access to
+the non-sensitive parts of the document should be allowed. The larger is the document, the larger is the
+possibility to have paragraphs with different sensitivity levels. Therefore, document’s size is an additional
+concern. Paragraph-based classification is one solution where each paragraph is labeled and accessed independently from other paragraphs within the document.
+However, a paragraph-based security classification system escalates the complication of the labeling process;
+therefore, the need for automated security classification
+is even more justified. This issue is addressed in the paper by partitioning a large text corpus into smaller group
+
+of similar paragraphs; multiple similarity-based classification models can be built to predict paragraphs’ security labels. The challenge that sensitive text detection
+presents is that even a few words can possess a great
+deal of value.
+This paper makes the following contributions:
+• Multiple datasets were reconstructed from genuine
+sensitive U.S. cables published on WikiLeaks, and utilized to test the proposed methodology stability and
+scalability. The authors of this paper are not aware of
+any paper that experimented on WikiLeaks for both sensitive and non-sensitive data.
+• This paper offers binary and multiclass security
+classification and comparison between them.
+• Paragraph-based security classification is more
+practical for large documents than document-based
+classification; thus, it has been adopted for this paper.
+Furthermore, paragraph-based is trivially convertible to
+document-based classification.
+• An analysis of the differences between document
+and paragraph security classification.
+• Proving that even with a real-world data, automated
+text sensitivity detection is viable.
+• Developing and designing WikiLeaksDetect detection model to be integrated with DLP system. Our
+detection model can break down documents and capture sensitive paragraphs even if they have never been
+marked before.
+The remainder of this paper is structured as follows. Section 3 gives a background on DLP Solution,
+overviews some of the common detection techniques
+and a review and analysis of the related work. In section 5, we analyze the difference between paragraph and
+document based security classification. A detailed illustration of WikiLeaksDetect detection model is in section
+6. U.S. diplomatic cables’ structure and a list of the corpus in section 7. Evaluation metrics and results are in
+section 8. Discussion on some of the aspects of sensitivity detection relevant to our paper is in section 9.
+Finally, this paper is concluded in section 10.
+2. Related Work
+Recently, leading DLP commercial solutions such as
+Symantec and Websense adopted a new approach to
+identifying sensitive information through the use of machine learning. As with any commercial product, detailed technical information or performance are not publicly available. Machine learning can be integrated with
+Language Processing, Information Retrieval or mining
+techniques to predict future documents’ label. Machine
+2
+
+Learning is divided into three types of learning, unsupervised, semi-supervised and supervised learning. In
+unsupervised learning, clustering is a method to categorize documents based on distance or other statistical measurements without relying on expert knowledge or annotated data. In supervised learning, the prediction of unseen document’s label is based on information extracted from previously labeled documents.
+Text classification models combine machine-learning
+classifiers with other techniques from different areas to
+classify documents based on selected features. Semisupervised learning is in-between supervised and unsupervised learning where subset of the training set is labeled. In this subsection, we are going to review key
+papers that employed one or a mixture of the techniques
+mentioned earlier. Paper’s methodologies will be briefly
+described. Dataset authenticity and scalability are the
+critical aspects which make the focal points of related
+work criticism.
+The use of sensitive information clustering for Data
+leak prevention can be found in [20]. Katz et al. utilized k-means algorithm with cosine measure as a distance function to cluster all the documents in the corpus
+regardless of their sensitivity level. Then a confidentiality score was assigned to each document by calculating
+the confidential term probability appearing in a confidential document within and without the clusters. The
+dataset in this paper was a collection of various types of
+news articles, news articles regarding international trade
+were treated as sensitive documents which are not. Katz
+experiments showed that clustering with graphical representation takes much more time than conventional text
+classification methods with vector space model. In addition, their proposed method did not improve sensitive
+document detection accuracy compared to text classification. However, one of their objectives was to detect
+tempered sensitive documents through calculating the
+unlikelihood of a document’s term appearing in a cluster.
+N-gram profiling is a simple and effective method for
+categorizing topical texts. Category and document profiles are based on n-gram frequency. Alneyadi et al. [1]
+used Taxicab geometry [23] as distance measurement
+to determine the smallest distance between a document
+and set of category profiles; the document is assigned
+to the category profile with the shortest distance. As
+elaborated by the authors, the overall results of unigram
+profiling are comparable to text classifiers as a baseline.
+The dataset was a collection of various articles about
+security solutions such as firewalls and DLP. Each one
+of those security solutions articles represented a category profile. Articles about DLP were artificially treated
+
+as sensitive. Since the data used was not genuine, this
+shows that in reality N-gram might not be as effective as
+demonstrated in the paper.
+Hart et al. [15] proposed a new training method to
+overcome the problem of imbalanced data. Hart implemented specific classifiers for each one of their classes.
+The private data in Hart’s paper is genuine because it
+was obtained from business reports leaked to the WikiLeaks website. In contrast, Harts’ public documents
+were collected from different locations relevant to the
+targeted companies. Since public and sensitive documents were collected from different origins, most likely
+they will have different writing styles and set of features. This is easier than the real-world scenario where
+both public and sensitive documents generated from the
+same source.
+Gomez-Hidalgoy et al. [10] proposed the usage of
+Named Entity Recognition(NER) to prevent data leakage. A dictionary of named entities model was utilized
+to predict tweets categorizes such as Books & Literature and Shopping. The authors attempted to simulate
+a real-world scenario where some tweets are considered private. Nonetheless, experiment results on artificial sensitive data don’t give a clear indication of the
+methodology performance on real-world sensitive data.
+Also, tweets are known to be short; sensitive detection
+methods demanded to perform well on larger sensitive
+documents such as technical reports, assessment of critical infrastructure or intelligence operations reports.
+3. Security Applications for Data Security Classification
+3.1. DLP
+Ever since the WikiLeaks website started in 2006, a
+considerable amount of sensitive documents has been
+leaked to the public. This exposed the fragility of governments’ security defenses that couldn’t protect their
+valuable assets from insiders; hence, new and innovative approaches and solutions emerged to protect sensitive data. Conventional security solutions such as Firewalls and IDS defend the network from external attacks,
+but they are limited in terms of the insider threats. DLP
+prevents information losses or leakage from malicious
+insiders through discovering, detecting, protecting and
+monitoring sensitive information assets residing on nonnetwork components or traveling within the network
+(see Fig. 1). DLP’s discover model locates unlabeled
+data at rest by remotely scanning the targeted device or
+with a scanning agent [24]. Non-network components
+such as servers, workstations, or endpoints are instances
+3
+
+dealing with unseen, unstructured texts [24]. The following is a brief review of commercially adopted DLP
+detection approaches.
+3.1.1. Keywords
+Administrators or information asset owners generate
+a list of keywords that most likely will appear in the sensitive documents. For instance, a document might be
+previously marked with some words that represent their
+classification level, such as confidential or internal use.
+This approach is effective for sensitive documents with
+predefined keywords; however, it suffers from high false
+positive and false negative results. A confidential document may or may not contain those set of keywords;
+the same applies to public documents that include confidential related keywords. An additional problem with
+keywords methods is that an administrator has to update
+the keywords list on a regular basis.
+
+Figure 1: Data Leak Prevention Solution: An overall diagram. Data
+can be discovered either through scanning end points for unlabeled
+data or capturing data in transit to untrusted channels. Data is then inspected by the detection model to determine its sensitivity level. Common detection techniques such as Regular Expressions, and Partial or
+Exact Matching are utilized. Non-sensitive data in transit are normally
+passed to untrusted channels and non-sensitive data at rest is marked
+as non-sensitive. On the other hand, detected sensitive data is passed
+to a protection model in order to block the transmission, generate an
+alert, encrypt the transmission, or encrypt the data at rest. Detected
+data is then marked throughout the network to track future users’ actions in regard to the targeted sensitive data.
+
+3.1.2. Regular Expressions
+Regular expressions are sets of special characters that
+describe a pattern in its general form, for example a
+sequence of numbers separated by a hyphen. Regular
+expressions are adequate for identifying social security
+numbers, credit card numbers or similar sensitive information, but they have the same limitation as keywords.
+The exact form of all the sensitive information has to be
+predefined and registered; any modification will easily
+bypass the regular expressions rules. In addition, regular expressions cannot identify or format unstructured
+private texts.
+
+of the scanner targeted devices. Unlabeled data in transit is also captured by DLP’s discover model. Unlabeled
+data is passed to DLP’s detection model for sensitivity assessment. The sensitivity of the unlabeled data at
+hand is measured through one method or a combination
+of several sensitivity detection methods. Data is labeled
+based on the decision made by the detection model; the
+data can either be accepted for transmission to untrusted
+channels or passed to the protection model. The protection model deals differently with the data in transit and
+at rest. For instance, sensitive data in transit can either
+be encrypted, alert the security official, or be blocked
+from transmission. On the other hand, the DLP protection model has the option to encrypt or enforce access
+rights on sensitive data at rest. Finally, the objective
+of the monitor model is to ensure the labeling consistency and track users’ actions toward the sensitive data
+within the network. DLP is a relatively new solution
+with various capabilities which can be optimized depending on the enterprise or government requirements.
+Commercial DLP solutions are not yet standardized, but
+typically, they consist of the four models illustrated earlier. Our work in this paper aims to enhance the detection model performance by detecting unlabeled sensitive textual data. Common DLP detection techniques
+such as Keywords, Regular Expressions, Exact Matching and Partial Matching are highly limited in terms of
+
+3.1.3. Exact Matching
+In exact matching, the detection model hashes and
+stores the whole file or its content for matching discovered documents. The sensitive document is detected if
+the document’s hash matches one of the hashed values
+in the database. Hashing the text value itself is more
+robust against file conversion. It is obvious that this
+approach is impractical for large numbers of sensitive
+documents. It is weak against document modification
+or spanning, so it’s easily bypassed. As a solution to
+this problem, partial matching was introduced.
+3.1.4. Partial Matching
+Both exact and partial matching are also known as
+file fingerprinting. The difference between exact and
+partial matching lies in the choice of hashed text. In
+the exact matching, the entire document is treated as a
+sensitive document, while partial matching divides the
+document into multiple parts and hashes each part by itself. Confidential document leakage is detected if part
+4
+
+of this document matches some the relevant hashed values stored in the database. Exact and partial matching are at disadvantage when dealing with large numbers of documents, they require maintaining and computing a large database of hashed values. Shapira et
+al. [26] proposed a method to reduce the computation
+time and storage space required for matching hashes.
+Shapira achieved that through hashing n-grams values
+that most likely represent sensitive information in the
+documents and skipping n number of words or grams.
+In contrast, the traditional partial matching approach divides all the documents into multiple parts and hashes
+it. This approach mitigates the problems of matching
+techniques but does not automate sensitive information
+detection. As useful as matching techniques could be
+for well-known security patterns, those methods are restricted to a predefined set of sensitive information and
+it’s not possible to apply to unstructured documents.
+
+4.1. Building Cluster-Based Classifiers
+The key to building a comprehensive and accurate
+sensitivity detection model is to learn the information
+value for each paragraphs. Values are assigned by the
+document’s creator or by a person with a deep understanding of the organization’s interest. Samples of documents with their paragraphs values can assist in predicting the sensitivity of future paragraphs. In this stage,
+we are analyzing real sensitive texts and trying to capture what makes them more valuable than other texts.
+As our detection model name indicates, we are solely
+relying on U.S diplomatic cables, however, we are confident that our approach is also suitable for other kind
+of data. The left box in Fig. 2 shows the starting point
+of learning process. Labeled paragraphs are extracted
+and treated as learning instances. Paragraph are grouped
+based on their similarities. Number of clusters are determined by the accumulative performance of the underlining similarity-based classification models. Classification models are built on labeled paragraphs within
+clusters. The process of learning organization’s secrets
+is explained in depth in section 6.
+
+3.2. Security Information and Event Management
+Other than preventing information leaks, text security
+classification logging assists in monitoring and tracking down suspicious users. The benefit of logging
+users’ activities on classified texts is extended when integrated with Security Information and Event Management (SIEM) solutions. SIEM collects security-related
+logs to analyze and correlate between security events
+generated from different sources, such as firewalls and
+IDS [22].
+
+4.2. Similarity Assigner and Sensitivity Detection
+The upper right box in Fig. 2 is the other end of
+the WikiLeaksDetect model, where captured unlabeled
+documents are passed by the DLP Discover model.
+There are two ways that the DLP Detection model can
+receive a document for sensitivity check. The DLP
+Discover model scans the endpoint for unlabeled documents. The other way is that the DLP Discover model
+intercepts a file transmission to an untrusted channel.
+This document is held for some processing before a prediction on the text’s sensitivity is made. Documents
+themselves contain sensitive and non-sensitive information. Information availability is critical for some organizations, which leads to a very tight margin in the security trade-offs [28]. Paragraph-based sensitivity detection helps to extract the most valuable sensitive information.
+Back to Fig. 2 the WikiLeaksDetect detection model
+breaks down the document into smaller textual information sections. Further details on the paragraph extraction process is found in section 7. Each document is reconstructed into a collection of paragraphs. A vector of
+features is extracted for each paragraph; for simplicity,
+this step is omitted from the figure. Vectors are passed
+to a Similarity Group Assigner function. The Assigner
+measures the distance between each paragraph vector
+and a predefined similarity cluster’s centroid to determine the clusters that a paragraph is most similar to. For
+
+3.3. Honeypot
+Besides data leak prevention and insider threat detection, automated text security classification can offer
+support in understanding insiders’ behavior by emulating sensitive documents such as honeypots [4]. Emulating sensitive text with static or arbitrary non-sensitive
+text is an example of low-interaction document honeypots. Redirecting insiders to document that more optimized and/or similar to the requested sensitive documents bears a resemblance to high-interaction honeypots.
+4. WikiLeaksDetect for Data Leak Prevention Systems
+In this section, we will briefly describe WikiLeaksDetect components as a detection model for the Data
+Leak Prevention systems. Our detection model is suited
+for unstructured text that has never been labeled as sensitive or lost its label in one way or another.
+5
+
+5.
+
+Text Security Classification : Document Vs.
+Paragraph
+
+In this section, we are going to define text security
+classification and illustrate the difference between Paragraph and Document based Security Classification.
+5.1. Features Set
+Unlike regular text classification, few infrequent features can change the entire document class to a higher
+or lower security level. Features extracted from the
+document level differ from features extracted from the
+paragraph level. Security classification is defined as
+follows. Each document Di has one or n informative
+sections or simply paragraphs P, Di = {P1 , . . . , Pn }.
+Paragraphs consist of multiple terms or features F. In
+document-based classification, one feature set is derived
+for all the paragraphs, this features set determines the
+document security class DClass
+= C({P1 , . . . , Pn }) =
+i
+M(F1 , . . . , Fm } where M is the machine that estimates
+the class, and m is total number of features in the document. The downside of document-based approach
+is the assumption that all document portions belong
+to the same security class which is unlikely. Consequently, the document features set will accommodate
+irrelevant features assigned to the document class. Predicting the document class in document-based security
+classification is straightforward compared to paragraphbased. In paragraph-based classification, a document
+consists of paragraphs with one or more different security classes. In order to avoid inconsistency, the
+security classes described in this section matches the
+classes that appeared in the dataset at hand. The security classes are Unclassified, Confidential and Secret which is defined respectively as follows Class =
+{U, C, S } and C(P) be the operator that returns the classification of paragraph P. The class set sorts the security classes from the lowest security level as the first
+member in the set to the highest. In paragraph-based
+security classification, a document has multiple feature sets, one set for each paragraph within the document. The security of the paragraph is determined
+based on its extracted features Di = C(Pi ), . . . , C(Pn )} =
+{M( f1,1 , . . . , f1,m ), . . . , M( fn,1 , . . . , fn,m )} where M is the
+machine that estimates the class, m is number of features in each paragraph and fn,m is feature m from
+paragraph n. This approach reduces the number of irrelevant features correlated to the respective security
+class. Paragraphs’ security classes are independently
+determined. The document is labeled with the highest security class that assigned to any of its paragraphs
+C(Di ) = max j C({P j )}. Thus a document labeled with
+
+Figure 2: This figure gives an overview of the WikiLeaksDetect
+Model. It has two ends; in the first phase, real labeled paragraphs
+are utilized in the Secrets Learning process. Labeled paragraphs are
+clustered based on their similarity. A classification model is generated out of each similarity cluster. In the second phase, documents are
+discovered by the DLP and passed to the detection model. WikiLeaksDetect extracts paragraphs or information sections from the document
+and send them one by one to a Cluster’s Similarity Assigner. Each
+paragraph is assigned to one of the most similar clusters. Based on
+the assignment outcome, a classification model generated in the first
+phase is chosen to make a prediction on the paragraph. As in the
+Sensitivity Assessment box, the prediction can be Unclassified, Confidential or Secret.
+
+every single similarity cluster, there is a corresponding
+similarity-based classification model. Before passing
+the paragraph to the corresponding classification model,
+a paragraph has to be pre-processed and indexed; this
+step is also omitted from the figure. This process is to
+examine the paragraph for any features that can indicate
+its sensitivity level. Paragraph security features most
+likely are similar to the group of paragraphs with the
+same interest. Then the classification model can measure the sensitivity of each paragraph and make the final
+prediction by labeling the paragraphs. WikiLeaksDetect
+can detect multiple sensitivity levels, which provides
+DLP solutions with a variety of protection and monitoring options. DLP’s monitor model can generate alerts
+for lower sensitivity paragraphs and intercept the higher
+ones. Similarly, the protection model can place strong
+protection mechanism for high sensitivity paragraphs,
+and be more flexible with less sensitive paragraph.
+6
+
+the security class S could have paragraphs with any
+class while a document Di labeled as Unclassified must
+have C({P j ) = U, ∀P j ∈ Di .
+
+performance itself is affected by the learning algorithm,
+features selected, and data class representation. The
+class representation in the dataset is different in document or paragraph based security classification. The
+number of Secret documents doesn’t indicate the exact
+sum of Secret paragraphs presented in the data, the same
+is applied to the other two classes.
+Even though paragraph-based classification enables
+information access to unclassified or non-sensitive paragraphs within documents that contains secret information, the documents whole class is totally dependent on
+the paragraphs’ classes. As formerly stated, a document
+is labeled with the highest security class assigned to its
+paragraphs. In security text classification, we can build
+a classifier that is skewed toward the Secret or Confidential class over the Unclassified class. By following this
+method, the number of misclassified paragraphs as Secret or confidential will also misclassify the document
+that originally should be labeled from Unclassified to
+Confidential or Secret. If information owners prefer to
+implement an access control mechanism based on document rather than paragraph class, then skewing the classifier to the highest security level will limit access flexibility.
+
+5.2. Classification Probabilities
+While adapting a powerful classifier with the appropriate features is essential for reducing the error rate,
+there are other factors that play a critical role in the final outcome such as class representation and number of
+classes. Paragraph-based security classification is a special case where a single paragraph in a document can
+change the entire document class; Therefore the understanding of paragraph class influence over the document
+class would provide clear insight into the difficulty of
+paragraph classification process. Most researchers address the problem of text security classification from
+the document or article point of view. Regardless of
+the classifier performance with a single classification
+approach the probability of a document belonging to
+one of the classes is Pr(1) = 1/2. However, for three
+classification classes the probability of one document
+belonging to one of them is reduced to Pr(1) = 1/3
+which gives a clear indication that in general multiclass
+classification problems are harder than a single class.
+As for paragraph-based security classification where the
+probability of a document belonging to one of the security levels is solely dependent on its paragraph classes.
+Considering the Class set in the previous subsection a
+document with the label U requires all the paragraphs
+within the document to be labeled as Unclassified, thus
+the probability of a document belongs to U class is
+U
+n
+Pr(DU ) = Pr(PU
+1 ) × · · · × Pr(Pn ) = (1/3) where n
+is the number of paragraphs in the document. It’s worth
+noting that the position of the paragraph doesn’t impact
+the document class. Whereas the probability of a document belonging to the C class is the probability of only
+one paragraph classified as Confidential regardless of
+its position and the remaining paragraphs are classified
+as either C or U. Pr(DC ) = Pr(PCj ) + (Pr(PC1 |PU
+1) ×
+· · · × Pr(PCn |PU
+))
+=
+1/3
++
+((2/3)
+×
+·
+·
+·
+×
+(2/3)).
+Comn
+pared to Confidential and Unclassified, documents have
+higher probability to be labeled as S because Secret
+documents can have paragraphs with any class as long
+as there is one Secret paragraph within the document
+Pr(DS ) = PSj = 1/3. Hence, the more paragraphs there
+are in the document, the more feasible the document
+is labeled as Secret. Also, it’s notable that decreasing
+the number of security classes would improve the classification probability, though the probability calculation
+presented earlier didn’t consider a very influential factor which is the classifier performance. The classifier
+
+6. Learning the Secrets
+In this section, we will illustrate phases taken
+throughout the proposed methodology. Commonly, text
+classification consist of four essential sequenced procedures: preprocessing, indexing, dimensionality reduction and finally classification. Enhancing text classification performance is achieved through choosing the most
+effective methods per procedure based on the problem
+at hand. Nonetheless, sometimes traditional text classification approaches are not sufficient to solve complex
+problems even with state-of-the-art techniques. In our
+proposed methodology, we are applying additional steps
+to break down the problem of text security classification.
+6.1. Terminologies
+Definitions of repeatedly used terms throughout this
+paper are listed below to ease the understanding of subsequent sections.
+• Document-based Classification: In documentbased classification, instances are represented by the entire document regardless of its length or structure. In
+other words, the classifier predicts documents’ classes,
+not paragraphs. In this paper, we are not conducting this
+type of classification; however, if the document class is
+7
+
+needed for some reason, we can obtain the document’s
+security class through its paragraphs’ classes.
+• Paragraph-based Classification:
+Unlike
+document-based classification, the classifier learns
+from and tests on paragraphs independently regardless
+of their documents’ origins.
+Paragraphs’ classes
+indirectly influence the security document class.
+• Similarity Cluster: A group of paragraphs originated from a variety of documents are assembled based
+on similarity degree in one cluster. Similarity cluster
+is usually part of a group of clusters that resembled the
+paragraphs dataset.
+• Group of Similarity Clusters: Some clustering algorithms such as K-means can generate different numbers of clusters specified by the parameter K. All clusters that are members of K are indirectly related and
+don’t overlap with each other. Each dataset produces
+multiple group of similarity cluster.
+• Collection of Groups of Similarity Clusters:
+Each group of similarity clusters is independent and
+doesn’t overlap with other groups of similarity clusters. The collection of groups of similarity clusters
+are groups of similarity clusters that generated as nonoverlapping re-samples of a dataset.
+• Similarity-based Classification Model: A Similarity cluster is used to train and build similarity-based
+classification models. Each similarity cluster yields to a
+similarity classification model.
+• Classification Model Group : The set of
+similarity-based classification models generated from
+similarity clusters which are part of the same group .
+• Optimal Classification Model Group: Classification Model Group that achieved the highest F-Measure
+for all security classes. This group is the one chosen for
+making predictions on unseen paragraphs.
+
+dataset duplicate or re-sample is test and evaluated separately. Since WikiLeaks cables are quite large in number; manual similarity clustering is not practicable. Text
+categorization is quite similar to classification when it
+comes to the first three procedures. The following subsections are a brief explanation of procedures taken to
+create the collection of groups of similarity clusters, as
+illustrated in the algorithm 1.
+6.2.1. Preprocessing
+Textual instances are prepared for complex proceeding operations through preliminary processes. The first
+stage of preprocessing is tokenization. For alphabetic
+languages such as English, tokenization simply involves
+a division of texts based on the white space that separates the words or unigrams. Sequences of words or the
+entire paragraph are broken down into single words to
+create tokens. Tokens are then examined to remove the
+brackets, single letters, numbers, hyphens, and any additional special characters. Furthermore, to reduce the
+number of irrelevant features and speed up the computation process, stop-words are also deleted. All tokens are
+converted to lower-case letters to ensure tokens’ uniqueness and consistency.
+6.2.2. Indexing and Similarity Features
+Unless tokens are structured and represented by numeric values such as boolean or weighted frequencies,
+Machine Learning algorithms will not be able to interpret their values. Tokens are vectorized and transformed to normalized term frequency-inverse document
+frequency (TF-IDF) values. TF-IDF helps to rank features based on their importance regardless of the paragraphs’ label. Even after removing the stop-words,
+vectors still contain a very large number of features
+which are mostly irrelevant. Therefore, only features
+with a high TF-IDF score are selected. Multiple TFIDF thresholds are tested to generate a wide range of
+clusters based on the dataset size. The selected features are defined as similarity features. For instance,
+Baghdad dataset top extracted similarity features are
+GOI, Government, S ecurity and Minister.
+
+6.2. Collection of Groups of Similarity Clusters
+Paragraphs share some features which set a degree of
+similarities among them. The presence of similarity features can cause relevant security features to fade. Similar paragraphs can have different security classes. Clustering paragraphs assist in identifying hidden features
+that could be linked to the security class. Hence, it’s logical to cluster paragraphs based on their similarity and
+per cluster select distinctive features in conjunction with
+the security class. This approach produces a smaller set
+of features to examine, which results in more focused
+security features inspection. The optimal degree of similarity among documents is not clear; therefore, dataset
+is duplicated with different number of clusters. Every
+
+6.2.3. Group of Similarity Clusters
+The number of produced clusters varies depending on
+the size of the dataset. In this approach, we assumed that
+there is one cluster for every hundred paragraphs. However, a condition is set to consider the created clusters
+for further evaluation, which is that at least two security
+classes have to be present in every cluster. If this condition is not met for the maximum allowed number of similarity clusters, then the maximum number of clusters is
+8
+
+6.3. Similarity-Based Classification Models
+
+Algorithm 1: Generation of Collection of Groups
+of Similarity Clusters
+1
+3
+5
+6
+8
+10
+12
+13
+14
+15
+16
+17
+18
+19
+21
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+
+Fig. 3 describes the overall process required to construct similarity-based classification models from the
+similarity clusters. Each similarity cluster within a
+group trains a similarity-based classification model. Instances are preserved in their original form without any
+preprocessing. The following is performed on every
+group of similarity clusters to determine the best set of
+models. As in any text classification, a preprocessing
+identical to the one illustrated in subsection 6.2.1 is first
+applied to the paragraphs.
+
+Pre-processing Function()
+Input : Labeled Paragraphs
+for each paragraph do
+Tokenize Paragraphs;
+Remove Special Characters;
+Remove Stop-Words;
+Convert letters to lower case;
+end
+Vector f ← All unique features;
+Transform f to Normalized TFIDF values;
+k ← Maximum allowed # of similarity clusters;
+p ← 60%;
+Vector v ← p × f (Features);
+K-Means Algorithm()
+Input : (k, v, Processed paragraphs)
+Output: k similarity clusters
+if each cluster in k has at least 2 then
+repeat
+Generate k − 1 similarity clusters
+until k < 2;
+else
+if p>0.01 then
+p = p − 0.1;
+goto 18
+else
+k = k − 1;
+goto 17
+end
+end
+
+6.3.1. Indexing and Security Features Selection
+Tokens generated in the preprocessing procedure
+are vectorized and weighted with non-normalized frequency values. Through exhaustive experimenting, we
+found that TF-IDF and normalization do not perform
+as well as term frequencies. Dimensionality Reduction, or feature selection, is a well-known problem in
+the field of text classification. Relevant features in our
+case are security features that draw the line between security classes. The most effective threshold of selected
+features varies among similarity clusters; thus, determining a decisive model’s security feature threshold requires an extensive search. Correlation-based feature
+selection methods performed relatively better in our task
+than other feature selection algorithms. A Weka toolkit
+[12] provides a correlation feature selection algorithm
+that weighs the features’ worth by measuring the Pearson’s correlation between the targeted feature and the
+class [13]. It should be noted that features are extracted
+from within a similarity cluster. Similarity features will
+not hold much weight, since they are distributed across
+all the security classes. This will assist in the selection of a new set of features with stronger relation to the
+classes.
+
+rested to the maximum number of clusters that met the
+condition. Fortunately, our datasets met this condition
+without the need to reset the maximum number of allowed similarity clusters. The entire generation process
+is defined as CG = {{C1 , C2 }G2 , . . . , {C1 , . . . , C MK }GMK }
+where CG, G, C and MK are a collection of groups of
+similarity clusters, a group of similarity clusters, similarity cluster, and maximum number of allowed clusters
+within a group of similarity clusters, respectively. A collection of groups of similarity clusters is generated with
+the same set of similarity features. The entire generation
+process is outlined in Algorithm 1. A K-Means [16] algorithm with Euclidean as a distance measure is applied
+to generate the clusters. The letter K in K-Means represents the number of clusters that are going to be generated by the algorithm. The K-Means seed is set to ten
+for all clustering executions.
+
+6.3.2. Training Classifiers and Selecting Optimal Classification Model Group
+Since the paragraphs are already labeled, a supervised learning algorithm is needed to build the predictive model. Multiple classification algorithms were
+tested on samples of the dataset to determine the most
+suitable algorithm for the task. A Linear-SVM algorithm (LIBLINEAR) with L2-regularized logistic regression provided the best results compared to other
+classification algorithms. The logical explanation for
+this is that the Linear-SVM deals with sparse data more
+efficiently than any classification algorithm. Models are
+evaluated through a 10 fold cross-validation technique
+to assess the prediction model performance. Based on
+9
+
+without any damage to national security [17]. Regardless of the security definition, all sensitive information
+has to be kept away from unauthorized access.
+In general, there are three types of textual information, structured, semi-structured and unstructured, sensitive information is not an exception. In structured
+texts, sensitive information can be identified by examining the value of each field of a database, or sections in
+structured documents. For instance, patient contact or
+private health information such as diseases stored in a
+hospital repository are restricted on a need-to-know basis. While locating sensitive information in structured
+texts is manageable, it is quite a challenge for other text
+types.
+Genuine secret data is withheld from the public and
+hard to obtain. Therefore, researchers previously attempted to address the security classification problem
+through imitating real secret data. Fortunately, we were
+able to obtain raw secret data published on WikiLeaks.
+WikiLeaks is a website that collects leaked genuine sensitive documents. U.S. diplomatic cables dated from
+2003 to February 2010 represented the largest collection of leaked sensitive documents published on WikiLeaks. The cables originated from U.S. Embassies and
+Consulates throughout the entire world. On WikiLeaks,
+U.S. diplomatic cables in the form of HT ML pages are
+mixed and sorted by their date of creation. The following are the procedures performed on the cables to create
+more meaningful data.
+U.S. diplomatic HT ML pages are reorganized based
+on the origin of the cable. The objective of data source
+segregation is to create distinct collections of related cables. Cables generated from the same source treated as
+a single dataset. Each cable is stripped of HT ML tags
+and only the cable content is left for further processing.
+Cables are divided into three sections. The first section
+contains information utilized in the cable exchange between the sender and the receivers, a unique reference
+number, and the cable’s release date. The second section consists of the security classification level and the
+subject. Finally, the last section is the cable body. The
+body is divided into one or more numbered informative
+sections or paragraphs. Numbered sections are labeled
+with security class initials within round brackets. Sometimes the same class represented with different letters to
+add different security controls to the paragraph such as
+C/NOFORN. C/NOFORN means a particular paragraph
+is confidential and should not be accessed by foreign
+nationals. Due to the rare usage of such additional security controls, they are treated the same as the regular
+ones. Unclassified, Confidential and Secret are the only
+classes found in the WikiLeaks cables corpus.
+
+the selected set of security features, various similaritybased classification models can be built from a single similarity cluster. A similarity-based classification model that achieves the highest F-Measure score
+is chosen. However, there are multiple similarity-based
+classification models in the classification model group.
+For instance, constructing 40 similarity clusters out of
+the dataset generates 40 similarity-based classification
+models. Some of those models might result in high Fmeasure, while others do not perform as well. Therefore, true and false positive and negative values of
+all the similarity-based classification models within a
+group were summed to calculate the overall classification model group F-Measure. The similarity-based classification model group with the highest F-measure for
+all security classes was then selected as the optimal classification model group.
+
+Figure 3: This figure provides an overview of the similarity-based
+classification model’s generation processes. The left side of the figure exhibits predefined similarity clusters constructed in the previous
+step. Each similarity cluster goes through operations such as preprocessing, indexing, security feature selection and training of classifiers.
+The classifiers are trained on the features extracted from within the
+similarity cluster. The final step is to create similarity-based classifier
+models that can be utilized for future paragraph-sensitive assessment.
+
+7. WikiLeaks
+In this section a description of corpus structure and
+the processes conducted to create the data sets.
+7.1. Reconstruction and Formation
+The Government of United States established six levels of security classification system based on the damage resulted from the information disclosure. For instance, secret information if exposed to the public would
+lead to serious damage to the national security. On the
+other hand, Unclassified information can be restricted
+to certain authorized officials or released to the public
+10
+
+Paragraphs along with their security class are extracted and considered as instances. Documents’ origin
+name, creation number, release date and security class
+associated with each paragraph as an instance ID. Paragraph ID’s can be used for paragraph-document linkage
+and document sensitive class labeling.
+
+7.2.2. Two Security Classes
+To analyze the differences between multiclass and
+single security classification, we combined Confidential and Secret classes in one single class called Sensitive class. Tables 2 and 5 show that the total number
+of documents and paragraphs remain the same. Also,
+the number of Unclassified documents and paragraphs
+didn’t change.
+
+7.2. U.S. Diplomatic Cables Corpus
+In this subsection, a description of the datasets created from U.S. Diplomatic cables. Four datasets created
+out of cables originated from U.S. embassies located in
+Baghdad, London, Berlin and Damascus.
+
+8. Experimental Evaluation
+In this section, we will evaluate the proposed methodology on genuine confidential data created from U.S.
+diplomatic cables detailed earlier.
+
+Table 1: Three-Classes Document Datasets
+Dataset Total # of Documents # of Unclassified # of Confidential # of Secret # of Features
+Baghdad
+6586
+1373
+4069
+1144
+49118
+London
+1037
+368
+538
+131
+23995
+Berlin
+1706
+719
+721
+266
+27542
+Damascus
+1377
+483
+764
+130
+26077
+
+8.1. Evaluation Metrics
+In some scenarios, It’s justified to skew classifier predictions toward top security classes at the expense of
+low sensitive classes. While adopting models that favor high-security class over the lower ones reduces the
+number of misclassified secret paragraphs, this will prevent users from accessing public or unclassified documents. For the sake of fair evaluation of the proposed
+methodology, we assume that all the security classes
+including the Unclassified class are equally important.
+F-Measure is convenient metric to achieve this objective. WikiLeaksDetect model employs multiple classification models. Every classification model varies in its
+performance which doesn’t give a clear indication of the
+overall results. Therefore,the sum of True Positive (TP),
+False Positive(FP) and False Negative (FN) for all the
+classification model group is computed. TP is the number of instances correctly predicted by the classification
+models. FP is the number of instances falsely predicted
+by the classification models. Finally, FN is the number of instances that the classification models predicted
+as negative while their appropriate prediction is positive
+with respect to the security class. Recall is the ratio of
+number of relevant instances correctly predicted to the
+sum of relevant instances. Precision is the number of
+true positives divided by the sum of true positive and
+false negatives. Recall and Precision of the Classification Model Group is computed as follows.
+
+Table 2: Two-Classes Document Datasets
+Dataset Total # of Documents # of Unclassified # of Sensitive
+Baghdad
+6586
+1373
+5213
+London
+1037
+368
+669
+Berlin
+1706
+719
+987
+Damascus
+1377
+483
+894
+
+7.2.1. Multiple Security Classes
+Mainly, we are experimenting on the paragraphs
+datasets; however, for more information on the document datasets, you can look up tables 1 and 2. As
+in Table 4, our datasets varies in size. Compared to
+other U.S. Diplomatic datasets three of our corpora are
+above intermediate in size. On the other hand, Baghdad dataset has the largest number of instances within
+all the WikiLeaks leaked cables. Baghdad dataset consists of 6586 documents and 49955 paragraphs in which
+1373/12599, 4069/30497 and 1144/6859 are Unclassified, Confidential and Secret documents and paragraphs
+respectively. In addition to the number of documents
+and paragraphs, Baghdad has the highest number of features with 49118 distinctive features Table 1. The second dataset is all the documents originating from the
+London U.S. Embassy. London is the smallest dataset in
+our corpus with 1037 documents and 7180 paragraphs.
+368/2491, 368/3003 and 538/686 of the documents and
+paragraphs are Unclassified, Confidential and Secret,
+respectively. London documents have in total 23995
+unique features. The remaining two datasets are listed
+in Table 4 with the same details as Baghdad and London
+datasets.
+
+Precision =
+
+TP
+T P + FP
+
+Recall =
+
+TP
+T P + FN
+
+F-Measure score evaluates the performance of all
+classes regardless of their sensitivity level. F-Measure is
+the harmonic mean of Recall and Precision. Throughout
+our experiment, we have obtained multiple F-Measure
+scores for a variety of similarity-based classification
+11
+
+(a) Three Security Classes F-Measure
+
+(b) Two Security Classes F-Measure
+
+Figure 4: Surface charts that highlight the performance of WikiLeaksDetect and the baseline algorithms on three and two security class datasets.
+The performance is evaluated by the F-Measure score. Chart (a) displays that WikiLeaksDetect outperformed both of the baseline algorithms.
+The dark orange color above WikiLeaksDetect lines represent 0.9 and above F-Measure score. F-Measure scores can be interpreted by F-Measure
+ranges at the bottom and their corresponding colors. Chart (b) also indicate that our model exceeded the baseline algorithms for binary security
+classification.
+
+model groups; however, we are only listing the highest
+F-Meausre score recorded from what we call Optimal
+Classification Models group.
+
+highest relevant features for the baseline classification
+algorithms.
+Table 3: Datasets’ maximum number of similarity clusters within
+a group and optimal classification model group. In group of similarity clusters, multiple similarity degrees are generated by creating
+different numbers of similarity clusters. The optimal classification
+model group is the similarity-based classification model group that
+scored highest F-measure among all other similarity-based classification model groups.
+
+2 × Precision × Recall
+F − Measure =
+Precision + Recall
+8.2. Baseline
+To the best of our knowledge, there are no previous results on U.S. diplomatic cables security classification. Also, we can’t compare our results with other
+related papers that didn’t experiment on genuine sensitive documents or paragraphs. In addition, the interest of this paper lies in detecting sensitive paragraphs,
+whereas others focused on document-based detection.
+We tested several classification algorithms from Weka
+Toolkit on our data and found that Linear-SVM (LibLinear )[8] achieved the best performance. Naive Bayes
+results are also included as our baseline, but it scored
+much lower F-measure than the Linear-SVM. Therefore, we will focus our analysis on the Linear-SVM. In
+the baseline the dataset is original and not clustered, the
+baseline algorithms are evaluated on the whole dataset.
+The data is preprocessed through following the process illustrated in subsection 6.2.1. Since number of
+extracted features from non-clustered dataset is different than clustered dataset, it’s not possible to compare
+the baseline algorithms with the proposed methodology
+with the same number of features. Therefore, a multiple number of feature spaces are selected from 0.01%
+to 0.6%. Classifiers are trained with each set of feature
+space and the highest F-Measure is recorded in this paper. The same as WikiLeaksDetect Model, correlation
+feature selection technique is applied for selecting the
+
+Dataset Maximum number of similarity clusters Optimal classification Model Group
+Baghdad
+500
+488
+London
+62
+55
+Berlin
+96
+82
+Damascus
+84
+67
+
+8.3. Results
+8.3.1. MultiClass Security Classification
+Throughout this experiment, we found that datasets
+with very large numbers of instances are more difficult to handle. A large dataset requires a considerable amount of time to determine instance similarities
+and the optimal classification model group. Baghdad is
+the largest dataset within the U.S. leaked cables. This
+dataset was chosen to prove that the proposed methodology can also work for datasets with a variety of sizes.
+Baghdad has 49955 paragraphs, as shown in Table 4,
+and the maximum number of Group of Similarity Clusters is 500 (see 3). Among the 500 similarity-based
+classification models groups, we found that the highest F-Measure is achieved with 488 similarity-based
+classification models. As for the London dataset, 62
+similarity-based classification model groups are created
+from 6180 instances. Our experiment’s results indicate
+that London’s optimal classification model group is 55.
+12
+
+Table 4: MultiClass dataset’s Recall, Precision and F-Measure.
+Dataset sizes are illustrated underneath dataset names. P, U, C, and
+S are short for Paragraph, Unclassified, Confidential and Secret, respectively. Results in bold are the highest achieved scores among
+methodologies.
+Dataset
+
+Methodology
+Naive Bayes
+
+Baghdad
+Linear-SVM
+# of P =49955
+# of U =12599
+# of C =30497 WikiLeaksDetect
+# of S =6859
+Naive Bayes
+London
+Linear-SVM
+# of P =6180
+# of U =2491
+# of C =3003
+# of S =686
+
+WikiLeaksDetect
+
+Naive Bayes
+Berlin
+Linear-SVM
+# of P =9631
+# of U =4317
+# of C =4439
+# of S =875
+
+WikiLeaksDetect
+
+Naive Bayes
+Damascus
+Linear-SVM
+# of P =8355
+# of U =2311
+# of C =5173
+# of S =871
+
+WikiLeaksDetect
+
+Class
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+Unclassified
+Confidential
+Secret
+
+lieve that data imbalance played a critical role in this
+regard. On the other hand, ACESS scored much higher
+F-Measure for the Secret class. Our methodology was
+able to minimize the effect of the imbalance problem.
+This indicates that our methodology would be considered more effective in larger datasets, where regular
+classification approaches lack the capabilities for dealing with skewed data.
+The gap between Confidential and Unclassified class
+also affects detection rate. The smaller that a gap is, the
+higher the F-Measure will be. Regardless of all complications, ACESS was able to select relevant security features and scored above 0.90 in F-Measure, except for the
+Baghdad and Berlin Secret class which is still far better
+than the baseline scores. The surface chart in Fig.4 (a)
+clearly indicates that ACESS exceeded the baseline in
+all evaluation metrics.
+
+Recall Precision F-Measure
+0.661
+0.567
+0.611
+0.58
+0.782
+0.666
+0.619
+0.335
+0.435
+0.740
+0.703
+0.721
+0.824
+0.818
+0.821
+0.554
+0.638
+0.593
+0.868
+0.915
+0.891
+0.970
+0.946
+0.958
+0.853
+0.872
+0.862
+0.781
+0.716
+0.747
+0.623
+0.747
+0.679
+0.642
+0.458
+0.535
+0.854
+0.892
+0.873
+0.843
+0.880
+0.861
+0.889
+0.662
+0.759
+0.928
+0.935
+0.931
+0.932
+0.936
+0.934
+0.924
+0.884
+0.903
+0.758
+0.647
+0.698
+0.554
+0.711
+0.623
+0.561
+0.439
+0.493
+0.808
+0.903
+0.853
+0.864
+0.810
+0.836
+0.692
+0.587
+0.636
+0.910
+0.935
+0.922
+0.931
+0.915
+0.923
+0.905
+0.870
+0.887
+0.386
+0.507
+0.448
+0.665
+0.693
+0.679
+0.663
+0.354
+0.461
+0.746
+0.777
+0.761
+0.872
+0.863
+0.867
+0.688
+0.658
+0.673
+0.903
+0.923
+0.913
+0.969
+0.958
+0.963
+0.894
+0.906
+0.90
+
+8.3.2. Binary Security Classification
+While we argue that multi-level security labels provide more flexibility to place diverse protection mechanisms and access controls; It’s beneficial to conduct
+a comparison between binary and multiclass security
+classification. As illustrated in Table 5, it’s obvious that
+the resulted Recall, Precision, and F-Measure for binary
+security classification are much higher than the multiclass in Table 4. The thin line that separates confidential and secret classes in the multiclass data confuses the
+classifier. Combining security features of confidential
+and secret classes led to more solid discrimination between Sensitive and Public classes. As displayed in the
+Fig.4(b) and Table 5 all security classes recorded are
+above 0.94 F-Measure. Unlike the multiclass security
+classification experiment, the extensive search for the
+optimal classification models group was not required.
+The same number of optimal classification model group
+as in multiclass is selected for binary security classification. Therefore, there is a window for improvement in
+the binary security classification.
+
+The same applied to the other two datasets; out of 96
+similarity-based classification model groups, the Berlin
+dataset optimal classification model group is 82. Also,
+the Damascus dataset has a total of 84 similarity-based
+classification models groups and the Damascus optimal
+classification model group is 67. Table 4 shows only
+the prediction measures obtained from the optimal classification model group as the best-achieved F-Measure.
+Those results are compared with the baseline algorithms
+Linear-SVM and Naive Bayes.
+As shown in Table 4, our methodology outperformed
+the baseline classification algorithms in every single aspect. The table shows that the Baseline recorded low
+Recall, Precision and F-Measure for the Secret class.
+There are two factors that contributed to the baselines’
+low results. First, the non-clustered dataset had a high
+number of unique features, which made distinguishing
+between the relevant and irrelevant security features difficult. Second, instances labeled as Secret represented
+around 14%, 11%, 9%, and 10% of Baghdad, London,
+Berlin and Damascus datasets, respectively. We be-
+
+8.4. Imbalanced Data Effect
+In this section, an analysis of imbalanced data effect
+on multiclass and binary security classification is introduced.
+It’s quite clear that number of secret paragraphs
+are much lower than both confidential and unclassified paragraphs in all the datasets which represent a
+real world scenario. Due to the nature of U.S. diplomatic cables, the number of confidential paragraphs is
+higher than unclassified ones. When the difference is
+not very significant as in Berlin and London datasets
+13
+
+Table 5: Paragraph Binary Classification datasets’ Recall, Precision
+and F-Measure. Dataset sizes are illustrated underneath the dataset
+names. P, U, and S are paragraphs, Unclassified and Sensitive, respectively. Results in bold are the highest achieved scores among
+methodologies.
+Dataset
+Baghdad
+
+Methodology
+Naive Bayes
+
+Linear-SVM
+# P = 49955
+# U = 12599
+WikiLeaksDetect
+# S = 37356
+London
+
+Naive Bayes
+
+Linear-SVM
+# P = 6180
+# U = 2491
+WikiLeaksDetect
+# S = 3689
+Berlin
+
+Naive Bayes
+
+Linear-SVM
+# P = 9631
+# U = 4317
+WikiLeaksDetect
+# S = 6314
+Damascus
+
+Naive Bayes
+
+Linear-SVM
+# P = 8355
+# U = 2311
+WikiLeaksDetect
+# S = 6044
+
+Class
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+Unclassified
+Sensitive
+
+Recall Precision F-Measure
+0.379
+0.462
+0.416
+0.831
+0.777
+0.803
+0.771
+0.678
+0.721
+0.877
+0.919
+0.897
+0.955
+0.955
+0.955
+0.985
+0.984
+0.984
+0.790
+0.680
+0.731
+0.748
+0.841
+0.792
+0.875
+0.872
+0.874
+0.913
+0.916
+0.914
+0.959
+0.953
+0.956
+0.968
+0.972
+0.97
+0.710
+0.638
+0.672
+0.673
+0.741
+0.705
+0.839
+0.893
+0.865
+0.918
+0.875
+0.896
+0.942
+0.947
+0.945
+0.957
+0.953
+0.955
+0.379
+0.432
+0.417
+0.831
+0.778
+0.804
+0.766
+0.821
+0.792
+0.936
+0.913
+0.924
+0.943
+0.937
+0.94
+0.975
+0.978
+0.977
+
+Figure 6: Binary security classes Representation of U.S. cables
+datasest. The absence of secret class resulted in widening the gap
+between Sensitive and Unclassified security classes.
+
+While our approach outperformed the baseline algorithms in the multiclass security classification, all the algorithms shared similar behavior to the imbalanced data
+problem. In the absence of security class or in the binary security classification, our approach exhibited an
+outstanding performance compared to the baseline algorithms. Fig. 6 displays that the gap between sensitive and unclassified classes is wider than before, but
+for our approach the absence of a secret class resulted in
+successful extraction of security related features. Both
+classes scored very high F-Measures compared to multiclass security classification. On the contrary, the baseline algorithms scored similar F-Measure for the unclassified class in both multiclass and binary security
+classification. It demonstrates that our approach not
+only performed well for multiclass security classification problem, but also did extraordinarily well with binary classification. We believe the baseline didn’t have
+high F-measure score for the unclassified class due to
+the presence of similarity features which WikiLeaksDetect eliminated.
+
+Fig. 5, a little impact might be shown in the final FMeasure scores Table 4. However, when the confidential paragraphs overwhelmingly outnumber the unclassified paragraphs, it will have some effect on unclassified prediction rate as displayed in the Baghdad and
+Damascus result’s Table 4. Secret paragraphs classification rate has suffered much more than unclassified
+paragraphs due to the highly skewed data. The presence
+of secret paragraphs has another impact on the whole
+classification process as to be showed in the next paragraph.
+
+9. Discussion
+In this section, we will discuss diverse aspects of our
+findings that provide insightful analysis for future of
+text security classification.
+9.1. DLP in Different Domains
+Number of security levels and sensitivity definitions
+differ from one organization to another, so techniques
+that perform well on a specific dataset might not do as
+well in others. Since the main source of our datasets is
+from the U.S. government, one might suspect the suitability of our approach to other types of domains such
+as enterprises or hospitals. We believe that as long as we
+
+Figure 5: Three security classes representation of U.S. cables datasest.
+Unlike Baghdad and Damascus, London and Berlin have small gap
+between Unclassified and Confidential classes. Secret paragraphs are
+a minority in all the datasets.
+
+14
+
+have a sufficient amount of sensitive texts, it’s straightforward to learn the secrets of the targeted organization.
+Organizations tend to generate similar reports or textual
+files for particular tasks. Locating features that differentiate among similar reports with regard to their sensitivity level, will assist in improving classification models
+performance. This approach is wide enough to fit all
+the domains. We believe that our approach is not only
+suitable for political cables, but also financial, technical,
+or even health reports. Therefore, Data Leak Prevention systems are no longer limited to the specific type of
+texts.
+
+of accuracy is achieved when all general similarities are
+sampled with balanced class representation.
+10. Conclusion
+The improvement we made over the DLP Detection
+model will help security specialists to quickly locate and
+protect unknown, sensitive pieces of textual information
+within the documents. We have proven that even with
+an enormous chunk of textual information, it is possible
+to identify various sensitivity levels within a document.
+Automating the paragraphs’ security classification maximizes the accessibility to unclassified or public texts
+that exist along with the sensitive ones. In addition, the
+WikiLeaksDetect model demonstrated that distinguishing security features among similar texts is an effective
+approach for achieving a high classification F-Measure.
+Integrating the WikiLeaksDetect model into DLP Systems ensures labeling consistency through instant detection of sensitive documents. WikiLeaksDetect is interactive and can be enhanced over time by updating similarity clusters and learning new security features as future needs arise.
+
+9.2. Challenges and Limitations
+Common security detection techniques such as Regular Expression and Matching are prone to document
+modification. Manipulation or modifications of documents in general jeopardize document-based security detection performance more than paragraph-based.
+Document’s security features are distrusted all over the
+document, while paragraph’s security features are associated to a single paragraph. Modifying one paragraph
+has no effect on the detection rate of other paragraphs.
+Another way to bypass DLP is to transmit encrypted
+data. DLP can’t detect or prevent the leakage of other
+types of data such as images, video, or audio.
+DLP has to be trusted and secured against attacks.
+Attackers target might be one or more of DLP models.
+The security of statistical security detection models is
+related to the adversarial machine learning [6] research
+area which is out of the scope of this paper.
+
+[1] Alneyadi, S., Sithirasenan, E., Muthukkumarasamy, V., 2014.
+A semantics-aware classification approach for data leakage prevention. In: Information Security and Privacy. Springer, pp.
+413–421.
+[2] Bauer, L., Cranor, L. F., Reeder, R. W., Reiter, M. K., Vaniea,
+K., 2009. Real life challenges in access-control management.
+In: Proceedings of the SIGCHI Conference on Human Factors
+in Computing Systems. ACM, pp. 899–908.
+[3] Bauer, S., Frysak, J., 2014. Developing a viral artifact to improve employees security behavior. World Academy of Science,
+Engineering and Technology, International Journal of Social,
+Behavioral, Educational, Economic, Business and Industrial Engineering 8 (8), 2436–2439.
+[4] Bringer, M. L., Chelmecki, C. A., Fujinoki, H., 2012. A survey:
+Recent advances and future trends in honeypot research. International Journal of Computer Network and Information Security
+4 (10), 63.
+[5] Chen, Y., Evans, D., 2011. Auditing information leakage for distance metrics. In: Privacy, Security, Risk and Trust (PASSAT)
+and 2011 IEEE Third Inernational Conference on Social Computing (SocialCom), 2011 IEEE Third International Conference
+on. IEEE, pp. 1131–1140.
+[6] Dalvi, N., Domingos, P., Sanghai, S., Verma, D., et al., 2004.
+Adversarial classification. In: Proceedings of the tenth ACM
+SIGKDD international conference on Knowledge discovery and
+data mining. ACM, pp. 99–108.
+[7] Eldardiry, H., Bart, E., Liu, J., Hanley, J., Price, B., Brdiczka,
+O., 2013. Multi-domain information fusion for insider threat detection. In: Security and Privacy Workshops (SPW), 2013 IEEE.
+IEEE, pp. 45–51.
+[8] Fan, R.-E., Chang, K.-W., Hsieh, C.-J., Wang, X.-R., Lin, C.J., 2008. Liblinear: A library for large linear classification. The
+Journal of Machine Learning Research 9, 1871–1874.
+[9] Gantz, J., Reinsel, D., 2012. The digital universe in 2020: Big
+data, bigger digital shadows, and biggest growth in the far east.
+IDC iView: IDC Analyze the future 2007, 1–16.
+
+9.3. Choices of Optimal Classification Model Group
+As we have discussed in section 6, the classification
+model group with the highest F-Measure is chosen as
+the optimal classification model group. Based on our
+findings, higher numbers of models in the group will
+perform better than a lower number of models. However, we found that the best F-Measure was not achieved
+by the maximum similarity-based classification model
+group, by generating a high number of similarity clusters, relevant security features might get lost. Also, class
+representation has a significant role in determining the
+number of clusters needed to reach a relatively satisfying performance. Balanced data with a low number
+of instance would require less distinct similarity clusters than skewed data with a large number of instances.
+Large numbers of instances means there are more general similarities to capture. The same applies to skewed
+data where a high number of similarity clusters lessen
+the skewing from one class to another. The highest point
+15
+
+[10] Gomez-Hidalgo, J. M., Martin-Abreu, J. M., Nieves, J., Santos, I., Brezo, F., Bringas, P. G., 2010. Data leak prevention through named entity recognition. In: Social Computing
+(SocialCom), 2010 IEEE Second International Conference on.
+IEEE, pp. 1129–1134.
+[11] Gritzalis, D., Stavrou, V., Kandias, M., Stergiopoulos, G., 2014.
+Insider threat: enhancing bpm through social media. In: New
+Technologies, Mobility and Security (NTMS), 2014 6th International Conference on. IEEE, pp. 1–6.
+[12] Hall, M., Frank, E., Holmes, G., Pfahringer, B., Reutemann, P.,
+Witten, I. H., 2009. The weka data mining software: an update.
+ACM SIGKDD explorations newsletter 11 (1), 10–18.
+[13] Hall, M. A., 1999. Correlation-based feature selection for machine learning. Ph.D. thesis, The University of Waikato.
+[14] Harel, A., Shabtai, A., Rokach, L., Elovici, Y., 2010. M-score:
+estimating the potential damage of data leakage incident by assigning misuseability weight. In: Proceedings of the 2010 ACM
+workshop on Insider threats. ACM, pp. 13–20.
+[15] Hart, M., Manadhata, P., Johnson, R., 2011. Text classification
+for data loss prevention. In: Privacy Enhancing Technologies.
+Springer, pp. 18–37.
+[16] Hartigan, J. A., Wong, M. A., 1979. Algorithm as 136: A kmeans clustering algorithm. Applied statistics, 100–108.
+[17] House, W., 2009. Executive order 13526–classified national security information.
+[18] Hunker, J., Probst, C. W., 2011. Insiders and insider threatsan overview of definitions and mitigation techniques. JoWUA
+2 (1), 4–27.
+[19] Kandias, M., Galbogini, K., Mitrou, L., Gritzalis, D., 2013. Insiders trapped in the mirror reveal themselves in social media.
+In: Network and System Security. Springer, pp. 220–235.
+[20] Katz, G., Elovici, Y., Shapira, B., 2014. Coban: A context based
+model for data leakage prevention. Information Sciences 262,
+137–158.
+[21] Katzer, M., Crawford, D., 2013. Office 365 compliance and data
+loss prevention. In: Office 365. Springer, pp. 429–481.
+[22] Kent, K., 2007. Guide to computer security log management.
+[23] Krause, E. F., 2012. Taxicab geometry: An adventure in nonEuclidean geometry. Courier Corporation.
+[24] Mogull, R., 2008. Dlp content discovery: Best practices for
+stored data discovery and protection. USA: Securosis, LLC.
+[25] Ouellet, E., McMillan, R., 2011. Magic quadrant for contentaware data loss prevention. Gartner Group Research Note.
+[26] Shapira, Y., Shapira, B., Shabtai, A., 2013. Content-based data
+leakage detection using extended fingerprinting. arXiv preprint
+arXiv:1302.2028.
+[27] Ted, E., Goldberg, H. G., Memory, A., Young, W. T., Rees, B.,
+Pierce, R., Huang, D., Reardon, M., Bader, D. A., Chow, E.,
+et al., 2013. Detecting insider threats in a real corporate database
+of computer usage activity. In: Proceedings of the 19th ACM
+SIGKDD international conference on Knowledge discovery and
+data mining. ACM, pp. 1393–1401.
+[28] Wang, Y., Smith, S. W., Gettinger, A., 2012. Access control hygiene and the empathy gap in medical it. In: HealthSec.
+[29] Yang, Z., Yang, M., Zhang, Y., Gu, G., Ning, P., Wang, X. S.,
+2013. Appintent: Analyzing sensitive data transmission in android for privacy leakage detection. In: Proceedings of the 2013
+ACM SIGSAC conference on Computer & communications security. ACM, pp. 1043–1054.
+
+16
+
+

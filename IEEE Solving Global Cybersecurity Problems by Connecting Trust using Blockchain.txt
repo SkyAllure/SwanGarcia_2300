@@ -1,0 +1,971 @@
+1
+Abstract -This publication explores global problem areas
+where properties offered by Blockchain provide workable
+solutions for the existing widely unsolved problems of
+Accountability, Traceability, Identification, Visibility vs.
+Privacy, and Connection of Non-Deterministic to
+Deterministic timed events. Using BlockChain-based
+transactions, we demonstrate that operations related to trust
+are reducible to five directly implementable cryptographic
+actions, which then create relationships to five categories of
+trust that we define in this document. The solution outlined
+will take the approach that the identified global problems will
+be solved by blockchain as cybersecurity of the future moves
+in a direction of individualized transactional-based security &
+privacy. Developers and organizations looking to implement
+new solutions or integrate blockchain into existing
+applications would be interested in this publication. Methods
+described provide workable solutions for implementing trust
+relationships using blockchain for positive use cases which
+can be related directly to cyber security industry solutions.
+1 Introduction
+The success of blockchain technology in the application
+of Cryptocurrencies has enhanced public opinion and opened
+speculation about many possible uses for blockchain
+technology. In a short timeframe changes and new
+developments have expanded exponentially. The expectations
+of new groundbreaking developments have now become the
+norm for many people, and this expectation of continued
+growth is often the largest driver for adoption[1]. Hidden
+within this latest advancement of blockchain technology, is
+not just a standalone technology or product to be adopted, but
+the capability of securing and linking many recent
+technological advances.
+New platforms such as Eutherian are enabling smart
+contracts and are driving the next generation of ideas [2].
+However, such hybrid platforms which utilize smart contracts
+are still very closely dependent on cryptocurrencies chains.
+Many publications have theorized second and third generation
+solutions will eventually find their way to market and provide
+groundbreaking future applications with blockchains as the
+underlying technology [1], [3]. Second and third generation
+blockchain uses have been largely theoretical, and their
+purposed functionality is still elusive or mired in current
+restrictions and limitations of cryptocurrency
+implementations. Some of the most widely excepted second
+generation use case are envisioned for tracking the
+distribution of supply chains, and a few notable large
+companies have embraced this area. More recently
+researchers have theorized uses for governance programs[4],
+which openly explore the smart social contracts as a central
+facet for governance programs addressing a myriad of use
+cases. This paper examines blockchain use cases to address
+largely unsolved technological era problems, and proposals
+solutions offered to these problems that can be built with
+existing cryptographic APIs and tools. These designs support
+the operations needed for pending legislation [5]
+2 Transactions Related to Virtual Trust
+As we begin to map the conversion from physical world
+trust to trust on the internet or in virtual environments, we
+need to provide trust establishment while at the same time
+employing tools we have in our virtual toolbox. For the most
+part the tools for creating a single transaction already exist.
+Creating an individual transaction to be placed in the
+blockchain is a matter of identifying the particular application
+of trust we are attempting to achieve.
+In defining and applying trust transactions, we must
+consider methods to identify and map the specific
+components that are needed to be placed in the blockchain
+transaction for a given use case. The first challenge in making
+such a mapping is the lack of definitions for various categories
+of trust. We currently have a number of cryptographic
+algorithms available, and the result of each could be
+subsequently entered as a blockchain transaction. We will
+start with discussion on trust categories then introduce how to
+use cryptographic algorithms and blockchains to support that
+trust.
+2.1 Virtual Tool for Creating Trust
+Transactions
+A comprehensive list of cryptographic algorithms where
+the product could be included into an immutable transaction
+for paring with blockchain technology, will certainly continue
+to develop over time. We identify operations based on current
+implementation of cyber security and approaches that can
+support the Confidentiality, Integrity, and Availability (CIA)
+triad operations.
+2.1.1 Confidentiality
+Defined by NIST as “Preserving authorized restrictions
+on information access and disclosure, including means for
+protecting personal privacy and proprietary information”[6].
+The Confidentiality portion of the CIA triad consists of
+maintaining two components. The assigning of access rights
+to a digital entity, and subsequently the enablement or control
+Solving Global Cybersecurity Problems by Connecting Trust using Blockchain
+Christopher Gorog, MBA, PMP, CISSP, Terrance E. Boult IEEE Fellow
+University of Colorado Colorado Springs
+2
+of access or visibility by the entity to the digital assets. The
+cryptographic operations related to these are 1) privacy
+operations utilizing various encryption algorithms, or
+visibility officiation patterns[6]; 2) Authentication operations
+identifying entities, configurations, or other proof of identity
+techniques[6].
+2.1.2 Integrity
+In evaluating the Integrity portion of the CIA triad, we
+can reduce it to two components, each of which can be
+implemented with current cryptographic operations. The
+portion of Integrity for a single transaction is the
+Identification of data and the second factor included in this
+component is the integrity of transactions, known as non-
+repudiation. The cryptographic operations related to these are
+1) Data identification utilizing unique signature generations
+algorithms such as a Hash; 2) Digital signature or certificates
+relating a digital operation to a specific actor, time of
+operation, system, or other environment details.
+2.1.3 Availability
+Lastly, we examine the Availability component of the
+CIA triad. Ideally, any design should strive for 100%
+availability. The Availability component enters the design
+equation only in relation to technology limitations, or
+unintended operations of technology outside of the
+anticipated design. In the human assessment of trust, this is
+known as the “opposite expectation” which equates to
+transactions that generate negative beliefs about
+trustworthiness[7]. Any degradation of availability has
+relevance in trust transactions and to capture that require the
+logging of adverse operations or conditions outside of
+anticipated parameters. Blockchain trust transactions for
+availability would implement circumstantial evidence
+regarding the departure form operational norms as a smart
+contract.
+2.2 Trust related to Transactions
+To build trust system requires, at a minimum,
+implementable operations supporting the C.I.A. triad of
+operations of information security. However, we argue that
+blockchain-based system also need two more elements. The
+operations for trust in a single Blockchain transaction are
+reducible to the following five identified and directly
+implementable cryptographic actions, which form the
+acronym P.A.I.N.ED
+P – Privacy - operations utilizing various encryption
+algorithms or other probable visibility officiation patterns.
+NIST definition[6]: Restricting access to subscriber or
+Relying Party information in accordance with federal law
+and agency policy.
+A – Authentication - Authentication operations identifying
+entities, configurations, or other proof of identity
+techniques. NIST definition[6]: Verifying the identity of a
+user, process, or device, often as a prerequisite to
+allowing access to resources in an information system.
+I – Integrity - Data identification utilizing unique signature
+generations algorithms such as a Hash. NIST definition[6]:
+Guarding against improper information modification or
+destruction, and includes ensuring information non-
+repudiation and authenticity.
+N – Non-repudiation - Digital signature or certificates
+relating a digital operation to a specific actor, time of
+operation, system, or other environment details. NIST
+definition[6]: Assurance that the sender of information is
+provided with proof of delivery and the recipient is
+provided with proof of the sender’s identity, so neither can
+later deny having processed the information.
+ED – Examinable Degradation - Digital representation of
+evidence regarding the departure form operational norms.
+Trust is built by the association of verifiable
+transactions over time; blockchain technology supports the
+time component using timestamps plus immutability to lock
+in actions to fashion a provable timeline.
+For a provable timeline, we need cryptographically
+provable transactions to embody “verifiable transactions,”
+which can be done with verifiable cryptographic software
+operations. Verifiable transactions to implement C.I.A.
+functionality are built from in the individual cryptographic
+operations associated with Privacy, Authentication, Integrity,
+and Non-repudiations. Furthermore, we argue that
+Examinable Degradation features are needed to make a
+verifiable transactional relationship so that users can validate
+any deviations from the expected process. The relationships
+between C.I.A., P.A.I.N.ED., and trust provided by
+blockchain is summarized in figure 1Error! Reference
+source not found.. These relationships describe a capability
+to implement CIA functionality while converting each of its
+components to one of the P.A.I.N.ED. operations, which
+when performed can be represented by proof of their
+operation type and added as a Trust Transaction. Since the
+five (5) defined types of transactions, would relate to a
+different type of trust transaction the respective definitions
+Suppression, Validation, Reliability, Refutation, and
+Figure 1 Trust Relationship and key blockchain implementable
+operations to build that the trust relationship.
+3
+Deprivations, were given to represent these categories of trust
+transactions.
+2.3 Categories of Trust
+The five operations Privacy, Authentication, Integrity,
+Non-Repudiation, and Examinable Degradation identified
+above contain directly implementable operations to insert into
+Blockchain transactions. These can directly be relayed to
+categories of trust.
+Suppression Trust (TSP) Transaction– a Blockchain
+transaction entry incorporating the resultant signature related
+to the proof of operation of a single privacy encoding
+cryptographic operation.
+Validation Trust (TVL) Transaction– a Blockchain
+transaction entry incorporating the resultant signature related
+to the proof of a valid single successful comparison of
+dynamically created vs. stored cryptographic digest creating
+an authentication sequence relating two entities.
+Reliability Trust (TRL) Transaction– a BlockChain
+transaction entry incorporating the resultant signature related
+to the proof of operation of a single Data Identification
+operation, incorporating a digest, in relation to a given
+uniform resource identification (URI).
+Refutation Trust (TRF) Transaction– a BlockChain
+transaction entry incorporating the resultant non-repudiation
+cryptographic transaction in relations to A Reliability Trust
+Transaction
+Deprivation Trust (TDP) Transaction– a BlockChain
+transaction entry incorporating the resultant Degradation
+information in relation to A Reliability Trust Transaction.
+2.4 Combining Transactions over Time
+Each category of transaction listed above can be
+implemented in a single cryptographic operation and placed
+in the Blockchain to achieve a single block relating any virtual
+entity to that category of trust. Each Blockchain application
+may contain many blocks in each of the categories could also
+relate to many various entities depending on the policy and
+application of the design. As we explored earlier in section
+2.2 and displayed in figure 1, a single trust transaction value
+is negligible in comparison to the overall effect as transactions
+are compiled over time. It is merely in the continuous growth
+of transactions placed into the immutable record tracking
+feature of the BlockChain where the value of trust grows. As
+we design our BlockChain to continuously enter trust
+transactions, we map the human assessment of “longevity of
+trust” into a direct virtual relationship.
+Creating a deterministic organizational approach to such
+a system-of-systems requires some methods of breaking the
+securable components into manageable and controllable
+portions. Blockchain gives us a process of maintaining a
+proportioned and compartmentalized block of data in which
+we can preset security and privacy parameters to create a
+controlled approach to positively identify and encapsulate
+secure transactions. These proportioned data containers are
+relatable to trust, providing a positive approach to security.
+3 Identifying Global Problems to Solve
+with Blockchain
+As organizations explore third generation blockchain
+implementation they seek connections on how and what to
+implement in order to achieve solutions to often elusive
+problems. Our approach has been to identify the socio-
+technological related problems and then identify blockchain
+operation to solve these problems. We have identified seven
+technological era global spanning problems, the following
+five of which are discussed in this paper.
+• Accountability of Action-to-Actor
+• Traceability of Events and Transactions
+• Identification of Physical to Virtual
+• Visibility vs. Privacy of Individuals
+• Linking Non-Deterministic to Deterministic Timed
+Events
+Each of these identified problems is defined
+independently, described in relation to how they impact both
+the physical world and virtual operations, as well as how they
+affect computer platforms and interconnected virtual
+networks. Within the scope of each of these problem areas,
+the connection between virtual and physical world
+actions/actors and solutions to bridge the two domains is the
+primary accomplishment of blockchain operations. The
+solutions offered to these problems are directly related to
+current use cases in government and private sector alike. The
+proposed solutions are practical; recent legislation to enact
+requirements for agencies to implement these identified
+solutions using distributed ledger technology is pending [5].
+3.1 Accountability Problem:
+At the early stages of the computing age, the ownership
+of intellectual property and virtual transactions were closely
+tied to single computing devices which were within the
+personal control of a single human actor[8]. Enterprise
+systems were initially entirely within the scope of a single
+organization, and the number of operators was limited to a
+small pool of trusted users. Associations between a computers
+user and their virtual actions were linkable on nearly a one-
+to-one basis[8]. As the number of devices and users engaged
+with the computing age has grown, the linking of physical
+users and their virtual actions have continuously departed
+from the ability for a human to accuracy assess due to the
+sheer magnitude of both users and virtual transactions.
+As the global scale of adoption changed the paradigm of
+small trusted communities to a global open market with
+untrusted, malicious, and criminal elements undiscernible
+from trusted users, accountability and trust had to take on a
+new form. The transition to virtualization platforms in recent
+years enabled by virtual machines and cloud technology has
+further accentuated the separation of virtual action from
+physical world users[8].
+With the onset of the Internet of Things (IoT), the
+necessity of connection between data and physical world has
+heightened importance. Many governing bodies and standards
+4
+groups are addressing this need with the addressing of the
+need for non-repudiation of participants. Federal statute at 44
+U.S.C. 3542 outlines non-repudiation[9]. Non-repudiation is
+now a requirement of the Federal Energy Regulatory
+Commission (FERC), the North American Electric Reliability
+Corporation (NERC), and the North American Energy
+Standards Board (NAESB) Wholesale Electric Quadrant
+(WEQ).[10], [11]. However even as legislators embrace such
+compliance requirements the methods to instrument them can
+vary widely.
+3.1.1 Blockchain Solutions for Accountability
+Blockchains properties of immutability can be applied to
+any data no matter what the content of the record, each use
+case which necessitates connecting a user action to record or
+virtual transaction provides an instance of accountability. In
+its simplest form, ignoring the operation of establishing and
+sequencing blockchain block, a transaction for accountability
+would identify the participating parties by including a digital
+signature of each involved as seen in figure 2. The capability
+of immutability offered by the blockchain would be combined
+with the functionality to create digital signatures by involved
+parties.
+With current implementation of Bitcoin, Refutation Trust
+TRF is the key component of each monetary transaction. As
+seen in figure 3, two parties agree on the transaction
+involving a transfer of unspent transaction outputs from one
+party to other. The parties create a digital signature to show
+that both agree to the transaction using the private key
+belonging to each entity. The application of TRF requires the
+active signing of the content agreed upon by all parties
+incorporating functionally such as certificate paths which
+contain digital signatures of all the parties participating in the
+transaction [12]. This sequencing would require a pre-
+determined sequence of operations which may resemble that
+shown in figure 3. Intermediate verification points may also
+need to make exchanges of public content to verify the
+identities of the parties involved.
+With use cases such as supply chains, blockchain
+transactions may include multiple actors or a single actor. TRF
+transaction may include the non-repudiation for multiple
+resource. In the case of TRF transactions including the
+responsible parties identification and/or digital signature
+would show who performed or was responsible for the current
+operations and thus would also illustrate accountability.
+Advanced accountability may also include verifications
+which include unique operations including randomized
+inputs, HMAC operations, one-time pad cryptographic
+operations, or even operations which include zero-knowledge
+proofs or outputs from provably unclonable processes[12]–
+[14].
+Accountability has the largest value when utilized for
+interorganizational systems or anonymous transactions
+between less knows or untrusted parties. As a blockchain
+designed to document TRF transactions is developed over time
+the overall effect is to produce a historical record of
+organizational trust or performance[7].
+3.2 Traceability Problem
+The problem of traceability manifest itself in several
+forms and is often referenced as the strongest use case for
+blockchain. Some of the world’s largest companies have
+speculated that traceability in supply chain tracking will be
+the largest use case for blockchain[15]. Anywhere that the
+need for linking responsible parties to dispositions of products
+in supply chains exist, the ability to maintain immutable
+identification of both the responsible party and product will
+add value. Whether the end distributed item is a physical
+component, an integrated computing component, or consist
+entirely of intellectual property for uses such digital rights
+management[16], the transition of product by physical or
+virtual identity can be tracked and records of transfers
+maintained to prove the disposition of the product handling or
+parties responsible for an item at a time or location.
+Over the last few decades, the organization of supply
+chains using tools such as barcode and wireless Identification
+devices has enabled productivity and quality control for the
+tracing of physical products. The storage of these transactions
+in traditional databases often has limited visibility because
+such databases rely on trusted users[17]. The requirement for
+a limited scope and trusted employee administration hinders
+companies from sharing access and thus currently
+Figure 2: Blockchain Refutation for Accountability
+Figure 3: Refutation Trust Operation
+5
+organizations benefit from maintaining their own tracking and
+inventory systems.
+In the case of tracking of computing devices, they have a
+component of both physical and logical tracking, which
+presents a unique or entirely new issue. For the most part
+supply chains for physical computing components and the
+logical software components which operation on them are
+considered entirely separate. For example, Apple products
+restrict logical components from operation unless they
+possess an approved status from the manufacturer[18]. Apple
+computer has utilized built-in hardware and operating system
+capabilities to restrict the operation of non-authorized
+programs[18]. Consumers, as well as software makers, have
+learned to except and operate within the bounds of these
+product restrictions in exchange for a quality product.
+3.2.1 Blockchain Solutions to Traceability
+Blockchain’s properties of immutability and non-
+repudiation are features absent from traditional supply
+chains[17]. These properties would add value whenever
+tracking chains distributed across multiple organizations. In
+the simplest form traceability would equate to the ability to
+verify some entity over time or dispersed locations. The
+implementation of Reliability trust (TRL) transaction in its
+simplest form includes inserting the hash of a transaction
+content and placing both the hash digest and the transaction
+content within the immutable blockchain block. As the
+blockchain functionality also incorporates a hashing
+operation, it could be inferred that TRL is produced inherently
+by the nature of the blockchains property of immutability. A
+remote hashing functionality may only be needed to prove the
+integrity of the transactions handling prior to insertion into the
+chain. In any case the persistence and handling of data prior
+to and/or during insertion of each transaction would remain
+dependent on existing best practices for cyber security and
+privacy.
+If a blockchain application also requires the
+accountability of administrative actions to verify the actors
+for a given transaction, then this simple sequence could be
+augmented to include an authentication verification TVL, or a
+signing process TRF. The two could be combined to provide a
+block embodying both categories of trust as shown in Figure
+4. Accountability operations to show responsible parties may
+or may not be required by a different application and can even
+be included only on selected transactions.
+The ability to incorporate authentication information into
+a traceability blockchain also provides some features relating
+to accountability. Many application designers in order to
+reduce risk have incorporated multi-factor authentication and
+or re-authentication for high-risk operations. Banking
+applications require the user to re-authenticate prior to actions
+like setting up an outside transfer or changing the password.
+The example of multiple TVL can be found in many existing
+applications. The ability to track TVL with immutable record
+offers the building of trust for entities over time to reference
+risk or quality for a given organization or individual.
+This feature offers the capability for distributed
+administration of industry shared resources. A new level of
+capabilities is enacted once we gain the ability to watch the
+watchers so to speak. Including authentication information
+into blockchains equates to encoding audit information within
+the operations of an application. Traceability of audit
+information as part of the functionally will help automate
+governance programs and could save exceptional amounts of
+cost currently spent on reconciliation and audits.
+Within traditional databases, administrators that have
+superuser permissions have global ability to edit transactions
+details. Due to this fact it is difficult to share administrative
+functionality between organizations, as each organization
+would lose sovereignty over their data. Cross-industry
+trackability models have not been well supported widely due
+to this nature. With TVL operations the need to operate
+isolated tracking databases by each company is reduced.
+Migration to cross-industry governance databases may
+provide some of the largest productivity gains we have seen
+since the inception of the technological era.
+Another major feature encompassed in the traceability is
+the ability to trace the locations of resources worldwide. The
+data contained in a TRL transaction could also be locations of
+offline content connected to the immutable blockchain block
+content. Traceability of actions, transactions, locations, or
+combinations of each of these become the equivalent of a
+global operating system. Much like a registry within the
+Windows operating system, a blockchain can use TRL
+transactions to link data content to logical location. In
+addition to the location verification TVL transactions could
+show authorized users, accountability of authenticated use,
+and provide an ability to verify content the integrity or
+disposition of data used for audit records.
+3.3 Association of Physical to Virtual
+A problem with IOT identification lies in the scope of
+physical computing devices, and it may be more appropriately
+described as the inability to connect a physical world entity
+which produces information, directly to the information
+Figure 4: Combining Validation and Refutation
+6
+which they produce[19]. A solution to the Identification
+problem requires the non-reputable connection of data
+produced by devices to some unique device identifier
+contained within the physical devices design. In a distributed
+ecosystem of devices, complete positive identification would
+require having undeniable proof of origin on each data item
+from every device.
+Some have theorized a one world organizational process
+based around a Unique Identification[14]. Other usages of
+Internet Protocol Version 6 (IPV6) propose that network
+security schemas using the new protocol would provide a
+security architecture based on the unique identification and
+registration of IP numbers to certified users[20]. Using each
+of these as a global identifier still leaves the primary
+vulnerability that each can be ascertained by directly reading
+them from the containing entity, and each is easily spoofed.
+In any case, the current problem with identification
+encompasses a bit larger issue which has arisen from our age
+of virtualization. Any resolution to widescale identification
+solution must now take into account that if the means of
+identification can be viewed, it can be 100% duplicated or
+replicated within a virtual environment. With this
+consideration, a physical assignment of uniquely numbered
+components must also be augmented with a method which
+considers a non-public identification component that is
+utilized in a secure verification method. Thus each instance of
+identification and verification of the entity being verified
+needs an immutable registration of entity to accountable party
+and must be able to respond uniquely to challenges which
+contain dynamically generated inputs using methods such as
+non-interactive zero-knowledge (NIZK) proofs[13].
+The more we have moved to virtualization and cloud
+resources the more a rift in the data produced has arisen. In
+cloud platforms and many infrastructures as a service
+environment, virtual platforms are entirely disconnected from
+physical systems[21]. When expansion resources are
+dynamically created at runtime and subsequently disposed of
+when no longer required, many applications no longer have
+access to a record of a physical device to logical resource
+mapping[21]. On the other hand, needs of critical
+infrastructure and emerging markets of critical IoT devices
+are more and more dependent on a secure mapping between
+physical to logical. Strong application dependencies on
+physical to logical connection also arise in uses where devices
+are embedded into human bodies which perform vital
+operations[22] or many other life/safety-critical applications.
+3.3.1 IOT Identification and Tracking Solutions
+Solutions for traceability are another commonly
+recognized second generation use case for blockchain. To
+connect the physical IOT to virtual actions, we can combine
+the features of blockchain traceability with techniques and
+physical identification sequences to enable a physical-to-
+virtual connection.
+The idea of proof of origin and a unique identification for
+computing devices has been a topic of discussion for many
+years[23]. The Trusted Computing Group was started to
+verify secure operations of the base boot code on each
+personal computer, but when speculation grew that it may be
+used to track all online actions, the resulting negative public
+opinion restricted commercial growth[24]. With the needs for
+IOT identity, there is a resurgence in the value for some
+computing devices to be linked closely to data they produce.
+Blockchain offers capabilities to coordinate myriad
+operations done over an indefinite amount of time by large
+numbers of devices. This approach did not exist when initial
+designs were conceived for trusted computing[23].
+Combining blockchain properties for immutability of past
+actions with features of devices which cryptographically
+respond uniquely to challenges provides more tools to
+connect physical to virtual.
+Provably unclonable chips (PUC) which provide unique
+responses for each subsequent identification sequence in
+conjunction with blockchain provides a track record of how a
+device respond to challenges[25]. Protected memory devices
+implementing non-interactive zero-knowledge proofs could
+respond predictably to entirely unique challenge-response
+randomized input sequences[13]. Using these and other
+capabilities Proof Of Origin (POO) for each data item
+produced by the device could accompany the data from the
+IOT device. In the past limitations to such an individualized
+sequencing was the inability to manage and maintain an
+accurate data repository to support the backend operational
+requirements of storing and verifying large numbers of
+challenge-to-response combinations.
+With blockchain large numbers of challenge-to-
+responses are manageable which provides the ability to record
+of how the NIZK or PUC identification components functions
+over time. Verification of previous proofs as part of current
+operations could be incorporated as well, which would create
+an ability to identify if and when an entity became
+compromised. Figure 5 shows a simplified flow for creation
+of TVL and TRF transaction where an entity or system is
+authenticated and the user signs the transaction adding non-
+repudiation of the transaction.
+Figure 5: Randomizing Validation and Proof-of-Origin
+7
+The ability to encrypt digital content during a particular
+time period and then change the encryption key and re-
+encrypt to support a different configuration for a different
+period has value in relation to the identification. Thus, the
+concept of Suppression Trust (TSP) transactions within a
+blockchain can be used in solutions to strengthen
+identification. With proof of origin related to device identity,
+individualized privacy controls such as encryption would also
+be relatable to identity.
+Possibilities for TSP use in our new designs would
+integrated with existing cryptographic techniques such as
+cipher block chaining (CBC)[26]. In order to break down
+privacy controls on data to align with segments of time. TSP
+transactions containing Initialization Vectors (IV) for a
+particular encryption sequence can be encoded into a
+blockchain block, see figure 6. Adding IV or even
+intermediate values within CBC sequences. Our novel
+approach suggest that we could change intermediate
+sequences within CBC in order to related to time but also if
+changed on a reoccurring basis provides digital rights
+management capabilities for encrypted streams. For example,
+verification codes inserted used on a sequential time interval
+restrict continued use of a particular encrypted stream without
+a new credential sequence.
+We foresee many capabilities for individual privacy
+using these capabilities for time-related privacy controls. The
+TSP transactions can take on many forms, but its primary
+functionality would be to enable privacy controls with a
+relationship to a particular interval of time.
+For the identification of physical to virtual, this will be
+an especially useful tool. Data production is part of everyday
+life for most people and as the adoption of IOT devices grows
+the relation of the data to POO and time of creation becomes
+more and more important. The growth of big data analytics
+has shown a large value with the aggregation of data but at the
+same time growth adds difficulty in the correlation of
+individual identifying capability to the operations[8].
+Changes to the encryption properties of IOT data could
+foreseeably change as often as for each time a new connection
+is made to another device. Users may also choose to roll
+encryption from one sequence (or key) to another at intervals
+relating to the sensitivity of operations which they are
+performing at any given time. It is foreseeable in the future
+that users will learn the connection between changing keys
+and a renewed privacy configuration and will do so at the
+onset of any communications where they feel the need to have
+positive verification of secure communications. In this case,
+the management of changes to privacy sequence (or key)
+would be time-dependent and thus TSP transactions would
+document and maintain the relationship of data-to-key for a
+given timeframe.
+Rekeying an IOT or Computer system on a regular basis
+can be done by several methods which could enable rapid and
+frequent updates. Key derivation is defined by NIST as “a
+method of deriving keying material from a pre-shared key and
+possibly other information. See SP 800-108.6[12]”. Deriving
+keys, which is done on a regular basis, or designing key
+generation into an IOT capability can be supported with
+blockchain TSP transactions. A limitation to deriving
+cryptographic keys often is the management of various keys
+related to their time of use. Blockchain TSP transactions added
+for each key derivation and subsequent change gives the time-
+related record of which key is valid for a given timeframe.
+As displayed in figure 7, Key rolling functionality can be
+based on simple (or more complex) operations and added
+security posture change capability which can be used by the
+IOT users. New key sequences, placed in a blockchain block
+as a reference to verification of them or how they were created
+without disclosing the key itself. Users could decide when and
+for what reason they changed encryption sequences and roll
+from the current key to the next committing a TSP transaction
+into the blockchain for each change. References to many TSP
+transactions over time provides a picture of strength and
+reliability or risk on IOT entities or data items.
+Deprivation Trust TDP, a category which we have not
+addressed in previous sections, has a great deal of value
+pertaining to identification. Since a physical IOT device can
+be linked closely to an individual, identification of adverse,
+Figure 7: Encryption Key Rolling and Suppression
+Figure 6: Suppression and Cipher Chaining
+8
+incidental, or even intentionally malicious behavior, TDP has
+value in deterring bad behavior. Even if an IOT device is not
+identifiable to an individual, since it could be recognized
+rapidly if it was previously related to high risk or adverse
+incident, the traceability TDP from deters malicious activity.
+While we contemplate a new environment where
+traceability of IOT physical devices is a reality, many people
+ask, does this create problems for the privacy of individuals?
+The implementation of blockchain though has some balancing
+capabilities which we have already seen. As we now have
+eight-plus years of operational examples in cryptocurrency
+we can turn to this example for insights when evaluating our
+next global problem and solution[27].
+3.4 The problem of Visibility vs. Privacy of
+Individuals
+Blockchains have the unique ability to balance the
+privacy of data in order to keep a confidential nature of
+actions separated from the identification of actors. Much like
+an anonymous bank account represented by long strings of
+digits only, the use of public/private keys to represent
+accounts hides the user, [2], [27], but unlike an account
+number allows public verification of authorized usage.
+Worldwide operations of current cryptocurrency chains show
+tracking of an individual to be difficult; a fact relied upon by
+early adopters that use bitcoin for its anonymous features[28].
+With cryptocurrency blockchains, it was an objective to
+keep all of the contents of the blocks entirely public, without
+storing personal information about transactions. However, as
+we progress toward more advanced use cases for blockchain,
+balancing visibility and privacy is often better served by
+maintaining a minimal portion of data within the blockchain,
+while having a separate data storage repository configuration,
+coupled by a linking capability. Blockchain TVL transactions
+can provide user interaction with offline data, TSP transactions
+can identify privacy encoding, and TRL transactions could
+validate the accurateness or the integrity of locations, users or
+data content.
+In order to balance visibility and privacy on a larger scale
+than offered by Bitcoin’s random appearing public keys, we
+add another concept to strengthen the blockchain
+implementation. Blockchain technology is well suited to
+support the additions of signatures, references, URI’s, and/or
+verification data. However, in order to maintain the full
+versions of data signed, referenced, or verified privately the
+system requires offline storage separate from the public
+blockchain, see figure 8. Such a paired use of blockchain to
+offline storage capability supports many new use cases for the
+control, organization and even, monetization of private data
+not contained within the blockchain itself.
+Offline data capability has become more of a necessity as
+we see the growth of current public cryptocurrency chains.
+The growth of a chain is proportion to the number of
+transactions; on popular cryptocurrency chains users are
+growing at a rate which has brought many people to believe
+current models will not be sustainable indefinitely[29]. At the
+same time, the value incentive to store and maintain a
+distributed ledger for a chain such as bitcoin is losing its
+allure[2].
+Value propositions for storage of both the chain contents
+and offline data must match the needs of the organization
+providing the storage. As offline data is restricted in access,
+we can implement a transaction-based privacy control.
+Applications can not only provide private data on a per-
+instance case but also identify who accessed then with each
+instance and encode privacy controls (unique encryption) on
+that individual instance of data. Further restrictions could
+permit access only for a predetermined span of time.
+With the ability to record non-reputable transactions that
+are forensically verifiable, trust transactions also become a
+legal tool. Because of this, it is of upmost importance that the
+ability to determine what is maintained public vs. private is
+adaptable and can be augmented as legal reviews, laws, or
+legal precedence changes. Governing bodies that govern the
+blockchain must be neutral and independent of government or
+special interest control.
+3.5 Linking Non-Deterministic to Deterministic
+Problem
+The problem of linking Non-Deterministic physical-
+world events to deterministic computer transactions is
+experienced industry-wide and may be best described as a
+sequencing problem. Thought sequence and timing are not
+highly studied in relationship to cybersecurity; it is probably
+one of the larger causes for the stalemate in global adoption
+of cybersecurity techniques for cyber-physical systems. The
+divide of deterministic and non-deterministic timed events is
+a defining difference between human-to-human and machine-
+to-machine operations and communication[30], [31]. When a
+human is involved with any process of operation, expectations
+for performing transactions follow the nature of humans.
+Humans have a large tolerance for sequencing inconsistencies
+and large variances in the timing of operations. In fact, the
+multitasking nature of humans depends on an asynchronous
+nature to events which are set into action and then queued up
+when complete. Humans often use a sequencing strategy of
+delaying actions, which they then addressed later when they
+return to tasks to continue workflow.
+Figure 8: Offline Privacy Controls
+9
+In contrast, machine to machine workflow processes are
+designed around predictable times of operations and delay.
+Thus, each sequential operation requires knowing when one
+completes and the next begins, based on a timing that is
+measurable and deterministic [30]. Our human-to-human
+operations have an unpredictable number of retries built into
+operational logic, and then enact queuing of events after what
+would be billions of machine-to-machine operations; often
+the latency of communications becomes problematic[32]. In
+addition, sensing of the physical world events is unpredictable
+and in cyber-physical systems where machine-to-machine
+operations control electro-mechanical physical world
+equipment, the unpredictable non-deterministic paradigm can
+cause accidents and unsafe conditions. For systems such as
+electric power grid, traffic safety, or industrial automation,
+such timing problems have caused loss of life[33].
+3.5.1 Cybersecurity Controls Linking People,
+Systems, and Virtual Actions
+The first two global problems linking virtual components
+and the third problem of Identification focused on linking
+physical real world to virtual or logical. Visibility vs. Privacy
+solutions use a blockchain, controlling by design which
+portions of both real and physical are visible publicly and to
+which we only provided a reference or opaque verification.
+Blockchain technology is a tool for containment of any
+digital or virtual item we can imagine. With proper design,
+blockchains can link and forensically verify any
+predetermined components. The power of forensic
+traceability lies in the combination of the action and
+verification of the time of the transactions. The linking of
+tightly timed or deterministic transactions to random timed or
+non-deterministic is of exceptional value in our digital age.
+The ability to forensically identify the timing/sequence of
+transactions builds on top the accountability and identification
+as well but offer extended uses which append variations or
+attributes to those types of transactions. In the solution of
+global problem, the timestamp may become the most valuable
+portion of each trust transaction. By including timestamps in
+the design of each of our five categories of trust we gain a
+partial solution to this global technological era problem.
+Relating the data from distributed operations of people,
+systems, or organizations to the exact time when they
+performed the action, maintains a sequencing capability to
+connect them. Transactions from humans on an asynchronous
+or non-deterministic cadence, and those from a machine that
+occur on synchronous, deterministic interval can be entered
+into the chain in relation to the time of occurrence.
+In instances where a synchronous machine operation is
+required to wait for completion of a non-deterministic
+operation, it can poll the blockchain in order to coordinate
+further sequencing of operations. When human workflow
+applications require interaction with sequence-oriented
+operations or integration with other non-deterministic human
+operations, they can use blockchain operations to implement
+a transaction sequencing capability. Such applications could
+accommodate coordination with many other non-
+deterministic actors providing record sequencing capability.
+4 Conclusion
+As with any new human advancement, new productivity
+gained by the technology era has also come with a new set of
+challenges. Large numbers of computer and virtual actions
+have outgrown the ability for humans to accuracy assess trust
+in online environments. New blockchain-based tools exist
+that can automate and manage trust in the virtual world. In
+this paper, we examined the cryptographic tools and actions
+that implement forensically verifiable operations to support
+this need for trust.
+In our novel approach to organizing and categorizing
+trust in relation to these existing cryptographic tools, we have
+identified trust categories which are directly implementable.
+The relationships of instances of a cyber security or privacy
+operations to a trust transaction provide developers with new
+tools to manage trust on the internet. Our novel approach to
+defining global problems and then linking relationships to
+categories of trust usable within a blockchain, provids
+implementable cryptographic operations which bring
+workable solutions.
+The first two problems of accountability and traceability
+have clear solutions using blockchains which provide
+immediate beneficial properties. The next problem explored
+starts to provide some insight into globally unanswered
+problems experienced by our current migration to IOT and
+cloud. Our novel approach incorporates Blockchains strength
+for tracking in conjunctions with physical device unique
+identification to enable exceptional prospect of verification of
+IOT devices in cyber-physical systems.
+The fourth and fifth problems exists as a combined factor
+of people and networked devices. Blockchain also offers a
+capability to identify transactions, but also to balance the
+visibility of those transactions while providing privacy by
+obscuring the individual human actors or sensitive data. Our
+novel approach to combining offline data with blockchain
+platform by design gives a granular tool for the balancing of
+visibility and privacy. Lastly the new direction in combination
+of deterministic and non-deterministic operations foreseeably
+could provide the next generation of cybersecurity capability
+by linking human-timed transactions with machine-to-
+machine communications. Blockchains built on the proposed
+designs offer the ability to connect deterministic and non-
+deterministic cryptographic events in a single forensic chain
+of trust.
+Capabilities offered by blockchain in many cases are still
+theoretical, however the new approaches outlined in this
+publication begin to connect solutions for real-life use cases.
+This connection of unsolved problems to implementable trust
+features of blockchain technology provides tools for creation
+of a framework that will be applicable to many more industry
+problems, than those listed in this publication.
+5 References
+[1] R. Mikkelsen, “50 years of computing University of
+Pennsylvania marks Feb 14, 1946 as the first day of
+10
+the information age,” The Globe and Mail, Toronto,
+Ont, p. B. 11, 08-Feb-1996.
+[2] V. Buterin, “A Next Generation Smart Contract &
+Decentralized Application Platform.” Ethereum, 2017.
+[3] W. Mougayar, The Business Blockchain, 1st ed. John
+Wiley & Sons Inc., 2016.
+[4] W. Reijers, F. O’Brolchain, and P. Haynes,
+“Governance in Blockchain Technologies & Social
+Contract Theories,” Ledger, vol. I, no. 2016, pp. 134–
+151, 2016.
+[5] K. Lambert, A. Williams, Ginal, and Rankin,
+Concerning the Use of Cyber Coding Cryptology for
+State Records. 2018.
+[6] NIST, “Glossary of Key Information Security Terms.”
+NIST, May-2013.
+[7] M. Williams, “In whom we trust: Group membership
+as an effective context for trust development,” Acad.
+Manag. Acad. Maagement Rev., vol. 26, no. 3, pp.
+377–396, Jul. 2001.
+[8] B. Schneier, Data and Goliath, First. W.W. Norton &
+Company, 2015.
+[9] United States Code, “Title 44 Public Printing and
+Documents.” U.S. Government Printing Office, 2008.
+[10] NERC, “Guidance for Secure Interactive Remote
+Access.” North American Electric Reliability
+Company, Jul-2011.
+[11] NIST, “Computer Security Resource Center,”
+Computer Security Resource Center. 04-Aug-2000.
+[12] E. Barker and W. C. Barker, “Recommendations for
+Key Management.” NIST, Apr-2018.
+[13] C. S. Jutla and A. Roy, “Shorter Quasi-Adaptive
+NIZK Proofs for Linear Subspaces,” Cryptol. -
+ASIACRYPT 2013 ASIACRYPT 2013, vol. 8269, 2013.
+[14] N. Koshizuka and K. Sakamura, “Ubiquitous ID:
+Standards for Ubiquitous Computing and the Internet
+of Things,” IEEE Pervasive Comput., vol. 9, no. 4, pp.
+98–101, Sep. 2010.
+[15] D. Galvin, “IBM and Walmart: Blockchain for Food
+Safety.” IBM Corporation, 2017.
+[16] S. Fujimura, H. Watanabe, T. Nakadaira, T. Yamada,
+A. Akutsu, and J. Kishigami, “A concept for a
+decentralized rights management system based on
+blockchain,” IEEE 5th Int. Conf. Consum. Electron.
+Berl., vol. 978-1-4799–8748, no. 1, 2015.
+[17] S. Menan and S. Sarkar, “Privacy and Big Data:
+Scalable Approaches to Sanitize Larger Transactional
+Databases for Sharing,” MIS Q., vol. 40, no. 4, pp.
+963–981, Dec. 2016.
+[18] J. E. Vascellaro, “Apple to Restrict Apps Access to
+Macs,” Wall Street Journal Asia, Hong Kong, p. 14,
+10-Feb-2012.
+[19] W. Shang, Z. Want, A. Afanasyev, J. Burke, and L.
+Zhang, “Breaking out of the Cloud: Local Trust
+Management and Rendezvous in Named Data
+Networking of Things,” Proc. 2nd ACMIEEE Int.
+Conf. Internet--Things Des. Implement., vol. 978-1-
+4503-4966–6/17/04, p. 11, Apr. 2917.
+[20] D. Yu and S. L. Fang, “Research of multilevel security
+network based on mobile IPv6.,” Appl. Mech. Mater.,
+vol. 2014, no. 556–562, pp. 6019–6022, May 2014.
+[21] S. Bhardwaj, L. Jain, and S. Jain, “Cloud Computing:
+A Study of Infrastructure as a Service (IAAS),” Int. J.
+Eng. Inf. Technol., vol. 2, no. 1, pp. 60–63, 2010.
+[22] D. M. Barnes, “Cybersecurity and medical devices.”
+Utica College, 2016.
+[23] J. Erickson, “FAIR USE, DRM, AND TRUSTED
+COMPUTING.,” Commun. ACM, vol. 46, no. 4, pp.
+34–39, Apr. 2003.
+[24] J. Papoza, “Don’t trust trusted computing,” eWeek, p.
+45, 21-Nov-2005.
+[25] H. Helena, S. Geert-Jan, and T. Pim, “Hardware
+Intrinsic Security from Physically Unclonable
+Functions,” Inf. Secur. Cryptogr. Book Ser. ISC, vol.
+Towards Hardware-Intrinsic Security, 2010.
+[26] M. Bellare, J. Kilian, and P. Rogaway, “The Security
+of the Cipher Block Chaining Message Authentication
+Code,” J. Comput. Syst. Sci., vol. 61, pp. 362–399,
+Sep. 2000.
+[27] S. Nakamoto, “Bitcoin: A Peer-to-Peer Electronic
+Cash System.” Satoshi Nakamoto, 31-Oct-2008.
+[28] M. Malte, B. Domonic, and B. Rainer, “An inquiry
+into money laundering tools in the Bitcoin
+ecosystem,” ECrimer Res. Summit, vol. 2013, no. Sep
+17-18, Apr. 2014.
+[29] K. K. Eleftherious, J. Philipp, G. Nicolas, K. Ismail,
+G. Linus, and F. Bryan, “Enhancing Bitcoin Security
+and Performance with Strong Consistency via
+Collective Signing,” USENIX Assoc., vol. 25th
+USENIX Security Symposium, no. 25th, pp. 280–296,
+Aug. 2016.
+[30] S. A. Crosby, D. S. Wallach, and R. H. Riedi,
+“Opportunities and Limits of Remote Timing
+Attacks,” ACM Trans. Inf. Secur. Syst., vol. 12, no. 3,
+p. 29, Jan. 2009.
+[31] K. Popovici and P. Mosterman J., Real-Time
+Simulation Technologies: Principles, Methodologies,
+and Applications, 1st ed., vol. 1. Boca Raton, FL
+33487-2742: CRC Press, 2016.
+[32] D. Sidler, Z. Istvan, and G. Alonso, “Low-Latency
+TCP/IP Stack for Data Center Applications,” 26th Int.
+Conf. Field Program. Log. Appl., vol. 2016-01–01,
+pp. 1–4, Jan. 2016.
+[33] E. Stojiljkovic, M. Grozdanovic, and P. Stojilijkovic,
+“Human error assessment in the electric power
+company of Servia,” Electron. Assoc. Electr. Energy
+Distrib., vol. 41, no. 2012, pp. 3207–3212, 2012.
+

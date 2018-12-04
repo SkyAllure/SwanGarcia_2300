@@ -1,0 +1,1500 @@
+If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+
+'optional complex part for format=1 and square matrices. 5-6-2005
+If CFormat = 1 And (UBound(a, 1) = UBound(a, 2)) Then
+    ReDim Preserve a(1 To UBound(a, 1), 1 To 2 * UBound(a, 1))
+End If
+
+If IsArray(a) Then
+    If 2 * UBound(a, 1) <> UBound(a, 2) Then
+        M_DET_C = "?": Exit Function
+    ElseIf UBound(a, 1) = 1 Then
+        Det(1) = a(1, 1): Det(2) = a(1, 2)
+    Else
+        Call GJC(a, , Det, tiny, ErrMsg) 'complex Gauss-Jordan subroutine
+    End If
+Else
+    Det(1) = a: Det(2) = 0
+End If
+If ErrMsg = "overflow" Then
+    M_DET_C = ErrMsg
+Else
+    If CFormat = 3 Then
+        M_DET_C = Cplx_to_Str(Det(1), Det(2), Im)
+    Else
+        M_DET_C = Det
+    End If
+End If
+End Function
+
+Function MatExtract(Mat, Optional i_pivot, Optional j_pivot)
+'return the sub matrix of pivot ij
+'v. 23-6-02  VL
+Dim a, C()
+Dim n As Integer, m As Integer
+Dim i As Integer, j As Integer
+a = Mat
+n = UBound(a, 1) - 1 'extract matrix has one row less
+m = UBound(a, 2) - 1 'extract matrix has one col less
+If IsMissing(i_pivot) Then i_pivot = 0
+If i_pivot = 0 Then
+    n = n + 1  'extract matrix has the same rows of the original one
+    i_pivot = n + 1 'out of game !
+End If
+If IsMissing(j_pivot) Then j_pivot = 0
+If j_pivot = 0 Then
+    m = m + 1  'extract matrix has the same columns of the original one
+    j_pivot = m + 1 'out of game !
+End If
+ReDim C(1 To n, 1 To m)
+For i = 1 To n
+For j = 1 To m
+    i1 = i: j1 = j
+    If i >= i_pivot Then i1 = i + 1
+    If j >= j_pivot Then j1 = j + 1
+    C(i, j) = a(i1, j1)
+Next j
+Next i
+MatExtract = C
+End Function
+
+Function Mat_LU(Mat, Optional Pivot)
+'-------------------------------------------------------------------
+'Perform the LU decomposition with Crout's algorithm
+'   A = L*U
+' v. 4-5-3003
+'--------------------------------------------------------------------
+Dim a, b(), p() As Integer, tmp
+Dim n As Integer, m As Integer
+Dim i As Integer, j As Integer, imax As Integer, k As Integer
+If IsMissing(Pivot) Then Pivot = True
+a = Mat
+n = UBound(a, 1)
+m = UBound(a, 2)
+If n <> m Then Exit Function
+
+MatDecomp_LU a, p, Pivot
+
+ReDim b(1 To n, 1 To 3 * n)
+'stores L side and U side and P
+For i = 1 To n
+For j = 1 To n
+    If j >= i Then
+        b(i, n + j) = a(i, j)
+        b(i, j) = 0
+    Else
+        b(i, n + j) = 0
+        b(i, j) = a(i, j)
+    End If
+Next j
+    b(i, i) = 1
+Next i
+
+'store the permutation matrix
+tmp = MatPerm(p)
+For i = 1 To n
+For j = 1 To n
+    b(i, 2 * n + j) = tmp(i, j)
+Next j
+Next i
+
+Mat_LU = b
+End Function
+
+
+Sub MatDecomp_LU(a, p, Pivot)
+'-------------------------------------------------------------------
+'Perform the LU decomposition with Crout's algorithm with partial pivot
+'Pivot =True/False
+' ver. 5-5-2003
+'--------------------------------------------------------------------
+Dim n As Integer, m As Integer
+Dim i As Integer, j As Integer, imax As Integer, k As Integer
+Dim dum As Double, big As Double, x As Double
+n = UBound(a, 1)
+m = UBound(a, 2)
+If n <> m Then Exit Sub
+ReDim p(1 To n) 'permutation vector
+For i = 1 To n: p(i) = i: Next i
+'start Crout's algorithm
+For j = 1 To n
+    For i = 1 To j - 1
+        x = a(i, j)
+        For k = 1 To i - 1
+            x = x - a(i, k) * a(k, j)
+        Next k
+        a(i, j) = x
+    Next i
+    
+    big = 0
+    For i = j To n
+        x = a(i, j)
+        For k = 1 To j - 1
+            x = x - a(i, k) * a(k, j)
+        Next k
+        a(i, j) = x
+        dum = Abs(x)
+        If dum >= big Then
+            big = dum
+            imax = i
+        End If
+    Next i
+    
+    If Pivot = True Then
+        If j <> imax Then
+            For k = 1 To n
+                dum = a(imax, k)
+                a(imax, k) = a(j, k)
+                a(j, k) = dum
+            Next k
+            dum = p(j)
+            p(j) = p(imax)
+            p(imax) = dum
+        End If
+    End If
+    
+    If j <> n And a(j, j) <> 0 Then
+        dum = 1 / a(j, j)
+        For i = j + 1 To n
+            a(i, j) = a(i, j) * dum
+        Next i
+    End If
+Next j
+
+End Sub
+
+Function MatEigenvalue_Jacobi(Mat, Optional MaxLoops)
+'returns all eigenvalues of symmetric matrix
+'uses the fast-Jacobi rotation algorithm
+'mod 11-6-05  VL
+Dim a, t As Double, Loops As Integer, si As Double, co As Double, dpq As Double, tol As Double
+Dim n As Long
+
+If IsMissing(MaxLoops) Then MaxLoops = 200
+a = Mat
+n = UBound(a, 1)
+Loops = 1
+tol = 2 * 10 ^ -14
+Do Until Loops > MaxLoops
+    Loops = Loops + 1
+    Jacobi_Find_Max a, p, q
+    dpq = a(q, q) - a(p, p)
+    If dpq = 0 Then
+        t = 1
+    Else
+        x = dpq / a(p, q) / 2
+        t = Sgn(x) / (Abs(x) + Sqr(x ^ 2 + 1))
+    End If
+    co = 1 / Sqr(t ^ 2 + 1)
+    si = t * co
+    FastRotation_Jacobi a, si, co, p, q
+Loop
+MatEigenvalue_Jacobi = MatMopUp(a, tol)
+End Function
+
+Private Sub Jacobi_Find_Max(a, i, j)
+'search for max value out of the first diagonal
+'modified 23-6-02
+Dim i_ As Integer, j_ As Integer, n As Integer, big As Double
+n = UBound(a, 1)
+big = 0
+i = 0: j = 0
+For i_ = 1 To n
+For j_ = 1 To n
+    If i_ <> j_ And Abs(a(i_, j_)) > big Then
+        big = Abs(a(i_, j_)): i = i_: j = j_
+    End If
+Next j_
+Next i_
+End Sub
+
+Private Sub FastRotation_Jacobi(a, si, co, p, q)
+'fast rotation 11-6-2005 VL
+'co = Cos(teta)
+'si = Sin(teta)
+Dim i&, j&, n&, Ap#, aq#
+n = UBound(a)
+For i = 1 To n
+    Ap = a(i, p)
+    aq = a(i, q)
+    a(i, p) = co * Ap - si * aq
+    a(i, q) = si * Ap + co * aq
+Next
+
+For j = 1 To n
+    Ap = a(p, j)
+    aq = a(q, j)
+    a(p, j) = co * Ap - si * aq
+    a(q, j) = si * Ap + co * aq
+Next
+End Sub
+
+Function MatRotation_Jacobi(Mat)
+'returns the Jacobi rotation matrix
+'only for symmetric matrix
+Dim a, t, b
+Dim u() As Double, w() As Double
+Dim p, q
+a = Mat
+n = UBound(a, 1)
+    Jacobi_Find_Max a, p, q
+    d = a(q, q) - a(p, p)
+    If d = 0 Then
+        t = 1
+    Else
+        x = d / a(p, q) / 2
+        t = Sgn(x) / (Abs(x) + Sqr(x ^ 2 + 1))
+    End If
+    C = 1 / Sqr(t ^ 2 + 1)
+    s = t * C
+    ReDim u(1 To n, 1 To n), w(1 To n, 1 To n)
+    
+    For i = 1 To n
+        u(i, i) = 1
+        w(i, i) = 1
+    Next
+    u(p, p) = C:    u(p, q) = s
+    u(q, p) = -s:   u(q, q) = C
+    w(p, p) = C:    w(p, q) = -s
+    w(q, p) = s:   w(q, q) = C
+    
+    b = Application.WorksheetFunction.MMult(a, u)
+    b = Application.WorksheetFunction.MMult(w, b)
+MatRotation_Jacobi = u
+End Function
+
+Function MatEigenvector_Jacobi(Mat, Optional MaxLoops)
+'returns the approx eigenvectors of a symmetric matrix
+'uses the fast Jacobi iterative algorithm
+'mod. 11-6-05 VL
+Dim a, t As Double, Loops As Integer, si As Double, co As Double, dpq As Double, n As Long
+Dim u() As Double, V
+a = Mat
+V = Mat
+n = UBound(a, 1)
+Loops = 1
+If IsMissing(MaxLoops) Then MaxLoops = 100
+'initialize v with unit matrix
+V = M_ID(n)
+'Jacobi algorithm start
+Do Until Loops > MaxLoops
+    Loops = Loops + 1
+    Jacobi_Find_Max a, p, q
+    dpq = a(q, q) - a(p, p)
+    If dpq = 0 Then
+        t = 1
+    Else
+        x = dpq / a(p, q) / 2
+        t = Sgn(x) / (Abs(x) + Sqr(x ^ 2 + 1))
+    End If
+    co = 1 / Sqr(t ^ 2 + 1)   'cosine
+    si = t * co               'sine
+    
+    FastRotation_Jacobi a, si, co, p, q
+    
+    ReDim u(1 To n, 1 To n), w(1 To n, 1 To n)
+    
+    For i = 1 To n: u(i, i) = 1: Next i
+    u(p, p) = co:    u(p, q) = si
+    u(q, p) = -si:   u(q, q) = co
+    V = Application.WorksheetFunction.MMult(V, u)
+Loop
+MatEigenvector_Jacobi = V
+End Function
+
+Function M_BAB(a, b)
+'Perfoms the similarity transform B^(-1)*A*B
+'Trasformata per Contragradienza
+Dim ma, mb
+ma = a
+mb = b
+ma = Application.WorksheetFunction.MMult(ma, mb)
+mb = Application.WorksheetFunction.MInverse(mb)
+ma = Application.WorksheetFunction.MMult(mb, ma)
+M_BAB = ma
+End Function
+
+Function M_POW(Mat, n)
+'returns M^n
+Dim a, u
+a = Mat
+u = a
+For i = 1 To n - 1
+    u = Application.WorksheetFunction.MMult(a, u)
+Next
+M_POW = u
+End Function
+
+Function M_POW_C(Mat, n, Optional CFormat)
+'returns the complex M^n
+Dim a, u
+If IsMissing(CFormat) Then CFormat = 1
+a = Mat
+u = a
+For i = 1 To n - 1
+    u = M_MULT_C(a, u, CFormat)
+Next
+M_POW_C = u
+End Function
+
+Function Mat_Householder(x)
+'returns the Householder matrix I-2*W*Wt/|W|^2
+Dim u, V, R, n&, m&, tiny#, i&, j&
+tiny = 2 * 10 ^ -15
+u = x
+n = UBound(u, 1)
+m = UBound(u, 2)
+s = 0
+For i = 1 To n
+For j = 1 To m
+    s = s + u(i, j) ^ 2
+Next j
+Next i
+h = s / 2
+V = Application.WorksheetFunction.Transpose(u)
+R = Application.WorksheetFunction.MMult(u, V)
+For i = 1 To n
+For j = 1 To n
+    R(i, j) = -R(i, j) / h
+    If Abs(R(i, j)) < tiny Then R(i, j) = 0  'mop-up 4-6-2005
+    If i = j Then R(i, j) = 1 + R(i, j)
+Next j
+Next i
+Mat_Householder = R
+End Function
+
+Function MatCharPoly(Mat)
+'returnes the coefficients of the characteristic polynomial
+'of the square matrix A by the Newton-Girard formulas
+Dim a, coeff()
+a = Mat
+n = UBound(a, 1)
+m = UBound(a, 2)
+If n <> m Then Exit Function
+Call Newton_Girard_(a, coeff)
+
+MatCharPoly = PasteVector(coeff)
+End Function
+
+Function MatCharPoly_C(Mat, Optional CFormat)
+'returnes the coefficients of the characteristic polynomial
+'of the square matrix A by the Newton-Girard formulas
+Dim a, coeff(), Im
+If IsMissing(CFormat) Then CFormat = 1
+a = Mat
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+'optional complex part for format=1 and square matrices. 5-6-2005
+If CFormat = 1 And (UBound(a, 1) = UBound(a, 2)) Then
+    ReDim Preserve a(1 To UBound(a, 1), 1 To 2 * UBound(a, 1))
+End If
+If 2 * UBound(a, 1) <> UBound(a, 2) Then Exit Function
+
+Call Newton_Girard_C(a, coeff)
+
+'convert matrix for output
+If CFormat = 2 Then Mat_Complex_Conv coeff, 12
+If CFormat = 3 Then Mat_Complex_Conv coeff, 13, Im
+MatCharPoly_C = coeff
+End Function
+
+Sub Newton_Girard_(a, coeff)
+'computes the characteristic polynomial of
+'the square matrix A by the Newton-Girard formulas
+'p(x)=an*x^n +...a1*x + a0
+Dim s(), b(), C()
+n = UBound(a)
+ReDim s(1 To n), coeff(n), b(1 To n, 1 To n), C(1 To n, 1 To n)
+coeff(n) = (-1) ^ n
+MatCopy a, b  ' [A] --> [B]
+For k = 1 To n
+    For i = 1 To n
+        s(k) = s(k) + b(i, i)  'trace of [A]^k
+    Next
+    p = 0
+    For i = 0 To k - 1
+        p = p + coeff(n - i) * s(k - i)
+    Next
+    
+    coeff(n - k) = -p / k
+    
+    If k < n Then
+        MatProd C, b, a   '[C]=[B]*[A]
+        MatCopy C, b      '[C] --> [B]
+    End If
+Next k
+
+End Sub
+
+Sub Newton_Girard_C(a, coeff)
+'computes the characteristic complex polynomial of
+'the square complex matrix A by the Newton-Girard formulas
+'p(z)=an*z^n +...a1*z + a0
+Dim s(), b(), C, p(), tmp
+n = UBound(a)
+ReDim s(1 To n, 1 To 2), coeff(n, 1 To 2), b(1 To n, 1 To 2 * n), C(1 To n, 1 To 2 * n)
+ReDim p(1 To 2)
+coeff(n, 1) = (-1) ^ n
+coeff(n, 2) = 0
+MatCopy a, b  ' [A] --> [B]
+For k = 1 To n
+    For i = 1 To n
+        s(k, 1) = s(k, 1) + b(i, i)    'trace of [A]^k , real part
+        s(k, 2) = s(k, 2) + b(i, n + i) 'trace of [A]^k, imaginary part
+    Next
+    p(1) = 0: p(2) = 0
+    For i = 0 To k - 1
+        p(1) = p(1) + coeff(n - i, 1) * s(k - i, 1) - coeff(n - i, 2) * s(k - i, 2)
+        p(2) = p(2) + coeff(n - i, 1) * s(k - i, 2) + coeff(n - i, 2) * s(k - i, 1)
+    Next
+    
+    coeff(n - k, 1) = -p(1) / k
+    coeff(n - k, 2) = -p(2) / k
+    
+    If k < n Then
+        C = M_MULT_C(b, a) '[C]=[B]*[A]
+        MatCopy C, b       '[C] --> [B]
+    End If
+Next k
+
+End Sub
+
+Sub MatCopy(a, b)
+'Copy matrix A to B
+' [A] --> [B]
+Dim n0, n1, m0, m1
+n0 = LBound(a, 1)
+n1 = UBound(a, 1)
+m0 = LBound(a, 2)
+m1 = UBound(a, 2)
+ReDim b(n0 To n1, m0 To m1)
+For i = n0 To n1
+For j = m0 To m1
+    b(i, j) = a(i, j)
+Next j
+Next i
+End Sub
+
+Sub MatProd(a, b, C)
+'Multiplies two matricies
+' [A]=[B]x[C]
+'A(n x r) <-- B(n x m) x C(m x r)
+Dim n, m, R
+n = UBound(b, 1)
+m = UBound(b, 2)
+R = UBound(C, 2)
+ReDim a(1 To n, 1 To R)
+For i = 1 To n
+For j = 1 To R
+For k = 1 To m
+    a(i, j) = a(i, j) + b(i, k) * C(k, j)
+Next k
+Next j
+Next i
+End Sub
+
+Function SysLinSing(Mat, Optional V, Optional MaxErr)
+'Solve a singular system
+'This version accept system where n°equations <= n°variables
+'risolve il sistema lineare singolare [Mat]x=V
+'Input parameters
+'Mat = rectangular matrix n x m
+'V = vettore n x 1
+'MaxErr= relative error for approximate zero element
+'Output: returns a matrix C (nxn) or C+d (nx(n+1)) if V is present
+'that is the linear tranformation matrix  y=[C]x+d
+'rev. 27-7-2006  .
+Dim a1, a() As Double, m, n, Det, tol#
+Dim b, elem_max, count1%, count2%
+
+a1 = Mat
+na = UBound(a1, 1)
+ma = UBound(a1, 2)
+If IsMissing(V) Then
+    nb = na: mb = 1
+Else
+    b = V: nb = UBound(b, 1): mb = UBound(b, 2)
+End If
+If na <> nb Or mb <> 1 Then
+    SysLinSing = "?": Exit Function
+End If
+
+'load full matrix
+n = Max(na, ma): m = 1
+elem_max = 0
+ReDim a(1 To n, 1 To ma + m)
+For i = 1 To na
+    For j = 1 To ma
+        a(i, j) = a1(i, j)
+        If Abs(a(i, j)) > elem_max Then elem_max = Abs(a(i, j))
+    Next j
+    For j = 1 To m
+        a(i, j + ma) = 0
+        If Not IsMissing(V) Then a(i, j + ma) = b(i, j)
+    Next j
+Next i
+'
+If IsMissing(MaxErr) Then tol = 10 ^ -13 Else tol = MaxErr
+If elem_max > 1 Then MaxErrRel = tol * elem_max Else MaxErrRel = tol
+If MaxErrRel > 10 ^ -6 Then MaxErrRel = 10 ^ -6
+
+Call GaussJordan(a, n, n + m, Det, "D", MaxErrRel)
+
+'analizza soluzioni: infinite o nessuna
+'reorg matrix
+m = n + m
+'mopup matrix -------  VL 2-11-02
+For i = 1 To n
+For j = 1 To m
+    If Abs(a(i, j)) < MaxErrRel Then a(i, j) = 0
+Next j
+Next i
+'-----------------
+For i = 1 To n
+'search for row null except one element (if exist)
+    Count = 0
+    i1 = 0
+    For j = 1 To n
+        If a(i, j) <> 0 Then
+            Count = Count + 1
+            i1 = j
+        End If
+    Next j
+    If Count = 1 And i1 <> i Then
+        'swap rows i and i1
+        SwapRow a, i, i1
+    End If
+    If Count = 0 Then
+        'check if the problem is impossible
+        For j = n + 1 To m
+            If a(i, j) <> 0 Then GoTo Error_Handler
+        Next j
+    End If
+Next i
+
+For k = 1 To n
+    If a(k, k) <> 0 Then
+        'cerca un altro elemento non zero sopra
+        For i = k - 1 To 1 Step -1
+            If a(i, k) <> 0 And i <> k Then
+                pi = -a(i, k)
+                pk = a(k, k)
+                For j = 1 To m
+                    'linear combination between i1 and i rows
+                    a(i, j) = pk * a(i, j) + pi * a(k, j)
+'                    If Abs(a(i, j)) < tol Then a(i, j) = 0
+                Next j
+            End If
+        Next i
+    End If
+Next k
+
+'normalize
+For i = 1 To n
+    If a(i, i) <> 0 And a(i, i) <> 1 Then
+        pi = a(i, i)
+        For j = 1 To m
+            a(i, j) = a(i, j) / pi
+        Next j
+    End If
+Next i
+'check rank of system matrix and augmented matrix
+For i = 1 To n
+    count1 = 0: count2 = 0
+    For j = 1 To m
+        If Abs(a(i, j)) > tol Then
+            If j <= n Then count1 = count1 + 1 Else count2 = count2 + 1
+        End If
+    Next j
+    If count1 = 0 And count2 > 0 Then GoTo Error_Handler
+Next i
+
+For j = 1 To n
+    If a(j, j) = 0 Then
+        For i = 1 To n
+            a(i, j) = -a(i, j)
+        Next i
+        a(j, j) = 1
+    Else
+        a(j, j) = 0
+    End If
+Next j
+tmp = MatMopUp(a, tol)
+SysLinSing = tmp
+Exit Function
+Error_Handler:
+SysLinSing = "?"
+End Function
+
+
+Function TraLin(Mat, x, Optional b)
+'performs y = M*x + b
+Dim a, V, y
+a = Mat
+V = x
+y = Application.WorksheetFunction.MMult(a, V)
+n = UBound(y, 1)
+m = UBound(y, 2)
+If Not IsMissing(b) Then
+    For i = 1 To n
+    For j = 1 To m
+       y(i, j) = y(i, j) + b(i, j)
+    Next j
+    Next i
+End If
+TraLin = y
+End Function
+
+Function MatEigenvector(Mat, Eigenvalues, Optional MaxErr)
+'returns the eigenvector associate to a given eigenvalue
+'Eigenvalues may be also a vector of eigenvalues
+Dim a, L, u, w() As Double
+If IsMissing(MaxErr) Then MaxErr = 10 ^ -10
+a = Mat
+L = Eigenvalues
+If IsArray(L) Then
+    k_max = UBound(L)
+Else
+    k_max = 1
+End If
+n = UBound(a, 1)
+ReDim w(1 To n, 1 To n)
+Lk = 0
+k = 1
+Do Until k > k_max
+    If IsArray(L) Then
+        Lk = L(k, 1)
+    Else
+        Lk = L
+    End If
+    If k > 1 Then a = Mat  'reinitialize
+    For i = 1 To n
+        a(i, i) = a(i, i) - Lk
+    Next
+    'solve singolar system
+    u = SysLinSing(a, , MaxErr)
+    'inspection of U
+    m = 0
+    For i = 1 To n
+        'note VL 24-11-02
+        '      m=0 => non singular matrix
+        '      m=1 => eigenvalue simple
+        '      m>1 => eigenvalue multiple
+        If u(i, i) = 1 Then m = m + 1
+    Next
+    If m = 0 Then  'matrix not singular
+        MatEigenvector = u
+        Exit Function
+    End If
+    'copy not null eigenvectors from U to W
+    For j = 1 To n
+        If u(j, j) = 1 Then
+            For i = 1 To n
+                w(i, k) = u(i, j)
+            Next i
+            k = k + 1  'fix bug: multiplicity eigenvalues 24.11.02 VL
+        End If
+    Next j
+Loop
+'mod. 8.1.06
+Normalize_Eigenvector_Sign w, tol
+NormalizeMatrix w, 2, tol
+
+MatEigenvector = w
+End Function
+
+Function MatEigenvector_C(Mat, EigenvalueCplx, Optional MaxErr, Optional CFormat)
+'return the complex eigenvector sets associate to one complex eigenvalue
+Dim w#(), u#(), i&, j&, la(), Im
+If IsMissing(MaxErr) Then MaxErr = 10 ^ -10
+If IsMissing(CFormat) Then CFormat = 1
+a = Mat
+L = Cplx_extract(EigenvalueCplx)
+n = UBound(a, 1)
+If UBound(a, 1) = UBound(a, 2) Then
+    'real matrix
+    EigenvectorCplx a, L, w, MaxErr
+Else
+    'complex matrix
+    If CFormat = 2 Then Mat_Complex_Conv a, 21
+    If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+    EigenvectorCplx_C a, L, w, MaxErr
+End If
+w = MatMopUp(w, MaxErr)
+If CFormat = 2 Then Mat_Complex_Conv w, 12
+If CFormat = 3 Then Mat_Complex_Conv w, 13, Im
+MatEigenvector_C = w
+End Function
+
+Private Sub EigenvectorCplx(a, Eigenvalue, w, Optional MaxErr)
+'return the complex eigenvector sets associate to one complex eigenvalue
+'with A real matrix
+Dim u, b#(), Lr#, Li#, k&, j_min&, j_max&
+
+n = UBound(a, 1)
+ReDim w(1 To n, 1 To 2 * n)
+ReDim b(1 To 2 * n, 1 To 2 * n)
+Lr = Eigenvalue(1)
+Li = Eigenvalue(2)
+'load matrix for complex system
+'real matrix
+For i = 1 To n
+    For j = 1 To n
+        b(i, j) = a(i, j)
+        b(i + n, j + n) = b(i, j)
+    Next j
+    b(i, i) = b(i, i) - Lr
+    b(i + n, i + n) = b(i, i)
+    b(i, i + n) = Li
+    b(i + n, i) = -Li
+Next i
+'solve singolar system
+u = SysLinSing(b, , MaxErr)
+'copy not null eigenvectors from U to W
+k = 1
+If Li = 0 Then   'only real eigenvector
+    For j = 1 To n
+        If u(j, j) = 1 Then
+            For i = 1 To n
+                w(i, k) = u(i, j)
+            Next i
+            k = k + 2  'fix bug: multiplicity Eigenvalue 24.11.02 VL
+        End If
+    Next j
+Else          'complex eigenvector
+    For j = 1 To n Step 2
+        If u(j + n, j + n) = 1 Then
+            For i = 1 To n
+                w(i, k) = u(i + n, j + n)
+                w(i, k + 1) = -u(i, j + n)
+            Next i
+            k = k + 2  'fix bug: multiplicity Eigenvalue 24.11.02 VL
+        End If
+    Next j
+End If
+End Sub
+
+Private Sub EigenvectorCplx_C(a, Eigenvalue, w, Optional MaxErr)
+'return the complex eigenvector sets associate to one complex eigenvalue
+'with A complex matrix
+' mod 5-6-05 complex matrix
+Dim u, b#(), Lr#, Li#, k&, j_min&, j_max&
+
+n = UBound(a, 1)
+ReDim w(1 To n, 1 To 2 * n)
+ReDim b(1 To 2 * n, 1 To 2 * n)
+Lr = Eigenvalue(1)
+Li = Eigenvalue(2)
+'load matrix for complex system
+'complex matrix
+For i = 1 To n
+    For j = 1 To n
+        'real part
+        b(i, j) = a(i, j)
+        b(i + n, j + n) = a(i, j)
+        'complex part
+        b(i, j + n) = -a(i, j + n)
+        b(i + n, j) = a(i, j + n)
+    Next j
+    b(i, i) = b(i, i) - Lr
+    b(i + n, i + n) = b(i, i)
+    b(i, i + n) = b(i, i + n) + Li
+    b(i + n, i) = b(i + n, i) - Li
+Next i
+'solve singolar system
+u = SysLinSing(b, , MaxErr)
+'copy not null eigenvectors from U to W
+k = 1
+For j = 1 To 2 * n 'Step 2
+    If u(j, j) = 1 Then
+        If j > n Then
+            For i = 1 To n
+                w(i, k) = u(i + n, j)
+                w(i, k + 1) = -u(i, j)
+            Next i
+        Else
+            For i = 1 To n
+                w(i, k) = u(i, j)
+                w(i, k + 1) = u(i + n, j)
+            Next i
+        End If
+        k = k + 2  'fix bug: multiplicity Eigenvalue 24.11.02 VL
+        If k > n Then Exit For
+    End If
+Next j
+End Sub
+
+Private Function getArrayDim(a)
+'return the true dimension of an array up to 10 dimension
+Dim Dimension%
+On Error GoTo Exit_For
+For Dimension = 1 To 10
+    n = UBound(a, Dimension)
+Next
+Exit_For:
+getArrayDim = Dimension - 1
+End Function
+
+Sub MatHouseholder(u, V)
+'V vector input
+'U Houseolder matrix
+'
+Dim i&, j&, tiny#
+tiny = 2 * 10 ^ -15
+n = UBound(V)
+'normalize v
+v_modulus = VectNorm(V)
+For i = 1 To n
+    V(i) = V(i) / v_modulus
+Next
+ReDim u(1 To n, 1 To n)
+For i = 1 To n
+For j = 1 To n
+    u(i, j) = -2 * V(i) * V(j)
+    If Abs(u(i, j)) < tiny Then u(i, j) = 0  'mop-up mod. 4-6-2005
+    If i = j Then u(i, j) = 1 + u(i, j)
+Next j
+Next i
+
+End Sub
+
+
+Function Mat_QR(Mat)
+'v. 10-7-02 modified by Ola Mårtensson
+'Performs the QR decomposition M = QR, where M is a m x n matrix
+'m >= n, Q is a m x n matrix and R is a n x n matrix.
+'Mat_QR returns a matrix (m x (n + n)), where the first m x n block
+'is Q and the first n rows of the second m x n block is R.
+'The last m - n rows of the second block are all zero.
+' 21.5.2004
+Dim R, q
+Dim V() As Double, u() As Double, p As Double
+R = Mat
+
+m = UBound(R, 1)
+n = UBound(R, 2)
+
+ReDim V(1 To m)
+If n = m Then p1 = n - 1 Else p1 = n
+For k = 1 To p1
+    'compute the modulus of vector k
+    s = 0
+    For i = 1 To m
+        s = s + R(i, k) ^ 2
+    Next
+    s = Sqr(s)
+    'normalize vector and load v
+    For i = 1 To m
+        V(i) = R(i, k) / s
+    Next
+    'computes D= (v(k)^2+v(k+1)^2+...v(n)^2)^(1/2)
+    d = 0
+    For i = k To m
+        d = d + V(i) ^ 2
+    Next
+    d = Sqr(d)
+    If V(k) > 0 Then d = -d
+    'compute V
+    For i = 1 To m
+        If i < k Then
+            V(i) = 0
+        ElseIf i = k Then
+            V(k) = Sqr((1 - V(k) / d) / 2)
+            p = -d * V(k)
+        Else
+            V(i) = V(i) / p / 2
+        End If
+    Next
+    Call MatHouseholder(u, V)
+    R = Matrix_Mult(u, R)
+    If k = 1 Then
+        q = u
+    Else
+        q = Matrix_Mult(u, q)
+    End If
+Next
+q = M_T(q)
+'make positive the diagonal elements of Q   2.5.03
+For i = 1 To n            'bug 19-7-03
+    If R(i, i) < 0 Then
+        Change_Sign_Row R, i
+        Change_Sign_Column q, i
+    End If
+Next
+ReDim u(1 To m, 1 To 2 * n)
+'load matrix out QR
+For i = 1 To m
+    For j = 1 To n
+        u(i, j) = q(i, j) '-q(i, j)
+        If i <= n Then
+            u(i, j + n) = R(i, j) '-R(i, j)
+        End If
+    Next
+Next
+Mat_QR = u
+
+End Function
+
+Private Sub Change_Sign_Column(a, j)
+For i = LBound(a, 1) To UBound(a, 1)
+    a(i, j) = -a(i, j)
+Next i
+End Sub
+
+Private Sub Change_Sign_Row(a, i)
+For j = LBound(a, 2) To UBound(a, 2)
+    a(i, j) = -a(i, j)
+Next j
+End Sub
+
+Function MatEigenvalue_QR(Mat)
+'Find real and complex eigenvalues with the iterative QR method
+Dim a, b(), wr#(), wi#(), tiny#
+tiny = 2 * 10 ^ -15
+a = Mat
+n = UBound(a, 1)
+
+ReDim wr(1 To n), wi(1 To n)
+
+ELMHES0 n, a
+
+HQR nm, n, 1, n, a, wr, wi, iErr
+
+ReDim b(1 To n, 1 To 2)
+
+For i = 1 To n
+    If i > iErr Then
+        b(i, 1) = wr(i)
+        b(i, 2) = wi(i)
+    Else
+        b(i, 1) = "?"
+        b(i, 2) = "?"
+    End If
+Next
+b = MatMopUp(b, tiny)
+Call MatrixSort(b, "A")
+MatEigenvalue_QR = b
+End Function
+
+Function Mat_Cholesky(Mat)
+'performs the Cholesky decomposition A=L*L^t
+Dim a, L() As Double, s As Double
+a = Mat
+n = UBound(a, 1)
+m = UBound(a, 2)
+If n <> m Then
+    Mat_Cholesky = "?"
+    Exit Function
+End If
+'begin Cholesky decomposition
+ReDim L(1 To n, 1 To n)
+For j = 1 To n
+    s = 0
+    For k = 1 To j - 1
+        s = s + L(j, k) ^ 2
+    Next k
+    L(j, j) = a(j, j) - s
+    If L(j, j) <= 0 Then Exit For 'the matrix can not be decomp
+    L(j, j) = Sqr(L(j, j))
+    
+    For i = j + 1 To n
+        s = 0
+        For k = 1 To j - 1
+            s = s + L(i, k) * L(j, k)
+        Next k
+        L(i, j) = (a(i, j) - s) / L(j, j)
+    Next i
+Next j
+Mat_Cholesky = L
+End Function
+
+Function Mat_Vandermonde(x)
+Dim V, w()
+V = x
+n = UBound(V, 1)
+m = UBound(V, 2)
+If n > 1 And m > 1 Then
+    Mat_Vandermonde = "?"
+    Exit Function
+ElseIf n = 1 Then
+    V = Application.WorksheetFunction.Transpose(V)
+End If
+ReDim w(1 To n, 1 To n)
+For i = 1 To n
+    w(i, 1) = 1
+    For j = 2 To n
+        w(i, j) = w(i, j - 1) * V(i, 1)
+    Next j
+Next i
+Mat_Vandermonde = w
+End Function
+
+Function MatDiagExtr(Mat, Optional Diag)
+'This function extracts the diagonals from a matrix
+'and returns a vector.
+'optional Diag=1 first diagonal , 2= secondary diagonal
+'Output vector can be a row or column as well
+Dim a
+Dim d()
+a = Mat
+n = UBound(a, 1)
+m = UBound(a, 2)
+If IsMissing(Diag) Then Diag = 1
+If Diag = 0 Then Diag = 1  'for empty cell
+'choose the min between rows and columns counter
+n_min = n
+If n > m Then n_min = m
+ReDim d(1 To n_min)
+    If Diag = 1 Then
+        'get the first diagonal
+        For i = 1 To n_min
+            d(i) = a(i, i)
+        Next i
+    Else
+        'get the secondary diagonal
+        For i = 1 To n_min
+            d(i) = a(i, m - i + 1)
+        Next i
+    End If
+    MatDiagExtr = PasteVector(d)
+End Function
+
+Function M_RANK(Mat)
+'Returns the rank of a matrix
+'ver. 23-6-2002  by L.V.
+'Original M_RANK routine by Bernard Wagner, CH (Thanks Bernard)
+'
+Dim a, At, b, u
+Const tiny = 10 ^ -15
+a = Mat
+n = UBound(a, 1): m = UBound(a, 2) 'get A dimension
+'reduce Mat to a square matrix U with the lowest dimension
+If n <> m Then
+    At = M_TRANSP(Mat)
+    If n < m Then
+        b = Application.WorksheetFunction.MMult(a, At)
+        nb = n
+    Else
+        b = Application.WorksheetFunction.MMult(At, a)
+        nb = m
+    End If
+Else
+    b = a  'nothing to do
+    nb = n
+End If
+'compute the sub-space of Ax=0
+u = SysLinSing(b, , tiny)
+'count null column-vectors of sub-space
+Rank = nb
+For j = 1 To nb
+    s = 0: For i = 1 To nb: s = s + Abs(u(i, j)): Next i
+    If s > tiny Then Rank = Rank - 1
+Next j
+
+M_RANK = Rank
+End Function
+
+Function M_DIAG_ERR(Mat)
+'Returns the mean of all absolute values out of the first diagonal of a square matrix
+'return the error for a diagonal matrix
+Dim a, s As Double
+a = Mat
+n = UBound(a, 1)
+s = 0
+For i = 1 To n
+For j = 1 To n
+    If i <> j Then s = s + Abs(a(i, j))
+Next j
+Next i
+M_DIAG_ERR = s / (n ^ 2 - n)
+End Function
+
+Function M_TRIA_ERR(Mat)
+'return the error for for a triangular matrix
+'
+Dim a, s As Double
+a = Mat
+n = UBound(a, 1)
+m = (n ^ 2 - n) / 2
+'lower triangular error
+s = 0
+For i = 1 To n
+For j = i + 1 To n
+    s = s + Abs(a(i, j))
+Next j
+Next i
+error_lower = s / m
+'upper triangular error
+s = 0
+For j = 1 To n
+For i = j + 1 To n
+      s = s + Abs(a(i, j))
+Next i
+Next j
+error_upper = s / m
+error_min = Min(error_upper, error_lower)
+M_TRIA_ERR = error_min
+End Function
+
+Function Path_Floyd(Mat)
+'Shortes path routine with the Floyd sequential algorithm
+Const BIG_ = 10 ^ 99
+Dim a, b(), C()
+Dim inf_symb$
+a = Mat
+n = UBound(a, 1)
+ReDim b(1 To n, 1 To n), C(1 To n, 1 To n)
+'initialization
+inf_symb$ = ""
+For i = 1 To n
+    For j = 1 To n
+        If i = j Then
+            C(i, j) = 0
+        Else
+            If Not IsNumeric(a(i, j)) And inf_symb$ = "" Then
+                inf_symb$ = a(i, j)  'catch infinity symbol used
+            End If
+            s = Val(a(i, j))
+            If s <> 0 Then
+                C(i, j) = s
+            Else
+                C(i, j) = BIG_
+            End If
+        End If
+    Next j
+Next i
+'performs  floyd's sequencial algorithm
+For k = 1 To n
+    MatCopy C, b   'reload C -> B
+    For i = 1 To n
+        For j = 1 To n
+            s = b(i, k) + b(k, j)
+            C(i, j) = Min(b(i, j), s)
+        Next j
+    Next i
+Next k
+'infinito symbol substitution
+For i = 1 To n
+For j = 1 To n
+    If C(i, j) = BIG_ Then C(i, j) = inf_symb$
+Next j
+Next i
+
+Path_Floyd = C
+End Function
+
+Function Path_Min(Mat)
+'returns the shortest path
+Dim a, min_value, i_min, j_min, b(1 To 3)
+a = Path_Floyd(Mat)
+n = UBound(a, 1)
+min_value = 0
+For i = 1 To n
+For j = 1 To n
+    If IsNumeric(a(i, j)) Then
+        If a(i, j) > 0 Then
+            If min_value = 0 Then
+                min_value = a(i, j): i_min = i: j_min = j
+            Else
+                If a(i, j) < min_value Then
+                    min_value = a(i, j): i_min = i: j_min = j
+                End If
+            End If
+        End If
+    End If
+Next j
+Next i
+'returns min value and its indices
+b(1) = min_value: b(2) = i_min: b(3) = j_min
+Path_Min = PasteVector(b)
+End Function
+
+Function M_EXP(Mat, Optional Algo, Optional n)
+'-------------------------------------------------------------------
+'return the exponential matrix expansion
+'it use two alternative algorithms:
+'Algo = P  uses the Pade'expansion, kindly developed by Gregory Klein
+'Algo = W  uses the power's serie;
+'n (only for algo=W) sets the max for the serie
+'-------------------------------------------------------------------
+If IsMissing(Algo) Then Algo = p 'Pade'expansion
+
+If UCase(Algo) = "W" Then
+    M_EXP = M_exp2(Mat, n)
+    
+Else
+    M_EXP = M_Exp3(Mat)
+End If
+End Function
+
+Private Function M_IDENT_(n)
+Dim a() As Double
+ReDim a(1 To n, 1 To n)
+For i = 1 To n
+    a(i, i) = 1
+Next
+M_IDENT_ = a
+End Function
+
+Function M_PRODS(Mat, scalar)
+'multiplies a scalar for a matrix
+Dim b, k
+k = scalar
+b = Mat
+For i = 1 To UBound(b, 1)
+For j = 1 To UBound(b, 2)
+    b(i, j) = k * b(i, j)
+Next j
+Next i
+M_PRODS = b
+End Function
+
+Private Function Cplx_extract(z)
+'extract a complex number from cells, array or string
+Dim x, n
+If VarType(z) = vbString Then
+    x = Cplx_from_Str(z)
+ElseIf VarType(z) = vbDouble Then
+    ReDim x(1 To 2)
+    x(1) = z: x(2) = 0
+Else
+    LoadVector x, z, n
+End If
+Cplx_extract = x
+End Function
+
+Function M_PRODS_C(Mat, scalar, Optional CFormat)
+'multiplies a complex scalar for a complex matrix
+Dim a, k, RetErr, n&, m&, a1#, a2#, k1#, k2#, Im
+
+a = Mat
+If IsMissing(CFormat) Then CFormat = 1
+If CFormat = 2 Then Mat_Complex_Conv a, 21
+If CFormat = 3 Then Mat_Complex_Conv a, 31, Im
+'take the complex scalar
+k = Cplx_extract(scalar)
+k1 = k(1): k2 = k(2)
+'------------------
+n = UBound(a, 1)
+m = UBound(a, 2) / 2
+'perform the complex scalar multiplication
+For i = 1 To n
+For j = 1 To m
+    a1 = a(i, j): a2 = a(i, j + m)
+    a(i, j) = k1 * a1 - k2 * a2     'product real
+    a(i, j + m) = k1 * a2 + k2 * a1 'product imaginary
+Next j
+Next i
+'convert matrix for output
+If CFormat = 2 Then Mat_Complex_Conv a, 12
+If CFormat = 3 Then Mat_Complex_Conv a, 13, Im
+M_PRODS_C = a
+Exit Function
+ErrorHandler:
+M_PRODS_C = RetErr
+End Function
+
+Private Function M_exp2(Mat, Optional n)
+'returns the matrix series expansion
+'exp(A)= I + A + 1/2*A^2 +1/6*A^3 +...1/n!*A^n + error
+Dim a, b, b1, C
+Dim Flag_End_Loop As Boolean
+Const tiny = 10 ^ -15
+a = Mat
+If UBound(a, 1) <> UBound(a, 2) Then
+    M_exp2 = "?"   'only square matrix please !
+    Exit Function
+End If
+'series expansion begins
+b = a
+m = UBound(a, 1)
+C = M_ADD(M_IDENT_(m), a)  'C=I+A
+'For k = 2 To n
+k = 1
+GoSub Check_End_Loop
+Do Until Flag_End_Loop
+    k = k + 1
+    b1 = Application.WorksheetFunction.MMult(b, a)
+    b = M_PRODS(b1, 1 / k)  'B= 1/k*B*A
+    C = M_ADD(C, b)
+    GoSub Check_End_Loop
+Loop
+M_exp2 = C
+Exit Function
+'-----------------------------
+Check_End_Loop:
+If IsMissing(n) Then
+    myErr = M_ABS(b)
+    Flag_End_Loop = (myErr < tiny)
+Else
+    Flag_End_Loop = (k >= n)
+End If
+Return
+
+End Function
+
+Function M_EXP_ERR(Mat, n)
+'returns the truncation error of matrix series expansion
+'exp(A)= I + A + 1/2*A^2 +1/6*A^3 +...1/n!*A^n + error
+Dim a, b, b1, C
+a = Mat
+If UBound(a, 1) <> UBound(a, 2) Then
+    M_EXP_ERR = "?"   'only square matrix please !
+    Exit Function
+End If
+'series expansion begins
+b = a
+m = UBound(a, 1)
+C = M_ADD(M_IDENT_(m), a)  'C=I+A
+For k = 2 To n
+    b1 = Application.WorksheetFunction.MMult(b, a)
+    b = M_PRODS(b1, 1 / k)  'B= 1/k*B*A
+    C = M_ADD(C, b)
+Next
+myErr = M_ABS(b)
+M_EXP_ERR = myErr
+End Function
+
+'------------------------------------------------------------------------------
+'matrix exponential with pade approximation
+'by Gregory Klein  12.5.2003
+'------------------------------------------------------------------------------
+Private Function M_Exp3(Mat)
+Dim p As Boolean
+' Scale Mat by power of 2 so that its norm is < 1/2 .
+
+s = Application.Max(0, Int(Application.Log(M_ABS(Mat), 2)) + 1)
+a = M_PRODS(Mat, 0.5 ^ s)
+n = UBound(a)
+'% Pade approximation for exp(A)
+x = a
+C = 1 / 2
+e = M_ADD(M_IDENT_(n), M_PRODS(a, C))
+d = M_SUB(M_IDENT_(n), M_PRODS(a, C))
+q = 6
+p = 1
+For k = 2 To q
+   C = C * (q - k + 1) / (k * (2 * q - k + 1))
+   x = Application.MMult(a, x)
+   cX = M_PRODS(x, C)
+   e = M_ADD(e, cX)
+   If p Then
+     d = M_ADD(d, cX)
+   Else
+      d = M_SUB(d, cX)
+   End If
+   p = Not (p)
+Next
+e = Application.MMult(M_INV(d), e)
+'% Undo scaling by repeated squaring
+For k = 1 To s
+    e = Application.MMult(e, e)
+Next
+M_Exp3 = e
+End Function
+
+Private Function VectNorm(V)
+'returns the euclidean norm of a vector v
+'|v|=(v1^2+v2^2+...vn^2)^1/2
+'Dim i&
+s = 0
+For i = LBound(V) To UBound(V)
+    s = s + V(i) ^ 2
+Next
+VectNorm = Sqr(s)
+End Function
+
+Sub LoadVector(vector, w, n)
+'Trasform something (?!) (range, matrix, vector, etc.) into vector
+'modified 27-6-02
+If IsObject(w) Then
+    'Vector is selected range
+    Dim area As Range
+    Set area = w
+    
+    If area.Columns.Count = 1 Then
+        rows_max = ActiveSheet.Rows.Count
+        n = area.Cells.Count
+        If n = rows_max Then
+        'full column selected. Example: (A:A)
+            r1 = area.End(xlDown).Row
+            If area.Cells(2) = "" And r1 = rows_max Then
+                n = 1
+            Else
+                n = r1
+            End If
+        End If
+    Else
+        col_max = ActiveSheet.Columns.Count
+        n = area.Cells.Count
+        If n = col_max Then
+        'full row selected. Example: (2:2)
+            c1 = area.End(xlToRight).Column
+            If area.Cells(2) = "" And c1 = col_max Then
+                n = 1
+            Else
+                n = c1
+            End If
+        End If
+    End If
+    'Check Title Cells
+    k = 0
+    If Not IsNumeric(area.Cells(1)) Then
+        n = n - 1
+        k = 1
+    End If
+    
+    ReDim vector(1 To n)
+    For i = 1 To n
+            vector(i) = area.Cells(i + k)
+    Next i
+ElseIf IsMatrix(w) Then
+    'check dimension
+    If UBound(w, 1) > UBound(w, 2) Then
+        'vector column
+        n = UBound(w, 1)
+        ReDim vector(1 To n)
+        For i = 1 To n: vector(i) = w(i, 1): Next
+    Else
+        'vector row
+        n = UBound(w, 2)
+        ReDim vector(1 To n)
+        For i = 1 To n: vector(i) = w(1, i): Next
+    End If
+ElseIf IsVector(w) Then
+        'true vector (finally!)
+        n = UBound(w)
+        ReDim vector(1 To n)
+        For i = 1 To n: vector(i) = w(i): Next
+Else
+       n = 0 'something error
+End If
+End Sub
+
+Private Function IsVector(a) As Boolean
+'check if argument is a true vector array
+On Error GoTo Error_Handler
+IsVector = False
+n = UBound(a, 1)
+IsVector = True
+n = UBound(a, 2)
+IsVector = False
+Error_Handler:
+End Function
+
+Private Function IsMatrix(a) As Boolean
+'check if argument is a true matrix array
+On Error GoTo Error_Handler
+IsMatrix = False
+n = UBound(a, 1)
+n = UBound(a, 2)
+IsMatrix = True
+Error_Handler:
+End Function
+
+
+Private Function Max(a, b)
+If a > b Then Max = a Else Max = b
+End Function
+
+Private Function Min(a, b)

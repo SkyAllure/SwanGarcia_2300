@@ -1,0 +1,1053 @@
+Even email filters are a kind of user software.
+Users create this software themselves and often overlook how important it is.
+Depending on how competently the user-written software has been integrated into purchased application packages, many users may not be aware of the distinction between the purchased packages, and what has been added by fellow co-workers.
+Creation
+Operation
+Computer software has to be "loaded" into the computer's storage (such as a hard drive, memory, or RAM).
+Once the software has loaded, the computer is able to execute the software.
+This involves passing instructions from the application software, through the system software, to the hardware which ultimately receives the instruction as machine code.
+Each instruction causes the computer to carry out an operation -- moving data, carrying out a computation, or altering the control flow of instructions.
+Data movement is typically from one place in memory to another.
+Sometimes it involves moving data between memory and registers which enable high-speed data access in the CPU.
+Moving data, especially large amounts of it, can be costly.
+So, this is sometimes avoided by using "pointers" to data instead.
+Computations include simple operations such as incrementing the value of a variable data element.
+More complex computations may involve many operations and data elements together.
+Instructions may be performed sequentially, conditionally, or iteratively.
+Sequential instructions are those operations that are performed one after another.
+Conditional instructions are performed such that different sets of instructions execute depending on the value(s) of some data.
+In some languages this is known as an "if" statement.
+Iterative instructions are performed repetitively and may depend on some data value.
+This is sometimes called a "loop."
+Often, one instruction may "call" another set of instructions that are defined in some other program or module.
+When more than one computer processor is used, instructions may be executed simultaneously.
+A simple example of the way software operates is what happens when a user selects an entry such as "Copy" from a menu.
+In this case, a conditional instruction is executed to copy text from data in a 'document' area residing in memory, perhaps to an intermediate storage area known as a 'clipboard' data area.
+If a different menu entry such as "Paste" is chosen, the software may execute the instructions to copy the text from the clipboard data area to a specific location in the same or another document in memory.
+Depending on the application, even the example above could become complicated.
+The field of software engineering endeavors to manage the complexity of how software operates.
+This is especially true for software that operates in the context of a large or powerful computer system.
+Currently, almost the only limitations on the use of computer software in applications is the ingenuity of the designer/programmer.
+Consequently, large areas of activities (such as playing grand master level chess) formerly assumed to be incapable of software simulation are now routinely programmed.
+The only area that has so far proved reasonably secure from software simulation is the realm of human art— especially, pleasing music and literature.
+Kinds of software by operation: computer program as executable, source code or script, configuration.
+Quality and reliability
+Software reliability considers the errors, faults, and failures related to the design, implementation and operation of software.
+See Software auditing, Software quality, Software testing, and Software reliability.
+License
+Software license gives the user the right to use the software in the licensed environment, some software comes with the license when purchased off the shelf, or an OEM license when bundled with hardware.
+Other software comes with a free software licence, granting the recipient the rights to modify and redistribute the software.
+Software can also be in the form of freeware or shareware.
+See also License Management.
+Patents
+The issue of software patents is controversial.
+Some believe that they hinder software development, while others argue that software patents provide an important incentive to spur software innovation.
+See software patent debate.
+Ethics and rights for software users
+Being a new part of society, the idea of what rights users of software should have is not very developed.
+Some, such as the free software community, believe that software users should be free to modify and redistribute the software they use.
+They argue that these rights are necessary so that each individual can control their computer, and so that everyone can cooperate, if they choose, to work together as a community and control the direction that software progresses in.
+Others believe that software authors should have the power to say what rights the user will get.
+Software companies and non-profit organizations
+Examples of non-profit software organizations : Free Software Foundation, GNU Project, Mozilla Foundation
+Examples of large software companies are: Microsoft, IBM, Oracle, SAP and HP.
+Spanish language
+Spanish or Castilian (castellano) is an Indo-European, Romance language that originated in northern Spain, and gradually spread in the Kingdom of Castile and evolved into the principal language of government and trade.
+It was taken to Africa, the Americas, and Asia Pacific with the expansion of the Spanish Empire between the fifteenth and nineteenth centuries.
+Today, between 322 and 400 million people speak Spanish as a native language, making it the world's second most-spoken language by native speakers (after Mandarin Chinese).
+Hispanosphere
+It is estimated that the combined total of native and non-native Spanish speakers is approximately 500 million, likely making it the third most spoken language by total number of speakers (after English and Chinese).
+Today, Spanish is an official language of Spain, most Latin American countries, and Equatorial Guinea; 21 nations speak it as their primary language.
+Spanish also is one of six official languages of the United Nations.
+Mexico has the world's largest Spanish-speaking population, and Spanish is the second most-widely spoken language in the United States and the most popular studied foreign language in U.S. schools and universities.
+Global internet usage statistics for 2007 show Spanish as the third most commonly used language on the Internet, after English and Chinese.
+Naming and origin
+Spaniards tend to call this language <foreign/> (Spanish) when contrasting it with languages of other states, such as French and English, but call it <foreign/> (Castilian), that is, the language of the Castile region, when contrasting it with other languages spoken in Spain such as Galician, Basque, and Catalan.
+This reasoning also holds true for the language's preferred name in some Hispanic American countries.
+In this manner, the Spanish Constitution of 1978 uses the term <foreign/> to define the official language of the whole Spanish State, as opposed to <foreign/> (lit. the other Spanish languages).
+Article III reads as follows:
+The name castellano is, however, widely used for the language as a whole in Latin America.
+Some Spanish speakers consider <foreign/> a generic term with no political or ideological links, much as "Spanish" is in English.
+Often Latin Americans use it to differentiate their own variety of Spanish as opposed to the variety of Spanish spoken in Spain, or variety of Spanish which is considered as standard in the region.
+Classification and related languages
+Spanish is closely related to the other West Iberian Romance languages: Asturian (<foreign/>), Galician (<foreign/>), Ladino (<foreign/>), and Portuguese (<foreign/>).
+Catalan, an East Iberian language which exhibits many Gallo-Romance traits, is more similar to the neighbouring Occitan language (<foreign/>) than to Spanish, or indeed than Spanish and Portuguese are to each other.
+Spanish and Portuguese share similar grammars and vocabulary as well as a common history of Arabic influence while a great part of the peninsula was under Islamic rule (both languages expanded over Islamic territories).
+Their lexical similarity has been estimated as 89%.
+See Differences between Spanish and Portuguese for further information.
+Ladino
+Ladino, which is essentially medieval Spanish and closer to modern Spanish than any other language, is spoken by many descendants of the Sephardi Jews who were expelled from Spain in the 15th century.
+Ladino speakers are currently almost exclusively Sephardi Jews, with family roots in Turkey, Greece or the Balkans: current speakers mostly live in Israel and Turkey, with a few pockets in Latin America.
+It lacks the Native American vocabulary which was influential during the Spanish colonial period, and it retains many archaic features which have since been lost in standard Spanish.
+It contains, however, other vocabulary which is not found in standard Castilian, including vocabulary from Hebrew, some French, Greek and Turkish, and other languages spoken where the Sephardim settled.
+Ladino is in serious danger of extinction because many native speakers today are elderly as well as elderly olim (immigrants to Israel) who have not transmitted the language to their children or grandchildren.
+However, it is experiencing a minor revival among Sephardi communities, especially in music.
+In the case of the Latin American communities, the danger of extinction is also due to the risk of assimilation by modern Castilian.
+A related dialect is Haketia, the Judaeo-Spanish of northern Morocco.
+This too tended to assimilate with modern Spanish, during the Spanish occupation of the region.
+Vocabulary comparison
+Spanish and Italian share a very similar phonological system.
+At present, the lexical similarity with Italian is estimated at 82%.
+As a result, Spanish and Italian are mutually intelligible to various degrees.
+The lexical similarity with Portuguese is greater, 89%, but the vagaries of Portuguese pronunciation make it less easily understood by Hispanophones than Italian.
+Mutual intelligibility between Spanish and French or Romanian is even lower (lexical similarity being respectively 75% and 71%): comprehension of Spanish by French speakers who have not studied the language is as low as an estimated 45% - the same as of English.
+The common features of the writing systems of the Romance languages allow for a greater amount of interlingual reading comprehension than oral communication would.
+1. also <foreign/> in early modern Portuguese (e.g. The Lusiads)
+2. <foreign/> in Southern Italian dialects and languages
+3. Alternatively <foreign/>
+History
+Spanish evolved from Vulgar Latin, with major influences from Arabic in vocabulary during the Andalusian period and minor surviving influences from Basque and Celtiberian, as well as Germanic languages via the Visigoths.
+Spanish developed along the remote cross road strips among the Alava, Cantabria, Burgos, Soria and La Rioja provinces of Northern Spain, as a strongly innovative and differing variant from its nearest cousin, Leonese speech, with a higher degree of Basque influence in these regions (see Iberian Romance languages).
+Typical features of Spanish diachronical phonology include lenition (Latin <foreign/>, Spanish <foreign/>), palatalization (Latin <foreign/>, Spanish <foreign/>, and Latin <foreign/>, Spanish <foreign/>) and diphthongation (stem-changing) of short e and o from Vulgar Latin (Latin <foreign/>, Spanish <foreign/>; Latin <foreign/>, Spanish <foreign/>).
+Similar phenomena can be found in other Romance languages as well.
+During the <foreign/>, this northern dialect from Cantabria was carried south, and remains a minority language in the northern coastal Morocco.
+The first Latin-to-Spanish grammar (<foreign/>) was written in Salamanca, Spain, in 1492, by Elio Antonio de Nebrija.
+When it was presented to Isabel de Castilla, she asked, "What do I want a work like this for, if I already know the language?", to which he replied, "Your highness, the language is the instrument of the Empire."
+From the 16th century onwards, the language was taken to the Americas and the Spanish East Indies via Spanish colonization.
+In the 20th century, Spanish was introduced to Equatorial Guinea and the Western Sahara, the United States, such as in Spanish Harlem, in New York City, that had not been part of the Spanish Empire.
+For details on borrowed words and other external influences upon Spanish, see Influences on the Spanish language.
+Characterization
+A defining characteristic of Spanish was the diphthongization of the Latin short vowels e and o into ie and ue, respectively, when they were stressed.
+Similar sound changes are found in other Romance languages, but in Spanish they were significant.
+Some examples:
+Lat. <foreign/> > Sp. <foreign/>, It. <foreign/>, Fr. <foreign/>, Rom. <foreign/>, Port./Gal. <foreign/> "stone".
+Lat. <foreign/> > Sp. <foreign/>, It. <foreign/>, Fr. <foreign/> / <foreign/>, Rom. <foreign/>, Port./Gal. <foreign/> "die".
+Peculiar to early Spanish (as in the Gascon dialect of Occitan, and possibly due to a Basque substratum) was the mutation of Latin initial f- into h- whenever it was followed by a vowel that did not diphthongate.
+Compare for instance:
+Lat. <foreign/> > It. <foreign/>, Port. <foreign/>, Gal. <foreign/>, Fr. <foreign/>, Occitan <foreign/> (but Gascon <foreign/>) Sp. <foreign/> (but Ladino <foreign/>);
+Lat. <foreign/> > Lad. <foreign/>, Port./Gal. <foreign/>, Sp. <foreign/>;
+but Lat. <foreign/> > It. <foreign/>, Port./Gal. <foreign/>, Sp./Lad. <foreign/>.
+Some consonant clusters of Latin also produced characteristically different results in these languages, for example:
+Lat. <foreign/>, acc. <foreign/>, <foreign/> > Lad. <foreign/>, <foreign/>, <foreign/>; Sp. <foreign/>, <foreign/>, <foreign/>.
+However, in Spanish there are also the forms <foreign/>, <foreign/>, <foreign/>; Port. <foreign/>, <foreign/>, <foreign/>; Gal. <foreign/>, <foreign/>, <foreign/>.
+Lat. acc. <foreign/>, <foreign/>, <foreign/> > Lad. <foreign/>, <foreign/>, <foreign/>; Sp. <foreign/>, <foreign/>, <foreign/>; Port. <foreign/>, <foreign/>, <foreign/>; Gal. <foreign/>, <foreign/>, <foreign/>.
+Geographic distribution
+Spanish is one of the official languages of the European Union, the Organization of American States, the Organization of Ibero-American States, the United Nations, and the Union of South American Nations.
+Europe
+Spanish is an official language of Spain, the country for which it is named and from which it originated.
+It is also spoken in Gibraltar, though English is the official language.
+Likewise, it is spoken in Andorra though Catalan is the official language.
+It is also spoken by small communities in other European countries, such as the United Kingdom, France, and Germany.
+Spanish is an official language of the European Union.
+In Switzerland, Spanish is the mother tongue of 1.7% of the population, representing the first minority after the 4 official languages of the country.
+The Americas
+Latin America
+Most Spanish speakers are in Latin America; of most countries with the most Spanish speakers, only Spain is outside of the Americas.
+Mexico has most of the world's native speakers.
+Nationally, Spanish is the official language of Argentina, Bolivia (co-official Quechua and Aymara), Chile, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, El Salvador, Guatemala, Honduras, Mexico , Nicaragua, Panama, Paraguay (co-official Guaraní), Peru (co-official Quechua and, in some regions, Aymara), Uruguay, and Venezuela.
+Spanish is also the official language (co-official with English) in the U.S. commonwealth of Puerto Rico.
+Spanish has no official recognition in the former British colony of Belize; however, per the 2000 census, it is spoken by 43% of the population.
+Mainly, it is spoken by Hispanic descendants who remained in the region since the 17th century; however, English is the official language.
+Spain colonized Trinidad and Tobago first in 1498, leaving the Carib people the Spanish language.
+Also the Cocoa Panyols, laborers from Venezuela, took their culture and language with them; they are accredited with the music of "Parang" ("Parranda") on the island.
+Because of Trinidad's location on the South American coast, the country is much influenced by its Spanish-speaking neighbors.
+A recent census shows that more than 1,500 inhabitants speak Spanish.
+In 2004, the government launched the Spanish as a First Foreign Language (SAFFL) initiative in March 2005.
+Government regulations require Spanish to be taught, beginning in primary school, while thirty percent of public employees are to be linguistically competent within five years.
+The government also announced that Spanish will be the country's second official language by 2020, beside English.
+Spanish is important in Brazil because of its proximity to and increased trade with its Spanish-speaking neighbors; for example, as a member of the Mercosur trading bloc.
+In 2005, the National Congress of Brazil approved a bill, signed into law by the President, making Spanish available as a foreign language in secondary schools.
+In many border towns and villages (especially on the Uruguayan-Brazilian border), a mixed language known as Portuñol is spoken.
+United States
+In the 2006 census, 44.3 million people of the U.S. population were Hispanic or Latino by origin; 34 million people, 12.2 percent, of the population older than 5 years speak Spanish at home.
+Spanish has a long history in the United States (many south-western states were part of Mexico and Spain), and it recently has been revitalized by much immigration from Latin America.
+Spanish is the most widely taught foreign language in the country.
+Although the United States has no formally designated "official languages," Spanish is formally recognized at the state level beside English; in the U.S. state of New Mexico, 30 per cent of the population speak it.
+It also has strong influence in metropolitan areas such as Los Angeles, Miami and New York City.
+Spanish is the dominant spoken language in Puerto Rico, a U.S. territory.
+In total, the U.S. has the world's fifth-largest Spanish-speaking population.
+Asia
+Spanish was an official language of the Philippines but was never spoken by a majority of the population.
+Movements for most of the masses to learn the language were started but were stopped by the friars.
+Its importance fell in the first half of the 20th century following the U.S. occupation and administration of the islands.
+The introduction of the English language in the Philippine government system put an end to the use of Spanish as the official language.
+The language lost its official status in 1973 during the Ferdinand Marcos administration.
+Spanish is spoken mainly by small communities of Filipino-born Spaniards, Latin Americans, and Filipino mestizos (mixed race), descendants of the early colonial Spanish settlers.
+Throughout the 20th century, the Spanish language has declined in importance compared to English and Tagalog.
+According to the 1990 Philippine census, there were 2,658 native speakers of Spanish.
+No figures were provided during the 1995 and 2000 censuses; however, figures for 2000 did specify there were over 600,000 native speakers of Chavacano, a Spanish based creole language spoken in Cavite and Zamboanga.
+Some other sources put the number of Spanish speakers in the Philippines around two to three million; however, these sources are disputed.
+In Tagalog, there are 4,000 Spanish adopted words and around 6,000 Spanish adopted words in Visayan and other Philippine languages as well.
+Today Spanish is offered as a foreign language in Philippines schools and universities.
+Africa
+In Africa, Spanish is official in the UN-recognised but Moroccan-occupied Western Sahara (co-official Arabic) and Equatorial Guinea (co-official French and Portuguese).
+Today, nearly 200,000 refugee Sahrawis are able to read and write in Spanish, and several thousands have received university education in foreign countries as part of aid packages (mainly Cuba and Spain).
+In Equatorial Guinea, Spanish is the predominant language when counting native and non-native speakers (around 500,000 people), while Fang is the most spoken language by a number of native speakers.
+It is also spoken in the Spanish cities in continental North Africa (Ceuta and Melilla) and in the autonomous community of Canary Islands (143,000 and 1,995,833 people, respectively).
+Within Northern Morocco, a former Franco-Spanish protectorate that is also geographically close to Spain, approximately 20,000 people speak Spanish.
+It is spoken by some communities of Angola, because of the Cuban influence from the Cold War, and in Nigeria by the descendants of Afro-Cuban ex-slaves.
+In Côte d'Ivoire and Senegal, Spanish can be learned as a second foreign language in the public education system.
+In 2008, Cervantes Institutes centers will be opened in Lagos and Johannesburg, the first one in the Sub-Saharan Africa
+Oceania
+Among the countries and territories in Oceania, Spanish is also spoken in Easter Island, a territorial possession of Chile.
+According to the 2001 census, there are approximately 95,000 speakers of Spanish in Australia, 44,000 of which live in Greater Sydney , where the older Mexican, Colombian, and Spanish populations and newer Argentine, Salvadoran and Uruguyan communities live.
+The island nations of Guam, Palau, Northern Marianas, Marshall Islands and Federated States of Micronesia all once had Spanish speakers, since Marianas and Caroline Islands were Spanish colonial possessions until late 19th century (see Spanish-American War), but Spanish has since been forgotten.
+It now only exists as an influence on the local native languages and also spoken by Hispanic American resident populations.
+Dialectal variation
+There are important variations among the regions of Spain and throughout Spanish-speaking America.
+In countries in Hispanophone America, it is preferable to use the word castellano to distinguish their version of the language from that of Spain, thus asserting their autonomy and national identity.
+In Spain the Castilian dialect's pronunciation is commonly regarded as the national standard, although a use of slightly different pronouns called [[Loísmo|<foreign/>]] of this dialect is deprecated.
+More accurately, for nearly everyone in Spain, "standard Spanish" means "pronouncing everything exactly as it is written," an ideal which does not correspond to any real dialect, though the northern dialects are the closest to it.
+In practice, the standard way of speaking Spanish in the media is "written Spanish" for formal speech, "Madrid dialect" (one of the transitional variants between Castilian and Andalusian) for informal speech.
+Voseo
+Spanish has three second-person singular pronouns: <foreign/>, <foreign/>, and in some parts of Latin America, <foreign/> (the use of this pronoun and/or its verb forms is called voseo).
+In those regions where it is used, generally speaking, <foreign/> and <foreign/> are informal and used with friends; in other countries, <foreign/> is considered an archaic form.
+<foreign/> is universally regarded as the formal address (derived from <foreign/>, "your grace"), and is used as a mark of respect, as when addressing one's elders or strangers.
+<foreign/> is used extensively as the primary spoken form of the second-person singular pronoun, although with wide differences in social consideration, in many countries of Latin America, including Argentina, Chile, Costa Rica, the central mountain region of Ecuador, the State of Chiapas in Mexico, El Salvador, Guatemala, Honduras, Nicaragua, Paraguay, Uruguay, the Paisa region and Caleños of Colombia and the States of Zulia and Trujillo in Venezuela.
+There are some differences in the verbal endings for vos in each country.
+In Argentina, Uruguay, and increasingly in Paraguay and some Central American countries, it is also the standard form used in the media, but the media in other countries with <foreign/> generally continue to use <foreign/> or <foreign/> except in advertisements, for instance.
+<foreign/> may also be used regionally in other countries.
+Depending on country or region, usage may be considered standard or (by better educated speakers) to be unrefined.
+Interpersonal situations in which the use of vos is acceptable may also differ considerably between regions.
+Ustedes
+Spanish forms also differ regarding second-person plural pronouns.
+The Spanish dialects of Latin America have only one form of the second-person plural for daily use, <foreign/> (formal or familiar, as the case may be, though <foreign/> non-formal usage can sometimes appear in poetry and rhetorical or literary style).
+In Spain there are two forms &mdash; <foreign/> (formal) and <foreign/> (familiar).
+The pronoun <foreign/> is the plural form of <foreign/> in most of Spain, but in the Americas (and certain southern Spanish cities such as Cádiz or Seville, and in the Canary Islands) it is replaced with <foreign/>.
+It is notable that the use of <foreign/> for the informal plural "you" in southern Spain does not follow the usual rule for pronoun-verb agreement; e.g., while the formal form for "you go", <foreign/>, uses the third-person plural form of the verb, in Cádiz or Seville the informal form is constructed as <foreign/>, using the second-person plural of the verb.
+In the Canary Islands, though, the usual pronoun-verb agreement is preserved in most cases.
+Some words can be different, even embarrassingly so, in different Hispanophone countries.
+Most Spanish speakers can recognize other Spanish forms, even in places where they are not commonly used, but Spaniards generally do not recognise specifically American usages.
+For example, Spanish mantequilla, aguacate and albaricoque (respectively, "butter", "avocado", "apricot") correspond to manteca, palta, and damasco, respectively, in Argentina, Chile and Uruguay.
+The everyday Spanish words coger (to catch, get, or pick up), pisar (to step on) and concha (seashell) are considered extremely rude in parts of Latin America, where the meaning of coger and pisar is also "to have sex" and concha means "vulva".
+The Puerto Rican word for "bobby pin" (pinche) is an obscenity in Mexico, and in Nicaragua simply means "stingy".
+Other examples include taco, which means "swearword" in Spain but is known to the rest of the world as a Mexican dish.
+Pija in many countries of Latin America is an obscene slang word for "penis", while in Spain the word also signifies "posh girl" or "snobby".
+Coche, which means "car" in Spain, for the vast majority of Spanish-speakers actually means "baby-stroller", in Guatemala it means "pig", while carro means "car" in some Latin American countries and "cart" in others, as well as in Spain.
+The <foreign/> (Royal Spanish Academy), together with the 21 other national ones (see Association of Spanish Language Academies), exercises a standardizing influence through its publication of dictionaries and widely respected grammar and style guides.
+Due to this influence and for other sociohistorical reasons, a standardized form of the language (Standard Spanish) is widely acknowledged for use in literature, academic contexts and the media.
+Writing system
+Spanish is written using the Latin alphabet, with the addition of the character ñ (eñe, representing the phoneme <ipa/>, a letter distinct from n, although typographically composed of an n with a tilde) and the digraphs ch (<foreign/>, representing the phoneme <ipa/>) and ll (<foreign/>, representing the phoneme <ipa/>).
+However, the digraph rr (<foreign/>, "strong r", <foreign/>, "double r", or simply <foreign/>), which also represents a distinct phoneme <ipa/>, is not similarly regarded as a single letter.
+Since 1994, the digraphs ch and ll are to be treated as letter pairs for collation purposes, though they remain a part of the alphabet.
+Words with ch are now alphabetically sorted between those with ce and ci, instead of following cz as they used to, and similarly for ll.
+Thus, the Spanish alphabet has the following 29 letters:
+a, b, c, ch, d, e, f, g, h, i, j, k, l, ll, m, n, ñ, o, p, q, r, s, t, u, v, w, x, y, z.
+With the exclusion of a very small number of regional terms such as México (see Toponymy of Mexico) and some neologisms like software, pronunciation can be entirely determined from spelling.
+A typical Spanish word is stressed on the syllable before the last if it ends with a vowel (not including y) or with a vowel followed by n or s; it is stressed on the last syllable otherwise.
+Exceptions to this rule are indicated by placing an acute accent on the stressed vowel.
+The acute accent is used, in addition, to distinguish between certain homophones, especially when one of them is a stressed word and the other one is a clitic: compare <foreign/> ("the", masculine singular definite article) with <foreign/> ("he" or "it"), or <foreign/> ("you", object pronoun), <foreign/> (preposition "of" or "from"), and <foreign/> (reflexive pronoun) with <foreign/> ("tea"), <foreign/> ("give") and <foreign/> ("I know", or imperative "be").
+The interrogative pronouns (<foreign/>, <foreign/>, <foreign/>, <foreign/>, etc.) also receive accents in direct or indirect questions, and some demonstratives (<foreign/>, <foreign/>, <foreign/>, etc.) must be accented when used as pronouns.
+The conjunction <foreign/> ("or") is written with an accent between numerals so as not to be confused with a zero: e.g., <foreign/> should be read as <foreign/> rather than <foreign/> ("10,020").
+Accent marks are frequently omitted in capital letters (a widespread practice in the early days of computers where only lowercase vowels were available with accents), although the RAE advises against this.
+When u is written between g and a front vowel (e or i), if it should be pronounced, it is written with a diaeresis (ü) to indicate that it is not silent as it normally would be (e.g., cigüeña, "stork", is pronounced <ipa/>; if it were written cigueña, it would be pronounced <ipa/>.
+Interrogative and exclamatory clauses are introduced with inverted question ( ¿ ) and exclamation ( ¡ ) marks.
+Sounds
+The phonemic inventory listed in the following table includes phonemes that are preserved only in some dialects, other dialects having merged them (such as yeísmo); these are marked with an asterisk (*).
+Sounds in parentheses are allophones.
+By the 16th century, the consonant system of Spanish underwent the following important changes that differentiated it from neighboring Romance languages such as Portuguese and Catalan:
+Initial <ipa/>, when it had evolved into a vacillating <ipa/>, was lost in most words (although this etymological h- is preserved in spelling and in some Andalusian dialects is still aspirated).
+The bilabial approximant <ipa/> (which was written u or v) merged with the bilabial oclusive <ipa/> (written b).
+There is no difference between the pronunciation of orthographic b and v in contemporary Spanish, excepting emphatic pronunciations that cannot be considered standard or natural.
+The voiced alveolar fricative <ipa/> which existed as a separate phoneme in medieval Spanish merged with its voiceless counterpart <ipa/>.
+The phoneme which resulted from this merger is currently spelled s.
+The voiced postalveolar fricative <ipa/> merged with its voiceless counterpart <ipa/>, which evolved into the modern velar sound <ipa/> by the 17th century, now written with j, or g before e, i.
+Nevertheless, in most parts of Argentina and in Uruguay, y and ll have both evolved to <ipa/> or <ipa/>.
+The voiced alveolar affricate <ipa/> merged with its voiceless counterpart <ipa/>, which then developed into the interdental <ipa/>, now written z, or c before e, i.
+But in Andalusia, the Canary Islands and the Americas this sound merged with <ipa/> as well.
+See Ceceo, for further information.
+The consonant system of Medieval Spanish has been better preserved in Ladino and in Portuguese, neither of which underwent these shifts.
+Lexical stress
+Spanish is a syllable-timed language, so each syllable has the same duration regardless of stress.
+Stress most often occurs on any of the last three syllables of a word, with some rare exceptions at the fourth last.
+The tendencies of stress assignment are as follows:
+In words ending in vowels and <ipa/>, stress most often falls on the penultimate syllable.
+In words ending in all other consonants, the stress more often falls on the ultimate syllable.
+Preantepenultimate stress occurs rarely and only in words like guardándoselos ('saving them for him/her') where a clitic follows certain verbal forms.
+In addition to the many exceptions to these tendencies, there are numerous minimal pairs which contrast solely on stress.
+For example, sabana, with penultimate stress, means 'savannah' while <foreign/>, with antepenultimate stress, means 'sheet'; <foreign/> ('boundary'), <foreign/> ('[that] he/she limits') and <foreign/> ('I limited') also contrast solely on stress.
+Phonological stress may be marked orthographically with an acute accent (ácido, distinción, etc).
+This is done according to the mandatory stress rules of Spanish orthography which are similar to the tendencies above (differing with words like distinción) and are defined so as to unequivocally indicate where the stress lies in a given written word.
+An acute accent may also be used to differentiate homophones (such as té for 'tea' and te
+An amusing example of the significance of intonation in Spanish is the phrase <foreign/>
+("What do you mean / 'how / do I eat'? / I eat / the way / I eat!").
+Grammar
+Spanish is a relatively inflected language, with a two-gender system and about fifty conjugated forms per verb, but limited inflection of nouns, adjectives, and determiners.
+(For a detailed overview of verbs, see Spanish verbs and Spanish irregular verbs.)
+It is right-branching, uses prepositions, and usually, though not always, places adjectives after nouns.
+Its syntax is generally Subject Verb Object, though variations are common.
+It is a pro-drop language (allows the deletion of pronouns when pragmatically unnecessary) and verb-framed.
+Samples
+Speech recognition
+Speech recognition (also known as automatic speech recognition or computer speech recognition) converts spoken words to machine-readable input (for example, to keypresses, using the binary code for a string of character codes).
+The term voice recognition may also be used to refer to speech recognition, but more precisely refers to speaker recognition, which attempts to identify the person speaking, as opposed to what is being said.
+Speech recognition applications include voice dialing (e.g., "Call home"), call routing (e.g., "I would like to make a collect call"), domotic appliance control and content-based spoken audio search (e.g., find a podcast where particular words were spoken), simple data entry (e.g., entering a credit card number), preparation of structured documents (e.g., a radiology report), speech-to-text processing (e.g., word processors or emails), and in aircraft cockpits (usually termed Direct Voice Input).
+History
+One of the most notable domains for the commercial application of speech recognition in the United States has been health care and in particular the work of the medical transcriptionist (MT).
+According to industry experts, at its inception, speech recognition (SR) was sold as a way to completely eliminate transcription rather than make the transcription process more efficient, hence it was not accepted.
+It was also the case that SR at that time was often technically deficient.
+Additionally, to be used effectively, it required changes to the ways physicians worked and documented clinical encounters, which many if not all were reluctant to do.
+The biggest limitation to speech recognition automating transcription, however, is seen as the software.
+The nature of narrative dictation is highly interpretive and often requires judgment that may be provided by a real human but not yet by an automated system.
+Another limitation has been the extensive amount of time required by the user and/or system provider to train the software.
+A distinction in ASR is often made between "artificial syntax systems" which are usually domain-specific and "natural language processing" which is usually language-specific.
+Each of these types of application presents its own particular goals and challenges.
+Applications
+Health care
+In the health care domain, even in the wake of improving speech recognition technologies, medical transcriptionists (MTs) have not yet become obsolete.
+Many experts in the field anticipate that with increased use of speech recognition technology, the services provided may be redistributed rather than replaced.
+Speech recognition can be implemented in front-end or back-end of the medical documentation process.
+Front-End SR is where the provider dictates into a speech-recognition engine, the recognized words are displayed right after they are spoken, and the dictator is responsible for editing and signing off on the document.
+It never goes through an MT/editor.
+Back-End SR or Deferred SR is where the provider dictates into a digital dictation system, and the voice is routed through a speech-recognition machine and the recognized draft document is routed along with the original voice file to the MT/editor, who edits the draft and finalizes the report.
+Deferred SR is being widely used in the industry currently.
+Many Electronic Medical Records (EMR) applications can be more effective and may be performed more easily when deployed in conjunction with a speech-recognition engine.
+Searches, queries, and form filling may all be faster to perform by voice than by using a keyboard.
+
+
+
+Military
+High-performance fighter aircraft
+Substantial efforts have been devoted in the last decade to the test and evaluation of speech recognition in fighter aircraft.
+Of particular note are the U.S. program in speech recognition for the Advanced Fighter Technology Integration (AFTI)/F-16 aircraft (F-16 VISTA), the program in France on installing speech recognition systems on Mirage aircraft, and programs in the UK dealing with a variety of aircraft platforms.
+In these programs, speech recognizers have been operated successfully in fighter aircraft with applications including: setting radio frequencies, commanding an autopilot system, setting steer-point coordinates and weapons release parameters, and controlling flight displays.
+Generally, only very limited, constrained vocabularies have been used successfully, and a major effort has been devoted to integration of the speech recognizer with the avionics system.
+Some important conclusions from the work were as follows:
+Speech recognition has definite potential for reducing pilot workload, but this potential was not realized consistently.
+Achievement of very high recognition accuracy (95% or more) was the most critical factor for making the speech recognition system useful&nbsp;— with lower recognition rates, pilots would not use the system.
+More natural vocabulary and grammar, and shorter training times would be useful, but only if very high recognition rates could be maintained.
+Laboratory research in robust speech recognition for military environments has produced promising results which, if extendable to the cockpit, should improve the utility of speech recognition in high-performance aircraft.
+Working with Swedish pilots flying in the JAS-39 Gripen cockpit, Englund (2004) found recognition deteriorated with increasing G-loads.
+It was also concluded that adaptation greatly improved the results in all cases and introducing models for breathing was shown to improve recognition scores significantly.
+Contrary to what might be expected, no effects of the broken English of the speakers were found.
+It was evident that spontaneous speech caused problems for the recognizer, as could be expected.
+A restricted vocabulary, and above all, a proper syntax, could thus be expected to improve recognition accuracy substantially.
+The Eurofighter Typhoon currently in service with the UK RAF employs a speaker-dependent system, i.e. it requires each pilot to create a template.
+The system is not used for any safety critical or weapon critical tasks, such as weapon release or lowering of the undercarriage, but is used for a wide range of other cockpit functions.
+Voice commands are confirmed by visual and/or aural feedback.
+The system is seen as a major design feature in the reduction of pilot workload, and even allows the pilot to assign targets to himself with two simple voice commands or to any of his wingmen with only five commands.
+Helicopters
+The problems of achieving high recognition accuracy under stress and noise pertain strongly to the helicopter environment as well as to the fighter environment.
+The acoustic noise problem is actually more severe in the helicopter environment, not only because of the high noise levels but also because the helicopter pilot generally does not wear a facemask, which would reduce acoustic noise in the microphone.
+Substantial test and evaluation programs have been carried out in the post decade in speech recognition systems applications in helicopters, notably by the U.S. Army Avionics Research and Development Activity (AVRADA) and by the Royal Aerospace Establishment (RAE) in the UK.
+Work in France has included speech recognition in the Puma helicopter.
+There has also been much useful work in Canada.
+Results have been encouraging, and voice applications have included: control of communication radios; setting of navigation systems; and control of an automated target handover system.
+As in fighter applications, the overriding issue for voice in helicopters is the impact on pilot effectiveness.
+Encouraging results are reported for the AVRADA tests, although these represent only a feasibility demonstration in a test environment.
+Much remains to be done both in speech recognition and in overall speech recognition technology, in order to consistently achieve performance improvements in operational settings.
+Battle management
+Battle management command centres generally require rapid access to and control of large, rapidly changing information databases.
+Commanders and system operators need to query these databases as conveniently as possible, in an eyes-busy environment where much of the information is presented in a display format.
+Human machine interaction by voice has the potential to be very useful in these environments.
+A number of efforts have been undertaken to interface commercially available isolated-word recognizers into battle management environments.
+In one feasibility study, speech recognition equipment was tested in conjunction with an integrated information display for naval battle management applications.
+Users were very optimistic about the potential of the system, although capabilities were limited.
+Speech understanding programs sponsored by the Defense Advanced Research Projects Agency (DARPA) in the U.S. has focused on this problem of natural speech interface..
+Speech recognition efforts have focused on a database of continuous speech recognition (CSR), large-vocabulary speech which is designed to be representative of the naval resource management task.
+Significant advances in the state-of-the-art in CSR have been achieved, and current efforts are focused on integrating speech recognition and natural language processing to allow spoken language interaction with a naval resource management system.
+Training air traffic controllers
+Training for military (or civilian) air traffic controllers (ATC) represents an excellent application for speech recognition systems.
+Many ATC training systems currently require a person to act as a "pseudo-pilot", engaging in a voice dialog with the trainee controller, which simulates the dialog which the controller would have to conduct with pilots in a real ATC situation.
+Speech recognition and synthesis techniques offer the potential to eliminate the need for a person to act as pseudo-pilot, thus reducing training and support personnel.
+Air controller tasks are also characterized by highly structured speech as the primary output of the controller, hence reducing the difficulty of the speech recognition task.
+The U.S. Naval Training Equipment Center has sponsored a number of developments of prototype ATC trainers using speech recognition.
+Generally, the recognition accuracy falls short of providing graceful interaction between the trainee and the system.
+However, the prototype training systems have demonstrated a significant potential for voice interaction in these systems, and in other training applications.
+The U.S. Navy has sponsored a large-scale effort in ATC training systems, where a commercial speech recognition unit was integrated with a complex training system including displays and scenario creation.
+Although the recognizer was constrained in vocabulary, one of the goals of the training programs was to teach the controllers to speak in a constrained language, using specific vocabulary specifically designed for the ATC task.
+Research in France has focussed on the application of speech recognition in ATC training systems, directed at issues both in speech recognition and in application of task-domain grammar constraints.
+The USAF, USMC, US Army, and FAA are currently using ATC simulators with speech recognition provided by Adacel Systems Inc (ASI).
+Adacel's MaxSim software uses speech recognition and synthetic speech to enable the trainee to control aircraft and ground vehicles in the simulation without the need for pseudo pilots.
+Adacel's ATC In A Box Software provideds a synthetic ATC environment for flight simulators.
+The "real" pilot talks to a virtual controller using speech recognition and the virtual controller responds with synthetic speech.
+It will be an application format
+Telephony and other domains
+ASR in the field of telephony is now commonplace and in the field of computer gaming and simulation is becoming more widespread.
+Despite the high level of integration with word processing in general personal computing, however, ASR in the field of document production has not seen the expected increases in use.
+The improvement of mobile processor speeds let create speech-enabled Symbian and Windows Mobile Smartphones.
+Current speech-to-text programs are too large and require too much CPU power to be practical for the Pocket PC.
+Speech is used mostly as a part of User Interface, for creating pre-defined or custom speech commands.
+Leading software vendors in this field are: Microsoft Corporation (Microsoft Voice Command); Nuance Communications (Nuance Voice Control); Vito Technology (VITO Voice2Go); Speereo Software (Speereo Voice Translator).
+People with Disabilities
+People with disabilities are another part of the population that benefit from using speech recognition programs.
+It is especially useful for people who have difficulty with or are unable to use their hands, from mild repetitive stress injuries to involved disabilities that require alternative input for support with accessing the computer.
+In fact, people who used the keyboard a lot and developed RSI became an urgent early market for speech recognition.
+Speech recognition is used in deaf telephony, such as spinvox voice-to-text voicemail, relay services, and captioned telephone.
+Further applications
+Automatic translation
+Automotive speech recognition (e.g., Ford Sync)
+Telematics (e.g. vehicle Navigation Systems)
+Court reporting (Realtime Voice Writing)
+Hands-free computing: voice command recognition computer user interface
+Home automation
+Interactive voice response
+Mobile telephony, including mobile email
+Multimodal interaction
+Pronunciation evaluation in computer-aided language learning applications
+Robotics
+Transcription (digital speech-to-text).
+Speech-to-Text (Transcription of speech into mobile text messages)
+Performance of speech recognition systems
+The performance of speech recognition systems is usually specified in terms of accuracy and speed.
+Accuracy may be measured in terms of performance accuracy which is usually rated with word error rate (WER), whereas speed is measured with the real time factor.
+Other measures of accuracy include Single Word Error Rate (SWER) and Command Success Rate (CSR).
+Most speech recognition users would tend to agree that dictation machines can achieve very high performance in controlled conditions.
+There is some confusion, however, over the interchangeability of the terms "speech recognition" and "dictation".
+Commercially available speaker-dependent dictation systems usually require only a short period of training (sometimes also called `enrollment') and may successfully capture continuous speech with a large vocabulary at normal pace with a very high accuracy.
+Most commercial companies claim that recognition software can achieve between 98% to 99% accuracy if operated under optimal conditions.
+`Optimal conditions' usually assume that users:
+have speech characteristics which match the training data,
+can achieve proper speaker adaptation, and
+work in a clean noise environment (e.g. quiet office or laboratory space).
+This explains why some users, especially those whose speech is heavily accented, might achieve recognition rates much lower than expected.
+Speech recognition in video has become a popular search technology used by several video search companies.
+Limited vocabulary systems, requiring no training, can recognize a small number of words (for instance, the ten digits) as spoken by most speakers.
+Such systems are popular for routing incoming phone calls to their destinations in large organizations.
+Both acoustic modeling and language modeling are important parts of modern statistically-based speech recognition algorithms.
+Hidden Markov models (HMMs) are widely used in many systems.
+Language modeling has many other applications such as smart keyboard and document classification.
+Hidden Markov model (HMM)-based speech recognition
+Modern general-purpose speech recognition systems are generally based on HMMs.
+These are statistical models which output a sequence of symbols or quantities.
+One possible reason why HMMs are used in speech recognition is that a speech signal could be viewed as a piecewise stationary signal or a short-time stationary signal.
+That is, one could assume in a short-time in the range of 10 milliseconds, speech could be approximated as a stationary process.
+Speech could thus be thought of as a Markov model for many stochastic processes.
+Another reason why HMMs are popular is because they can be trained automatically and are simple and computationally feasible to use.
+In speech recognition, the hidden Markov model would output a sequence of n-dimensional real-valued vectors (with n being a small integer, such as 10), outputting one of these every 10 milliseconds.
+The vectors would consist of cepstral coefficients, which are obtained by taking a Fourier transform of a short time window of speech and decorrelating the spectrum using a cosine transform, then taking the first (most significant) coefficients.
+The hidden Markov model will tend to have in each state a statistical distribution that is a mixture of diagonal covariance Gaussians which will give a likelihood for each observed vector.
+Each word, or (for more general speech recognition systems), each phoneme, will have a different output distribution; a hidden Markov model for a sequence of words or phonemes is made by concatenating the individual trained hidden Markov models for the separate words and phonemes.
+Described above are the core elements of the most common, HMM-based approach to speech recognition.
+Modern speech recognition systems use various combinations of a number of standard techniques in order to improve results over the basic approach described above.
+A typical large-vocabulary system would need context dependency for the phonemes (so phonemes with different left and right context have different realizations as HMM states); it would use cepstral normalization to normalize for different speaker and recording conditions; for further speaker normalization it might use vocal tract length normalization (VTLN) for male-female normalization and maximum likelihood linear regression (MLLR) for more general speaker adaptation.
+The features would have so-called delta and delta-delta coefficients to capture speech dynamics and in addition might use heteroscedastic linear discriminant analysis (HLDA); or might skip the delta and delta-delta coefficients and use splicing and an LDA-based projection followed perhaps by heteroscedastic linear discriminant analysis or a global semitied covariance transform (also known as maximum likelihood linear transform, or MLLT).
+Many systems use so-called discriminative training techniques which dispense with a purely statistical approach to HMM parameter estimation and instead optimize some classification-related measure of the training data.
+Examples are maximum mutual information (MMI), minimum classification error (MCE) and minimum phone error (MPE).
+Decoding of the speech (the term for what happens when the system is presented with a new utterance and must compute the most likely source sentence) would probably use the Viterbi algorithm to find the best path, and here there is a choice between dynamically creating a combination hidden Markov model which includes both the acoustic and language model information, or combining it statically beforehand (the finite state transducer, or FST, approach).
+Dynamic time warping (DTW)-based speech recognition
+Dynamic time warping is an approach that was historically used for speech recognition but has now largely been displaced by the more successful HMM-based approach.
+Dynamic time warping is an algorithm for measuring similarity between two sequences which may vary in time or speed.
+For instance, similarities in walking patterns would be detected, even if in one video the person was walking slowly and if in another they were walking more quickly, or even if there were accelerations and decelerations during the course of one observation.
+DTW has been applied to video, audio, and graphics&nbsp;– indeed, any data which can be turned into a linear representation can be analyzed with DTW.
+A well known application has been automatic speech recognition, to cope with different speaking speeds.
+In general, it is a method that allows a computer to find an optimal match between two given sequences (e.g. time series) with certain restrictions, i.e. the sequences are "warped" non-linearly to match each other.
+This sequence alignment method is often used in the context of hidden Markov models.
+Further information
+Popular speech recognition conferences held each year or two include ICASSP, Eurospeech/ICSLP (now named Interspeech) and the IEEE ASRU.
+Conferences in the field of Natural Language Processing, such as ACL, NAACL, EMNLP, and HLT, are beginning to include papers on speech processing.
+Important journals include the IEEE Transactions on Speech and Audio Processing (now named IEEE Transactions on Audio, Speech and Language Processing), Computer Speech and Language, and Speech Communication.
+Books like "Fundamentals of Speech Recognition" by Lawrence Rabiner can be useful to acquire basic knowledge but may not be fully up to date (1993).
+Another good source can be "Statistical Methods for Speech Recognition" by Frederick Jelinek which is a more up to date book (1998).
+Even more up to date is "Computer Speech", by Manfred R. Schroeder, second edition published in 2004.
+A good insight into the techniques used in the best modern systems can be gained by paying attention to government sponsored evaluations such as those organised by DARPA (the largest speech recognition-related project ongoing as of 2007 is the GALE project, which involves both speech recognition and translation components).
+In terms of freely available resources, the HTK book (and the accompanying HTK toolkit) is one place to start to both learn about speech recognition and to start experimenting.
+Another such resource is Carnegie Mellon University's SPHINX toolkit.
+The AT&T libraries FSM Library, GRM library, and DCD library are also general software libraries for large-vocabulary speech recognition.
+A useful review of the area of robustness in ASR is provided by Junqua and Haton (1995).
+Speech synthesis
+Speech synthesis is the artificial production of human speech.
+A computer system used for this purpose is called a speech synthesizer, and can be implemented in software or hardware.
+A text-to-speech (TTS) system converts normal language text into speech; other systems render symbolic linguistic representations like phonetic transcriptions into speech.
+Synthesized speech can be created by concatenating pieces of recorded speech that are stored in a database.
+Systems differ in the size of the stored speech units; a system that stores phones or diphones provides the largest output range, but may lack clarity.
+For specific usage domains, the storage of entire words or sentences allows for high-quality output.
+Alternatively, a synthesizer can incorporate a model of the vocal tract and other human voice characteristics to create a completely "synthetic" voice output.
+The quality of a speech synthesizer is judged by its similarity to the human voice, and by its ability to be understood.
+An intelligible text-to-speech program allows people with visual impairments or reading disabilities to listen to written works on a home computer.
+Many computer operating systems have included speech synthesizers since the early 1980s.
+Overview of text processing
+A text-to-speech system (or "engine") is composed of two parts: a front-end and a back-end.
+The front-end has two major tasks.
+First, it converts raw text containing symbols like numbers and abbreviations into the equivalent of written-out words.
+This process is often called text normalization, pre-processing, or tokenization.
+The front-end then assigns phonetic transcriptions to each word, and divides and marks the text into prosodic units, like phrases, clauses, and sentences.
+The process of assigning phonetic transcriptions to words is called text-to-phoneme or grapheme-to-phoneme conversion.
+Phonetic transcriptions and prosody information together make up the symbolic linguistic representation that is output by the front-end.
+The back-end—often referred to as the synthesizer—then converts the symbolic linguistic representation into sound.
+History
+Long before electronic signal processing was invented, there were those who tried to build machines to create human speech.
+Some early legends of the existence of "speaking heads" involved Gerbert of Aurillac (d. 1003 AD), Albertus Magnus (1198&ndash;1280), and Roger Bacon (1214&ndash;1294).
+In 1779, the Danish scientist Christian Kratzenstein, working at the Russian Academy of Sciences, built models of the human vocal tract that could produce the five long vowel sounds (in International Phonetic Alphabet notation, they are <ipa/>, <ipa/>, <ipa/>, <ipa/> and <ipa/>).
+This was followed by the bellows-operated "acoustic-mechanical speech machine" by Wolfgang von Kempelen of Vienna, Austria, described in a 1791 paper.
+This machine added models of the tongue and lips, enabling it to produce consonants as well as vowels.
+In 1837, Charles Wheatstone produced a "speaking machine" based on von Kempelen's design, and in 1857, M. Faber built the "Euphonia".
+Wheatstone's design was resurrected in 1923 by Paget.
+In the 1930s, Bell Labs developed the VOCODER, a keyboard-operated electronic speech analyzer and synthesizer that was said to be clearly intelligible.
+Homer Dudley refined this device into the VODER, which he exhibited at the 1939 New York World's Fair.
+The Pattern playback was built by Dr. Franklin S. Cooper and his colleagues at Haskins Laboratories in the late 1940s and completed in 1950.
+There were several different versions of this hardware device but only one currently survives.
+The machine converts pictures of the acoustic patterns of speech in the form of a spectrogram back into sound.
+Using this device, Alvin Liberman and colleagues were able to discover acoustic cues for the perception of phonetic segments (consonants and vowels).
+Early electronic speech synthesizers sounded robotic and were often barely intelligible.
+However, the quality of synthesized speech has steadily improved, and output from contemporary speech synthesis systems is sometimes indistinguishable from actual human speech.
+Electronic devices
+The first computer-based speech synthesis systems were created in the late 1950s, and the first complete text-to-speech system was completed in 1968.
+In 1961, physicist John Larry Kelly, Jr and colleague Louis Gerstman used an IBM 704 computer to synthesize speech, an event among the most prominent in the history of Bell Labs.
+Kelly's voice recorder synthesizer (vocoder) recreated the song "Daisy Bell", with musical accompaniment from Max Mathews.
+Coincidentally, Arthur C. Clarke was visiting his friend and colleague John Pierce at the Bell Labs Murray Hill facility.
+Clarke was so impressed by the demonstration that he used it in the climactic scene of his screenplay for his novel 2001: A Space Odyssey, where the HAL 9000 computer sings the same song as it is being put to sleep by astronaut Dave Bowman.
+Despite the success of purely electronic speech synthesis, research is still being conducted into mechanical speech synthesizers.
+Synthesizer technologies
+The most important qualities of a speech synthesis system are naturalness and Intelligibility.
+Naturalness describes how closely the output sounds like human speech, while intelligibility is the ease with which the output is understood.
+The ideal speech synthesizer is both natural and intelligible.
+Speech synthesis systems usually try to maximize both characteristics.
+The two primary technologies for generating synthetic speech waveforms are concatenative synthesis and formant synthesis.
+Each technology has strengths and weaknesses, and the intended uses of a synthesis system will typically determine which approach is used.
+Concatenative synthesis
+Concatenative synthesis is based on the concatenation (or stringing together) of segments of recorded speech.
+Generally, concatenative synthesis produces the most natural-sounding synthesized speech.
+However, differences between natural variations in speech and the nature of the automated techniques for segmenting the waveforms sometimes result in audible glitches in the output.
+There are three main sub-types of concatenative synthesis.
+Unit selection synthesis
+Unit selection synthesis uses large databases of recorded speech.
+During database creation, each recorded utterance is segmented into some or all of the following: individual phones, diphones, half-phones, syllables, morphemes, words, phrases, and sentences.
+Typically, the division into segments is done using a specially modified speech recognizer set to a "forced alignment" mode with some manual correction afterward, using visual representations such as the waveform and spectrogram.
+An index of the units in the speech database is then created based on the segmentation and acoustic parameters like the fundamental frequency (pitch), duration, position in the syllable, and neighboring phones.
+At runtime, the desired target utterance is created by determining the best chain of candidate units from the database (unit selection).
+This process is typically achieved using a specially weighted decision tree.
+Unit selection provides the greatest naturalness, because it applies only a small amount of digital signal processing (DSP) to the recorded speech.
+DSP often makes recorded speech sound less natural, although some systems use a small amount of signal processing at the point of concatenation to smooth the waveform.
+The output from the best unit-selection systems is often indistinguishable from real human voices, especially in contexts for which the TTS system has been tuned.
+However, maximum naturalness typically require unit-selection speech databases to be very large, in some systems ranging into the gigabytes of recorded data, representing dozens of hours of speech.
+Also, unit selection algorithms have been known to select segments from a place that results in less than ideal synthesis (e.g. minor words become unclear) even when a better choice exists in the database.
+Diphone synthesis
+Diphone synthesis uses a minimal speech database containing all the diphones (sound-to-sound transitions) occurring in a language.
+The number of diphones depends on the phonotactics of the language: for example, Spanish has about 800 diphones, and German about 2500.
+In diphone synthesis, only one example of each diphone is contained in the speech database.
+At runtime, the target prosody of a sentence is superimposed on these minimal units by means of digital signal processing techniques such as linear predictive coding, PSOLA or MBROLA.
+The quality of the resulting speech is generally worse than that of unit-selection systems, but more natural-sounding than the output of formant synthesizers.
+Diphone synthesis suffers from the sonic glitches of concatenative synthesis and the robotic-sounding nature of formant synthesis, and has few of the advantages of either approach other than small size.
+As such, its use in commercial applications is declining, although it continues to be used in research because there are a number of freely available software implementations.
+Domain-specific synthesis
+Domain-specific synthesis concatenates prerecorded words and phrases to create complete utterances.
+It is used in applications where the variety of texts the system will output is limited to a particular domain, like transit schedule announcements or weather reports.
+The technology is very simple to implement, and has been in commercial use for a long time, in devices like talking clocks and calculators.
+The level of naturalness of these systems can be very high because the variety of sentence types is limited, and they closely match the prosody and intonation of the original recordings.
+Because these systems are limited by the words and phrases in their databases, they are not general-purpose and can only synthesize the combinations of words and phrases with which they have been preprogrammed.
+The blending of words within naturally spoken language however can still cause problems unless the many variations are taken into account.
+For example, in non-rhotic dialects of English the <r> in words like <clear> <ipa/> is usually only pronounced when the following word has a vowel as its first letter (e.g. <clear out> is realized as <ipa/>).
+Likewise in French, many final consonants become no longer silent if followed by a word that begins with a vowel, an effect called liaison.
+This alternation cannot be reproduced by a simple word-concatenation system, which would require additional complexity to be context-sensitive.
+Formant synthesis
+Formant synthesis does not use human speech samples at runtime.
+Instead, the synthesized speech output is created using an acoustic model.
+Parameters such as fundamental frequency, voicing, and noise levels are varied over time to create a waveform of artificial speech.
+This method is sometimes called rules-based synthesis; however, many concatenative systems also have rules-based components.
+Many systems based on formant synthesis technology generate artificial, robotic-sounding speech that would never be mistaken for human speech.
+However, maximum naturalness is not always the goal of a speech synthesis system, and formant synthesis systems have advantages over concatenative systems.
+Formant-synthesized speech can be reliably intelligible, even at very high speeds, avoiding the acoustic glitches that commonly plague concatenative systems.
+High-speed synthesized speech is used by the visually impaired to quickly navigate computers using a screen reader.
+Formant synthesizers are usually smaller programs than concatenative systems because they do not have a database of speech samples.
+They can therefore be used in embedded systems, where memory and microprocessor power are especially limited.
+Because formant-based systems have complete control of all aspects of the output speech, a wide variety of prosodies and intonations can be output, conveying not just questions and statements, but a variety of emotions and tones of voice.
+Examples of non-real-time but highly accurate intonation control in formant synthesis include the work done in the late 1970s for the Texas Instruments toy Speak & Spell, and in the early 1980s Sega arcade machines.
+Creating proper intonation for these projects was painstaking, and the results have yet to be matched by real-time text-to-speech interfaces.
+Articulatory synthesis
+Articulatory synthesis refers to computational techniques for synthesizing speech based on models of the human vocal tract and the articulation processes occurring there.
+The first articulatory synthesizer regularly used for laboratory experiments was developed at Haskins Laboratories in the mid-1970s by Philip Rubin, Tom Baer, and Paul Mermelstein.
+This synthesizer, known as ASY, was based on vocal tract models developed at Bell Laboratories in the 1960s and 1970s by Paul Mermelstein, Cecil Coker, and colleagues.
+Until recently, articulatory synthesis models have not been incorporated into commercial speech synthesis systems.
+A notable exception is the NeXT-based system originally developed and marketed by Trillium Sound Research, a spin-off company of the University of Calgary, where much of the original research was conducted.
+Following the demise of the various incarnations of NeXT (started by Steve Jobs in the late 1980s and merged with Apple Computer in 1997), the Trillium software was published under the GNU General Public License, with work continuing as gnuspeech.
+The system, first marketed in 1994, provides full articulatory-based text-to-speech conversion using a waveguide or transmission-line analog of the human oral and nasal tracts controlled by Carré's "distinctive region model".
+HMM-based synthesis
+HMM-based synthesis is a synthesis method based on hidden Markov models.
+In this system, the frequency spectrum (vocal tract), fundamental frequency (vocal source), and duration (prosody) of speech are modeled simultaneously by HMMs.
+Speech waveforms are generated from HMMs themselves based on the maximum likelihood criterion.
+Sinewave synthesis
+Sinewave synthesis is a technique for synthesizing speech by replacing the formants (main bands of energy) with pure tone whistles.
+Challenges
+Text normalization challenges
+The process of normalizing text is rarely straightforward.
+Texts are full of heteronyms, numbers, and abbreviations that all require expansion into a phonetic representation.
+There are many spellings in English which are pronounced differently based on context.
+For example, "My latest project is to learn how to better project my voice" contains two pronunciations of "project".
+Most text-to-speech (TTS) systems do not generate semantic representations of their input texts, as processes for doing so are not reliable, well understood, or computationally effective.
+As a result, various heuristic techniques are used to guess the proper way to disambiguate homographs, like examining neighboring words and using statistics about frequency of occurrence.
+Deciding how to convert numbers is another problem that TTS systems have to address.
+It is a simple programming challenge to convert a number into words, like "1325" becoming "one thousand three hundred twenty-five."
+However, numbers occur in many different contexts; when a year or part of an address, "1325" should likely be read as "thirteen twenty-five", or, when part of a social security number, as "one three two five".
+A TTS system can often infer how to expand a number based on surrounding words, numbers, and punctuation, and sometimes the system provides a way to specify the context if it is ambiguous.
+Similarly, abbreviations can be ambiguous.
+For example, the abbreviation "in" for "inches" must be differentiated from the word "in", and the address "12 St John St." uses the same abbreviation for both "Saint" and "Street".
+TTS systems with intelligent front ends can make educated guesses about ambiguous abbreviations, while others provide the same result in all cases, resulting in nonsensical (and sometimes comical) outputs.
+Text-to-phoneme challenges
+Speech synthesis systems use two basic approaches to determine the pronunciation of a word based on its spelling, a process which is often called text-to-phoneme or grapheme-to-phoneme conversion (phoneme is the term used by linguists to describe distinctive sounds in a language).
+The simplest approach to text-to-phoneme conversion is the dictionary-based approach, where a large dictionary containing all the words of a language and their correct pronunciations is stored by the program.
+Determining the correct pronunciation of each word is a matter of looking up each word in the dictionary and replacing the spelling with the pronunciation specified in the dictionary.
+The other approach is rule-based, in which pronunciation rules are applied to words to determine their pronunciations based on their spellings.
+This is similar to the "sounding out", or synthetic phonics, approach to learning reading.
+Each approach has advantages and drawbacks.
+The dictionary-based approach is quick and accurate, but completely fails if it is given a word which is not in its dictionary.
+As dictionary size grows, so too does the memory space requirements of the synthesis system.
+On the other hand, the rule-based approach works on any input, but the complexity of the rules grows substantially as the system takes into account irregular spellings or pronunciations.
+(Consider that the word "of" is very common in English, yet is the only word in which the letter "f" is pronounced [v].)
+As a result, nearly all speech synthesis systems use a combination of these approaches.
+Some languages, like Spanish, have a very regular writing system, and the prediction of the pronunciation of words based on their spellings is quite successful.
+Speech synthesis systems for such languages often use the rule-based method extensively, resorting to dictionaries only for those few words, like foreign names and borrowings, whose pronunciations are not obvious from their spellings.
+On the other hand, speech synthesis systems for languages like English, which have extremely irregular spelling systems, are more likely to rely on dictionaries, and to use rule-based methods only for unusual words, or words that aren't in their dictionaries.
+Evaluation challenges
+It is very difficult to evaluate speech synthesis systems consistently because there is no subjective criterion and usually different organizations use different speech data.
+The quality of a speech synthesis system highly depends on the quality of recording.
+Therefore, evaluating speech synthesis systems is almost the same as evaluating the recording skills.
+Recently researchers start evaluating speech synthesis systems using the common speech dataset.
+This may help people to compare the difference between technologies rather than recordings.
+Prosodics and emotional content
+A recent study reported in the journal "Speech Communication" by Amy Drahota and colleagues at the University of Portsmouth, UK, reported that listeners to voice recordings could determine, at better than chance levels, whether or not the speaker was smiling.
+It was suggested that identification of the vocal features which signal emotional content may be used to help make synthesized speech sound more natural.
+Dedicated hardware
+Votrax
+SC-01A (analog formant)
+SC-02 / SSI-263 / "Arctic 263"
+General Instruments SP0256-AL2 (CTS256A-AL2, MEA8000)
+Magnevation SpeakJet (www.speechchips.com TTS256)
+Savage Innovations SoundGin
+National Semiconductor DT1050 Digitalker (Mozer)
+Silicon Systems SSI 263 (analog formant)
+Texas Instruments
+TMS5110A (LPC)
+TMS5200
+Oki Semiconductor
+MSM5205
+MSM5218RS (ADPCM)
+Toshiba T6721A
+Philips PCF8200
+Computer operating systems or outlets with speech synthesis
+Apple
+The first speech system integrated into an operating system was Apple Computer's MacInTalk in 1984.
+Since the 1980s Macintosh Computers offered text to speech capabilities through The MacinTalk software.
+In the early 1990s Apple expanded its capabilities offering system wide text-to-speech support.
+With the introduction of faster PowerPC based computers they included higher quality voice sampling.
+Apple also introduced speech recognition into its systems which provided a fluid command set.
+More recently, Apple has added sample-based voices.
+Starting as a curiosity, the speech system of Apple Macintosh has evolved into a cutting edge fully-supported program, PlainTalk, for people with vision problems.
+VoiceOver was included in Mac OS Tiger and more recently Mac OS Leopard.
+The voice shipping with Mac OS X 10.5 ("Leopard") is called "Alex" and features the taking of realistic-sounding breaths between sentences, as well as improved clarity at high read rates.
+AmigaOS
+The second operating system with advanced speech synthesis capabilities was AmigaOS, introduced in 1985.
+The voice synthesis was licensed by Commodore International from a third-party software house (Don't Ask Software, now Softvoice, Inc.) and it featured a complete system of voice emulation, with both male and female voices and "stress" indicator markers, made possible by advanced features of the Amiga hardware audio chipset.
+It was divided into a narrator device and a translator library.
+Amiga Speak Handler featured a text-to-speech translator.
+AmigaOS considered speech synthesis a virtual hardware device, so the user could even redirect console output to it.
+Some Amiga programs, such as word processors, made extensive use of the speech system.
+Microsoft Windows
+Modern Windows systems use SAPI4- and SAPI5-based speech systems that include a speech recognition engine (SRE).
+SAPI 4.0 was available on Microsoft-based operating systems as a third-party add-on for systems like Windows 95 and Windows 98.
+Windows 2000 added a speech synthesis program called Narrator, directly available to users.
+All Windows-compatible programs could make use of speech synthesis features, available through menus once installed on the system.
+Microsoft Speech Server is a complete package for voice synthesis and recognition, for commercial applications such as call centers.
+Internet
+Currently, there are a number of applications, plugins and gadgets that can read messages directly from an e-mail client and web pages from a web browser.
+Some specialized software can narrate RSS-feeds.
+On one hand, online RSS-narrators simplify information delivery by allowing users to listen to their favourite news sources and to convert them to podcasts.
+On the other hand, on-line RSS-readers are available on almost any PC connected to the Internet.
+Users can download generated audio files to portable devices, e.g. with a help of podcast receiver, and listen to them while walking, jogging or commuting to work.
+A growing field in internet based TTS technology is web-based assistive technology, e.g. Talklets.
+This web based approach to a traditionally locally installed form of software application can afford many of those requiring software for accessibility reason, the ability to access web content from public machines, or those belonging to others.
+While responsiveness is not as immediate as that of applications installed locally, the 'access anywhere' nature of it is the key benefit to this approach.
+Others
+Some models of Texas Instruments home computers produced in 1979 and 1981 (Texas Instruments TI-99/4 and TI-99/4A) were capable of text-to-phoneme synthesis or reciting complete words and phrases (text-to-dictionary), using a very popular Speech Synthesizer peripheral.
+TI used a proprietary codec to embed complete spoken phrases into applications, primarily video games.
+Systems that operate on free and open source software systems including GNU/Linux are various, and include open-source programs such as the Festival Speech Synthesis System which uses diphone-based synthesis (and can use a limited number of MBROLA voices), and gnuspeech which uses articulatory synthesis from the Free Software Foundation.
+Other commercial vendor software also runs on GNU/Linux.
+Several commercial companies are also developing speech synthesis systems (this list is reporting them just for the sake of information, not endorsing any specific product): Acapela Group, AT&T, Cepstral, DECtalk, IBM ViaVoice, IVONA TTS, Loquendo TTS, NeoSpeech TTS, Nuance Communications, Rhetorical Systems, SVOX and YAKiToMe!.
+Companies which developed speech synthesis systems but which are no longer in this business include BeST Speech (bought by L&H), Lernout & Hauspie (bankrupt), SpeechWorks (bought by Nuance)
+Speech synthesis markup languages
+A number of markup languages have been established for the rendition of text as speech in an XML-compliant format.
+The most recent is Speech Synthesis Markup Language (SSML), which became a W3C recommendation in 2004.
+Older speech synthesis markup languages include Java Speech Markup Language (JSML) and SABLE.
+Although each of these was proposed as a standard, none of them has been widely adopted.
+Speech synthesis markup languages are distinguished from dialogue markup languages.
+VoiceXML, for example, includes tags related to speech recognition, dialogue management and touchtone dialing, in addition to text-to-speech markup.
+Applications
+Accessibility
+Speech synthesis has long been a vital assistive technology tool and its application in this area is significant and widespread.
+It allows environmental barriers to be removed for people with a wide range of disabilities.
+The longest application has been in the use of screenreaders for people with visual impairment, but text-to-speech systems are now commonly used by people with dyslexia and other reading difficulties as well as by pre-literate youngsters.
+They are also frequently employed to aid those with severe speech impairment usually through a dedicated voice output communication aid.
+News service
+Sites such as Ananova have used speech synthesis to convert written news to audio content, which can be used for mobile applications.
+Entertainment
+Speech synthesis techniques are used as well in the entertainment productions such as games, anime and similar.
+In 2007, Animo Limited announced the development of a software application package based on its speech synthesis software FineSpeech, explicitly geared towards customers in the entertainment industries, able to generate narration and lines of dialogue according to user specifications.
+Software such as Vocaloid can generate singing voices via lyrics and melody.
+This is also the aim of the Singing Computer project (which uses the GPL software Lilypond and Festival) to help blind people check their lyric input.
+Statistical classification
+Statistical classification is a procedure in which individual items are placed into groups based on quantitative information on one or more characteristics inherent in the items (referred to as traits, variables, characters, etc) and based on a training set of previously labeled items.
+Formally, the problem can be stated as follows: given training data <math/> produce a classifier <math/> which maps an object <math/> to its classification label <math/>.
+For example, if the problem is filtering spam, then <math/> is some representation of an email and <math/> is either "Spam" or "Non-Spam".
+Statistical classification algorithms are typically used in pattern recognition systems.
+Note: in community ecology, the term "classification" is synonymous with what is commonly known (in machine learning) as clustering.
+See that article for more information about purely unsupervised techniques.
+The second problem is to consider classification as an estimation problem, where the goal is to estimate a function of the form
+<math/> where the feature vector input is <math/>, and the function <i>f</i> is typically parameterized by some parameters <math/>.
+In the Bayesian approach to this problem, instead of choosing a single parameter vector <math/>, the result is integrated over all possible thetas, with the thetas weighted by how likely they are given the training data <i>D</i>:
+<math/>
+The third problem is related to the second, but the problem is to estimate the class-conditional probabilities <math/> and then use Bayes' rule to produce the class probability as in the second problem.
+Examples of classification algorithms include:
+Linear classifiers
+Fisher's linear discriminant
+Logistic regression
+Naive Bayes classifier
+Perceptron
+Support vector machines
+Quadratic classifiers
+k-nearest neighbor
+Boosting
+Decision trees
+Random forests
+Neural networks
+Bayesian networks
+Hidden Markov models
+An intriguing problem in pattern recognition yet to be solved is the relationship between the problem to be solved (data to be classified) and the performance of various pattern recognition algorithms (classifiers).
+Van der Walt and Barnard (see reference section) investigated very specific artificial data sets to determine conditions under which certain classifiers perform better and worse than others.
+Classifier performance depends greatly on the characteristics of the data to be classified.
+There is no single classifier that works best on all given problems (a phenomenon that may be explained by the No-free-lunch theorem).
+Various empirical tests have been performed to compare classifier performance and to find the characteristics of data that determine classifier performance.
+Determining a suitable classifier for a given problem is however still more an art than a science.
+The most widely used classifiers are the Neural Network (Multi-layer Perceptron), Support Vector Machines, k-Nearest Neighbours, Gaussian Mixture Model, Gaussian, Naive Bayes, Decision Tree and RBF classifiers.
+Evaluation
+The measures Precision and Recall are popular metrics used to evaluate the quality of a classification system.
+More recently, Receiver Operating Characteristic (ROC) curves have been used to evaluate the tradeoff between true- and false-positive rates of classification algorithms.
+Application domains
+Computer vision
+Medical Imaging and Medical Image Analysis
+Optical character recognition
+Geostatistics
+Speech recognition
+Handwriting recognition
+Biometric identification
+Natural language processing
+Document classification
+Internet search engines
+Credit scoring
+Statistical machine translation
+Statistical machine translation (SMT) is a machine translation paradigm where translations are generated on the basis of statistical models whose parameters are derived from the analysis of bilingual text corpora.
+The statistical approach contrasts with the rule-based approaches to machine translation as well as with example-based machine translation.
+The first ideas of statistical machine translation were introduced by Warren Weaver in 1949, including the ideas of applying Claude Shannon's information theory.
+Statistical machine translation was re-introduced in 1991 by researchers at IBM's Thomas J. Watson Research Center and has contributed to the significant resurgence in interest in machine translation in recent years.
+As of 2006, it is by far the most widely-studied machine translation paradigm.
+Benefits
+The benefits of statistical machine translation over traditional paradigms that are most often cited are the following:
+Better use of resources
+There is a great deal of natural language in machine-readable format.
+Generally, SMT systems are not tailored to any specific pair of languages.
+Rule-based translation systems require the manual development of linguistic rules, which can be costly, and which often do not generalize to other languages.
+More natural translations
+The ideas behind statistical machine translation come out of information theory.
+Essentially, the document is translated on the probability <math/> that a string <math/> in native language (for example, English) is the translation of a string <math/> in foreign language (for example, French).
+Generally, these probabilities are estimated using techniques of parameter estimation.
+The Bayes Theorem is applied to <math/>, the probability that the foreign string produces the native string to get <math/>, where the translation model <math/> is the probability that the native string is the translation of the foreign string, and the language model <math/> is the probability of seeing that native string.
+Mathematically speaking, finding the best translation <math/> is done by picking up the one that gives the highest probability:
+<math/>.
+For a rigorous implementation of this one would have to perform an exhaustive search by going through all strings <math/> in the native language.
+Performing the search efficiently is the work of a machine translation decoder that uses the foreign string, heuristics and other methods to limit the search space and at the same time keeping acceptable quality.
+This trade-off between quality and time usage can also be found in speech recognition.
+As the translation systems are not able to store all native strings and their translations, a document is typically translated sentence by sentence, but even this is not enough.
+Language models are typically approximated by smoothed n-gram models, and similar approaches have been applied to translation models, but there is additional complexity due to different sentence lengths and word orders in the languages.
+The statistical translation models were initially word based (Models 1-5 from IBM), but significant advances were made with the introduction of phrase based models.
+Recent work has incorporated syntax or quasi-syntactic structures.
+Word-based translation
+In word-based translation, translated elements are words.
+Typically, the number of words in translated sentences are different due to compound words, morphology and idioms.
+The ratio of the lengths of sequences of translated words is called fertility, which tells how many foreign words each native word produces.
+Simple word-based translation is not able to translate language pairs with fertility rates different from one.
+To make word-based translation systems manage, for instance, high fertility rates, the system could be able to map a single word to multiple words, but not vice versa.
+For instance, if we are translating from French to English, each word in English could produce zero or more French words.
+But there's no way to group two English words producing a single French word.
+An example of a word-based translation system is the freely available GIZA++ package (GPLed), which includes IBM models.
+Phrase-based translation
+In phrase-based translation, the restrictions produced by word-based translation have been tried to reduce by translating sequences of words to sequences of words, where the lengths can differ.
+The sequences of words are called, for instance, blocks or phrases, but typically are not linguistic phrases but phrases found using statistical methods from the corpus.
+Restricting the phrases to linguistic phrases has been shown to decrease translation quality.
+Syntax-based translation
+Challenges with statistical machine translation
+Problems that statistical machine translation have to deal with include
+Compound words
+Idioms
+Morphology
+Different word orders
+Word order in languages differ.
+Some classification can be done by naming the typical order of subject (S), verb (V) and object (O) in a sentence and one can talk, for instance, of SVO or VSO languages.
+There are also additional differences in word orders, for instance, where modifiers for nouns are located.
+In Speech Recognition, the speech signal and the corresponding textual representation can be mapped to each other in blocks in order.
+This is not always the case with the same text in two languages.
+For SMT, the translation model is only able to translate small sequences of words and word order has to be taken into account somehow.
+Typical solution has been re-ordering models, where a distribution of location changes for each item of translation is approximated from aligned bi-text.
+Different location changes can be ranked with the help of the language model and the best can be selected.
+Syntax
+Out of vocabulary (OOV) words
+SMT systems store different word forms as separate symbols without any relation to each other and word forms or phrases that were not in the training data cannot be translated.
+Main reasons for out of vocabulary words are the limitation of training data, domain changes and morphology.
+Statistics
+Statistics is a mathematical science pertaining to the collection, analysis, interpretation or explanation, and presentation of data.
+It is applicable to a wide variety of academic disciplines, from the natural and social sciences to the humanities, government and business.
+Statistical methods can be used to summarize or describe a collection of data; this is called descriptive statistics.
+In addition, patterns in the data may be modeled in a way that accounts for randomness and uncertainty in the observations, and then used to draw inferences about the process or population being studied; this is called inferential statistics.
+Both descriptive and inferential statistics comprise applied statistics.
+There is also a discipline called mathematical statistics, which is concerned with the theoretical basis of the subject.
+The word statistics is also the plural of statistic (singular), which refers to the result of applying a statistical algorithm to a set of data, as in economic statistics, crime statistics, etc.
+History
+
+"Five men, Conring, Achenwall, Süssmilch, Graunt and Petty have been honored by different writers as the founder of statistics." claims one source (Willcox, Walter (1938) The Founder of Statistics.
+Review of the International Statistical Institute 5(4):321-328.)
+Some scholars pinpoint the origin of statistics to 1662, with the publication of "Observations on the Bills of Mortality" by John Graunt.
+Early applications of statistical thinking revolved around the needs of states to base policy on demographic and economic data.
+The scope of the discipline of statistics broadened in the early 19th century to include the collection and analysis of data in general.
+Today, statistics is widely employed in government, business, and the natural and social sciences.
+Because of its empirical roots and its applications, statistics is generally considered not to be a subfield of pure mathematics, but rather a distinct branch of applied mathematics.
+Its mathematical foundations were laid in the 17th century with the development of probability theory by Pascal and Fermat.
+Probability theory arose from the study of games of chance.
+The method of least squares was first described by Carl Friedrich Gauss around 1794.
+The use of modern computers has expedited large-scale statistical computation, and has also made possible new methods that are impractical to perform manually.
+Overview
+In applying statistics to a scientific, industrial, or societal problem, one begins with a process or population to be studied.
+This might be a population of people in a country, of crystal grains in a rock, or of goods manufactured by a particular factory during a given period.
+It may instead be a process observed at various times; data collected about this kind of "population" constitute what is called a time series.
+For practical reasons, rather than compiling data about an entire population, one usually studies a chosen subset of the population, called a sample.
+Data are collected about the sample in an observational or experimental setting.
+The data are then subjected to statistical analysis, which serves two related purposes: description and inference.
+Descriptive statistics can be used to summarize the data, either numerically or graphically, to describe the sample.
+Basic examples of numerical descriptors include the mean and standard deviation.
+Graphical summarizations include various kinds of charts and graphs.
+Inferential statistics is used to model patterns in the data, accounting for randomness and drawing inferences about the larger population.
+These inferences may take the form of answers to yes/no questions (hypothesis testing), estimates of numerical characteristics (estimation), descriptions of association (correlation), or modeling of relationships (regression).
+Other modeling techniques include ANOVA, time series, and data mining.
+The concept of correlation is particularly noteworthy.
+Statistical analysis of a data set may reveal that two variables (that is, two properties of the population under consideration) tend to vary together, as if they are connected.
+For example, a study of annual income and age of death among people might find that poor people tend to have shorter lives than affluent people.
+The two variables are said to be correlated (which is a positive correlation in this case).
+However, one cannot immediately infer the existence of a causal relationship between the two variables.
+(See Correlation does not imply causation.)
+The correlated phenomena could be caused by a third, previously unconsidered phenomenon, called a lurking variable or confounding variable.
+If the sample is representative of the population, then inferences and conclusions made from the sample can be extended to the population as a whole.
+A major problem lies in determining the extent to which the chosen sample is representative.
+Statistics offers methods to estimate and correct for randomness in the sample and in the data collection procedure, as well as methods for designing robust experiments in the first place.
+(See experimental design.)
+The fundamental mathematical concept employed in understanding such randomness is probability.
+Mathematical statistics (also called statistical theory) is the branch of applied mathematics that uses probability theory and analysis to examine the theoretical basis of statistics.
+The use of any statistical method is valid only when the system or population under consideration satisfies the basic mathematical assumptions of the method.
+Misuse of statistics can produce subtle but serious errors in description and interpretation &mdash; subtle in the sense that even experienced professionals sometimes make such errors, serious in the sense that they may affect, for instance, social policy, medical practice and the reliability of structures such as bridges.
+Even when statistics is correctly applied, the results can be difficult for the non-expert to interpret.
+For example, the statistical significance of a trend in the data, which measures the extent to which the trend could be caused by random variation in the sample, may not agree with one's intuitive sense of its significance.
+The set of basic statistical skills (and skepticism) needed by people to deal with information in their everyday lives is referred to as statistical literacy.
+Statistical methods
+Experimental and observational studies
+A common goal for a statistical research project is to investigate causality, and in particular to draw a conclusion on the effect of changes in the values of predictors or independent variables on response or dependent variables.
+There are two major types of causal statistical studies, experimental studies and observational studies.
+In both types of studies, the effect of differences of an independent variable (or variables) on the behavior of the dependent variable are observed.
+The difference between the two types lies in how the study is actually conducted.
+Each can be very effective.
+An experimental study involves taking measurements of the system under study, manipulating the system, and then taking additional measurements using the same procedure to determine if the manipulation has modified the values of the measurements.
+In contrast, an observational study does not involve experimental manipulation.
+Instead, data are gathered and correlations between predictors and response are investigated.
+An example of an experimental study is the famous Hawthorne studies, which attempted to test the changes to the working environment at the Hawthorne plant of the Western Electric Company.
+The researchers were interested in determining whether increased illumination would increase the productivity of the assembly line workers.
+The researchers first measured the productivity in the plant, then modified the illumination in an area of the plant and checked if the changes in illumination affected the productivity.
+It turned out that the productivity indeed improved (under the experimental conditions).
+(See Hawthorne effect.)
+However, the study is heavily criticized today for errors in experimental procedures, specifically for the lack of a control group and blindedness.
+An example of an observational study is a study which explores the correlation between smoking and lung cancer.
+This type of study typically uses a survey to collect observations about the area of interest and then performs statistical analysis.
+In this case, the researchers would collect observations of both smokers and non-smokers, perhaps through a case-control study, and then look for the number of cases of lung cancer in each group.
+The basic steps of an experiment are;
+Planning the research, including determining information sources, research subject selection, and ethical considerations for the proposed research and method.
+Design of experiments, concentrating on the system model and the interaction of independent and dependent variables.
+Summarizing a collection of observations to feature their commonality by suppressing details.
+(Descriptive statistics)
+Reaching consensus about what the observations tell about the world being observed.
+(Statistical inference)
+Documenting / presenting the results of the study.
+Levels of measurement
+See: Stanley Stevens' "Scales of measurement" (1946): nominal, ordinal, interval, ratio
+There are four types of measurements or levels of measurement or measurement scales used in statistics: nominal, ordinal, interval, and ratio.
+They have different degrees of usefulness in statistical research.
+Ratio measurements have both a zero value defined and the distances between different measurements defined; they provide the greatest flexibility in statistical methods that can be used for analyzing the data.
+Interval measurements have meaningful distances between measurements defined, but have no meaningful zero value defined (as in the case with IQ measurements or with temperature measurements in Fahrenheit).
+Ordinal measurements have imprecise differences between consecutive values, but have a meaningful order to those values.
+Nominal measurements have no meaningful rank order among values.
+Since variables conforming only to nominal or ordinal measurements cannot be reasonably measured numerically, sometimes they are called together as categorical variables, whereas ratio and interval measurements are grouped together as quantitative or continuous variables due to their numerical nature.
+Statistical techniques
+Some well known statistical tests and procedures for research observations are:
+Student's t-test
+chi-square test
+Analysis of variance (ANOVA)
+Mann-Whitney U
+Regression analysis
+Factor Analysis
+Correlation
+Pearson product-moment correlation coefficient
+Spearman's rank correlation coefficient
+Time Series Analysis
+Specialized disciplines
+Some fields of inquiry use applied statistics so extensively that they have specialized terminology.
+These disciplines include:
+Actuarial science
+Applied information economics
+Biostatistics
+Bootstrap & Jackknife Resampling
+Business statistics
+Data analysis
+Data mining (applying statistics and pattern recognition to discover knowledge from data)
+Demography
+Economic statistics (Econometrics)
+Energy statistics
+Engineering statistics
+Environmental Statistics
+Epidemiology
+Geography and Geographic Information Systems, more specifically in Spatial analysis
+Image processing
+Multivariate Analysis
+Psychological statistics
+Quality
+Social statistics
+Statistical literacy
+Statistical modeling
+Statistical surveys
+Process analysis and chemometrics (for analysis of data from analytical chemistry and chemical engineering)
+Structured data analysis (statistics)
+Survival analysis
+Reliability engineering
+Statistics in various sports, particularly baseball and cricket
+Statistics form a key basis tool in business and manufacturing as well.
+It is used to understand measurement systems variability, control processes (as in statistical process control or SPC), for summarizing data, and to make data-driven decisions.
+In these roles, it is a key tool, and perhaps the only reliable tool.
+Statistical computing
+The rapid and sustained increases in computing power starting from the second half of the 20th century have had a substantial impact on the practice of statistical science.
+Early statistical models were almost always from the class of linear models, but powerful computers, coupled with suitable numerical algorithms, caused an increased interest in nonlinear models (especially neural networks and decision trees) as well as the creation of new types, such as generalised linear models and multilevel models.
+Increased computing power has also led to the growing popularity of computationally-intensive methods based on resampling, such as permutation tests and the bootstrap, while techniques such as Gibbs sampling have made Bayesian methods more feasible.
+The computer revolution has implications for the future of statistics with new emphasis on "experimental" and "empirical" statistics.
+A large number of both general and special purpose statistical software are now available.
+Misuse
+
+There is a general perception that statistical knowledge is all-too-frequently intentionally misused by finding ways to interpret only the data that are favorable to the presenter.
+A famous saying attributed to Benjamin Disraeli is, "There are three kinds of lies: lies, damned lies, and statistics"; and Harvard President Lawrence Lowell wrote in 1909 that statistics, "like veal pies, are good if you know the person that made them, and are sure of the ingredients".
+If various studies appear to contradict one another, then the public may come to distrust such studies.
+For example, one study may suggest that a given diet or activity raises blood pressure, while another may suggest that it lowers blood pressure.
+The discrepancy can arise from subtle variations in experimental design, such as differences in the patient groups or research protocols, that are not easily understood by the non-expert.
+(Media reports sometimes omit this vital contextual information entirely.)
+By choosing (or rejecting, or modifying) a certain sample, results can be manipulated.
+Such manipulations need not be malicious or devious; they can arise from unintentional biases of the researcher.
+The graphs used to summarize data can also be misleading.
+Deeper criticisms come from the fact that the hypothesis testing approach, widely used and in many cases required by law or regulation, forces one hypothesis (the null hypothesis) to be "favored", and can also seem to exaggerate the importance of minor differences in large studies.
+A difference that is highly statistically significant can still be of no practical significance.
+(See criticism of hypothesis testing and controversy over the null hypothesis.)
+One response is by giving a greater emphasis on the p-value than simply reporting whether a hypothesis is rejected at the given level of significance.
+The p-value, however, does not indicate the size of the effect.
+Another increasingly common approach is to report confidence intervals.
+Although these are produced from the same calculations as those of hypothesis tests or p-values, they describe both the size of the effect and the uncertainty surrounding it.
+Syntax
+In linguistics, syntax (from Ancient Greek <foreign/> syn-, "together", and <foreign/> táxis, "arrangement") is the study of the principles and rules for constructing sentences in natural languages.
+In addition to referring to the discipline, the term syntax is also used to refer directly to the rules and principles that govern the sentence structure of any individual language, as in "the syntax of Modern Irish".
+Modern research in syntax attempts to describe languages in terms of such rules.
+Many professionals in this discipline attempt to find general rules that apply to all natural languages.
+The term syntax is also sometimes used to refer to the rules governing the behavior of mathematical systems, such as logic, artificial formal languages, and computer programming languages.
+Early history
+Works on grammar were being written long before modern syntax came about; the Aṣṭādhyāyī of Pāṇini is often cited as an example of a pre-modern work that approaches the sophistication of a modern syntactic theory.
+In the West, the school of thought that came to be known as "traditional grammar" began with the work of Dionysius Thrax.
+For centuries, work in syntax was dominated by a framework known as <foreign/>, first expounded in 1660 by Antoine Arnauld in a book of the same title.
+This system took as its basic premise the assumption that language is a direct reflection of thought processes and therefore there is a single, most natural way to express a thought.
+That way, coincidentally, was exactly the way it was expressed in French.
+However, in the 19th century, with the development of historical-comparative linguistics, linguists began to realize the sheer diversity of human language, and to question fundamental assumptions about the relationship between language and logic.
+It became apparent that there was no such thing as a most natural way to express a thought, and therefore logic could no longer be relied upon as a basis for studying the structure of language.
+The Port-Royal grammar modeled the study of syntax upon that of logic (indeed, large parts of the Port-Royal Logic were copied or adapted from the Grammaire générale).
+Syntactic categories were identified with logical ones, and all sentences were analyzed in terms of "Subject – Copula – Predicate".
+Initially, this view was adopted even by the early comparative linguists such as Franz Bopp.
+The central role of syntax within theoretical linguistics became clear only in the 20th century, which could reasonably be called the "century of syntactic theory" as far as linguistics is concerned.
+For a detailed and critical survey of the history of syntax in the last two centuries, see the monumental work by Graffi (2001).
+Modern theories
+There are a number of theoretical approaches to the discipline of syntax.
+Many linguists (e.g. Noam Chomsky) see syntax as a branch of biology, since they conceive of syntax as the study of linguistic knowledge as embodied in the human mind.
+Others (e.g. Gerald Gazdar) take a more Platonistic view, since they regard syntax to be the study of an abstract formal system.
+Yet others (e.g. Joseph Greenberg) consider grammar a taxonomical device to reach broad generalizations across languages.
+Some of the major approaches to the discipline are listed below.
+Generative grammar
+The hypothesis of generative grammar is that language is a structure of the human mind.
+The goal of generative grammar is to make a complete model of this inner language (known as i-language).
+This model could be used to describe all human language and to predict the grammaticality of any given utterance (that is, to predict whether the utterance would sound correct to native speakers of the language).
+This approach to language was pioneered by Noam Chomsky.
+Most generative theories (although not all of them) assume that syntax is based upon the constituent structure of sentences.
+Generative grammars are among the theories that focus primarily on the form of a sentence, rather than its communicative function.
+Among the many generative theories of linguistics are:
+Transformational Grammar (TG) (now largely out of date)
+Government and binding theory (GB) (common in the late 1970s and 1980s)
+Minimalism (MP) (the most recent Chomskyan version of generative grammar)
+Other theories that find their origin in the generative paradigm are:
+Generative semantics (now largely out of date)
+Relational grammar (RG) (now largely out of date)
+Arc Pair grammar
+Generalized phrase structure grammar (GPSG; now largely out of date)
+Head-driven phrase structure grammar (HPSG)
+Lexical-functional grammar (LFG)
+Categorial grammar
+Categorial grammar is an approach that attributes the syntactic structure not to rules of grammar, but to the properties of the syntactic categories themselves.
+For example, rather than asserting that sentences are constructed by a rule that combines a noun phrase (NP) and a verb phrase (VP) (e.g. the phrase structure rule S → NP VP), in categorial grammar, such principles are embedded in the category of the head word itself.
+So the syntactic category for an intransitive verb is a complex formula representing the fact that the verb acts as a functor which requires an NP as an input and produces a sentence level structure as an output.
+This complex category is notated as (NP\S) instead of V.
+NP\S is read as " a category that searches to the left (indicated by \) for a NP (the element on the left) and outputs a sentence (the element on the right)".
+The category of transitive verb is defined as an element that requires two NPs (its subject and its direct object) to form a sentence.
+This is notated as (NP/(NP\S)) which means "a category that searches to the right (indicated by /) for an NP (the object), and generates a function (equivalent to the VP) which is (NP\S), which in turn represents a function that searches to the left for an NP and produces a sentence).
+Tree-adjoining grammar is a categorial grammar that adds in partial tree structures to the categories.
+Dependency grammar
+Dependency grammar is a different type of approach in which structure is determined by the relations (such as grammatical relations) between a word (a head) and its dependents, rather than being based in constituent structure.
+For example, syntactic structure is described in terms of whether a particular noun is the subject or agent of the verb, rather than describing the relations in terms of trees (one version of which is the parse tree) or other structural system.
+Some dependency-based theories of syntax:
+Algebraic syntax
+Word grammar
+Operator Grammar
+Stochastic/probabilistic grammars/network theories
+Theoretical approaches to syntax that are based upon probability theory are known as stochastic grammars.
+One common implementation of such an approach makes use of a neural network or connectionism.
+Some theories based within this approach are:
+Optimality theory
+Stochastic context-free grammar
+Functionalist grammars
+Functionalist theories, although focused upon form, are driven by explanation based upon the function of a sentence (i.e. its communicative function).
+Some typical functionalist theories include:
+Functional grammar (Dik)
+Prague Linguistic Circle
+Systemic functional grammar
+Cognitive grammar
+Construction grammar (CxG)
+Role and reference grammar (RRG)
+SYSTRAN
+SYSTRAN, founded by Dr. Peter Toma in 1968, is one of the oldest machine translation companies.
+SYSTRAN has done extensive work for the United States Department of Defense and the European Commission.
+SYSTRAN provides the technology for Yahoo! and AltaVista's (Babel Fish) among others, but use of it was ended (circa 2007) for all of the language combinations offered by Google's language tools.
+Commercial versions of SYSTRAN operate with operating systems Microsoft Windows (including Windows Mobile), Linux and Solaris.
+History
+With its origin in the Georgetown machine translation effort, SYSTRAN was one of the few machine translation systems to survive the major decrease of funding after the ALPAC Report of the mid-1960's.
+The company was established in La Jolla, California to work on translation of Russian to English text for the United States Air Force during the "Cold War".
+Large numbers of Russian scientific and technical documents were translated using SYSTRAN under the auspices of the USAF Foreign Technology Division (later the National Air and Space Intelligence Center) at Wright-Patterson Air Force Base, Ohio.
+The quality of the translations, although only approximate, was usually adequate for understanding content.
+The company was sold during 1986 to the Gachot family, based in Paris, France, and is now traded publicly by the French stock exchange.
+It has a main office at the Grande Arche in La Defense and maintains a secondary office in La Jolla, San Diego, California.
+Languages
+Here is a list of the source and target languages SYSTRAN works with.
+Many of the pairs are to or from English or French.
+Russian into English (1968)
+English into Russian (1973) for the Apollo-Soyuz project
+English source (1975) for the European Commission
+Arabic
+Chinese
+Danish
+Dutch
+French
+German
+Greek
+Hindi
+Italian
+Japanese
+Korean
+Norwegian
+Serbo-Croatian
+Spanish
+Swedish
+Persian
+Polish
+Portuguese
+Ukrainian
+Urdu
+Text analytics
+The term text analytics describes a set of linguistic, lexical, pattern recognition, extraction, tagging/structuring, visualization, and predictive techniques.
+The term also describes processes that apply these techniques, whether independently or in conjunction with query and analysis of fielded, numerical data, to solve business problems.
+These techniques and processes discover and present knowledge – facts, business rules, and relationships – that is otherwise locked in textual form, impenetrable to automated processing.
+A typical application is to scan a set of documents written in a natural language and either model the document set for predictive classification purposes or populate a database or search index with the information extracted.
+Current approaches to text analytics use natural language processing techniques that focus on specialized domains.
+Typical subtasks are:
+Named Entity Recognition: recognition of entity names (for people and organizations), place names, temporal expressions, and certain types of numerical expressions.
+Coreference: identification chains of noun phrases that refer to the same object.
+For example, anaphora is a type of coreference.
+Relationship Extraction: extraction of named relationships between entities in text
